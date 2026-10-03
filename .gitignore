@@ -1,0 +1,7 @@
+# Media generada: solo en esta máquina
+Media/
+.obsidian/workspace.json
+.obsidian/workspaces.json
+.obsidian/cache
+.trash/
+.env
