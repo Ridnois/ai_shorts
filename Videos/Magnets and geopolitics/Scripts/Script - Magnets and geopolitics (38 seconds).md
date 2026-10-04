@@ -222,10 +222,8 @@ Defined by me (the style was pending): **handmade plasticine miniature, stop-mot
 | `[MAGNET]` | A very thin flat disc, diameter ≈ 6 times the thickness, matte silver-grey plasticine, bevelled edges, smooth, no marks or copper, on a smooth bone-white surface | [`ak7yasczmnrmy0d1027vq21t1r`](https://replicate.com/p/ak7yasczmnrmy0d1027vq21t1r) | `imanes38-iman-ref-v2.png` |
 | `[HAND]` | An adult hand of warm beige plasticine, no face or features, palm up, slight callus on the thumb, short nails, no rings, watch, paint or copper | [`ybsnsa4yenrmw0d1027v5p3ds4`](https://replicate.com/p/ybsnsa4yenrmw0d1027v5p3ds4) | `imanes38-mano-ref-v2.png` |
 
-![[_canal/referencias/iman-ref-v2.png]]
-![[_canal/referencias/mano-ref-v2.png]]
 
-The v1 of both (a thick magnet with a copper ring; a grey hand with copper stains) was discarded. Copies in `_canal/referencias/`.
+The v1 of both (a thick magnet with a copper ring; a grey hand with copper stains) was discarded. The v2 reference images (`iman-ref-v2.png`, `mano-ref-v2.png`) are no longer in the vault.
 
 ### Image · shot 1
 

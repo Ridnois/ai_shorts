@@ -8,7 +8,7 @@ tags: [research, youtube, models, replicate, costs]
 
 # Channel models
 
-> **Current selection: [[Fast workflow]]** (§3: `flux-kontext-pro` + real photo, `elevenlabs/v3`). This note only keeps the price tables; where they differ, [[Fast workflow]] rules.
+> **Current selection: [[Fast workflow]]** (§3: `gpt-image-1.5` for generated explainers and transparent cutouts, free stock photos, `flux-kontext-pro` only to edit a real photo, `bria/remove-background` for cutouts, `elevenlabs/v3`). This note only keeps the price tables; where they differ, [[Fast workflow]] rules. Method: [[Illustration pipeline]].
 
 ← [[YouTube Channel]] · [[Production process]] · [[Prompt - per-scene generation guide]] · [[Channel voice]] · [[Illustration pipeline]]
 
@@ -24,7 +24,9 @@ Read in each model's *Pricing* section. Per-megapixel prices count **input and o
 
 | Model | Price | Input references | Notes |
 | --- | --- | --- | --- |
-| `black-forest-labs/flux-kontext-pro` **(current)** | ≈ $0.04 per image (**from memory, unconfirmed**) | a single `input_image` | Edits a real photo; see [[Fast workflow]] §7 |
+| `openai/gpt-image-1.5` **(current for generated plates)** | ≈ $0.05 at medium quality (**OpenAI's rate, unconfirmed on Replicate**) | up to several `input_images`; `input_fidelity` low or high | `background: transparent` for cutouts; ratios 1:1, 3:2, 2:3 only; best instruction following; see [[Illustration pipeline]] |
+| `bria/remove-background` (alternatives `lucataco/remove-bg`, `cjwbw/rembg`) | **unmeasured: test on one image** | one `image` | Cuts a stock photo out into a transparent PNG |
+| `black-forest-labs/flux-kontext-pro` **(photo edits only)** | ≈ $0.04 per image (**from memory, unconfirmed**) | a single `input_image` | Edits a real photo (remove text, extend, recolour a part); no longer the default generator |
 | `black-forest-labs/flux-2-pro` (used before) | $0.015 per run + $0.015 per input megapixel + $0.015 per output megapixel → **≈ $0.045 with one reference** | up to 8 | **Does not understand negative prompts**: "no text" may add text |
 | `black-forest-labs/flux-2-flex` | $0.06 per input and output megapixel | up to 10 | More expensive; meant for typography |
 | `black-forest-labs/flux-2-max` | $0.04 per run + $0.03 per input and output megapixel | up to 8 | The most expensive of the family |

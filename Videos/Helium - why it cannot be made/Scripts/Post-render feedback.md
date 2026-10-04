@@ -1,3 +1,15 @@
+---
+type: feedback
+created: 2026-10-04
+updated: 2026-10-04
+status: received · applied to the vault on 4 Oct 2026 (see Response at the end)
+tags: [youtube, feedback, helium]
+---
+
+# Post-render feedback · Helium (why it cannot be made)
+
+← [[Helium - why it cannot be made - Status]] · [[Feedback loop]]
+
 All the feedback must be translated into direct adjustment of the notes, making sure it is applied on all layers.
 
 

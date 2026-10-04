@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: v2 · 4 test images · the style half works and the shape is not preserved
+status: v2 · 4 test images · the style half works and the shape is not preserved · **superseded as the default generator on 4 Oct 2026** (see [[Illustration pipeline]]); kept as model research
 tags: [research, youtube, models, image, flux-kontext]
 ---
 

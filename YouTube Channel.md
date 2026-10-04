@@ -31,12 +31,12 @@ Plus the video's `<Topic> - Status` note and its script. Everything else is refe
 YouTube Channel.md
 ├── System/
 │   ├── Guidelines for new scripts.md   ← main entry point
-│   ├── Process/    Fast workflow · Production process · Media convention
-│   ├── Content/    Idea and hook quality · Narration guide · Channel voice · YouTube with AI (quality guide)
-│   ├── Visual/     Visual style · On-screen text style · Per-scene prompt
+│   ├── Process/    Fast workflow · Production process · Media convention · Feedback loop
+│   ├── Content/    Idea and hook quality · Channel identity · Narration guide · Channel voice · YouTube with AI (quality guide)
+│   ├── Visual/     Illustration pipeline · On-screen text style · Per-scene prompt
 │   ├── Editing/    Blender editing · Transitions and effects
 │   ├── Models/     Channel models (prices)
-│   └── scripts/    build_*.py · replicate_helper.py
+│   └── scripts/    build_video.py (the builder) · stock_photos.py · replicate_helper.py · check_vault.py · legacy build_*.py
 ├── Research/       general notes on models and styles, unrelated to a script
 └── Videos/         one folder per video: Status, scripts, research
 ```
@@ -51,7 +51,7 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | Where media is stored | [[Media convention]] |
 | Is the idea worth it? | [[Idea and hook quality]] |
 | How to write | [[Narration guide]] · [[Channel voice]] |
-| How it looks | [[Illustration pipeline]] · [[On-screen text style]] |
+| How it looks | [[Illustration pipeline]] · [[On-screen text style]] · [[Channel identity]] |
 | How to call Replicate | [[Prompt - per-scene generation guide]] · [[Channel models]] |
 | How to edit | [[Blender editing]] · [[Transitions and effects]] |
 | Model research | [[Research - Flux Kontext Pro with references (power)]] |

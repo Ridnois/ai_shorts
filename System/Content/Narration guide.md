@@ -40,7 +40,7 @@ The video answers **one question**, written in one sentence before writing ("why
 2. **Every hook is resolved in its scene or the next**, and answers all three: **what it is**, **why it happened**, **what it means**. A question is not left open just to sustain curiosity.
 3. **Cause → effect, not a list.** Each link carries its why in the same sentence. "Because / so / but" joins; "and then" enumerates. If you must cut, sacrifice the side detail (dates, names, secondary figures), **never the why**.
 4. **The concrete beats the abstract.** One object, one place, one figure per idea. A 3 cm screw says more than "a critical dependency". Data are few and go at the end of the sentence, where the voice stresses them.
-5. **A thread that returns.** An object or character that reappears (the magnet, the glass dish) organizes the story and allows a close that echoes the hook. That object is also the **reference photo** of the image ([[Illustration pipeline]]).
+5. **A thread that returns.** An object or character that reappears (the magnet, the glass dish) organizes the story and allows a close that echoes the hook. That object is also the **stock photo or reference** of its plate ([[Illustration pipeline]]).
 6. **Every scene raises the stakes or changes the reading.** If a scene only informs, merge it with another or cut it. **One new idea per scene.**
 7. **Make them think.** The ending delivers an idea, not a fact ("a case that falls on procedure never gets to judge the facts"; "if it goes wrong, it is not the recipe: it is a step"), without reproach or sermon.
 8. **Write for the ear and read it aloud.** Sentences of 8 to 16 words, one idea each, active and concrete verbs; no parentheses or chained subordinate clauses. A single tense across the whole video (historical present: "In 1973, a ship arrives…"). If it sounds forced or dramatic when spoken, rewrite it. Use contractions as a spoken narrator would ("it's", "doesn't") when they sound natural.
@@ -53,12 +53,12 @@ The video answers **one question**, written in one sentence before writing ("why
 
 Each scene is a row; that way the script feeds the prompts of [[Prompt - per-scene generation guide]] directly:
 
-| Scene | Voice (exact text) | Words | What is seen: real object and reference photo | On-screen text | Source |
+| Scene | Voice (exact text) | Words | Visual plan: plate type, source and what it lets the viewer see | On-screen text (callouts, number, card) | Source |
 | --- | --- | --- | --- | --- | --- |
-| 1 | … | | object + link and license of the photo | label · title (max. 4 words) | |
+| 1 | … | | S/G/C/E/N · source (stock page or generated) · "lets the viewer see ___ so they understand ___" | callout names, number card, or context card ([[On-screen text style]]) | |
 
-- **One image per scene** by default (two only if the shot needs a before and an after); each image cites the script second where it is used.
-- The **"what is seen" cell cannot be filled** if the scene has no concrete object: a sign that the scene is abstract and must be rewritten around a thing.
+- **Two plates per scene** by default (about one plate per 5 s of voice), each with its usefulness sentence; each plate cites the script second where it is used.
+- The **visual-plan cell cannot be filled** if the scene has nothing to show or explain: a sign that the scene is abstract and must be rewritten around a real thing or a process.
 - If the user fixes a focus ("candidates, their crimes and how the election is sabotaged"), respect it; do not widen it.
 
 ## 5. Check before P3

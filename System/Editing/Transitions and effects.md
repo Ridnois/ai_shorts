@@ -14,12 +14,12 @@ The channel's editing language: **which transition is used in each situation, wh
 
 ## Design idea
 
-The whole channel is a **succession of plasticine models** ([[Illustration pipeline]]). The editing behaves like a sober stop-motion:
+The channel is a **succession of plates** (stock photos, explainers and cutouts, [[Illustration pipeline]]) that the editing treats like a sober, modern explainer (the vocabulary below was designed for the plasticine videos and still applies):
 
 - an image **changes in place** when something changes in the story (a flame goes out, a level drops);
-- the camera only **slowly moves in or out**, like someone looking at a model up close;
+- the camera only **slowly moves in or out**, like someone looking at the subject up close;
 - between scenes you **turn the page** (soft cut);
-- the paper has **grain and darker edges**, so it feels like a physical object and not a screen.
+- the frame has **grain and darker edges**, so it feels like a physical object and not a screen; backgrounds are gradients ([[Illustration pipeline]] §6).
 
 Golden rule: **no transition lasts more than half a second and none draws attention to itself**; the voice leads.
 

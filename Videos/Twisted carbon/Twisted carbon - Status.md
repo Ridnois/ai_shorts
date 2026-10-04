@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: stages 0–6 done · render r1 · awaiting P7 · all gates delegated by the user ("follow all the steps for yourself until the render")
+status: stages 0–6 done · render r1 · post-render feedback received (4 Oct 2026): narrative approved, illustrations failed · rework plan below, not executed · all gates delegated by the user ("follow all the steps for yourself until the render")
 tags: [research, youtube, status, carbon, superconductors, metamaterials, shorts]
 ---
 
@@ -169,3 +169,30 @@ Format: `scene · category · model · status · prediction`.
 1. **Watch and listen** to `tc-85s-9x16-r1.mp4`: is the hook now worth the reaction? Is `Roger` right in English?
 2. Do any plates need redoing (≈ $0.04 each; 2 of the 15-image cap left)?
 3. For publishing (P8): title, a description with the sources in [[Research - Twisted carbon]], the CC attributions for R01 to R11, "data as of 4 Oct 2026", the caveat that the 1.7 K superconductivity is at very low temperature (so "can" in the hook), and the AI disclosure, all in English.
+
+## Post-render feedback (4 Oct 2026) and what changed
+
+User feedback: [[Post-render feedback - Twisted carbon]]. **The narrative, the data and the voice are approved** (no change to the voice pipeline). **The illustrations failed**: they did not represent or describe the content. The whole illustration method was redesigned and the vault now applies it by default ([[Illustration pipeline]], [[Prompt - per-scene generation guide]], [[On-screen text style]], [[Channel identity]], [[Blender editing]], [[Feedback loop]], `CLAUDE.md`); the response table is at the end of the feedback note.
+
+### Rework plan with the new pipeline (not executed: needs your OK, ≈ $0.27 + the voice is reused)
+
+Visual plan for the same script (types: S stock, G generated explainer, C cutout, N number or text plate). Mix: 5 stock, 5 generated, 1 cutout, 2 number plates; no two consecutive plates of the same type.
+
+| # | Scene | Type | What it lets the viewer see | So they understand | Source | Callouts and text |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | 1 | **G** | three stacked graphene lattices, the top one rotated 1.1° | what "twisting a sheet" physically means | `gpt-image-1.5`, reference: a moiré of twisted bilayer graphene (Openverse/Wikimedia, CC BY-SA) | "Top layer: 1.1°", "Bottom layer" |
+| 2 | 1 | **S** | two identical grids overlapping with a small rotation | a small twist makes a large new pattern | Openverse: a moiré photo or diagram | "Moiré pattern" |
+| 3 | 2 | **C** | a roll of sticky tape (cut out) on a gradient | how graphene was first peeled off graphite (Manchester, 2004) | stock photo + `bria/remove-background` | "Sticky tape", number or context card with Geim and Novoselov |
+| 4 | 2 | **S** | pencils and graphite | the pencil lead is the same element (and layers) | Openverse | margin note: "Yes, the same carbon as your pencil lead." |
+| 5 | 3 | **G** | a chart: a curved energy band (normal) next to a flat band | why a flat band means electrons barely move and start to interact | `gpt-image-1.5`, clean technical chart, no text | "Normal band", "Flat band" |
+| 6 | 3 | **N** | the number 1.1° on a gradient | the single figure the whole effect depends on | built in Blender | number card: **1.1°**, "twist between two graphene layers", "Cao et al., Nature, 2018" |
+| 7 | 4 | **S** | a liquid-helium dewar in a lab | the cold that discovered superconductivity (Leiden, 1911) | Wikimedia (CC BY-SA), already in the vault as R06 | "Liquid helium, 4.2 K", "Vacuum jacket" |
+| 8 | 4 | **G** | a resistance-versus-temperature curve dropping to zero | what "zero resistance" looks like | `gpt-image-1.5`, simple chart, no text | "Mercury, 4.2 K", "Resistance = 0" |
+| 9 | 5 | **S** | a split-ring metamaterial array | metamaterials are structures smaller than the wavelength | NASA Glenn (public domain), already in the vault as R08 | "Split ring", "Smaller than the wavelength" |
+| 10 | 5 | **G** | light bending the "wrong" way into a negative-index material, next to glass | what negative refraction is | `gpt-image-1.5`, top-down diagram, no text | "Glass", "Negative index" |
+| 11 | 6 | **S** | a terahertz or graphene device photo | that this is real hardware | Openverse (to find) | "Graphene device" |
+| 12 | 6 | **G** | an exploded view of the device: gate electrode, one graphene layer, split-ring metamaterial, substrate | how a voltage on a single atomic layer tunes the light | `gpt-image-1.5`, exploded view, no text | "Gate electrode", "One layer of graphene", "Metamaterial", "Substrate" |
+| 13 | 7 | **N** | a text plate on a gradient | the thesis in a line | built in Blender | context card: `What the 1.1° buys · One element, three behaviours · Insulator, conductor, superconductor` |
+
+**Cost:** 5 generated plates ≈ $0.25 + one background removal (unmeasured) ≈ $0.27 in total; stock photos $0; the voice is reused. **Also free:** re-render with the padded and checked voices (the voice-start fix) from a `plan.json`, with or without the new plates. Tell me which you want: (a) only the voice-start fix, (b) the full rework, (c) neither.
+

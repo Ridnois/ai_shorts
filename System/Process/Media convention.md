@@ -18,22 +18,21 @@ Generated media (images, voice, audio, video) lives in `Media/` at the vault roo
 
 ```
 Media/
-├── _canal/                          shared by every video
-│   ├── estilo/                      the channel's visual definition
+├── _canal/                          shared by every video (legacy Spanish names kept)
+│   ├── estilo/                      old visual definitions (retired styles)
 │   ├── investigacion/               model tests (not counted as video cost)
 │   └── musica-y-sfx/                reusable sounds
-└── <Video> - <N seconds>/           one folder per version of the video
-    ├── voz/                         narration takes
-    ├── audio/                       sounds and ambiences
-    ├── ilustraciones/               frames per scene
-    │   ├── _referencias/            the references used in this version
-    │   └── _descartes/              discarded attempts
-    ├── miniatura/
-    └── render/                      final video and exports
+└── <Video> - <N seconds>/           one folder per version of the video (English name)
+    ├── voice/                       narration takes (mp3) and voice/_padded/ (wav, made by the builder)
+    ├── plates/                      generated images and cutouts (png) + _refs/ (references) + _descartes/ (discards)
+    ├── stock/                       free stock photos + _credits.jsonl (title, author, license, page)
+    ├── plan.json                    the video's plan for System/scripts/build_video.py
+    └── render/                      final video, the .blend and render/_fx/ (generated layers)
 ```
 
-- **The inner folder names (`voz`, `ilustraciones`, `render`, `_canal`…) are kept in Spanish on purpose:** the build scripts in `System/scripts/` and the existing `.blend` projects refer to them. Changing them breaks the old projects.
-- **Folders of videos 1 to 6 keep their original Spanish names** (`Imanes - 38 segundos`, `Brasil y embajadas - 60 segundos`, `Chips - 85 segundos`…) for the same reason. **New videos use English folder names: `<Video> - <N seconds>`.**
+- **New videos (from 4 Oct 2026) use English inner names** (`voice`, `plates`, `stock`, `render`) because `build_video.py` reads them. Sound, if the script asks for it, goes in `sound/`.
+- **Older videos keep their Spanish inner names** (`voz`, `ilustraciones`, `render`, folders such as `Imanes - 38 segundos`, `Brasil y embajadas - 60 segundos`, `Chips - 85 segundos`) because their per-video scripts and `.blend` projects refer to them. Changing them breaks those projects.
+- `<N seconds>` is the **measured** duration of the render, set after the voice exists (the folder can be called `<Video> (wip)` until then).
 
 ## Unique names across the whole vault
 
@@ -47,11 +46,12 @@ The name says where it goes, without opening the file:
 
 | Type | Pattern | Example |
 | --- | --- | --- |
-| Illustration | `<video>-i<nn>-v<n>.png` (one per plate), or `<video>-e<scene>[take]-<initial\|final>-v<n>.png` | `chips-i01-v1.png` |
-| Voice | `<video>-e<scene>-voz-v<n>.mp3` (the model is added if several are compared) | `chips-e1-voz-v1.mp3` |
+| Generated plate or cutout | `<video>-p<nn>-v<n>.png` | `tc-p03-v1.png` |
+| Stock photo | `<video>-s<nn>-<slug>.jpg` (credit in `_credits.jsonl`) | `tc-s02-cryostat.jpg` |
+| Reference photo | `<video>-ref-<slug>.jpg`, in `plates/_refs/` | `tc-ref-graphite.jpg` |
+| Voice | `<video>-e<scene>-voice-v<n>.mp3` | `tc-e1-voice-v1.mp3` |
 | Audio | `<video>-e<scene>-<sound>-v<n>.mp3` (models deliver MP3) | `helio-e4-siseo-gas-v1.mp3` |
-| Thumbnail | `<video>-miniatura-v<n>.png` | `helio-miniatura-v2.png` |
-| Render | `<video>-<duration>-9x16-r<n>.mp4` | `chips-93s-9x16-r1.mp4` |
+| Render | `<video>-<duration>s-9x16-r<n>.mp4` (the builder names it) | `tc-85s-9x16-r1.mp4` |
 
-- `v<n>` is the attempt. The approved one is kept and the discarded ones go to a `_descartes/` subfolder inside the same folder, which is emptied on publishing.
+- `v<n>` is the attempt. The approved one is kept and the discarded ones go to a `_descartes/` subfolder inside the same folder, which is emptied on publishing. Older videos keep their old names (`chips-i01-v1.png`, `helio-e1-final-v1.png`).
 - The scene number is the one in that version's script.

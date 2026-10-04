@@ -28,9 +28,9 @@ The stages are those of [[Production process]]; they are reviewed together:
 
 | Package | Includes | Gate |
 | --- | --- | --- |
-| **A · Text** | Idea with ranked angles and five hooks, **facts bank and scoring** ([[Idea and hook quality]]), research with sources, script (sized in words) and direction (text only) | **P1–P3 + P4a**, one review |
-| **B · Budget** | Image and voice prompts, and the cost in dollars (§5) | **P4**: spending is authorized here |
-| **C · Test** | Voice of scene 1 and one image (≈ $0.10 max.) | **P5** |
+| **A · Text** | Idea with ranked angles and five hooks, **facts bank and scoring** ([[Idea and hook quality]]), research with sources, script (sized in words) and the **visual plan** (one row per plate: type, source, usefulness sentence, [[Illustration pipeline]] §2) | **P1–P3 + P4a**, one review |
+| **B · Budget** | **Stock photos picked and downloaded (free, credits logged)**, prompts for the generated plates (content-first, [[Prompt - per-scene generation guide]]), voice prompts, `plan.json`, and the cost in dollars (§5) | **P4**: spending is authorized here |
+| **C · Test** | Voice of scene 1, **one generated cutout and one stock photo composed in Blender** (≈ $0.10 max.) | **P5** |
 | **D · Generation** | **By category, in order: voice → image** (sound only if the script requires it) | P6, one approval per category |
 | **E · Editing and publishing** | Render, description | **P7–P8** |
 
@@ -40,10 +40,12 @@ The stages are those of [[Production process]]; they are reviewed together:
 
 | Task | Model | Price | Notes |
 | --- | --- | --- | --- |
-| **Image · default (user decision, 3 Oct 2026)** | `black-forest-labs/flux-kontext-pro` **with a real reference** (photo of the object) | ≈ $0.04 (**from memory; confirm in the dashboard**) | 4 to 7 s. It is an **editing** model: a single `input_image`. Config and limits in §7 |
-| Image · alternative | `wan-video/wan-2.7-image` | ≈ $0.02 (third party; **unconfirmed**) | Understands long prompts and 3 references, but draws real objects from memory. Used if Kontext does not solve the image |
-| Image · alternative | `openai/gpt-image-1.5` (medium quality, **2:3 only**) | ≈ $0.05 | If Kontext does not solve the image; extended to 9:16 in editing |
-| Image · hard edit | `google/nano-banana-2` (1K, 9:16, `image_search` for real objects) | ≈ $0.067 | Can write words |
+| **Image · generated explainers and cutouts (default, 4 Oct 2026)** | `openai/gpt-image-1.5` (medium quality; 1:1, 3:2 or 2:3) with a descriptive prompt and up to 4 references; `background: transparent` for cutouts; `input_fidelity: high` to keep a reference's shape | ≈ $0.05 (**unconfirmed on Replicate**) | The model's own style; no style block ([[Illustration pipeline]]) |
+| **Image · stock photos** | free sources (Openverse, NASA, Wikimedia) via `System/scripts/stock_photos.py` | $0 | Credits logged; ask the user for Pexels, Pixabay or Unsplash keys if needed |
+| Image · background removal | `bria/remove-background` (alternatives `lucataco/remove-bg`, `cjwbw/rembg`) | **to measure** (test on one image) | Turns a stock photo into a cutout |
+| Image · photo edit | `black-forest-labs/flux-kontext-pro` | ≈ $0.04 (unconfirmed) | **Edits** a real photo (remove text, extend, recolour a part); one `input_image`; not used to restyle |
+| Image · hard edit | `google/nano-banana-2` (1K, `image_search` for real objects) | ≈ $0.067 | Can write words |
+| Image · other | `wan-video/wan-2.7-image` ≈ $0.02 (unconfirmed, up to 3 references, tends to draw objects from memory) | | Fallback |
 | Image · draft | `black-forest-labs/flux-2-klein-4b` | ≈ $0.015 | Fails at counts and copies references |
 | Image · hard scene | `bytedance/seedream-5-lite` | $0.035 | That scene only |
 | **Voice (English)** | `elevenlabs/v3`, `Roger`, `language_code: en` | ≈ $0.10 per 1,000 characters | Chosen by the user for the channel. Parameters in [[Channel voice]] and [[Guidelines for new scripts]] §3 |
@@ -61,7 +63,7 @@ The stages are those of [[Production process]]; they are reviewed together:
 2. **1 image per shot**; 2 only if the shot needs a before and an after.
 3. **Cap per video = base images × 1.2.** Going over needs approval.
 4. **Minimal test (P5):** one scene, one image, one model. Compare models only if the user asks.
-5. **One real reference per shot** (Kontext accepts a single `input_image`).
+5. **Stock first:** a plate that shows a real thing is a free stock photo; generate only what cannot be photographed (insides, processes, structures). Default **≤ 5 generated images per Short.**
 6. **Prompts in the positive**; fix the prompt **before** retrying and retry **once**.
 7. **Series, not parallel** (429).
 8. **Discards go to `_descartes/`** and are not regenerated "to compare".
@@ -73,7 +75,9 @@ The stages are those of [[Production process]]; they are reviewed together:
 | Category | Model | Quantity | Unit price | Subtotal | Cap (×1.2) |
 | --- | --- | --- | --- | --- | --- |
 | Voice | `elevenlabs/v3` | takes (per scene) | ≈ $0.10 per 1,000 characters | | |
-| Image | `flux-kontext-pro` | plates (each with its second) | ≈ $0.04 (unconfirmed) | | |
+| Image (generated) | `gpt-image-1.5` | generated plates only (≤ 5 by default, each with its second) | ≈ $0.05 (unconfirmed) | | |
+| Image (stock) | free sources | plates | $0 | $0 | — |
+| Background removal | `bria/remove-background` | stock photos that become cutouts | to measure | | |
 | Sound | `audiogen` | only if the script asks | ≈ $0.011 | | |
 | P5 test | one of each | | | (inside the total) | |
 | **Total and cap** | | | | | |
@@ -84,21 +88,19 @@ The stages are those of [[Production process]]; they are reviewed together:
 
 ## 6. Shorts format (0 to 2 min): vertical 9:16
 
-- **Image:** `aspect_ratio` 9:16 (or `match_input_image` with Kontext, see §7); a single subject, tall composition. Safe zone and image rules: [[Illustration pipeline]] and [[Guidelines for new scripts]] §2.
-- **Render in Blender:** `W, H = 1080, 1920`, 24 or 30 fps, H.264 and AAC; scale `max(...)` to fill the frame.
+- **Image:** generated plates in 2:3 (the nearest to 9:16) or as transparent cutouts; stock photos as they are; everything is composed onto 1080×1920 in Blender (`full`, `contain`, `cutout`). Safe zone and image rules: [[Illustration pipeline]] and [[Guidelines for new scripts]] §2.
+- **Render in Blender:** `System/scripts/build_video.py` from a `plan.json` (1080×1920, 24 fps, H.264 and AAC); see [[Blender editing]].
 - **Length is planned in words (130 to 190 for a Short), never in seconds;** the duration is measured after the voice exists (≈ 144 words per minute in English).
 - **Render name:** `<video>-<duration>-9x16-r<n>.mp4` ([[Media convention]]).
 - Videos over 2 min stay 16:9.
 
-## 7. Default image: `flux-kontext-pro` + real reference (3 Oct 2026)
+## 7. Images: the pipeline in one page (4 Oct 2026)
 
-> **User decision:** *"From now on we're using flux-kontext pro plus real references."* Evidence and tests: [[Research - Flux Kontext Pro with references (power)]].
+> **User feedback (Twisted carbon):** use illustrations where they are useful, describe machines and explain processes; use free stock photos plus generated images with fully descriptive prompts and references; use the model in its own style, not a custom one; generate transparent backgrounds and apply gradients in Blender. Full method: [[Illustration pipeline]].
 
-- **Model:** `black-forest-labs/flux-kontext-pro`. Inputs: `prompt`, **`input_image` (a single one)**, `aspect_ratio` (accepts `match_input_image` and 9:16), `output_format`, `seed`. ≈ 4 to 7 s per image.
-- **Real reference:** a **photo of the object** (Wikimedia Commons or another licensed source, **cropped to the object**, without a distracting background). Note each photo's license and attribution; with CC BY-SA, check it before publishing.
-- **A single image:** the model does not accept several. **A collage of two references does not work** (the photo lost strength and only rings came out).
-- **Prompt as an editing instruction:** *"Redraw this exact <object>… Keep the exact shape and proportions… Replace the background… Remove all lettering and logos…"* + a style line. State the parts that must be kept.
-- **Orientation:** the model respects the input's composition; **a horizontal photo with a 9:16 canvas is rotated and distorted**. Try `match_input_image` or an already vertical input (Chips used `match_input_image` with 3:4 and 4:3 photos and filled the frame in editing).
-- **Style:** plasticine miniature, the only one Kontext recognized as a style ("flat vector" and "screen print" came out as renders). Definition and prompt template: [[Illustration pipeline]].
-- **Cost and retries:** same as §4 (one retry per image, in series, cap ×1.2). One test image before a batch.
-- **Fallback:** `wan-2.7-image` (earlier call: `prompt` with scene context, `images` = up to 3 real reference photos, `size` `1152*2048`).
+1. **Stage 3, visual plan:** one row per plate (type S, G, C, E or N, source, usefulness sentence).
+2. **Package B:** download the stock photos (`stock_photos.py`, credits in `stock/_credits.jsonl`); write the content-first prompts for the generated plates ([[Prompt - per-scene generation guide]]).
+3. **P5 test:** one generated cutout and one stock photo composed in Blender with a callout.
+4. **Generation:** `gpt-image-1.5` in series, one retry per image, ≤ 5 images by default; background removal for stock cutouts.
+5. **Edit:** `plan.json` + `build_video.py`: types `full`, `contain`, `cutout` over gradients, callouts, cards, padded voices, `CHECK=1`.
+6. **Past method (retired):** Kontext + a real reference redrawn as plasticine (videos 6 to 8). Evidence and tests: [[Research - Flux Kontext Pro with references (power)]].

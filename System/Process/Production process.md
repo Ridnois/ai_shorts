@@ -8,7 +8,7 @@ tags: [research, youtube, process, production]
 
 # Video production process
 
-← [[YouTube Channel]] · [[Narration guide]] · [[Illustration pipeline]] · [[Prompt - per-scene generation guide]] · [[Media convention]]
+← [[YouTube Channel]] · [[Narration guide]] · [[Illustration pipeline]] · [[Prompt - per-scene generation guide]] · [[Media convention]] · [[Feedback loop]]
 
 > **Daily operation: [[Fast workflow]]** (review in 5 packages, fast models, image cap and a budget in dollars). This note stays as the reference for stages and gates.
 
@@ -27,8 +27,8 @@ Each stage ends in a **gate 🚦**: the user reviews and approves before moving 
 | 0 | **Idea** | Topic, central question, for whom and why now, **plus the ranked angles and five hook candidates** ([[Idea and hook quality]]) | **P1** · the chosen angle, its alternatives and the hook |
 | 1 | **Research** | **Facts bank (≥ 15 remarkable facts) and scoring table first**, then the claims sheet for the chosen facts: every figure with source and date; what is unverified is marked | **P2** · that the facts are remarkable and supported |
 | 2 | **Script** | Narration per scene, written for the ear, per [[Narration guide]], **sized in words (130 to 190), not in seconds** | **P3** · the text, read aloud |
-| 3 | **Direction** | Shot, emotion and sound per scene, text only, per [[Illustration pipeline]] | **P4a** · the shots |
-| 4 | **Prompts and budget** | One prompt per voice, image and sound, and the list of *predictions* with model and quantity ([[Prompt - per-scene generation guide]]) | **P4** · prompts and budget. **Generation can start from here** |
+| 3 | **Direction: the visual plan** | One row per plate: **type** (stock photo, generated explainer, cutout, photo edit, number plate), **source**, the **usefulness sentence** ("this plate lets the viewer see ___ so they understand ___"), callouts and the card, per [[Illustration pipeline]] and [[On-screen text style]]; sound only if the script needs it | **P4a** · the visual plan |
+| 4 | **Prompts, stock photos and budget** | Stock photos chosen and downloaded (free, credits logged), one content-first prompt per generated plate, voice prompts, `plan.json`, and the list of *predictions* with model and quantity ([[Prompt - per-scene generation guide]]) | **P4** · prompts and budget. **Generation can start from here** |
 | 5 | **Tests** | Fixed references and a single scene of each category | **P5** · the look and the voice |
 | 6 | **Generation** | The rest, by category (voice → image; sound only if the script requires it), in small batches | **P6** · each category, separately |
 | 7 | **Editing** | Cut in Blender ([[Blender editing]]) | **P7** · the cut |
@@ -39,7 +39,7 @@ Each stage ends in a **gate 🚦**: the user reviews and approves before moving 
 A short request ("a script about the power moves around helium") starts the process and **ends at gate P4**, not at the media:
 
 1. Create the video's folder in `Videos/` with its `<Topic> - Status` note.
-2. Do stages 0 to 4 **as text only**: idea and question, research with sources and dates, script per [[Narration guide]], shots per [[Illustration pipeline]], and the voice, image and sound prompts, ready to paste, with the *predictions* budget per category.
+2. Do stages 0 to 4 **as text only**: idea and question, research with sources and dates, script per [[Narration guide]], the visual plan per [[Illustration pipeline]], and the voice and image prompts, ready to paste, with the *predictions* budget per category.
 3. Everything is marked as a **draft awaiting approval**; gates P1 to P4 are approved by the user, not by Claude.
 4. Deliver a summary and **stop**. Replicate is not called, nothing is created in `Media/` and nothing is edited until the user approves P4 and asks for it.
 
@@ -79,8 +79,8 @@ Each video has a `<Topic> - Status` note with this table, updated at every gate:
 | 0 Idea | ⏳ / ✅ | date | chosen angle + 5 hooks + ranked alternatives |
 | 1 Research | | | |
 | 2 Script | | | |
-| 3 Direction | | | |
-| 4 Prompts and budget | | | |
+| 3 Visual plan | | | |
+| 4 Prompts, stock photos and budget | | | |
 | 5 Tests | | | |
 | 6 Generation | | | per category |
 | 7 Editing | | | |

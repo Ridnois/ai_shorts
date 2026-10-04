@@ -1,7 +1,8 @@
 ---
 type: research
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-04
+status: v2 · English states and properties; the runner follows the idea-quality and illustration rules
 tags: [research, youtube, pipeline, hub]
 ---
 

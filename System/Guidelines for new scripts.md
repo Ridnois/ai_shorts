@@ -71,23 +71,33 @@ Source: post-render feedback on the first English helium video (4 Oct 2026): *"t
 - [ ] Read aloud: where does it drag?
 - [ ] Is every claim supported or attributed?
 
-## 2. Illustrations: `flux-kontext-pro` + real photo
+## 2. Illustrations (full method: [[Illustration pipeline]])
 
-Style, method and prompt template: [[Illustration pipeline]]. Source feedback: Brazil ("there is no relation between the illustrations and the content… the prompt became generic and forgot the research"); Lemon cake ("Horrible illustration… look up a homemade lemon cake so you understand").
+Source feedback: Brazil ("no relation between the illustrations and the content"), Lemon cake ("horrible illustration… look up a homemade lemon cake"), and **Twisted carbon, 4 Oct 2026**: *"the images feel not to be representing the content, nor describing the scenes… less approach on scene description, it is not a theatre show, it is modern content… use illustrations where they are useful, describe machines and explain processes… use free stock photos… use the model on the style it performs best, not a custom illustration style… transparent backgrounds with gradients applied in Blender."*
 
 | # | Rule |
 | --- | --- |
-| 2.1 | **Each image shows a concrete state of the story** (what happened, who, where to), not a loose object. Before and after are two images. |
-| 2.2 | **The prompt inherits the research:** it carries the narration sentence, the object with its real parts and the single copper-orange accent ([[Prompt - per-scene generation guide]]). |
-| 2.3 | **Real-object sheet and reference photo before writing prompts.** "Baking dish" generates a bread tin; the real photo, cropped and in the orientation of the result, fixes the shape. A single `input_image`; license and attribution in the Status note. |
-| 2.4 | **One large focal point;** the rest barely hinted. |
-| 2.5 | **No text, figures or faces inside the image** (they are added in editing). Prompts **in the positive**. |
-| 2.6 | **Counts and parts are checked by eye** (3 chairs instead of 4). Simple shot; name parts and quantities. |
-| 2.7 | **An "almost right" image is accepted.** What can be fixed in editing is not regenerated. One retry per image; if it fails twice, accept it, reframe it or drop the shot. |
-| 2.8 | **Vertical 9:16, safe zone:** subject between 15 % and 60 % of the height; nothing key in the bottom third or the top 6 %. |
-| 2.9 | **The result has to be worth watching:** if the images are not understood without the voice, they are not ready. |
-| 2.11 | **Do not paste the narration sentence into the image prompt without a guard.** In the Helium video one prompt that began with `Narration: "…"` printed that sentence, garbled, inside the image. Keep the narration in the notes, or add "The image contains no words, no letters and no captions of any kind", and check every plate for text. |
-| 2.10 | **Check the reference for text and brands** before using it: a photo with a legible brand ("PRADO BRAZIL" on a padlock) leaks it into the image; the prompt asks for a blank, unmarked surface. |
+| 2.1 | **Every plate passes the usefulness test:** one sentence, "this plate lets the viewer see ___ so they understand ___". If it cannot be written, replace or cut the plate. |
+| 2.2 | **Write the visual plan before any prompt** (stage 3): one row per plate with its **type** (stock photo, generated explainer, cutout, photo edit, number plate), its source and its usefulness sentence. Default mix for a Short of 12 to 14 plates: **≥ a third stock photos, ≥ a third explainers or cutouts, no two consecutive plates of the same type.** |
+| 2.3 | **Real things are photographed, hidden things are explained.** Real subjects → free stock photos (Openverse, NASA, Wikimedia; credits recorded). Insides, processes, structures and scales → a generated explainer (cutaway, cross-section, exploded view, schematic). Never a decorative stand-in. |
+| 2.4 | **Prompts are specifications, not scenes:** exact object or process, its parts and their count and arrangement, the view, what must be readable, what each reference supplies. No mood, no "dramatic", no theatre, no props that explain nothing. ([[Prompt - per-scene generation guide]]) |
+| 2.5 | **No custom style.** No style block, no clay, no sketch. The model's default look is the style; the look of the video comes from the Blender edit (gradients, shadows, framing, callouts, text). |
+| 2.6 | **Generate full frames or transparent cutouts** (`gpt-image-1.5`, `background: transparent`); place them on gradients in Blender (`type: full | contain | cutout` in `plan.json`). |
+| 2.7 | **Check every plate against the facts** (counts, structure, labels) and for leaked text. A beautiful but wrong cutaway fails 2.1. One retry per image; if it fails twice, change the prompt's content or the plate type. |
+| 2.8 | **Vertical 9:16, safe zone:** subject between 15 % and 60 % of the height; the card zone (≈ 21 % to 36 % from the bottom) stays free; callout labels never sit over the card. |
+| 2.9 | **Plates without the voice must still make sense.** If the images are not understood without the narration, the plan is not ready. |
+| 2.10 | **Check every reference and stock photo for text and brands** before using it; a legible brand leaks into generated images and distracts in photos. Prefer references without lettering. |
+| 2.11 | **Do not paste the narration sentence into an image prompt.** In the Helium video one prompt that began with `Narration: "…"` printed that sentence, garbled, inside the image. Paraphrase the idea, add "The image contains no letters, no numbers and no labels", and check every plate for text. |
+| 2.12 | **Record every credit** (title, author, license, page) in `stock/_credits.jsonl` as the photo is downloaded; the Status note's attribution table is built from it. |
+
+### Text and added content (full rules: [[On-screen text style]], [[Channel identity]])
+
+| # | Rule |
+| --- | --- |
+| T.1 | Text has a purpose: **name a part** (callout), **quantify** (number card), **frame and source** (context card), **give a voice** (margin note, ≤ 2 per video). |
+| T.2 | **The specificity test:** could this text appear unchanged in a video about another topic? If yes, rewrite it with a name, number, place or mechanism from this topic. |
+| T.3 | **Banned:** generic labels ("The takeaway", "Key point", "Same material") and the banned words in [[Channel identity]]. |
+| T.4 | Not every plate needs a card; a plate with callouts or a number does not also need a context card. |
 
 ## 3. Voice and sound
 
@@ -98,10 +108,10 @@ Style, method and prompt template: [[Illustration pipeline]]. Source feedback: B
 
 ## 4. Editing
 
-- **A voice sentence is never cut.** In Blender, `frame_offset_start` also advances the visible start; the strip is created `ini` seconds earlier and an `assert` checks that the audible part starts and ends complete, with a 0.25 s tail (Brazil r1 error).
-- **Silences:** 0.45 to 0.5 s between scenes; 1.2 s before the central question; 0.5 s of intro and 1.2 s of tail.
-- **On-screen text:** sober label card (copper bar, spaced label, bold title), max. 4 words: [[On-screen text style]]. Between 22 % and 33 % from the bottom.
-- **Plates:** one every ≈ 4 s, cross-fade within the scene and "page turn" between scenes; zoom 0.96 to 1.0, slow 6 % push. Plate changes should land on the word they explain (not yet synced to each word). With only 8 images in a 90 s Short (Chips) each plate stayed ≈ 10 s; the Helium Short used 13 plates (≈ 5 s each). Prefer 12 or more. **Wide plates:** compose each onto a 1080×1920 canvas (blurred background, feathered edges, sharp plate at ≈ 40 % of the height) instead of covering the height, so nothing is cropped.
+- **A voice sentence is never cut, and never starts abruptly** (Brazil r1 error; Twisted carbon feedback, 4 Oct 2026: *"small voice cut on the start of the video, make sure voice clips are complete and well put into the sequencer"*). The TTS files often start mid-sound (some at full amplitude at sample 0) and end abruptly. `build_video.py` therefore **pads every take** (0.30 s of silence before, 0.40 s after, a 20 ms fade-in and a 50 ms fade-out, as `voice/_padded/*.wav`), places it so that the speech plus ≥ 0.1 s before and ≥ 0.25 s after are audible, and **checks every voice** (`CHECK=1`): lead-in, tail, silence in the padded file, no overlaps. Blender's background mixdown is silent, so the check reads the strips directly.
+- **Silences:** 0.45 s between scenes; 1.2 s before the central question; 0.5 s of intro and 1.2 s of tail.
+- **On-screen text:** callouts, number cards, context cards and margin notes ([[On-screen text style]]), composed from `plan.json`.
+- **Plates:** one every ≈ 4 to 6 s (a Short of 12 to 14 plates), cross-fade within the scene and "page turn" between scenes, slow 5 % push; types `full`, `contain` and `cutout` over gradients ([[Illustration pipeline]] §6). Plate changes should land on the word they explain (not yet synced to each word).
 - **Say what was not verified:** the full video is not watched or heard, only frames and headers; gate P7 is the user's.
 - **Before putting a symbol on screen** (→, ≈), check that the typeface has it: Noto Sans Display Bold has no "→" and it showed as a box (Stems, r1). Use "·" or "to".
 - Details: [[Blender editing]], [[Transitions and effects]].
@@ -110,7 +120,7 @@ Style, method and prompt template: [[Illustration pipeline]]. Source feedback: B
 
 - **Master rule: no media is generated before P4** (prompts + budget approved, in dollars). Every approval is written in the video's Status. If the user **delegates** ("carry on until the render"), note it and run without stopping, but respect the cap.
 - **Cost:** it worries the user ("it is getting expensive, too much testing"). Cap per category = base × 1.2; a minimal test at P5; series of ≤ 10 calls, **in series**, never in parallel; fix the prompt before retrying. Going over the cap needs approval.
-- **The images that are generated are the ones in the cut**, 1 per shot by default.
+- **The images that are generated are the ones in the cut**, 1 per plate by default; a Short plans **≤ 5 generated images** and the rest are free stock photos or built in Blender.
 - **Research goes separate from scripts** (models, styles, references): notes in `Research/`, tests in `Media/_canal/investigacion/`, cost accounted separately. A video note only links the conclusion.
 - **Do not move other videos' folders.** Files carry their video's prefix (Obsidian resolves embeds by name). Discards go to `_descartes/`.
 - **Notes in the vault, never artifacts or Claude Docs.**
@@ -122,12 +132,13 @@ Style, method and prompt template: [[Illustration pipeline]]. Source feedback: B
 - **Replicate helper:** `System/scripts/replicate_helper.py` has timeouts and download retries, prints the prediction id at creation and has `recover(id, dest)`; use it if a download hangs, never regenerate.
 - **Reading prompts from the Status note:** Obsidian re-pads table columns on save, so parsers must tolerate spaces around the pipes.
 - **Never `pkill -f` a pattern that also appears in the shell command** (it kills the shell); match the process name and arguments with `ps` and `awk`.
-- **Source photos that are diagrams** become abstract in clay; prefer physical objects.
+- **Image models restyle diagrams into abstractions** (a moiré diagram became clay swirls): use diagrams as *references for a generated explainer* or show them as `contain` plates, not as sources to be redrawn.
 
 ## 6. Open items
 
 - [ ] **Sound quality and dynamism** (Brazil feedback): no proven solution.
 - [ ] **Plate changes synced to the word**, not only to the scene.
 - [ ] Try the text style on a political topic (figure + source) and define 16:9.
-- [ ] Confirm the `flux-kontext-pro` price on Replicate (≈ $0.04 from memory); test `match_input_image` and a scene with no object ([[Illustration pipeline]]).
+- [ ] First video with the new pipeline: test `gpt-image-1.5` with `background: transparent` and `bria/remove-background` on one image each, confirm their prices on Replicate, and judge the composed result at P5 ([[Illustration pipeline]] §7).
+- [ ] Ask the user whether to get free API keys for Pexels, Pixabay or Unsplash ([[Illustration pipeline]] §5).
 - [x] Measured the English pace with the first English script (≈ 144 wpm). [ ] The English voice itself still needs the user's ear.
