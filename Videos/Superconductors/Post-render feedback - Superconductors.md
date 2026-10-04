@@ -20,19 +20,19 @@ tags: [research, youtube, feedback, superconductors]
 
 ## 2. By layer (rating 1 to 5, then your words)
 
-| Layer                                                                                                                                               | Rating | What you saw or heard, and what you want instead                   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------ |
-| **Hook** (first 3 s: is it a claim you need to hear? does it stop you?) — *"Some wires carry electricity with zero resistance. Not low. Zero."*     | 2      | It vague, i may dont know what zero resistance means               |
-| **Idea and content** (is it surprising, clear, scientifically right?)                                                                               | 2      | not surprising nor clear enough, well researched                   |
-| **Script and pace** (explains or narrates? drags anywhere? too dense?)                                                                              | 2      | boring, feels unconnected, could be more compacted                 |
-| **Illustrations and photos** (useful, faithful, one per idea?) — the levitation, LHC and diamond-anvil plates are held longest (9 to 12 s)          | 3      | getting better, could improve, be more realistic and related with  |
-| **Text boxes, callouts, highlight** (readable, specific, in the right place?)                                                                       |        |                                                                    |
-| **Captions** (on the spoken word? readable on every image?)                                                                                         |        |                                                                    |
-| **Brand layer** (progress bar, mark, series tag, avatar, name)                                                                                      |        |                                                                    |
-| **Voice** (timbre, speed, intonation, mispronounced words)                                                                                          |        |                                                                    |
-| **Sound design** (thump, whooshes, ticks, pings, drone: too loud, missing, annoying?) — first time it exists; synthesized, never heard by the agent |        |                                                                    |
-| **Editing** (cuts, cross-fades, how long an image stays, transitions)                                                                               |        |                                                                    |
-| **Ending** (does it leave an idea? does it loop?)                                                                                                   |        |                                                                    |
+| Layer                                                                                                                                               | Rating | What you saw or heard, and what you want instead                  |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ----------------------------------------------------------------- |
+| **Hook** (first 3 s: is it a claim you need to hear? does it stop you?) — *"Some wires carry electricity with zero resistance. Not low. Zero."*     | 2      | It vague, i may dont know what zero resistance means              |
+| **Idea and content** (is it surprising, clear, scientifically right?)                                                                               | 2      | not surprising nor clear enough, well researched                  |
+| **Script and pace** (explains or narrates? drags anywhere? too dense?)                                                                              | 2      | boring, feels unconnected, could be more compacted                |
+| **Illustrations and photos** (useful, faithful, one per idea?) — the levitation, LHC and diamond-anvil plates are held longest (9 to 12 s)          | 3      | getting better, could improve, be more realistic and related with |
+| **Text boxes, callouts, highlight** (readable, specific, in the right place?)                                                                       | 5      | Good, structured                                                  |
+| **Captions** (on the spoken word? readable on every image?)                                                                                         | 5      | Font could be a little bit smaller                                |
+| **Brand layer** (progress bar, mark, series tag, avatar, name)                                                                                      | 0      | unnecesary, should be removed                                     |
+| **Voice** (timbre, speed, intonation, mispronounced words)                                                                                          | 3      | needs improvement, rithm could be more controlled and passionate  |
+| **Sound design** (thump, whooshes, ticks, pings, drone: too loud, missing, annoying?) — first time it exists; synthesized, never heard by the agent | 5      | good for now                                                      |
+| **Editing** (cuts, cross-fades, how long an image stays, transitions)                                                                               | 3      | could improve making it a little more dinamic                     |
+| **Ending** (does it leave an idea? does it loop?)                                                                                                   | 1      | vague ending as the rest of the script                            |
 
 ## 3. Moments (use the time in the video)
 
@@ -44,11 +44,12 @@ tags: [research, youtube, feedback, superconductors]
 
 ## 4. Checks only you can do (the agent cannot hear or watch the video)
 
-- [ ] The voice sounds natural and the pace feels right
-- [ ] Each caption word lands on the spoken word
-- [ ] The sound design is at a comfortable level (adjust `sfx_gain`, `bed_gain`)
-- [ ] Transitions and the progress bar look right in motion
-- [ ] The facts you know are correct; list any doubt here (the agent's own doubts: pair size in the pairing drawing, the "grids could recover part of the five percent" line, the 28-year gravimeter figure from a secondary source):
+- [x] The voice sounds natural and the pace feels right
+	 the pace could improve
+- [x] Each caption word lands on the spoken word
+- [x] The sound design is at a comfortable level (adjust `sfx_gain`, `bed_gain`)
+- [x] Transitions and the progress bar look right in motion
+- [x] The facts you know are correct; list any doubt here (the agent's own doubts: pair size in the pairing drawing, the "grids could recover part of the five percent" line, the 28-year gravimeter figure from a secondary source):
 
 ## 5. After publishing (fill 48 hours and 7 days later; see [[Channel strategy]] §6)
 
@@ -63,6 +64,8 @@ tags: [research, youtube, feedback, superconductors]
 ## 6. Process and anything else
 
 Rules you want changed, things the agent should always or never do, ideas for the channel:
+
+-
 
 ## 7. Keep and change (for the agent to turn into rules)
 
