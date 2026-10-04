@@ -148,8 +148,8 @@ File: `Media/Helium - 70 seconds/render/he2-76s-9x16-r1.mp4` (local only: `Media
 
 ## Editing (3 Oct 2026)
 
-- **Script:** `System/scripts/build_helium2.py` (from `build_chips.py`). 7 voices (0.45 s between scenes, 1.2 s before the close, 0.25 s tail), 13 plates (2 per scene, 1 in the last; ≈ 5 s each, a cross-fade within the scene and a page turn between scenes), slow 5 % push, label cards on scenes 1 to 6 (English text), vignette and grain. No sound or music.
-- **Render r1:** `Media/Helium - 70 seconds/render/he2-76s-9x16-r1.mp4`, **≈ 75.8 s**, 1080×1920.
+- **Script:** `System/scripts/build_helium2.py` (from `build_chips.py`). 7 voices (0.45 s between scenes, 1.2 s before the close, 0.25 s tail), 13 plates (2 per scene, 1 in the last; ≈ 5 s each, a cross-fade within the scene and a page turn between scenes), slow 5 % push, **one label card per plate (13), three lines** (label, title, context detail; see [[On-screen text style]] v2), vignette and grain. No sound or music.
+- **Render r1 (first card design):** one 2-line card per scene. **Render r2 (current, 4 Oct 2026):** same file name `he2-76s-9x16-r1.mp4` was overwritten; cards redone after the user's feedback (*"i think a more useful and descriptive, context related text can be used there"*): one card per plate, three lines, each tied to the narration and to the sources (figures: USGS 2025 estimate, Philips and Siemens manufacturer figures labelled as such). The file keeps the `r1` name; treat it as the current render. **≈ 75.8 s**, 1080×1920.
 
 
 **Spend (estimated):** voice ≈ $0.10 + images 15 × ≈ $0.04 = ≈ $0.60 → **≈ $0.70**, inside the approved cap ≈ $0.74 (Kontext price unconfirmed).
@@ -157,7 +157,7 @@ File: `Media/Helium - 70 seconds/render/he2-76s-9x16-r1.mp4` (local only: `Media
 ### What I checked and what I did not
 
 - ✅ All 13 used plates looked at together on a contact sheet; the two discarded ones are in `plates/_descartes/`. No brand or text leaks in the final plates.
-- ✅ Render finished (50 MB, 1080×1920, 75.84 s per the edit) and seven frames (seconds 3, 13, 27, 37, 50, 62, 72): cards legible, subjects clear, seams feathered.
+- ✅ Render finished (1080×1920, 75.84 s per the edit); frames checked for the first design (seconds 3, 13, 27, 37, 50, 62, 72) and twelve frames for the new cards (seconds 7 to 74): three-line cards legible, subjects mostly clear. The card covers the lower part of the subject on a few plates (dewar base, the toy under the balloons).
 - ❌ **I did not hear the audio or watch the whole video:** how `Roger` sounds in English, the pace (per scene it ran from 121 to 179 words per minute; scene 4 is the slowest, scene 7 the fastest), the fades, and whether plate changes land where they should.
 - **Reservations:** plates 11 and 12 add a tiny orange bottle that reads as a bottle, not as "seven liters" (the card says it); plate 4 is a flat clay slab of a gas field, not a wellhead; plate 7's accent reads as a frost blob. The sealed-magnet figures (7 L, 0.7 L) are **manufacturer claims** (Philips, Siemens): say so in the description.
 
