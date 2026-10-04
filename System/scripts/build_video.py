@@ -13,6 +13,9 @@ What it does (see System/Editing/Blender editing.md and System/Visual/Illustrati
       cutout   a PNG with a transparent background (generated or cut out) over the gradient, with a soft shadow
   * Callouts: a dot on a part of the image, a leader line and a short label (explains machines and processes).
   * One card per plate: context (label, title, detail), number (big figure, caption, source) or margin note; vignette and grain.
+  * Word-by-word captions (plan `texts`, one narration string per voice; timings from voice/<take>.words.json made by
+    System/scripts/word_timings.py, else estimated): one big word at a time in the lower caption zone, so the video follows with the sound off.
+  * No bare backdrops: a plate whose file is a blank placeholder is refused (a number card sits on a real photo or explainer).
 
 plan.json: see the docstring of `load_plan` and `System/Visual/Illustration pipeline.md` §6.
 """
@@ -313,6 +316,13 @@ def add_text(name, txt, font, size, col, ch, t0, t1, xpx, ypx, rise=True):
 
 
 # ---------------------------------------------------------------- plates
+for _sc in PLAN["scenes"]:
+    for _pl in _sc["plates"]:
+        if "blank" in os.path.basename(_pl["file"]).lower() and not PLAN.get("allow_bare"):
+            raise SystemExit(f"bare backdrop refused: {_pl['file']} (feedback 4 Oct 2026: put the figure on a photo or explainer; "
+                             "set allow_bare only if the user asked for it)")
+        if not os.path.exists(f"{ROOT}/{_pl['file']}"):
+            raise SystemExit(f"missing plate file: {_pl['file']}")
 idx = 0
 flat = []
 for e, scene in enumerate(PLAN["scenes"], start=1):
@@ -376,7 +386,7 @@ for i, e, j, n, a, b, pl in flat:
         bw = int(len(txt) * size * 0.56 + 44)
         bh = 64
         lxy = (co["label"][0] * W - bw / 2, co["label"][1] * H - bh / 2)
-        lxy = (min(max(lxy[0], 24), W - bw - 24), min(max(lxy[1], 24), H - bh - 24))
+        lxy = (min(max(lxy[0], 24), W - bw - 24), min(max(lxy[1], 24), round(H * CAP_Y) - 90 - bh))      # never in the caption zone
         if lxy[1] + bh > CY0 - 12 and lxy[1] < CY1 + 12:             # never over the card: move the label above it
             lxy = (lxy[0], CY0 - bh - 24)
         c0t = a + 1.0 + 0.6 * ci
@@ -423,6 +433,64 @@ for i, e, j, n, a, b, pl in flat:
             add_text(f"etq{i}", spaced("Margin note"), F_BODY, 30, COPPER + (1.0,), 8, t0, t1, x, CY - 0.050 * H)
             add_text(f"nt{i}a", lines[0], F_TITLE, 46, INK, 9, t0, t1, x, CY - 0.002 * H)
             add_text(f"nt{i}b", lines[1] if len(lines) > 1 else "", F_TITLE, 46, INK, 10, t0, t1, x, CY + 0.048 * H)
+
+
+# ---------------------------------------------------------------- word-by-word captions
+def estimate_words(text, a, b, env):
+    """Fallback: split [a, b] (the speech) among the words by characters, adding weight after commas and full stops."""
+    ws = text.split()
+    wt = [len(w.strip(".,;:!?")) + 1 + (4 if w[-1] in ".!?" else 2 if w[-1] in ",;:" else 0) for w in ws]
+    k, t_ = (b - a) / sum(wt), a
+    out = []
+    for w, x in zip(ws, wt):
+        out.append([w, t_, t_ + x * k])
+        t_ += x * k
+    return out
+
+
+def take_words(v, text):
+    """[[word, start, end]] in seconds of the padded file (original time + PAD_LEAD), using the script's own spelling."""
+    ws = text.split()
+    path = os.path.splitext(v["f"])[0].replace("/_padded", "") + ".words.json"
+    if os.path.exists(path):
+        raw = json.load(open(path))
+        raw = [[w, s + PAD_LEAD, e + PAD_LEAD] for w, s, e in raw]
+        if len(raw) == len(ws):
+            return [[w, r[1], r[2]] for w, r in zip(ws, raw)]
+        # counts differ (e.g. "10,000" heard as two words): spread the script words over the heard span by characters
+        a, b = raw[0][1], raw[-1][2]
+        return estimate_words(text, a, b, None)
+    return estimate_words(text, v["a"], v["b"], None)
+
+
+def add_captions():
+    texts = PLAN.get("texts")
+    if not texts:
+        return
+    assert len(texts) == len(voices), "plan.texts needs one narration string per voice"
+    placed = []
+    for v, text in zip(voices, texts):
+        for w, s, e in take_words(v, text):
+            placed.append((w, v["abs"] + s - v["ini"], v["abs"] + e - v["ini"]))
+    n = 0
+    for i_, (w, s, e) in enumerate(placed):
+        nxt = placed[i_ + 1][1] if i_ + 1 < len(placed) else T_END
+        end = min(nxt, e + CAP_GAP, T_END)                 # hold until the next word, but not across a long pause
+        if fr(end) <= fr(s):
+            continue
+        tx = S.new_effect(f"cap{n:03d}", "TEXT", 16, fr(s), length=fr(end) - fr(s))
+        tx.text = w.upper()
+        tx.font, tx.font_size = F_TITLE, CAP_SIZE
+        key = any(c.isdigit() for c in w)                  # figures are copper, everything else white
+        tx.color = COPPER + (1.0,) if key else (1.0, 1.0, 1.0, 1.0)
+        tx.anchor_x, tx.anchor_y = "CENTER", "CENTER"
+        tx.location = (0.5, 1 - CAP_Y)
+        tx.use_outline, tx.outline_color, tx.outline_width = True, (0.04, 0.035, 0.03, 1.0), 0.14
+        tx.use_shadow, tx.shadow_color, tx.shadow_offset, tx.shadow_blur = True, (0, 0, 0, 0.55), 0.04, 0.03
+        n += 1
+    print("CAPTIONS", n, "words,", "timed by whisper" if any(os.path.exists(os.path.splitext(v["f"])[0].replace("/_padded", "") + ".words.json") for v in voices) else "estimated")
+
+add_captions()
 
 # ---------------------------------------------------------------- vignette and grain
 yy2, xx2 = np.mgrid[0:H, 0:W].astype(np.float32)

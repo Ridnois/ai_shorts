@@ -12,7 +12,7 @@ Sources that need a free API key (ask the user before using): Pexels, Pixabay, U
 Every downloaded photo is appended to <dest folder>/_credits.jsonl (title, author, license, page): the video's
 Status note copies it into its attribution table. Photos are resized to <= 1920 px.
 """
-import argparse, hashlib, json, os, sys, time, urllib.parse, urllib.request
+import argparse, hashlib, json, os, re, sys, time, urllib.parse, urllib.request
 
 H = {"User-Agent": "youtube-vault-research/1.0 (personal project)"}
 
@@ -60,7 +60,7 @@ def commons(q, n=8):
         if i["mime"] != "image/jpeg":
             continue
         em = i["extmetadata"]
-        out.append({"source": "commons", "title": p["title"], "author": "", "license": em.get("LicenseShortName", {}).get("value", ""),
+        out.append({"source": "commons", "title": p["title"], "author": re.sub(r"<[^>]+>", "", em.get("Artist", {}).get("value", "")).strip(), "license": em.get("LicenseShortName", {}).get("value", ""),
                     "url": i["url"], "page": "https://commons.wikimedia.org/wiki/" + p["title"].replace(" ", "_"),
                     "size": (i["width"], i["height"])})
     return out
