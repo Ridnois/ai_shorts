@@ -39,15 +39,15 @@ Status: ✅ two or more consistent sources or one primary source · ⚠️ singl
 
 ## 2. Scoring (1 to 5)
 
-| Angle | Surprise | Scale | Depth | Evidence | Showable | Verdict |
-| --- | --- | --- | --- | --- | --- | --- |
-| **A · A one-degree twist turns carbon into a superconductor** (#1–3, 8–9, 10) | **5** | **5** (a whole family of materials designed by geometry; links 1911 to 2026) | 4 | 5 | 4 (moiré, graphite, tape, mercury, dewar) | **Thread** |
-| B · Metamaterials: shape beats chemistry, cloaks and negative refraction (#11–13) | 4 | 4 | 4 | 5 | 3 | **Support** (second half of the idea) |
-| C · Graphene on a metamaterial slows light with a voltage (#15–16, the CORDIS article) | 4 | 4 | 3 | 4 | 2 | **Support** (the user's article: where both ideas meet) |
-| D · Massless electrons at c/300 (#4–5) | 4 | 4 | 4 | 5 | 2 | Rejected for 70 s (strong but off the thread); keep for a long version |
-| E · Onnes 1911 and helium (#8–9) | 4 | 4 | 3 | 5 | 4 | **Support** (the origin of superconductivity; links the helium videos) |
-| F · Strongest material, Scotch tape Nobel (#6–7) | 3 | 3 | 2 | 5 | 5 | Support in one line only: charming, but not remarkable enough to lead |
-| G · Chiral, magnetic superconductors (#10) | 5 | 4 | 4 | 4 | 2 | Rejected as the thread (too technical to explain in 70 s); fine for a follow-up |
+| Angle                                                                                  | Surprise | Scale                                                                        | Depth | Evidence | Showable                                  | Verdict                                                                         |
+| -------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------- | ----- | -------- | ----------------------------------------- | ------------------------------------------------------------------------------- |
+| **A · A one-degree twist turns carbon into a superconductor** (#1–3, 8–9, 10)          | **5**    | **5** (a whole family of materials designed by geometry; links 1911 to 2026) | 4     | 5        | 4 (moiré, graphite, tape, mercury, dewar) | **Thread**                                                                      |
+| B · Metamaterials: shape beats chemistry, cloaks and negative refraction (#11–13)      | 4        | 4                                                                            | 4     | 5        | 3                                         | **Support** (second half of the idea)                                           |
+| C · Graphene on a metamaterial slows light with a voltage (#15–16, the CORDIS article) | 4        | 4                                                                            | 3     | 4        | 2                                         | **Support** (the user's article: where both ideas meet)                         |
+| D · Massless electrons at c/300 (#4–5)                                                 | 4        | 4                                                                            | 4     | 5        | 2                                         | Rejected for 70 s (strong but off the thread); keep for a long version          |
+| E · Onnes 1911 and helium (#8–9)                                                       | 4        | 4                                                                            | 3     | 5        | 4                                         | **Support** (the origin of superconductivity; links the helium videos)          |
+| F · Strongest material, Scotch tape Nobel (#6–7)                                       | 3        | 3                                                                            | 2     | 5        | 5                                         | Support in one line only: charming, but not remarkable enough to lead           |
+| G · Chiral, magnetic superconductors (#10)                                             | 5        | 4                                                                            | 4     | 4        | 2                                         | Rejected as the thread (too technical to explain in 70 s); fine for a follow-up |
 
 **Street-lamp test:** passed. The question ("how can a twist or a pattern, with no new chemistry, create superconductivity and control light?") cannot be answered by a headline.
 **Expert test:** the **moiré/flat-band** mechanism, the **EIT analogue** (the same effect that stopped light in a cold gas, reproduced on a chip) and "properties from structure smaller than the wavelength" are the parts a specialist calls interesting.
