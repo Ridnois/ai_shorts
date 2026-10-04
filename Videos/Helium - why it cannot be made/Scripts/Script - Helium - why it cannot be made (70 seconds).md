@@ -11,7 +11,7 @@ tags: [research, youtube, script, helium, shorts]
 ← [[Helium - why it cannot be made - Status]] · [[Research - Helium - why it cannot be made]] · [[YouTube Channel]] · [[Fast workflow]] · [[Narration guide]]
 
 > **Language:** written and narrated in English (first video of the English-only channel).
-> **Format:** 9:16 Short, **174 words**; at ≈ 150 words per minute ≈ 70 s (the English pace is measured with the real voice).
+> **Format:** 9:16 Short, **175 words**; at ≈ 150 words per minute ≈ 70 s (the English pace is measured with the real voice).
 > **Central question:** why can't we just make more helium, and what does that change?
 > **Idea that makes you think:** you cannot raise the supply, only lower the need; the safest helium is the helium that never escapes.
 > **Data as of:** 3 Oct 2026. Sources in [[Research - Helium - why it cannot be made]].
@@ -20,7 +20,7 @@ tags: [research, youtube, script, helium, shorts]
 
 | Lesson ([[Chips and lithography - Status]]) | Applied here |
 | --- | --- |
-| 93 s was longer than planned; plates stayed ≈ 10 s | 174 words ≈ 70 s; **13 plates**, one every ≈ 5 s |
+| 93 s was longer than planned; plates stayed ≈ 10 s | 175 words ≈ 70 s; **13 plates**, one every ≈ 5 s |
 | One reference photo reused for 6 of 8 plates (the wafer) | 11 different real photos for 13 plates (only the MRI and the dewar are reused, with a different state) |
 | Interaction states failed (a mold pressing, a plate lifting, hands exchanging objects) | Every plate shows an **object in a still state**; no mechanisms in action |
 | A brand ("PRADO BRAZIL") leaked from a reference | References checked for text; prompts ask for lettering removal; plates are reviewed for leaks |
@@ -37,9 +37,9 @@ tags: [research, youtube, script, helium, shorts]
 | 4 · Link 2 | Nothing replaces it. Helium boils at four degrees above absolute zero, colder than any other element. MRI magnets need that cold, and chip factories use it too. | 27 | Liquid nitrogen fog (R07); a silicon wafer (R08) | `Boiling point` · `4.2 K · -269 °C` | #5, #6, #12 |
 | 5 · Stakes | Only a few places supply it: the United States, Qatar and Russia make about eighty-five percent. This year a war cut off Qatar, and the price doubled. | 28 | An LNG tanker (R09); chained gas cylinders (R10) | `USGS 2025 est.` · `US · Qatar · Russia: 85 %` | #11, #13 |
 | 6 · Turn | But look at the newest scanners. One sealed magnet holds seven liters, not fifteen hundred. Another holds less than one. Same images, far less helium. | 25 | MRI scanner (R01, new state); a mobile MRI trailer (R11) | `Sealed magnets` · `7 L · 0.7 L` | #9, #10 |
-| 7 · Close | We cannot make helium. We can only waste less of it. The safest supply is the helium that never escapes. | 19 | The dewar (R02, new state) | — | — |
+| 7 · Close | We cannot make helium. We can only waste less of it. The safest supply is the helium that never escapes. | 20 | The dewar (R02, new state) | — | — |
 
-**Total: 174 words.**
+**Total: 175 words (997 characters).**
 
 ## Direction (P4a, text only): 13 plates
 
