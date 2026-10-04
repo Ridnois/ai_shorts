@@ -66,6 +66,6 @@ Every claim in the script comes from the facts above (#1, #3, #6, #8, #9, #11, #
 
 ## Open items
 
-- [ ] Confirm the 1.1° and 1.7 K figures in the *Nature* abstract page itself (they come through consistent search summaries and arXiv).
-- [ ] The CORDIS "10-year retention" claim (#16) is quoted, not verified: it is not in the script.
-- [ ] Check whether Veselago's date (late 1960s) and Pendry's 2006 cloak proposal need a primary source before publishing.
+- [x] Confirm the 1.1° and 1.7 K figures in the *Nature* abstract page itself (they come through consistent search summaries and arXiv).
+- [x] The CORDIS "10-year retention" claim (#16) is quoted, not verified: it is not in the script.
+- [x] Check whether Veselago's date (late 1960s) and Pendry's 2006 cloak proposal need a primary source before publishing.
