@@ -134,6 +134,12 @@ Format: `scene · category · model · status · prediction`.
 - **English pace measured:** 175 words in ≈ 72.9 s of voice (from file sizes at 128 kbps) = **≈ 144 words per minute with pauses**; individual scenes ran from 121 to 179. Update [[Channel voice]] and the guidelines with this figure.
 - **Wide plates:** composing each plate onto a 1080×1920 canvas with a blurred background (instead of covering the height) kept the whole tanker, the dish and the gas field in frame. The first composite showed hard seams where the sharp plate met the blur; the final one feathers the edges (PIL gradient mask; this machine's system Python has no `numpy`, and the first attempt failed silently inside a chained command, so check that generated files actually changed).
 
+## The render (watch it here)
+
+![[he2-76s-9x16-r1.mp4]]
+
+File: `Media/Helium - 70 seconds/render/he2-76s-9x16-r1.mp4` (local only: `Media/` is gitignored, so it does not appear on GitHub). Absolute path: `~/Documents/youtube/Media/Helium - 70 seconds/render/he2-76s-9x16-r1.mp4`.
+
 ## Editing (3 Oct 2026)
 
 - **Script:** `System/scripts/build_helium2.py` (from `build_chips.py`). 7 voices (0.45 s between scenes, 1.2 s before the close, 0.25 s tail), 13 plates (2 per scene, 1 in the last; ≈ 5 s each, a cross-fade within the scene and a page turn between scenes), slow 5 % push, label cards on scenes 1 to 6 (English text), vignette and grain. No sound or music.
