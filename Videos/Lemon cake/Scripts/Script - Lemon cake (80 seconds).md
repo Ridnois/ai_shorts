@@ -2,89 +2,106 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: v2 · reajustada con el feedback · el usuario delegó las decisiones hasta el render
-tags: [investigación, youtube, guion, queque, shorts]
+status: v2 · readjusted with the feedback · the user delegated decisions up to the render · recorded in Spanish
+tags: [research, youtube, script, lemon-cake, shorts]
 ---
 
-# Guion: cómo hacer un queque (Short vertical de ≈ 80 s)
+# Script: how to make a lemon cake (vertical Short of ≈ 80 s)
 
 ← [[Lemon cake - Status]] · [[Research - Lemon cake]] · [[YouTube Channel]] · [[Fast workflow]] · [[Narration guide]]
 
-> **Formato:** Short vertical 9:16, **179 palabras**; a ≈ 135 palabras por minuto son ≈ 80 s con las pausas. El ritmo exacto se mide con la voz real y, **con un modelo de voz con control de velocidad, se ajusta la voz al guion y no el guion a la voz**.
-> **Pregunta central:** ¿qué pasos deciden si un queque sale esponjoso o duro, y por qué?
-> **Idea que hace pensar:** no es una lista de pasos, es una lista de **causas**: cada paso lleva su porqué (el aire, la emulsión, el gluten). Cierre: *si sale mal, no es la receta: es un paso.*
-> **Datos a:** 3-oct-2026. Fuentes y discrepancias en [[Research - Lemon cake]].
+> **Language:** recorded in **Spanish** before the English-only decision. Each scene shows the recorded Spanish text and an English translation.
+> **Format:** vertical 9:16 Short, **197 words** (v2); at ≈ 135 to 150 words per minute that is ≈ 80 s with the pauses. The exact pace is measured with the real voice and, **with a voice model with speed control, the voice is adjusted to the script and not the script to the voice**.
+> **Central question:** which steps decide whether a lemon cake comes out fluffy or hard, and why?
+> **Idea that makes you think:** it is not a list of steps, it is a list of **causes**: each step carries its why (the air, the emulsion, the gluten). Close: *if it goes wrong, it is not the recipe: it is a step.*
+> **Data as of:** 3 Oct 2026. Sources and discrepancies in [[Research - Lemon cake]].
 
-## Cómo se aplicó el feedback acumulado
+## How the accumulated feedback was applied
 
-| Feedback (de [[Brazil and embassies - Status]] y la [[Narration guide]])             | Cómo se aplica aquí                                                                             |
-| ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- |
-| La tensión viene del contexto, no de la espera; todo gancho se resuelve en la escena | El gancho (*"esponjoso o ladrillo, seis pasos"*) se responde con los seis pasos, uno por escena |
-| Simplificar no es quitar el porqué                                                   | Cada paso lleva su causa en la misma frase                                                      |
-| Hacer pensar al espectador                                                           | Cierre: *revisa cuál de estos pasos te saltaste*                                                |
-| Las frases no se cortan; el audio no se recorta                                      | Cola de voz de 0,25 s y comprobación en el montaje                                              |
-| El guion se adapta al ritmo, no al revés (o se controla la velocidad)                | Modelo de voz con `speed`; 8 tomas, una por escena                                              |
-| Ilustraciones descriptivas: el mecanismo, no el objeto                               | 20 láminas: cada una muestra *qué pasa dentro* (burbujas, emulsión, gluten)                     |
-| Números y fechas en pantalla, no en la voz                                           | `180 °C`, `35–40 min` y los seis pasos, en edición                                              |
-| Verbos con "podría"/"puede" cuando la fuente es débil                                | "Puede quedar duro" (afirmación 13)                                                             |
+| Feedback (from [[Brazil and embassies - Status]] and the [[Narration guide]]) | How it is applied here |
+| --- | --- |
+| Tension comes from context, not from waiting; every hook is resolved in the scene | The hook (*"fluffy or a brick, six steps"*) is answered with the six steps, one per scene |
+| Simplifying is not removing the why | Every step carries its cause in the same sentence |
+| Make the viewer think | Close: *check which of these steps you skipped* |
+| Sentences are not cut; audio is not trimmed | 0.25 s voice tail and a check in editing |
+| The script adapts to the pace, not the other way round (or speed is controlled) | Voice model with `speed`; 8 takes, one per scene |
+| Descriptive illustrations: the mechanism, not the object | 20 plates: each shows *what happens inside* (bubbles, emulsion, gluten) |
+| Numbers and dates on screen, not in the voice | `180 °C`, `35–40 min` and the six steps, in editing |
+| Verbs with "could"/"can" when the source is weak | "Can come out hard" (claim 13) |
 
-## Guion
+## Script (v2, recorded)
 
-#### 1 · Gancho · 21 palabras · Seis pasos
+#### 1 · Hook · 21 words · Six steps
 
 > Un queque de limón sale esponjoso o sale un ladrillo. La diferencia son seis pasos, y cada uno tiene un porqué.
+>
+> *A lemon cake comes out fluffy or comes out a brick. The difference is six steps, and each one has a why.*
 
-#### 2 · Ingredientes · 40 palabras · Paso 1: temperatura ambiente
+#### 2 · Ingredients · 40 words · Step 1: room temperature
 
 > Dos tazas de harina, una de azúcar, una de leche, media de mantequilla, dos huevos, dos cucharaditas de polvos de hornear y la ralladura de un limón. Mantequilla y huevos a temperatura ambiente, para que se mezclen y atrapen aire.
+>
+> *Two cups of flour, one of sugar, one of milk, half of butter, two eggs, two teaspoons of baking powder and the zest of a lemon. Butter and eggs at room temperature, so they mix and trap air.*
 
-#### 3 · Cremar · 24 palabras · Paso 2: mantequilla y azúcar
+#### 3 · Creaming · 24 words · Step 2: butter and sugar
 
 > Primero, bate la mantequilla con el azúcar hasta que quede pálida. Los cristales abren pequeños bolsillos de aire, y esos bolsillos serán la miga.
+>
+> *First, beat the butter with the sugar until it is pale. The crystals open small pockets of air, and those pockets will be the crumb.*
 
-#### 4 · Los huevos · 15 palabras · Paso 3: de a uno
+#### 4 · The eggs · 15 words · Step 3: one at a time
 
 > Después, los huevos de a uno. Si van fríos o juntos, la mezcla se corta.
+>
+> *Then, the eggs one at a time. If they go in cold or together, the batter splits.*
 
-#### 5 · Secos y leche · 28 palabras · Paso 4: sin batir de más
+#### 5 · Dry and milk · 28 words · Step 4: without over-beating
 
 > Tamiza la harina con los polvos y agrégala alternando con la leche. Mezcla solo hasta integrar: batir de más puede dejarlo duro. Al final, la ralladura de limón.
+>
+> *Sift the flour with the powder and add it alternating with the milk. Mix only until combined: over-beating can make it tough. At the end, the lemon zest.*
 
-#### 6 · Horno · 29 palabras · Paso 5: 180 °C
+#### 6 · Oven · 29 words · Step 5: 180 °C
 
 > Vierte la masa en una fuente rectangular de vidrio, enmantequillada y enharinada, y al horno a ciento ochenta grados. El calor dilata el aire atrapado y la masa sube.
+>
+> *Pour the batter into a rectangular glass dish, buttered and floured, and into the oven at one hundred eighty degrees. The heat expands the trapped air and the batter rises.*
 
-#### 7 · La prueba · 22 palabras · Paso 6: el palillo
+#### 7 · The test · 22 words · Step 6: the toothpick
 
 > A los cuarenta minutos, más o menos, clava un palillo: si sale limpio, está listo. Déjalo reposar unos minutos antes de desmoldar.
+>
+> *At forty minutes or so, stick in a toothpick: if it comes out clean, it is done. Let it rest a few minutes before unmoulding.*
 
-#### 8 · Cierre · 18 palabras · La pregunta
+#### 8 · Close · 18 words · The question
 
 > Si el próximo sale mal, no culpes a la receta: revisa cuál de estos seis pasos te saltaste.
+>
+> *If the next one goes wrong, do not blame the recipe: check which of these six steps you skipped.*
 
-**Total: 197 palabras** (≈ 1107 caracteres).
+**Total: 197 words** (≈ 1,107 characters).
 
-## v2: feedback del usuario (3-oct-2026)
+## v2: user feedback (3 Oct 2026)
 
-> *«Horrible illustration, look for home queque, no nuts on them, no circles, search on the internet homemade queque so you understand, fuente rectangular transparente para horno, queque con ceste de limon. Readjust the script. Elevenlabs is better, no batidora sound.»*
+> *"Horrible illustration, look for home queque, no nuts on them, no circles, search on the internet homemade queque so you understand, transparent rectangular oven dish, lemon zest queque. Readjust the script. Elevenlabs is better, no batidora sound."* (Spanish parts translated)
 
-| Feedback | Cambio |
+| Feedback | Change |
 | --- | --- |
-| Queque casero con **ralladura de limón** | Es un **queque de limón**: la ralladura entra en los ingredientes y al final de la masa; se saca la vainilla |
-| **Fuente rectangular transparente** para horno | Escena 6: *«fuente rectangular de vidrio, enmantequillada y enharinada»*; todas las láminas muestran esa fuente |
-| Sin frutos secos, **sin círculos** | Las láminas se piden sin círculos numerados ni burbujas redondas: flechas con punta y bolsillos de aire irregulares |
-| `elevenlabs/v3` es mejor | Voz elegida: `elevenlabs/v3`, voz `Roger`, `es` |
-| Sin sonido de batidora | **Se eliminan todos los efectos de sonido** |
-| Afirmaciones débiles | «batir de más **puede** dejarlo duro»; reposo «unos minutos»; horno «a los cuarenta minutos, más o menos» |
+| Home-made cake with **lemon zest** | It is a **lemon cake**: zest goes into the ingredients and at the end of the batter; vanilla is removed |
+| **Transparent rectangular dish** for the oven | Scene 6: *"rectangular glass dish, buttered and floured"*; all plates show that dish |
+| No nuts, **no circles** | Plates are requested without numbered circles or round bubbles: arrowheaded arrows and irregular air pockets |
+| `elevenlabs/v3` is better | Voice chosen: `elevenlabs/v3`, voice `Roger`, `es` |
+| No mixer sound | **All sound effects are removed** |
+| Weak claims | "over-beating **can** make it tough"; resting "a few minutes"; oven "at forty minutes or so" |
 
-## Revisar al leerlo en voz alta (P3)
+## Check when read aloud (P3)
 
-- [ ] ¿Los **seis pasos** se cuentan bien? (1 temperatura ambiente, 2 cremar, 3 huevos, 4 secos y leche, 5 horno, 6 palillo y reposo).
-- [ ] **Escena 5:** "batir de más desarrolla gluten, y el queque queda duro" es más categórico que la fuente. Alternativa: *"batir de más puede dejarlo duro"*.
-- [ ] **Escena 7:** "treinta y cinco, cuarenta minutos" y "diez minutos de reposo": las fuentes dicen 30–60 y "unos minutos". ¿Se deja o se dice *"cuando el palillo salga limpio"* sin minutos?
-- [ ] ¿El cierre ("revisa cuál de estos seis pasos te saltaste") deja pensar o suena a reproche?
-- [ ] ¿Es muy larga para un Short? (≈ 80 s con 20 imágenes: una cada ≈ 4 s).
+- [ ] Are the **six steps** told well? (1 room temperature, 2 creaming, 3 eggs, 4 dry and milk, 5 oven, 6 toothpick and rest).
+- [ ] **Scene 5:** "over-beating develops gluten, and the cake comes out hard" is more categorical than the source. Alternative: *"over-beating can make it tough"*.
+- [ ] **Scene 7:** "thirty-five, forty minutes" and "ten minutes of rest": the sources say 30–60 and "a few minutes". Keep it, or say *"when the toothpick comes out clean"* with no minutes?
+- [ ] Does the close ("check which of these six steps you skipped") let you think or does it sound like a reproach?
+- [ ] Is it too long for a Short? (≈ 80 s with 20 images: one every ≈ 4 s).
 
-## Dirección y prompts
+## Direction and prompts
 
-En [[Lemon cake - Status]].
+In [[Lemon cake - Status]].

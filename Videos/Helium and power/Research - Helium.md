@@ -2,69 +2,69 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: borrador · etapa 1 · pendiente de puerta P2
-tags: [investigación, youtube, helio, geopolítica, fuentes]
+status: draft · stage 1 · gate P2 approved (implicit) 3 Oct 2026
+tags: [research, youtube, helium, geopolitics, sources]
 ---
 
-# Investigación: las tensiones alrededor del helio
+# Research: the tensions around helium
 
 ← [[Helium and power - Status]] · [[Script - Helium (70 seconds)]] · [[YouTube Channel]] · [[Production process]]
 
-> **Pregunta central:** ¿qué pasa cuando un tercio del helio del mundo sale del mercado de golpe, y por qué nadie pudo reemplazarlo rápido?
-> **Datos a:** 3-oct-2026. El tema se mueve con una guerra en curso: lo marcado ⏳ puede haber cambiado. **Antes de grabar se rechequea el estado del estrecho de Ormuz y de Ras Laffan.**
+> **Central question:** what happens when a third of the world's helium leaves the market at once, and why could nobody replace it quickly?
+> **Data as of:** 3 Oct 2026. The topic moves with a war under way: what is marked ⏳ may have changed. **Before recording, the state of the Strait of Hormuz and Ras Laffan is re-checked.**
 
-## Resumen en cinco líneas
+## Summary in five lines
 
-1. El helio es un subproducto del gas natural, y su producción está en pocas manos: Estados Unidos, Qatar y Rusia suman ≈ 85 % del total.
-2. En marzo de 2026, ataques de Irán a Ras Laffan (Qatar) detuvieron el gas y, con él, ≈ un tercio del suministro mundial de helio.
-3. Casi todo el helio de Qatar sale por el estrecho de Ormuz, que la guerra dejó casi cerrado.
-4. El helio líquido no se almacena mucho tiempo (se evapora), así que no hay colchón: el precio al contado se duplicó en marzo.
-5. Las alternativas están limitadas: Rusia puso permisos de exportación hasta fines de 2027; Estados Unidos produce más que nadie, pero no cubre la falta y su reserva federal ya es privada.
+1. Helium is a by-product of natural gas, and its production is in few hands: the United States, Qatar and Russia add up to ≈ 85 % of the total.
+2. In March 2026, Iranian attacks on Ras Laffan (Qatar) stopped the gas and, with it, ≈ a third of the world's helium supply.
+3. Almost all of Qatar's helium leaves through the Strait of Hormuz, which the war left almost closed.
+4. Liquid helium cannot be stored for long (it evaporates), so there is no cushion: the spot price doubled in March.
+5. The alternatives are limited: Russia set export permits until the end of 2027; the United States produces more than anyone, but does not cover the shortfall and its federal reserve is already private.
 
-## Hoja de afirmaciones
+## Claims sheet
 
-Estado: ✅ confirmado en fuente primaria o en prensa que cita datos verificables · ⚠️ una sola fuente secundaria · ❌ no usar.
+Status: ✅ confirmed in a primary source or in press citing verifiable data · ⚠️ a single secondary source · ❌ do not use.
 
-| # | Afirmación | Estado | Fuente |
+| # | Claim | Status | Source |
 | --- | --- | --- | --- |
-| 1 | Producción mundial de helio 2025 (est.): **190 millones de m³**. EE. UU. 81 (43 %), Qatar 63 (33 %), Rusia 18 (≈ 9,5 %), Argelia 11, Canadá 6, China 3, Polonia 3 | ✅ | USGS, *Mineral Commodity Summaries*, febrero de 2026 ([PDF](https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-helium.pdf)) |
-| 2 | Usos de helio en EE. UU. (2025): análisis, laboratorio y gases especiales 22 %; atmósferas controladas, fibra óptica y **semiconductores 17 %**; globos 17 %; **resonancia magnética 15 %** | ✅ | USGS MCS 2026 (idem) |
-| 3 | "Nada sustituye al helio en aplicaciones criogénicas" por debajo de −429 °F | ✅ | USGS MCS 2026 (idem) |
-| 4 | EE. UU. no tiene reserva gubernamental de helio ("Government Stockpile: None") | ✅ | USGS MCS 2026 (idem) |
-| 5 | Sanciones de la UE y EE. UU. con prohibición de importar helio ruso continuaron en 2025 | ✅ | USGS MCS 2026 (idem) |
-| 6 | Un escáner de resonancia usa ≈ **2.000 litros** de helio líquido | ✅ | [NPR, 3-abr-2026](https://www.wwno.org/npr-news/2026-04-03/strait-of-hormuz-closure-deflates-global-helium-supply) |
-| 7 | El helio líquido "se evapora alrededor de las seis semanas" en los contenedores | ✅ | NPR, 3-abr-2026 (idem) |
-| 8 | Corea del Sur y Taiwán "sienten más la escasez": son los mayores compradores del helio de Qatar | ✅ | NPR, 3-abr-2026 (idem) |
-| 9 | Qatar produjo ≈ un tercio del helio mundial; QatarGas detuvo el 2-mar-2026 el GNL y "productos asociados" tras ataques con drones iraníes, y declaró fuerza mayor **dos días después** | ✅ | [AP vía WTOP, 21-mar-2026](https://wtop.com/news/2026/03/iran-war-halts-qatar-helium-output-threatening-global-tech-supply-chains/) |
-| 10 | Nuevos ataques a Ras Laffan a mediados de marzo: daño "extenso" que "tomará años en repararse" y recorta **14 %** las exportaciones anuales de helio | ✅ | AP vía WTOP (idem) |
-| 11 | El precio al contado del helio **se duplicó** desde que estalló la crisis (marzo) | ✅ | AP vía WTOP (idem); [Foreign Policy, 27-abr-2026](https://foreignpolicy.com/2026/04/27/iran-war-hormuz-strait-helium-semiconductors-chips-supply-chain-prices/) |
-| 12 | La mayor parte del helio de Qatar transita el estrecho de Ormuz, "efectivamente estrangulado" por la guerra | ✅ | Foreign Policy, 27-abr-2026 |
-| 13 | El helio solo se envía por mar como líquido a 4 K y es "perecedero": no se almacena a largo plazo | ✅ | Foreign Policy, 27-abr-2026 |
-| 14 | Incluso con el estrecho reabierto, normalizar el suministro tomaría **4 a 6 meses** | ✅ | Foreign Policy, 27-abr-2026 |
-| 15 | EE. UU. es el mayor productor (43 % en 2025) y su producción actual no compensa lo que Qatar dejó de aportar | ✅ | Foreign Policy; NPR |
-| 16 | Rusia introdujo el 14-abr-2026 un procedimiento temporal de **autorización de exportación de helio** fuera de la Unión Económica Euroasiática, **hasta fin de 2027** (decide el primer ministro o un viceprimer ministro) | ✅ | [Interfax, 14-abr-2026](https://interfax.com/newsroom/top-stories/117116/) |
-| 17 | Messer cerró el 27-jun-2024 la compra del Federal Helium System al BLM: Reserva Federal de Helio, campo Cliffside, tubería de 423 millas | ✅ | [Messer (comunicado)](https://www.messer-us.com/press-releases/messer-completes-acquisition-of-federal-helium-system-from-blm) |
-| 18 | Ras Laffan es "la mayor planta de GNL del mundo" | ✅ | Foreign Policy, 27-abr-2026 |
-| 19 | La venta de la reserva generó **460 millones de dólares** al Tesoro | ⚠️ | Solo medios del sector (gasworld, E&E); Messer no divulga el precio. **No se usa** |
-| 20 | Qatar volvió a arrancar parcialmente la planta Helium2 (≈ 25 % de capacidad) y Ormuz sigue casi cerrado | ⚠️ ⏳ | Una sola fuente de sector, no abierta. **No se usa**; rechequear antes de grabar |
-| 21 | El CEO de QatarEnergy estima reparaciones completas en 3 a 5 años | ⚠️ ⏳ | Solo en agregadores; no abierto. **No se usa**; se dice "años" como AP |
-| 22 | Precios al contado de 600 a 900 dólares por Mcf, con proyecciones de 2.000 | ❌ | Blogs sin fuente primaria. **No se usa** |
-| 23 | Línea de tiempo exacta de los ataques: 28-feb, 2-mar o 18–19-mar | ⚠️ | Las fuentes difieren (drones el 2-mar según AP; misiles el 18–19-mar según agregadores). El guion dice solo "en marzo de 2026" |
-| 24 | El helio de Qatar es subproducto del gas natural licuado | ✅ | Consistente en AP (GNL y "productos asociados") y USGS (el helio se extrae del gas natural); el guion lo dice como "con el gas se detuvo el helio" |
+| 1 | World helium production 2025 (est.): **190 million m³**. US 81 (43 %), Qatar 63 (33 %), Russia 18 (≈ 9.5 %), Algeria 11, Canada 6, China 3, Poland 3 | ✅ | USGS, *Mineral Commodity Summaries*, February 2026 ([PDF](https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-helium.pdf)) |
+| 2 | Helium uses in the US (2025): analysis, laboratory and specialty gases 22 %; controlled atmospheres, optical fibre and **semiconductors 17 %**; balloons 17 %; **MRI 15 %** | ✅ | USGS MCS 2026 (same) |
+| 3 | "Nothing substitutes for helium in cryogenic applications" below −429 °F | ✅ | USGS MCS 2026 (same) |
+| 4 | The US has no government helium reserve ("Government Stockpile: None") | ✅ | USGS MCS 2026 (same) |
+| 5 | EU and US sanctions banning imports of Russian helium continued in 2025 | ✅ | USGS MCS 2026 (same) |
+| 6 | An MRI scanner uses ≈ **2,000 litres** of liquid helium | ✅ | [NPR, 3 Apr 2026](https://www.wwno.org/npr-news/2026-04-03/strait-of-hormuz-closure-deflates-global-helium-supply) |
+| 7 | Liquid helium "evaporates around six weeks" in containers | ✅ | NPR, 3 Apr 2026 (same) |
+| 8 | South Korea and Taiwan "feel the shortage most": they are the largest buyers of Qatar's helium | ✅ | NPR, 3 Apr 2026 (same) |
+| 9 | Qatar produced ≈ a third of the world's helium; QatarGas halted LNG and "associated products" on 2 Mar 2026 after Iranian drone attacks, and declared force majeure **two days later** | ✅ | [AP via WTOP, 21 Mar 2026](https://wtop.com/news/2026/03/iran-war-halts-qatar-helium-output-threatening-global-tech-supply-chains/) |
+| 10 | New attacks on Ras Laffan in mid-March: "extensive" damage that "will take years to repair" and cuts annual helium exports by **14 %** | ✅ | AP via WTOP (same) |
+| 11 | The spot price of helium **doubled** since the crisis broke out (March) | ✅ | AP via WTOP (same); [Foreign Policy, 27 Apr 2026](https://foreignpolicy.com/2026/04/27/iran-war-hormuz-strait-helium-semiconductors-chips-supply-chain-prices/) |
+| 12 | Most of Qatar's helium transits the Strait of Hormuz, "effectively strangled" by the war | ✅ | Foreign Policy, 27 Apr 2026 |
+| 13 | Helium is only shipped by sea as a liquid at 4 K and is "perishable": it is not stored long term | ✅ | Foreign Policy, 27 Apr 2026 |
+| 14 | Even with the strait reopened, normalising supply would take **4 to 6 months** | ✅ | Foreign Policy, 27 Apr 2026 |
+| 15 | The US is the largest producer (43 % in 2025) and its current production does not offset what Qatar stopped supplying | ✅ | Foreign Policy; NPR |
+| 16 | Russia introduced on 14 Apr 2026 a temporary **helium export authorization** procedure outside the Eurasian Economic Union, **until the end of 2027** (decided by the prime minister or a deputy prime minister) | ✅ | [Interfax, 14 Apr 2026](https://interfax.com/newsroom/top-stories/117116/) |
+| 17 | Messer closed on 27 Jun 2024 the purchase of the Federal Helium System from the BLM: Federal Helium Reserve, Cliffside field, 423-mile pipeline | ✅ | [Messer (press release)](https://www.messer-us.com/press-releases/messer-completes-acquisition-of-federal-helium-system-from-blm) |
+| 18 | Ras Laffan is "the world's largest LNG plant" | ✅ | Foreign Policy, 27 Apr 2026 |
+| 19 | The sale of the reserve brought **460 million dollars** to the Treasury | ⚠️ | Only trade outlets (gasworld, E&E); Messer does not disclose the price. **Not used** |
+| 20 | Qatar partially restarted the Helium2 plant (≈ 25 % of capacity) and Hormuz remains almost closed | ⚠️ ⏳ | A single trade source, not opened. **Not used**; re-check before recording |
+| 21 | QatarEnergy's CEO estimates full repairs in 3 to 5 years | ⚠️ ⏳ | Only on aggregators; not opened. **Not used**; "years" is said as AP does |
+| 22 | Spot prices of 600 to 900 dollars per Mcf, with projections of 2,000 | ❌ | Blogs without a primary source. **Not used** |
+| 23 | Exact timeline of the attacks: 28 Feb, 2 Mar or 18–19 Mar | ⚠️ | Sources differ (drones on 2 Mar per AP; missiles on 18–19 Mar per aggregators). The script says only "in March 2026" |
+| 24 | Qatar's helium is a by-product of liquefied natural gas | ✅ | Consistent in AP (LNG and "associated products") and USGS (helium is extracted from natural gas); the script says it as "with the gas, the helium stopped" |
 
-## Contradicciones y huecos abiertos
+## Contradictions and open gaps
 
-- **Cuánto helio salió realmente del mercado.** AP y varias fuentes dicen ≈ 30–33 %; un artículo de AGBI de marzo hablaba de 11 %. Se usa el dato de AP/USGS (un tercio), con la cautela de que la cifra de "daño permanente" es otra (14 %).
-- **Estado actual de Ormuz y de la reanudación en Qatar** (⏳). Hay fuentes de agosto-septiembre que lo describen como casi cerrado, pero ninguna se abrió completa. El guion habla en pasado ("la guerra dejó casi cerrado") y se rechequea antes de grabar.
-- **Precio hoy.** Solo hay "se duplicó en marzo". No hay una serie de precios verificable en fuente abierta.
+- **How much helium actually left the market.** AP and several sources say ≈ 30–33 %; an AGBI article from March said 11 %. The AP/USGS figure (a third) is used, with the caution that the "permanent damage" figure is a different one (14 %).
+- **Current state of Hormuz and of the restart in Qatar** (⏳). There are August–September sources describing it as almost closed, but none was opened in full. The script speaks in the past ("the war left it almost closed") and is re-checked before recording.
+- **Price today.** There is only "it doubled in March". There is no verifiable price series in an open source.
 
-## Fuentes abiertas
+## Open sources
 
-- USGS, *Mineral Commodity Summaries 2026*, Helium and Rare Gases (feb-2026).
-- AP, vía WTOP, "Iran war halts Qatar helium output, threatening global tech supply chains", 21-mar-2026.
-- NPR, "Strait of Hormuz closure deflates global helium supply", 3-abr-2026.
-- Foreign Policy, "The Hormuz Hit to Helium", 27-abr-2026.
-- Interfax, "Russia introduces export authorization for helium", 14-abr-2026.
-- Messer, comunicado de cierre de la compra del Federal Helium System, 27-jun-2024.
+- USGS, *Mineral Commodity Summaries 2026*, Helium and Rare Gases (Feb 2026).
+- AP, via WTOP, "Iran war halts Qatar helium output, threatening global tech supply chains", 21 Mar 2026.
+- NPR, "Strait of Hormuz closure deflates global helium supply", 3 Apr 2026.
+- Foreign Policy, "The Hormuz Hit to Helium", 27 Apr 2026.
+- Interfax, "Russia introduces export authorization for helium", 14 Apr 2026.
+- Messer, press release on closing the purchase of the Federal Helium System, 27 Jun 2024.
 
-Fuentes que **no se pudieron abrir** (403 o contenido truncado): gasworld, Tom's Hardware. Lo que solo aparece ahí se marca ⚠️.
+Sources that **could not be opened** (403 or truncated content): gasworld, Tom's Hardware. What only appears there is marked ⚠️.

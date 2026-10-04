@@ -2,73 +2,73 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: borrador v2 · 24 afirmaciones · 6 débiles · premisa confirmada
-tags: [investigación, youtube, potencias, bicicleta]
+status: draft v2 · 24 claims · 6 weak · premise confirmed · P2 approved 3 Oct 2026
+tags: [research, youtube, stems, bicycle]
 ---
 
-# Investigación · Potencias de bici
+# Research · Bike stems
 
 ← [[Bike stems - Status]] · [[Script - Bike stems (40 seconds)]] · [[YouTube Channel]]
 
-**Premisa confirmada por el usuario (3-oct-2026):** «tees» = **potencias** (*stems*): la pieza que une la horquilla con el manillar.
+**Premise confirmed by the user (3 Oct 2026):** "tees" = **stems** (*potencias* in Spanish): the part that joins the fork to the handlebar.
 
-**Datos a:** 3-oct-2026. Los resúmenes de páginas los hizo un modelo pequeño: las cifras con ⚠️ conviene verificarlas en la fuente original antes de publicar.
+**Data as of:** 3 Oct 2026. The page summaries were made by a small model: the figures marked ⚠️ should be verified at the original source before publishing.
 
-| # | Afirmación | Fuente | Estado |
+| # | Claim | Source | Status |
 | --- | --- | --- | --- |
-| 1 | La potencia de tubo (*quill*) entra en la horquilla y se fija con una cuña o cono que se expande con un perno largo; se estimó en hasta el 80 % de las bicis anteriores a mediados de los 80 | [Wikipedia](https://en.wikipedia.org/wiki/Stem_(bicycle_part)), [Rehook](https://rehook.bike/blogs/saddle-slang-the-dictionary-of-cycling-lingo/quill-stem), [Velo](https://velo.outsideonline.com/2017/08/origins-how-the-aheadset-threadless-headset-changed-bikes-forever/?scope=anon) | ✅ el mecanismo; ⚠️ el 80 % es de un solo sitio (**no se usa**) |
-| 2 | Con la potencia de tubo la horquilla era más corta y llevaba rosca exterior arriba | Velo, Wikipedia | ✅ |
-| 3 | Cinelli presentó la potencia de aluminio **1A** en 1960; se produjo desde 1963 y se fabricó casi sin cambios más de 30 años; fue la primera de aluminio de uso masivo entre profesionales | [BikeRadar](https://www.bikeradar.com/features/design-classic-cinelli-stems), [Cinelli](https://cinelli-milano.com/pages/history) | ⚠️ las fuentes dan 1960 (presentación) y 1963 (producción); el guion dice «1960» |
-| 4 | Las 1A clásicas llevaban pinza de 26,4 mm y ángulo de 73° | tienda de piezas vintage ([SS Cycleworks](https://sscycleworks.com/components/stem-cinelli-1A-26-4-bar.html)) | ⚠️ una sola fuente comercial (**no se usa**) |
-| 5 | **Aheadset (sin rosca):** John Rader lo diseñó y dio la licencia exclusiva a Dia-Compe en 1990; patente US 5095770, pedida el 28-sep-1990 y concedida el 17-mar-1992 | [Velo](https://velo.outsideonline.com/2017/08/origins-how-the-aheadset-threadless-headset-changed-bikes-forever/?scope=anon), [Wikipedia: Dia-Compe](https://en.wikipedia.org/wiki/Dia-Compe) | ✅ año; el número de patente viene de un resumen de búsqueda |
-| 6 | Ventajas del sin rosca: más ligero (permite horquillas de aluminio, titanio o carbono), ajuste con una llave Allen en vez de dos llaves grandes, y precarga con una tuerca estrellada en vez de dos tuercas que se aflojaban | Velo | ✅ |
-| 7 | **Costo:** con el sin rosca ya no se sube ni baja la potencia con un solo perno; la altura se ajusta con espaciadores | Velo | ✅ |
-| 8 | Las primeras compras de fabricantes fueron del orden de cientos en los primeros años (Norco, Rocky Mountain, Raleigh) y luego GT, Trek y Specialized | Velo | ✅ |
-| 9 | Pinza del manillar: 25,4 mm (norma ISO, MTB y muchas bicis japonesas) y 26,0 mm (estándar italiano de ruta) | [BikeGremlin](https://bike.bikegremlin.com/3784/bicycle-handlebar-dimension-standards/), [Bikepacking](https://bikepacking.com/gear/stem-clamp-diameters/) | ✅ |
-| 10 | **31,8 mm:** surgió a finales de los 90 (Funn, manillar «Fatboy Slim»); hoy es el estándar | Bikepacking | ⚠️ una sola fuente para el origen; ✅ que es el estándar actual |
-| 11 | **35 mm:** lanzado por Easton en 2012 para uso de alta carga (descenso), al ensancharse los manillares por encima de 800 mm; los fabricantes afirman más rigidez y menos peso | Bikepacking, [BikeRadar](https://bikeradar.com/features/trail-tech-a-new-handlebar-standard-in-the-making) | ✅ año y fabricante; «más rígido» es **afirmación de marca** |
-| 12 | **Tubo de dirección cónico:** Giant presentó OverDrive 2 (1,25″ a 1,5″) en 2012; el estándar sin rosca habitual es 1 1/8″ | [Velo](https://velo.outsideonline.com/gear/giant-adds-new-technologies-bigger-stems-integrated-sensors-internal-cables-more-to-2012-road-line/?scope=anon), [BikeRadar](https://www.bikeradar.com/news/giant-2012-road-launch) | ✅ |
-| 13 | **Largo:** en los 90 las potencias de MTB pasaban de 100 mm; hoy en MTB de trail y enduro van de 35 a 60 mm, y en ruta de 80 a 120 mm | [Cane Creek](https://www.canecreek.com/blogs/journal/how-to-choose-the-right-bicycle-stem-length), [BikePerfect](https://bikeperfect.com/features/why-shorter-stems-are-better), [Merlin](https://www.merlincycles.com/stem-guide.html) | ⚠️ rangos de blogs y tiendas, no de un estudio; se dicen como «entre … y …» |
-| 14 | **Integrado:** en ruta de alta gama manillar y potencia ya son una sola pieza de carbono (menos peso, más rigidez, mejor aerodinámica; más difícil de ajustar y de reparar) | [Trek](https://bikes.com.au/products/trek-aero-rsl-road-integrated-handlebar-stem), [Bicycling Australia](https://bicyclingaustralia.com.au/gear/tested-exs-aerover-integrated-handlebar-style-speed-or-both/) | ✅ la tendencia; ⚠️ «más rígido y aero» es discurso de marca |
+| 1 | The quill stem enters the fork and is fixed with a wedge or cone that expands with a long bolt; estimated at up to 80 % of bikes before the mid-80s | [Wikipedia](https://en.wikipedia.org/wiki/Stem_(bicycle_part)), [Rehook](https://rehook.bike/blogs/saddle-slang-the-dictionary-of-cycling-lingo/quill-stem), [Velo](https://velo.outsideonline.com/2017/08/origins-how-the-aheadset-threadless-headset-changed-bikes-forever/?scope=anon) | ✅ the mechanism; ⚠️ the 80 % is from a single place (**not used**) |
+| 2 | With the quill stem the fork was shorter and carried an external thread at the top | Velo, Wikipedia | ✅ |
+| 3 | Cinelli presented the **1A** aluminium stem in 1960; it was produced from 1963 and made almost unchanged for over 30 years; it was the first mass-use aluminium one among professionals | [BikeRadar](https://www.bikeradar.com/features/design-classic-cinelli-stems), [Cinelli](https://cinelli-milano.com/pages/history) | ⚠️ the sources give 1960 (presentation) and 1963 (production); the script says "1960" |
+| 4 | Classic 1As had a 26.4 mm clamp and a 73° angle | vintage parts shop ([SS Cycleworks](https://sscycleworks.com/components/stem-cinelli-1A-26-4-bar.html)) | ⚠️ a single commercial source (**not used**) |
+| 5 | **Aheadset (threadless):** John Rader designed it and gave an exclusive license to Dia-Compe in 1990; patent US 5095770, filed on 28 Sep 1990 and granted on 17 Mar 1992 | [Velo](https://velo.outsideonline.com/2017/08/origins-how-the-aheadset-threadless-headset-changed-bikes-forever/?scope=anon), [Wikipedia: Dia-Compe](https://en.wikipedia.org/wiki/Dia-Compe) | ✅ year; the patent number comes from a search summary |
+| 6 | Advantages of threadless: lighter (allows aluminium, titanium or carbon forks), adjustment with one Allen key instead of two large wrenches, and preload with a star nut instead of two nuts that worked loose | Velo | ✅ |
+| 7 | **Cost:** with threadless the stem can no longer be raised or lowered with a single bolt; the height is adjusted with spacers | Velo | ✅ |
+| 8 | The first purchases by manufacturers were on the order of hundreds in the early years (Norco, Rocky Mountain, Raleigh) and later GT, Trek and Specialized | Velo | ✅ |
+| 9 | Handlebar clamp: 25.4 mm (ISO standard, MTB and many Japanese bikes) and 26.0 mm (Italian road standard) | [BikeGremlin](https://bike.bikegremlin.com/3784/bicycle-handlebar-dimension-standards/), [Bikepacking](https://bikepacking.com/gear/stem-clamp-diameters/) | ✅ |
+| 10 | **31.8 mm:** emerged in the late 90s (Funn, "Fatboy Slim" handlebar); today it is the standard | Bikepacking | ⚠️ a single source for the origin; ✅ that it is the current standard |
+| 11 | **35 mm:** launched by Easton in 2012 for high-load use (downhill), as handlebars widened beyond 800 mm; manufacturers claim more stiffness and less weight | Bikepacking, [BikeRadar](https://bikeradar.com/features/trail-tech-a-new-handlebar-standard-in-the-making) | ✅ year and manufacturer; "stiffer" is a **brand claim** |
+| 12 | **Tapered head tube:** Giant presented OverDrive 2 (1.25″ to 1.5″) in 2012; the usual threadless standard is 1 1/8″ | [Velo](https://velo.outsideonline.com/gear/giant-adds-new-technologies-bigger-stems-integrated-sensors-internal-cables-more-to-2012-road-line/?scope=anon), [BikeRadar](https://www.bikeradar.com/news/giant-2012-road-launch) | ✅ |
+| 13 | **Length:** in the 90s MTB stems exceeded 100 mm; today in trail and enduro MTB they run from 35 to 60 mm, and on the road from 80 to 120 mm | [Cane Creek](https://www.canecreek.com/blogs/journal/how-to-choose-the-right-bicycle-stem-length), [BikePerfect](https://bikeperfect.com/features/why-shorter-stems-are-better), [Merlin](https://www.merlincycles.com/stem-guide.html) | ⚠️ ranges from blogs and shops, not from a study; said as "between … and …" |
+| 14 | **Integrated:** on high-end road bikes handlebar and stem are already a single carbon piece (less weight, more stiffness, better aerodynamics; harder to adjust and to repair) | [Trek](https://bikes.com.au/products/trek-aero-rsl-road-integrated-handlebar-stem), [Bicycling Australia](https://bicyclingaustralia.com.au/gear/tested-exs-aerover-integrated-handlebar-style-speed-or-both/) | ✅ the trend; ⚠️ "stiffer and aero" is brand talk |
 
-## Ronda 2 · bicis de ruta antiguas y todos los tipos de montaje
+## Round 2 · old road bikes and all mount types
 
-| # | Afirmación | Fuente | Estado |
+| # | Claim | Source | Status |
 | --- | --- | --- | --- |
-| 15 | **1885, Rover (J. K. Starley):** manillar curvado hacia atrás conectado directamente a la horquilla («dirección directa»); el Mark I de 1884 usaba dirección indirecta con una varilla, y fue el Mark II el que pasó al sistema directo | [Wikipedia: J. K. Starley](https://en.wikipedia.org/wiki/John_Kemp_Starley), [road.cc](https://road.cc/feature/where-it-all-began-a-deep-dive-into-the-rover-safety-bicycle-the-first-commercially-successful-modern-bike-from-1885) | ✅ la dirección directa; ⚠️ **no encontré cómo se fijaba el manillar** (no se afirma que hubiera una «potencia») |
-| 16 | El término *quill stem* se usó por primera vez a principios de 1900 en el Reino Unido | [Rehook](https://rehook.bike/blogs/saddle-slang-the-dictionary-of-cycling-lingo/quill-stem) | ⚠️ una sola fuente (**no se usa**) |
-| 17 | **Montaje de tubo, dos variantes:** una cuña (la parte baja del tubo se corta en diagonal y el perno la empuja contra la pared) o un cono expansor | [Sheldon Brown](https://www.sheldonbrown.com/headsets.html), [Cinelli (piezas)](https://www.treefortbikes.com/Cinelli-1A-1-Quill-Stem-Replacement-Expander-Bolt) | ✅ |
-| 18 | El cono ocupa menos espacio dentro del tubo; las 1A y las 3TTT antiguas llevaban cono, las Nitto casi siempre cuña | tiendas de piezas ([Tree Fort](https://www.treefortbikes.com/Cinelli-1A-1-Quill-Stem-Replacement-Expander-Bolt), [Velomine](https://velomine.com/products/nitto-expander-bolt-wedge-for-technomic-stems-8x1-25x230mm)) | ⚠️ fuentes comerciales (**solo como dato de apoyo**) |
-| 19 | El vástago de tubo mide **22,2 mm (7/8″)** para una dirección roscada de 1″ y **25,4 mm (1″)** para una de 1 1/8″ roscada (hay un octavo de pulgada de juego con la horquilla) | Sheldon Brown | ✅ |
-| 20 | Existían varias normas de rosca de dirección: británica (ISO), italiana, francesa y JIS | [The Retrogrouch](http://bikeretrogrouch.blogspot.com/2013/10/threadless-and-quill-stems.html) | ✅ (blog especializado) |
-| 21 | **Cinelli:** las primeras potencias (acero) las fabricaron Cino y Giotto hacia 1946-47 en Florencia; la producción pasó a Milán entre 1948 y 1950; pasaron al aluminio **en 1963** por preocupación por la resistencia | [BikeRadar](https://www.bikeradar.com/features/design-classic-cinelli-stems), [Classic Rendezvous](https://classicrendezvous.com/country-of-origin/italy/losa-giovanni/cinelli/timeline/), [Velo-Retro](http://www.velo-retro.com/cinellitline.html) | ✅ las fechas aproximadas; ⚠️ la 1A se **presentó en 1960**, su producción comenzó en 1963 |
-| 22 | La clave de las Cinelli: **pinza ancha** que reparte la carga en la zona más tensionada del manillar, con centro de 26,4 mm (mayor que el de otros fabricantes) | BikeRadar | ✅ |
-| 23 | Las potencias de tubo tienen más margen de altura antes de tener que cortar la horquilla; pero se pueden «congelar» por corrosión y hinchar la horquilla si se aprieta de más | Retrogrouch | ✅ |
-| 24 | Mejora del sin rosca a principios de los 90: **placa frontal desmontable** (el manillar se monta sin desarmar nada) | [Slowtwitch](https://www.slowtwitch.com/cycling/the-stem/) | ✅ |
+| 15 | **1885, Rover (J. K. Starley):** handlebar curved backward connected directly to the fork ("direct steering"); the 1884 Mark I used indirect steering with a rod, and the Mark II moved to the direct system | [Wikipedia: J. K. Starley](https://en.wikipedia.org/wiki/John_Kemp_Starley), [road.cc](https://road.cc/feature/where-it-all-began-a-deep-dive-into-the-rover-safety-bicycle-the-first-commercially-successful-modern-bike-from-1885) | ✅ the direct steering; ⚠️ **I did not find how the handlebar was fixed** (it is not claimed there was a "stem") |
+| 16 | The term *quill stem* was first used in the early 1900s in the UK | [Rehook](https://rehook.bike/blogs/saddle-slang-the-dictionary-of-cycling-lingo/quill-stem) | ⚠️ a single source (**not used**) |
+| 17 | **Quill mount, two variants:** a wedge (the lower part of the tube is cut diagonally and the bolt pushes it against the wall) or an expander cone | [Sheldon Brown](https://www.sheldonbrown.com/headsets.html), [Cinelli (parts)](https://www.treefortbikes.com/Cinelli-1A-1-Quill-Stem-Replacement-Expander-Bolt) | ✅ |
+| 18 | The cone takes less space inside the tube; old 1As and 3TTTs carried a cone, Nittos almost always a wedge | parts shops ([Tree Fort](https://www.treefortbikes.com/Cinelli-1A-1-Quill-Stem-Replacement-Expander-Bolt), [Velomine](https://velomine.com/products/nitto-expander-bolt-wedge-for-technomic-stems-8x1-25x230mm)) | ⚠️ commercial sources (**supporting fact only**) |
+| 19 | The quill shaft measures **22.2 mm (7/8″)** for a 1″ threaded headset and **25.4 mm (1″)** for a 1 1/8″ threaded one (there is an eighth of an inch of clearance with the fork) | Sheldon Brown | ✅ |
+| 20 | There were several headset-thread standards: British (ISO), Italian, French and JIS | [The Retrogrouch](http://bikeretrogrouch.blogspot.com/2013/10/threadless-and-quill-stems.html) | ✅ (specialist blog) |
+| 21 | **Cinelli:** the first (steel) stems were made by Cino and Giotto around 1946-47 in Florence; production moved to Milan between 1948 and 1950; they went to aluminium **in 1963** out of strength concerns | [BikeRadar](https://www.bikeradar.com/features/design-classic-cinelli-stems), [Classic Rendezvous](https://classicrendezvous.com/country-of-origin/italy/losa-giovanni/cinelli/timeline/), [Velo-Retro](http://www.velo-retro.com/cinellitline.html) | ✅ the approximate dates; ⚠️ the 1A was **presented in 1960**, its production began in 1963 |
+| 22 | The key of the Cinellis: a **wide clamp** that spreads the load over the most stressed zone of the handlebar, with a 26.4 mm centre (larger than other makers') | BikeRadar | ✅ |
+| 23 | Quill stems have more height margin before the fork has to be cut; but they can "freeze" by corrosion and swell the fork if over-tightened | Retrogrouch | ✅ |
+| 24 | Improvement of threadless in the early 90s: **removable front plate** (the handlebar is mounted without dismantling anything) | [Slowtwitch](https://www.slowtwitch.com/cycling/the-stem/) | ✅ |
 
-### Tipos de montaje (mapa completo, para la lámina y para un video largo)
+### Mount types (full map, for the plate and for a long video)
 
-| Tipo | Cómo se fija a la bici | Notas | Fuente |
+| Type | How it fixes to the bike | Notes | Source |
 | --- | --- | --- | --- |
-| **Tubo con cuña** | Dentro de la horquilla roscada, cuña que se expande | Estándar hasta los 80 | Sheldon Brown |
-| **Tubo con cono** | Igual, con cono expansor | Más compacto | piezas ⚠️ |
-| **Sin rosca (Aheadset)** | Pinza por fuera de una horquilla lisa; tapa y tuerca estrellada precargan el rodamiento | Desde 1990; placa frontal desmontable | Velo, Slowtwitch |
-| **Montaje directo (*direct mount*)** | Se atornilla directo a la corona de la horquilla, sin tubo | Un perno; más rigidez, popular en MTB | [Rehook](https://rehook.bike/blogs/saddle-slang-the-dictionary-of-cycling-lingo/direct-mount-stem) |
-| **Ángulo ajustable** | Articulación para cambiar el ángulo (de +60° a −40° en un modelo) | Útil para probar la posición | tiendas (BBB, Rose) ⚠️ |
-| **BMX de carga frontal / superior** | La pinza del manillar abre por delante o por arriba | Carga superior sube el manillar (≥ 30 mm en algunos) | tiendas de BMX ⚠️ |
-| **BMX de cuatro pernos** | Cuatro pernos en la pinza | Usadas en BMX desde los 60 | [MTB Timeline](https://mtbtimeline.com/wiki/tech/slingshot) |
-| **Slingshot / *bullmoose*** | Potencia y manillar unidos; SR MTS-100 en 1982 | Antecesora de la pieza integrada | MTB Timeline |
-| **Pista (*pista*)** | Potencias muy bajas y largas para posiciones aerodinámicas | De Titan, Philippe, Cinelli | [The Radavist](https://theradavist.com/two-wild-vintage-stems-from-ebay) ⚠️ |
-| **Integrada** | Manillar y potencia en una sola pieza de carbono | Menos ajuste | Trek, Bicycling Australia |
+| **Quill with wedge** | Inside the threaded fork, an expanding wedge | Standard until the 80s | Sheldon Brown |
+| **Quill with cone** | Same, with an expander cone | More compact | parts ⚠️ |
+| **Threadless (Aheadset)** | Clamp on the outside of a smooth fork; cap and star nut preload the bearing | Since 1990; removable front plate | Velo, Slowtwitch |
+| **Direct mount** | Bolts directly to the fork crown, with no tube | One bolt; more stiffness, popular in MTB | [Rehook](https://rehook.bike/blogs/saddle-slang-the-dictionary-of-cycling-lingo/direct-mount-stem) |
+| **Adjustable angle** | Hinge to change the angle (from +60° to −40° on one model) | Useful for trying the position | shops (BBB, Rose) ⚠️ |
+| **BMX front / top load** | The handlebar clamp opens at the front or the top | Top load raises the handlebar (≥ 30 mm on some) | BMX shops ⚠️ |
+| **BMX four-bolt** | Four bolts on the clamp | Used in BMX since the 60s | [MTB Timeline](https://mtbtimeline.com/wiki/tech/slingshot) |
+| **Slingshot / *bullmoose*** | Stem and handlebar joined; SR MTS-100 in 1982 | Ancestor of the integrated piece | MTB Timeline |
+| **Track (*pista*)** | Very low, long stems for aerodynamic positions | By Titan, Philippe, Cinelli | [The Radavist](https://theradavist.com/two-wild-vintage-stems-from-ebay) ⚠️ |
+| **Integrated** | Handlebar and stem in one carbon piece | Less adjustment | Trek, Bicycling Australia |
 
-## Lo que sigue sin respaldo (y por eso no está en el guion)
+## What remains unsupported (and so is not in the script)
 
-- **Cómo se fijaba el manillar a la horquilla antes de 1900** (alta rueda y primeras «safety»): sin fuente fechada. **El guion empieza con la potencia de tubo** y no inventa un origen.
-- **Quién inventó la cuña y cuándo** (se habla de «a principios de 1900» para el nombre, de una sola fuente).
-- **Efecto del largo en la maniobra** (más corta = dirección más rápida): lo dicen marcas y blogs, no un estudio.
-- **Cuántos mm cambia el ajuste:** no hay cifra universal; se muestra el mecanismo.
-- Para llegar a **1880–1950** habría que ir a libros o archivos (por ejemplo, un museo de bicicletas); no se resolvió con la web.
+- **How the handlebar was fixed to the fork before 1900** (high-wheelers and first "safeties"): no dated source. **The script starts with the quill stem** and does not invent an origin.
+- **Who invented the wedge and when** (the name is dated "in the early 1900s", from a single source).
+- **Effect of length on handling** (shorter = quicker steering): said by brands and blogs, not a study.
+- **How many mm the adjustment changes:** there is no universal figure; the mechanism is shown.
+- To reach **1880–1950** one would have to go to books or archives (for example a bicycle museum); it was not solved with the web.
 
-## Idea que hace pensar
+## Idea that makes you think
 
-Cada generación ganó algo y perdió otra cosa: la de tubo se ajustaba fácil pero era pesada; la sin rosca es ligera pero ajusta menos; la integrada es rígida y aero pero casi no se ajusta. **Una mejora siempre es un intercambio.**
+Each generation gained something and lost something else: the quill was easy to adjust but heavy; threadless is light but adjusts less; the integrated is stiff and aero but barely adjusts. **An improvement is always a trade-off.**

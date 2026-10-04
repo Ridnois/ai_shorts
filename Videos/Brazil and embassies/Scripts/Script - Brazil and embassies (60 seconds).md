@@ -2,111 +2,126 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: v4 · v3 aprobado (P3) · v4 recortada por el usuario al ritmo de la voz (3-oct-2026)
-tags: [investigación, youtube, guion, brasil, shorts]
+status: v4 · v3 approved (P3) · v4 trimmed by the user to the pace of the voice (3 Oct 2026) · recorded in Spanish
+tags: [research, youtube, script, brazil, shorts]
 ---
 
-# Guion: tres casos, tres finales (Short de 60 s)
+# Script: three cases, three endings (60 s Short)
 
 ← [[Brazil and embassies - Status]] · [[Research - Brazil and embassies]] · [[YouTube Channel]] · [[Fast workflow]] · [[Narration guide]]
 
-> **Formato:** Short vertical 9:16, 60 s, **153 palabras** (≈ 59 s; se mide con la voz real en P5).
-> **Pregunta central:** antes de votar, ¿qué dice de un candidato que un caso judicial termine en condena, en anulación o en archivo?
-> **Datos a:** 3-oct-2026. Fuentes en [[Research - Brazil and embassies]].
-> **Idea que hace pensar:** los tres apellidos tienen casos con **finales distintos**: una condena firme (Jair), una anulación (Lula) y un archivo por pruebas anuladas (Flávio, que además tiene una investigación nueva). **Cuando un caso cae por el procedimiento, nadie llega a juzgar los hechos.** El guion no dice quién es culpable: deja la pregunta al espectador.
+> **Language:** recorded in **Spanish** before the English-only decision. Each scene shows the recorded Spanish text and an English translation.
+> **Format:** vertical 9:16 Short, 60 s, **153 words** (v3; ≈ 59 s; measured with the real voice at P5).
+> **Central question:** before voting, what does it say about a candidate that a court case ends in a conviction, an annulment or a dismissal?
+> **Data as of:** 3 Oct 2026. Sources in [[Research - Brazil and embassies]].
+> **Idea that makes you think:** the three surnames have cases with **different endings**: a final conviction (Jair), an annulment (Lula) and a dismissal because evidence was annulled (Flávio, who also has a new investigation). **When a case falls on procedure, nobody gets to judge the facts.** The script does not say who is guilty: it leaves the question to the viewer.
 
-## Feedback del usuario
+## User feedback
 
-Foco en los candidatos, sus crimenes y como se sabotea la eleccion, se sospecha cohercion para sabotear las votaciones,
+Focus on the candidates, their crimes and how the election is sabotaged; coercion is suspected as a way to sabotage the voting (translated from the user's Spanish).
 
-- **Feedback 1:** enfocar en los candidatos, sus delitos y el sabotaje o coacción de la elección.
-- **Feedback 2:** profundizar en los delitos de los candidatos y **hacer pensar al espectador**.
+- **Feedback 1:** focus on the candidates, their crimes and the sabotage or coercion of the election.
+- **Feedback 2:** go deeper into the candidates' crimes and **make the viewer think**.
 
-## Reglas de rigor
+## Rigor rules
 
-1. **Condenado ≠ acusado ≠ investigado ≠ archivado.** Cada caso lleva su palabra exacta y su fecha.
-2. **Lo que dijo el tribunal, no lo que se supone.** "Anulada" no es "inocente" ni "culpable"; el guion lo dice con las palabras del fallo (tribunal no competente, juez parcial, pruebas anuladas).
-3. **Mismo tratamiento para los tres:** hecho, desenlace y una frase. Nadie recibe adjetivos.
-4. **Los dos hechos que más sirven al "pensar"** son verificables: la anulación de Lula fue por competencia y parcialidad del juez (no sobre los hechos); la de Flávio fue por pruebas obtenidas con una decisión judicial anulada (el Ministerio Público dijo que podía reabrir con el informe del Coaf, que sigue válido).
-5. **Sin afirmar sabotaje.** La coacción y la compra de votos se citan con cifras; no se atribuyen a nadie.
+1. **Convicted ≠ accused ≠ investigated ≠ dismissed.** Each case carries its exact word and date.
+2. **What the court said, not what is assumed.** "Annulled" is not "innocent" or "guilty"; the script says it in the words of the ruling (court not competent, partial judge, annulled evidence).
+3. **Same treatment for all three:** fact, outcome and one sentence. Nobody gets adjectives.
+4. **The two facts that serve "thinking" best** are verifiable: Lula's annulment was for the judge's competence and partiality (not about the facts); Flávio's was for evidence obtained with an annulled judicial decision (the Public Prosecutor said it could reopen with the Coaf report, which remains valid).
+5. **No claim of sabotage.** Coercion and vote buying are cited with figures; they are not attributed to anyone.
 
-## Guion
+## Script (v4, recorded)
 
-#### 1 · Gancho (0–4 s) · 10 palabras
+#### 1 · Hook (0–4 s) · 10 words
 
 > Brasil vota este domingo. Tres casos judiciales, tres finales distintos.
+>
+> *Brazil votes this Sunday. Three court cases, three different endings.*
 
-#### 2 · Jair Bolsonaro: condena firme (4–10 s) · 15 palabras
+#### 2 · Jair Bolsonaro: final conviction (4–10 s) · 15 words
 
 > Jair Bolsonaro, inhabilitado hasta 2030: condenado a veintisiete años por intentar un golpe. Condena firme.
+>
+> *Jair Bolsonaro, barred until 2030: sentenced to twenty-seven years for attempting a coup. Final conviction.*
 
-#### 3 · Lula: anulación (10–17 s) · 16 palabras
+#### 3 · Lula: annulment (10–17 s) · 16 words
 
 > Lula: condenado en 2017. En 2021 el Supremo anuló las condenas: tribunal no competente, juez parcial.
+>
+> *Lula: convicted in 2017. In 2021 the Supreme Court annulled the convictions: court not competent, partial judge.*
 
-#### 4 · Flávio Bolsonaro: archivo e investigación nueva (17–31 s) · 32 palabras
+#### 4 · Flávio Bolsonaro: dismissal and new investigation (17–31 s) · 32 words
 
 > Flávio, hijo de Jair: denunciado en 2020 por quedarse con sueldos de sus asesores. Anularon las pruebas y se archivó. Hoy lo investigan por una película; no está acusado, y lo niega.
+>
+> *Flávio, Jair's son: charged in 2020 with keeping his aides' salaries. The evidence was annulled and the case was dismissed. Today he is investigated over a film; he is not charged, and he denies it.*
 
-#### 5 · La pregunta (31–39 s) · 17 palabras
+#### 5 · The question (31–39 s) · 17 words
 
 > Condena firme, anulación, archivo. Si un caso cae por el procedimiento, nadie llega a juzgar los hechos.
+>
+> *Final conviction, annulment, dismissal. If a case falls on procedure, nobody gets to judge the facts.*
 
-#### 6 · La votación en disputa (39–50 s) · 18 palabras
+#### 6 · The disputed vote (39–50 s) · 18 words
 
 > Y la votación, en disputa: coacción armada en Río, cuarenta y siete detenidos por comprar votos, embajadas cerradas.
+>
+> *And the vote, in dispute: armed coercion in Rio, forty-seven detained for buying votes, embassies closed.*
 
-#### 7 · Cierre (50–58 s) · 15 palabras
+#### 7 · Close (50–58 s) · 15 words
 
 > Antes de votar: no qué antecedentes tienen, sino cómo terminó cada caso, y por qué.
+>
+> *Before voting: not what record they have, but how each case ended, and why.*
 
-**Total: 123 palabras** (≈ 765 caracteres). Tiempos: estimación a ≈ 125 palabras por minuto; se miden con la voz real.
+**Total: 123 words** (≈ 765 characters). Times: estimate at ≈ 125 words per minute; measured with the real voice.
 
-## v4: guion adaptado al ritmo de la voz
+## v4: script adapted to the pace of the voice
 
-La voz clonada sale a ≈ 122 palabras por minuto (prueba P5), no a 156 como en Helio. Para no generar la voz de nuevo a otra velocidad, **se recortó el texto de 153 a 123 palabras**. Lo que salió de la voz pasa a **texto en pantalla**: *4 a 1* (esc. 2), *580 días* (esc. 3), *2020 · 2022* (esc. 4).
+The cloned voice comes out at ≈ 122 words per minute (P5 test), not 156 as in Helium. To avoid generating the voice again at another speed, **the text was cut from 153 to 123 words**. What left the voice became **on-screen text**: *4 to 1* (sc. 2), *580 days* (sc. 3), *2020 · 2022* (sc. 4).
 
 | v3 | v4 |
 | --- | --- |
-| «…por cuatro votos a uno. Condena firme.» | «…condenado a veintisiete años por intentar un golpe. Condena firme.» (4 a 1 en pantalla) |
-| «Lula fue condenado en 2017 y pasó quinientos ochenta días preso…» | «Lula: condenado en 2017.» (580 días en pantalla) |
-| «…se archivó. Hoy lo investigan por la financiación de una película…» | «…se archivó. Hoy lo investigan por una película…» |
-| Pregunta final de 20 palabras | 17 palabras, mismo sentido |
+| "…by four votes to one. Final conviction." | "…sentenced to twenty-seven years for attempting a coup. Final conviction." (4 to 1 on screen) |
+| "Lula was convicted in 2017 and spent five hundred and eighty days in prison…" | "Lula: convicted in 2017." (580 days on screen) |
+| "…it was dismissed. Today he is investigated over the financing of a film…" | "…it was dismissed. Today he is investigated over a film…" |
+| Final question of 20 words | 17 words, same meaning |
 
-## Qué cambió en la v3 frente a la v2
+## What changed in v3 versus v2
 
 | v2 | v3 |
 | --- | --- |
-| Candidatos: una frase cada uno | Cada caso con su **desenlace** y su fecha: condena firme, anulación, archivo |
-| Presión sobre la votación: 3 escenas | Una escena (6): coacción, compra de votos y embajadas |
-| Cierre: "quién gana y si todos votan sin miedo" | Cierre que hace pensar: **cómo terminó cada caso, y por qué** |
-| Embajadas de Brasil: una frase | Quedan en "embajadas cerradas" (las extranjeras en Brasil). **La advertencia de Itamaraty se saca**; si la quieres, va en una versión de 90 s |
+| Candidates: one sentence each | Each case with its **outcome** and date: final conviction, annulment, dismissal |
+| Pressure on the vote: 3 scenes | One scene (6): coercion, vote buying and embassies |
+| Close: "who wins and whether everyone votes without fear" | Close that makes you think: **how each case ended, and why** |
+| Brazil's embassies: one sentence | They stay as "embassies closed" (the foreign ones in Brazil). **Itamaraty's warning is removed**; if you want it, it goes in a 90 s version |
 
-## Revisar al leerlo en voz alta (P3)
+## Check when read aloud (P3)
 
-- [ ] **Escena 4:** "se archivó" cubre el caso de las *rachadinhas*; el Ministerio Público dijo que podía reabrir. ¿Se agrega "pudo reabrirse"? Cuesta 3 palabras.
-- [ ] **Escena 5:** la frase "nadie llega a juzgar los hechos" es verdad para Flávio (pruebas anuladas) y para la parte de competencia de Lula; para Lula también hubo declaración de **parcialidad** del juez. ¿Es suficiente con "cae por el procedimiento"?
-- [ ] **Escena 2:** "firme" es correcto (STF rechazó los embargos, nov-2025) pero Jair presentó una revisión criminal en mayo de 2026: ¿se agrega "y pide revisión"?
-- [ ] ¿La pregunta final deja pensar sin empujar a ningún lado?
+- [ ] **Scene 4:** "dismissed" covers the *rachadinhas* case; the Public Prosecutor said it could reopen. Add "could be reopened"? It costs 3 words.
+- [ ] **Scene 5:** the sentence "nobody gets to judge the facts" is true for Flávio (annulled evidence) and for the competence part of Lula's; for Lula there was also a declaration of the judge's **partiality**. Is "falls on procedure" enough?
+- [ ] **Scene 2:** "final" is correct (the STF rejected the appeals, Nov 2025) but Jair filed a criminal review in May 2026: add "and requests review"?
+- [ ] Does the final question let the viewer think without pushing anywhere?
 
-## Dirección y prompts
+## Direction and prompts
 
-En [[Brazil and embassies - Status]].
+In [[Brazil and embassies - Status]].
 
-## Feedback final del usuario
+## Final user feedback
 
-El contenido de este feedback es para que reorientes y alinees los prompts y todos los procesos de creacion de shorts y videos largos (enfoque actual en shorts)
+The content of this feedback is for you to reorient and align the prompts and all the creation processes for shorts and long videos (current focus on shorts). *(Translated from the user's Spanish.)*
 
-### Ilustraciones
+### Illustrations
 
-Las ilustraciones no tienen sentido, se siente no relacion entre la ilustraciones y el contenido, alinear guionista con ilustrador siguiendo los estandares.
+The illustrations make no sense; there is a feeling of no relation between the illustrations and the content; align scriptwriter with illustrator following the standards.
 
-Generar un mejor set de referencias: El estilo está bien pero podemos optimizar reglas como no texto, aprovechar mejor de la imagen, se siente como si el prompt se volvio generico en el camino, y se olvido de todo el research que hay detras de cada tema y nuestra definicion de buen contenido.
+Generate a better set of references: the style is fine but we can optimise rules such as no text, make better use of the image; it feels as if the prompt became generic along the way and forgot all the research behind each topic and our definition of good content.
 
 ### Audio
 
-El audio esta bien, la calidad de sonido podría mejorar bastante y agregar dinamismo.
+The audio is fine; the sound quality could improve a lot and add dynamism.
 
 ### General
 
-El resultado final necesita mejorar, es vagamente algo digno de ser visto. se recomienda restructurar este segmento del vault para asegurarnos que la generacion de imagen y construccion final de los videos representan nuestra vision global del canal
+The final result needs to improve; it is barely something worth watching. It is recommended to restructure this segment of the vault to make sure that image generation and the final construction of the videos represent our overall vision of the channel.

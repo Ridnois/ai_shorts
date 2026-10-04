@@ -2,59 +2,59 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: etapas 0–4 en borrador · esperando P1–P3 + P4a y P4 · NADA generado
-tags: [investigación, youtube, estado, brasil, shorts]
+status: stages 0–7 done · render r3 · awaiting P7 · narrated in Spanish
+tags: [research, youtube, status, brazil, shorts]
 ---
 
-# Brasil y embajadas · estado
+# Brazil and embassies · status
 
 ← [[YouTube Channel]] · [[Fast workflow]]
 
-Tercer video del canal y **primer Short vertical (9:16, 60 s)**. Hecho con [[Fast workflow]]: solo texto hasta P4. **No se llamó a Replicate ni se creó nada en `Media/`.**
+Third video of the channel and **first vertical Short (9:16, 60 s)**. Made with [[Fast workflow]]: text only until P4. **Narration and on-screen text are in Spanish** (made before the English-only decision of 3 Oct 2026); this note was translated afterwards, so quoted on-screen strings are translations and the original Spanish is in the script note.
 
-## Registro de etapas
+## Stage log
 
-| Etapa | Estado | Aprobado | Nota |
+| Stage | Status | Approved | Note |
 | --- | --- | --- | --- |
-| 0 Idea | ✅ P1 | 3-oct-2026 · implícita ("Script is good") | Pedido: guion de 60 s sobre la situación política de Brasil y el cierre de embajadas brasileñas. **Feedback v1:** enfocar en los candidatos, sus delitos y cómo se sabotea la elección (sospecha de coacción). **Corrección de premisa:** Brasil no cerró embajadas; *advirtió que podría*. Los cierres consumados son de EE. UU. y Australia en Brasil. El guion cuenta ambas |
-| 1 Investigación | ✅ P2 | 3-oct-2026 · implícita; **los datos débiles se quedan fuera del guion o atribuidos** | [[Research - Brazil and embassies]]: 24 afirmaciones; **sostenidas: casos de Jair, Lula y las rachadinhas; débiles: investigación de Flávio (preliminar), cifra de Dark Horse, mesas en Río y memorando de R$ 352 M** |
-| 2 Guion | ✅ v3 → v4 | v3 aprobado el 3-oct-2026; **v4 la pidió el usuario** (adaptar el guion al ritmo de la voz): 123 palabras | [[Script - Brazil and embassies (60 seconds)]]: v3 con tu segundo feedback (profundizar en los casos judiciales y hacer pensar): condena firme · anulación · archivo, 153 palabras, ≈ 59 s |
-| 3 Dirección | ✅ P4a | 3-oct-2026 · implícita ("procede al siguiente paso") | Planos abajo |
-| 4 Prompts y presupuesto | ✅ P4 | **3-oct-2026** · "Si consulta el modelo de la API y procede al siguiente paso" | Abajo: **≈ $0,21 con tope de ≈ $0,30** (v3) |
-| 5 Pruebas | ✅ P5 | **3-oct-2026** · "1: adapta el guion al ritmo, 2: imagen ok, 3: audio ok" | Ver *Resultado de la prueba P5* |
-| 6 Generación | ✅ P6 | 3-oct-2026 · "apruebo el item, continua con el montaje" (se interpretó como encuadrar `e6`, sin reintento) | voz 7/7, imagen 6/6, sonido 2/2. Ver *Generación P6* |
-| 7 Montaje | ✅ render r3 · ⏳ P7 | ⏳ | `render/brasil-60s-9x16-r3.mp4`, **63,37 s, 1080×1920**, con las láminas descriptivas. r1 tenía las frases cortadas (arreglado en r2); ver *Montaje r2* y *Láminas v3* |
-| 8 Publicación | ⏳ no iniciada | — | Falta título, descripción con fuentes y declaración de IA |
+| 0 Idea | ✅ P1 | 3 Oct 2026 · implicit ("Script is good") | Request: a 60 s script on Brazil's political situation and the closing of Brazilian embassies. **Feedback v1:** focus on the candidates, their crimes and how the election is sabotaged (suspected coercion). **Premise correction:** Brazil did not close embassies; it *warned it could*. The closures actually carried out are the US's and Australia's in Brazil. The script tells both |
+| 1 Research | ✅ P2 | 3 Oct 2026 · implicit; **weak data stays out of the script or is attributed** | [[Research - Brazil and embassies]]: 24 claims; **supported: Jair's and Lula's cases and the rachadinhas; weak: Flávio's investigation (preliminary), the Dark Horse figure, tables in Rio and the R$ 352 M memo** |
+| 2 Script | ✅ v3 → v4 | v3 approved on 3 Oct 2026; **v4 was requested by the user** (adapt the script to the voice's pace): 123 words | [[Script - Brazil and embassies (60 seconds)]]: v3 with the user's second feedback (go deeper into the court cases and make people think): final conviction · annulment · dismissal, 153 words, ≈ 59 s |
+| 3 Direction | ✅ P4a | 3 Oct 2026 · implicit ("proceed to the next step") | Shots below |
+| 4 Prompts and budget | ✅ P4 | **3 Oct 2026** · "Check the API model and proceed to the next step" | Below: **≈ $0.21 with a cap of ≈ $0.30** (v3) |
+| 5 Tests | ✅ P5 | **3 Oct 2026** · "1: adapt the script to the pace, 2: image ok, 3: audio ok" | See *P5 test result* |
+| 6 Generation | ✅ P6 | 3 Oct 2026 · "I approve the item, continue with the editing" (understood as framing `e6`, no retry) | voice 7/7, image 6/6, sound 2/2. See *P6 generation* |
+| 7 Editing | ✅ render r3 · ⏳ P7 | ⏳ | `render/brasil-60s-9x16-r3.mp4`, **63.37 s, 1080×1920**, with the descriptive plates. r1 had cut sentences (fixed in r2); see *Editing r2* and *Plates v3* |
+| 8 Publishing | ⏳ not started | — | Title, description with sources and AI disclosure are missing |
 
-## Dirección (vertical 9:16 · 1080×1920) · v3
+## Direction (vertical 9:16 · 1080×1920) · v3
 
-Reglas de [[Fast workflow]] §8: un sujeto, composición alta, nada clave en el tercio inferior ni en el 6 % superior, **1 imagen por toma**. Estilo: estilo visual de bocetos técnicos (retirado) (acento cobre-naranja = lo que importa). **Sin rostros ni personas reconocibles: cada caso es un objeto**, el mismo tratamiento para los tres. Sin palabras, banderas legibles ni logos. La imagen de la escena 5 es el **centro del video**: junta los tres objetos para que el espectador compare.
+Rules from [[Fast workflow]] §8: one subject, tall composition, nothing key in the bottom third or the top 6 %, **1 image per shot**. Style: technical-sketch visual style (withdrawn) (copper-orange accent = what matters). **No faces or recognisable people: each case is an object**, the same treatment for all three. No words, legible flags or logos. Scene 5's image is the **centre of the video**: it brings the three objects together so the viewer can compare.
 
-| Escena | Segundos | Imagen | Plano | Emoción | Acento cobre-naranja |
+| Scene | Seconds | Image | Shot | Emotion | Copper-orange accent |
 | --- | --- | --- | --- | --- | --- |
-| 1 · Gancho | 0–4 | **1** (`e1`) | Una urna de cartón con ranura, en primer plano sobre una mesa; detrás, siluetas de votantes dibujadas; vista alta | Suspenso contenido | La ranura |
-| 2 · Jair: condena firme | 4–11 | **1** (`e2`) | Un mazo de juez sobre un bloque de sonido, con una gruesa pila de páginas atadas con cinta al lado | Peso, algo definitivo | El mazo |
-| 3 · Lula: anulación | 11–21 | **1** (`e3`) | Un expediente grueso con **el sello de lacre roto en dos** y las páginas sueltas | Algo que se deshace | El lacre roto |
-| 4 · Flávio: archivo | 21–34 | **1** (`e4`) | Una carpeta cerrada y atada con cinta, una lupa encima, y a un lado un sobre abierto | Algo guardado, sin cerrar | La cinta |
-| 5 · La pregunta | 34–42 | **1** (`e5`) | **Los tres objetos** (mazo, expediente con lacre roto, carpeta con lupa) sobre tres pedestales en fila, y un cuarto pedestal **vacío** al frente; vista frontal y alta | Quietud, pregunta | El pedestal vacío |
-| 6 · Votación en disputa | 42–53 | **1** (`e6`) | Una cabina de votación de escuela al fondo de un pasillo, barricada de sacos y una cadena cruzada | Tensión | La cadena |
-| 7 · Cierre | 53–60 | **0** · reutiliza `e1` | Fundido de vuelta a la urna | Reflexión | — |
+| 1 · Hook | 0–4 | **1** (`e1`) | A cardboard ballot box with a slot, in close foreground on a table; behind it, drawn voter silhouettes; high view | Held suspense | The slot |
+| 2 · Jair: final conviction | 4–11 | **1** (`e2`) | A judge's gavel on a sound block, with a thick pile of ribbon-tied pages beside it | Weight, something final | The gavel |
+| 3 · Lula: annulment | 11–21 | **1** (`e3`) | A thick case file with **the wax seal broken in two** and loose pages | Something coming undone | The broken wax |
+| 4 · Flávio: dismissal | 21–34 | **1** (`e4`) | A closed folder tied with ribbon, a magnifying glass on top, and an open envelope to one side | Something kept, not closed | The ribbon |
+| 5 · The question | 34–42 | **1** (`e5`) | **The three objects** (gavel, case file with broken wax, folder with magnifying glass) on three plinths in a row, and a fourth **empty** plinth in front; front and high view | Stillness, question | The empty plinth |
+| 6 · Disputed vote | 42–53 | **1** (`e6`) | A school voting booth at the end of a corridor, barricaded with sandbags and a chain across it | Tension | The chain |
+| 7 · Close | 53–60 | **0** · reuses `e1` | Fade back to the ballot box | Reflection | — |
 
-**Texto en pantalla (en edición):** "4 oct" (esc. 1), "27 años · 4 a 1" (esc. 2), "580 días · 2021" (esc. 3), "2022" (esc. 4), "47 detenidos" (esc. 6). Rótulos neutros, sin nombres sobre los dibujos.
-**Sonido (2):** un golpe seco de mazo sobre madera (esc. 2) y murmullo de escuela con una cadena (esc. 6). Silencios y cortes secos, en montaje: **un silencio de un segundo antes de la escena 5** (la pregunta).
-**Movimiento (Blender, sin modelo de video):** empuje lento; en la escena 5 el empuje avanza hacia el pedestal vacío. Formato y pasos de [[Blender editing]] con `W, H = 1080, 1920`.
+**On-screen text (in editing):** "4 Oct" (sc. 1), "27 years · 4 to 1" (sc. 2), "580 days · 2021" (sc. 3), "2022" (sc. 4), "47 detained" (sc. 6). Neutral labels, no names over the drawings.
+**Sound (2):** a dry gavel strike on wood (sc. 2) and a school murmur with a chain (sc. 6). Silences and hard cuts, in editing: **a one-second silence before scene 5** (the question).
+**Movement (Blender, no video model):** slow push; in scene 5 the push advances toward the empty plinth. Format and steps of [[Blender editing]] with `W, H = 1080, 1920`.
 
-## Prompts (P4: pendiente de aprobación)
+## Prompts (P4, approved)
 
-**Bloque de estilo (en positivo, se pega al final de cada prompt de imagen):**
+**Style block (in the positive, pasted at the end of every image prompt):**
 
 ```
 Detailed industrial design concept sketch on warm off-white paper, vertical 9:16 sheet. Confident black ink and graphite linework with light visible construction lines, cross-hatching for volume, flat cool-grey marker fills in several tones, and a single copper-orange marker accent on the one important element. Technical-drawing feel with blank dimension lines and arrowheads, empty numbered callout circles, and plain unmarked surfaces. A hand-drawn design sheet, with the subject in the upper two thirds and open paper at the bottom.
 ```
 
-**Imágenes** (modelo `black-forest-labs/flux-2-klein-4b`, `aspect_ratio` 9:16, una referencia de `_canal/estilo/` elegida en P5; `e5` recibe además `e2`, `e3` y `e4` como referencias solo si P5 muestra que los objetos no se mantienen: son 3 referencias extra, ≈ $0,045 más):
+**Images** (model `black-forest-labs/flux-2-klein-4b`, `aspect_ratio` 9:16, one reference from `_canal/estilo/` chosen at P5; `e5` also receives `e2`, `e3` and `e4` as references only if P5 shows the objects are not kept: 3 extra references, ≈ $0.045 more):
 
-| Id | Prompt (antes del bloque de estilo) |
+| Id | Prompt (before the style block) |
 | --- | --- |
 | `e1` | A cardboard ballot box with a slot in close foreground on a table, a row of drawn voter silhouettes behind it, seen from slightly above; the slot is the copper-orange accent. |
 | `e2` | A judge's gavel resting on a round sound block, a thick stack of bound pages tied with ribbon beside it, seen from a slightly high angle; the gavel is the copper-orange accent. |
@@ -63,154 +63,154 @@ Detailed industrial design concept sketch on warm off-white paper, vertical 9:16
 | `e5` | Four plinths in a row seen from the front and slightly above: on the first a judge's gavel, on the second a case file with a broken wax seal, on the third a ribbon-tied folder with a magnifying glass, and the fourth plinth empty and in front; the empty plinth is the copper-orange accent. |
 | `e6` | A school voting booth at the end of a corridor, a barricade of sandbags and a chain stretched across the foreground, seen from a high angle; the chain is the copper-orange accent. |
 
-**Voz** (`qwen/qwen3-tts`, `voice_clone`, **sin diseñar una voz nueva**): referencia = `helio-e1-voz-qwen-design-v1.wav` (voz del canal, perfil B, ya aprobada) con su texto como transcripción. `style_instruction`: *speak at a brisk, fluent, steady pace in a calm, informative documentary tone*. Una prediction por escena (7) con el texto exacto del guion. Archivos: `brasil-e<n>-voz-qwen-clone-v1.wav`.
+**Voice** (`qwen/qwen3-tts`, `voice_clone`, **without designing a new voice**): reference = `helio-e1-voz-qwen-design-v1.wav` (the channel voice, profile B, already approved) with its text as transcript. `style_instruction`: *speak at a brisk, fluent, steady pace in a calm, informative documentary tone*. One prediction per scene (7) with the script's exact text. Files: `brasil-e<n>-voz-qwen-clone-v1.wav`.
 
-**Sonido** (`zsxkib/mmaudio`, texto a audio, 2 s cada uno; **confirmar en *API* que acepta solo texto**):
+**Sound** (`zsxkib/mmaudio`, text to audio, 2 s each; **confirm in *API* that it accepts text only**):
 - `brasil-e2-mazo-v1`: *a single wooden gavel strike on a sound block in a large quiet courtroom, dry, short natural echo.*
 - `brasil-e6-escuela-v1`: *echoing school corridor with distant voices and footsteps, a metal chain rattling once, steady and tense.*
 
-## Presupuesto en dólares (tope = base × 1,2)
+## Budget in dollars (cap = base × 1.2)
 
-| Categoría | Modelo | Cantidad base | Precio unitario | Subtotal | Tope |
+| Category | Model | Base quantity | Unit price | Subtotal | Cap |
 | --- | --- | --- | --- | --- | --- |
-| Voz | `qwen3-tts` | 7 (≈ 944 caracteres) | ≈ $0,02 por 1.000 caracteres | **≈ $0,02** | 8 predictions |
-| Sonido | `mmaudio` | 2 | ≈ $0,005 | **≈ $0,01** | 2 |
-| Imagen | `flux-2-klein-4b` | 6 | ≈ $0,015 + referencia de entrada (≤ $0,015) → **≈ $0,03** | **≈ $0,18** | 7 (≈ $0,21) |
-| **Total** | | | | **≈ $0,21** | **≈ $0,30** |
+| Voice | `qwen3-tts` | 7 (≈ 944 characters) | ≈ $0.02 per 1,000 characters | **≈ $0.02** | 8 predictions |
+| Sound | `mmaudio` | 2 | ≈ $0.005 | **≈ $0.01** | 2 |
+| Image | `flux-2-klein-4b` | 6 | ≈ $0.015 + input reference (≤ $0.015) → **≈ $0.03** | **≈ $0.18** | 7 (≈ $0.21) |
+| **Total** | | | | **≈ $0.21** | **≈ $0.30** |
 
-- **Prueba P5 (parte del total, no extra):** voz de la escena 1 + imagen `e1` + sonido de la escena 5 ≈ **$0,04**.
-- Supuestos sin confirmar: el precio de klein (agregadores, no Replicate) y cuánto cobra por la referencia. Si P5 muestra otra cifra, se avisa antes de seguir.
-- Sin miniatura (Shorts) y con las escenas 6 y 7 reutilizando imágenes: ahorro ≈ $0,09 frente al flujo anterior.
-- Para comparar: Helio costó ≈ $2 en 32 predictions.
+- **P5 test (part of the total, not extra):** voice of scene 1 + image `e1` + sound of scene 5 ≈ **$0.04**.
+- Unconfirmed assumptions: klein's price (aggregators, not Replicate) and how much it charges for the reference. If P5 shows another figure, say so before continuing.
+- No thumbnail (Shorts) and scenes 6 and 7 reusing images: ≈ $0.09 saved against the earlier flow.
+- For comparison: Helium cost ≈ $2 in 32 predictions.
 
-## Qué espera tu decisión
+## What awaited your decision (at the time)
 
-1. **P1–P3 + P4a:** ¿el nuevo foco, el texto v3 (léelo en voz alta) y las reglas de rigor (condenado ≠ investigado; sin atribuir la coacción)? Brasil *podría* cerrar embajadas, no cerró.
-2. **P2:** los dos datos débiles (memorando de R$ 352 M; fecha de la elección). Si quieres, los verifico con más búsquedas antes de grabar; no cuesta nada de Replicate.
-3. **P4:** el presupuesto de ≈ $0,21 (tope ≈ $0,30) y los prompts. Sin tu OK no genero nada.
+1. **P1–P3 + P4a:** the new focus, the v3 text (read it aloud) and the rigor rules (convicted ≠ investigated; do not attribute the coercion)? Brazil *could* close embassies, it did not.
+2. **P2:** the two weak data points (R$ 352 M memo; election date). If you want, I verify them with more searches before recording; it costs nothing on Replicate.
+3. **P4:** the ≈ $0.21 budget (cap ≈ $0.30) and the prompts. Without your OK I generate nothing.
 
-## Registro de predictions
+## Prediction log
 
-Formato: `escena · categoría · modelo · seed · estado · URL`.
+Format: `scene · category · model · seed · status · URL`.
 
-| Escena | Categoría | Modelo | Estado | Predicción |
+| Scene | Category | Model | Status | Prediction |
 | --- | --- | --- | --- | --- |
-| 1 | voz | `qwen3-tts` clon | ⏳ P5 | [smemm5tpc9rmr0d1092at9z238](https://replicate.com/p/smemm5tpc9rmr0d1092at9z238) |
-| 1 | imagen `e1` | `flux-2-klein-4b` (referencia `estilo-motor-v1`) | ⏳ P5 | [sm9cb1swv9rp60d1092vhzvt5r](https://replicate.com/p/sm9cb1swv9rp60d1092vhzvt5r) |
-| 2 | sonido | `mmaudio` ×2 | ❌ falló (sin audio; probablemente no se cobra) | sin id (error en solo texto) |
-| 2 | sonido | `sepal/audiogen` | ⏳ P5 | [34ceyecda9rmr0d1092vf5nng8](https://replicate.com/p/34ceyecda9rmr0d1092vf5nng8) |
+| 1 | voice | `qwen3-tts` clone | ✅ P5 | [smemm5tpc9rmr0d1092at9z238](https://replicate.com/p/smemm5tpc9rmr0d1092at9z238) |
+| 1 | image `e1` | `flux-2-klein-4b` (reference `estilo-motor-v1`) | ✅ P5 | [sm9cb1swv9rp60d1092vhzvt5r](https://replicate.com/p/sm9cb1swv9rp60d1092vhzvt5r) |
+| 2 | sound | `mmaudio` ×2 | ❌ failed (no audio; probably not charged) | no id (error on text only) |
+| 2 | sound | `sepal/audiogen` | ✅ P5 | [34ceyecda9rmr0d1092vf5nng8](https://replicate.com/p/34ceyecda9rmr0d1092vf5nng8) |
 
-**Predictions: 3 útiles + 2 fallidas de 8 previstas en el tope.**
+**Predictions at P5: 3 useful + 2 failed out of 8 planned in the cap.**
 
-## Resultado de la prueba P5 (3-oct-2026)
+## P5 test result (3 Oct 2026)
 
-Archivos en `Media/Brasil y embajadas - 60 segundos/` (`voz/`, `ilustraciones/`, `audio/`).
+Files in `Media/Brasil y embajadas - 60 segundos/` (`voz/`, `ilustraciones/`, `audio/`).
 
-| Prueba | Resultado | Lo que no pude comprobar |
+| Test | Result | What I could not check |
 | --- | --- | --- |
-| **Voz, escena 1** (`brasil-e1-voz-qwen-clone-v1.wav`) | 5,68 s; voz útil 4,91 s; **≈ 122 palabras por minuto** en esta frase de 10 palabras (con 1 pausa entre frases) | **El timbre** y si suena igual a la de Helio |
-| **Imagen `e1`** (`brasil-e1-v1.png`, 768×1360) | **Estilo y vertical bien**: papel crema, tinta y marcador, acento cobre en la ranura de la urna, siluetas sin rostro. **Defectos:** cifras de cota ilegibles (garabatos), recuadro vacío abajo (cartucho), y la composición ocupa todo el cuadro (urna al centro, votantes arriba) | Si lo aceptas visualmente |
-| **Sonido, escena 2** (`brasil-e2-mazo-v1.wav`) | 2,0 s, **un solo golpe a los 0,76 s con caída rápida**, que coincide con "un golpe de mazo". 16 kHz mono (calidad baja) | **Cómo suena** |
-| **`mmaudio`** | **Falló en solo texto** ("Input Tensor has to be 2D"); no sirve sin video | |
+| **Voice, scene 1** (`brasil-e1-voz-qwen-clone-v1.wav`) | 5.68 s; useful voice 4.91 s; **≈ 122 words per minute** on this 10-word sentence (with 1 pause between sentences) | **The timbre** and whether it sounds like Helium's |
+| **Image `e1`** (`brasil-e1-v1.png`, 768×1360) | **Style and vertical OK**: cream paper, ink and marker, copper accent on the ballot box slot, faceless silhouettes. **Defects:** unreadable dimension figures (scribbles), an empty box at the bottom (title block), and the composition fills the whole frame (box in the centre, voters above) | Whether you accept it visually |
+| **Sound, scene 2** (`brasil-e2-mazo-v1.wav`) | 2.0 s, **a single strike at 0.76 s with a fast decay**, matching "a gavel strike". 16 kHz mono (low quality) | **How it sounds** |
+| **`mmaudio`** | **Failed on text only** ("Input Tensor has to be 2D"); it is no use without video | |
 
-### Tres decisiones para ti (P5)
+### Three decisions for you (P5)
 
-1. **Ritmo de la voz:** si todo el guion sale a ≈ 122 a 136 palabras por minuto, **las 153 palabras duran 68 a 75 s, no 59**. En Helio fueron 156. Opciones: (a) generar el guion entero (≈ $0,02) y medir antes de decidir; (b) pedir un ritmo más rápido (`style_instruction`) y volver a medir; (c) recortar el guion (aprobado: tendría que reabrirse P3). **Recomiendo (a) y luego (b).**
-2. **Look de la imagen:** ¿lo apruebas? Los garabatos de cota y el cartucho vacío se pueden tapar en el montaje (encuadre un poco más cerrado y un velo de papel), no se vuelven a generar.
-3. **Sonido:** `mmaudio` queda descartado; `audiogen` sale a 16 kHz. Si no te convence, la alternativa sería otro modelo (a probar solo con tu OK).
+1. **Voice pace:** if the whole script comes out at ≈ 122 to 136 words per minute, **the 153 words last 68 to 75 s, not 59**. In Helium it was 156. Options: (a) generate the whole script (≈ $0.02) and measure before deciding; (b) ask for a faster pace (`style_instruction`) and measure again; (c) cut the script (approved: P3 would have to reopen). **I recommend (a) and then (b).**
+2. **Image look:** do you approve it? The dimension scribbles and the empty title block can be covered in editing (a slightly tighter frame and a paper veil); they are not regenerated.
+3. **Sound:** `mmaudio` is discarded; `audiogen` comes out at 16 kHz. If it does not convince you, the alternative would be another model (to test only with your OK).
 
-**Gasto de la prueba (estimado):** voz ≈ $0,002 · imagen ≈ $0,03 (klein + 1 referencia; **precio sin confirmar en Replicate**) · sonido ≈ $0,011 · **≈ $0,04**, igual que lo previsto.
+**Test spend (estimated):** voice ≈ $0.002 · image ≈ $0.03 (klein + 1 reference; **price unconfirmed on Replicate**) · sound ≈ $0.011 · **≈ $0.04**, as planned.
 
-## Generación P6 (3-oct-2026)
+## P6 generation (3 Oct 2026)
 
-**Guion v4 (123 palabras, 765 caracteres)** adaptado al ritmo de la voz, por pedido del usuario: ver [[Script - Brazil and embassies (60 seconds)]].
+**Script v4 (123 words, 765 characters)** adapted to the voice's pace, at the user's request: see [[Script - Brazil and embassies (60 seconds)]].
 
-| Categoría | Archivos | Resultado |
+| Category | Files | Result |
 | --- | --- | --- |
-| **Voz 7/7** | `brasil-e1..e7-voz-qwen-clone-v1.wav` | Voz útil **55,8 s**; con ≈ 3 s de silencios entre escenas el corte queda en **≈ 58–59 s**. Ritmos por escena: 122, 116, 99, 156, 137, 139 y 153 palabras por minuto (las escenas 2 y 3 son lentas por los dos puntos; **no pude oír el timbre**) |
-| **Imagen 6/6** | `brasil-e1..e6-v1.png` y `brasil-e5-v2.png` (usar la v2) | `e1`, `e2`, `e3` bien. `e4` ✅ con reservas: parece un regalo con lazo. `e5-v2` ✅: cuatro pedestales, el cuarto con un bloque cobre (no vacío) y pequeño en el cuadro. **`e6` ⚠️:** abajo, sacos con una cadena cobre (bien); arriba, **piezas de máquina en un pasillo** (contaminación de la referencia de estilo). Los 768×1360 px se escalan a 1080×1920 |
-| **Sonido 2/2** | `brasil-e2-mazo-v1.wav`, `brasil-e6-escuela-v1.wav` | Mazo: un golpe a 0,76 s. Escuela: 4 s (pedí 2, subí a 4) |
+| **Voice 7/7** | `brasil-e1..e7-voz-qwen-clone-v1.wav` | Useful voice **55.8 s**; with ≈ 3 s of silences between scenes the cut lands at **≈ 58–59 s**. Pace per scene: 122, 116, 99, 156, 137, 139 and 153 words per minute (scenes 2 and 3 are slow because of the colons; **I could not hear the timbre**) |
+| **Image 6/6** | `brasil-e1..e6-v1.png` and `brasil-e5-v2.png` (use v2) | `e1`, `e2`, `e3` fine. `e4` ✅ with reservations: it looks like a gift with a bow. `e5-v2` ✅: four plinths, the fourth with a copper block (not empty) and small in the frame. **`e6` ⚠️:** at the bottom, sandbags with a copper chain (good); at the top, **machine parts in a corridor** (contamination from the style reference). The 768×1360 px are scaled to 1080×1920 |
+| **Sound 2/2** | `brasil-e2-mazo-v1.wav`, `brasil-e6-escuela-v1.wav` | Gavel: one strike at 0.76 s. School: 4 s (I asked for 2, raised to 4) |
 
-### Predictions y costo (estimado)
+### Predictions and cost (estimated)
 
-| Categoría | Predictions | Costo |
+| Category | Predictions | Cost |
 | --- | --- | --- |
-| Voz | 7 (1 de P5 + 6) | ≈ $0,02 |
-| Imagen | 7 (6 + 1 reintento de `e5`) | ≈ $0,21 (con referencia, ≈ $0,03 c/u, **sin confirmar**) |
-| Sonido | 2 (+ 2 fallidas de `mmaudio`) | ≈ $0,02 |
-| **Total** | **16 útiles** | **≈ $0,25**; tope ≈ $0,30 (imagen: 7 de 7) |
+| Voice | 7 (1 from P5 + 6) | ≈ $0.02 |
+| Image | 7 (6 + 1 retry of `e5`) | ≈ $0.21 (with reference, ≈ $0.03 each, **unconfirmed**) |
+| Sound | 2 (+ 2 failed `mmaudio`) | ≈ $0.02 |
+| **Total** | **16 useful** | **≈ $0.25**; cap ≈ $0.30 (image: 7 of 7) |
 
-**Se llegó al tope de imágenes (7).** Rehacer `e6` pasa del tope y necesita tu OK (≈ +$0,03). Alternativa sin costo: en el montaje se encuadra solo la mitad inferior de `e6` (sacos y cadena).
+**The image cap (7) was reached.** Redoing `e6` goes over the cap and needs your OK (≈ +$0.03). Free alternative: in editing only the lower half of `e6` is framed (sandbags and chain).
 
-## Montaje (3-oct-2026)
+## Editing (3 Oct 2026)
 
-**Render r1:** `Media/Brasil y embajadas - 60 segundos/render/brasil-60s-9x16-r1.mp4`, **59,17 s**, 1080×1920, 24 fps, H.264 y AAC (con pista de audio). Script: `Sistema/scripts/build_brasil.py`.
+**Render r1:** `Media/Brasil y embajadas - 60 segundos/render/brasil-60s-9x16-r1.mp4`, **59.17 s**, 1080×1920, 24 fps, H.264 and AAC (with audio track). Script: `System/scripts/build_brasil.py`.
 
-| Qué | Cómo |
+| What | How |
 | --- | --- |
-| Voz | 7 tomas con silencio de 0,2 s entre escenas y **0,7 s antes de la escena 5** (la pregunta) |
-| Imagen | Una por escena, "pasar la hoja" entre escenas y empuje lento del 6 %. La escena 7 vuelve a `e1` |
-| Recortes | Se quita por abajo el dibujo secundario (libro, sobre) de `e2`, `e3`, `e4`, `e5`; el hueco lo llena el papel. `e6`: solo la franja de sacos y cadena, subida fuera de la zona de subtítulos |
-| Texto en pantalla | `27 años · 4 a 1` (esc. 2), `580 días · 2021` (esc. 3), `2020 → 2022` (esc. 4), `47 detenidos` (esc. 6), en DejaVu Sans Bold sobre el papel, a la altura del 30 % desde abajo. **Se quitó "4 oct"**: caía sobre la urna |
-| Sonido | Mazo en el segundo 3,0 de la voz 2 (**estimado, no medido**: puede no caer justo en "condenado"); escuela con cadena bajo la escena 6 |
-| Textura | Viñeta suave y grano, como en Helio |
+| Voice | 7 takes with 0.2 s of silence between scenes and **0.7 s before scene 5** (the question) |
+| Image | One per scene, "page turn" between scenes and slow 6 % push. Scene 7 returns to `e1` |
+| Crops | The secondary drawing (book, envelope) is removed from the bottom of `e2`, `e3`, `e4`, `e5`; paper fills the gap. `e6`: only the sandbag-and-chain strip, raised out of the caption zone |
+| On-screen text | `27 years · 4 to 1` (sc. 2), `580 days · 2021` (sc. 3), `2020 → 2022` (sc. 4), `47 detained` (sc. 6), in DejaVu Sans Bold on the paper, at 30 % height from the bottom. **"4 Oct" was removed**: it fell on the ballot box |
+| Sound | Gavel at second 3.0 of voice 2 (**estimated, not measured**: it may not land exactly on "convicted"); school with chain under scene 6 |
+| Texture | Soft vignette and grain, as in Helium |
 
-### Qué verifiqué y qué no
+### What I verified and what I did not
 
-- ✅ Duración (59,17 s), resolución y pistas (video y audio), por las cabeceras del mp4.
-- ✅ Siete fotogramas clave revisados: recortes sin borde visible salvo `e6` (tenue), texto legible y fuera de la zona de subtítulos.
-- ❌ **No puedo ver ni oír el video completo.** Sin comprobar: timbre y ritmo de la voz, volumen del mazo y la escuela frente a la voz, si el golpe cae en "condenado", y los fundidos entre escenas.
+- ✅ Duration (59.17 s), resolution and tracks (video and audio), from the mp4 headers.
+- ✅ Seven key frames reviewed: crops with no visible edge except `e6` (faint), legible text outside the caption zone.
+- ❌ **I cannot watch or hear the whole video.** Unchecked: timbre and pace of the voice, volume of the gavel and school against the voice, whether the strike lands on "convicted", and the fades between scenes.
 
-### Qué espera tu decisión (P7)
+### What awaits your decision (P7)
 
-1. **Mira y escucha** el mp4. ¿Ritmo, voz y sonido bien?
-2. **Defectos de imagen que conviene que juzgues:** `e4` parece un regalo con lazo; `e5` tiene el cuarto pedestal con un bloque cobre (no vacío); `e6` tiene un borde tenue del recorte.
-3. **Antes de publicar (P8):** confirmar la fecha de la primera vuelta en el TSE, la fuente original del memorando de R$ 352 M (ya no está en el guion) y si EE. UU. y Australia reabrieron; título, descripción con fuentes y declaración de IA.
+1. **Watch and listen** to the mp4. Pace, voice and sound OK?
+2. **Image defects worth your judgement:** `e4` looks like a gift with a bow; `e5` has the fourth plinth with a copper block (not empty); `e6` has a faint crop edge.
+3. **Before publishing (P8):** confirm the first-round date at the TSE, the original source of the R$ 352 M memo (no longer in the script) and whether the US and Australia reopened; title, description with sources and AI disclosure.
 
-## Montaje r2 (3-oct-2026): frases cortadas, corregido
+## Editing r2 (3 Oct 2026): cut sentences, fixed
 
 **Feedback:** "phrases cut mid sentence, voice clip cut before they end, adjust the render, you can make it longer".
 
-- **Causa (error mío, no del audio):** en Blender, `frame_offset_start` también adelanta el inicio visible de la tira. Las tomas de voz tienen ≈ 0,5 a 0,7 s de silencio inicial, así que cada voz arrancaba tarde y terminaba ≈ 0,6 s antes. Los archivos de voz **terminan en silencio** (comprobado: energía 0 en los últimos 80 ms).
-- **Arreglo:** la tira se crea `ini` segundos antes, de modo que lo audible empieza en `abs` y termina en `abs + dur`, y hay una `assert` que lo comprueba. La cola pasó de 0,08 a 0,25 s.
-- **Ritmo, más largo:** silencios entre escenas 0,45 a 0,5 s (antes 0,2), **1,2 s antes de la pregunta** (antes 0,7), 0,5 s de entrada y 1,2 s de cola. Dura **63,37 s** (antes 59,17), todavía un Short.
-- **Verificado:** cada tira cubre toda la voz útil de su archivo, más 0,25 s de cola (p. ej. voz 2: se oye 0,62–8,71 s y la voz útil es 0,69–8,45 s). **No pude medir el audio mezclado** (la mezcla en segundo plano sale vacía): lo confirmas al escuchar.
-- El texto sigue siendo el de la v4; recuperar frases de la v3 ("4 a 1", "580 días", "financiación de una película") exige generar de nuevo esas voces (≈ $0,02).
+- **Cause (my error, not the audio's):** in Blender, `frame_offset_start` also advances the strip's visible start. The voice takes have ≈ 0.5 to 0.7 s of initial silence, so each voice started late and ended ≈ 0.6 s early. The voice files **end in silence** (checked: energy 0 in the last 80 ms).
+- **Fix:** the strip is created `ini` seconds earlier, so the audible part starts at `abs` and ends at `abs + dur`, and an `assert` checks it. The tail went from 0.08 to 0.25 s.
+- **Pace, longer:** silences between scenes 0.45 to 0.5 s (before 0.2), **1.2 s before the question** (before 0.7), 0.5 s of intro and 1.2 s of tail. It lasts **63.37 s** (before 59.17), still a Short.
+- **Verified:** each strip covers the whole useful voice of its file, plus 0.25 s of tail (e.g. voice 2: 0.62–8.71 s is heard and the useful voice is 0.69–8.45 s). **I could not measure the mixed audio** (the background mix comes out empty): you confirm it by listening.
+- The text is still v4's; recovering v3 sentences ("4 to 1", "580 days", "film financing") requires generating those voices again (≈ $0.02).
 
-## Ilustraciones más descriptivas (propuesta v2 · pendiente de tu aprobación)
+## More descriptive illustrations (v2 proposal · was pending approval)
 
 **Feedback:** "rework on the illustrations, make them more descriptive".
 
-**Qué fallaba:** cada imagen era un objeto aislado (mazo, sello, carpeta). Contaban el *tema*, no el *mecanismo*. El estilo del canal (láminas de diseñador industrial) sirve justo para mostrar cómo funciona algo: aquí, cada imagen explica **qué pasó y cómo**, con flechas y círculos numerados vacíos. También se evitan los dibujos secundarios (se pide "una sola lámina grande") y la contaminación de la referencia `estilo-motor`: **la referencia pasa a ser `brasil-e2-v1.png`** (el mazo, que sí salió bien).
+**What failed:** each image was an isolated object (gavel, seal, folder). They told the *topic*, not the *mechanism*. The channel's style (industrial-designer plates) is exactly right to show how something works: here, each image explains **what happened and how**, with arrows and empty numbered circles. Secondary drawings are also avoided ("a single large plate" is requested) and so is contamination from the `estilo-motor` reference: **the reference becomes `brasil-e2-v1.png`** (the gavel, which did come out well).
 
-| Escena | Qué explica la lámina (v2) | Prompt (antes del bloque de estilo) | Acento |
+| Scene | What the plate (v2) explains | Prompt (before the style block) | Accent |
 | --- | --- | --- | --- |
-| 1 | **Tres casos, tres finales** | One single large drawing filling the sheet: a cardboard ballot box in the foreground; behind it a single thick case folder from which three numbered arrows diverge to three small objects: a judge's gavel, a broken wax seal, and a closed archive box with a lid. | La urna |
-| 2 | **Condena firme, 4 a 1** | One single large drawing filling the sheet: a long courtroom bench seen from the front with five identical high-backed chairs behind it; four chairs have a copper seat cushion and one chair has a grey cushion; on the bench a gavel on a sound block and a thick bound dossier tied with ribbon; numbered callout circles on the chairs. | Los cuatro cojines |
-| 3 | **580 días y una anulación** | One single large drawing filling the sheet: on the left a small prison cell with a barred door standing open and a wall covered in tally marks grouped in fives; on the right a thick case file on a desk with its wax seal broken in two; a long curved arrow from the file to the open door. | El sello roto |
-| 4 | **Cómo funcionaba el esquema y por qué se archivó** | One single large drawing filling the sheet: on the left five small desks in a row, each with an envelope, and dotted arrows carrying the envelopes into one open drawer of a larger desk; on the right a magnifying glass over a torn page, and a closed archive box with its lid half shut. | El cajón |
-| 5 | **La pregunta** | One single large drawing filling the sheet: four identical stone plinths in a row; on the first a gavel, on the second a case file with a broken wax seal, on the third a closed archive box with a magnifying glass, and the fourth plinth topped by a large hand-drawn question mark. | El signo de pregunta |
-| 6 | **Votos bajo presión: cambio de ubicación** | One single large drawing filling the sheet: an isometric view of a small neighbourhood block; on one side a school with a sandbag barricade and a chain across its entrance, on the other side a second school across the street; a large curved arrow carries a cardboard ballot box from the barricaded school to the second school. | La cadena |
+| 1 | **Three cases, three endings** | One single large drawing filling the sheet: a cardboard ballot box in the foreground; behind it a single thick case folder from which three numbered arrows diverge to three small objects: a judge's gavel, a broken wax seal, and a closed archive box with a lid. | The ballot box |
+| 2 | **Final conviction, 4 to 1** | One single large drawing filling the sheet: a long courtroom bench seen from the front with five identical high-backed chairs behind it; four chairs have a copper seat cushion and one chair has a grey cushion; on the bench a gavel on a sound block and a thick bound dossier tied with ribbon; numbered callout circles on the chairs. | The four cushions |
+| 3 | **580 days and an annulment** | One single large drawing filling the sheet: on the left a small prison cell with a barred door standing open and a wall covered in tally marks grouped in fives; on the right a thick case file on a desk with its wax seal broken in two; a long curved arrow from the file to the open door. | The broken seal |
+| 4 | **How the scheme worked and why it was dismissed** | One single large drawing filling the sheet: on the left five small desks in a row, each with an envelope, and dotted arrows carrying the envelopes into one open drawer of a larger desk; on the right a magnifying glass over a torn page, and a closed archive box with its lid half shut. | The drawer |
+| 5 | **The question** | One single large drawing filling the sheet: four identical stone plinths in a row; on the first a gavel, on the second a case file with a broken wax seal, on the third a closed archive box with a magnifying glass, and the fourth plinth topped by a large hand-drawn question mark. | The question mark |
+| 6 | **Votes under pressure: change of venue** | One single large drawing filling the sheet: an isometric view of a small neighbourhood block; on one side a school with a sandbag barricade and a chain across its entrance, on the other side a second school across the street; a large curved arrow carries a cardboard ballot box from the barricaded school to the second school. | The chain |
 
-**Reglas de rigor:** sin rostros, sin banderas ni letras; los números y años siguen yendo en edición.
+**Rigor rules:** no faces, no flags or letters; numbers and years still go in editing.
 
-**Presupuesto (en dólares):** 6 imágenes × ≈ $0,03 (klein + 1 referencia, **precio sin confirmar**) = **≈ $0,18**; **tope: 7 imágenes (≈ $0,21)** con un solo reintento. Gasto acumulado del video: ≈ $0,25 + $0,21 = **≈ $0,46** (el tope inicial era $0,30: **pasa del tope, necesita tu aprobación**).
+**Budget (in dollars):** 6 images × ≈ $0.03 (klein + 1 reference, **price unconfirmed**) = **≈ $0.18**; **cap: 7 images (≈ $0.21)** with a single retry. Accumulated spend of the video: ≈ $0.25 + $0.21 = **≈ $0.46** (the initial cap was $0.30: **over the cap, needed your approval**).
 
-**Aprobado por el usuario ("adelante") y ejecutado: ver *Láminas v3*.** (Plan original: genero en serie, miro la hoja de las seis juntas, rehago como máximo una, muevo las v1 a `_descartes/`, actualizo recortes del montaje (con láminas completas ya no hace falta recortar) y renderizo la r3.)
+**Approved by the user ("go ahead") and executed: see *Plates v3*.** (Original plan: generate in series, look at the sheet of the six together, redo at most one, move the v1s to `_descartes/`, update the editing crops (with full plates no cropping is needed) and render r3.)
 
-## Láminas v3 (3-oct-2026): ilustraciones más descriptivas
+## Plates v3 (3 Oct 2026): more descriptive illustrations
 
-**Aprobado:** "adelante" (≈ $0,21, tope de 7 imágenes). Generadas en serie con `brasil-e2-v1.png` como referencia de estilo: `brasil-e1-v3`, `e2-v4`, `e3-v3`, `e4-v3`, `e5-v3`, `e6-v3` (7 predictions: 6 + 1 reintento de `e2`).
+**Approved:** "go ahead" (≈ $0.21, cap of 7 images). Generated in series with `brasil-e2-v1.png` as style reference: `brasil-e1-v3`, `e2-v4`, `e3-v3`, `e4-v3`, `e5-v3`, `e6-v3` (7 predictions: 6 + 1 retry of `e2`).
 
-| Escena | Qué muestra | Resultado |
+| Scene | What it shows | Result |
 | --- | --- | --- |
-| 1 | Urna y un expediente con mazo, sello y caja de archivo | ✅ pero **las flechas numeradas no salieron**: los tres objetos están sobre el expediente |
-| 2 | Banco de tribunal con 5 sillas | ✅ en el **reintento**: **4 cojines cobre y 1 gris** (el primero salió 3 y 2) |
-| 3 | Celda abierta con marcas de días, flecha al expediente de sello roto | ✅ |
-| 4 | Escritorios con sobres hacia un cajón, lupa sobre hoja rota y caja de archivo | ✅ |
-| 5 | Mazo, expediente, caja con lupa y pedestal con signo de pregunta | ✅ |
-| 6 | Dos escuelas, barricada con cadena y una flecha que lleva la urna | ✅ |
+| 1 | Ballot box and a case file with gavel, seal and archive box | ✅ but **the numbered arrows did not come out**: the three objects sit on the case file |
+| 2 | Courtroom bench with 5 chairs | ✅ on the **retry**: **4 copper cushions and 1 grey** (the first came out 3 and 2) |
+| 3 | Open cell with day marks, arrow to the broken-seal file | ✅ |
+| 4 | Desks with envelopes toward a drawer, magnifying glass over a torn page and archive box | ✅ |
+| 5 | Gavel, case file, box with magnifying glass and plinth with a question mark | ✅ |
+| 6 | Two schools, barricade with chain and an arrow carrying the ballot box | ✅ |
 
-**Gasto del video: ≈ $0,25 + 7 × $0,03 ≈ $0,46** (tope original $0,30; el exceso lo aprobó el usuario). Las versiones anteriores están en `ilustraciones/_descartes/`.
+**Spend of the video: ≈ $0.25 + 7 × $0.03 ≈ $0.46** (original cap $0.30; the excess was approved by the user). The earlier versions are in `ilustraciones/_descartes/`.
 
-**Montaje r3:** sin recortes (las láminas v3 no traen dibujos secundarios), acercamiento base entre 0,96 y 1,0 para que no se corten los bordes, dibujo subido 90 px y texto en pantalla al 27 % de la altura. Papel de fondo medido de nuevo. **No he visto el video completo**; revisé cinco fotogramas clave.
+**Editing r3:** no crops (the v3 plates carry no secondary drawings), base push between 0.96 and 1.0 so edges are not cut, drawing raised 90 px and on-screen text at 27 % of the height. Background paper measured again. **I have not watched the whole video**; I reviewed five key frames.
