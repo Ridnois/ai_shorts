@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: stages 0–3 done (user: "idea gate is good and scripting going well, continue") · stock downloaded · P4 awaiting approval (prompts + budget) · no media generated
+status: stages 0–3 done (user: "idea gate is good and scripting going well, continue") · stock downloaded · P4 approved by the user 4 Oct 2026 (prompts + budget, cap ≈ $0.29) · P5 test done, awaiting the user's ear
 tags: [research, youtube, status, magnetar, neutron-star, shorts]
 ---
 
@@ -20,8 +20,9 @@ Short 9:16, English, 151 words. Question: *how can a star the size of a city be 
 | 1 Research | ✅ P2 | user | Sources in [[Script - Magnetar]]; NASA/JPL numbers replaced the Wikipedia ones |
 | 2 Script | ✅ P3 | user | 151 words, 7 scenes |
 | 3 Direction | ✅ P4a | pending glance | Visual plan below: 11 plates, 3 generated |
-| 4 Prompts and budget | ⏳ **P4** | **awaiting you** | below |
-| 5 Test, 6 Generation, 7 Editing, 8 Publishing | ⏳ | — | not started; no Replicate call made |
+| 4 Prompts and budget | ✅ P4 | user: "I approve" (4 Oct 2026), cap ≈ $0.29 | below |
+| 5 Test | ⏳ **P5** | **awaiting you** | scene-1 voice + plate 2 done; listen and look, then say go |
+| 6 Generation, 7 Editing, 8 Publishing | ⏳ | — | not started |
 
 ## Visual plan (type: S stock · G generated explainer · N number plate built in Blender)
 
@@ -77,3 +78,18 @@ Estimated duration (derived, not planned): 151 words ≈ 63 s at ≈ 144 wpm.
 - The "0.1 s = 100,000 years of Sun" figure still has one secondary source; confirm in arXiv astro-ph/0609595 before it goes on a card.
 - `gpt-image-1.5` price on Replicate is unconfirmed; the cap assumes $0.05.
 - Gate P7 (the full video, the voice) stays with you.
+
+## Prediction log
+
+`scene · category · model · status · cost · URL`
+
+- s1 · voice · `elevenlabs/v3` Roger `en` 0.95 (`next_text` = scene 2) · ✅ `voice/mg-s1-voice-v1.mp3` · 99 characters ≈ $0.01 · [bv2wqj01…](https://replicate.com/p/bv2wqj017nrmt0d10zmrydab5r)
+- p2 · image G1 · `gpt-image-1.5` medium 2:3 png · ✅ `plates/mg-p02-scale-v1.png` · ≈ $0.05 · [g9dqjvvc…](https://replicate.com/p/g9dqjvvcw9rmw0d10zms7avx58)
+- One HTTP 429 on the first image call (rate limit, no prediction created, no cost); retried once after 15 s.
+- Used so far: 2 predictions, ≈ $0.06 of the ≈ $0.29 cap.
+
+## P5 result
+
+- **Plate 2:** I looked at it. No letters, no numbers, no labels; a pale cracked sphere with blue arcs at its poles spans the city grid. It reads as "a sphere the size of a city". The sphere is perfectly smooth and the grid is photoreal, so the blue arcs are decorative rather than field lines; fine for scale, not a data claim.
+- **Voice:** generated but **not heard** (I cannot hear audio). 99 characters returned a 120 KB file. The voice is your decision at P5 and is not changed afterwards.
+- Next, if you say go: voice scenes 2 to 7, then plates G2 and G3, in series (≈ $0.23 more), then the Blender build with `CHECK=1`.
