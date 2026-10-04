@@ -53,7 +53,7 @@ Feedback (Magnetar, 4 Oct 2026): *"add transcriptions to the video, word by word
 
 - **Types:** `full` (cover with a focus point and a slow push), `contain` (fitted with rounded corners and a soft shadow on a gradient), `cutout` (transparent PNG over a gradient with a soft shadow). The gradient is generated in the script from two colours and an angle (`numpy`).
 - **Layers are composed in `numpy` inside Blender** (`bpy.data.images` + `foreach_get/foreach_set`; `Image.scale` to resize), saved as PNG in `render/_fx/` and used as `ALPHA_OVER` strips. The system Python has **no numpy**; Blender's has.
-- **Channels:** 1 paper · 2 gradient A · 3 plate A · 4 gradient B · 5 plate B (alternating so cross-fades never overlap on one channel) · 6 callout overlays · 7 card · 8 to 10 card texts · 11 to 13 callout texts · 14 vignette · 15 grain · 16 captions.
+- **Channels:** 1 paper · 2 gradient A · 3 plate A · 4 gradient B · 5 plate B (alternating so cross-fades never overlap on one channel) · 7 card · 8 to 10 card texts · 14 vignette · 15 grain · 16 captions · 20 to 22 callout overlays · 24 to 26 callout texts (**each callout on its own channel**: overlapping strips on one channel are bumped into the card's channels and ghosted the number card on the Superconductors diamond-anvil plate, which has three callouts). Words longer than ≈ 14 characters shrink to fit the frame ("NEAR-ROOM-TEMPERATURE" was cut at 104 px).
 - **Callouts:** a dot with a ring, a leader line and a paper label (copper bar); the label is moved above the card if it would overlap it. They enter 1 s after the plate, 0.6 s apart.
 - **Cards:** context, number and note kinds, 894 × 280 px at 28.5 % from the bottom.
 

@@ -49,7 +49,10 @@ tags: [research, youtube, process, feedback, vault]
 | 4 Oct 2026 | Plasticine miniatures via Kontext + one reference per plate | Visual plan with stock photos, generated explainers and cutouts, no custom style | [[Illustration pipeline]] |
 | 4 Oct 2026 | Generic label/title/detail cards on every plate | Callouts, number cards, margin notes and specific context cards | [[On-screen text style]] |
 | 4 Oct 2026 | One builder script per video | `build_video.py` + `plan.json`, padded and checked voices | [[Blender editing]] |
+| 4 Oct 2026 | A scene-setting, story-style hook of 12 to 20 words | A need-to-know claim of ≤ 10 words inside 3 s; explain, do not narrate | [[Narration guide]], [[Shorts quality bar]] |
+| 4 Oct 2026 | Creative explainers and number cards on bare gradients | Scientifically faithful schematics; cards only on real photos or explainers | [[Illustration pipeline]] |
+| 4 Oct 2026 | Cards and callouts only | Cards, callouts and word-by-word captions on every video | [[Blender editing]], [[On-screen text style]] |
 
 ## 4. The coherence check
 
-`System/scripts/check_vault.py` guards the vault: it fails on broken wikilinks, notes without front matter, System notes missing from the [[YouTube Channel]] index, scripts that do not compile, and **missing encoded feedback** (a list of phrases that must stay in the notes that carry each rule, so a later edit cannot silently drop a rule). When feedback adds a rule, **add its invariant to the script** in the same pass.
+`System/scripts/check_vault.py` guards the vault: it fails on broken wikilinks, notes without front matter, System notes missing from the [[YouTube Channel]] index, scripts that do not compile, and **missing encoded feedback** (a list of phrases that must stay in the notes that carry each rule, so a later edit cannot silently drop a rule) and **missing guards in the builder** (code that enforces a rule, such as refusing bare backdrops). When feedback adds a rule, **add its invariant to the script** in the same pass.

@@ -26,6 +26,8 @@ Short 9:16, English, 151 words. Question: *how can a star the size of a city be 
 | 7 Editing | ⏳ **P7** | **awaiting you** | `Media/Magnetar/render/mg-61s-9x16-r3.mp4` |
 | 8 Publishing | ⏳ | — | description below |
 
+> **Post-render feedback received (4 Oct 2026), applied to the vault, not yet to this video:** illustrations too creative and unscientific (plates 2 and 6), bare violet plates under the number cards (plates 3, 5, 7), no captions, a story-style opener. Rework when the user asks: a real backdrop per number plate, scientific schematics, `texts` and captions, a need-to-know opener. The render r3 stays as the *before*. See [[Post-render feedback - Magnetar]].
+
 ## Visual plan (type: S stock · G generated explainer · N number plate built in Blender)
 
 | # | Scene | Type | Source | This plate lets the viewer see ___ so they understand ___ |

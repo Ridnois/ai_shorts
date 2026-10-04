@@ -34,7 +34,7 @@ Before any prompt, the script note gets a **visual plan**: one row per plate wit
 | **E · Edit of a real photo** | change one thing in a real photo (remove text, extend, recolour a part) | `black-forest-labs/flux-kontext-pro` (as an editor, never a restyler) | ≈ $0.04 |
 | **N · Number or text plate** | a single figure or a fact that needs no image | built in Blender ([[On-screen text style]]) | $0 |
 
-**Mix by default (a Short of 12 to 14 plates):** at least **a third stock photos**, at least **a third generated explainers or cutouts**, the rest free; **no two consecutive plates of the same type** (stock `full` photo next to stock `full` photo is the same type; alternate with an explainer); a plate is held about **4 to 6 s**, so a Short has roughly one plate per 5 s of voice.
+**Mix by default (a Short of 12 to 14 plates):** at least **a third stock photos**, at least **a third generated explainers or cutouts**, the rest free; **no two consecutive plates of the same type** (a stock `full` photo next to a stock `full` photo is the same type; alternate with an explainer, or change both the treatment and the subject); a plate is held about **4 to 6 s**, so a Short has roughly one plate per 5 s of voice.
 
 **Plan example (one row):** `7 · S+callouts · "a helium dewar in a lab" · lets the viewer see how large and plain the tank is so they understand that helium is stored as a cold liquid in unglamorous steel · source: Wikimedia (CC BY-SA) · callouts: valve, wheeled base`.
 

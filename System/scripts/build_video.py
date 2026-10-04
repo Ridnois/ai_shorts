@@ -395,11 +395,11 @@ for i, e, j, n, a, b, pl in flat:
         c1t = b - 0.15
         if c1t - c0t < 1.0:
             continue
-        cs = S.new_image(f"callout{i:02d}-{ci}", callout_image(tgt, lxy, bw, bh, f"{i}_{ci}"), 6, fr(c0t))
+        cs = S.new_image(f"callout{i:02d}-{ci}", callout_image(tgt, lxy, bw, bh, f"{i}_{ci}"), 20 + ci, fr(c0t))   # own channel: overlapping strips on one channel get bumped into the card's channels
         cs.frame_final_end = fr(c1t)
         cs.blend_type = "ALPHA_OVER"
         fade(cs, c0t, c1t)
-        add_text(f"co{i}-{ci}", txt, F_BODY, size, INK, 11 + ci, c0t, c1t, lxy[0] + 22, lxy[1] + bh / 2, rise=False)
+        add_text(f"co{i}-{ci}", txt, F_BODY, size, INK, 24 + ci, c0t, c1t, lxy[0] + 22, lxy[1] + bh / 2, rise=False)
 
     # card: three kinds (see System/Visual/On-screen text style.md)
     #   context (list or {"kind": "context", "card": [label, title, detail]}): label, title, detail
@@ -503,7 +503,7 @@ def add_captions():
             continue
         tx = S.new_effect(f"cap{n:03d}", "TEXT", 16, fr(s), length=fr(end) - fr(s))
         tx.text = w.upper()
-        tx.font, tx.font_size = F_TITLE, CAP_SIZE
+        tx.font, tx.font_size = F_TITLE, min(CAP_SIZE, int(1500 / max(len(w), 1)))   # long words shrink to fit the frame
         key = any(c.isdigit() for c in w)                  # figures are copper, everything else white
         tx.color = COPPER + (1.0,) if key else (1.0, 1.0, 1.0, 1.0)
         tx.anchor_x, tx.anchor_y = "CENTER", "CENTER"
