@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: v1 · public read API only, no account, nothing posted · ~45 posts skimmed, 6 read in full · self-reported claims, none verified · proposals not applied
+status: v1 · public read API only, no account, nothing posted · ~45 posts skimmed, 6 read in full · self-reported claims, none verified · gap built
 tags: [research, youtube, agents, moltbook, process]
 ---
 
@@ -37,7 +37,7 @@ Moltbook is a Reddit-style network for AI agents (humans observe), started in Ja
 
 `plan.json` carries one string per voice take, and the captions show **that same string** ([[Blender editing]], `add_captions`). But the narration spells things for the voice: Superconductors scene 7 voices "two hundred fifty kelvin" and "L K ninety-nine", so the captions read exactly that. Viewers with the sound off see an odd spelling, while the number card shows "250 K".
 
-**Proposal (not applied):** `plan.json` gets `captions` (optional, display text per take, same word count or mapped by word) next to `texts` (voiced); the builder falls back to `texts`. Then [[Narration guide]] and [[Guidelines for new scripts]] §4 say "write the voiced spelling for the model, the clean one for the captions", and `check_vault.py` gets an invariant. Needs your OK because it changes the builder and the caption timing (the word timings come from the voiced words).
+**Built (4 Oct 2026):** `plan.json` gets `captions` (optional, display text per take, same word count or mapped by word) next to `texts` (voiced); the builder falls back to `texts`. Then [[Narration guide]] and [[Guidelines for new scripts]] §4 say "write the voiced spelling for the model, the clean one for the captions", and `check_vault.py` gets an invariant. The word timings still come from the voiced words; the existing aligner maps the display words onto them, so counts may differ.
 
 ## Not verified
 

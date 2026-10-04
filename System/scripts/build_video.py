@@ -13,7 +13,7 @@ What it does (see System/Editing/Blender editing.md and System/Visual/Illustrati
       cutout   a PNG with a transparent background (generated or cut out) over the gradient, with a soft shadow
   * Callouts: a dot on a part of the image, a leader line and a short label (explains machines and processes).
   * One card per plate: context (label, title, detail), number (big figure, caption, source) or margin note; vignette and grain.
-  * Word-by-word captions (plan `texts`, one narration string per voice; timings from voice/<take>.words.json made by
+  * Word-by-word captions (plan `texts`, one narration string per voice, plus optional `captions`: the same takes spelled for the eye, an empty string falls back to `texts`; timings from voice/<take>.words.json made by
     System/scripts/word_timings.py, else estimated): one big word at a time in the lower caption zone, so the video follows with the sound off.
   * Sound design (plan `sound`): synthesized here with numpy (no model, no cost): scene whooshes, plate ticks, card pings,
     callout ticks, an opening thump and a very quiet drone bed, as one WAV mixed under the voice.
@@ -518,6 +518,9 @@ def add_captions():
     if not texts:
         return
     assert len(texts) == len(voices), "plan.texts needs one narration string per voice"
+    caps = PLAN.get("captions") or [""] * len(texts)
+    assert len(caps) == len(texts), "plan.captions needs one string per voice (\"\" keeps the voiced text)"
+    texts = [c or t for c, t in zip(caps, texts)]   # display spelling ("250 K") over voiced spelling ("two hundred fifty kelvin"); align_words maps it onto the heard words
     placed = []
     for v, text in zip(voices, texts):
         for w, s, e in take_words(v, text):

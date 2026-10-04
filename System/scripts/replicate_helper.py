@@ -20,7 +20,9 @@ def run(model,inp):
         p=call("https://api.replicate.com/v1/predictions",{"version":v,"input":inp})
     print("created",p["id"],flush=True)   # printed at once, so a prediction can be recovered if a later step hangs
     while p["status"] in("starting","processing"):
-        time.sleep(2);p=call(p["urls"]["get"])
+        time.sleep(2)
+        try: p=call(p["urls"]["get"])
+        except Exception as e: print("poll retry",str(e)[:50],flush=True);time.sleep(4)   # a network hiccup must not lose a paid prediction
     if p["status"]!="succeeded": raise SystemExit(f"{p['status']} {p.get('error')}")
     return p
 def download(p,dest):

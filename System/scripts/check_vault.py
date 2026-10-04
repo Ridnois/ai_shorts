@@ -17,6 +17,7 @@ ROOT = os.getcwd()
 SKIP = (".git", ".obsidian", "Media", "__pycache__")
 
 INVARIANTS = [
+    ("System/Editing/Blender editing.md", "spelling for the eye", "captions show the clean spelling, the voice the spoken one (Moltbook research)"),
     # Free sound sources research, 4 Oct 2026
     ("System/Guidelines for new scripts.md", "Sound and music are opt-in", "sound only from free licensed libraries, credited, approved"),
     ("System/Guidelines for new scripts.md", "BigSoundBank and Freesound are deferred", "user deferred those two sources"),
@@ -132,7 +133,7 @@ for rel in notes:
 _b = open(os.path.join(ROOT, "System", "scripts", "build_video.py"), encoding="utf-8").read()
 if "def add_brand" in _b:
     problems.append("build_video.py still has the brand layer the user asked to remove (feedback, 4 Oct 2026)")
-for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions"), ("write_srt(", "caption track export"), ("LONG PLATE", "long plates are reported"), ("add_sound()", "sound design")):
+for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions"), ("write_srt(", "caption track export"), ("LONG PLATE", "long plates are reported"), ("add_sound()", "sound design"), ("plan.captions needs one string", "display captions")):
     if _needle not in _b:
         problems.append(f"build_video.py lost its guard: {_needle} ({_why})")
 
