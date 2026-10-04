@@ -3,7 +3,7 @@ type: video-idea
 status: script-ready
 format: short
 publish: 
-estimated_budget_usd: 0.72
+estimated_budget_usd: 0.64
 approved_budget_usd: 0.76
 actual_cost_usd: 
 video: "[[Twisted carbon - Status]]"
