@@ -1,8 +1,14 @@
-import os,sys,json,time,base64,urllib.request
+import os,sys,json,time,base64,urllib.request,urllib.error
 TOK=os.environ["REPLICATE_API_TOKEN"]
 def call(url,data=None):
-    r=urllib.request.Request(url,data=json.dumps(data).encode() if data else None,headers={"Authorization":f"Bearer {TOK}","Content-Type":"application/json","User-Agent":"curl/8.5"})
-    return json.load(urllib.request.urlopen(r,timeout=60))
+    """One API call; a 429 (rate limit, nothing was created or charged) waits for Retry-After and retries up to 6 times."""
+    for a in range(6):
+        r=urllib.request.Request(url,data=json.dumps(data).encode() if data else None,headers={"Authorization":f"Bearer {TOK}","Content-Type":"application/json","User-Agent":"curl/8.5"})
+        try:
+            return json.load(urllib.request.urlopen(r,timeout=60))
+        except urllib.error.HTTPError as e:
+            if e.code!=429 or a==5: raise
+            w=int(e.headers.get("Retry-After") or 12)+2;print("429, waiting",w,"s",flush=True);time.sleep(w)
 def datauri(p,mime):
     return f"data:{mime};base64,"+base64.b64encode(open(p,"rb").read()).decode()
 def run(model,inp):
