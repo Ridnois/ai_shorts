@@ -73,7 +73,7 @@ Source: post-render feedback on the first English helium video (4 Oct 2026): *"t
 
 ## 2. Illustrations: `flux-kontext-pro` + real photo
 
-Style, method and prompt template: [[Visual style - plasticine miniatures]]. Source feedback: Brazil ("there is no relation between the illustrations and the content… the prompt became generic and forgot the research"); Lemon cake ("Horrible illustration… look up a homemade lemon cake so you understand").
+Style, method and prompt template: [[Illustration pipeline]]. Source feedback: Brazil ("there is no relation between the illustrations and the content… the prompt became generic and forgot the research"); Lemon cake ("Horrible illustration… look up a homemade lemon cake so you understand").
 
 | # | Rule |
 | --- | --- |
@@ -129,5 +129,5 @@ Style, method and prompt template: [[Visual style - plasticine miniatures]]. Sou
 - [ ] **Sound quality and dynamism** (Brazil feedback): no proven solution.
 - [ ] **Plate changes synced to the word**, not only to the scene.
 - [ ] Try the text style on a political topic (figure + source) and define 16:9.
-- [ ] Confirm the `flux-kontext-pro` price on Replicate (≈ $0.04 from memory); test `match_input_image` and a scene with no object ([[Visual style - plasticine miniatures]]).
+- [ ] Confirm the `flux-kontext-pro` price on Replicate (≈ $0.04 from memory); test `match_input_image` and a scene with no object ([[Illustration pipeline]]).
 - [x] Measured the English pace with the first English script (≈ 144 wpm). [ ] The English voice itself still needs the user's ear.

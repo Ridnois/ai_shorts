@@ -12,7 +12,7 @@ What it does (see System/Editing/Blender editing.md and System/Visual/Illustrati
       contain  a photo or diagram fitted inside the frame on a gradient, with rounded corners and a soft shadow
       cutout   a PNG with a transparent background (generated or cut out) over the gradient, with a soft shadow
   * Callouts: a dot on a part of the image, a leader line and a short label (explains machines and processes).
-  * One three-line card per plate (label, title, detail), vignette and grain.
+  * One card per plate: context (label, title, detail), number (big figure, caption, source) or margin note; vignette and grain.
 
 plan.json: see the docstring of `load_plan` and `System/Visual/Illustration pipeline.md` §6.
 """
@@ -24,7 +24,7 @@ import aud
 import bpy
 import numpy as np
 
-ROOT = os.environ.get("VIDEO") or sorted(glob.glob("Media/*"))[-1]
+ROOT = os.path.abspath(os.environ.get("VIDEO") or sorted(glob.glob("Media/*"))[-1])
 PLAN = json.load(open(f"{ROOT}/plan.json", encoding="utf-8"))
 OUT = f"{ROOT}/render"
 FX = f"{OUT}/_fx"
@@ -377,6 +377,8 @@ for i, e, j, n, a, b, pl in flat:
         bh = 64
         lxy = (co["label"][0] * W - bw / 2, co["label"][1] * H - bh / 2)
         lxy = (min(max(lxy[0], 24), W - bw - 24), min(max(lxy[1], 24), H - bh - 24))
+        if lxy[1] + bh > CY0 - 12 and lxy[1] < CY1 + 12:             # never over the card: move the label above it
+            lxy = (lxy[0], CY0 - bh - 24)
         c0t = a + 1.0 + 0.6 * ci
         c1t = b - 0.15
         if c1t - c0t < 1.0:
@@ -387,10 +389,13 @@ for i, e, j, n, a, b, pl in flat:
         fade(cs, c0t, c1t)
         add_text(f"co{i}-{ci}", txt, F_BODY, size, INK, 11 + ci, c0t, c1t, lxy[0] + 22, lxy[1] + bh / 2, rise=False)
 
-    # card: label, title, detail
+    # card: three kinds (see System/Visual/On-screen text style.md)
+    #   context (list or {"kind": "context", "card": [label, title, detail]}): label, title, detail
+    #   number  {"kind": "number", "value": "1.1°", "caption": "twist angle", "source": "Nature, 2018"}
+    #   note    {"kind": "note", "text": "Yes, the stuff in your pencil."}   (a short aside in the narrator's voice)
     card = pl.get("card")
     if card:
-        etq, tit, det = card
+        kind = card.get("kind", "context") if isinstance(card, dict) else "context"
         t0, t1 = a + 0.45, b - 0.15
         cd = S.new_image(f"card{i:02d}", CARD_PNG, 7, fr(t0))
         cd.frame_final_end = fr(t1)
@@ -400,9 +405,24 @@ for i, e, j, n, a, b, pl in flat:
             cd.transform.offset_y = off
             cd.transform.keyframe_insert("offset_y", frame=fr(t_))
         x = CX0 + 8 + 36
-        add_text(f"etq{i}", spaced(etq), F_BODY, 32, COPPER + (1.0,), 8, t0, t1, x, CY - 0.050 * H)
-        add_text(f"tit{i}", tit, F_TITLE, 56, INK, 9, t0, t1, x, CY - 0.001 * H)
-        add_text(f"det{i}", det, F_BODY, 34, INK_SOFT, 10, t0, t1, x, CY + 0.047 * H)
+        if kind == "context":
+            etq, tit, det = card if isinstance(card, list) else card["card"]
+            add_text(f"etq{i}", spaced(etq), F_BODY, 32, COPPER + (1.0,), 8, t0, t1, x, CY - 0.050 * H)
+            add_text(f"tit{i}", tit, F_TITLE, 56, INK, 9, t0, t1, x, CY - 0.001 * H)
+            add_text(f"det{i}", det, F_BODY, 34, INK_SOFT, 10, t0, t1, x, CY + 0.047 * H)
+        elif kind == "number":
+            add_text(f"val{i}", card["value"], F_TITLE, 124, COPPER + (1.0,), 8, t0, t1, x, CY - 0.036 * H)
+            add_text(f"cap{i}", card["caption"], F_TITLE, 44, INK, 9, t0, t1, x, CY + 0.021 * H)
+            add_text(f"src{i}", card.get("source", ""), F_BODY, 30, INK_SOFT, 10, t0, t1, x, CY + 0.056 * H)
+        elif kind == "note":
+            words, lines = card["text"].split(), [""]
+            for w_ in words:                                   # wrap to two lines of about 30 characters
+                if len(lines[-1]) + len(w_) > 30 and len(lines) < 2:
+                    lines.append("")
+                lines[-1] = (lines[-1] + " " + w_).strip()
+            add_text(f"etq{i}", spaced("Margin note"), F_BODY, 30, COPPER + (1.0,), 8, t0, t1, x, CY - 0.050 * H)
+            add_text(f"nt{i}a", lines[0], F_TITLE, 46, INK, 9, t0, t1, x, CY - 0.002 * H)
+            add_text(f"nt{i}b", lines[1] if len(lines) > 1 else "", F_TITLE, 46, INK, 10, t0, t1, x, CY + 0.048 * H)
 
 # ---------------------------------------------------------------- vignette and grain
 yy2, xx2 = np.mgrid[0:H, 0:W].astype(np.float32)

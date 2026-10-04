@@ -51,7 +51,7 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | Where media is stored | [[Media convention]] |
 | Is the idea worth it? | [[Idea and hook quality]] |
 | How to write | [[Narration guide]] · [[Channel voice]] |
-| How it looks | [[Visual style - plasticine miniatures]] · [[On-screen text style]] |
+| How it looks | [[Illustration pipeline]] · [[On-screen text style]] |
 | How to call Replicate | [[Prompt - per-scene generation guide]] · [[Channel models]] |
 | How to edit | [[Blender editing]] · [[Transitions and effects]] |
 | Model research | [[Research - Flux Kontext Pro with references (power)]] |

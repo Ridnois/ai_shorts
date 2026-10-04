@@ -28,7 +28,7 @@ tags: [research, youtube, script, chips, canon, shorts]
 
 ## Direction (P4a, text only): 8 plates
 
-One per scene, and **two in scene 5** (before and after contact, rule 2.1). Style: [[Visual style - plasticine miniatures]], vertical 9:16, one focal point, copper-orange accent. **No text, figures or faces inside the image.**
+One per scene, and **two in scene 5** (before and after contact, rule 2.1). Style: the plasticine miniature style (retired, see [[Illustration pipeline]] §8), vertical 9:16, one focal point, copper-orange accent. **No text, figures or faces inside the image.**
 
 | # | Scene | Concrete state shown | Accent |
 | --- | --- | --- | --- |

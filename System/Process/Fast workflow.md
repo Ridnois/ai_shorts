@@ -16,7 +16,7 @@ tags: [research, youtube, process, costs, replicate]
 
 - **Sonnet 5.5, no subagents**: the work is sequential and short.
 - **Minimum reading at the start:** these two notes + `<Topic> - Status` + the current script.
-- **Only if needed:** [[Narration guide]] (when writing), [[Visual style - plasticine miniatures]], [[Channel models]] (if the model changes), [[Blender editing]] and [[Transitions and effects]] (when editing).
+- **Only if needed:** [[Narration guide]] (when writing), [[Illustration pipeline]], [[Channel models]] (if the model changes), [[Blender editing]] and [[Transitions and effects]] (when editing).
 - **A single note per video** (`<Topic> - Status`), with stages, budget, prompts and prediction log. No separate prompt notes.
 - **Replicate results are not read whole:** keep the URL or the file and a one-line log entry.
 - **Images are looked at in batches**, when the category is finished.
@@ -84,7 +84,7 @@ The stages are those of [[Production process]]; they are reviewed together:
 
 ## 6. Shorts format (0 to 2 min): vertical 9:16
 
-- **Image:** `aspect_ratio` 9:16 (or `match_input_image` with Kontext, see §7); a single subject, tall composition. Safe zone and image rules: [[Visual style - plasticine miniatures]] and [[Guidelines for new scripts]] §2.
+- **Image:** `aspect_ratio` 9:16 (or `match_input_image` with Kontext, see §7); a single subject, tall composition. Safe zone and image rules: [[Illustration pipeline]] and [[Guidelines for new scripts]] §2.
 - **Render in Blender:** `W, H = 1080, 1920`, 24 or 30 fps, H.264 and AAC; scale `max(...)` to fill the frame.
 - **Length is planned in words (130 to 190 for a Short), never in seconds;** the duration is measured after the voice exists (≈ 144 words per minute in English).
 - **Render name:** `<video>-<duration>-9x16-r<n>.mp4` ([[Media convention]]).
@@ -99,6 +99,6 @@ The stages are those of [[Production process]]; they are reviewed together:
 - **A single image:** the model does not accept several. **A collage of two references does not work** (the photo lost strength and only rings came out).
 - **Prompt as an editing instruction:** *"Redraw this exact <object>… Keep the exact shape and proportions… Replace the background… Remove all lettering and logos…"* + a style line. State the parts that must be kept.
 - **Orientation:** the model respects the input's composition; **a horizontal photo with a 9:16 canvas is rotated and distorted**. Try `match_input_image` or an already vertical input (Chips used `match_input_image` with 3:4 and 4:3 photos and filled the frame in editing).
-- **Style:** plasticine miniature, the only one Kontext recognized as a style ("flat vector" and "screen print" came out as renders). Definition and prompt template: [[Visual style - plasticine miniatures]].
+- **Style:** plasticine miniature, the only one Kontext recognized as a style ("flat vector" and "screen print" came out as renders). Definition and prompt template: [[Illustration pipeline]].
 - **Cost and retries:** same as §4 (one retry per image, in series, cap ×1.2). One test image before a batch.
 - **Fallback:** `wan-2.7-image` (earlier call: `prompt` with scene context, `images` = up to 3 real reference photos, `size` `1152*2048`).

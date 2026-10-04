@@ -10,7 +10,7 @@ tags: [research, youtube, models, replicate, costs]
 
 > **Current selection: [[Fast workflow]]** (§3: `flux-kontext-pro` + real photo, `elevenlabs/v3`). This note only keeps the price tables; where they differ, [[Fast workflow]] rules.
 
-← [[YouTube Channel]] · [[Production process]] · [[Prompt - per-scene generation guide]] · [[Channel voice]] · [[Visual style - plasticine miniatures]]
+← [[YouTube Channel]] · [[Production process]] · [[Prompt - per-scene generation guide]] · [[Channel voice]] · [[Illustration pipeline]]
 
 Which model is used in each case, **with its real price on Replicate**. This version comes from a user complaint: *"it's getting expensive, too much test"*. It was re-evaluated **without running any model**: only the price pages and input schemas were read.
 

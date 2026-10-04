@@ -8,13 +8,13 @@ tags: [research, youtube, editing, transitions, effects, blender]
 
 # Transitions and effects
 
-← [[YouTube Channel]] · [[Blender editing]] · [[Visual style - plasticine miniatures]] · [[Production process]]
+← [[YouTube Channel]] · [[Blender editing]] · [[Illustration pipeline]] · [[Production process]]
 
 The channel's editing language: **which transition is used in each situation, which effects are applied and why**, so every video looks and feels the same. First applied in [[Script - Helium (70 seconds)]]; the script that implements it is `build_helio.py` (see [[Blender editing]]).
 
 ## Design idea
 
-The whole channel is a **succession of plasticine models** ([[Visual style - plasticine miniatures]]). The editing behaves like a sober stop-motion:
+The whole channel is a **succession of plasticine models** ([[Illustration pipeline]]). The editing behaves like a sober stop-motion:
 
 - an image **changes in place** when something changes in the story (a flame goes out, a level drops);
 - the camera only **slowly moves in or out**, like someone looking at a model up close;

@@ -8,7 +8,7 @@ tags: [research, youtube, script, narration]
 
 # Narration guide
 
-← [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Production process]] · [[Channel voice]] · [[Visual style - plasticine miniatures]] · [[YouTube with AI - quality content guide]]
+← [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Production process]] · [[Channel voice]] · [[Illustration pipeline]] · [[YouTube with AI - quality content guide]]
 
 Applied at stage 2 (script) and 3 (direction) of the [[Production process]], and checked before P3. **It is the source of truth for writing a script**; the other notes link to it. **Scripts are written directly in English** (not translated from Spanish): idioms, rhythm and sentence length are English ones, read aloud with the English voice ([[Channel voice]]).
 
@@ -40,7 +40,7 @@ The video answers **one question**, written in one sentence before writing ("why
 2. **Every hook is resolved in its scene or the next**, and answers all three: **what it is**, **why it happened**, **what it means**. A question is not left open just to sustain curiosity.
 3. **Cause → effect, not a list.** Each link carries its why in the same sentence. "Because / so / but" joins; "and then" enumerates. If you must cut, sacrifice the side detail (dates, names, secondary figures), **never the why**.
 4. **The concrete beats the abstract.** One object, one place, one figure per idea. A 3 cm screw says more than "a critical dependency". Data are few and go at the end of the sentence, where the voice stresses them.
-5. **A thread that returns.** An object or character that reappears (the magnet, the glass dish) organizes the story and allows a close that echoes the hook. That object is also the **reference photo** of the image ([[Visual style - plasticine miniatures]]).
+5. **A thread that returns.** An object or character that reappears (the magnet, the glass dish) organizes the story and allows a close that echoes the hook. That object is also the **reference photo** of the image ([[Illustration pipeline]]).
 6. **Every scene raises the stakes or changes the reading.** If a scene only informs, merge it with another or cut it. **One new idea per scene.**
 7. **Make them think.** The ending delivers an idea, not a fact ("a case that falls on procedure never gets to judge the facts"; "if it goes wrong, it is not the recipe: it is a step"), without reproach or sermon.
 8. **Write for the ear and read it aloud.** Sentences of 8 to 16 words, one idea each, active and concrete verbs; no parentheses or chained subordinate clauses. A single tense across the whole video (historical present: "In 1973, a ship arrives…"). If it sounds forced or dramatic when spoken, rewrite it. Use contractions as a spoken narrator would ("it's", "doesn't") when they sound natural.

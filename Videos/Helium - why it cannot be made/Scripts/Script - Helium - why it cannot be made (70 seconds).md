@@ -43,7 +43,7 @@ tags: [research, youtube, script, helium, shorts]
 
 ## Direction (P4a, text only): 13 plates
 
-Style: [[Visual style - plasticine miniatures]], vertical 9:16 filled in editing, one focal point, copper-orange accent. **No text, figures or faces inside the image.** Still states only.
+Style: the plasticine miniature style (retired, see [[Illustration pipeline]] §8), vertical 9:16 filled in editing, one focal point, copper-orange accent. **No text, figures or faces inside the image.** Still states only.
 
 | #   | Scene | Real object (ref)          | Still state shown                       | Accent               |
 | --- | ----- | -------------------------- | --------------------------------------- | -------------------- |

@@ -30,7 +30,7 @@ First video of the channel. **It was produced before the process existed**: the 
 
 - **Kept** as proof of concept: the editing in [[Blender editing]], the voice from [[Channel voice]] and the 12 plasticine images. About the images, the user said: *"they look good, they serve their purpose"* (translated).
 - This video is **not redone**; the new rules apply to the next one.
-- **The style changes** to the technical-sketch visual style (withdrawn) from the next video on (it later returned to plasticine with Kontext, see [[Visual style - plasticine miniatures]]).
+- **The style changes** to the technical-sketch visual style (withdrawn) from the next video on (it later returned to plasticine with Kontext, see the plasticine miniature style (retired, see [[Illustration pipeline]] §8)).
 
 ## Notes of the video
 

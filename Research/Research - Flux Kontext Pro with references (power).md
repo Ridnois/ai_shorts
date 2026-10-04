@@ -8,7 +8,7 @@ tags: [research, youtube, models, image, flux-kontext]
 
 # Flux Kontext Pro with references: exploded view of a stem
 
-← [[YouTube Channel]] · [[Visual style - plasticine miniatures]] · [[Fast workflow]]
+← [[YouTube Channel]] · [[Illustration pipeline]] · [[Fast workflow]]
 
 General channel research, **independent of any script**: useful for any video with real parts. The test subject is the same plate that `wan-2.7-image` drew as a hub: the **exploded view of a threadless stem** (Aheadset). (A "stem" here is the bicycle part joining the fork to the handlebar.)
 
@@ -74,7 +74,7 @@ Other photos downloaded and unused: `ref-stem-foto-b.jpg` (stem with a steerer a
 
 ### Update (3 Oct 2026, Chips Short)
 
-`match_input_image` with real photos of the objects worked: the wafer, the padlock and the lithography machine kept their shape and the clay look. See [[Chips and lithography - Status]] and [[Visual style - plasticine miniatures]].
+`match_input_image` with real photos of the objects worked: the wafer, the padlock and the lithography machine kept their shape and the clay look. See [[Chips and lithography - Status]] and [[Illustration pipeline]].
 
 ### What I would try next (each ≈ $0.04; **I did not do it**, needs your OK)
 
@@ -85,7 +85,7 @@ Other photos downloaded and unused: `ref-stem-foto-b.jpg` (stem with a steerer a
 
 ## Open
 
-- [x] Channel style: **B (plasticine)**, defined in [[Visual style - plasticine miniatures]] (the user can veto it).
+- [x] Channel style: **B (plasticine)**, defined in [[Illustration pipeline]] (the user can veto it).
 - [x] Try the input with `match_input_image` (worked in the Chips video).
 - [ ] Prepared vertical canvas input.
 - [ ] Compare with `wan-2.7-image` on the same plate and with the same style.
