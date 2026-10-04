@@ -14,25 +14,29 @@ Applied at stage 2 (script) and 3 (direction) of the [[Production process]], and
 
 Basis: short-film direction and writing craft (a hook in the first seconds, a single idea, setup → conflict → resolution structure, image before exposition) ([source](https://glcoverage.com/2024/12/25/tips-for-writing-short-film/), [source](https://subscribr.ai/youtube-strategy/scripting-youtube-shorts-engagement)), plus the feedback from the channel's videos. **The call-to-action ending** recommended by Shorts guides is discarded: here the video closes with an idea.
 
+## 0. First, is the idea worth it?
+
+Before structure and craft: pass the **idea gates** in [[Idea and hook quality]] (facts bank of ≥ 15, scoring, street-lamp and expert tests, five hooks). A well-crafted script about a street lamp is still a street lamp.
+
 ## 1. One story, one question
 
 The video answers **one question**, written in one sentence before writing ("why did a factory stop because of a magnet?"). Anything that does not help answer it, out. If the topic needs two questions, they are two videos.
 
-## 2. Structure of a Short (≈ 60 to 90 s, 6 to 8 scenes)
+## 2. Structure of a Short (130 to 190 words, 6 to 8 scenes)
 
 | Scene | Function | Words |
 | --- | --- | --- |
-| 1 · **Hook** (0 to 3 s) | A concrete, specific moment, already underway, with what is at stake. No greeting, no "in this video", no "did you know…?" | 12 to 20 |
+| 1 · **Hook** | **The most astonishing true thing about the subject, stated plainly, with its meaning attached** (a reason before a reaction; never a bare big number). A concrete, specific fact or moment. No greeting, no "in this video", no "did you know…?" See [[Idea and hook quality]] §3 | 12 to 20 |
 | 2 · **Minimal context** | What it is and why it matters, just what is needed to understand the next sentence | 20 to 30 |
 | 3 to 5 · **Causal chain** | Three links. Each is born from the previous one with **"because" or "so"**, never "and then" | 20 to 30 each |
 | 6 · **Turn** | What changes how everything is understood (around 60 to 70 % of the video) | 20 to 30 |
 | 7 · **Close** | Answers the question and leaves **one idea the viewer closes alone**; one or two sentences; no moral, no summary, no call to action | 15 to 25 |
 
-Budget: ≈ 150 words per minute with `elevenlabs/v3` at `speed` 0.95 ([[Channel voice]]; English pace to be measured); 150 words ≈ 60 s, 200 ≈ 80 s. **One voice take per scene.**
+**Words are the budget; time is only a result.** Write inside the word ranges above, never to a target duration. The length appears after the voice is generated (measured English pace ≈ 144 words per minute with `elevenlabs/v3` at `speed` 0.95, see [[Channel voice]]); report it as derived. **One voice take per scene.**
 
 ## 3. Craft rules
 
-1. **The hook is a headline, not a greeting.** A concrete fact that shows what is at stake ("In May 2025, an assembly line in Chicago stopped moving") beats a generic question. Context gives the tension; waiting does not.
+1. **The hook is a headline, not a greeting, and it earns its reaction.** A concrete fact that shows what is at stake **and why it is remarkable** ("In May 2025, an assembly line in Chicago stopped moving") beats a generic question. Context gives the tension; waiting does not.
 2. **Every hook is resolved in its scene or the next**, and answers all three: **what it is**, **why it happened**, **what it means**. A question is not left open just to sustain curiosity.
 3. **Cause → effect, not a list.** Each link carries its why in the same sentence. "Because / so / but" joins; "and then" enumerates. If you must cut, sacrifice the side detail (dates, names, secondary figures), **never the why**.
 4. **The concrete beats the abstract.** One object, one place, one figure per idea. A 3 cm screw says more than "a critical dependency". Data are few and go at the end of the sentence, where the voice stresses them.

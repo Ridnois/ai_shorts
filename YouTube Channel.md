@@ -32,7 +32,7 @@ YouTube Channel.md
 ├── System/
 │   ├── Guidelines for new scripts.md   ← main entry point
 │   ├── Process/    Fast workflow · Production process · Media convention
-│   ├── Content/    Narration guide · Channel voice · YouTube with AI (quality guide)
+│   ├── Content/    Idea and hook quality · Narration guide · Channel voice · YouTube with AI (quality guide)
 │   ├── Visual/     Visual style · On-screen text style · Per-scene prompt
 │   ├── Editing/    Blender editing · Transitions and effects
 │   ├── Models/     Channel models (prices)
@@ -49,6 +49,7 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | --- | --- |
 | Stages and gates | [[Production process]] |
 | Where media is stored | [[Media convention]] |
+| Is the idea worth it? | [[Idea and hook quality]] |
 | How to write | [[Narration guide]] · [[Channel voice]] |
 | How it looks | [[Visual style - plasticine miniatures]] · [[On-screen text style]] |
 | How to call Replicate | [[Prompt - per-scene generation guide]] · [[Channel models]] |

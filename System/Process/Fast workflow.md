@@ -28,7 +28,7 @@ The stages are those of [[Production process]]; they are reviewed together:
 
 | Package | Includes | Gate |
 | --- | --- | --- |
-| **A · Text** | Idea, research with sources, script and direction (text only) | **P1–P3 + P4a**, one review |
+| **A · Text** | Idea with ranked angles and five hooks, **facts bank and scoring** ([[Idea and hook quality]]), research with sources, script (sized in words) and direction (text only) | **P1–P3 + P4a**, one review |
 | **B · Budget** | Image and voice prompts, and the cost in dollars (§5) | **P4**: spending is authorized here |
 | **C · Test** | Voice of scene 1 and one image (≈ $0.10 max.) | **P5** |
 | **D · Generation** | **By category, in order: voice → image** (sound only if the script requires it) | P6, one approval per category |
@@ -86,7 +86,7 @@ The stages are those of [[Production process]]; they are reviewed together:
 
 - **Image:** `aspect_ratio` 9:16 (or `match_input_image` with Kontext, see §7); a single subject, tall composition. Safe zone and image rules: [[Visual style - plasticine miniatures]] and [[Guidelines for new scripts]] §2.
 - **Render in Blender:** `W, H = 1080, 1920`, 24 or 30 fps, H.264 and AAC; scale `max(...)` to fill the frame.
-- **Duration:** ≈ 150 words for 60 s; longer is fine if needed.
+- **Length is planned in words (130 to 190 for a Short), never in seconds;** the duration is measured after the voice exists (≈ 144 words per minute in English).
 - **Render name:** `<video>-<duration>-9x16-r<n>.mp4` ([[Media convention]]).
 - Videos over 2 min stay 16:9.
 

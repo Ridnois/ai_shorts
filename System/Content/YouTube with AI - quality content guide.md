@@ -58,6 +58,8 @@ These channels are **very crowded**. Competing with Asianometry in semiconductor
 - Rounded numbers with context ("about a hundred times thinner than a hair"), not loose figures. At most 2–3 figures per minute.
 - Humour very little and dry; no memes or sarcasm.
 
+**Idea first** (user feedback, 4 Oct 2026): the topic's most remarkable facts, not the first useful ones; see [[Idea and hook quality]].
+
 **Structure of each episode (a minimal template, not a fixed mould)**
 1. **Concrete opening (≤ 60 s):** a scene, an object or a real problem. Not an "in this video we will see".
 2. **A central question** the episode answers ("why did cheap steel change the world in 1856?").

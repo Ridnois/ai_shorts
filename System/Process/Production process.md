@@ -24,9 +24,9 @@ Each stage ends in a **gate 🚦**: the user reviews and approves before moving 
 
 | # | Stage | What is produced (note in the vault) | Gate 🚦: the user approves |
 | --- | --- | --- | --- |
-| 0 | **Idea** | Topic, central question, for whom and why now | **P1** · the topic and the question |
-| 1 | **Research** | Claims sheet: every figure with source and date; what is unverified is marked | **P2** · that the facts are supported |
-| 2 | **Script** | Narration per scene, written for the ear, per [[Narration guide]] | **P3** · the text, read aloud |
+| 0 | **Idea** | Topic, central question, for whom and why now, **plus the ranked angles and five hook candidates** ([[Idea and hook quality]]) | **P1** · the chosen angle, its alternatives and the hook |
+| 1 | **Research** | **Facts bank (≥ 15 remarkable facts) and scoring table first**, then the claims sheet for the chosen facts: every figure with source and date; what is unverified is marked | **P2** · that the facts are remarkable and supported |
+| 2 | **Script** | Narration per scene, written for the ear, per [[Narration guide]], **sized in words (130 to 190), not in seconds** | **P3** · the text, read aloud |
 | 3 | **Direction** | Shot, emotion and sound per scene, text only, per [[Visual style - plasticine miniatures]] | **P4a** · the shots |
 | 4 | **Prompts and budget** | One prompt per voice, image and sound, and the list of *predictions* with model and quantity ([[Prompt - per-scene generation guide]]) | **P4** · prompts and budget. **Generation can start from here** |
 | 5 | **Tests** | Fixed references and a single scene of each category | **P5** · the look and the voice |
@@ -76,7 +76,7 @@ Each video has a `<Topic> - Status` note with this table, updated at every gate:
 
 | Stage | Status | Approved | Note |
 | --- | --- | --- | --- |
-| 0 Idea | ⏳ / ✅ | date | |
+| 0 Idea | ⏳ / ✅ | date | chosen angle + 5 hooks + ranked alternatives |
 | 1 Research | | | |
 | 2 Script | | | |
 | 3 Direction | | | |

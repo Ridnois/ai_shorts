@@ -16,6 +16,19 @@ tags: [research, youtube, script, guidelines, feedback]
 
 > **What good content is (user's definition):** the kind you can enjoy and keep watching *even knowing it is AI*; informative or absurd, but it delivers its message. Channel goal: **narrated learning**, educate and entertain. References: *Sleep on Physics*, *Sleep on Science*. Detail: [[YouTube with AI - quality content guide]].
 
+## 0. Idea and hook (read before anything else)
+
+Source: post-render feedback on the first English helium video (4 Oct 2026): *"the hook is boring… looks for a reaction before there is a reason to react to it"* and *"of a universe of bright stars, you pointed at a street lamp"*. Full method: [[Idea and hook quality]].
+
+| # | Rule |
+| --- | --- |
+| 0.1 | **Map the sky first.** The Research note opens with a **facts bank of ≥ 15 remarkable true things** about the topic (origin and scale, strange behaviour, extremes, connections, expert details); uses and news come last. |
+| 0.2 | **Score and choose.** Surprise, scale, depth, evidence, showable (1 to 5). **The thread must score ≥ 4 on surprise and on scale.** Show the table and the one-line rejected candidates at P1. |
+| 0.3 | **Street-lamp test.** If a news headline or a product spec could answer the central question, it is a street lamp: go back to 0.1. |
+| 0.4 | **Expert test.** A specialist would call it "the interesting part", not "the textbook summary"; each scene carries one detail a generic explainer would skip. |
+| 0.5 | **The hook gives a reason before it asks for a reaction:** the most astonishing true thing, stated plainly, with its meaning attached. A big number alone is not a hook. Write **five candidate hooks**; pick by "would I stop?" and "does it open a question the next scene answers?". |
+| 0.6 | **Plan by words, not by time** (see *Duration and pace*). |
+
 ## 1. Script
 
 **Craft and structure of a Short: [[Narration guide]]** (source of truth). This table is the feedback that originated it.
@@ -41,12 +54,16 @@ tags: [research, youtube, script, guidelines, feedback]
 
 ### Duration and pace
 
-- A Short (9:16) fits ≈ 60 s, but **"longer is fine"** if needed (63 to 93 s worked). Do not speed up the voice to make it fit.
+- **Words are the unit; duration is a result** (user feedback, 4 Oct 2026: *"give it a word range instead of a time range"*). A Short is planned as **130 to 190 words** in 6 to 8 scenes (per-scene ranges in [[Narration guide]] §2). **Do not write a target time in the notes before the voice exists**; the length appears afterwards, from the generated voice, and is reported as *derived* (≈ words × 0.42 s at the measured 144 wpm; render names carry the measured duration). Short is fine; longer is fine if the words earn it. Do not speed up the voice to make it fit.
 - **Adapt the script to the pace of the voice, or use a model with `speed`**; do not cut blindly or regenerate. Planning: ≈ 145 to 150 words per minute with `elevenlabs/v3` at `speed` 0.95 (Lemon cake, Spanish: 197 words → 77.6 s; Chips, Spanish: 211 words → 88 s; **Helium, English: 175 words → 72.9 s ≈ 144 wpm**). **Measure with the complete script**, not one sentence (a single sentence gave 122; the whole script, 156). Details in [[Channel voice]].
-- Hook in the **first 3 s**, with the strongest image.
+- Hook in the **first scene**, with the strongest image, per rule 0.5.
 
 ### Checklist before P3
 
+- [ ] Is there a facts bank of ≥ 15, a scoring table, and a thread with surprise ≥ 4 and scale ≥ 4? (rules 0.1–0.2)
+- [ ] Does it pass the street-lamp test and the expert test? (0.3–0.4)
+- [ ] Were five hooks written, and does the chosen one give a reason before asking for a reaction? (0.5)
+- [ ] Is the length stated in words, inside 130 to 190? (0.6)
 - [ ] Does every hook answer what it is, why and what it means?
 - [ ] Is there a pause or sentence that exists only to create suspense?
 - [ ] Does someone who knows nothing understand the cause → effect chain **without seeing the images**?

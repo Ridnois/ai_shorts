@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: stages 0–6 done · render r1 · awaiting P7 · all gates delegated by the user ("go for all steps by yourself")
+status: stages 0–6 done · render r1 · awaiting P7 · post-render feedback received (4 Oct 2026): idea and hook judged weak, see below · all gates delegated by the user ("go for all steps by yourself")
 tags: [research, youtube, status, helium, shorts]
 ---
 
@@ -87,6 +87,15 @@ Each prompt = narration sentence + "Redraw this exact … as a handmade plastici
 | 12  | R11  | Narration: "Another holds less than one." Redraw this exact white mobile MRI trailer as a handmade plasticine clay miniature. Keep the long white box shape on its wheels and the ventilation grille. Replace the street with a plain warm tabletop. A tiny bottle stands on the table beside the trailer and is in bright copper-orange clay. The trailer fills the frame, vertical composition. Remove all lettering and logos.                                                 |
 | 13  | R02  | Narration: "The safest supply is the helium that never escapes." Redraw this exact tall insulated liquid helium dewar as a handmade plasticine clay miniature. Keep the tall cylindrical body, the rounded dome top with its neck and the wheeled base. Replace the background with a plain warm tabletop. A small closed padlock hangs on the valve on top and is in bright copper-orange clay. The dewar fills the frame, vertical composition. Remove all lettering and logos. |
 
+**Retry prompts actually used (replacing plates 9 and 13; same style block appended):**
+
+| # | Ref. | Prompt (before the style block) |
+| --- | --- | --- |
+| 9 v2 | R09 | Redraw this exact liquefied natural gas tanker at sea as a handmade plasticine clay miniature. Keep the long dark hull, the row of white round cargo domes and the ship's bridge. Replace the sea with a plain warm tabletop. The cargo domes are in bright copper-orange clay. The tanker fills the frame, vertical composition. The image contains no words, no letters and no captions of any kind. Remove all lettering and logos. |
+| 13 v2 | R02 | Redraw this exact tall insulated liquid helium dewar as a handmade plasticine clay miniature. Keep the tall cylindrical body, the rounded dome top with its neck and the wheeled base. Replace the background with a plain warm tabletop. A large, clearly visible closed padlock in bright copper-orange clay hangs from the ring around the valve on top. The dewar fills the frame, vertical composition. The image contains no words, no letters and no captions of any kind. Remove all lettering and logos. |
+
+(v1 of plate 9 was the table row with the `Narration:` sentence, which leaked into the image; see *Findings*.) **Full prompt sent = table row + the style block above.** Files: `Media/Helium - 70 seconds/plates/he2-pNN-v1.png` (v2 for plates 9 and 13); inputs in `plates/_refs/`.
+
 **Voice:** `elevenlabs/v3`, voice `Roger`, `language_code: en`, `speed` 0.95, `previous_text` / `next_text`, 7 takes, exact script text (997 characters). Acronym "MRI" is written as is; if misread it is spelled "M R I". **Sound and music:** none.
 
 ## Budget in dollars (cap = base × 1.2)
@@ -166,3 +175,9 @@ File: `Media/Helium - 70 seconds/render/he2-76s-9x16-r1.mp4` (local only: `Media
 1. **Watch and listen** to `he2-76s-9x16-r1.mp4`: is the English voice (`Roger`) right, or should I test `Bradford`? Is the pace OK?
 2. Do any plates need redoing (≈ $0.04 each, over the 15-image cap)?
 3. For publishing (P8): title, a description with sources (the research note), the CC attributions for R01–R11, "data as of 3 Oct 2026", the manufacturer-figures caveat for the sealed magnets, and the AI disclosure, all in English.
+
+## Post-render feedback (4 Oct 2026) and what changed
+
+User feedback ([[Post-render feedback]]): word count as the length metric; the hook is boring (a reaction before a reason); the information itself is weak ("of a universe of bright stars, you pointed at a street lamp"). The vault now applies this by default ([[Idea and hook quality]], [[Guidelines for new scripts]] §0, [[Production process]], [[Fast workflow]], [[Narration guide]], the idea template and the pipeline runner).
+
+**This video does not meet the new rules**: no facts bank, no scoring, and a street-lamp hook (the MRI's 1,500 liters). It stays as rendered until you decide: the rework would start from the facts bank (helium made in stars, inert, superfluid, "second most abundant element yet scarce on Earth", all to be sourced) and reuse the voice and the plate pipeline; a new script means new voice takes (≈ $0.10) and likely new plates (≈ $0.04 each).
