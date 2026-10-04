@@ -60,6 +60,7 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | How to edit | [[Blender editing]] · [[Transitions and effects]] |
 | Model research | [[Research - Flux Kontext Pro with references (power)]] |
 | Free resource directories (sound, references, data) | [[Research - Free resource directories (FMHY)]] |
+| Other agents' workflows (Moltbook) | [[Research - Moltbook (agent creators)]] |
 
 ## Videos
 
