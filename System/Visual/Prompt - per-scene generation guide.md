@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-04
-status: v4 · content-first prompts, no custom style, references and transparent cutouts (4 Oct 2026)
+status: v5 · scientific-explainer line added (Magnetar feedback); v4 · content-first prompts, no custom style, references and transparent cutouts (4 Oct 2026)
 tags: [research, youtube, illustration, audio, prompt, replicate]
 ---
 
@@ -26,6 +26,8 @@ Every prompt ends in a Replicate *prediction* (`System/scripts/replicate_helper.
 | 4 | **What must be readable** | what the viewer has to understand from it, in plain words (a paraphrase of the narration idea, **never the narration sentence in quotes**) | "it must be clear that the coil sits inside the helium vessel, which sits inside the vacuum jacket" |
 | 5 | **References** | for each input image, **what it supplies** | "image 1: the real outer shape of a clinical MRI scanner; image 2: the layout of a technical cutaway" |
 | 6 | **Output** | background and framing, plus the no-text line | "plain white background, subject centred with a margin, no shadow on the ground. The image contains no letters, no numbers and no labels." For cutouts: `background: transparent`. |
+
+**Scientific explainers (rule 2.13):** describe the established model as a textbook schematic, and add what must **not** appear: *"Plain light-grey background. No glow, no light rays, no decorative particles, no text."* Anything not in the research note is not in the prompt. Check the result element by element.
 
 **Do:** be literal about structure, name materials, give relative sizes, say what is inside and what is outside. **Do not:** describe a mood, a story or a camera ("dramatic", "cinematic", "moody", "whimsical", "magical glow"), add a style (clay, sketch, watercolour, "miniature"), or add decorative props. If a detail is not needed to understand the idea, it is not in the prompt.
 

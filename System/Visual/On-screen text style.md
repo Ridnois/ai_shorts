@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-04
-status: v3 · text with purpose and personality: callouts, number cards, margin notes, context cards (4 Oct 2026)
+status: v4 · word-by-word captions and the caption zone added; the Magnetar feedback called the card style "good and appealing" (4 Oct 2026); v3 text with purpose and personality
 tags: [research, youtube, style, typography, text]
 ---
 
@@ -45,8 +45,12 @@ tags: [research, youtube, style, typography, text]
 | **Callout** | copper dot (13 px) with a ring, leader line (2 px), label in a small paper box with a copper bar, 34 px; **never over the card**: labels move above it automatically |
 | **Motion** | fade in over 0.25 s with a 24 px rise (cards), out over 0.2 s; the card enters 0.45 s after its plate; callouts enter 1 s after the plate, 0.6 s apart |
 | **One at a time** | one card per plate; never two cards at once |
+| **Captions (every video)** | one word at a time, centred at **16.5 % from the bottom**, Noto Sans Display Bold 104 px, capitals, white with a dark outline and a soft shadow, figures in copper; cards and callouts never enter this zone (callout labels are clamped above it). Rules and timing: [[Shorts quality bar]] §3 |
+| **Backdrop** | a card or callout always sits on a real photo or a faithful explainer, never on a bare gradient ([[Illustration pipeline]] §1.7) |
 
 Implementation: `System/scripts/build_video.py` reads the plate's `card` (a list for a context card, or `{"kind": "number" | "note", …}`) and its `callouts` from `plan.json` ([[Illustration pipeline]] §6, [[Blender editing]]).
+
+The user's verdict on the style (Magnetar, 4 Oct 2026): *"The style of the added text is good and appealing, keep improving."* **The card, callout and copper-accent look stays as it is**; improvements go into specificity (§2), placement over real images and the captions, not into a redesign.
 
 ## 4. Copy examples (Twisted carbon, rewritten with the specificity test)
 

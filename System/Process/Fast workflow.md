@@ -1,8 +1,8 @@
 ---
 type: research
 created: 2026-10-03
-updated: 2026-10-03
-status: v3 · English-only since 3 Oct 2026; each video's lessons live in the guidelines
+updated: 2026-10-04
+status: v4 · word timings and captions added to the models and the budget (Magnetar feedback, 4 Oct 2026); v3 English-only
 tags: [research, youtube, process, costs, replicate]
 ---
 
@@ -49,13 +49,14 @@ The stages are those of [[Production process]]; they are reviewed together:
 | Image · draft | `black-forest-labs/flux-2-klein-4b` | ≈ $0.015 | Fails at counts and copies references |
 | Image · hard scene | `bytedance/seedream-5-lite` | $0.035 | That scene only |
 | **Voice (English)** | `elevenlabs/v3`, `Roger`, `language_code: en` | ≈ $0.10 per 1,000 characters | Chosen by the user for the channel. Parameters in [[Channel voice]] and [[Guidelines for new scripts]] §3 |
+| **Word timings (captions, every video)** | `vaibhavs10/incredibly-fast-whisper` with `timestamp: word`, via `System/scripts/word_timings.py` | ≈ $0.01 per take (**unconfirmed**; measured on the Superconductors video, see its Status) | Without it the builder estimates the timings; see [[Blender editing]] |
 | Voice · cheap alternative | `qwen/qwen3-tts` | ≈ $0.02 per 1,000 | No `speed`, ≈ 122 words per minute; English quality untested |
 | Sound | `sepal/audiogen` | ≈ $0.011 | **Only if the script asks for it**; 16 kHz. `mmaudio` fails with text only |
 | Animation and music | None | $0 | Editing cross-fades plates in Blender |
 
 **Not used:** `qwen-image-edit-plus` to generate (copies the references), `flux-2-pro` (expensive), `stable-audio-2.5` ($0.20 per file).
 
-**How to call Replicate without overspending:** the schema is read with `GET /v1/models/<owner>/<name>` (free); community models go through `POST /v1/predictions` with `version`; with `urllib` a `User-Agent` is needed (otherwise 403). Reuse `System/scripts/replicate_helper.py`. A command with more than ≈ 15 calls exceeds the time limit: batches of ≤ 10, and check which files are missing.
+**How to call Replicate without overspending:** the schema is read with `GET /v1/models/<owner>/<name>` (free); community models go through `POST /v1/predictions` with `version`; with `urllib` a `User-Agent` is needed (otherwise 403). Reuse `System/scripts/replicate_helper.py` (since 4 Oct 2026 its `call` waits and retries on HTTP 429, which creates nothing and costs nothing). A command with more than ≈ 15 calls exceeds the time limit: batches of ≤ 10, and check which files are missing.
 
 ## 4. Rules to avoid generating too much
 
@@ -78,9 +79,12 @@ The stages are those of [[Production process]]; they are reviewed together:
 | Image (generated) | `gpt-image-1.5` | generated plates only (≤ 5 by default, each with its second) | ≈ $0.05 (unconfirmed) | | |
 | Image (stock) | free sources | plates | $0 | $0 | — |
 | Background removal | `bria/remove-background` | stock photos that become cutouts | to measure | | |
+| Word timings | `incredibly-fast-whisper` | one per voice take | ≈ $0.01 (unconfirmed) | | |
 | Sound | `audiogen` | only if the script asks | ≈ $0.011 | | |
 | P5 test | one of each | | | (inside the total) | |
 | **Total and cap** | | | | | |
+
+**Real cost reference (4 Oct 2026):** Superconductors ≈ see its Status (8 voice takes + 4 `gpt-image-1.5` plates + 8 word-timing runs).
 
 **Real cost references:** Helium ≈ $2 (32 predictions); Brazil ≈ $0.46 (7 images); Lemon cake ≈ $1.57 (20 plates with `gpt-image-1.5`); Chips ≈ $0.48 (8 `flux-kontext-pro` images + 7 voice takes). With `flux-kontext-pro`, 20 plates ≈ $0.80 plus voice ≈ $0.11 (estimate).
 

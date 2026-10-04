@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: v1 · redesign after the Twisted carbon post-render feedback (4 Oct 2026); replaces the plasticine style
+status: v2 · scientific fidelity and no bare backdrops added (Magnetar feedback, 4 Oct 2026); v1 replaced the plasticine style
 tags: [research, youtube, illustration, images, stock-photos, pipeline]
 ---
 
@@ -19,6 +19,8 @@ tags: [research, youtube, illustration, images, stock-photos, pipeline]
 3. **Modern, not theatrical.** Describe the **subject and what must be understood**, not a mood, a scene or a "story". No "dramatic", "moody", "cinematic", "whimsical", "toy", "miniature".
 4. **Use the model in the style it does best.** No custom style block. Let the model default to a clean, generic, modern look (photoreal or clean technical render, depending on the subject) and put the effort into **content-accurate prompts and good references** instead.
 5. **Style is added in the edit, not in the prompt.** Backgrounds, gradients, shadows, framing and text are applied in Blender ([[Blender editing]]); images are generated as **full frames or as transparent cutouts**.
+6. **Scientific fidelity beats creativity** (Magnetar feedback, 4 Oct 2026: *"illustrations are too creative and unscientific"*). An explainer shows only what the research note supports, in the form of a **textbook or agency schematic** of the established model; real counts, real arrangement, real relative scale. **Decorative structure that looks like data is a defect**: the Magnetar starquake plate's glowing arcs read as field lines but were invented. The prompt lists what must **not** be invented ("no glow, no light rays, no decorative particles"); after generation, **every element is checked against the research note** and the Status note records what is schematic ("pair size not to scale"). If an element cannot be sourced, regenerate once without it or use a photo.
+7. **No bare backdrops.** A number card, callout or quote never sits on an empty gradient (feedback: *"blue empty background with added text is strange, illustrations could go there"*). It sits **on a real photo or a faithful explainer of the thing the number describes**. A gradient is only the surface behind a `contain` photo or a cutout; `build_video.py` refuses blank placeholder plates.
 
 ## 2. The visual plan (stage 3, one row per plate)
 
@@ -32,7 +34,7 @@ Before any prompt, the script note gets a **visual plan**: one row per plate wit
 | **E · Edit of a real photo** | change one thing in a real photo (remove text, extend, recolour a part) | `black-forest-labs/flux-kontext-pro` (as an editor, never a restyler) | ≈ $0.04 |
 | **N · Number or text plate** | a single figure or a fact that needs no image | built in Blender ([[On-screen text style]]) | $0 |
 
-**Mix by default (a Short of 12 to 14 plates):** at least **a third stock photos**, at least **a third generated explainers or cutouts**, the rest free; **no two consecutive plates of the same type**; a plate is held about **4 to 6 s**, so a Short has roughly one plate per 5 s of voice.
+**Mix by default (a Short of 12 to 14 plates):** at least **a third stock photos**, at least **a third generated explainers or cutouts**, the rest free; **no two consecutive plates of the same type** (stock `full` photo next to stock `full` photo is the same type; alternate with an explainer); a plate is held about **4 to 6 s**, so a Short has roughly one plate per 5 s of voice.
 
 **Plan example (one row):** `7 · S+callouts · "a helium dewar in a lab" · lets the viewer see how large and plain the tank is so they understand that helium is stored as a cold liquid in unglamorous steel · source: Wikimedia (CC BY-SA) · callouts: valve, wheeled base`.
 
@@ -98,6 +100,6 @@ Stock photos cost nothing; generated explainers and cutouts ≈ $0.05 each; back
 
 ## 8. What this replaces
 
-- The plasticine miniature style and its prompt template (videos 6 to 8: Chips, Helium, Twisted carbon). Lessons that survive: still states beat "interaction" states; wide images need a composed 9:16 canvas; check plates for text leaks.
+- A decorative, "creative" explainer (Magnetar plate with invented glowing arcs) and bare gradient plates for number cards (Magnetar plates 3, 5, 7). The plasticine miniature style and its prompt template (videos 6 to 8: Chips, Helium, Twisted carbon). Lessons that survive: still states beat "interaction" states; wide images need a composed 9:16 canvas; check plates for text leaks.
 - `flux-kontext-pro` as the default generator ([[Research - Flux Kontext Pro with references (power)]] stays as model research).
 - One reference photo per plate and "real object redrawn as clay".

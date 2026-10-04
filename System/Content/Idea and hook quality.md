@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: v1 · from the post-render feedback on the first English helium video (4 Oct 2026)
+status: v2 · need-to-know opener added (Magnetar feedback, 4 Oct 2026); v1 from the first English helium video
 tags: [research, youtube, script, idea, hook, quality]
 ---
 
@@ -51,7 +51,7 @@ Score each fact or angle 1 to 5 (a table in the Research note, shown at P1):
 - **A big number alone is not a hook.** "Fifteen hundred liters" means nothing until the viewer knows why it matters.
 - Prefer **universal scale, paradox, or behaviour that breaks intuition**. Sound like someone who knows the field: specific, confident, no filler.
 - **Write five candidate hooks** in the Research note and pick one with two tests: *would I stop if a friend told me this?* and *does it open a question the next scene answers?* A hook that is only a reaction ("you won't believe…") fails.
-- The first scene still obeys [[Narration guide]]: no greeting, 12 to 20 words, a concrete fact.
+- **The first scene is a need-to-know claim** (Magnetar feedback, 4 Oct 2026: *"you could start with a phrase to start curiosity… something you need to know after 3 seconds"*): ≤ 10 words, its first clause spoken inside 3 seconds, a true statement that makes the next sentence necessary. A scene-setting opener (a date, a place, "imagine") is a story, not a claim: move it to scene 2 as evidence. Craft: [[Narration guide]] §2, [[Shorts quality bar]] §1.
 
 ## 4. Worked example: helium (facts to verify with sources before use)
 

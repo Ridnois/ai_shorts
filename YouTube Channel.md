@@ -1,7 +1,7 @@
 ---
 type: research
 created: 2026-10-03
-updated: 2026-10-03
+updated: 2026-10-04
 aliases: [Canal YouTube, YouTube Channel]
 tags: [research, youtube, hub]
 ---
@@ -32,7 +32,7 @@ YouTube Channel.md
 ├── System/
 │   ├── Guidelines for new scripts.md   ← main entry point
 │   ├── Process/    Fast workflow · Production process · Media convention · Feedback loop
-│   ├── Content/    Idea and hook quality · Channel identity · Narration guide · Channel voice · YouTube with AI (quality guide)
+│   ├── Content/    Idea and hook quality · Channel identity · Narration guide · Channel voice · Shorts quality bar · Channel strategy · YouTube with AI (quality guide)
 │   ├── Visual/     Illustration pipeline · On-screen text style · Per-scene prompt
 │   ├── Editing/    Blender editing · Transitions and effects
 │   ├── Models/     Channel models (prices)
@@ -51,6 +51,8 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | Where media is stored | [[Media convention]] |
 | Is the idea worth it? | [[Idea and hook quality]] |
 | How to write | [[Narration guide]] · [[Channel voice]] |
+| What makes a Short top tier (hook, captions, rhythm, checklist) | [[Shorts quality bar]] |
+| Monetization, policies, brand and multi-platform plan | [[Channel strategy]] |
 | How it looks | [[Illustration pipeline]] · [[On-screen text style]] · [[Channel identity]] |
 | How to call Replicate | [[Prompt - per-scene generation guide]] · [[Channel models]] |
 | How to edit | [[Blender editing]] · [[Transitions and effects]] |
@@ -68,4 +70,5 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | Chips and lithography (Short 9:16, ≈ 93 s) | 7 · r1, awaiting P7 | `elevenlabs/v3`, 8 `flux-kontext-pro` images (≈ $0.48) | [[Chips and lithography - Status]] |
 | Twisted carbon (Short 9:16, ≈ 85 s, **English**) | 7 · r1, awaiting P7 | First video built with the idea-quality rules; `elevenlabs/v3` `en`, 13 `flux-kontext-pro` plates (≈ $0.64) | [[Twisted carbon - Status]] |
 | Helium - why it cannot be made (Short 9:16, ≈ 76 s, **English**) | 7 · r1, awaiting P7 | `elevenlabs/v3` `en`, 13 `flux-kontext-pro` plates (≈ $0.70) | [[Helium - why it cannot be made - Status]] |
-| Magnetar (Short 9:16, 61 s, **English**) | 7 · r3, awaiting P7 | `elevenlabs/v3` `en`, 3 `gpt-image-1.5` plates + 5 NASA/CC0 stock photos (≈ $0.24) | [[Magnetar - Status]] |
+| Magnetar (Short 9:16, 61 s, **English**) | 7 · r3, awaiting P7; **post-render feedback applied to the vault, video not reworked yet** | `elevenlabs/v3` `en`, 3 `gpt-image-1.5` plates + 5 NASA/CC0 stock photos (≈ $0.24) | [[Magnetar - Status]] |
+| Superconductors (Short 9:16, 162 words, **English**) | 7 · built by the agent on the user's delegation, awaiting P7 | first video with the Magnetar-feedback rules: need-to-know opener, faithful schematics, real backdrops, word-by-word captions; 4 `gpt-image-1.5` plates + 5 Commons photos | [[Superconductors - Status]] |

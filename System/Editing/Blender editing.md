@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-04
-status: v4 · one generic builder driven by plan.json; padded and checked voices; plate types and callouts (4 Oct 2026)
+status: v5 · word-by-word captions, bare-backdrop guard, caption-safe callouts (Magnetar feedback, 4 Oct 2026); v4 one generic builder driven by plan.json
 tags: [research, youtube, editing, blender]
 ---
 
@@ -24,7 +24,7 @@ VIDEO="Media/<Video> - <N seconds>" blender -b --factory-startup --python System
 
 ## The plan file (`plan.json`)
 
-Full schema and plate types: [[Illustration pipeline]] §6. Top level: `prefix`, `size`, `fps`, `gaps` (silence between scenes), `start`, `tail`, `voices` (paths relative to the video folder), `scenes[].plates[]`. Each plate: `type` (`full`, `contain`, `cutout`), `file`, placement (`focus`, `pos`, `size`, `width`), gradient (`bg`, `bg_angle`), `callouts[]` and a `card` (context list, or `{"kind": "number" | "note", …}`, see [[On-screen text style]]).
+Full schema and plate types: [[Illustration pipeline]] §6. Top level: `prefix`, `size`, `fps`, `gaps` (silence between scenes), `start`, `tail`, `voices` (paths relative to the video folder), `texts` (the exact narration of each scene, one string per voice, for captions), `scenes[].plates[]`. Each plate: `type` (`full`, `contain`, `cutout`), `file`, placement (`focus`, `pos`, `size`, `width`), gradient (`bg`, `bg_angle`), `callouts[]` and a `card` (context list, or `{"kind": "number" | "note", …}`, see [[On-screen text style]]).
 
 ## Voices: complete, padded and checked
 
@@ -35,11 +35,25 @@ Feedback (Twisted carbon, 4 Oct 2026): *"small voice cut on the start of the vid
 3. **Checks it** (`CHECK=1`): per voice it prints the file range played, the speech range, and whether the lead-in, tail and padded silence are as expected and nothing overlaps (`CHECK RESULT all voices complete`). **Blender's background mixdown is silent** (`bpy.ops.sound.mixdown` writes zeros without a display), so the check reads the strips and the padded files instead of the mix.
 4. Still true: **no sentence is ever cut**; not hearing the audio is declared at P7.
 
+## Captions (word by word)
+
+Feedback (Magnetar, 4 Oct 2026): *"add transcriptions to the video, word by word, so users can follow the narrative with the audio off."* Every video has them:
+
+1. `plan.json` gets `texts`: one narration string per voice take, exactly as voiced (the builder asserts the counts match).
+2. `python3 System/scripts/word_timings.py Media/<Video>` asks `vaibhavs10/incredibly-fast-whisper` (`timestamp: word`) for the word times of each take and writes `voice/<take>.words.json` (≈ $0.01 per take, 429s are retried by the helper). If a file is missing, the builder **estimates** the times from the characters and punctuation inside the measured speech span.
+3. `build_video.py` maps the script's own words onto those times (if whisper heard a different number of words, the script words are spread over the heard span by characters) and adds one `TEXT` strip per word on **channel 16**: Noto Sans Display Bold 104 px, capitals, white, outline and shadow, copper when the word has a digit, centred at `CAP_Y` = 83.5 % from the top. A word stays until the next starts, up to 0.55 s across a pause.
+4. It prints `CAPTIONS n words, timed by whisper | estimated`. **Verify by stills** (a word is on screen where the voice speaks it is *not* verifiable by the agent).
+
+## Guards
+
+- **Bare backdrops are refused:** a plate whose file name contains `blank` stops the build ([[Illustration pipeline]] §1.7); `allow_bare: true` in the plan overrides it only if the user asks. Missing plate files also stop the build.
+- **Callout labels are clamped above the caption zone**, and moved above the card as before.
+
 ## Plates, backgrounds, callouts and cards
 
 - **Types:** `full` (cover with a focus point and a slow push), `contain` (fitted with rounded corners and a soft shadow on a gradient), `cutout` (transparent PNG over a gradient with a soft shadow). The gradient is generated in the script from two colours and an angle (`numpy`).
 - **Layers are composed in `numpy` inside Blender** (`bpy.data.images` + `foreach_get/foreach_set`; `Image.scale` to resize), saved as PNG in `render/_fx/` and used as `ALPHA_OVER` strips. The system Python has **no numpy**; Blender's has.
-- **Channels:** 1 paper · 2 gradient A · 3 plate A · 4 gradient B · 5 plate B (alternating so cross-fades never overlap on one channel) · 6 callout overlays · 7 card · 8 to 10 card texts · 11 to 13 callout texts · 14 vignette · 15 grain.
+- **Channels:** 1 paper · 2 gradient A · 3 plate A · 4 gradient B · 5 plate B (alternating so cross-fades never overlap on one channel) · 6 callout overlays · 7 card · 8 to 10 card texts · 11 to 13 callout texts · 14 vignette · 15 grain · 16 captions.
 - **Callouts:** a dot with a ring, a leader line and a paper label (copper bar); the label is moved above the card if it would overlap it. They enter 1 s after the plate, 0.6 s apart.
 - **Cards:** context, number and note kinds, 894 × 280 px at 28.5 % from the bottom.
 

@@ -1,18 +1,18 @@
 ---
 type: research
 created: 2026-10-03
-updated: 2026-10-03
-status: v3 · short-story narration craft + feedback rules from 4 videos; English-only since 3 Oct 2026
+updated: 2026-10-04
+status: v4 · explain-don't-narrate and need-to-know opener added (Magnetar feedback, 4 Oct 2026)
 tags: [research, youtube, script, narration]
 ---
 
 # Narration guide
 
-← [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Production process]] · [[Channel voice]] · [[Illustration pipeline]] · [[YouTube with AI - quality content guide]]
+← [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Production process]] · [[Channel voice]] · [[Illustration pipeline]] · [[YouTube with AI - quality content guide]] · [[Shorts quality bar]]
 
 Applied at stage 2 (script) and 3 (direction) of the [[Production process]], and checked before P3. **It is the source of truth for writing a script**; the other notes link to it. **Scripts are written directly in English** (not translated from Spanish): idioms, rhythm and sentence length are English ones, read aloud with the English voice ([[Channel voice]]).
 
-Basis: short-film direction and writing craft (a hook in the first seconds, a single idea, setup → conflict → resolution structure, image before exposition) ([source](https://glcoverage.com/2024/12/25/tips-for-writing-short-film/), [source](https://subscribr.ai/youtube-strategy/scripting-youtube-shorts-engagement)), plus the feedback from the channel's videos. **The call-to-action ending** recommended by Shorts guides is discarded: here the video closes with an idea.
+Basis: short-film direction and writing craft (a hook in the first seconds, a single idea, setup → conflict → resolution structure, image before exposition) ([source](https://glcoverage.com/2024/12/25/tips-for-writing-short-film/), [source](https://subscribr.ai/youtube-strategy/scripting-youtube-shorts-engagement)), plus the feedback from the channel's videos. **The call-to-action ending** recommended by Shorts guides is discarded: here the video closes with an idea. **Storytelling is discarded too (Magnetar feedback, 4 Oct 2026: *"narrative oriented too much on storytelling… something you need to know after 3 seconds"*): the Short explains a mechanism; it does not narrate a scene.**
 
 ## 0. First, is the idea worth it?
 
@@ -26,8 +26,8 @@ The video answers **one question**, written in one sentence before writing ("why
 
 | Scene | Function | Words |
 | --- | --- | --- |
-| 1 · **Hook** | **The most astonishing true thing about the subject, stated plainly, with its meaning attached** (a reason before a reaction; never a bare big number). A concrete, specific fact or moment. No greeting, no "in this video", no "did you know…?" See [[Idea and hook quality]] §3 | 12 to 20 |
-| 2 · **Minimal context** | What it is and why it matters, just what is needed to understand the next sentence | 20 to 30 |
+| 1 · **Need-to-know opener** | **A true, specific claim the viewer needs the next sentence for**, with its meaning attached (a reason before a reaction; never a bare big number). **≤ 10 words, the first clause (≈ 7 words) spoken inside 3 s.** Not a scene ("In 2004, a star cracked…"), not a question, no greeting, no "in this video", no "did you know…?" See [[Idea and hook quality]] §3 and [[Shorts quality bar]] §1 | 8 to 10 |
+| 2 · **Minimal context** | What it is and who found it or where it comes from, just what is needed to understand the next sentence | 16 to 26 |
 | 3 to 5 · **Causal chain** | Three links. Each is born from the previous one with **"because" or "so"**, never "and then" | 20 to 30 each |
 | 6 · **Turn** | What changes how everything is understood (around 60 to 70 % of the video) | 20 to 30 |
 | 7 · **Close** | Answers the question and leaves **one idea the viewer closes alone**; one or two sentences; no moral, no summary, no call to action | 15 to 25 |
@@ -36,11 +36,11 @@ The video answers **one question**, written in one sentence before writing ("why
 
 ## 3. Craft rules
 
-1. **The hook is a headline, not a greeting, and it earns its reaction.** A concrete fact that shows what is at stake **and why it is remarkable** ("In May 2025, an assembly line in Chicago stopped moving") beats a generic question. Context gives the tension; waiting does not.
+1. **The opener is a claim, not a scene, and it earns its reaction.** A concrete fact that shows what is at stake **and why it is remarkable** ("Some wires carry electricity with zero resistance. Not low. Zero.") beats a generic question and beats a dated scene. Context gives the tension; waiting does not. **Explain, do not narrate:** mechanism and cause → effect, no storyteller register.
 2. **Every hook is resolved in its scene or the next**, and answers all three: **what it is**, **why it happened**, **what it means**. A question is not left open just to sustain curiosity.
 3. **Cause → effect, not a list.** Each link carries its why in the same sentence. "Because / so / but" joins; "and then" enumerates. If you must cut, sacrifice the side detail (dates, names, secondary figures), **never the why**.
 4. **The concrete beats the abstract.** One object, one place, one figure per idea. A 3 cm screw says more than "a critical dependency". Data are few and go at the end of the sentence, where the voice stresses them.
-5. **A thread that returns.** An object or character that reappears (the magnet, the glass dish) organizes the story and allows a close that echoes the hook. That object is also the **stock photo or reference** of its plate ([[Illustration pipeline]]).
+5. **A thread that returns** (and, when it fits, the last plate is the first plate, so the Short loops). An object or character that reappears (the magnet, the glass dish) organizes the story and allows a close that echoes the hook. That object is also the **stock photo or reference** of its plate ([[Illustration pipeline]]).
 6. **Every scene raises the stakes or changes the reading.** If a scene only informs, merge it with another or cut it. **One new idea per scene.**
 7. **Make them think.** The ending delivers an idea, not a fact ("a case that falls on procedure never gets to judge the facts"; "if it goes wrong, it is not the recipe: it is a step"), without reproach or sermon.
 8. **Write for the ear and read it aloud.** Sentences of 8 to 16 words, one idea each, active and concrete verbs; no parentheses or chained subordinate clauses. A single tense across the whole video (historical present: "In 1973, a ship arrives…"). If it sounds forced or dramatic when spoken, rewrite it. Use contractions as a spoken narrator would ("it's", "doesn't") when they sound natural.
@@ -64,7 +64,8 @@ Each scene is a row; that way the script feeds the prompts of [[Prompt - per-sce
 ## 5. Check before P3
 
 - [ ] Does the video answer **one** question, written in one sentence?
-- [ ] Is the hook a concrete fact in ≤ 20 words, no greeting?
+- [ ] Is scene 1 a need-to-know claim of ≤ 10 words, first clause inside 3 s, not a scene or a question, no greeting?
+- [ ] Does the script explain (mechanism, cause → effect) instead of telling a story?
 - [ ] Does every hook answer what it is, why and what it means?
 - [ ] Is each scene born from the previous one with a why, and does it bring **one** idea?
 - [ ] Does someone who knows nothing understand the chain **without seeing the images**?
@@ -76,5 +77,8 @@ Each scene is a row; that way the script feeds the prompts of [[Prompt - per-sce
 
 ## 6. Example: rewriting a hook
 
+Before (a scene, May 2025): "In May 2025, an assembly line in Chicago stopped: China had demanded licenses to export the rare-earth magnets that drive car motors." → a story with a date; the claim arrives after 15 words.
+After (a claim, need-to-know): "One missing magnet part can stop a car factory." → what it is and what is at stake in 9 words; the next scene carries Chicago as evidence.
+
 Before (waiting): "A magnet was missing." → does not say what it is, why or what it means.
-After (context): "In May 2025, an assembly line in Chicago stopped: China had demanded licenses to export the rare-earth magnets that drive car motors." → what it is, why and what is at stake, in one sentence.
+Real use: [[Script - Superconductors]] opens with "Some wires carry electricity with zero resistance. Not low. Zero." (10 words, the claim lands in under 3 s).

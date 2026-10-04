@@ -36,6 +36,22 @@ INVARIANTS = [
     ("System/Process/Fast workflow.md", "stock", "stock photos in the workflow"),
     ("System/Process/Feedback loop.md", "single source of knowledge", "the vault is one coherent source"),
     ("CLAUDE.md", "Feedback loop", "the agent guide points to the feedback procedure"),
+    # Magnetar feedback, 4 Oct 2026
+    ("System/Guidelines for new scripts.md", "need-to-know", "first 3 seconds are a claim, not a story"),
+    ("System/Guidelines for new scripts.md", "Scientific fidelity beats creativity", "explainers are scientific"),
+    ("System/Guidelines for new scripts.md", "No bare backdrops", "numbers sit on real images"),
+    ("System/Guidelines for new scripts.md", "Word-by-word captions", "captions on every video"),
+    ("System/Content/Narration guide.md", "explains a mechanism", "explain, do not narrate"),
+    ("System/Content/Idea and hook quality.md", "need-to-know claim", "hook is a claim"),
+    ("System/Visual/Illustration pipeline.md", "Scientific fidelity beats creativity", "illustration pipeline"),
+    ("System/Visual/Illustration pipeline.md", "No bare backdrops", "illustration pipeline"),
+    ("System/Visual/Prompt - per-scene generation guide.md", "No glow, no light rays", "scientific explainer prompts"),
+    ("System/Visual/On-screen text style.md", "16.5 % from the bottom", "caption zone"),
+    ("System/Editing/Blender editing.md", "word_timings.py", "captions pipeline"),
+    ("System/Content/Shorts quality bar.md", "Checklist before P7", "the Short quality bar"),
+    ("System/Content/Channel strategy.md", "inauthentic content", "monetization policy awareness"),
+    ("System/Content/Channel strategy.md", "Not verified", "strategy says what was not verified"),
+    ("CLAUDE.md", "need-to-know", "agent guide carries the new hard rule"),
 ]
 
 problems = []
@@ -82,6 +98,12 @@ index = notes.get("YouTube Channel.md", "")
 for rel in notes:
     if rel.startswith("System/") and os.path.splitext(os.path.basename(rel))[0] not in index:
         problems.append(f"not in the index (YouTube Channel.md): {rel}")
+
+# builder guards that encode feedback (code, not notes)
+_b = open(os.path.join(ROOT, "System", "scripts", "build_video.py"), encoding="utf-8").read()
+for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions")):
+    if _needle not in _b:
+        problems.append(f"build_video.py lost its guard: {_needle} ({_why})")
 
 for r, d, f in os.walk(os.path.join(ROOT, "System", "scripts")):
     for x in f:

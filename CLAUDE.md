@@ -7,14 +7,15 @@ This vault (`~/Documents/youtube`) is the **single source of knowledge** of an E
 1. `YouTube Channel.md`: the index and the list of videos.
 2. `System/Guidelines for new scripts.md`: every quality rule, compressed (idea → script → illustrations → text → voice → editing → process). **Read it whole before writing anything.**
 3. `System/Process/Fast workflow.md`: how a video is produced (packages, models, prices, budget).
-4. For a new video also: `System/Content/Idea and hook quality.md`, `System/Visual/Illustration pipeline.md`, `System/Content/Narration guide.md`, `System/Content/Channel identity.md`, `System/Visual/On-screen text style.md`.
-5. On demand: `System/Process/Production process.md` (stages and gates), `System/Process/Media convention.md`, `System/Editing/Blender editing.md`, `System/Content/Channel voice.md`, `System/Models/Channel models.md`, and the video's `<Topic> - Status` note.
+4. For a new video also: `System/Content/Shorts quality bar.md` (the bar every Short must clear), `System/Content/Idea and hook quality.md`, `System/Visual/Illustration pipeline.md`, `System/Content/Narration guide.md`, `System/Content/Channel identity.md`, `System/Visual/On-screen text style.md`.
+5. On demand: `System/Content/Channel strategy.md` (monetization, policies, brand, multi-platform plan), `System/Process/Production process.md` (stages and gates), `System/Process/Media convention.md`, `System/Editing/Blender editing.md`, `System/Content/Channel voice.md`, `System/Models/Channel models.md`, and the video's `<Topic> - Status` note.
 
 ## 2. Hard rules (never skip)
 
 - **No media is generated before gate P4** (prompts and budget approved, in dollars). If the user delegates ("follow all the steps until the render"), record it in the Status note and continue **within the cap**; stop at the render (P7). Replicate calls go **in series**, one retry per image, and the prediction id is logged at once.
 - **The idea is a gate:** facts bank of ≥ 15 remarkable facts, scoring, street-lamp and expert tests, five hooks. **Length is planned in words** (130 to 190 for a Short), never in seconds.
 - **Every plate passes the usefulness test** and sits in a **visual plan** (stock photo, generated explainer, cutout, photo edit, number plate). Stock photos are free and credited; generated plates are **content-first prompts** with references and **no custom style**; style is applied in Blender.
+- **The first 3 seconds are a need-to-know claim** (≤ 10 words, no story opener); the script **explains, it does not narrate**; **explainers are scientifically faithful schematics** (nothing invented); **no number card or callout on a bare gradient**; **every video has word-by-word captions** (`System/Content/Shorts quality bar.md`).
 - **Text and added content** pass the specificity test ([[Channel identity]] voice): callouts name parts, a number card carries the figure, margin notes give a voice, context cards cite a source. No generic labels.
 - **Rigor:** every figure has a source and a date; weak facts are attributed or left out; the research note says what was not verified.
 - **Be honest about what you could not check** (you cannot hear audio or watch a whole video): say it, and leave P7 to the user.
@@ -31,18 +32,19 @@ When the user gives feedback (after a render, or about the process), follow **`S
 | --- | --- |
 | Stock photos (free, credited) | `python3 System/scripts/stock_photos.py search "<query>" --source openverse\|nasa\|commons` and `get …` |
 | Replicate calls | `System/scripts/replicate_helper.py` (`run`, `download` with retries, `recover(id, dest)`) with `REPLICATE_API_TOKEN` from `.env` |
+| Word timings for the captions | `python3 System/scripts/word_timings.py Media/<Video>` (needs `REPLICATE_API_TOKEN`; the builder estimates if skipped) |
 | Assemble and render | `VIDEO="Media/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`, then without `SOLO_PROYECTO` in the background |
 | Pipeline runner | `~/Documents/youtube-pipeline/pipeline.py` (a user service; its prompts follow these notes) |
 | Vault coherence | `python3 System/scripts/check_vault.py` |
 
-**Gotchas that already cost time:** the Wikimedia thumbnail API throttles (fetch originals from `upload.wikimedia.org` directly); the system Python has no `numpy` (Blender's does); `.blend` files need absolute paths; Blender's background mixdown is silent (the builder checks the strips instead); Obsidian re-pads Markdown tables on save (parse tolerantly); never `pkill -f` a pattern that appears in your own command; if a download hangs, recover the prediction, never regenerate.
+**Gotchas that already cost time:** Replicate answers HTTP 429 under bursts (the helper now waits and retries; nothing is charged); the Wikimedia thumbnail API throttles (fetch originals from `upload.wikimedia.org` directly); the system Python has no `numpy` (Blender's does); `.blend` files need absolute paths; Blender's background mixdown is silent (the builder checks the strips instead); Obsidian re-pads Markdown tables on save (parse tolerantly); never `pkill -f` a pattern that appears in your own command; if a download hangs, recover the prediction, never regenerate.
 
 ## 5. Where things live
 
 ```
 YouTube Channel.md            index · videos table
 System/Guidelines…            all rules, compressed          System/Process/   workflow · process · media · feedback loop
-System/Content/               idea quality · identity · narration · voice · quality guide
+System/Content/               idea quality · identity · narration · voice · Shorts quality bar · channel strategy · quality guide
 System/Visual/                illustration pipeline · prompts · on-screen text
 System/Editing/               Blender editing · transitions   System/Models/    models and prices
 System/scripts/               build_video.py · stock_photos.py · replicate_helper.py · check_vault.py · legacy build_*.py

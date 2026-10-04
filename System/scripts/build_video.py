@@ -46,6 +46,8 @@ COPPER = (0.78, 0.42, 0.22)
 INK = (0.11, 0.10, 0.09, 1.0)
 INK_SOFT = (0.30, 0.28, 0.26, 1.0)
 HAIR = " "
+CAP_Y = 0.835                       # caption baseline (fraction of the height from the top); the Shorts interface covers the last ≈ 15 %
+CAP_SIZE, CAP_GAP = 104, 0.55       # caption font size (px) and the longest pause (s) a word stays on screen
 
 sc = bpy.context.scene
 sc.render.fps = FPS
@@ -448,18 +450,39 @@ def estimate_words(text, a, b, env):
     return out
 
 
+def align_words(ws, heard):
+    """Maps the script words `ws` onto the heard words [[w, s, e], ...]: identical words (letters and digits only) anchor, and the script
+    words between two anchors share the heard span between them by characters ("1911." heard for "nineteen eleven" still lands right)."""
+    import difflib
+    norm = lambda w: "".join(c for c in w.lower() if c.isalnum())
+    sm = difflib.SequenceMatcher(None, [norm(w) for w in ws], [norm(h[0]) for h in heard], autojunk=False)
+    out, i0, j0 = [], 0, 0
+    for i, j, n in sm.get_matching_blocks() + [difflib.Match(len(ws), len(heard), 0)]:
+        gap_w, gap_h = ws[i0:i], heard[j0:j]
+        if gap_w:
+            if gap_h:
+                a_, b_ = gap_h[0][1], gap_h[-1][2]
+            else:                                             # words nobody heard: borrow a sliver after the previous word
+                a_ = out[-1][2] if out else (heard[0][1] if heard else 0.0)
+                b_ = a_ + 0.18 * len(gap_w)
+            wt = [len(w.strip(".,;:!?")) + 1 for w in gap_w]
+            k, t_ = (b_ - a_) / sum(wt), a_
+            for w, x in zip(gap_w, wt):
+                out.append([w, t_, t_ + x * k])
+                t_ += x * k
+        for q in range(n):
+            out.append([ws[i + q], heard[j + q][1], heard[j + q][2]])
+        i0, j0 = i + n, j + n
+    return out
+
+
 def take_words(v, text):
     """[[word, start, end]] in seconds of the padded file (original time + PAD_LEAD), using the script's own spelling."""
     ws = text.split()
     path = os.path.splitext(v["f"])[0].replace("/_padded", "") + ".words.json"
     if os.path.exists(path):
-        raw = json.load(open(path))
-        raw = [[w, s + PAD_LEAD, e + PAD_LEAD] for w, s, e in raw]
-        if len(raw) == len(ws):
-            return [[w, r[1], r[2]] for w, r in zip(ws, raw)]
-        # counts differ (e.g. "10,000" heard as two words): spread the script words over the heard span by characters
-        a, b = raw[0][1], raw[-1][2]
-        return estimate_words(text, a, b, None)
+        raw = [[w, s + PAD_LEAD, e + PAD_LEAD] for w, s, e in json.load(open(path))]
+        return align_words(ws, raw)
     return estimate_words(text, v["a"], v["b"], None)
 
 
