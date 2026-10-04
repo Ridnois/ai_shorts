@@ -16,7 +16,7 @@ tags: [research, youtube, process, feedback, vault]
 
 ## 1. Procedure (every time the user gives feedback, on a video or on the process)
 
-1. **Record it verbatim** in the video's feedback note (`Videos/<Topic>/Scripts/Post-render feedback - <Topic>.md`), or in a dated quote if it is about the process. The user's words stay; they are the evidence.
+1. **Record it verbatim** (the user fills [[Post-render feedback template]], copied to the video's folder when a render is ready; free text is fine) in the video's feedback note (`Videos/<Topic>/Scripts/Post-render feedback - <Topic>.md`), or in a dated quote if it is about the process. The user's words stay; they are the evidence.
 2. **Classify each point by layer** (table below) and list the notes it touches.
 3. **Apply it on every layer**, not only one: the rule note, the checklists, the templates, the tooling (scripts, `plan.json`, the pipeline runner prompts), the index and the agent guide. A rule that exists in one note and contradicts another is a defect.
 4. **Retire what it replaces:** delete obsolete notes (git keeps the history; do not archive), redirect links, and note the supersession in the surviving note (e.g. [[Illustration pipeline]] §8).

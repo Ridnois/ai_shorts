@@ -8,7 +8,7 @@ tags: [research, youtube, status, superconductors, shorts]
 
 # Superconductors · status
 
-← [[YouTube Channel]] · [[Fast workflow]] · [[Guidelines for new scripts]] · [[Script - Superconductors]]
+← [[YouTube Channel]] · [[Post-render feedback - Superconductors]] · [[Fast workflow]] · [[Guidelines for new scripts]] · [[Script - Superconductors]]
 
 Short 9:16, English, 162 words. Question: why can a superconductor carry current with zero resistance, and what would change without the freezer? Media in `Media/Superconductors/` (prefix `sc-`). First video built with the Magnetar-feedback rules: need-to-know opener, scientific explainers, no bare backdrops, word-by-word captions ([[Shorts quality bar]]).
 

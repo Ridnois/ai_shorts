@@ -64,6 +64,8 @@ INVARIANTS = [
     ("System/Content/Channel playbook.md", "On-screen design system", "text box and highlight design written down"),
     ("System/Content/Channel playbook.md", "Mission (one sentence)", "channel mission"),
     ("System/Content/Channel playbook.md", "Name: Cutaway", "channel name"),
+    ("System/Process/Post-render feedback template.md", "Keep exactly", "feedback template has its keep/change section"),
+    ("System/Process/Feedback loop.md", "Post-render feedback template", "the loop points at the template"),
     ("System/Editing/Blender editing.md", "Sound design", "synthesized sound design documented"),
     ("System/Editing/Blender editing.md", "progress bar", "progress bar documented"),
     ("System/Guidelines for new scripts.md", "synthesized by the builder", "sound design on by default"),

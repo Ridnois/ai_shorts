@@ -8,7 +8,7 @@ tags: [research, youtube, script, superconductors, shorts]
 
 # Script - Superconductors
 
-← [[YouTube Channel]] · [[Superconductors - Status]] · [[Guidelines for new scripts]] · [[Narration guide]] · [[Shorts quality bar]]
+← [[YouTube Channel]] · [[Superconductors - Status]] · **[[Post-render feedback - Superconductors]] (fill it in after watching)** · [[Guidelines for new scripts]] · [[Narration guide]] · [[Shorts quality bar]]
 
 **Request (user, 4 Oct 2026):** *"Why superconductor materials are so special and what could we do with room temperature superconductors"*, 160 words.
 **Question (one sentence):** why can a superconductor carry current with zero resistance, and what would change if it did not need a freezer?

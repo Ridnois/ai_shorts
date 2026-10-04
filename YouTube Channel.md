@@ -31,7 +31,7 @@ Plus the video's `<Topic> - Status` note and its script. Everything else is refe
 YouTube Channel.md
 ├── System/
 │   ├── Guidelines for new scripts.md   ← main entry point
-│   ├── Process/    Fast workflow · Production process · Media convention · Feedback loop
+│   ├── Process/    Fast workflow · Production process · Media convention · Feedback loop · Post-render feedback template
 │   ├── Content/    Idea and hook quality · Channel identity · Narration guide · Channel voice · Shorts quality bar · Channel strategy · Channel playbook · YouTube with AI (quality guide)
 │   ├── Visual/     Illustration pipeline · On-screen text style · Per-scene prompt
 │   ├── Editing/    Blender editing · Transitions and effects
