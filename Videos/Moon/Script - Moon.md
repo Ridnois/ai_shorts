@@ -54,7 +54,7 @@ Surprise 4 · Scale 5 · Plain 5 · Depth 4 · Evidence 4 · Showable 4. Street-
 
 | Scene | Voice | Words | Delivery | Bridge to the theme | Plates (≈ 3.5 s each) |
 | --- | --- | --- | --- | --- | --- |
-| 1 · Hook | Our newborn Moon was about twenty times closer. | 8 | calm, a little awed | states it | looming Moon (G), the Moon today (S) |
+| 1 · Hook | Our newborn Moon was about twenty times closer. | 8 | calm, a little awed | states it | looming Moon (G) with a context card |
 | 2 · How | A Mars-sized world hit young Earth. The debris gathered into the Moon, right beside us. | 15 | steady | what the newborn was | impact art (S), Mars (S), debris ring (G or S) |
 | 3 · What it looked like | So close that it filled the sky, many times wider than the Moon you know, and it pulled the oceans much harder. | 22 | rising | so close, so… | big Moon (S), crashing tide (S) |
 | 4 · Why it leaves | Those tides are why it left. Earth spins faster than the Moon orbits, so the tidal bulge runs ahead and tugs the Moon forward, into a wider orbit. | 28 | clear, explaining | that is why | tidal bulge diagram (G), tide photo (S), Earth (S) |

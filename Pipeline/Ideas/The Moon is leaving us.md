@@ -6,7 +6,7 @@ publish:
 estimated_budget_usd: 
 approved_budget_usd: 
 actual_cost_usd: 
-video: 
+video: "[[Moon - Status]]"
 error: 
 created: 2026-10-04
 updated: 2026-10-04
