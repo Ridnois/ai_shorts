@@ -70,11 +70,11 @@ def get(url, dest, **credit):
     """Downloads, resizes to <= 1920 px, saves as JPEG and records the credit."""
     from PIL import Image
     data = _get(url, timeout=60)
+    os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
     tmp = dest + ".tmp"
     open(tmp, "wb").write(data)
     im = Image.open(tmp).convert("RGB")
     im.thumbnail((1920, 1920))
-    os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
     im.save(dest, quality=92)
     os.remove(tmp)
     credit.update(file=os.path.basename(dest), url=url)

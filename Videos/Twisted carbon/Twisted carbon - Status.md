@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: stages 0–6 done · render r1 · post-render feedback received (4 Oct 2026): narrative approved, illustrations failed · rework plan below, not executed · all gates delegated by the user ("follow all the steps for yourself until the render")
+status: stages 0–6 done · render r1 · post-render feedback received (4 Oct 2026): narrative approved, illustrations failed · closed by the user on 4 Oct 2026: no rework, the learning stays in the vault · all gates delegated by the user ("follow all the steps for yourself until the render")
 tags: [research, youtube, status, carbon, superconductors, metamaterials, shorts]
 ---
 
@@ -195,4 +195,6 @@ Visual plan for the same script (types: S stock, G generated explainer, C cutout
 | 13 | 7 | **N** | a text plate on a gradient | the thesis in a line | built in Blender | context card: `What the 1.1° buys · One element, three behaviours · Insulator, conductor, superconductor` |
 
 **Cost:** 5 generated plates ≈ $0.25 + one background removal (unmeasured) ≈ $0.27 in total; stock photos $0; the voice is reused. **Also free:** re-render with the padded and checked voices (the voice-start fix) from a `plan.json`, with or without the new plates. Tell me which you want: (a) only the voice-start fix, (b) the full rework, (c) neither.
+
+**Decision (4 Oct 2026):** the user chose **neither** option (no voice-start re-render, no rework): *"C, lets keep the learning and move on on the next script."* This video stays as rendered (plasticine plates, v2 cards, the voice-start defect). Its value is the knowledge now in the vault ([[Illustration pipeline]], [[Channel identity]], [[Blender editing]], [[Feedback loop]]). The rework plan above is kept only as a worked example of the visual plan.
 
