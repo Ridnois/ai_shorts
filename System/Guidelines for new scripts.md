@@ -1,16 +1,16 @@
 ---
 type: research
 created: 2026-10-03
-updated: 2026-10-03
-status: v2 · feedback from the first 5 videos compressed into rules; English-only since 3 Oct 2026
+updated: 2026-10-04
+status: v3 · Magnetar feedback added: need-to-know opener, scientific fidelity, no bare backdrops, word-by-word captions (4 Oct 2026)
 tags: [research, youtube, script, guidelines, feedback]
 ---
 
 # Guidelines for new scripts
 
-← [[YouTube Channel]] · [[Fast workflow]]
+← [[YouTube Channel]] · [[Fast workflow]] · [[Shorts quality bar]] · [[Channel strategy]]
 
-**Read it whole before writing a script.** It is the feedback from the videos ([[Magnets and geopolitics - Status]], [[Helium and power - Status]], [[Brazil and embassies - Status]], [[Lemon cake - Status]]) reduced to rules. Each rule says where it comes from. Production details (models, prices, budget) are in [[Fast workflow]].
+**Read it whole before writing a script.** It is the feedback from the videos ([[Magnets and geopolitics - Status]], [[Helium and power - Status]], [[Brazil and embassies - Status]], [[Lemon cake - Status]], [[Magnetar - Status]]) reduced to rules. Each rule says where it comes from. Production details (models, prices, budget) are in [[Fast workflow]].
 
 > **Language (user decision, 3 Oct 2026): every new script is written and narrated in English**, with English on-screen text, English prompts and an English description. Research, status notes and budgets are also in English. The earlier videos (Spanish narration) are a record and are not redone unless the user asks. Voice: [[Channel voice]].
 
@@ -28,6 +28,7 @@ Source: post-render feedback on the first English helium video (4 Oct 2026): *"t
 | 0.4 | **Expert test.** A specialist would call it "the interesting part", not "the textbook summary"; each scene carries one detail a generic explainer would skip. |
 | 0.5 | **The hook gives a reason before it asks for a reaction:** the most astonishing true thing, stated plainly, with its meaning attached. A big number alone is not a hook. Write **five candidate hooks**; pick by "would I stop?" and "does it open a question the next scene answers?". |
 | 0.6 | **Plan by words, not by time** (see *Duration and pace*). |
+| 0.7 | **The first 3 seconds carry a need-to-know claim, not a story.** Scene 1 is ≤ 10 words and its first clause (≈ 7 words) lands inside 3 s: a true, specific claim that makes the viewer need the next sentence ("Some wires carry electricity with zero loss."). **No scene-setting opener** ("In May 2025, an assembly line…", "Imagine…"). The whole video **explains, it does not narrate**: facts and mechanisms in cause → effect order, no storytelling voice. Source: Magnetar feedback, 4 Oct 2026. Craft: [[Narration guide]] §2 and [[Shorts quality bar]] §1. |
 
 ## 1. Script
 
@@ -56,7 +57,7 @@ Source: post-render feedback on the first English helium video (4 Oct 2026): *"t
 
 - **Words are the unit; duration is a result** (user feedback, 4 Oct 2026: *"give it a word range instead of a time range"*). A Short is planned as **130 to 190 words** in 6 to 8 scenes (per-scene ranges in [[Narration guide]] §2). **Do not write a target time in the notes before the voice exists**; the length appears afterwards, from the generated voice, and is reported as *derived* (≈ words × 0.42 s at the measured 144 wpm; render names carry the measured duration). Short is fine; longer is fine if the words earn it. Do not speed up the voice to make it fit.
 - **Adapt the script to the pace of the voice, or use a model with `speed`**; do not cut blindly or regenerate. Planning: ≈ 145 to 150 words per minute with `elevenlabs/v3` at `speed` 0.95 (Lemon cake, Spanish: 197 words → 77.6 s; Chips, Spanish: 211 words → 88 s; **Helium, English: 175 words → 72.9 s ≈ 144 wpm**). **Measure with the complete script**, not one sentence (a single sentence gave 122; the whole script, 156). Details in [[Channel voice]].
-- Hook in the **first scene**, with the strongest image, per rule 0.5.
+- Hook in the **first scene**, with the strongest image, per rules 0.5 and 0.7.
 
 ### Checklist before P3
 
@@ -64,6 +65,7 @@ Source: post-render feedback on the first English helium video (4 Oct 2026): *"t
 - [ ] Does it pass the street-lamp test and the expert test? (0.3–0.4)
 - [ ] Were five hooks written, and does the chosen one give a reason before asking for a reaction? (0.5)
 - [ ] Is the length stated in words, inside 130 to 190? (0.6)
+- [ ] Does scene 1 make a need-to-know claim in ≤ 10 words, first clause inside 3 s, with no scene-setting? (0.7)
 - [ ] Does every hook answer what it is, why and what it means?
 - [ ] Is there a pause or sentence that exists only to create suspense?
 - [ ] Does someone who knows nothing understand the cause → effect chain **without seeing the images**?
@@ -73,7 +75,7 @@ Source: post-render feedback on the first English helium video (4 Oct 2026): *"t
 
 ## 2. Illustrations (full method: [[Illustration pipeline]])
 
-Source feedback: Brazil ("no relation between the illustrations and the content"), Lemon cake ("horrible illustration… look up a homemade lemon cake"), and **Twisted carbon, 4 Oct 2026**: *"the images feel not to be representing the content, nor describing the scenes… less approach on scene description, it is not a theatre show, it is modern content… use illustrations where they are useful, describe machines and explain processes… use free stock photos… use the model on the style it performs best, not a custom illustration style… transparent backgrounds with gradients applied in Blender."*
+Source feedback: **Magnetar, 4 Oct 2026** (*"illustrations are too creative and unscientific; blue empty background with added text is strange, illustrations could go there"*), Brazil ("no relation between the illustrations and the content"), Lemon cake ("horrible illustration… look up a homemade lemon cake"), and **Twisted carbon, 4 Oct 2026**: *"the images feel not to be representing the content, nor describing the scenes… less approach on scene description, it is not a theatre show, it is modern content… use illustrations where they are useful, describe machines and explain processes… use free stock photos… use the model on the style it performs best, not a custom illustration style… transparent backgrounds with gradients applied in Blender."*
 
 | # | Rule |
 | --- | --- |
@@ -88,6 +90,8 @@ Source feedback: Brazil ("no relation between the illustrations and the content"
 | 2.9 | **Plates without the voice must still make sense.** If the images are not understood without the narration, the plan is not ready. |
 | 2.10 | **Check every reference and stock photo for text and brands** before using it; a legible brand leaks into generated images and distracts in photos. Prefer references without lettering. |
 | 2.11 | **Do not paste the narration sentence into an image prompt.** In the Helium video one prompt that began with `Narration: "…"` printed that sentence, garbled, inside the image. Paraphrase the idea, add "The image contains no letters, no numbers and no labels", and check every plate for text. |
+| 2.13 | **Scientific fidelity beats creativity.** An explainer shows only what the research note supports: real structure, real counts, real relative scale. **Anything decorative that looks like data is wrong** (the Magnetar plate's glowing arcs read as field lines but were invented). Prompt it as a *textbook or agency schematic* of the established model; give it a real diagram or photo as reference; list in the prompt what must **not** be invented ("no glow, no energy rays, no decorative particles"). After generation, **check each element against the research note**; if an element has no source, regenerate once without it or replace the plate with a photo. |
+| 2.14 | **No bare backdrops.** A number card, quote or callout never sits on an empty gradient. It goes **on a real photo or a faithful explainer of the thing it measures** (a number card about a field strength sits on the magnet, not on violet). `build_video.py` refuses blank placeholders. A gradient is only the surface behind a cutout or a `contain` photo. |
 | 2.12 | **Record every credit** (title, author, license, page) in `stock/_credits.jsonl` as the photo is downloaded; the Status note's attribution table is built from it. |
 
 ### Text and added content (full rules: [[On-screen text style]], [[Channel identity]])
@@ -111,6 +115,7 @@ Source feedback: Brazil ("no relation between the illustrations and the content"
 - **A voice sentence is never cut, and never starts abruptly** (Brazil r1 error; Twisted carbon feedback, 4 Oct 2026: *"small voice cut on the start of the video, make sure voice clips are complete and well put into the sequencer"*). The TTS files often start mid-sound (some at full amplitude at sample 0) and end abruptly. `build_video.py` therefore **pads every take** (0.30 s of silence before, 0.40 s after, a 20 ms fade-in and a 50 ms fade-out, as `voice/_padded/*.wav`), places it so that the speech plus ≥ 0.1 s before and ≥ 0.25 s after are audible, and **checks every voice** (`CHECK=1`): lead-in, tail, silence in the padded file, no overlaps. Blender's background mixdown is silent, so the check reads the strips directly.
 - **Silences:** 0.45 s between scenes; 1.2 s before the central question; 0.5 s of intro and 1.2 s of tail.
 - **On-screen text:** callouts, number cards, context cards and margin notes ([[On-screen text style]]), composed from `plan.json`.
+- **Word-by-word captions on every video** (Magnetar feedback, 4 Oct 2026: *"add transcriptions to the video, word by word, so users can follow the narrative with the audio off"*). `plan.json` carries `texts` (the narration of each scene, exactly as voiced); `System/scripts/word_timings.py` times the words from the voice files (whisper, ≈ $0.01 per take) and `build_video.py` shows **one big word at a time** (white, dark outline, figures in copper) in the caption zone ≈ 16 % from the bottom. Without timings the builder estimates them. Cards and callouts never enter the caption zone ([[On-screen text style]] §3).
 - **Plates:** one every ≈ 4 to 6 s (a Short of 12 to 14 plates), cross-fade within the scene and "page turn" between scenes, slow 5 % push; types `full`, `contain` and `cutout` over gradients ([[Illustration pipeline]] §6). Plate changes should land on the word they explain (not yet synced to each word).
 - **Say what was not verified:** the full video is not watched or heard, only frames and headers; gate P7 is the user's.
 - **Before putting a symbol on screen** (→, ≈), check that the typeface has it: Noto Sans Display Bold has no "→" and it showed as a box (Stems, r1). Use "·" or "to".
@@ -137,7 +142,8 @@ Source feedback: Brazil ("no relation between the illustrations and the content"
 ## 6. Open items
 
 - [ ] **Sound quality and dynamism** (Brazil feedback): no proven solution.
-- [ ] **Plate changes synced to the word**, not only to the scene.
+- [ ] **Plate changes synced to the word**, not only to the scene (word timings now exist: [[Blender editing]] captions).
+- [ ] Rework [[Magnetar - Status]] with the new rules (real backdrops for the three number plates, a scientific plate 2 and 6, captions, a need-to-know opener); the render r3 is the *before*.
 - [ ] Try the text style on a political topic (figure + source) and define 16:9.
 - [ ] First video with the new pipeline: test `gpt-image-1.5` with `background: transparent` and `bria/remove-background` on one image each, confirm their prices on Replicate, and judge the composed result at P5 ([[Illustration pipeline]] §7).
 - [ ] Ask the user whether to get free API keys for Pexels, Pixabay or Unsplash ([[Illustration pipeline]] §5).
