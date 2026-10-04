@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: stages 0–3 done · delegated by the user ("build a youtube short all by yourself", 4 Oct 2026): P4 to P6 run by the agent within the cap, stop at the render (P7) · render r2 built (brand layer, sound design), awaiting P7
+status: stages 0–3 done · delegated by the user ("build a youtube short all by yourself", 4 Oct 2026): P4 to P6 run by the agent within the cap, stop at the render (P7) · render r2 watched by the user, feedback applied to the vault, rework pending
 tags: [research, youtube, status, superconductors, shorts]
 ---
 
@@ -106,7 +106,15 @@ Looked at all five: no text or brand, except the LHC photo, which shows a "MEYER
 - **Not verified:** how the voice sounds, whether the captions land on the spoken words in motion, the pace, the transitions; the full video was not watched. Gate P7 stays with the user.
 - **Content to check before publishing:** the primary sources named in [[Script - Superconductors]] (Drozdov 2015 and 2019, the Dias retractions, the gravimeter record); the facts come from Wikipedia and EIA.
 
-## Render r2: brand layer and sound design (user request, 4 Oct 2026)
+## Rework list (from the post-render feedback, 4 Oct 2026; not done, awaiting the user's go)
+
+- **Script:** new plain-words hook (*"Some wires waste no electricity. Almost nobody can use them."*), a theme line (*"a wire that wastes nothing, and why we cannot use it yet"*), a bridge in every scene, ≤ 5 facts and ≤ 3 spoken figures (drop the 28 years or the 1,232 magnets), a concrete payoff ending, a cut test; aim ≈ 130 to 150 words instead of 162.
+- **Images:** 16 to 20 plates, none over 5 s; find 2 to 3 candidate photos per scene (superconductor lab photos, MRI and maglev from Commons, real diagrams of Cooper pairs and the Meissner effect); replace the loop and wires schematics with real photos plus callouts where a photo exists; keep a realistic diamond-anvil render from a real reference.
+- **Edit:** captions at 88 px, no progress bar, mark or series tag, alternating pushes; keep the sound design and the text layout exactly.
+- **Voice:** A/B scene 1 (default against the expressive variant) before regenerating.
+- **Cost estimate:** voice ≈ $0.10, at most 5 generated images ≈ $0.25: needs a new P4 budget or a delegation.
+
+## Render r2: brand layer and sound design (the brand layer was removed on the user's feedback; the render r2 file still shows it) (user request, 4 Oct 2026)
 
 - **Brand layer:** progress bar at the top filling over 71.9 s, ring-and-dot mark and the series tag "The mechanism" top-left (the tag got a dark outline after a still showed it unreadable on light plates). Looked at stills at 1, 9, 24, 36, 55 and 70 s.
 - **Copper key terms in the captions:** `keywords` = zero, resistance, pairing, freezer, miracle (plus every figure).
