@@ -7,4 +7,14 @@ This is where we're failing. the images feel not to be representing the content,
 
 I see to little focus on the prompt quality, is not related enough with the content. my take here: less aproach on scene description, is not a theatre show, is modern content. more focus on using illustrations where they are useful, describe machines and explaining processes. also i want you to use free stock photos, redesign the vault video generation to do the images this way, a mix of generated images with fully descriptive prompt and references and free stock photos.
 
-I think you should use the model on the style it performs best, not custom illustration style, get as close as generic style a
+I think you should use the model on the style it performs best, not custom illustration style, get as close as generic style as possible so we make better use of the model.
+
+Based on all i told you, redesign the illustration pipeline in order to integrate outside sources and generate better, more related with the content images. you could generate images with transparent background and apply background gradient colors and styles on blender.
+
+Work more on the vault's definition of text and added content, it still being too generic, souless and with lack of personalization, consider this requirement into the image generation pipeline too. (Remember, edit the vault to )
+
+## Technical
+
+Small voice cut on the start of the video, make sure voices clips are complete and well put into the blender video sequencer.
+
+You could add 
