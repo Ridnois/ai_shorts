@@ -1,0 +1,471 @@
+"""Generic builder for vertical Shorts in Blender 5.2's sequencer, driven by a plan file (`plan.json`).
+
+    VIDEO="Media/<folder>" SOLO_PROYECTO=1 blender -b --factory-startup --python System/scripts/build_video.py   # assemble and measure
+    VIDEO="Media/<folder>" blender -b --factory-startup --python System/scripts/build_video.py                  # assemble and render
+    VIDEO=... CHECK=1 ...        # also mixes the audio down and checks that every voice starts and ends complete
+
+What it does (see System/Editing/Blender editing.md and System/Visual/Illustration pipeline.md):
+  * Voices: each take is padded (0.30 s of silence before, 0.40 s after, 20 ms fade-in) into voice/_padded/*.wav and
+    placed so the whole clip is audible. The TTS files often start abruptly; the padding and fades remove the "cut" at the start.
+  * Plates of three types, over a gradient background made here:
+      full     a photo or generated image that fills the frame (cover, with a focus point and a slow push)
+      contain  a photo or diagram fitted inside the frame on a gradient, with rounded corners and a soft shadow
+      cutout   a PNG with a transparent background (generated or cut out) over the gradient, with a soft shadow
+  * Callouts: a dot on a part of the image, a leader line and a short label (explains machines and processes).
+  * One three-line card per plate (label, title, detail), vignette and grain.
+
+plan.json: see the docstring of `load_plan` and `System/Visual/Illustration pipeline.md` §6.
+"""
+import glob
+import json
+import os
+
+import aud
+import bpy
+import numpy as np
+
+ROOT = os.environ.get("VIDEO") or sorted(glob.glob("Media/*"))[-1]
+PLAN = json.load(open(f"{ROOT}/plan.json", encoding="utf-8"))
+OUT = f"{ROOT}/render"
+FX = f"{OUT}/_fx"
+os.makedirs(FX, exist_ok=True)
+os.makedirs(f"{ROOT}/voice/_padded", exist_ok=True)
+W, H = PLAN.get("size", [1080, 1920])
+FPS = PLAN.get("fps", 24)
+GAPS = PLAN["gaps"]
+START, TAIL = PLAN.get("start", 0.5), PLAN.get("tail", 1.2)
+PAD_LEAD, PAD_TAIL, FADE_IN, FADE_OUT = 0.30, 0.40, 0.02, 0.05      # voice padding and fades (s)
+LEAD_KEEP, TAIL_KEEP = 0.12, 0.30                                    # silence kept around the speech in the timeline (s)
+DIP, XF, ZOOM = 0.20, 0.30, 0.05
+PAPER = (0.945, 0.935, 0.86)
+VIGNETTE, GRAIN = 0.20, 0.08
+COPPER = (0.78, 0.42, 0.22)
+INK = (0.11, 0.10, 0.09, 1.0)
+INK_SOFT = (0.30, 0.28, 0.26, 1.0)
+HAIR = " "
+
+sc = bpy.context.scene
+sc.render.fps = FPS
+sc.render.resolution_x, sc.render.resolution_y, sc.render.resolution_percentage = W, H, 100
+sc.view_settings.view_transform = "Standard"
+sc.sequence_editor_create()
+S = sc.sequence_editor.strips
+bpy.context.preferences.edit.keyframe_new_interpolation_type = "LINEAR"
+fr = lambda t: round(t * FPS)
+hexrgb = lambda h: tuple(int(h.lstrip("#")[i:i + 2], 16) / 255 for i in (0, 2, 4))
+
+
+# ---------------------------------------------------------------- voices
+def pad_voice(src):
+    """Writes voice/_padded/<name>.wav = lead silence + 20 ms fade-in + voice + 50 ms fade-out + tail silence."""
+    dst = f"{ROOT}/voice/_padded/{os.path.splitext(os.path.basename(src))[0]}.wav"
+    if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(src):
+        return dst
+    v = aud.Sound.file(src)
+    rate, ch = int(v.specs[0]), int(v.specs[1])
+    n = len(np.asarray(v.data()))
+    body = v.fadein(0, FADE_IN).fadeout(max(0.0, n / rate - FADE_OUT), FADE_OUT)
+    out = aud.Sound.silence(rate).limit(0, PAD_LEAD).join(body).join(aud.Sound.silence(rate).limit(0, PAD_TAIL))
+    out.write(dst, rate, ch, aud.FORMAT_S16, aud.CONTAINER_WAV, aud.CODEC_PCM)
+    return dst
+
+
+def envelope(path):
+    s = aud.Sound.file(path)
+    rate = s.specs[0]
+    a = np.abs(np.asarray(s.data(), dtype=np.float32))
+    a = a.mean(axis=1) if a.ndim > 1 else a
+    win = int(rate * 0.01)
+    n = len(a) // win
+    return a[: n * win].reshape(n, win).mean(axis=1), len(a) / rate
+
+
+def analyse(path):
+    env, total = envelope(path)
+    v = np.nonzero(env > env.max() * 0.01)[0]
+    return v[0] * 0.01, (v[-1] + 1) * 0.01, total
+
+
+voices, t = [], START
+NV = len(PLAN["voices"])
+for n, src in enumerate(PLAN["voices"], start=1):
+    wav = pad_voice(f"{ROOT}/{src}")
+    a, b, total = analyse(wav)
+    ini, fin = max(0.0, a - LEAD_KEEP), min(total, b + TAIL_KEEP)
+    voices.append({"n": n, "f": wav, "a": a, "b": b, "ini": ini, "fin": fin, "abs": t, "dur": fin - ini})
+    t += (fin - ini) + (GAPS[n - 1] if n < NV else 0)
+B = [0.0] + [v["abs"] + v["dur"] + GAPS[i] / 2 for i, v in enumerate(voices[:-1])] + [voices[-1]["abs"] + voices[-1]["dur"] + TAIL]
+T_END = B[-1]
+
+for v in voices:
+    # the strip is created `ini` earlier: frame_offset_start also advances the visible start
+    st = S.new_sound(f"voice-{v['n']}", v["f"], 30, fr(v["abs"]) - fr(v["ini"]))
+    st.frame_offset_start = fr(v["ini"])
+    st.frame_final_end = fr(v["abs"]) + fr(v["dur"])
+    assert st.frame_final_start == fr(v["abs"]), (v["n"], st.frame_final_start, fr(v["abs"]))
+    v["strip"] = st
+
+paper = S.new_effect("paper", "COLOR", 1, 1, length=fr(T_END))
+paper.color = PAPER
+
+
+def alpha(st, pts):
+    seen = {}
+    for t_, val in pts:
+        seen[fr(t_)] = val
+    for f_ in sorted(seen):
+        st.blend_alpha = seen[f_]
+        st.keyframe_insert("blend_alpha", frame=f_)
+
+
+# ---------------------------------------------------------------- image helpers (numpy on Blender images)
+def load_rgba(path, max_side=None):
+    im = bpy.data.images.load(path, check_existing=False)
+    if max_side and max(im.size) > max_side:
+        k = max_side / max(im.size)
+        im.scale(max(1, round(im.size[0] * k)), max(1, round(im.size[1] * k)))
+    w, h = im.size
+    px = np.empty(w * h * 4, dtype=np.float32)
+    im.pixels.foreach_get(px)
+    bpy.data.images.remove(im)
+    return px.reshape(h, w, 4)[::-1].copy()          # top row first
+
+
+def resize(arr, nw, nh):
+    h, w = arr.shape[:2]
+    im = bpy.data.images.new("tmp", w, h, alpha=True)
+    im.pixels.foreach_set(arr[::-1].ravel())
+    im.scale(nw, nh)
+    px = np.empty(nw * nh * 4, dtype=np.float32)
+    im.pixels.foreach_get(px)
+    bpy.data.images.remove(im)
+    return px.reshape(nh, nw, 4)[::-1].copy()
+
+
+def save_rgba(arr, name):
+    path = f"{FX}/{name}.png"
+    im = bpy.data.images.new(name, arr.shape[1], arr.shape[0], alpha=True)
+    im.pixels.foreach_set(arr[::-1].ravel().astype(np.float32))
+    im.filepath_raw = path
+    im.file_format = "PNG"
+    im.save()
+    bpy.data.images.remove(im)
+    return path
+
+
+def box_blur(a, r):
+    """Separable box blur (r px, two passes) of a 2D array."""
+    k = 2 * r + 1
+    for ax in (0, 1):
+        for _ in range(2):
+            c = np.cumsum(np.pad(a, [(r + 1, r) if i == ax else (0, 0) for i in range(2)], mode="edge"), axis=ax)
+            a = (np.take(c, range(k, c.shape[ax]), axis=ax) - np.take(c, range(0, c.shape[ax] - k), axis=ax)) / k
+    return a
+
+
+def rounded_mask(w, h, rad):
+    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
+    dx = np.maximum(np.maximum(rad - xx, xx - (w - 1 - rad)), 0)
+    dy = np.maximum(np.maximum(rad - yy, yy - (h - 1 - rad)), 0)
+    return np.clip(0.5 - (np.sqrt(dx ** 2 + dy ** 2) - rad), 0, 1)
+
+
+_bg_cache = {}
+
+
+def gradient(c0, c1, angle):
+    key = (c0, c1, angle)
+    if key not in _bg_cache:
+        yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+        th = np.radians(angle)
+        d = (xx - W / 2) * np.cos(th) + (yy - H / 2) * np.sin(th)
+        u = np.clip(d / (abs(W * np.cos(th)) + abs(H * np.sin(th))) + 0.5, 0, 1)[..., None]
+        a, b = np.array(hexrgb(c0), np.float32), np.array(hexrgb(c1), np.float32)
+        rgb = a * (1 - u) + b * u
+        rgba = np.concatenate([rgb, np.ones((H, W, 1), np.float32)], axis=2)
+        _bg_cache[key] = save_rgba(rgba, f"bg{len(_bg_cache)}")
+    return _bg_cache[key]
+
+
+def compose_layer(plate, idx):
+    """Builds the RGBA layer for `contain` and `cutout` plates: placed, masked, with a soft shadow. Returns (path, bbox)."""
+    src = load_rgba(f"{ROOT}/{plate['file']}", 2200)
+    h0, w0 = src.shape[:2]
+    pos = plate.get("pos", [0.5, 0.40])
+    if plate["type"] == "contain":
+        fw = round(W * plate.get("width", 0.90))
+        fh = round(fw * h0 / w0)
+        if fh > H * 0.60:                                  # tall images: limit the height
+            fh = round(H * 0.60)
+            fw = round(fh * w0 / h0)
+    else:                                                  # cutout: `size` is the fraction of the frame height
+        fh = round(H * plate.get("size", 0.45))
+        fw = round(fh * w0 / h0)
+        if fw > W * 0.92:
+            fw = round(W * 0.92)
+            fh = round(fw * h0 / w0)
+    img = resize(src, fw, fh)
+    if plate["type"] == "contain":
+        img[..., 3] = img[..., 3] * rounded_mask(fw, fh, plate.get("radius", 28))
+    x0 = round(pos[0] * W - fw / 2)
+    y0 = round(pos[1] * H - fh / 2)
+    layer = np.zeros((H, W, 4), np.float32)
+    # soft shadow from the alpha, offset down
+    sh = np.zeros((H, W), np.float32)
+    ys, xs = max(0, y0 + 26), max(0, x0)
+    ye, xe = min(H, y0 + 26 + fh), min(W, x0 + fw)
+    sub = img[..., 3][max(0, -(y0 + 26)):max(0, -(y0 + 26)) + (ye - ys), max(0, -x0):max(0, -x0) + (xe - xs)]
+    sh[ys:ye, xs:xe] = sub
+    sh = box_blur(sh, 18) * 0.38
+    layer[..., 3] = sh
+    # image on top (alpha over the shadow)
+    iy0, ix0 = max(0, y0), max(0, x0)
+    iy1, ix1 = min(H, y0 + fh), min(W, x0 + fw)
+    piece = img[iy0 - y0:iy1 - y0, ix0 - x0:ix1 - x0]
+    base = layer[iy0:iy1, ix0:ix1]
+    a_i = piece[..., 3:4]
+    a_b = base[..., 3:4]
+    out_a = a_i + a_b * (1 - a_i)
+    rgb = np.where(out_a > 1e-5, (piece[..., :3] * a_i + 0.0 * a_b * (1 - a_i)) / np.maximum(out_a, 1e-5), 0)
+    layer[iy0:iy1, ix0:ix1, :3] = rgb
+    layer[iy0:iy1, ix0:ix1, 3:4] = out_a
+    return save_rgba(layer, f"layer{idx}"), (x0, y0, fw, fh)
+
+
+# ---------------------------------------------------------------- label card (three lines) and callouts
+CX0, CX1 = 56, 56 + 894
+CY = round(H * (1 - 0.285))
+CY0, CY1 = CY - 140, CY + 140
+RAD = 16
+
+
+def card_image():
+    m = rounded_mask(CX1 - CX0, CY1 - CY0, RAD)
+    yy, xx = np.mgrid[0:CY1 - CY0, 0:CX1 - CX0].astype(np.float32)
+    edge = np.clip(1.0 - np.abs((np.sqrt(np.maximum(np.maximum(RAD - xx, xx - (CX1 - CX0 - 1 - RAD)), 0) ** 2 + np.maximum(np.maximum(RAD - yy, yy - (CY1 - CY0 - 1 - RAD)), 0) ** 2) - RAD) + 0.5), 0, 1) * 0.25
+    bar = (xx < 8).astype(np.float32) * m
+    paper_rgb = np.array([0.976, 0.965, 0.933], np.float32)
+    graph = np.array([0.20, 0.19, 0.18], np.float32)
+    rgba = np.zeros((CY1 - CY0, CX1 - CX0, 4), np.float32)
+    for c in range(3):
+        base = paper_rgb[c] * (1 - edge) + graph[c] * edge
+        rgba[..., c] = base * (1 - bar) + COPPER[c] * bar
+    rgba[..., 3] = np.maximum(m * 0.94, edge * m)
+    full = np.zeros((H, W, 4), np.float32)
+    full[int(CY0):int(CY1), CX0:CX1] = rgba
+    return save_rgba(full, "card")
+
+
+def callout_image(target, label_xy, box_w, box_h, idx):
+    """Dot at `target`, leader line to the label box, and the box (paper, copper bar). Coordinates in pixels."""
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    tx, ty = target
+    lx, ly = label_xy
+    # nearest point of the box to the target, so the line meets the box edge
+    ex = min(max(tx, lx), lx + box_w)
+    ey = min(max(ty, ly), ly + box_h)
+    vx, vy = ex - tx, ey - ty
+    L2 = max(vx * vx + vy * vy, 1e-6)
+    u = np.clip(((xx - tx) * vx + (yy - ty) * vy) / L2, 0, 1)
+    d = np.sqrt((xx - (tx + u * vx)) ** 2 + (yy - (ty + u * vy)) ** 2)
+    line = np.clip(2.2 - d, 0, 1)
+    dot = np.clip(13 - np.sqrt((xx - tx) ** 2 + (yy - ty) ** 2), 0, 1)
+    ring = np.clip(1.5 - np.abs(np.sqrt((xx - tx) ** 2 + (yy - ty) ** 2) - 20), 0, 1)
+    ink = np.maximum(np.maximum(line, dot), ring)
+    rgba = np.zeros((H, W, 4), np.float32)
+    rgba[..., 0], rgba[..., 1], rgba[..., 2] = COPPER
+    rgba[..., 3] = ink
+    bw, bh = int(box_w), int(box_h)
+    m = rounded_mask(bw, bh, 10)
+    bx0, by0 = int(lx), int(ly)
+    y1, x1 = min(H, by0 + bh), min(W, bx0 + bw)
+    mm = m[: y1 - by0, : x1 - bx0, None]
+    sub = rgba[by0:y1, bx0:x1]
+    paper_rgb = np.array([0.976, 0.965, 0.933], np.float32)
+    sub[..., :3] = sub[..., :3] * (1 - mm) + paper_rgb * mm
+    sub[..., 3:4] = np.maximum(sub[..., 3:4], mm * 0.95)
+    sub[: , :6, :3] = np.where(mm[:, :6] > 0.5, np.array(COPPER, np.float32), sub[:, :6, :3])
+    return save_rgba(rgba, f"callout{idx}")
+
+
+def spaced(t):
+    return HAIR.join(t.upper().replace(" ", "  "))
+
+
+F_TITLE = bpy.data.fonts.load("/usr/share/fonts/truetype/noto/NotoSansDisplay-Bold.ttf")
+F_BODY = bpy.data.fonts.load("/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf")
+CARD_PNG = card_image()
+
+
+def fade(st, t0, t1):
+    alpha(st, [(t0, 0.0), (t0 + 0.25, 1.0), (t1 - 0.20, 1.0), (t1, 0.0)])
+
+
+def add_text(name, txt, font, size, col, ch, t0, t1, xpx, ypx, rise=True):
+    tx = S.new_effect(name, "TEXT", ch, fr(t0), length=fr(t1 - t0))
+    tx.text, tx.font_size, tx.font, tx.color = txt, size, font, col
+    tx.anchor_x, tx.anchor_y = "LEFT", "CENTER"
+    for t_, dy in ((t0, -24 / H if rise else 0), (t0 + 0.25, 0.0)):
+        tx.location = (xpx / W, 1 - ypx / H + dy)
+        tx.keyframe_insert("location", frame=fr(t_))
+    fade(tx, t0, t1)
+    return tx
+
+
+# ---------------------------------------------------------------- plates
+idx = 0
+flat = []
+for e, scene in enumerate(PLAN["scenes"], start=1):
+    n = len(scene["plates"])
+    t0, t1 = B[e - 1], B[e]
+    seg = (t1 - t0) / n
+    for j, pl in enumerate(scene["plates"]):
+        idx += 1
+        flat.append((idx, e, j, n, t0 + j * seg, t0 + (j + 1) * seg, pl))
+
+for i, e, j, n, a, b, pl in flat:
+    ini = a - (XF / 2 if j > 0 else 0)
+    fin = b + (XF / 2 if j < n - 1 else 0)
+    ch = 3 + 2 * (j % 2)                                 # plate channel: 3 or 5; its gradient sits right below it (2 or 4)
+    strips = []
+    if pl["type"] == "full":
+        st = S.new_image(f"plate{i:02d}", f"{ROOT}/{pl['file']}", ch, fr(ini))
+        st.frame_final_end = fr(fin)
+        w, h = st.elements[0].orig_width, st.elements[0].orig_height
+        k = max(W / w, H / h) * 1.07
+        fx, fy = pl.get("focus", [0.5, 0.5])
+        ox = max(-(w * k - W) / 2, min((w * k - W) / 2, (0.5 - fx) * w * k))
+        oy = max(-(h * k - H) / 2, min((h * k - H) / 2, (fy - 0.5) * h * k + 60))
+        st.transform.offset_x, st.transform.offset_y = ox, oy
+        for t_ in (ini, fin):
+            z = 1.0 + pl.get("zoom", ZOOM) * (t_ - ini) / (fin - ini)
+            st.transform.scale_x = st.transform.scale_y = k * z
+            st.transform.keyframe_insert("scale_x", frame=fr(t_))
+            st.transform.keyframe_insert("scale_y", frame=fr(t_))
+        strips = [st]
+    else:
+        c0, c1 = pl.get("bg", ["#10243a", "#27507a"])
+        bgs = S.new_image(f"bg{i:02d}", gradient(c0, c1, pl.get("bg_angle", 70)), ch - 1, fr(ini))
+        bgs.frame_final_end = fr(fin)
+        path, _ = compose_layer(pl, i)
+        st = S.new_image(f"plate{i:02d}", path, ch, fr(ini))
+        st.frame_final_end = fr(fin)
+        st.blend_type = "ALPHA_OVER"
+        for t_ in (ini, fin):
+            z = 1.0 + pl.get("zoom", ZOOM) * (t_ - ini) / (fin - ini)
+            st.transform.scale_x = st.transform.scale_y = z
+            st.transform.keyframe_insert("scale_x", frame=fr(t_))
+            st.transform.keyframe_insert("scale_y", frame=fr(t_))
+        strips = [bgs, st]
+    pa = []
+    if j > 0:
+        pa += [(ini, 0.0), (ini + XF, 1.0)]
+    elif e > 1:
+        pa += [(ini, 0.0), (ini + DIP, 1.0)]
+    if j == n - 1 and e < len(PLAN["scenes"]):
+        pa += [(fin - DIP, 1.0), (fin, 0.0)]
+    if pa:
+        for s_ in strips:
+            alpha(s_, pa)
+
+    # callouts (they appear after the card is in, one after another)
+    for ci, co in enumerate(pl.get("callouts", [])):
+        tgt = (co["target"][0] * W, co["target"][1] * H)
+        txt = co["text"]
+        size = 34
+        bw = int(len(txt) * size * 0.56 + 44)
+        bh = 64
+        lxy = (co["label"][0] * W - bw / 2, co["label"][1] * H - bh / 2)
+        lxy = (min(max(lxy[0], 24), W - bw - 24), min(max(lxy[1], 24), H - bh - 24))
+        c0t = a + 1.0 + 0.6 * ci
+        c1t = b - 0.15
+        if c1t - c0t < 1.0:
+            continue
+        cs = S.new_image(f"callout{i:02d}-{ci}", callout_image(tgt, lxy, bw, bh, f"{i}_{ci}"), 6, fr(c0t))
+        cs.frame_final_end = fr(c1t)
+        cs.blend_type = "ALPHA_OVER"
+        fade(cs, c0t, c1t)
+        add_text(f"co{i}-{ci}", txt, F_BODY, size, INK, 11 + ci, c0t, c1t, lxy[0] + 22, lxy[1] + bh / 2, rise=False)
+
+    # card: label, title, detail
+    card = pl.get("card")
+    if card:
+        etq, tit, det = card
+        t0, t1 = a + 0.45, b - 0.15
+        cd = S.new_image(f"card{i:02d}", CARD_PNG, 7, fr(t0))
+        cd.frame_final_end = fr(t1)
+        cd.blend_type = "ALPHA_OVER"
+        fade(cd, t0, t1)
+        for t_, off in ((t0, -24), (t0 + 0.25, 0)):
+            cd.transform.offset_y = off
+            cd.transform.keyframe_insert("offset_y", frame=fr(t_))
+        x = CX0 + 8 + 36
+        add_text(f"etq{i}", spaced(etq), F_BODY, 32, COPPER + (1.0,), 8, t0, t1, x, CY - 0.050 * H)
+        add_text(f"tit{i}", tit, F_TITLE, 56, INK, 9, t0, t1, x, CY - 0.001 * H)
+        add_text(f"det{i}", det, F_BODY, 34, INK_SOFT, 10, t0, t1, x, CY + 0.047 * H)
+
+# ---------------------------------------------------------------- vignette and grain
+yy2, xx2 = np.mgrid[0:H, 0:W].astype(np.float32)
+r = np.sqrt(((xx2 - W / 2) / (W / 2)) ** 2 + ((yy2 - H / 2) / (H / 2)) ** 2)
+vig = np.clip(1.0 - 0.45 * np.clip(r - 0.55, 0, None) ** 1.6, 0.0, 1.0)
+grain = np.clip(0.5 + np.random.default_rng(7).normal(0, 0.12, (H, W)).astype(np.float32), 0, 1)
+
+
+def gray_png(name, g):
+    return save_rgba(np.dstack([g, g, g, np.ones_like(g)]).astype(np.float32), name)
+
+
+dur = fr(T_END)
+vs = S.new_image("vignette", gray_png("vignette", vig), 14, 1)
+vs.frame_final_end = dur
+vs.blend_type, vs.blend_alpha = "MULTIPLY", VIGNETTE
+gs = S.new_image("grain", gray_png("grain", grain), 15, 1)
+gs.frame_final_end = dur
+gs.blend_type, gs.blend_alpha = "OVERLAY", GRAIN
+
+# ---------------------------------------------------------------- render
+sc.frame_start, sc.frame_end = 1, dur
+rd = sc.render
+rd.image_settings.media_type = "VIDEO"
+rd.image_settings.file_format = "FFMPEG"
+rd.ffmpeg.format, rd.ffmpeg.codec = "MPEG4", "H264"
+rd.ffmpeg.constant_rate_factor, rd.ffmpeg.ffmpeg_preset = "HIGH", "GOOD"
+rd.ffmpeg.audio_codec, rd.ffmpeg.audio_bitrate, rd.ffmpeg.audio_channels = "AAC", 192, "STEREO"
+name = f"{PLAN['prefix']}-{round(T_END)}s-9x16-r{PLAN.get('render', 1)}"
+rd.filepath = f"{OUT}/{name}.mp4"
+bpy.ops.wm.save_as_mainfile(filepath=f"{OUT}/{PLAN['prefix']}-{round(T_END)}s.blend")
+print("DURATION", round(T_END, 2), "s;", dur, "frames;", name)
+for v in voices:
+    print("voice", v["n"], f"timeline {v['abs']:.2f} -> {v['abs'] + v['dur']:.2f}",
+          f"| speech starts {v['abs'] + v['a'] - v['ini']:.2f}, ends {v['abs'] + v['b'] - v['ini']:.2f}")
+print("BOUNDARIES", [round(float(b), 2) for b in B])
+
+
+def check_voices():
+    """Checks that every voice is placed complete (Blender's background mixdown is silent, so the strips are checked directly):
+    the strip covers the whole speech plus the silence kept around it, nothing overlaps, and the padded file really has a silent lead-in."""
+    bad = 0
+    prev_end = 0.0
+    for v in voices:
+        st = v["strip"]
+        c0 = st.frame_offset_start / FPS                                  # first second of the file that is played
+        c1 = c0 + (st.frame_final_end - st.frame_final_start) / FPS       # last second of the file that is played
+        env, _ = envelope(v["f"])
+        lead_silent = env[: max(1, int(v["a"] * 100) - 1)].max() < 0.01 * env.max()
+        covers = c0 <= v["a"] - 0.09 and c1 >= v["b"] + 0.24
+        starts_ok = abs(st.frame_final_start / FPS - v["abs"]) < 1.0 / FPS
+        no_overlap = v["abs"] >= prev_end - 1e-6
+        prev_end = v["abs"] + v["dur"]
+        ok = lead_silent and covers and starts_ok and no_overlap
+        bad += not ok
+        print(f"CHECK voice {v['n']}: plays file {c0:.2f}-{c1:.2f} s, speech {v['a']:.2f}-{v['b']:.2f} s | "
+              f"lead-in {'ok' if v['a'] - c0 >= 0.09 else 'TOO SHORT'}, tail {'ok' if c1 - v['b'] >= 0.24 else 'TOO SHORT'}, "
+              f"padded file lead {'silent' if lead_silent else 'NOT silent'}, order {'ok' if no_overlap else 'OVERLAP'}")
+    print("CHECK RESULT", "all voices complete" if not bad else f"{bad} voice(s) need attention")
+
+
+if os.environ.get("CHECK") == "1":
+    check_voices()
+if os.environ.get("SOLO_PROYECTO") != "1":
+    bpy.ops.render.render(animation=True)
+    print("DONE", rd.filepath)
