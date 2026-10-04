@@ -2,74 +2,75 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: v2 · oficio de narración corta de historia + reglas del feedback de 4 videos
-tags: [investigación, youtube, guion, narración]
+status: v3 · short-story narration craft + feedback rules from 4 videos; English-only since 3 Oct 2026
+tags: [research, youtube, script, narration]
 ---
 
-# Guía de narración
+# Narration guide
 
 ← [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Production process]] · [[Channel voice]] · [[Visual style - plasticine miniatures]] · [[YouTube with AI - quality content guide]]
 
-Se aplica en la etapa 2 (guion) y la 3 (dirección) del [[Production process]], y se comprueba antes de P3. **Es la fuente de verdad para escribir un guion**; el resto de notas la enlazan.
+Applied at stage 2 (script) and 3 (direction) of the [[Production process]], and checked before P3. **It is the source of truth for writing a script**; the other notes link to it. **Scripts are written directly in English** (not translated from Spanish): idioms, rhythm and sentence length are English ones, read aloud with the English voice ([[Channel voice]]).
 
-Base: oficio de dirección y guion de cortos (un gancho en los primeros segundos, una sola idea, estructura planteamiento → conflicto → resolución, imagen antes que exposición) ([fuente](https://glcoverage.com/2024/12/25/tips-for-writing-short-film/), [fuente](https://subscribr.ai/youtube-strategy/scripting-youtube-shorts-engagement)), más el feedback de los cuatro videos del canal. **Se descarta el cierre con llamada a la acción** que recomiendan las guías de Shorts: aquí se cierra con una idea.
+Basis: short-film direction and writing craft (a hook in the first seconds, a single idea, setup → conflict → resolution structure, image before exposition) ([source](https://glcoverage.com/2024/12/25/tips-for-writing-short-film/), [source](https://subscribr.ai/youtube-strategy/scripting-youtube-shorts-engagement)), plus the feedback from the channel's videos. **The call-to-action ending** recommended by Shorts guides is discarded: here the video closes with an idea.
 
-## 1. Una historia, una pregunta
+## 1. One story, one question
 
-El video responde **una pregunta**, formulada en una frase antes de escribir («¿por qué se detuvo una fábrica por un imán?»). Todo lo que no ayude a responderla, fuera. Si el tema pide dos preguntas, son dos videos.
+The video answers **one question**, written in one sentence before writing ("why did a factory stop because of a magnet?"). Anything that does not help answer it, out. If the topic needs two questions, they are two videos.
 
-## 2. Estructura de un Short (≈ 60 a 80 s, 6 a 8 escenas)
+## 2. Structure of a Short (≈ 60 to 90 s, 6 to 8 scenes)
 
-| Escena | Función | Palabras |
+| Scene | Function | Words |
 | --- | --- | --- |
-| 1 · **Gancho** (0 a 3 s) | Un momento concreto y específico, ya empezado, con lo que está en juego. Sin saludo, sin «en este video», sin «¿sabías que…?» | 12 a 20 |
-| 2 · **Contexto mínimo** | Qué es y por qué importa, justo lo que hace falta para entender la frase siguiente | 20 a 30 |
-| 3 a 5 · **Cadena causal** | Tres eslabones. Cada uno nace del anterior con **«porque» o «por eso»**, nunca con «y luego» | 20 a 30 c/u |
-| 6 · **Giro** | Lo que cambia cómo se entiende todo (hacia el 60 a 70 % del video) | 20 a 30 |
-| 7 · **Cierre** | Responde la pregunta y deja **una idea que el espectador cierra solo**; una o dos frases; sin moraleja ni resumen ni llamada a la acción | 15 a 25 |
+| 1 · **Hook** (0 to 3 s) | A concrete, specific moment, already underway, with what is at stake. No greeting, no "in this video", no "did you know…?" | 12 to 20 |
+| 2 · **Minimal context** | What it is and why it matters, just what is needed to understand the next sentence | 20 to 30 |
+| 3 to 5 · **Causal chain** | Three links. Each is born from the previous one with **"because" or "so"**, never "and then" | 20 to 30 each |
+| 6 · **Turn** | What changes how everything is understood (around 60 to 70 % of the video) | 20 to 30 |
+| 7 · **Close** | Answers the question and leaves **one idea the viewer closes alone**; one or two sentences; no moral, no summary, no call to action | 15 to 25 |
 
-Presupuesto: ≈ 150 palabras por minuto con `elevenlabs/v3` a `speed` 0,95 ([[Channel voice]]); 150 palabras ≈ 60 s, 200 ≈ 80 s. **Una toma de voz por escena.**
+Budget: ≈ 150 words per minute with `elevenlabs/v3` at `speed` 0.95 ([[Channel voice]]; English pace to be measured); 150 words ≈ 60 s, 200 ≈ 80 s. **One voice take per scene.**
 
-## 3. Reglas de oficio
+## 3. Craft rules
 
-1. **El gancho es un titular, no un saludo.** Un hecho concreto que muestra qué está en juego («En mayo de 2025, una línea de montaje en Chicago dejó de moverse») gana a una pregunta genérica. El contexto da la tensión; la espera no.
-2. **Todo gancho se resuelve en su escena o la siguiente**, y responde las tres: **qué es**, **por qué pasó**, **qué significa**. No se deja una pregunta abierta solo para sostener la curiosidad.
-3. **Causa → efecto, no lista.** Cada eslabón lleva su porqué en la misma frase. «Porque / por eso / pero» une; «y luego» enumera. Si hay que recortar, se sacrifica el detalle lateral (fechas, nombres, cifras secundarias), **nunca el porqué**.
-4. **Lo concreto gana a lo abstracto.** Un objeto, un lugar, una cifra por idea. Un tornillo de 3 cm cuenta más que «una dependencia crítica». Los datos son pocos y van al final de la frase, donde la voz los marca.
-5. **Un hilo que vuelve.** Un objeto o personaje que reaparece (el imán, la fuente de vidrio) ordena el relato y permite cerrar con un eco del gancho. Ese objeto es además la **foto de referencia** de la imagen ([[Visual style - plasticine miniatures]]).
-6. **Cada escena sube la apuesta o cambia la lectura.** Si una escena solo informa, se funde con otra o se corta. **Una idea nueva por escena.**
-7. **Hacer pensar.** El final entrega una idea, no un dato («un caso que cae por el procedimiento nunca llega a juzgar los hechos»; «si sale mal, no es la receta: es un paso»), sin reproche ni sermón.
-8. **Se escribe para el oído y se lee en voz alta.** Frases de 8 a 16 palabras, una idea cada una, verbo activo y concreto; sin paréntesis ni subordinadas encadenadas. Un solo tiempo verbal en todo el video (presente histórico: «En 1973, un barco llega…»). Si suena forzado o dramático al decirlo, se reescribe.
-9. **Ritmo.** Frases cortas y llenas, variadas de largo. **El silencio se usa una vez, con intención** (≈ 1,2 s antes de la pregunta central); no como estilo.
-10. **La voz nombra lo que la imagen no puede; la imagen muestra lo que la voz nombra.** La voz no describe la imagen. Las **cifras y fechas van en pantalla**, no en la voz ([[On-screen text style]]).
-11. **Rigor.** Cada cifra con fuente y fecha; lo débil, atribuido («según…») o con «podría». Se usan las palabras exactas del fallo o del hecho y el mismo trato para todos los personajes: nadie recibe adjetivos. Se revisa la premisa del pedido. Detalle en [[Guidelines for new scripts]] §1.
+1. **The hook is a headline, not a greeting.** A concrete fact that shows what is at stake ("In May 2025, an assembly line in Chicago stopped moving") beats a generic question. Context gives the tension; waiting does not.
+2. **Every hook is resolved in its scene or the next**, and answers all three: **what it is**, **why it happened**, **what it means**. A question is not left open just to sustain curiosity.
+3. **Cause → effect, not a list.** Each link carries its why in the same sentence. "Because / so / but" joins; "and then" enumerates. If you must cut, sacrifice the side detail (dates, names, secondary figures), **never the why**.
+4. **The concrete beats the abstract.** One object, one place, one figure per idea. A 3 cm screw says more than "a critical dependency". Data are few and go at the end of the sentence, where the voice stresses them.
+5. **A thread that returns.** An object or character that reappears (the magnet, the glass dish) organizes the story and allows a close that echoes the hook. That object is also the **reference photo** of the image ([[Visual style - plasticine miniatures]]).
+6. **Every scene raises the stakes or changes the reading.** If a scene only informs, merge it with another or cut it. **One new idea per scene.**
+7. **Make them think.** The ending delivers an idea, not a fact ("a case that falls on procedure never gets to judge the facts"; "if it goes wrong, it is not the recipe: it is a step"), without reproach or sermon.
+8. **Write for the ear and read it aloud.** Sentences of 8 to 16 words, one idea each, active and concrete verbs; no parentheses or chained subordinate clauses. A single tense across the whole video (historical present: "In 1973, a ship arrives…"). If it sounds forced or dramatic when spoken, rewrite it. Use contractions as a spoken narrator would ("it's", "doesn't") when they sound natural.
+9. **Rhythm.** Short, full sentences of varied length. **Silence is used once, on purpose** (≈ 1.2 s before the central question); not as a style.
+10. **The voice names what the image cannot; the image shows what the voice names.** The voice does not describe the image. **Figures and dates go on screen**, not in the voice ([[On-screen text style]]).
+11. **Rigor.** Every figure with source and date; what is weak, attributed ("according to…") or with "could". Use the exact words of the ruling or the fact and the same treatment for all characters: nobody gets adjectives. Check the request's premise. Detail in [[Guidelines for new scripts]] §1.
+12. **Spoken numbers and acronyms.** Write numbers the way they are said ("twenty twenty-four" if the model reads "2024" oddly) and spell out acronyms the voice mispronounces ("A S M L"); note the change.
 
-## 4. Formato del guion (entrada de etapas 3 y 4)
+## 4. Script format (input to stages 3 and 4)
 
-Cada escena es una fila; así el guion alimenta directamente los prompts de [[Prompt - per-scene generation guide]]:
+Each scene is a row; that way the script feeds the prompts of [[Prompt - per-scene generation guide]] directly:
 
-| Escena | Voz (texto exacto) | Palabras | Qué se ve: objeto real y foto de referencia | Texto en pantalla | Fuente |
+| Scene | Voice (exact text) | Words | What is seen: real object and reference photo | On-screen text | Source |
 | --- | --- | --- | --- | --- | --- |
-| 1 | … | | objeto + enlace y licencia de la foto | etiqueta · título (máx. 4 palabras) | |
+| 1 | … | | object + link and license of the photo | label · title (max. 4 words) | |
 
-- **Una imagen por escena** por defecto (dos solo si el plano pide un antes y un después); cada imagen cita el segundo del guion donde se usa.
-- La fila **«qué se ve» no se puede rellenar** si la escena no tiene un objeto concreto: señal de que la escena es abstracta y hay que reescribirla alrededor de una cosa.
-- Si el usuario fija un foco («candidatos, sus delitos y cómo se sabotea la elección»), se respeta; no se amplía.
+- **One image per scene** by default (two only if the shot needs a before and an after); each image cites the script second where it is used.
+- The **"what is seen" cell cannot be filled** if the scene has no concrete object: a sign that the scene is abstract and must be rewritten around a thing.
+- If the user fixes a focus ("candidates, their crimes and how the election is sabotaged"), respect it; do not widen it.
 
-## 5. Comprobación antes de P3
+## 5. Check before P3
 
-- [ ] ¿El video responde **una** pregunta, escrita en una frase?
-- [ ] ¿El gancho es un hecho concreto en ≤ 20 palabras, sin saludo?
-- [ ] ¿Cada gancho responde qué es, por qué y qué significa?
-- [ ] ¿Cada escena nace de la anterior con un porqué, y trae **una** idea?
-- [ ] ¿Alguien que no sabe nada entiende la cadena **sin ver las imágenes**?
-- [ ] ¿Hay pausa o frase que existe solo para crear suspenso?
-- [ ] ¿El cierre deja una idea, sin moraleja ni llamada a la acción?
-- [ ] ¿Cada escena tiene un objeto concreto con foto de referencia?
-- [ ] ¿Cada afirmación está sostenida o atribuida?
-- [ ] Leído en voz alta, ¿dónde se arrastra? ¿La duración, con la voz real, cabe sin acelerar?
+- [ ] Does the video answer **one** question, written in one sentence?
+- [ ] Is the hook a concrete fact in ≤ 20 words, no greeting?
+- [ ] Does every hook answer what it is, why and what it means?
+- [ ] Is each scene born from the previous one with a why, and does it bring **one** idea?
+- [ ] Does someone who knows nothing understand the chain **without seeing the images**?
+- [ ] Is there a pause or sentence that exists only to create suspense?
+- [ ] Does the close leave an idea, with no moral or call to action?
+- [ ] Does each scene have a concrete object with a reference photo?
+- [ ] Is every claim supported or attributed?
+- [ ] Read aloud, where does it drag? With the real voice, does the duration fit without speeding up?
 
-## 6. Ejemplo: reescribir un gancho
+## 6. Example: rewriting a hook
 
-Antes (espera): «Faltaba un imán.» → no dice qué es, por qué ni qué significa.
-Después (contexto): «En mayo de 2025, una línea de montaje en Chicago se detuvo: China había exigido licencias para exportar los imanes de tierras raras que mueven los motores del auto.» → qué es, por qué y qué está en juego, en una frase.
+Before (waiting): "A magnet was missing." → does not say what it is, why or what it means.
+After (context): "In May 2025, an assembly line in Chicago stopped: China had demanded licenses to export the rare-earth magnets that drive car motors." → what it is, why and what is at stake, in one sentence.

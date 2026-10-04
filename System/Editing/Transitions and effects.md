@@ -2,102 +2,102 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: v1 · diseñado y aplicado en el montaje del video "Helio y poder"
-tags: [investigación, youtube, montaje, transiciones, efectos, blender]
+status: v1 · designed and applied in the "Helium and power" edit; English-only since 3 Oct 2026
+tags: [research, youtube, editing, transitions, effects, blender]
 ---
 
-# Transiciones y efectos
+# Transitions and effects
 
 ← [[YouTube Channel]] · [[Blender editing]] · [[Visual style - plasticine miniatures]] · [[Production process]]
 
-El lenguaje de montaje del canal: **qué transición se usa en cada situación, qué efectos se aplican y por qué**, para que todos los videos se vean y se sientan igual. Se aplicó por primera vez en [[Script - Helium (70 seconds)]]; el script que lo implementa es `build_helio.py` (ver [[Blender editing]]).
+The channel's editing language: **which transition is used in each situation, which effects are applied and why**, so every video looks and feels the same. First applied in [[Script - Helium (70 seconds)]]; the script that implements it is `build_helio.py` (see [[Blender editing]]).
 
-## Idea de diseño
+## Design idea
 
-Todo el canal es una **sucesión de maquetas de plastilina** ([[Visual style - plasticine miniatures]]). El montaje se comporta como un stop-motion sobrio:
+The whole channel is a **succession of plasticine models** ([[Visual style - plasticine miniatures]]). The editing behaves like a sober stop-motion:
 
-- una imagen **cambia en el sitio** cuando algo cambia en la historia (se apaga una llama, baja un nivel);
-- la cámara solo se **acerca o se aleja despacio**, como quien mira una maqueta de cerca;
-- entre escenas se **pasa la hoja** (corte suave);
-- el papel tiene **grano y bordes más oscuros**, para que se sienta un objeto físico y no una pantalla.
+- an image **changes in place** when something changes in the story (a flame goes out, a level drops);
+- the camera only **slowly moves in or out**, like someone looking at a model up close;
+- between scenes you **turn the page** (soft cut);
+- the paper has **grain and darker edges**, so it feels like a physical object and not a screen.
 
-Regla de oro: **ninguna transición dura más de medio segundo y ninguna llama la atención sobre sí misma**; la voz manda.
+Golden rule: **no transition lasts more than half a second and none draws attention to itself**; the voice leads.
 
-## Vocabulario de transiciones
+## Transition vocabulary
 
-| Situación | Transición | Duración | Cómo se implementa |
+| Situation | Transition | Duration | How it is implemented |
 | --- | --- | --- | --- |
-| **Algo cambia dentro de la lámina** (inicial → final de una toma) | **Cambio de estado**: el fotograma final se funde sobre el inicial, sincronizado con la voz | 0,5 a 4 s según el cambio | La capa final sube su opacidad de 0 a 1 en la hora de la palabra que provoca el cambio |
-| **Otra toma en la misma escena** (3a → 3b, 5a → 5b) | **Fundido cruzado** | 0,3 s | La toma entrante, en un canal superior, sube de 0 a 1 sobre la saliente |
-| **Cambio de escena** | **Pasar la hoja**: la imagen sale al color del papel y la siguiente sale de él | 0,2 s + 0,2 s | Una tira de color papel va de fondo; cada toma baja su opacidad a 0 al final y sube de 0 a 1 al empezar |
-| **Apertura** | Sin transición: la primera lámina ya está en pantalla cuando entra el sonido | — | La toma 1 no tiene entrada |
-| **Cierre** | **Corte seco a negro** tras 1 s de lámina fija | — | La última toma no tiene salida; el video termina |
+| **Something changes inside the plate** (initial → final of a shot) | **State change**: the final frame fades over the initial one, synced with the voice | 0.5 to 4 s depending on the change | The final layer raises its opacity from 0 to 1 at the time of the word that causes the change |
+| **Another shot in the same scene** (3a → 3b, 5a → 5b) | **Cross-fade** | 0.3 s | The incoming shot, on an upper channel, rises from 0 to 1 over the outgoing one |
+| **Scene change** | **Page turn**: the image exits to the paper colour and the next one comes out of it | 0.2 s + 0.2 s | A paper-coloured strip sits in the background; each shot lowers its opacity to 0 at the end and rises from 0 to 1 at the start |
+| **Opening** | No transition: the first plate is already on screen when the sound enters | — | Shot 1 has no entrance |
+| **Close** | **Hard cut to black** after 1 s of still plate | — | The last shot has no exit; the video ends |
 
-**Qué se evita:** wipes, deslizamientos, iris y cualquier transición "de plantilla". Son ruido visual que no sale del mundo de la libreta.
+**What is avoided:** wipes, slides, irises and any "template" transition. They are visual noise that does not come from the notebook's world.
 
-### Sincronía con la voz
+### Sync with the voice
 
-El **momento del cambio de estado** se ancla a una palabra concreta, no a un porcentaje de la toma. Se calculan las pausas de cada voz y se convierten en tiempos de la línea de tiempo:
+The **moment of the state change** is anchored to a concrete word, not to a percentage of the shot. Each voice's pauses are computed and converted into timeline times (example from the Helium video, narrated in Spanish; the quotes are translated):
 
-| Toma | El cambio ocurre | Palabra o idea |
+| Shot | The change happens | Word or idea |
 | --- | --- | --- |
-| 1 | la llama se apaga en 0,5 s | "**Se detuvo** el gas" |
-| 2 | acercamiento de 4 s a las bobinas | "…se usa para fabricar chips" |
-| 3a | el corchete agrupa a los tres países | "Estados Unidos, Qatar y Rusia" |
-| 3b | la barrera cierra el paso | "…que la guerra dejó casi cerrado" |
-| 4 | el nivel baja durante 3,4 s | "…y, a las seis semanas, se evapora" |
-| 5a | se cierra la válvula con el candado | "…hasta fines de 2027" |
-| 5b | la llave cambia de manos | "…vendió su reserva federal" |
-| 6 | aparecen las dependencias | "Un gas que casi nadie nombra sostiene hospitales y fábricas de chips" |
+| 1 | the flame goes out at 0.5 s | "The gas **stopped**" |
+| 2 | 4 s push toward the coils | "…it is used to make chips" |
+| 3a | the bracket groups the three countries | "United States, Qatar and Russia" |
+| 3b | the barrier closes the passage | "…that the war left almost closed" |
+| 4 | the level drops over 3.4 s | "…and, after six weeks, it evaporates" |
+| 5a | the valve closes with the padlock | "…until the end of 2027" |
+| 5b | the key changes hands | "…sold its federal reserve" |
+| 6 | the dependencies appear | "A gas almost nobody names holds up hospitals and chip factories" |
 
-## Efectos
+## Effects
 
-| Efecto | Qué hace | Valor | Por qué |
+| Effect | What it does | Value | Why |
 | --- | --- | --- | --- |
-| **Empuje lento de cámara** | Zoom lineal sobre toda la toma, igual en la capa inicial y en la final | +6 % (acercamiento); −6 % en la toma 6 (retroceso) | Da vida a una imagen fija y marca la dirección de la atención; el retroceso del cierre "abre" el diagrama |
-| **Viñeta** | Oscurece los bordes con un gradiente radial | multiplicar, opacidad 0,55 | Enfoca el centro y da la sensación de hoja bajo una lámpara |
-| **Grano de papel** | Ruido fino estático | superponer, opacidad 0,10 | Quita el aspecto digital liso del dibujo generado |
-| **Papel de fondo** | Tira de color crema detrás de todo | color papel (lineal 0,89 / 0,83 / 0,68) | Es lo que se ve entre escenas al pasar la hoja |
+| **Slow camera push** | Linear zoom over the whole shot, the same on the initial and final layer | +6 % (push in); −6 % on shot 6 (pull back) | Gives life to a still image and marks the direction of attention; the closing pull-back "opens" the diagram |
+| **Vignette** | Darkens the edges with a radial gradient | multiply, opacity 0.55 | Focuses the centre and gives the feeling of a sheet under a lamp |
+| **Paper grain** | Fine static noise | overlay, opacity 0.10 | Removes the smooth digital look of the generated drawing |
+| **Background paper** | Cream-coloured strip behind everything | paper colour (linear 0.89 / 0.83 / 0.68) | It is what shows between scenes when the page turns |
 
-Los dos efectos de textura se **generan con el propio script** (viñeta y grano en `render/_fx/`), así que no hay archivos que mantener.
+Both texture effects are **generated by the script itself** (vignette and grain in `render/_fx/`), so there are no files to maintain.
 
-## Sonido
+## Sound
 
-| Elemento | Tratamiento |
+| Element | Treatment |
 | --- | --- |
-| **Voz** | Volumen 1,0. Se recortan los silencios de entrada y salida de cada toma y se dejan 0,3 s entre escenas |
-| **Zumbido de la planta** (escena 1) | Bajo la voz (volumen 0,30), entra suave y **se corta en seco** en "Se detuvo el gas": el único silencio intencional del video |
-| **Sonidos de escena** (resonancia, siseo) | Volumen 0,18 a 0,22, con entrada de 0,3 s y salida de 0,4 s; arrancan 0,2 s después del cambio de escena y terminan 0,1 s antes del siguiente |
-| **Música** | Ninguna |
+| **Voice** | Volume 1.0. Entry and exit silences of each take are trimmed and 0.3 s is left between scenes |
+| **Plant hum** (scene 1) | Under the voice (volume 0.30), enters softly and **cuts hard** at "The gas stopped": the video's only intentional silence |
+| **Scene sounds** (resonance, hiss) | Volume 0.18 to 0.22, with a 0.3 s entry and 0.4 s exit; they start 0.2 s after the scene change and end 0.1 s before the next |
+| **Music** | None |
 
-Los volúmenes de los sonidos de fondo son estimaciones sin oír el resultado; se ajustan en los parámetros del script al escuchar el video.
+The volumes of the background sounds are estimates made without hearing the result; adjust them in the script's parameters when listening to the video.
 
-## Parámetros (en `build_helio.py`)
+## Parameters (in `build_helio.py`)
 
-Todo se controla desde las constantes del inicio del script:
+Everything is controlled from the constants at the top of the script:
 
 ```
-GAP_ESCENA = 0.30   # silencio entre voces (s)
-INICIO_VOZ = 0.40   # entrada de la primera voz
-COLA       = 1.00   # lámina fija tras la última palabra, antes del corte a negro
-DIP        = 0.20   # media duración de "pasar la hoja"
-CRUCE      = 0.30   # fundido cruzado dentro de una escena
-ZOOM       = 0.06   # empuje de cámara
-VIGNETA    = 0.55   # opacidad de la viñeta
-GRANO      = 0.10   # opacidad del grano
+GAP_ESCENA = 0.30   # silence between voices (s)
+INICIO_VOZ = 0.40   # entry of the first voice
+COLA       = 1.00   # still plate after the last word, before the cut to black
+DIP        = 0.20   # half duration of the "page turn"
+CRUCE      = 0.30   # cross-fade within a scene
+ZOOM       = 0.06   # camera push
+VIGNETA    = 0.55   # vignette opacity
+GRANO      = 0.10   # grain opacity
 ```
 
-Y la lista `tomas` define, por toma, el canal, los tiempos, las dos imágenes y **cuándo y cuánto dura el cambio de estado** (calculado desde las pausas de la voz).
+And the `tomas` list defines, per shot, the channel, the times, the two images and **when and for how long the state change lasts** (computed from the voice's pauses). Later Shorts (`build_queque.py`, `build_chips.py`) use 0.45 s gaps, a 1.2 s gap before the close, a 5 to 6 % push, a 0.2 s page turn and a 0.3 s cross-fade.
 
-## Cómo se aplica a un video nuevo
+## How it is applied to a new video
 
-1. Copiar `build_helio.py` a `render/build_<video>.py` de la carpeta del video.
-2. Cambiar los nombres de archivo y la lista `tomas`: tiempos de cambio según la voz (la función `cue(escena, tiempo_en_el_archivo)` convierte un tiempo del archivo de voz en tiempo de la línea de tiempo).
-3. Ajustar las constantes si el video lo pide; no cambiar el vocabulario sin actualizar esta nota.
-4. Ejecutar y revisar fotogramas clave antes de entregar ([[Blender editing]]).
+1. Copy the most recent `build_*.py` (today `build_chips.py`) to `System/scripts/build_<video>.py`.
+2. Change the file names and the shot list: change times according to the voice (the `cue(scene, time_in_file)` function converts a time in the voice file into a timeline time).
+3. Adjust the constants if the video asks for it; do not change the vocabulary without updating this note.
+4. Run it and check key frames before delivering ([[Blender editing]]).
 
-## Qué no hace todavía
+## What it does not do yet
 
-- **No anima el dibujo:** el cambio de estado es un fundido entre dos imágenes, sin animación del objeto.
-- **No hay texto en pantalla** (cifras, títulos): se añadiría como tiras de texto del propio secuenciador, con [[On-screen text style]].
-- **No se oyó el resultado:** el equilibrio entre voz y sonidos de fondo es una estimación.
+- **It does not animate the drawing:** the state change is a fade between two images, with no object animation.
+- **On-screen text** is handled with label cards from [[On-screen text style]].
+- **The result was not heard:** the balance between voice and background sounds is an estimate.

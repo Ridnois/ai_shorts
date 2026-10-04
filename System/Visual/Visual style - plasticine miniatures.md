@@ -2,58 +2,66 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: v1 · definido desde la prueba B de Kontext · sin probar en un video completo
-tags: [investigación, youtube, estilo, ilustración, flux-kontext]
+status: v2 · defined from Kontext test B; used in the Chips Short; English-only since 3 Oct 2026
+tags: [research, youtube, style, illustration, flux-kontext]
 ---
 
-# Estilo visual: miniaturas de plastilina con referencia real
+# Visual style: plasticine miniatures with a real reference
 
 ← [[YouTube Channel]] · [[Fast workflow]] · [[Narration guide]] · [[Prompt - per-scene generation guide]] · [[Research - Flux Kontext Pro with references (power)]]
 
-> **Decisión del usuario (3-oct-2026):** *«From now on we're using flux-kontext pro plus real references.»* Fija el modelo y el método. El look sale de la única evidencia: de tres estilos probados con Kontext, **solo la plastilina se reconoció como estilo** (plano vectorial y serigrafía salieron como renders), y es el look del primer video («luce bien»). **Es una elección derivada de la evidencia, no un veredicto del usuario: se puede vetar.**
+> **User decision (3 Oct 2026):** *"From now on we're using flux-kontext pro plus real references."* It fixes the model and the method. The look comes from the only evidence: of three styles tested with Kontext, **only plasticine was recognised as a style** (flat vector and screen print came out as renders), and it is the look of the first video ("looks good"). **It is a choice derived from evidence, not a verdict from the user: it can be vetoed.** It was used in full for the first time in [[Chips and lithography - Status]] (8 plates; see "Result" there).
 
-**Por qué encaja:** Kontext *edita* una foto, y «conviértelo en una miniatura de arcilla» es una edición natural; conserva la forma del objeto real; y es claramente una maqueta, no una foto de un hecho ([[YouTube with AI - quality content guide]]).
+**Why it fits:** Kontext *edits* a photo, and "turn it into a clay miniature" is a natural edit; it keeps the real object's shape; and it is clearly a model, not a photo of an event ([[YouTube with AI - quality content guide]]).
 
-## El lenguaje
+## The language
 
-| Elemento | Regla |
+| Element | Rule |
 | --- | --- |
-| **Material** | Plastilina y arcilla hechas a mano, formas redondeadas, huellas e imperfecciones visibles |
-| **Escena** | Maqueta sobre una mesa, luz suave de estudio, fondo liso y cálido |
-| **Color** | Arcilla gris y crema mate; **un solo acento cobre-naranja** en lo que importa |
-| **Sujeto** | Un punto focal grande; el resto, apenas insinuado |
-| **Personas** | Solo manos, espaldas o siluetas de arcilla; sin rostros |
-| **Formato** | Vertical 9:16; sujeto entre el 15 % y el 60 % de la altura; nada clave en el tercio inferior ni en el 6 % superior |
-| **Texto y cifras** | Nunca dentro de la imagen: en edición ([[On-screen text style]]) |
-| **Mecanismo** | Una imagen = un estado; el antes y después son dos imágenes que enlaza el montaje |
+| **Material** | Handmade plasticine and clay, rounded forms, visible fingerprints and imperfections |
+| **Scene** | Model on a table, soft studio light, plain warm background |
+| **Colour** | Matte grey and cream clay; **a single copper-orange accent** on what matters |
+| **Subject** | One large focal point; the rest barely hinted |
+| **People** | Only hands, backs or clay silhouettes; no faces |
+| **Format** | Vertical 9:16; subject between 15 % and 60 % of the height; nothing key in the bottom third or the top 6 % |
+| **Text and figures** | Never inside the image: in editing ([[On-screen text style]]) |
+| **Mechanism** | One image = one state; before and after are two images linked by the edit |
 
-## Cómo se produce una imagen
+## How an image is produced
 
-1. **Ficha del objeto real:** cómo se ve de verdad y qué partes no deben perderse.
-2. **Foto de referencia** con licencia, **recortada al objeto y con la orientación del resultado** (vertical para 9:16; una foto horizontal en lienzo vertical se gira y deforma). Una sola `input_image`; un collage no funciona. Licencia y atribución van en el Estado del video; con CC BY-SA, revisar antes de publicar.
-3. **Prompt como instrucción de edición** (plantilla abajo).
-4. **Revisión a ojo** (partes que faltan, piezas de más) y **un reintento**; si falla dos veces, se acepta, se reencuadra o se quita la toma.
+1. **Real-object sheet:** what it truly looks like and which parts must not be lost.
+2. **Reference photo** with license, **cropped to the object and in the orientation of the result** (vertical for 9:16; a horizontal photo on a vertical canvas is rotated and distorted). A single `input_image`; a collage does not work. License and attribution go in the video's Status; with CC BY-SA, check before publishing. **Look for text and brands in the photo:** they leak into the image (a padlock's "PRADO BRAZIL").
+3. **Prompt as an editing instruction** (template below).
+4. **Review by eye** (missing parts, extra pieces) and **one retry**; if it fails twice, accept it, reframe it or drop the shot.
 
 ```
-Redraw this exact {{objeto}} as a handmade plasticine clay miniature. Keep the exact shape and proportions: {{partes que deben conservarse}}. Replace the background with a plain warm tabletop. {{qué pasa en esta escena según la narración}}. The {{elemento que importa}} is in bright copper-orange clay. The {{objeto}} fills the frame, vertical composition.
+Redraw this exact {{object}} as a handmade plasticine clay miniature. Keep the exact shape and proportions: {{parts that must be kept}}. Replace the background with a plain warm tabletop. {{what happens in this scene according to the narration}}. The {{element that matters}} is in bright copper-orange clay. The {{object}} fills the frame, vertical composition.
 Style: handmade plasticine clay miniature photographed on a tabletop with soft studio lighting, soft rounded forms, visible fingerprints and small imperfections in the clay, matte muted grey and cream clay, warm tactile stop-motion look.
 ```
 
-Prompts en positivo. «Remove all lettering and logos» funcionó en la prueba; no se pide «no text» como estilo general.
+Prompts in the positive. "Remove all lettering and logos" worked in the test; "no text" is not requested as a general style. Prompts are English, like the narration.
 
-**Escenas sin objeto con foto** (un lugar, una idea): se rediseñan alrededor de un objeto que sí la tenga; o se usa una foto del lugar, o una imagen ya aprobada del mismo video. Kontext solo con texto: **sin verificar** (se lee el esquema, gratis).
+**Scenes with no object that has a photo** (a place, an idea): redesign them around an object that does have one; or use a photo of the place, or an already approved image from the same video. Kontext with text only: **unverified** (read the schema, free).
 
-## Errores conocidos con Kontext
+## Evidence from the Chips Short (8 plates, 3 Oct 2026)
 
-| Error | Regla |
+- It **works with objects that have a photo** (wafer, padlock, lithography machine): the clay look and the copper accent hold.
+- It **works only partly without a photo of the object** (a stamp, a mold): the model improvises from the nearest photo (a wafer); the stamp read well, the mold and the "lifting off" states did not.
+- With a **photo of a real miniature or a physical machine** it can look almost like a photograph (the machine plate): less clay, more model photo.
+
+## Known Kontext errors
+
+| Error | Rule |
 | --- | --- |
-| Pieza girada o deformada (foto horizontal, lienzo 9:16) | Entrada vertical, o `match_input_image` y encuadrar en el montaje |
-| «Vectorial» o «serigrafía» salen como render | Usar plastilina |
-| Faltan partes o sobran anillos | Nombrar partes y cantidades en el prompt; verificar a ojo |
+| Rotated or deformed piece (horizontal photo, 9:16 canvas) | Vertical input, or `match_input_image` and frame in editing |
+| "Vector" or "screen print" come out as renders | Use plasticine |
+| Parts missing or rings added | Name parts and quantities in the prompt; check by eye |
+| Brand or text from the reference leaks into the result | Ask for a blank, unmarked surface; retry once |
+| Interaction states (a mold pressing, a plate lifting) | Not reliable without a reference of that action; accept "almost right" |
 
-## Pendiente
+## Open
 
-- [ ] Probar `match_input_image` y una entrada vertical preparada.
-- [ ] Probar una escena sin objeto con el esquema real de Kontext.
-- [ ] Confirmar el precio de `flux-kontext-pro` (≈ $0,04, de memoria).
-- [ ] Que el usuario apruebe el look en P5 de un video completo.
+- [ ] Test `match_input_image` and a prepared vertical input.
+- [ ] Test a scene with no object using Kontext's real schema.
+- [ ] Confirm `flux-kontext-pro`'s price (≈ $0.04, from memory).
+- [ ] Have the user approve the look at P5 of a full video.

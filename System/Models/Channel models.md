@@ -2,81 +2,84 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: v2 · reevaluación de costos sin ejecutar modelos · precios leídos en las páginas de Replicate el 3-oct-2026
-tags: [investigación, youtube, modelos, replicate, costos]
+status: v3 · cost re-evaluation without running models · prices read on Replicate's pages on 3 Oct 2026; English voice added
+tags: [research, youtube, models, replicate, costs]
 ---
 
-# Modelos del canal
+# Channel models
 
-> **Selección vigente: [[Fast workflow]]** (§3: `flux-kontext-pro` + foto real, `elevenlabs/v3`). Esta nota solo conserva las tablas de precios; donde difiera, manda [[Fast workflow]].
+> **Current selection: [[Fast workflow]]** (§3: `flux-kontext-pro` + real photo, `elevenlabs/v3`). This note only keeps the price tables; where they differ, [[Fast workflow]] rules.
 
 ← [[YouTube Channel]] · [[Production process]] · [[Prompt - per-scene generation guide]] · [[Channel voice]] · [[Visual style - plasticine miniatures]]
 
-Qué modelo se usa en cada caso, **con su precio real en Replicate**. Esta versión nace de una queja del usuario: *"it's getting expensive, too much test"*. Se reevaluó **sin ejecutar ningún modelo**: solo se leyeron las páginas de precio y los esquemas de entrada.
+Which model is used in each case, **with its real price on Replicate**. This version comes from a user complaint: *"it's getting expensive, too much test"*. It was re-evaluated **without running any model**: only the price pages and input schemas were read.
 
-**Usado** = ya generó archivos de un video. **Candidato** = no se ha probado. Los modelos se fijan en la etapa 5 del [[Production process]]; nada se ejecuta antes de la puerta P4.
+**Used** = it already generated files for a video. **Candidate** = not tested. Models are fixed at stage 5 of the [[Production process]]; nothing runs before gate P4.
 
-## Precios (Replicate, 3-oct-2026)
+## Prices (Replicate, 3 Oct 2026)
 
-Leídos en la sección *Pricing* de cada modelo. Los precios por megapixel cuentan **entrada y salida**: una imagen de referencia también se cobra.
+Read in each model's *Pricing* section. Per-megapixel prices count **input and output**: a reference image is also charged.
 
-### Imagen
+### Image
 
-| Modelo                                     | Precio                                                                                                                    | Referencias de entrada                         | Notas                                                                                               |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `black-forest-labs/flux-kontext-pro` **(vigente)** | ≈ $0,04 por imagen (**de memoria, sin confirmar**) | una sola `input_image` | Edita una foto real; ver [[Fast workflow]] §7 |
-| `black-forest-labs/flux-2-pro` (usado antes) | $0,015 por ejecución + $0,015 por megapixel de entrada + $0,015 por megapixel de salida → **≈ $0,045 con una referencia** | hasta 8                                        | **No entiende prompts negativos**: "no text" puede añadir texto (ver abajo)                         |
-| `black-forest-labs/flux-2-flex`            | $0,06 por megapixel de entrada y de salida                                                                                | hasta 10                                       | Más caro; pensado para tipografía                                                                   |
-| `black-forest-labs/flux-2-max`             | $0,04 por ejecución + $0,03 por megapixel de entrada y de salida                                                          | hasta 8                                        | El más caro de la familia                                                                           |
-| `bytedance/seedream-5-lite`                | **$0,035 por imagen de salida**, plano                                                                                    | hasta 14                                       | Razonamiento integrado (espacio y física), lotes secuenciales; sin cargo aparte por las referencias |
-| `ideogram-ai/ideogram-v3-turbo`            | **$0,03 por imagen** (balanceado $0,06; calidad $0,09)                                                                    | hasta 3 de estilo                              | Presets de estilo; fuerte en texto, que aquí no queremos                                            |
-| `recraft-ai/recraft-v4.1`                  | $0,04 por imagen                                                                                                          | **ninguna** (solo prompt, tamaño y proporción) | Enfoque de diseño; no sirve para generar el final desde el inicial                                  |
-| `google/imagen-4-ultra`                    | $0,06 por imagen                                                                                                          | —                                              | Solo texto a imagen                                                                                 |
-| `google/nano-banana-2`                     | $0,067 (1K), $0,101 (2K), $0,151 (4K) por imagen                                                                          | hasta 14                                       | Edición conversacional y mezcla de imágenes; el más caro útil para editar                           |
-| `openai/gpt-image-2`                       | sin precio legible en la página                                                                                           | —                                              | No evaluado                                                                                         |
+| Model | Price | Input references | Notes |
+| --- | --- | --- | --- |
+| `black-forest-labs/flux-kontext-pro` **(current)** | ≈ $0.04 per image (**from memory, unconfirmed**) | a single `input_image` | Edits a real photo; see [[Fast workflow]] §7 |
+| `black-forest-labs/flux-2-pro` (used before) | $0.015 per run + $0.015 per input megapixel + $0.015 per output megapixel → **≈ $0.045 with one reference** | up to 8 | **Does not understand negative prompts**: "no text" may add text |
+| `black-forest-labs/flux-2-flex` | $0.06 per input and output megapixel | up to 10 | More expensive; meant for typography |
+| `black-forest-labs/flux-2-max` | $0.04 per run + $0.03 per input and output megapixel | up to 8 | The most expensive of the family |
+| `bytedance/seedream-5-lite` | **$0.035 per output image**, flat | up to 14 | Built-in reasoning (space and physics), sequential batches; no extra charge for the references |
+| `ideogram-ai/ideogram-v3-turbo` | **$0.03 per image** (balanced $0.06; quality $0.09) | up to 3 style | Style presets; strong at text, which we do not want here |
+| `recraft-ai/recraft-v4.1` | $0.04 per image | **none** (prompt, size and aspect only) | Design focus; not useful for generating the final from the initial |
+| `google/imagen-4-ultra` | $0.06 per image | — | Text to image only |
+| `google/nano-banana-2` | $0.067 (1K), $0.101 (2K), $0.151 (4K) per image | up to 14 | Conversational editing and image blending; the most expensive useful one for editing |
+| `openai/gpt-image-2` | no readable price on the page | — | Not evaluated |
 
-### Voz
+### Voice
 
-| Modelo                         | Precio                                                         | Costo de un guion de ≈ 1.000 caracteres         |
-| ------------------------------ | -------------------------------------------------------------- | ----------------------------------------------- |
-| `qwen/qwen3-tts` **(usado)**   | $0,02 por 1.000 caracteres                                     | **≈ $0,02**                                     |
-| `resemble-ai/chatterbox-turbo` | $0,025 por 1.000 caracteres                                    | ≈ $0,025                                        |
-| `minimax/speech-2.8-turbo`     | $0,06 por 1.000 tokens (≈ 1 token por carácter)                | ≈ $0,06                                         |
-| `minimax/speech-2.8-hd`        | $0,10 por 1.000 tokens                                         | ≈ $0,10                                         |
-| `elevenlabs/v3`                | $0,10 por 1.000 caracteres                                     | ≈ $0,10                                         |
-| `google/gemini-3.1-flash-tts`  | $2 por millón de tokens de entrada + $0,04 por 1.000 de salida | ≈ $0,015 por una toma de 15 s; ≈ $0,07 por 70 s |
+| Model | Price | Cost of a ≈ 1,000-character script |
+| --- | --- | --- |
+| `qwen/qwen3-tts` **(used)** | $0.02 per 1,000 characters | **≈ $0.02** |
+| `resemble-ai/chatterbox-turbo` | $0.025 per 1,000 characters | ≈ $0.025 |
+| `minimax/speech-2.8-turbo` | $0.06 per 1,000 tokens (≈ 1 token per character) | ≈ $0.06 |
+| `minimax/speech-2.8-hd` | $0.10 per 1,000 tokens | ≈ $0.10 |
+| `elevenlabs/v3` **(current, English `Roger`)** | $0.10 per 1,000 characters | ≈ $0.10 |
+| `google/gemini-3.1-flash-tts` | $2 per million input tokens + $0.04 per 1,000 output | ≈ $0.015 per 15 s take; ≈ $0.07 per 70 s |
 
-### Sonido
+`elevenlabs/v3` voices on Replicate (26): Rachel, Drew, Clyde, Paul, Aria, Domi, Dave, Roger, Fin, Sarah, James, Jane, Juniper, Arabella, Hope, Bradford, Reginald, Gaming, Austin, Kuon, Blondie, Priyanka, Alexandra, Monika, Mark, Grimblewood. English choice and alternative: [[Channel voice]].
 
-| Modelo                                      | Precio                 | Notas                                                                            |
-| ------------------------------------------- | ---------------------- | -------------------------------------------------------------------------------- |
-| `stability-ai/stable-audio-2.5` **(usado)** | **$0,20 por archivo**  | El más caro por unidad de todo el canal                                          |
-| `zsxkib/mmaudio`                            | ≈ $0,005 por ejecución | **≈ 38 veces más barato**; genera sonido desde texto o para un video. Sin probar |
-| `sepal/audiogen`                            | ≈ $0,011 por ejecución | Texto a sonido. Sin probar                                                       |
-| `declare-lab/tango`                         | ≈ $0,054 por ejecución | Texto a sonido. Sin probar                                                       |
-| `tencent/hunyuanvideo-foley`                | ≈ $0,057 por ejecución | Necesita un video ya animado; hoy no aplica                                      |
+### Sound
 
-## Cuánto se ha gastado (estimación)
+| Model | Price | Notes |
+| --- | --- | --- |
+| `stability-ai/stable-audio-2.5` **(used)** | **$0.20 per file** | The most expensive per unit in the whole channel |
+| `zsxkib/mmaudio` | ≈ $0.005 per run | **≈ 38 times cheaper**; generates sound from text or for a video. Untested |
+| `sepal/audiogen` | ≈ $0.011 per run | Text to sound. Rejected once ("no blender sound"); 16 kHz |
+| `declare-lab/tango` | ≈ $0.054 per run | Text to sound. Untested |
+| `tencent/hunyuanvideo-foley` | ≈ $0.057 per run | Needs an already animated video; does not apply today |
 
-Lo que muestra la lista de predictions de Replicate desde que empezó el trabajo del canal, a precios de lista. **No es tu factura**: el consumo real está en el panel de Replicate.
+## How much has been spent (estimate)
 
-| Concepto               | Predictions                                  | Costo estimado                                  |
-| ---------------------- | -------------------------------------------- | ----------------------------------------------- |
-| `flux-2-pro`           | 55                                           | **≈ $2,5 a $3,3** (con una referencia cada una) |
-| `stable-audio-2.5`     | 3                                            | $0,60                                           |
-| `qwen3-tts`            | 18 (≈ 1.000 caracteres en las más recientes) | **centavos**                                    |
-| `gemini-3.1-flash-tts` | 6                                            | ≈ $0,1                                          |
-| **Total**              | 82                                           | **≈ $3,3 a $4,1**                               |
+What Replicate's prediction list shows since the channel's work began (up to the first four videos), at list prices. **It is not your bill**: the real consumption is in Replicate's dashboard.
 
-**Lo que dicen los números:**
+| Item | Predictions | Estimated cost |
+| --- | --- | --- |
+| `flux-2-pro` | 55 | **≈ $2.5 to $3.3** (with one reference each) |
+| `stable-audio-2.5` | 3 | $0.60 |
+| `qwen3-tts` | 18 (≈ 1,000 characters in the most recent) | **cents** |
+| `gemini-3.1-flash-tts` | 6 | ≈ $0.1 |
+| **Total** | 82 | **≈ $3.3 to $4.1** |
 
-- **La voz casi no cuesta.** Un guion entero a $0,02 con qwen; incluso la voz más cara (elevenlabs/v3 o minimax HD) cuesta ≈ $0,10. Probar voces no es lo que encarece el canal.
-- **Lo que cuesta es la imagen**, y sobre todo los **reintentos y los experimentos**: 55 predictions de imagen para unas 37 imágenes útiles. Cambiar de modelo ahorra poco (≈ $0,045 → $0,035 por imagen, ≈ 22 %); **evitar reintentos ahorra bastante más**.
-- **El sonido a $0,20 por archivo es el más caro por unidad** y tiene alternativa ≈ 38 veces más barata.
+Later videos (Lemon cake ≈ $1.57, Bike stems ≈ $0.26, Chips ≈ $0.48) are recorded in their Status notes.
 
-## Notas de uso
+**What the numbers say:**
 
-- **Límite de ritmo de Replicate:** no lanzar más de unas pocas peticiones a la vez; las excedentes reciben un 429. Enviar en serie con reintentos.
-- Los parámetros de entrada cambian por modelo: se copian de la pestaña *API* de cada uno.
-- Fuentes de precio: la sección *Pricing* de cada página de modelo en Replicate, leída el 3-oct-2026. Los precios pueden cambiar.
+- **Voice hardly costs anything.** A whole script at $0.02 with qwen; even the most expensive voice (elevenlabs/v3 or minimax HD) costs ≈ $0.10. Testing voices is not what makes the channel expensive.
+- **What costs is the image**, and above all **retries and experiments**: 55 image predictions for about 37 useful images. Changing model saves little (≈ $0.045 → $0.035 per image, ≈ 22 %); **avoiding retries saves a lot more**.
+- **Sound at $0.20 per file is the most expensive per unit** and has an alternative ≈ 38 times cheaper.
 
+## Usage notes
+
+- **Replicate rate limit:** do not launch more than a few requests at once; the extra ones get a 429. Send in series with retries.
+- Input parameters change by model: copy them from each one's *API* tab.
+- Price sources: the *Pricing* section of each model page on Replicate, read on 3 Oct 2026. Prices may change.

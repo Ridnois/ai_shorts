@@ -2,67 +2,75 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: v2 · probado con dos videos
-tags: [investigación, youtube, montaje, blender]
+status: v3 · tested on six videos; English-only since 3 Oct 2026
+tags: [research, youtube, editing, blender]
 ---
 
-# Montaje en Blender
+# Blender editing
 
 ← [[YouTube Channel]] · [[Production process]] · [[Transitions and effects]] · [[Media convention]]
 
-Etapa 7 del [[Production process]]: el corte se arma en el secuenciador de video de Blender 5.2 (instalado en esta máquina) desde un script, sin abrir la interfaz y sin necesitar ffmpeg. El **lenguaje de transiciones y efectos** está en [[Transitions and effects]].
+Stage 7 of the [[Production process]]: the cut is assembled in Blender 5.2's video sequencer (installed on this machine) from a script, without opening the interface and without needing ffmpeg. The **language of transitions and effects** is in [[Transitions and effects]].
 
-## Cómo se ejecuta
+## How it runs
 
-Desde la carpeta del video en `Media/`:
+Newer scripts (`build_queque.py`, `build_chips.py`) run from the vault root and find their media folder themselves:
 
 ```
-blender -b --factory-startup --python render/build_<video>.py
+SOLO_PROYECTO=1 blender -b --factory-startup --python System/scripts/build_chips.py   # assembles and measures
+blender -b --factory-startup --python System/scripts/build_chips.py                  # assembles and renders
 ```
 
-El script coloca las tomas de voz (recortando sus silencios), los sonidos y las imágenes con sus transiciones y efectos, guarda el proyecto `.blend` y renderiza el `.mp4` (1920×1080; **1080×1920 en vertical para Shorts**, ver [[Fast workflow]], 24 fps, H.264 y AAC). Con `SOLO_PROYECTO=1` en el entorno solo arma y guarda el proyecto, sin renderizar: sirve para revisar los tiempos en segundos.
+Older scripts lived next to the media, in `render/`, and ran from the video's folder in `Media/`.
+
+The script places the voice takes (trimming their silences), the sounds and the images with their transitions and effects, saves the `.blend` project and renders the `.mp4` (1920×1080; **1080×1920 vertical for Shorts**, see [[Fast workflow]], 24 fps, H.264 and AAC). With `SOLO_PROYECTO=1` in the environment it only assembles and saves the project, without rendering: useful to check timings in seconds.
+
+**To look at frames without ffmpeg:** open the saved `.blend` in background mode and render stills with `bpy.ops.render.render(write_still=True)` at `resolution_percentage = 25` (this machine has neither `ffmpeg` nor `ffprobe`).
 
 ## Scripts
 
-Copias versionadas en `Sistema/scripts/` (el original vive junto a los medios, en `render/`, que no se sube a GitHub):
+Versioned copies in `System/scripts/`:
 
-| Script | Video | Qué incluye |
+| Script | Video | What it includes |
 | --- | --- | --- |
-| `build_38s.py` | Imanes y geopolítica, versión de 38 s | Voz recortada, imágenes con fundido inicial → final, corte a negro. Sin efectos |
-| `build_brasil.py` | Brasil y embajadas, Short vertical de 59 s | **Base para Shorts 9:16**: 1080×1920, una imagen por escena con recorte del dibujo secundario, texto en pantalla, silencio de énfasis y sonido puntual |
-| `build_helio.py` | Helio y poder, 70 s | Todo lo de [[Transitions and effects]]: cambios de estado sincronizados con la voz, pasar la hoja, empuje de cámara, viñeta, grano y sonidos de ambiente con corte seco. **Es la base para los videos nuevos** |
+| `build_38s.py` | Magnets and geopolitics, 38 s version | Trimmed voice, images with initial → final fade, cut to black. No effects |
+| `build_brasil.py` | Brazil and embassies, 59 s vertical Short | **Base for 9:16 Shorts**: 1080×1920, one image per scene with the secondary drawing cropped, on-screen text, emphasis silence and spot sound |
+| `build_helio.py` | Helium and power, 70 s | Everything in [[Transitions and effects]]: state changes synced with the voice, page turn, camera push, vignette, grain and ambient sounds with a hard cut |
+| `build_potencias.py` | Bike stems, 63 s Short | Vertical, 8 plates |
+| `build_queque.py` | Lemon cake, 81 s Short | Mp3 voice analysed with `aud`, plates spread per scene with cross-fade, label card ([[On-screen text style]]), no sound effects |
+| `build_chips.py` | Chips and lithography, ≈ 93 s Short | **Base for new videos**: derived from `build_queque.py`; 7 voices, 8 plates, per-image `OFF_X` / `ZOOM_IMG` overrides for horizontal photos, label cards on scenes 1 to 6 |
 
-## Notas de la API de Blender 5.2 (aprendidas al escribir los scripts)
+## Notes on the Blender 5.2 API (learned while writing the scripts)
 
-- **Salida de video:** hay que fijar `image_settings.media_type = "VIDEO"` antes de elegir `file_format = "FFMPEG"`.
-- **Colecciones de tiras:** `sequence_editor.strips` (antes `sequences`); `new_image`, `new_sound` y `new_effect`.
-- **`new_effect`:** la duración va como argumento con nombre, `length=...`.
-- **Recortes:** `frame_offset_start` y `frame_final_end` funcionan, con un aviso de que se retirarán en Blender 6.0.
-- **Interpolación lineal de los keyframes:** `bpy.context.preferences.edit.keyframe_new_interpolation_type = "LINEAR"` antes de insertarlos; sin esto el zoom y los fundidos aceleran y frenan.
-- **Mezcla de capas:** `strip.blend_type = "MULTIPLY"` u `"OVERLAY"` con `blend_alpha` da la viñeta y el grano.
-- **Imágenes de efecto:** se generan con `numpy` (incluido en el Python de Blender) y se guardan con `bpy.data.images`.
-- **Audio MP3:** Blender lo decodifica sin problema; los modelos de sonido de Replicate entregan MP3 aunque se pida WAV.
-- **Escala de imágenes:** una imagen que se escala a `max(ancho_video / ancho_imagen, alto_video / alto_imagen)` llena el cuadro sin franjas.
+- **Video output:** set `image_settings.media_type = "VIDEO"` before choosing `file_format = "FFMPEG"`.
+- **Strip collections:** `sequence_editor.strips` (formerly `sequences`); `new_image`, `new_sound` and `new_effect`.
+- **`new_effect`:** the duration goes as a named argument, `length=...`.
+- **Trims:** `frame_offset_start` and `frame_final_end` work, with a warning that they will be removed in Blender 6.0.
+- **Linear keyframe interpolation:** `bpy.context.preferences.edit.keyframe_new_interpolation_type = "LINEAR"` before inserting them; without it zooms and fades speed up and slow down.
+- **Layer blending:** `strip.blend_type = "MULTIPLY"` or `"OVERLAY"` with `blend_alpha` gives the vignette and the grain.
+- **Effect images:** generated with `numpy` (included in Blender's Python) and saved with `bpy.data.images`.
+- **MP3 audio:** Blender decodes it fine; Replicate's sound models deliver MP3 even if WAV is requested.
+- **Image scale:** an image scaled to `max(video_width / image_width, video_height / image_height)` fills the frame without bars.
 
-## Notas del montaje vertical (Shorts)
+## Notes on vertical editing (Shorts)
 
-- **`view_transform = "Standard"`:** el valor por defecto de Blender 5 (AgX) apaga el color del papel y de los dibujos. Siempre se fija.
-- **Recorte de tiras:** en Blender 5.2 no existe `use_crop`; `strip.crop.min_y` recorta por abajo y `crop.max_y` por arriba (en píxeles de la imagen). El recorte no recoloca la imagen: queda donde estaba.
-- **Papel de fondo:** el efecto `COLOR` toma el valor tal cual (sin pasar de lineal a sRGB). Se mide el papel de los dibujos (mediana de una banda superior) y se usa ese valor para que no se vea el borde del recorte.
-- **Texto:** `new_effect(..., "TEXT", ...)` con `font`, `font_size`, `location` normalizada y `anchor_x/anchor_y`. La tipografía por defecto es monoespaciada; se carga `DejaVuSans-Bold.ttf`.
-- **Viñeta:** en cuadro vertical se suaviza (opacidad 0,22), o oscurece arriba y abajo.
-- **Voz recortada:** `frame_offset_start` también adelanta el inicio visible. Para que lo audible empiece en `abs`, la tira se crea `ini` segundos antes y se comprueba con una `assert`; si no, cada frase pierde su final (error de la r1).
-- **Láminas anchas en cuadro vertical:** acercamientos mayores a 1,0 cortan los bordes; se usan 0,96 a 1,0 y el empuje del 6 % es el que acerca.
-- **Duración:** se mide con `SOLO_PROYECTO=1` antes de renderizar; el render de 59 s tardó ≈ 1 min 10 s.
+- **`view_transform = "Standard"`:** Blender 5's default (AgX) mutes the colour of the paper and the drawings. Always set it.
+- **Strip cropping:** Blender 5.2 has no `use_crop`; `strip.crop.min_y` crops from the bottom and `crop.max_y` from the top (in image pixels). Cropping does not reposition the image: it stays where it was.
+- **Background paper:** the `COLOR` effect takes the value as is (no linear-to-sRGB conversion). Measure the drawings' paper (median of a top band) and use that value so the crop edge is not visible.
+- **Text:** `new_effect(..., "TEXT", ...)` with `font`, `font_size`, normalised `location` and `anchor_x/anchor_y`. The default typeface is monospaced; load `NotoSansDisplay-Bold.ttf` ([[On-screen text style]]).
+- **Vignette:** in vertical frames it is softened (opacity 0.22), or darkens top and bottom.
+- **Trimmed voice:** `frame_offset_start` also advances the visible start. For the audible part to start at `abs`, the strip is created `ini` seconds earlier and checked with an `assert`; otherwise every sentence loses its ending (r1 error).
+- **Wide plates in a vertical frame:** zooms above 1.0 cut the edges; use 0.96 to 1.0, and the 6 % push is what moves in.
+- **Horizontal photos in a vertical frame:** scale to cover the height and shift with `transform.offset_x` so the subject stays inside the visible window (Chips plate 2: −300 px, no push).
+- **Duration:** measure with `SOLO_PROYECTO=1` before rendering; the 59 s render took ≈ 1 min 10 s; the 93 s Chips render took about 4 minutes.
 
-## Reglas
+## Rules
 
-- **No se corre sin puerta:** el montaje parte de medios ya aprobados en P6 ([[Production process]]).
-- **Se revisa antes de entregar:** se renderizan fotogramas clave y se comprueba duración y presencia de audio. Lo que no se puede verificar (cómo suena, el ritmo) se dice.
-- **No se renderiza en el mismo comando que se prueba:** el render completo de un video de ≈ 70 s tarda varios minutos; se arma primero el proyecto con `SOLO_PROYECTO=1`, se revisan los tiempos y luego se renderiza.
+- **It does not run without a gate:** editing starts from media already approved at P6 ([[Production process]]).
+- **Review before delivering:** render key frames and check duration and presence of audio. What cannot be verified (how it sounds, the pace) is stated.
+- **Do not render in the same command you test with:** a full render of a ≈ 70 s video takes several minutes; assemble the project first with `SOLO_PROYECTO=1`, check the timings, then render (in the background).
 
-## Limitaciones conocidas
+## Known limitations
 
-- El cambio de estado es un fundido entre dos láminas, no una animación del dibujo.
-- No se oye ni se ve el video completo antes de entregarlo; la puerta P7 existe para eso.
-- No hay texto en pantalla (cifras, títulos); se haría con tiras de texto del propio secuenciador.
+- The state change is a fade between two plates, not an animation of the drawing.
+- The full video is neither heard nor watched before delivering; gate P7 exists for that.

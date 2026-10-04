@@ -2,86 +2,91 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: v2 · 4 imágenes de prueba · el estilo se logra a medias y la forma no se conserva
-tags: [investigación, youtube, modelos, imagen, flux-kontext]
+status: v2 · 4 test images · the style half works and the shape is not preserved
+tags: [research, youtube, models, image, flux-kontext]
 ---
 
-# Flux Kontext Pro con referencias: despiece de una potencia
+# Flux Kontext Pro with references: exploded view of a stem
 
 ← [[YouTube Channel]] · [[Visual style - plasticine miniatures]] · [[Fast workflow]]
 
-Investigación general del canal, **independiente de cualquier guion**: sirve para cualquier video con piezas reales. El tema de prueba es la misma lámina que `wan-2.7-image` dibujó como un buje: el **despiece de una potencia sin rosca** (Aheadset).
+General channel research, **independent of any script**: useful for any video with real parts. The test subject is the same plate that `wan-2.7-image` drew as a hub: the **exploded view of a threadless stem** (Aheadset). (A "stem" here is the bicycle part joining the fork to the handlebar.)
 
-> **Encargo (3-oct-2026):** *«Generate a stem image with flux-kontext-pro, use image references and show it on the research.»*
+> **Commission (3 Oct 2026):** *"Generate a stem image with flux-kontext-pro, use image references and show it on the research."*
 
-## Cómo se hizo
+## How it was done
 
-- **Modelo:** `black-forest-labs/flux-kontext-pro`. Entradas del esquema (leído gratis): `prompt`, **`input_image` (una sola imagen)**, `aspect_ratio` (9:16), `output_format`, `seed`, `safety_tolerance` y `prompt_upsampling`.
-- **Una sola imagen de entrada, así que hice un collage** de dos referencias, unidas lado a lado en un archivo: a la izquierda una **foto real** de una potencia sin rosca, para la forma; a la derecha un **despiece simple** de la biblioteca, para la disposición.
-- **Prompt:** *«Use the LEFT photo only as the exact shape reference… use the RIGHT image only as a guide for how an exploded view is laid out»* + descripción del despiece de abajo hacia arriba (horquilla, **tres** espaciadores, potencia con pinza trasera y delantera, tapa con un perno) + estilo plano vectorial con acento cobre-naranja. Texto completo en `Media/_canal/investigacion/potencia-kontext/prompt-A.txt`.
-- **Costo:** **1 prediction**, [`h43qrsc3q5rmt0d10ecvy2j5cg`](https://replicate.com/p/h43qrsc3q5rmt0d10ecvy2j5cg), ≈ 5 s. Tarifa habitual de este modelo ≈ $0,04 por imagen (**de memoria, sin confirmar en la página de Replicate**). No cuenta como costo de ningún video.
+- **Model:** `black-forest-labs/flux-kontext-pro`. Schema inputs (read for free): `prompt`, **`input_image` (a single image)**, `aspect_ratio` (9:16), `output_format`, `seed`, `safety_tolerance` and `prompt_upsampling`.
+- **A single input image, so I made a collage** of two references, joined side by side in one file: on the left a **real photo** of a threadless stem, for the shape; on the right a **simple exploded view** from the library, for the layout.
+- **Prompt:** *"Use the LEFT photo only as the exact shape reference… use the RIGHT image only as a guide for how an exploded view is laid out"* + a description of the exploded view from bottom to top (fork, **three** spacers, stem with rear and front clamp, cap with a bolt) + flat vector style with a copper-orange accent. Full text in `Media/_canal/investigacion/potencia-kontext/prompt-A.txt`.
+- **Cost:** **1 prediction**, [`h43qrsc3q5rmt0d10ecvy2j5cg`](https://replicate.com/p/h43qrsc3q5rmt0d10ecvy2j5cg), ≈ 5 s. This model's usual rate ≈ $0.04 per image (**from memory, unconfirmed on Replicate's page**). It does not count as any video's cost.
 
-## Referencias
+## References
 
-| Referencia | Qué aporta | Licencia |
+| Reference | What it provides | License |
 | --- | --- | --- |
-| ![[ref-stem-foto-a.jpg]] | Foto real de una potencia sin rosca con tapa, pinza trasera y placa delantera | CC BY-SA 3.0 (Wikimedia Commons: [Threadless stem with hole for front brake cable](https://commons.wikimedia.org/wiki/File:Threadless_stem_with_hole_for_front_brake_cable.JPG)) |
-| `ref-explosionada-bloques.jpg` (ilustración de despiece) | Disposición de un despiece | Dominio público |
+| ![[ref-stem-foto-a.jpg]] | Real photo of a threadless stem with cap, rear clamp and front plate | CC BY-SA 3.0 (Wikimedia Commons: [Threadless stem with hole for front brake cable](https://commons.wikimedia.org/wiki/File:Threadless_stem_with_hole_for_front_brake_cable.JPG)) |
+| `ref-explosionada-bloques.jpg` (exploded-view illustration) | Layout of an exploded view | Public domain |
 
-Otras fotos descargadas y no usadas: `ref-stem-foto-b.jpg` (potencia con adaptador de tubo, CC BY-SA 4.0, Troy Sankey) y `ref-stem-foto-c.jpg` (potencia ajustable, CC BY-SA 3.0). Si algún día se publica una lámina derivada de una foto con CC BY-SA hay que revisar la atribución.
+Other photos downloaded and unused: `ref-stem-foto-b.jpg` (stem with a steerer adapter, CC BY-SA 4.0, Troy Sankey) and `ref-stem-foto-c.jpg` (adjustable stem, CC BY-SA 3.0). If a plate derived from a CC BY-SA photo is ever published, check the attribution.
 
-## Resultado
+## Result
 
 ![[potencia-kontext-A-v1.png]]
 
-**Lo que salió bien**
-- **El estilo:** vectorial plano, papel crema, grises cálidos y **un solo acento cobre-naranja** (la flecha). Es la mitad que se pedía y sale limpia, sin texto ni cifras.
-- **La disposición:** una columna vertical con líneas de guía discontinuas, como en el despiece de referencia.
-- **Velocidad:** ≈ 5 s, frente a 14 a 21 s de `wan-2.7-image`.
+**What went well**
+- **The style:** flat vector, cream paper, warm greys and **a single copper-orange accent** (the arrow). It is the half that was asked for and it comes out clean, with no text or figures.
+- **The layout:** a vertical column with dashed guide lines, as in the reference exploded view.
+- **Speed:** ≈ 5 s, versus 14 to 21 s for `wan-2.7-image`.
 
-**Lo que salió mal**
-- **No hay potencia.** Son anillos y copas: una tapa, un aro, tres espaciadores, un aro punteado y una copa de dirección con ventanas. **Falta el cuerpo de la potencia, la pinza del manillar y el tubo de la horquilla**, justo lo que la foto de referencia mostraba.
-- **El modelo copió la idea de «despiece de anillos» del collage** y siguió el texto de los espaciadores, pero ignoró la forma real. La foto, de un fondo con ladrillo y rejas, no se tradujo en geometría.
-- **El acento cobre-naranja** está en la flecha y no en la pinza, como se pedía (la pinza no existe).
+**What went wrong**
+- **There is no stem.** They are rings and cups: a cap, a ring, three spacers, a dotted ring and a headset cup with windows. **The stem body, the handlebar clamp and the fork's steerer tube are missing**, exactly what the reference photo showed.
+- **The model copied the "exploded rings" idea from the collage** and followed the spacers text, but ignored the real shape. The photo, with a brick-and-railing background, did not translate into geometry.
+- **The copper-orange accent** is on the arrow and not on the clamp, as requested (the clamp does not exist).
 
-## Lectura
+## Reading
 
-- **El estilo no es el problema.** `flux-kontext-pro` entrega el estilo plano a la primera y rápido, pero **no extrae la forma de un objeto desde una foto con fondo cuando va dentro de un collage**. El collage probablemente le restó fuerza a la foto (la segunda imagen era mucho más ancha y ocupó casi todo el cuadro).
-- **Kontext está pensado para editar una imagen**, no para generar a partir de dos. Con una sola imagen de entrada, lo natural es pasar **la foto sola** y pedir *«redraw this exact stem as a flat vector illustration»*, y despiezar después.
+- **The style is not the problem.** `flux-kontext-pro` delivers the flat style first time and fast, but **it does not extract an object's shape from a photo with a background when it is inside a collage**. The collage probably took strength away from the photo (the second image was much wider and took almost the whole frame).
+- **Kontext is designed to edit one image**, not to generate from two. With a single input image, the natural thing is to pass **the photo alone** and ask *"redraw this exact stem as a flat vector illustration"*, and explode it afterwards.
 
-## Ronda 2 · foto sola y tres estilos (3-oct-2026)
+## Round 2 · photo alone and three styles (3 Oct 2026)
 
-> **Encargo:** *«Remember on the vault that from now on we're using flux-kontext pro plus real references; generate a test image with three different illustration styles optimized for this model.»*
+> **Commission:** *"Remember on the vault that from now on we're using flux-kontext pro plus real references; generate a test image with three different illustration styles optimized for this model."*
 
-**Cómo se hizo (cambios sobre la ronda 1):**
-- **La foto sola, recortada** a la potencia (`ref-stem-foto-a-recorte.jpg`, sin ladrillo ni reja), sin collage.
-- **Prompts escritos como instrucciones de edición**, que es como Kontext funciona: *«Redraw this exact bicycle stem… Keep the exact shape and proportions… Replace the background… Remove all lettering and logos…»* + una línea de estilo. Textos en `_canal/investigacion/potencia-kontext/prompt-solo-A/B/C.txt`.
-- `aspect_ratio` 9:16, una imagen por estilo. **3 predictions**: A [`d49bwxdjwxrmt0d10edsegamkc`](https://replicate.com/p/d49bwxdjwxrmt0d10edsegamkc), B [`x8ppqqek01rmt0d10edvymqw5g`](https://replicate.com/p/x8ppqqek01rmt0d10edvymqw5g), C [`59vxwgxdg1rmr0d10eg9wyhk3g`](https://replicate.com/p/59vxwgxdg1rmr0d10eg9wyhk3g). Con la ronda 1 son **4 predictions de Kontext** (≈ $0,16 si la tarifa es de ≈ $0,04; sin confirmar). La conexión se cayó a mitad de la serie: recuperé la predicción B ya terminada en lugar de repetirla, así que no se pagó dos veces.
+**How it was done (changes from round 1):**
+- **The photo alone, cropped** to the stem (`ref-stem-foto-a-recorte.jpg`, no brick or railing), no collage.
+- **Prompts written as editing instructions**, which is how Kontext works: *"Redraw this exact bicycle stem… Keep the exact shape and proportions… Replace the background… Remove all lettering and logos…"* + a style line. Texts in `_canal/investigacion/potencia-kontext/prompt-solo-A/B/C.txt`.
+- `aspect_ratio` 9:16, one image per style. **3 predictions**: A [`d49bwxdjwxrmt0d10edsegamkc`](https://replicate.com/p/d49bwxdjwxrmt0d10edsegamkc), B [`x8ppqqek01rmt0d10edvymqw5g`](https://replicate.com/p/x8ppqqek01rmt0d10edvymqw5g), C [`59vxwgxdg1rmr0d10eg9wyhk3g`](https://replicate.com/p/59vxwgxdg1rmr0d10eg9wyhk3g). With round 1 that is **4 Kontext predictions** (≈ $0.16 if the rate is ≈ $0.04; unconfirmed). The connection dropped halfway through the series: I recovered the already finished prediction B instead of repeating it, so it was not paid twice.
 
-| Estilo | Resultado |
+| Style | Result |
 | --- | --- |
-| **A · plano vectorial** ![[potencia-kontext-A-solo-v1.png]] | **No es vectorial plano:** es una pieza 3D gris, mate, con una huella de tornillo naranja. **No parece una potencia**: es un soporte con dos orejas. La foto casi no se conservó |
-| **B · plastilina** ![[potencia-kontext-B-solo-v1.png]] | **El estilo sí se logra:** arcilla gris con grietas y huellas, fondo de mesa, tapa cobre-naranja. La forma es la más cercana: una pieza en T con tapa y dos tornillos laterales, **pero con anillos de más** y sin el brazo hacia el manillar |
-| **C · serigrafía** ![[potencia-kontext-C-solo-v1.png]] | **No es serigrafía:** es un render fotográfico con colores planos, sin semitono ni desajuste de capas. La **forma es reconocible** (cuerpo, pinza delantera redonda con cuatro tornillos, tapa con perno), pero **de pie** y con la tapa deformada |
+| **A · flat vector** ![[potencia-kontext-A-solo-v1.png]] | **It is not flat vector:** it is a grey matte 3D piece with an orange screw mark. **It does not look like a stem**: it is a bracket with two ears. The photo was barely preserved |
+| **B · plasticine** ![[potencia-kontext-B-solo-v1.png]] | **The style does work:** grey clay with cracks and fingerprints, tabletop background, copper-orange cap. The shape is the closest: a T-shaped piece with a cap and two side bolts, **but with extra rings** and without the arm toward the handlebar |
+| **C · screen print** ![[potencia-kontext-C-solo-v1.png]] | **It is not screen print:** it is a photographic render with flat colours, with no halftone or layer misregistration. The **shape is recognisable** (body, round front clamp with four bolts, cap with a bolt), but **standing up** and with a deformed cap |
 
-### Lectura
+### Reading
 
-- **Kontext respeta la composición de la imagen de entrada.** La foto tiene la potencia **horizontal** y pedí un lienzo **vertical** (9:16): el modelo la giró y la recompuso, y eso rompió la forma. En los tres casos se perdieron el brazo hacia el manillar y la relación con la horquilla.
-- **De los tres estilos, solo B se reconoce como estilo.** A y C quedaron como renders: «flat vector» y «screenprint» no bastan como instrucción de edición, y el modelo conserva el aspecto de objeto 3D de la foto.
-- **Los tres eliminaron el texto y el fondo**, como se pedía (la marca «ITM» desapareció).
-- **Velocidad y costo:** 4 a 7 s por imagen, mucho más rápido que `wan-2.7-image` (14 a 21 s).
-- **Ninguna de las tres sirve todavía como lámina del video.** Falta resolver la orientación, no el estilo.
+- **Kontext respects the input image's composition.** The photo has the stem **horizontal** and I asked for a **vertical** canvas (9:16): the model rotated and recomposed it, and that broke the shape. In all three cases the arm toward the handlebar and the relation to the fork were lost.
+- **Of the three styles, only B is recognised as a style.** A and C ended up as renders: "flat vector" and "screenprint" are not enough as an editing instruction, and the model keeps the photo's 3D-object look.
+- **All three removed the text and the background**, as requested (the "ITM" brand disappeared).
+- **Speed and cost:** 4 to 7 s per image, much faster than `wan-2.7-image` (14 to 21 s).
+- **None of the three is usable yet as a video plate.** Orientation needs solving, not style.
 
-### Qué probaría después (cada uno ≈ $0,04; **no lo hice**, necesita tu OK)
+### Update (3 Oct 2026, Chips Short)
 
-1. **`aspect_ratio: match_input_image`** (la foto horizontal, sin forzar 9:16) y encuadrar en vertical en el montaje, como se hizo con `gpt-image-1.5`.
-2. **Preparar la entrada vertical:** colocar la foto recortada de la potencia, sin girarla, sobre un lienzo 9:16 en blanco o crema, para que Kontext complete el resto.
-3. **Instrucción de estilo más pegada a la imagen,** en pasos: primero *«turn this photo into a clay miniature»* (B, que ya funciona) y luego edición del encuadre o el color.
-4. **Plantilla de edición de ida y vuelta:** primero «redraw as a flat illustration» con un ejemplo de estilo real como segunda imagen, **pero Kontext solo admite una imagen**, así que habría que usar la ficha de estilo en texto.
+`match_input_image` with real photos of the objects worked: the wafer, the padlock and the lithography machine kept their shape and the clay look. See [[Chips and lithography - Status]] and [[Visual style - plasticine miniatures]].
 
-## Pendiente
+### What I would try next (each ≈ $0.04; **I did not do it**, needs your OK)
 
-- [x] Estilo del canal: **B (plastilina)**, definido en [[Visual style - plasticine miniatures]] (puede vetarlo el usuario).
-- [ ] Probar la entrada con `match_input_image` y un lienzo vertical preparado.
-- [ ] Comparar con `wan-2.7-image` en la misma lámina y con el mismo estilo.
-- [ ] Confirmar el precio de `flux-kontext-pro` en Replicate.
+1. **`aspect_ratio: match_input_image`** (the horizontal photo, without forcing 9:16) and frame vertically in editing, as was done with `gpt-image-1.5`. *(Done later with the Chips video.)*
+2. **Prepare the vertical input:** place the cropped stem photo, without rotating it, on a blank or cream 9:16 canvas, so Kontext completes the rest.
+3. **A style instruction closer to the image,** in steps: first *"turn this photo into a clay miniature"* (B, which already works) and then editing the framing or the colour.
+4. **Round-trip editing template:** first "redraw as a flat illustration" with a real style example as a second image, **but Kontext only accepts one image**, so the style sheet would have to be used as text.
+
+## Open
+
+- [x] Channel style: **B (plasticine)**, defined in [[Visual style - plasticine miniatures]] (the user can veto it).
+- [x] Try the input with `match_input_image` (worked in the Chips video).
+- [ ] Prepared vertical canvas input.
+- [ ] Compare with `wan-2.7-image` on the same plate and with the same style.
+- [ ] Confirm `flux-kontext-pro`'s price on Replicate.

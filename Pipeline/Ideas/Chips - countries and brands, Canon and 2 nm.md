@@ -1,35 +1,35 @@
 ---
 type: video-idea
-status: guion-listo
+status: script-ready
 format: short
 publish: 
-estimated_budget_usd: 
-approved_budget_usd: 
-actual_cost_usd: 
-video: 
+estimated_budget_usd: 0.44
+approved_budget_usd: 0.44
+actual_cost_usd: 0.48
+video: "[[Chips and lithography - Status]]"
 error: 
 created: 2026-10-03
 updated: 2026-10-03
 tags: [youtube, pipeline]
 ---
 
-# Chips - países y marcas, Canon y los 2 nm
+# Chips - countries and brands, Canon and 2 nm
 
 ← [[Pipeline]] · [[YouTube Channel]]
 
 ## Idea
 
-Guion y research: [[Chips and lithography - Status]].
+Script and research: [[Chips and lithography - Status]]. (Video made in Spanish, before the English-only decision.)
 
-Cómo compiten países y marcas por fabricar microchips, y cómo avanza Canon hacia la escala de 2 nm.
+How countries and brands compete in making microchips, and how Canon is advancing toward the 2 nm scale.
 
-Pregunta central: **¿por qué casi todo el mundo depende de unas pocas fábricas, y puede una máquina distinta (la de Canon) cambiar quién fabrica los chips más avanzados?**
+Central question: **why does almost the whole world depend on a few fabs, and can a different machine (Canon's) change who makes the most advanced chips?**
 
-## Notas para el guion
+## Script notes
 
-- **Foco pedido por el usuario:** (1) competencia entre países y marcas en fabricación de chips; (2) el avance de Canon hacia 2 nm. Respetar el foco, no ampliar.
-- **«Cannon» = Canon** (se asume; confirmar). Línea a investigar: litografía por **nanoimpresión (NIL)** de Canon frente a la **litografía EUV** de ASML. Verificar con fuente y fecha: qué ha anunciado Canon, hasta qué nodo llega hoy, qué falta para 2 nm (máscaras, defectos, rendimiento) y quién la usa.
-- **Países y marcas** (verificar cifras con fuente y fecha, **n/d** si no se publican): TSMC (Taiwán), Samsung (Corea), Intel (EE. UU.), Rapidus (Japón, 2 nm), SMIC (China); restricciones de exportación; subsidios (CHIPS Act y equivalentes).
-- **Cadena causa → efecto** ([[Guidelines for new scripts]] 1.2 y 1.3): quién fabrica, quién vende las máquinas, qué las limita y qué significa para cada país. Cerrar con una idea que haga pensar, sin sermón.
-- **Rigor:** «según…» en lo débil; distinguir anuncio ≠ producción en serie ≠ rendimiento comercial; «2 nm» es nombre comercial del nodo, no una medida literal.
-- **Visual:** objeto real con foto de referencia (oblea, máquina de litografía) antes de escribir prompts ([[Guidelines for new scripts]] 2.3).
+- **Focus requested by the user:** (1) competition between countries and brands in chip manufacturing; (2) Canon's progress toward 2 nm. Respect the focus, do not widen it.
+- **"Cannon" = Canon** (assumed; confirm). Line to research: Canon's **nanoimprint lithography (NIL)** versus ASML's **EUV lithography**. Verify with source and date: what Canon has announced, how far it goes today, what is missing for 2 nm (masks, defects, yield) and who uses it.
+- **Countries and brands** (verify figures with source and date, **n/a** if not published): TSMC (Taiwan), Samsung (Korea), Intel (US), Rapidus (Japan, 2 nm), SMIC (China); export restrictions; subsidies (CHIPS Act and equivalents).
+- **Cause → effect chain** ([[Guidelines for new scripts]] 1.2 and 1.3): who makes, who sells the machines, what limits them and what it means for each country. Close with an idea that makes you think, no sermon.
+- **Rigor:** "according to…" on the weak; distinguish announcement ≠ mass production ≠ commercial yield; "2 nm" is a commercial node name, not a literal measurement.
+- **Visual:** a real object with a reference photo (wafer, lithography machine) before writing prompts ([[Guidelines for new scripts]] 2.3).

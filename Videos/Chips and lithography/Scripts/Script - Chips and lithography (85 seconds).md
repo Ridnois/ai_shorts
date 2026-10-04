@@ -2,59 +2,60 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: borrador 1 · P3 + P4a aprobados 3-oct-2026
-tags: [investigación, youtube, guion, chips, canon, shorts]
+status: draft 1 · P3 + P4a approved 3 Oct 2026 · narrated in Spanish (recorded text kept below, English translation added)
+tags: [research, youtube, script, chips, canon, shorts]
 ---
 
-# Guion: países, marcas y Canon hacia los 2 nm (Short vertical de ≈ 85 s)
+# Script: countries, brands and Canon toward 2 nm (vertical Short, ≈ 93 s as recorded)
 
 ← [[Chips and lithography - Status]] · [[Research - Chips and lithography]] · [[YouTube Channel]] · [[Fast workflow]] · [[Narration guide]]
 
-> **Formato:** Short 9:16, **211 palabras** ≈ 84 s a 150 palabras por minuto (`elevenlabs/v3`, `speed` 0,95); se mide con la voz real.
-> **Pregunta central:** ¿puede una máquina que estampa los chips romper el monopolio de ASML y TSMC en los más avanzados?
-> **Idea que hace pensar:** el poder no está en el nodo más pequeño, sino en repetirlo sin fallos. Cierre: *un monopolio no cae por una máquina más barata, cae por la que no falla.*
-> **Hilo que vuelve:** el sello (molde) contra la luz. **Datos a:** 3-oct-2026.
+> **Language:** this video was written and recorded in **Spanish** before the channel moved to English. The table keeps the **recorded Spanish text** (the exact narration) and adds an **English translation** for reference. Future scripts are written directly in English ([[Guidelines for new scripts]]).
+> **Format:** 9:16 Short, **211 words** (Spanish) ≈ 88 s of voice at ≈ 144 words per minute (`elevenlabs/v3`, `speed` 0.95); ≈ 93 s with entry and tail.
+> **Central question:** can a machine that stamps chips break ASML's and TSMC's monopoly on the most advanced ones?
+> **Idea that makes you think:** power is not in the smallest node, but in repeating it without failures. Close: *a monopoly is not broken by a cheaper machine, but by the one that does not fail.*
+> **Returning thread:** the stamp (mold) against light. **Data as of:** 3 Oct 2026.
 
-| Escena | Voz (texto exacto) | Palabras | Qué se ve: objeto real y foto de referencia | Texto en pantalla | Fuente |
-| --- | --- | --- | --- | --- | --- |
-| 1 · Gancho | En 2024, Canon envió a Texas una máquina que no proyecta los chips con luz: los estampa, como un sello. | 20 | Un sello de goma que presiona una oblea de silicio. Ref.: foto de la FPA-1200NZ2C (prensa de Canon; **licencia por confirmar**) | `Canon · Texas` · `Sept. 2024` | #1 |
-| 2 · Contexto | Hasta hoy, los chips más avanzados se dibujan con luz ultravioleta extrema. Solo la empresa holandesa ASML fabrica esas máquinas, y cada una cuesta cientos de millones de dólares. | 29 | Una máquina EUV de ASML, del tamaño de un autobús. Ref.: foto Wikimedia (**por buscar, licencia**) | `ASML · único proveedor EUV` | #9 |
-| 3 · Eslabón 1 | Por eso la fabricación se concentró: quien no tiene esas máquinas no llega a lo más pequeño. TSMC, en Taiwán, factura casi tres de cada cuatro dólares de los chips que se fabrican por encargo. | 35 | Una oblea de silicio con cientos de chips, un punto cobre-naranja en una. Ref.: foto de oblea (**por buscar**) | `TSMC ≈ 72,5 % · est. 2.º trim. 2026` | #12 |
-| 4 · Eslabón 2 | Y por eso los países se pelean por ellas. Estados Unidos prohíbe vender esas máquinas a China; China avanza igual, según informes, repitiendo pasos con luz más antigua. Japón financia a Rapidus para llegar a los dos nanómetros. | 38 | Una caja con una máquina cerrada con candado, entre tres mesas. Sin banderas ni rostros. Ref.: foto de caja/candado (**por buscar**) | `EE. UU. · China · Japón` | #10, #13, #14 |
-| 5 · Eslabón 3 | Canon propone otro camino: presionar un molde sobre resina. Según la empresa, hoy logra el nivel de cinco nanómetros y, con mejores moldes, llegaría a dos. Y, dice, usaría una décima parte de la energía. | 34 | Un molde de cristal que se hunde en una capa de resina sobre la oblea. Ref.: esquema o foto del molde (**por buscar**) | `5 nm hoy · 2 nm meta` · `energía vs EUV: ≈ ÷10 (Canon)` | #2, #3, #4 |
-| 6 · Giro | Pero dos nanómetros todavía es una meta, no un hecho. Al tocar la oblea, el molde suelta partículas, y un solo defecto arruina el chip. Su obstáculo no es el tamaño: son los defectos. | 34 | Un molde separándose de la resina con una mota de polvo atrapada y un chip marcado en naranja | `Meta, no logro` | #3, #6 |
-| 7 · Cierre | Una máquina más barata no rompe un monopolio. Lo rompe la que repite el mismo chip, sin fallos, millones de veces. | 21 | Eco del gancho: el sello levantado y la oblea impecable, sin la mota | — | — |
+| Scene | Voice (exact recorded Spanish text) | English translation | Words | What is seen: real object and reference photo | On-screen text (Spanish, as rendered) | Source |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 · Hook | En 2024, Canon envió a Texas una máquina que no proyecta los chips con luz: los estampa, como un sello. | In 2024, Canon shipped to Texas a machine that does not project chips with light: it stamps them, like a seal. | 20 | A rubber stamp pressing a silicon wafer. Ref.: R1 wafer photo | `Canon · Texas` · `Septiembre de 2024` | #1 |
+| 2 · Context | Hasta hoy, los chips más avanzados se dibujan con luz ultravioleta extrema. Solo la empresa holandesa ASML fabrica esas máquinas, y cada una cuesta cientos de millones de dólares. | Until today, the most advanced chips are drawn with extreme ultraviolet light. Only the Dutch company ASML builds those machines, and each one costs hundreds of millions of dollars. | 29 | A bus-sized EUV machine. Ref.: R2 (Livermore prototype photo, public domain) | `ASML` · `Único proveedor de EUV` | #9 |
+| 3 · Link 1 | Por eso la fabricación se concentró: quien no tiene esas máquinas no llega a lo más pequeño. TSMC, en Taiwán, factura casi tres de cada cuatro dólares de los chips que se fabrican por encargo. | That is why manufacturing concentrated: whoever does not have those machines cannot reach the smallest. TSMC, in Taiwan, bills almost three out of every four dollars of chips made to order. | 35 | A silicon wafer with hundreds of chips, one cluster copper-orange. Ref.: R1 | `TSMC · est. 2.º trim. 2026` · `72,5 % del mercado` | #12 |
+| 4 · Link 2 | Y por eso los países se pelean por ellas. Estados Unidos prohíbe vender esas máquinas a China; China avanza igual, según informes, repitiendo pasos con luz más antigua. Japón financia a Rapidus para llegar a los dos nanómetros. | And that is why countries fight over them. The United States bans selling those machines to China; China advances anyway, according to reports, repeating steps with older light. Japan funds Rapidus to reach two nanometers. | 38 | A padlocked machine crate. No flags or faces. Ref.: R3 padlock | `EE. UU. · China · Japón` · `Una disputa por máquinas` | #10, #13, #14 |
+| 5 · Link 3 | Canon propone otro camino: presionar un molde sobre resina. Según la empresa, hoy logra el nivel de cinco nanómetros y, con mejores moldes, llegaría a dos. Y, dice, usaría una décima parte de la energía. | Canon proposes another path: pressing a mold onto resin. According to the company, today it reaches the five-nanometer level and, with better molds, would reach two. And, it says, it would use a tenth of the energy. | 34 | A glass mold sinking into a resin layer on the wafer. Ref.: R1 | `Según Canon` · `5 nm hoy · 2 nm meta` | #2, #3, #4 |
+| 6 · Turn | Pero dos nanómetros todavía es una meta, no un hecho. Al tocar la oblea, el molde suelta partículas, y un solo defecto arruina el chip. Su obstáculo no es el tamaño: son los defectos. | But two nanometers is still a goal, not a fact. When it touches the wafer, the mold sheds particles, and a single defect ruins the chip. Its obstacle is not size: it is defects. | 34 | A mold separating from the resin with a speck of dust trapped on a chip marked in orange | `2 nm` · `Meta, no logro` | #3, #6 |
+| 7 · Close | Una máquina más barata no rompe un monopolio. Lo rompe la que repite el mismo chip, sin fallos, millones de veces. | A cheaper machine does not break a monopoly. The one that repeats the same chip, without failures, millions of times, does. | 21 | Echo of the hook: the stamp lifted and the wafer flawless, without the speck | — | — |
 
-## Dirección (P4a, solo texto): 8 láminas
+## Direction (P4a, text only): 8 plates
 
-Una por escena, y **dos en las escenas 5 y 6** (antes y después del contacto, regla 2.1). Estilo: [[Visual style - plasticine miniatures]], vertical 9:16, un punto focal, acento cobre-naranja. **Sin texto, cifras ni rostros dentro de la imagen.**
+One per scene, and **two in scene 5** (before and after contact, rule 2.1). Style: [[Visual style - plasticine miniatures]], vertical 9:16, one focal point, copper-orange accent. **No text, figures or faces inside the image.**
 
-| # | Escena | Estado concreto que muestra | Acento |
+| # | Scene | Concrete state shown | Accent |
 | --- | --- | --- | --- |
-| 1 | 1 | El sello presionando la oblea | El sello |
-| 2 | 2 | La máquina EUV, grande, con una persona diminuta a su lado | La fuente de luz |
-| 3 | 3 | La oblea con una sola zona resaltada | El chip resaltado |
-| 4 | 4 | La caja con la máquina y el candado | El candado |
-| 5 | 5 | El molde sobre la resina, antes del contacto | El molde |
-| 6 | 5 | El molde hundido en la resina, patrón copiado | El patrón |
-| 7 | 6 | El molde separándose con una mota de polvo | La mota |
-| 8 | 7 | Sello levantado, oblea limpia | El sello |
+| 1 | 1 | The stamp pressing the wafer | The stamp |
+| 2 | 2 | The big EUV machine, with a tiny person beside it | The light source |
+| 3 | 3 | The wafer with a single highlighted zone | The highlighted chip |
+| 4 | 4 | The crate with the machine and the padlock | The padlock |
+| 5 | 5 | The mold over the resin, before contact | The mold |
+| 6 | 5 | The mold sunk in the resin, pattern copied | The pattern |
+| 7 | 6 | The mold separating with a speck of dust | The speck |
+| 8 | 7 | Stamp lifted, wafer clean | The stamp |
 
-**Texto en pantalla:** etiquetas de la tabla, máx. 4 palabras ([[On-screen text style]]); cifras y fechas solo ahí, no en la voz.
+**On-screen text:** labels from the table, max. 4 words ([[On-screen text style]]); figures and dates only there, not in the voice.
 
-## Comprobación antes de P3
+## Check before P3
 
-- [x] **Una** pregunta, en una frase.
-- [x] Gancho de 20 palabras, hecho concreto, sin saludo.
-- [x] Cada gancho responde qué es, por qué y qué significa (escena 1 se resuelve en la 5; **comprobar al leer en voz alta**).
-- [x] Cada escena nace de la anterior con un porqué («por eso», «pero»).
-- [x] El cierre deja una idea, sin moraleja ni llamada a la acción.
-- [x] Cada afirmación va sostenida o atribuida (ver [[Research - Chips and lithography]]).
-- [ ] **Leerlo en voz alta** y decir dónde se arrastra (lo hace el usuario).
-- [ ] Fotos de referencia por buscar, con licencia (etapa 4).
+- [x] **One** question, in one sentence.
+- [x] 20-word hook, concrete fact, no greeting.
+- [x] Every hook answers what it is, why and what it means (scene 1 resolves in 5; **check when read aloud**).
+- [x] Each scene is born from the previous one with a why ("that is why", "but").
+- [x] The close leaves an idea, with no moral or call to action.
+- [x] Every claim is supported or attributed (see [[Research - Chips and lithography]]).
+- [ ] **Read it aloud** and say where it drags (the user does it).
+- [x] Reference photos found, with license (see Status).
 
-## Notas de rigor
+## Rigor notes
 
-- Se dice **«según la empresa»** en todo lo de Canon; «según informes» en lo de SMIC.
-- **«Cinco nanómetros» y «dos nanómetros» son nombres de nodo**, no medidas literales; la ficha de Canon habla de **líneas de 14 nm ≈ nodo de 5 nm**. Si te parece demasiado simplificado, se añade una frase o una aclaración en pantalla.
-- Lo que sobra si hay que recortar: «Japón financia a Rapidus…» (escena 4) y la décima parte de energía (escena 5).
+- **"According to the company"** is said for everything about Canon; "according to reports" for SMIC.
+- **"Five nanometers" and "two nanometers" are node names**, not literal measurements; Canon's page speaks of **14 nm lines ≈ the 5 nm node**. If it seems too simplified, a sentence or an on-screen clarification can be added.
+- What can go if it must be cut: "Japan funds Rapidus…" (scene 4) and the tenth of the energy (scene 5).

@@ -2,102 +2,103 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: v2 · reordenado; las lecciones de cada video pasaron a las guías
-tags: [investigación, youtube, proceso, costos, replicate]
+status: v3 · English-only since 3 Oct 2026; each video's lessons live in the guidelines
+tags: [research, youtube, process, costs, replicate]
 ---
 
-# Flujo rápido
+# Fast workflow
 
 ← [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Production process]] · [[Channel models]]
 
-**Para producir un video se leen dos notas: esta (cómo y con qué se produce) y [[Guidelines for new scripts]] (qué reglas de calidad se aplican).** Lo demás es referencia.
+**To produce a video you read two notes: this one (how and with what it is produced) and [[Guidelines for new scripts]] (which quality rules apply).** Everything else is reference.
 
-## 1. Ahorro de tokens
+## 1. Saving tokens
 
-- **Sonnet 5.5, sin subagentes**: el trabajo es secuencial y corto.
-- **Lectura mínima al empezar:** estas dos notas + `<Tema> - Estado` + el guion vigente.
-- **Solo si hace falta:** [[Narration guide]] (al escribir), [[Visual style - plasticine miniatures]], [[Channel models]] (si cambia el modelo), [[Blender editing]] y [[Transitions and effects]] (en el montaje).
-- **Una sola nota por video** (`<Tema> - Estado`), con etapas, presupuesto, prompts y registro de predictions. Sin notas de prompts aparte.
-- **Los resultados de Replicate no se leen enteros:** se guarda la URL o el archivo y una línea de bitácora.
-- **Las imágenes se miran en lotes**, al terminar la categoría.
+- **Sonnet 5.5, no subagents**: the work is sequential and short.
+- **Minimum reading at the start:** these two notes + `<Topic> - Status` + the current script.
+- **Only if needed:** [[Narration guide]] (when writing), [[Visual style - plasticine miniatures]], [[Channel models]] (if the model changes), [[Blender editing]] and [[Transitions and effects]] (when editing).
+- **A single note per video** (`<Topic> - Status`), with stages, budget, prompts and prediction log. No separate prompt notes.
+- **Replicate results are not read whole:** keep the URL or the file and a one-line log entry.
+- **Images are looked at in batches**, when the category is finished.
+- **Everything is written in English** (notes, scripts, prompts, descriptions).
 
-## 2. Flujo en 5 paquetes
+## 2. Flow in 5 packages
 
-Las etapas son las de [[Production process]]; se revisan juntas:
+The stages are those of [[Production process]]; they are reviewed together:
 
-| Paquete | Incluye | Puerta |
+| Package | Includes | Gate |
 | --- | --- | --- |
-| **A · Texto** | Idea, investigación con fuentes, guion y dirección (solo texto) | **P1–P3 + P4a**, una revisión |
-| **B · Presupuesto** | Prompts de imagen y voz, y el costo en dólares (§5) | **P4**: aquí se autoriza gastar |
-| **C · Prueba** | Voz de la escena 1 y una imagen (≈ $0,10 máx.) | **P5** |
-| **D · Generación** | **Por categoría, en orden: voz → imagen** (sonido solo si el guion lo exige) | P6, una aprobación por categoría |
-| **E · Montaje y publicación** | Render, descripción | **P7–P8** |
+| **A · Text** | Idea, research with sources, script and direction (text only) | **P1–P3 + P4a**, one review |
+| **B · Budget** | Image and voice prompts, and the cost in dollars (§5) | **P4**: spending is authorized here |
+| **C · Test** | Voice of scene 1 and one image (≈ $0.10 max.) | **P5** |
+| **D · Generation** | **By category, in order: voice → image** (sound only if the script requires it) | P6, one approval per category |
+| **E · Editing and publishing** | Render, description | **P7–P8** |
 
-**Regla madre: no se llama a Replicate antes de P4.** Si el usuario delega («sigue tú hasta el render»), se anota en el Estado y se sigue sin parar dentro del tope.
+**Master rule: Replicate is not called before P4.** If the user delegates ("carry on until the render"), note it in the Status and continue without stopping within the cap.
 
-## 3. Modelos por tarea
+## 3. Models by task
 
-| Tarea | Modelo | Precio | Notas |
+| Task | Model | Price | Notes |
 | --- | --- | --- | --- |
-| **Imagen · por defecto (decisión del usuario, 3-oct-2026)** | `black-forest-labs/flux-kontext-pro` **con una referencia real** (foto del objeto) | ≈ $0,04 (**de memoria; confirmar en el panel**) | 4 a 7 s. Es un modelo de **edición**: una sola `input_image`. Config y límites en §7 |
-| Imagen · alternativa | `wan-video/wan-2.7-image` | ≈ $0,02 (tercero; **sin confirmar**) | Entiende prompts largos y 3 referencias, pero dibuja objetos reales de memoria. Se usa si Kontext no resuelve la imagen |
-| Imagen · alternativa | `openai/gpt-image-1.5` (calidad media, **solo 2:3**) | ≈ $0,05 | Si Kontext no resuelve la imagen; se extiende a 9:16 en el montaje |
-| Imagen · edición difícil | `google/nano-banana-2` (1K, 9:16, `image_search` para objetos reales) | ≈ $0,067 | Puede escribir palabras |
-| Imagen · borrador | `black-forest-labs/flux-2-klein-4b` | ≈ $0,015 | Falla en conteos y copia referencias |
-| Imagen · escena difícil | `bytedance/seedream-5-lite` | $0,035 | Solo esa escena |
-| **Voz** | `elevenlabs/v3` | ≈ $0,10 por 1.000 caracteres | Elegida por el usuario. Parámetros en [[Guidelines for new scripts]] §3 |
-| Voz · alternativa barata | `qwen/qwen3-tts` | ≈ $0,02 por 1.000 | Sin `speed`, ≈ 122 palabras por minuto |
-| Sonido | `sepal/audiogen` | ≈ $0,011 | **Solo si el guion lo pide**; 16 kHz. `mmaudio` falla en solo texto |
-| Animación y música | Ninguna | $0 | El montaje funde láminas en Blender |
+| **Image · default (user decision, 3 Oct 2026)** | `black-forest-labs/flux-kontext-pro` **with a real reference** (photo of the object) | ≈ $0.04 (**from memory; confirm in the dashboard**) | 4 to 7 s. It is an **editing** model: a single `input_image`. Config and limits in §7 |
+| Image · alternative | `wan-video/wan-2.7-image` | ≈ $0.02 (third party; **unconfirmed**) | Understands long prompts and 3 references, but draws real objects from memory. Used if Kontext does not solve the image |
+| Image · alternative | `openai/gpt-image-1.5` (medium quality, **2:3 only**) | ≈ $0.05 | If Kontext does not solve the image; extended to 9:16 in editing |
+| Image · hard edit | `google/nano-banana-2` (1K, 9:16, `image_search` for real objects) | ≈ $0.067 | Can write words |
+| Image · draft | `black-forest-labs/flux-2-klein-4b` | ≈ $0.015 | Fails at counts and copies references |
+| Image · hard scene | `bytedance/seedream-5-lite` | $0.035 | That scene only |
+| **Voice (English)** | `elevenlabs/v3`, `Roger`, `language_code: en` | ≈ $0.10 per 1,000 characters | Chosen by the user for the channel. Parameters in [[Channel voice]] and [[Guidelines for new scripts]] §3 |
+| Voice · cheap alternative | `qwen/qwen3-tts` | ≈ $0.02 per 1,000 | No `speed`, ≈ 122 words per minute; English quality untested |
+| Sound | `sepal/audiogen` | ≈ $0.011 | **Only if the script asks for it**; 16 kHz. `mmaudio` fails with text only |
+| Animation and music | None | $0 | Editing cross-fades plates in Blender |
 
-**No se usan:** `qwen-image-edit-plus` para generar (copia las referencias), `flux-2-pro` (caro), `stable-audio-2.5` ($0,20 por archivo).
+**Not used:** `qwen-image-edit-plus` to generate (copies the references), `flux-2-pro` (expensive), `stable-audio-2.5` ($0.20 per file).
 
-**Cómo se llama a Replicate sin gastar de más:** el esquema se lee con `GET /v1/models/<owner>/<name>` (gratis); modelos comunitarios van por `POST /v1/predictions` con `version`; con `urllib` hace falta un `User-Agent` (si no, 403). Se reutiliza `Sistema/scripts/replicate_helper.py`. Un comando con más de ≈ 15 llamadas supera el límite de tiempo: lotes de ≤ 10 y se comprueba qué archivos faltan.
+**How to call Replicate without overspending:** the schema is read with `GET /v1/models/<owner>/<name>` (free); community models go through `POST /v1/predictions` with `version`; with `urllib` a `User-Agent` is needed (otherwise 403). Reuse `System/scripts/replicate_helper.py`. A command with more than ≈ 15 calls exceeds the time limit: batches of ≤ 10, and check which files are missing.
 
-## 4. Reglas para no generar de más
+## 4. Rules to avoid generating too much
 
-1. **Solo imágenes que aparecen en el corte**; cada fila del presupuesto cita el segundo del guion donde se usa.
-2. **1 imagen por toma**; 2 solo si el plano pide un antes y un después.
-3. **Tope por video = imágenes base × 1,2.** Pasarlo exige aprobación.
-4. **Prueba mínima (P5):** una escena, una imagen, un modelo. Comparar modelos solo si el usuario lo pide.
-5. **Una referencia real por toma** (Kontext admite una sola `input_image`).
-6. **Prompts en positivo**; se corrige el prompt **antes** de reintentar y se reintenta **una vez**.
-7. **Serie, no paralelo** (429).
-8. **Los descartes van a `_descartes/`** y no se regeneran «para comparar».
-9. **Sin miniatura en Shorts**; en videos largos se reutiliza una imagen del video.
-10. **Una investigación de modelos no cuenta como costo del video** (ver [[Guidelines for new scripts]] §5).
+1. **Only images that appear in the cut**; every budget row cites the script second where it is used.
+2. **1 image per shot**; 2 only if the shot needs a before and an after.
+3. **Cap per video = base images × 1.2.** Going over needs approval.
+4. **Minimal test (P5):** one scene, one image, one model. Compare models only if the user asks.
+5. **One real reference per shot** (Kontext accepts a single `input_image`).
+6. **Prompts in the positive**; fix the prompt **before** retrying and retry **once**.
+7. **Series, not parallel** (429).
+8. **Discards go to `_descartes/`** and are not regenerated "to compare".
+9. **No thumbnail on Shorts**; on long videos reuse an image from the video.
+10. **A model research does not count as the video's cost** (see [[Guidelines for new scripts]] §5).
 
-## 5. Presupuesto de P4 (formato fijo, en dólares)
+## 5. P4 budget (fixed format, in dollars)
 
-| Categoría | Modelo | Cantidad | Precio unitario | Subtotal | Tope (×1,2) |
+| Category | Model | Quantity | Unit price | Subtotal | Cap (×1.2) |
 | --- | --- | --- | --- | --- | --- |
-| Voz | `elevenlabs/v3` | tomas (por escena) | ≈ $0,10 por 1.000 caracteres | | |
-| Imagen | `flux-kontext-pro` | láminas (cada una con su segundo) | ≈ $0,04 (sin confirmar) | | |
-| Sonido | `audiogen` | solo si el guion lo pide | ≈ $0,011 | | |
-| Prueba P5 | uno de cada | | | (dentro del total) | |
-| **Total y tope** | | | | | |
+| Voice | `elevenlabs/v3` | takes (per scene) | ≈ $0.10 per 1,000 characters | | |
+| Image | `flux-kontext-pro` | plates (each with its second) | ≈ $0.04 (unconfirmed) | | |
+| Sound | `audiogen` | only if the script asks | ≈ $0.011 | | |
+| P5 test | one of each | | | (inside the total) | |
+| **Total and cap** | | | | | |
 
-**Referencias de costo real:** Helio ≈ $2 (32 predictions); Brasil ≈ $0,46 (7 imágenes); Queque ≈ $1,57 (20 láminas con `gpt-image-1.5`). Con `flux-kontext-pro`, 20 láminas ≈ $0,80 más voz ≈ $0,11 (estimado).
+**Real cost references:** Helium ≈ $2 (32 predictions); Brazil ≈ $0.46 (7 images); Lemon cake ≈ $1.57 (20 plates with `gpt-image-1.5`); Chips ≈ $0.48 (8 `flux-kontext-pro` images + 7 voice takes). With `flux-kontext-pro`, 20 plates ≈ $0.80 plus voice ≈ $0.11 (estimate).
 
-**Registro por video**, una línea por prediction y sin copiar el input: `escena · categoría · modelo · seed · ✅ usada / ❌ descartada · URL`. Al cerrar cada categoría, cuántas predictions frente al tope; si pasa de ×1,2, se anota por qué.
+**Log per video**, one line per prediction and without copying the input: `scene · category · model · seed · ✅ used / ❌ discarded · URL`. When closing each category, how many predictions against the cap; if over ×1.2, note why.
 
-## 6. Formato Shorts (0 a 2 min): vertical 9:16
+## 6. Shorts format (0 to 2 min): vertical 9:16
 
-- **Imagen:** `aspect_ratio` 9:16 (o `match_input_image` con Kontext, ver §7); un solo sujeto, composición alta. Zona segura y reglas de imagen: [[Visual style - plasticine miniatures]] y [[Guidelines for new scripts]] §2.
-- **Render en Blender:** `W, H = 1080, 1920`, 24 o 30 fps, H.264 y AAC; escala `max(...)` para llenar el cuadro.
-- **Duración:** ≈ 150 palabras para 60 s; más largo está bien si hace falta.
-- **Nombre del render:** `<video>-<duración>-9x16-r<n>.mp4` ([[Media convention]]).
-- Los videos de más de 2 min siguen en 16:9.
+- **Image:** `aspect_ratio` 9:16 (or `match_input_image` with Kontext, see §7); a single subject, tall composition. Safe zone and image rules: [[Visual style - plasticine miniatures]] and [[Guidelines for new scripts]] §2.
+- **Render in Blender:** `W, H = 1080, 1920`, 24 or 30 fps, H.264 and AAC; scale `max(...)` to fill the frame.
+- **Duration:** ≈ 150 words for 60 s; longer is fine if needed.
+- **Render name:** `<video>-<duration>-9x16-r<n>.mp4` ([[Media convention]]).
+- Videos over 2 min stay 16:9.
 
-## 7. Imagen por defecto: `flux-kontext-pro` + referencia real (3-oct-2026)
+## 7. Default image: `flux-kontext-pro` + real reference (3 Oct 2026)
 
-> **Decisión del usuario:** *«From now on we're using flux-kontext pro plus real references.»* Evidencia y pruebas: [[Research - Flux Kontext Pro with references (power)]].
+> **User decision:** *"From now on we're using flux-kontext pro plus real references."* Evidence and tests: [[Research - Flux Kontext Pro with references (power)]].
 
-- **Modelo:** `black-forest-labs/flux-kontext-pro`. Entradas: `prompt`, **`input_image` (una sola)**, `aspect_ratio` (acepta `match_input_image` y 9:16), `output_format`, `seed`. ≈ 4 a 7 s por imagen.
-- **Referencia real:** una **foto del objeto** (Wikimedia Commons u otra fuente con licencia, **recortada al objeto**, sin fondo que distraiga). Se anota la licencia y la atribución de cada foto; con CC BY-SA hay que revisarla antes de publicar.
-- **Una sola imagen:** el modelo no admite varias. **Un collage de dos referencias no funciona** (la foto perdió fuerza y salieron solo anillos).
-- **Prompt como instrucción de edición:** *«Redraw this exact <objeto>… Keep the exact shape and proportions… Replace the background… Remove all lettering and logos…»* + línea de estilo. Se indican las partes que deben conservarse.
-- **Orientación:** el modelo respeta la composición de la entrada; **una foto horizontal con un lienzo 9:16 se gira y se deforma**. Se prueba con `match_input_image` o una entrada ya vertical.
-- **Estilo:** miniatura de plastilina, el único que Kontext reconoció como estilo («vectorial plano» y «serigrafía» salieron como renders). Definición y plantilla de prompt: [[Visual style - plasticine miniatures]].
-- **Costo y reintentos:** igual que §4 (un reintento por imagen, serie, tope ×1,2). Una imagen de prueba antes de un lote.
-- **Respaldo:** `wan-2.7-image` (llamada anterior: `prompt` con contexto de escena, `images` = hasta 3 fotos reales de referencia, `size` `1152*2048`).
+- **Model:** `black-forest-labs/flux-kontext-pro`. Inputs: `prompt`, **`input_image` (a single one)**, `aspect_ratio` (accepts `match_input_image` and 9:16), `output_format`, `seed`. ≈ 4 to 7 s per image.
+- **Real reference:** a **photo of the object** (Wikimedia Commons or another licensed source, **cropped to the object**, without a distracting background). Note each photo's license and attribution; with CC BY-SA, check it before publishing.
+- **A single image:** the model does not accept several. **A collage of two references does not work** (the photo lost strength and only rings came out).
+- **Prompt as an editing instruction:** *"Redraw this exact <object>… Keep the exact shape and proportions… Replace the background… Remove all lettering and logos…"* + a style line. State the parts that must be kept.
+- **Orientation:** the model respects the input's composition; **a horizontal photo with a 9:16 canvas is rotated and distorted**. Try `match_input_image` or an already vertical input (Chips used `match_input_image` with 3:4 and 4:3 photos and filled the frame in editing).
+- **Style:** plasticine miniature, the only one Kontext recognized as a style ("flat vector" and "screen print" came out as renders). Definition and prompt template: [[Visual style - plasticine miniatures]].
+- **Cost and retries:** same as §4 (one retry per image, in series, cap ×1.2). One test image before a batch.
+- **Fallback:** `wan-2.7-image` (earlier call: `prompt` with scene context, `images` = up to 3 real reference photos, `size` `1152*2048`).

@@ -2,163 +2,162 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: v1 · guía editorial; sin parte técnica todavía
-tags: [investigación, youtube, ia, contenido]
+status: v2 · editorial guide; no technical part yet; translated to English, language decided (English)
+tags: [research, youtube, ai, content]
 ---
 
-# YouTube con IA: guía de contenido de calidad
+# YouTube with AI: quality content guide
 
 ←  [[YouTube Channel]]
 
-> **Idea:** un canal de episodios largos, sobrios y calmados para escuchar como podcast y aprender sobre temas conocidos (historia de los metales, evolución de los semiconductores). Esta nota fija **qué es "buen contenido"** antes de decidir herramientas.
+> **Idea:** a channel of long, sober, calm episodes to listen to like a podcast and learn about familiar topics (history of metals, evolution of semiconductors). This note fixes **what "good content" is** before deciding on tools.
 >
-> **Conclusión:** la IA está permitida, pero YouTube **no paga ni promueve** el contenido que se siente intercambiable de un video a otro. Lo que sostiene el canal es lo que hace una persona: elegir el tema, decidir el enfoque, verificar los datos y escuchar el resultado final. Esa parte no se automatiza, y es la que protege al canal.
+> **Conclusion:** AI is allowed, but YouTube **neither pays for nor promotes** content that feels interchangeable from one video to the next. What sustains the channel is what a person does: choosing the topic, deciding the angle, verifying the data and listening to the final result. That part is not automated, and it is what protects the channel.
 
-## 1. Lo que dicen las reglas de YouTube
+## 1. What YouTube's rules say
 
-| Hecho                                                                                                                                                                                                                                                                                                                                                       | Fuente                                                                                                                                                                                                                        | Fecha          |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| Desde el 15-jul-2025 la política se llama **"contenido no auténtico"** y deja sin monetizar el contenido repetitivo o producido en masa. Ejemplos que cita: "contenido generado con IA a partir de plantillas genéricas o poco originales que da la impresión de producción en masa" y canales cuyo contenido "se siente intercambiable de un video a otro" | [Política de monetización de YouTube](https://support.google.com/youtube/answer/1311392) (leída directamente)                                                                                                                 | 2026-10-03     |
-| Los videos que reutilizan material ajeno deben agregar "comentario original significativo, modificaciones sustanciales o valor educativo o de entretenimiento"                                                                                                                                                                                              | Misma página                                                                                                                                                                                                                  | 2026-10-03     |
-| El director de YouTube escribió en su carta de 2026: la IA "seguirá siendo una herramienta de expresión, no un reemplazo". YouTube dice que reforzará los sistemas contra spam y contenido "repetitivo de baja calidad"                                                                                                                                     | [CNBC](https://www.cnbc.com/2026/01/21/youtube-chief-says-managing-ai-slop-is-a-priority-for-2026-.html), [carta original](https://blog.youtube/inside-youtube/the-future-of-youtube-2026/) (solo vi los resúmenes de prensa) | 2026-01-21     |
-| Hay que declarar el contenido **sintético o alterado que parezca real** (una persona diciendo algo que no dijo, un hecho real modificado, una escena realista que no ocurrió). No exige declarar guiones, títulos ni subtítulos hechos con IA, ni escenas claramente irreales                                                                               | [NBC News](https://www.nbcnews.com/tech/tech-news/youtube-says-will-require-creators-label-ai-content-rcna143937), [resumen de reglas](https://influencermarketinghub.com/ai-disclosure-rules/) (fuentes secundarias)         | 2024-03 → 2026 |
-| YouTube eliminó los canales de tráilers falsos hechos con IA (Screen Culture y KH Studio: más de 2 millones de suscriptores y más de 1.000 millones de visitas entre los dos)                                                                                                                                                                               | [SF Chronicle](https://www.sfchronicle.com/entertainment/movies-tv/article/youtube-shuts-down-ai-trailer-channels-21250416.php)                                                                                               | 2025-12        |
-|                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                               |                |
+| Fact | Source | Date |
+| --- | --- | --- |
+| Since 15 Jul 2025 the policy is called **"inauthentic content"** and leaves repetitive or mass-produced content unmonetised. Examples it cites: "AI-generated content from generic or low-effort templates that gives the impression of mass production" and channels whose content "feels interchangeable from one video to the next" | [YouTube monetization policy](https://support.google.com/youtube/answer/1311392) (read directly) | 2026-10-03 |
+| Videos that reuse others' material must add "significant original commentary, substantial modifications or educational or entertainment value" | Same page | 2026-10-03 |
+| YouTube's chief wrote in his 2026 letter: AI "will remain a tool for expression, not a replacement". YouTube says it will strengthen systems against spam and "repetitive low-quality" content | [CNBC](https://www.cnbc.com/2026/01/21/youtube-chief-says-managing-ai-slop-is-a-priority-for-2026-.html), [original letter](https://blog.youtube/inside-youtube/the-future-of-youtube-2026/) (I only saw the press summaries) | 2026-01-21 |
+| **Synthetic or altered content that looks real** must be disclosed (a person saying something they did not say, a real event altered, a realistic scene that did not happen). AI-made scripts, titles or captions, and clearly unrealistic scenes, do not need disclosure | [NBC News](https://www.nbcnews.com/tech/tech-news/youtube-says-will-require-creators-label-ai-content-rcna143937), [rules summary](https://influencermarketinghub.com/ai-disclosure-rules/) (secondary sources) | 2024-03 → 2026 |
+| YouTube removed the AI fake-trailer channels (Screen Culture and KH Studio: over 2 million subscribers and over 1 billion views between the two) | [SF Chronicle](https://www.sfchronicle.com/entertainment/movies-tv/article/youtube-shuts-down-ai-trailer-channels-21250416.php) | 2025-12 |
 
-> [!warning] Cifras que **no** pude confirmar
-> Varios blogs repiten que en enero de 2026 YouTube borró "16 canales, 35 millones de suscriptores y 4.700 millones de visitas", y que un canal de historias bíblicas con 588.000 suscriptores perdió US$30.000 al mes. Solo las encontré en blogs de SEO, sin cita primaria: **n/d**. Tampoco confirmé la regla exacta para **voces sintéticas** que no imitan a una persona real; hay que revisarla en la ayuda de YouTube antes de publicar.
+> [!warning] Figures I could **not** confirm
+> Several blogs repeat that in January 2026 YouTube deleted "16 channels, 35 million subscribers and 4.7 billion views", and that a Bible-stories channel with 588,000 subscribers lost US$30,000 a month. I only found them on SEO blogs, with no primary citation: **n/a**. I also did not confirm the exact rule for **synthetic voices** that do not imitate a real person; check it in YouTube's help before publishing.
 >
-> Los blogs también afirman que el filtro de YouTube **no distingue** a un creador solo con micrófono de una granja de bots, y que por eso caen canales legítimos. Es plausible, pero no está verificado.
+> The blogs also claim that YouTube's filter **does not distinguish** a creator with just a microphone from a bot farm, and that legitimate channels fall because of it. It is plausible, but unverified.
 
-**Qué significa:** el riesgo no es usar IA, sino parecerse a un canal de plantillas. Hay que diseñar el canal para que cada episodio tenga una **razón propia para existir**.
+**What it means:** the risk is not using AI, but looking like a template channel. The channel must be designed so each episode has its **own reason to exist**.
 
-## 2. La demanda del formato (escuchar con video)
+## 2. Demand for the format (listening with video)
 
-- YouTube dice tener **más de 1.000 millones de espectadores mensuales de podcasts**. En octubre de 2025 se vieron **más de 700 millones de horas de podcasts en televisores**, contra 400 millones un año antes (+75 %) ([YouTube Blog](https://blog.youtube/news-and-events/podcasts-living-room-in-2025/), 2025-12-18). YouTube lo resume como "el video es la nueva forma de escuchar".
-- **Esto es del formato podcast en general**, no de la divulgación histórica en particular. No encontré datos de demanda específica para historia de la tecnología: **n/d**.
-- Un documental de IA (*The Thinking Game*, 83 min, estreno gratuito el 26-nov-2025) superó **200 millones de visitas a fines de diciembre de 2025** ([Wikipedia](https://en.wikipedia.org/wiki/The_Thinking_Game), una sola fuente). Es un caso excepcional con producción de estudio y no sirve como meta, pero muestra que el público acepta formatos largos sobre tecnología.
+- YouTube says it has **more than 1 billion monthly podcast viewers**. In October 2025 **more than 700 million hours of podcasts were watched on televisions**, against 400 million a year earlier (+75 %) ([YouTube Blog](https://blog.youtube/news-and-events/podcasts-living-room-in-2025/), 2025-12-18). YouTube sums it up as "video is the new way of listening".
+- **This is about the podcast format in general**, not about historical explainers in particular. I found no demand data specific to technology history: **n/a**.
+- An AI documentary (*The Thinking Game*, 83 min, free premiere on 26 Nov 2025) passed **200 million views by the end of December 2025** ([Wikipedia](https://en.wikipedia.org/wiki/The_Thinking_Game), a single source). It is an exceptional case with studio production and is no benchmark, but it shows audiences accept long formats about technology.
 
-## 3. Referentes: qué hacen los que sí funcionan
+## 3. References: what the ones that work do
 
-| Canal | Qué hace | Lo que conviene copiar |
+| Channel | What it does | What is worth copying |
 |---|---|---|
-| **Asianometry** (semiconductores, historia, economía) | Ensayos de historia de negocios e ingeniería, con la historia de cada tecnología contada como relato | Profundidad y un solo tema por episodio |
-| **Fall of Civilizations** (Paul Cooper) | Una civilización por episodio. Parte de Wikipedia y Britannica, luego documentales y libros de biblioteca universitaria; usa actores para leer textos antiguos y música de época. Escribir y grabar un episodio toma **2–3 meses** a tiempo completo ([entrevista, resumen](https://everythingasked.com/interviews/i-am-paul-cooper-the-creator-of-fall-of-civilizations-a-podcast-that-loo)) | Tono, silencios, fuentes primarias. Es el techo de calidad; no es replicable con automatización total |
-| **Practical Engineering** (Grady Hillhouse) | Empieza con una falla o un problema real y luego explica la física con calma, usando poca ecuación y mucha intuición visual ([sobre el canal](https://practical.engineering/about)) | Abrir con un caso concreto |
-| **Technology Connections** | Historia y funcionamiento de tecnología de consumo, con series largas (por ejemplo, 5 partes sobre el CD) ([Wikipedia](https://en.wikipedia.org/wiki/Technology_Connections)) | Series con arco y paciencia |
+| **Asianometry** (semiconductors, history, economics) | Essays on business and engineering history, with each technology's story told as a narrative | Depth and a single topic per episode |
+| **Fall of Civilizations** (Paul Cooper) | One civilisation per episode. Starts from Wikipedia and Britannica, then documentaries and university-library books; uses actors to read ancient texts and period music. Writing and recording an episode takes **2–3 months** full time ([interview, summary](https://everythingasked.com/interviews/i-am-paul-cooper-the-creator-of-fall-of-civilizations-a-podcast-that-loo)) | Tone, silences, primary sources. It is the quality ceiling; not replicable with full automation |
+| **Practical Engineering** (Grady Hillhouse) | Starts with a real failure or problem and then calmly explains the physics, with little equation and a lot of visual intuition ([about the channel](https://practical.engineering/about)) | Open with a concrete case |
+| **Technology Connections** | History and workings of consumer technology, with long series (for example, 5 parts on the CD) ([Wikipedia](https://en.wikipedia.org/wiki/Technology_Connections)) | Series with an arc, and patience |
+| **Sleep on Physics / Sleep on Science** (added by the user) | AI-narrated learning content that people can enjoy | The reference for tone: educational, calm, watchable |
 
-Estos canales están **muy ocupados**. Competir con Asianometry en semiconductores con el mismo ángulo no tiene sentido; la diferencia posible es el tono (más lento, más narrativo, más accesible) y el idioma (ver §8).
+These channels are **very crowded**. Competing with Asianometry in semiconductors with the same angle makes no sense; the possible difference is tone (slower, more narrative, more accessible).
 
-## 4. Guía de estilo: sobrio, calmado, elegante
+## 4. Style guide: sober, calm, elegant
 
-**Voz y tono**
-- Registro de documental tranquilo: frases cortas, verbos concretos, sin exclamaciones, sin "increíble", "brutal", "te va a explotar la cabeza".
-- Una idea por párrafo. Repetir el término clave en vez de sustituirlo con pronombres: quien escucha mientras cocina no puede volver atrás.
-- **Señalar la estructura en voz alta** ("Primero, cómo se purifica el silicio. Después, por qué el tamaño importa"). Quien solo escucha no ve capítulos.
-- Números redondeados y con contexto ("unas cien veces más fino que un cabello"), no cifras sueltas. Máximo 2–3 cifras por minuto.
-- Humor muy poco y seco; nada de memes ni sarcasmo.
+**Voice and tone**
+- Calm documentary register: short sentences, concrete verbs, no exclamations, no "incredible", "brutal", "it will blow your mind".
+- One idea per paragraph. Repeat the key term instead of replacing it with pronouns: someone listening while cooking cannot go back.
+- **Signal the structure aloud** ("First, how silicon is purified. Then, why size matters"). Someone who only listens does not see chapters.
+- Rounded numbers with context ("about a hundred times thinner than a hair"), not loose figures. At most 2–3 figures per minute.
+- Humour very little and dry; no memes or sarcasm.
 
-**Estructura de cada episodio (plantilla mínima, no un molde fijo)**
-1. **Apertura concreta (≤ 60 s):** una escena, un objeto o un problema real. No un "en este video veremos".
-2. **Una pregunta central** que el episodio responde ("¿por qué el acero barato cambió el mundo en 1856?").
-3. **Cadena causal:** cada tramo explica por qué el siguiente fue necesario. Evita las listas de fechas y nombres.
-4. **Un personaje o un lugar** como hilo (una persona, una fábrica, una ciudad), para que haya algo que seguir.
-5. **Cierre sin sermón:** qué quedó de todo esto hoy y una pregunta abierta. Sin "suscríbete" al final del relato.
+**Structure of each episode (a minimal template, not a fixed mould)**
+1. **Concrete opening (≤ 60 s):** a scene, an object or a real problem. Not an "in this video we will see".
+2. **A central question** the episode answers ("why did cheap steel change the world in 1856?").
+3. **Causal chain:** each stretch explains why the next one was necessary. Avoid lists of dates and names.
+4. **A character or a place** as a thread (a person, a factory, a city), so there is something to follow.
+5. **Close without a sermon:** what remains of all this today and an open question. No "subscribe" at the end of the story.
 
-**Evitar el aspecto de plantilla**
-- *Constantes de marca* (lo que hace reconocible el canal): voz, tono, ritmo, música, tipografía, duración dentro de un rango.
-- *Variables por episodio* (lo que debe cambiar): el tipo de apertura, el hilo narrativo, la estructura (cronológica, por causas, por problemas), la tesis. Si dos episodios seguidos podrían intercambiar el título sin que nadie lo note, falló.
+**Avoid the template look**
+- *Brand constants* (what makes the channel recognisable): voice, tone, pace, music, typography, duration within a range.
+- *Per-episode variables* (what must change): the type of opening, the narrative thread, the structure (chronological, by causes, by problems), the thesis. If two consecutive episodes could swap titles without anyone noticing, it failed.
 
 **Audio**
-- Ritmo pausado, con pausas entre secciones. Música de fondo muy baja, sin cambios bruscos. Sin efectos de sonido llamativos.
-- Los números de ritmo (palabras por minuto, duración ideal) son hipótesis a probar con retención real: **n/d, sin fuente**.
+- Measured pace, with pauses between sections. Background music very low, with no sudden changes. No flashy sound effects.
+- The pace figures (words per minute, ideal duration) are hypotheses to test with real retention: **n/a, no source**.
 
-**Imagen (que acompañe, no que distraiga)**
-- Fondos quietos o con movimiento muy lento: archivo histórico, mapas, diagramas, esquemas, fotos de dominio público o con licencia.
-- Evitar imágenes generadas que parezcan fotos reales de hechos reales: es el caso que obliga a declarar contenido sintético y erosiona la confianza. Si se usa ilustración con IA, que sea **claramente estilizada**, con un estilo único y declarada.
-- Una pantalla de imágenes con poca narración es justo lo que YouTube cita como contenido de bajo valor; aquí el valor lo debe aportar la narración.
+**Image (accompanying, not distracting)**
+- Still or very slowly moving backgrounds: historical archive, maps, diagrams, schematics, public-domain or licensed photos.
+- Avoid generated images that look like real photos of real events: that is the case that forces a synthetic-content disclosure and erodes trust. If AI illustration is used, make it **clearly stylised**, in a single style, and declared.
+- A screen of images with little narration is exactly what YouTube cites as low-value content; here the value must come from the narration.
 
-## 5. Calidad de la información (lo que más diferencia)
+## 5. Quality of information (what differentiates most)
 
-| Regla | Detalle |
+| Rule | Detail |
 |---|---|
-| **Jerarquía de fuentes** | 1) libros y artículos de especialistas, 2) historia oficial de empresas y archivos, 3) enciclopedias (solo como punto de partida, como hace Cooper) |
-| **Dos fuentes por dato duro** | Fechas, cifras y atribuciones ("X inventó Y") con dos fuentes independientes. Sin eso, se dice "según…" o se omite |
-| **Hoja de afirmaciones** | Una tabla por episodio: afirmación → fuente → estado (confirmada / disputada). Es el respaldo del guion |
-| **Matices honestos** | Lo disputado se cuenta como disputado. Los mitos populares ("Edison inventó la ampolleta") se corrigen con cuidado |
-| **Fecha de corte** | Cada episodio dice hasta cuándo es válido ("datos a 2026"); el material de industria envejece rápido |
-| **Correcciones visibles** | Comentario fijado y nota en la descripción cuando se corrige algo |
-| **La IA no es una fuente** | Puede ayudar a resumir un libro que ya se leyó, nunca a decidir qué es verdad. Todo dato dicho en voz alta lo verificó una persona |
+| **Source hierarchy** | 1) books and articles by specialists, 2) official company history and archives, 3) encyclopedias (only as a starting point, as Cooper does) |
+| **Two sources per hard fact** | Dates, figures and attributions ("X invented Y") with two independent sources. Without that, say "according to…" or omit |
+| **Claims sheet** | One table per episode: claim → source → status (confirmed / disputed). It is the script's backing |
+| **Honest nuance** | What is disputed is told as disputed. Popular myths ("Edison invented the light bulb") are corrected carefully |
+| **Cut-off date** | Each episode says until when it is valid ("data as of 2026"); industry material ages fast |
+| **Visible corrections** | Pinned comment and a note in the description when something is corrected |
+| **AI is not a source** | It can help summarise a book you have already read, never decide what is true. Every fact said aloud was verified by a person |
 
-## 6. Qué automatiza la IA y qué no
+## 6. What AI automates and what it does not
 
-| Puede ayudar | Tiene que hacer una persona |
+| Can help | A person has to do |
 |---|---|
-| Resumir fuentes ya elegidas, proponer esquemas, ordenar la hoja de afirmaciones | Elegir el tema y la pregunta central |
-| Primer borrador del guion en el estilo del canal | Decidir el enfoque y reescribir hasta que suene bien dicho |
-| Voz narrada, subtítulos, miniaturas, edición básica | **Verificar cada dato** y **escuchar el episodio completo** antes de publicar |
-| Buscar archivo y licencias | Aprobar cada imagen usada |
+| Summarise already chosen sources, propose outlines, order the claims sheet | Choose the topic and the central question |
+| First draft of the script in the channel's style | Decide the angle and rewrite until it sounds well spoken |
+| Narrated voice, captions, thumbnails, basic editing | **Verify every fact** and **listen to the whole episode** before publishing |
+| Search archives and licenses | Approve every image used |
 
-Con el tiempo de Cooper (2–3 meses por episodio) como techo, el objetivo realista es un **híbrido**: mucho menos tiempo por episodio, pero con la investigación y la verificación humanas intactas.
+With Cooper's time (2–3 months per episode) as the ceiling, the realistic goal is a **hybrid**: much less time per episode, but with human research and verification intact.
 
-## 7. Temas: qué está en alza (con honestidad sobre la evidencia)
+## 7. Topics: what is on the rise (honest about the evidence)
 
-**Señales encontradas (indirectas):**
-- IA y chips dominan la categoría de ciencia y tecnología según un rastreador de tendencias (puntaje 63,8 en julio de 2026, [Hype.ad](https://hype.ad/blog/trending-topics/science-and-tech/july-2026); una sola fuente, metodología desconocida).
-- Hay videos recientes sobre **chips, ASML, TSMC y tierras raras** ligados a la tensión entre EE. UU. y China, que sugieren interés actual. Aún no tengo cifras de visitas por tema: **n/d**.
-- Los formatos largos y episódicos crecen con la TV como pantalla, según [vidIQ](https://vidiq.com/blog/post/future-youtube-trends/) (blog de una herramienta comercial).
+**Signals found (indirect):**
+- AI and chips dominate the science and technology category according to a trend tracker (score 63.8 in July 2026, [Hype.ad](https://hype.ad/blog/trending-topics/science-and-tech/july-2026); a single source, unknown methodology).
+- There are recent videos on **chips, ASML, TSMC and rare earths** tied to US–China tension, suggesting current interest. I do not have view counts per topic yet: **n/a**.
+- Long episodic formats grow with TV as the screen, according to [vidIQ](https://vidiq.com/blog/post/future-youtube-trends/) (a commercial tool's blog).
 
-**Candidatos, por criterio propio (no son datos):**
+**Candidates, by my own judgement (not data):**
 
-| Tema | Por qué encaja | Riesgo |
+| Topic | Why it fits | Risk |
 |---|---|---|
-| Del transistor al chip: historia del silicio, la litografía y EUV | Conocido, con arco claro y vigencia por la IA | Muy competido (Asianometry y muchos más) |
-| Cómo se hizo posible el acero barato (Bessemer, 1856) | Historia con un punto de quiebre claro | Contenido corto abundante, poco largo y sereno |
-| Cobre y bronce: cómo los metales ordenaron las civilizaciones | Eterno, con fuentes arqueológicas | Poco "actual" |
-| Litio y tierras raras: de dónde sale cada cosa | Actualidad geopolítica | Los datos envejecen rápido; exige fecha de corte |
-| Aluminio: de metal precioso a lata | Buena historia con personajes | Poco competido, pero demanda n/d |
-| Vidrio, fibra óptica y cables submarinos | Muy "invisibles pero esenciales" | Ángulo menos conocido |
+| From transistor to chip: history of silicon, lithography and EUV | Familiar, with a clear arc and current because of AI | Very crowded (Asianometry and many more) |
+| How cheap steel became possible (Bessemer, 1856) | History with a clear breaking point | Plenty of short content, little long and serene |
+| Copper and bronze: how metals ordered civilisations | Timeless, with archaeological sources | Not very "current" |
+| Lithium and rare earths: where each thing comes from | Geopolitical timeliness | Data ages fast; needs a cut-off date |
+| Aluminium: from precious metal to can | Good story with characters | Little competition, but demand n/a |
+| Glass, optical fibre and submarine cables | Very "invisible but essential" | Less familiar angle |
 
-**Aclaración pendiente:** interpreté "historia del metal" como **metalurgia**. Si es **heavy metal** (el género musical), cambia el público, las fuentes y los derechos de música.
+**Pending clarification:** I read "history of metal" as **metallurgy**. If it is **heavy metal** (the music genre), it changes the audience, the sources and the music rights.
 
-## 8. Decisiones abiertas (antes de pasar a lo técnico)
+## 8. Open decisions (before moving to the technical side)
 
-- [ ] **Idioma:** español o inglés. Cambia el público, la competencia y la monetización. No tengo datos comparables: **n/d**.
-- [ ] **¿Metalurgia o heavy metal?**
-- [ ] **Cuánta persona hay detrás:** ¿se aceptan 4–8 horas de investigación y revisión por episodio, o el objetivo es automatizarlo casi todo? Lo segundo es justo lo que YouTube castiga.
-- [ ] **Ver la regla vigente de voces sintéticas y de declaración de IA** en la ayuda de YouTube antes de lanzar.
-- [ ] **Validar la demanda con datos propios:** buscar en YouTube 10 títulos sobre cada tema candidato y anotar visitas, antigüedad y duración. Es la prueba barata de este negocio (mismo método que el resto del vault).
+- [x] **Language: English** (user decision, 3 Oct 2026; earlier videos were in Spanish). Changes the audience, competition and monetisation; I have no comparable data: **n/a**.
+- [ ] **Metallurgy or heavy metal?**
+- [ ] **How much person is behind it:** are 4–8 hours of research and review per episode accepted, or is the goal to automate almost everything? The latter is exactly what YouTube punishes.
+- [ ] **Check the current rule on synthetic voices and AI disclosure** in YouTube's help before launching.
+- [ ] **Validate demand with own data:** search YouTube for 10 titles on each candidate topic and note views, age and duration. It is this business's cheap test (same method as the rest of the vault).
 
-## 9. Lista de revisión antes de publicar
+## 9. Checklist before publishing
 
-- [ ] El episodio responde una pregunta concreta en su primer minuto.
-- [ ] Cada cifra y cada fecha tiene dos fuentes en la hoja de afirmaciones.
-- [ ] Lo disputado está contado como disputado.
-- [ ] No hay imágenes generadas que parezcan fotos reales de hechos reales; las ilustraciones están declaradas.
-- [ ] La estructura y la apertura son distintas a las de los dos episodios anteriores.
-- [ ] Una persona escuchó el episodio completo, sin mirar la pantalla, y no hay frases confusas dichas en voz alta.
-- [ ] Sin tono de venta, sin superlativos, sin cierres con "suscríbete" pegados al relato.
-- [ ] La descripción tiene fuentes, fecha de corte y la declaración de IA que corresponda.
+- [ ] The episode answers a concrete question in its first minute.
+- [ ] Every figure and every date has two sources in the claims sheet.
+- [ ] What is disputed is told as disputed.
+- [ ] No generated images look like real photos of real events; illustrations are declared.
+- [ ] The structure and the opening differ from those of the two previous episodes.
+- [ ] A person listened to the whole episode, without looking at the screen, and there are no confusing sentences said aloud.
+- [ ] No sales tone, no superlatives, no "subscribe" endings glued to the story.
+- [ ] The description has sources, a cut-off date and the AI disclosure that applies (in English).
 
 ---
-*Límites:* gran parte de lo publicado sobre políticas viene de blogs que venden herramientas y repiten cifras sin cita; usé fuentes primarias donde pude (la política de monetización y el blog de YouTube) y marqué lo demás. Las reglas de YouTube cambian: revisar la página de política antes de cada lanzamiento.
+*Limits:* much of what is published about policies comes from blogs that sell tools and repeat figures without citation; I used primary sources where I could (the monetization policy and YouTube's blog) and marked the rest. YouTube's rules change: check the policy page before each launch.
 
+# User feedback
 
-# Feedback del usuario
+### A short deepening on what "good content" is
 
-### Pequeña profundizacion sobre lo que es un "buen contenido"
+> "Content that, even knowing it is AI, you can enjoy and keep watching; it can be informational or absurd, but it delivers its message" (translated from the user's original Spanish)
 
-> "Aquel contenido que aun sabiendo que es ia, puedes disfrutarlo y continuar viendolo, puede ser informacional o absurdo, pero entrega su mensaje"
+Our goal is to educate and entertain with information primarily, offering narrated learning.
 
-Nuestra meta es educar y entretener con informacion primariamente, ofreciendo aprendizaje narrado.
+## About YouTube's rules
 
-## Acerca de las normas de youtube
+Before starting to create content, we will define a theme and seek to establish a design language for the whole channel (thumbnails, on-screen text, illustration style). Coherence across all layers of the channel (for example: "what would happen if… Lego style"). We must comply with YouTube's rules proactively, since it aligns with our wish to use AI to create quality, unique content.
 
-Antes de comenzar a crear contenido, definiremos una tematica, buscamos establecer un lenguaje de diseño para todo el canal (thumbnails, texto en pantalla, estilo de las ilustraciones). Coherencia entre todas las capas del canal (Por ejemplo: "que pasaria si... estilo lego"). Debemos basarnos en cumplir las normas de youtube proactivamente, ya que se alinea con nuestro deseo de usar la ia para crear contenido de calidad y unico.
+### Listening with video
 
-### Escuchar con video
+Let us focus on this trend; we do not need to pigeonhole ourselves into historical or scientific explainers yet; in this iteration of the process we will structure our general goal.
 
-Hagamos enfoque sobre esta tendencia, no necesitamos encasillarnos en divulgacion historica o cientifica aun, en esta iteracion del proceso estructuraremos nuestro objetivo general.
-
-### Referencias
-Considera tambien sleep on physics, sleep on science and similars, they are quite a good example of ai content that people can enjoy.
+### References
+Also consider Sleep on Physics, Sleep on Science and similar ones; they are quite a good example of AI content that people can enjoy.
