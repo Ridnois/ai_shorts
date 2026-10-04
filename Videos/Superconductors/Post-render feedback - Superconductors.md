@@ -65,9 +65,10 @@ tags: [research, youtube, feedback, superconductors]
 
 Rules you want changed, things the agent should always or never do, ideas for the channel:
 
--
+- make the content more engaging and interesting, i feel like i got lost on the facts and forgot the theme of the video, it is good on a non self-concious way
+- Add more reference images, so it changes faster
 
 ## 7. Keep and change (for the agent to turn into rules)
 
-**Keep exactly:**
+**Keep exactly:** text distribution
 **Change from now on:**
