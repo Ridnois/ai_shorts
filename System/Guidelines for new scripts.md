@@ -116,6 +116,14 @@ Style, method and prompt template: [[Visual style - plasticine miniatures]]. Sou
 - **Notes in the vault, never artifacts or Claude Docs.**
 - **No thumbnail on Shorts.** Description with sources, cut-off date and AI disclosure, in English.
 
+### Run-time lessons (Twisted carbon, 4 Oct 2026)
+
+- **Wikimedia:** the thumbnail/API endpoint throttles (429, timeouts). Fetch originals directly: `https://upload.wikimedia.org/wikipedia/commons/<md5[0]>/<md5[:2]>/<File_name>` (md5 of the file name with underscores), resize locally, and read author and license with one small API call.
+- **Replicate helper:** `System/scripts/replicate_helper.py` has timeouts and download retries, prints the prediction id at creation and has `recover(id, dest)`; use it if a download hangs, never regenerate.
+- **Reading prompts from the Status note:** Obsidian re-pads table columns on save, so parsers must tolerate spaces around the pipes.
+- **Never `pkill -f` a pattern that also appears in the shell command** (it kills the shell); match the process name and arguments with `ps` and `awk`.
+- **Source photos that are diagrams** become abstract in clay; prefer physical objects.
+
 ## 6. Open items
 
 - [ ] **Sound quality and dynamism** (Brazil feedback): no proven solution.

@@ -66,4 +66,5 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | Lemon cake (Short 9:16, 81 s) | 7 · r2, awaiting P7 | `elevenlabs/v3` and 20 `gpt-image-1.5` plates (≈ $1.57) | [[Lemon cake - Status]] |
 | Bike stems (Short 9:16, 63 s) | 7 · r2, awaiting P7 | `elevenlabs/v3` and 8 `wan-2.7-image` plates (≈ $0.26) | [[Bike stems - Status]] |
 | Chips and lithography (Short 9:16, ≈ 93 s) | 7 · r1, awaiting P7 | `elevenlabs/v3`, 8 `flux-kontext-pro` images (≈ $0.48) | [[Chips and lithography - Status]] |
+| Twisted carbon (Short 9:16, ≈ 85 s, **English**) | 7 · r1, awaiting P7 | First video built with the idea-quality rules; `elevenlabs/v3` `en`, 13 `flux-kontext-pro` plates (≈ $0.64) | [[Twisted carbon - Status]] |
 | Helium - why it cannot be made (Short 9:16, ≈ 76 s, **English**) | 7 · r1, awaiting P7 | `elevenlabs/v3` `en`, 13 `flux-kontext-pro` plates (≈ $0.70) | [[Helium - why it cannot be made - Status]] |

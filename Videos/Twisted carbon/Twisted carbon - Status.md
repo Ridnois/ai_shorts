@@ -156,3 +156,16 @@ Format: `scene · category · model · status · prediction`.
 
 ![[tc-85s-9x16-r1.mp4]]
 
+
+### What I checked and what I did not
+
+- ✅ All 13 plates looked at together; no text or brand leaks, no retries. Twelve frames of the render (seconds 4 to 84): three-line cards legible, subjects clear, seams feathered. The render finished (57 MB, 1080×1920, 85.27 s per the edit).
+- ❌ **I did not hear the audio or watch the whole video:** how `Roger` sounds in English, the pace (scenes 2, 4 and 5 are slow at 120 to 127 words per minute, scene 1 fast at 156), the fades, and whether plate changes land where they should.
+- **Reservations:** plates 2 and 5 turned the NIST moiré diagram into clay swirls (they read as "a pattern", not as a lattice); plate 9 shows generic clay blocks instead of split rings; plate 12 is a small table with an orange stripe for the laser; plate 4 has five pencils, not seven. The card on the last plate is repeated across two plates (12 and 13 share the style, not the text).
+- **Claims to confirm before publishing:** the 1.1° and 1.7 K figures (consistent across search summaries, arXiv and Physics World, but the *Nature* page itself was not opened); Veselago's date and Pendry's 2006 cloak proposal; the CORDIS "10-year retention" claim is not used.
+
+### Awaiting your decision (P7)
+
+1. **Watch and listen** to `tc-85s-9x16-r1.mp4`: is the hook now worth the reaction? Is `Roger` right in English?
+2. Do any plates need redoing (≈ $0.04 each; 2 of the 15-image cap left)?
+3. For publishing (P8): title, a description with the sources in [[Research - Twisted carbon]], the CC attributions for R01 to R11, "data as of 4 Oct 2026", the caveat that the 1.7 K superconductivity is at very low temperature (so "can" in the hook), and the AI disclosure, all in English.
