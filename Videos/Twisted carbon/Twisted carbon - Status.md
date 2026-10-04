@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: stages 0–4 done · generation next · all gates delegated by the user ("follow all the steps for yourself until the render")
+status: stages 0–6 done · render r1 · awaiting P7 · all gates delegated by the user ("follow all the steps for yourself until the render")
 tags: [research, youtube, status, carbon, superconductors, metamaterials, shorts]
 ---
 
@@ -10,7 +10,7 @@ tags: [research, youtube, status, carbon, superconductors, metamaterials, shorts
 
 ← [[YouTube Channel]] · [[Fast workflow]] · [[Guidelines for new scripts]]
 
-Eighth video of the channel and the **second in English**. Idea: [[Twisted carbon]]. Media in `Media/Twisted carbon (wip)/` (renamed to the measured duration after the render; files prefixed `tc-`).
+Eighth video of the channel and the **second in English**. Idea: [[Twisted carbon]]. Media in `Media/Twisted carbon - 85 seconds/` (files prefixed `tc-`).
 
 > **Delegation (4 Oct 2026):** *"lets build a new video, this one is about carbon, metamaterial, superconductors and such. read this [CORDIS article], could be interesting. and follow all the steps for yourself until the render."* I take this as approval at every gate, **with the cap below**, and stop at the render (P7). This is the first video built with the new idea-quality rules ([[Idea and hook quality]]): facts bank, scoring, five hooks, size in words.
 
@@ -34,7 +34,7 @@ Facts bank and scoring first; hook that gives a reason before the reaction; scri
 
 ## Reference photos (one per plate; Kontext accepts a single `input_image`)
 
-Downloaded to `Media/Twisted carbon (wip)/plates/_refs/` (resized to ≤ 1,920 px). Licenses read from Wikimedia Commons on 4 Oct 2026.
+Downloaded to `Media/Twisted carbon - 85 seconds/plates/_refs/` (resized to ≤ 1,920 px). Licenses read from Wikimedia Commons on 4 Oct 2026.
 
 | Ref. | Photo                                                                                                                                                                         | Author · license                    | Plates |
 | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ------ |
@@ -85,21 +85,21 @@ The narration is **not** in the prompts (rule 2.11); every prompt ends with the 
 
 ## On-screen cards (three lines per plate, see [[On-screen text style]])
 
-| Plate | Label            | Title                           | Detail                                    |
-| ----- | ---------------- | ------------------------------- | ----------------------------------------- |
-| 1     | Carbon           | One element, flat sheets        | Graphite is a stack of graphene layers    |
-| 2     | Magic angle      | Twist one sheet by 1.1°         | Two graphene layers, MIT, 2018            |
-| 3     | 2004, Manchester | Graphene peeled with tape       | Geim and Novoselov, Nobel Prize 2010      |
-| 4     | Same material    | Pencil lead is graphite         | Graphene is a single layer of it          |
-| 5     | Moiré pattern    | A twist makes a bigger pattern  | Electrons slow into nearly flat bands     |
-| 6     | Flat bands       | Electrons start acting together | Insulating states, then superconductivity |
-| 7     | 1911, Leiden     | Onnes cools mercury in helium   | Resistance vanishes near 4.2 K            |
-| 8     | Superconductor   | Zero electrical resistance      | Twisted graphene: up to 1.7 K             |
-| 9     | Metamaterial     | Shape beats chemistry           | Structures smaller than the wavelength    |
-| 10    | Proposed         | Negative refraction, cloaks     | Veselago, late 1960s · Pendry, 2006       |
-| 11    | GRAB-A-META      | Graphene on a metamaterial      | University of Birmingham, EU funded       |
-| 12    | Terahertz light  | A voltage tunes the speed       | EU project, 2015 to 2017                  |
-| 13    | The takeaway     | Same carbon, new arrangement    | Design instead of discovery               |
+| Plate | Label | Title | Detail |
+| --- | --- | --- | --- |
+| 1 | Carbon | One element, flat sheets | Graphite is a stack of graphene layers |
+| 2 | Magic angle | Twist one sheet by 1.1° | Two graphene layers, MIT, 2018 |
+| 3 | 2004, Manchester | Graphene peeled with tape | Geim and Novoselov, Nobel Prize 2010 |
+| 4 | Same material | Pencil lead is graphite | Graphene is a single layer of it |
+| 5 | Moiré pattern | Twist makes a big pattern | Electrons slow into nearly flat bands |
+| 6 | Flat bands | Electrons act together | Insulating states, then zero resistance |
+| 7 | 1911, Leiden | Mercury cooled in helium | Resistance vanishes near 4.2 K |
+| 8 | Superconductor | Zero electrical resistance | Twisted graphene: up to 1.7 K |
+| 9 | Metamaterial | Shape beats chemistry | Structures smaller than the wavelength |
+| 10 | Proposed | Negative refraction | Veselago, 1960s · cloaks: Pendry, 2006 |
+| 11 | GRAB-A-META | Graphene on a metamaterial | University of Birmingham, EU funded |
+| 12 | Terahertz light | A voltage tunes the speed | EU project, 2015 to 2017 |
+| 13 | The takeaway | Same carbon, new layout | Design instead of discovery |
 
 ## Budget in dollars (cap = base × 1.2)
 
@@ -115,4 +115,44 @@ The narration is **not** in the prompts (rule 2.11); every prompt ends with the 
 
 ## Prediction log
 
-*(filled in as the run goes)*
+Format: `scene · category · model · status · prediction`.
+
+| Scene | Category | Model | Status | Prediction |
+| --- | --- | --- | --- | --- |
+| 1 | voice | `elevenlabs/v3` (`Roger`, `en`, 0.95) | ✅ (P5) | [fqq4tpaajsrmt0d10yjt26zavr](https://replicate.com/p/fqq4tpaajsrmt0d10yjt26zavr) |
+| 2 | voice | same | ✅ | [pqw7vqkszhrmt0d10yjs9p2cdm](https://replicate.com/p/pqw7vqkszhrmt0d10yjs9p2cdm) |
+| 3 | voice | same | ✅ | [4hr4y4cmz1rmt0d10yjvs7tyd0](https://replicate.com/p/4hr4y4cmz1rmt0d10yjvs7tyd0) |
+| 4 | voice | same | ✅ | [c6b8pnnc6srmy0d10yjr56c664](https://replicate.com/p/c6b8pnnc6srmy0d10yjr56c664) |
+| 5 | voice | same | ✅ | [jaa06ay62xrmw0d10yjrjzfgkc](https://replicate.com/p/jaa06ay62xrmw0d10yjrjzfgkc) |
+| 6 | voice | same | ✅ | [n0kz5jf6m1rmy0d10yjs6zyprm](https://replicate.com/p/n0kz5jf6m1rmy0d10yjs6zyprm) |
+| 7 | voice | same | ✅ | [59w870rk71rmr0d10yk81k174c](https://replicate.com/p/59w870rk71rmr0d10yk81k174c) |
+| 1 | plate 1 | `flux-kontext-pro` (R01) | ✅ (P5; recovered after a hung download) | [wj644vg7h9rmt0d10yfvh251b4](https://replicate.com/p/wj644vg7h9rmt0d10yfvh251b4) |
+| 1 | plate 2 | (R05) | ✅ | [51shbvmsrhrmw0d10yk9bajrv4](https://replicate.com/p/51shbvmsrhrmw0d10yk9bajrv4) |
+| 2 | plate 3 | (R03) | ✅ | [b8dajxe2thrmt0d10ykbytm7e0](https://replicate.com/p/b8dajxe2thrmt0d10ykbytm7e0) |
+| 2 | plate 4 | (R04) | ✅ | [1htcte7xgxrmt0d10yk9hkd75m](https://replicate.com/p/1htcte7xgxrmt0d10yk9hkd75m) |
+| 3 | plate 5 | (R05) | ✅ | [qzwzee16pdrmt0d10ykt7ww240](https://replicate.com/p/qzwzee16pdrmt0d10ykt7ww240) |
+| 3 | plate 6 | (R01) | ✅ | [q9smayanx1rmw0d10ykrd22dac](https://replicate.com/p/q9smayanx1rmw0d10ykrd22dac) |
+| 4 | plate 7 | (R06) | ✅ | [392nhfcc81rmt0d10ykspfvtjc](https://replicate.com/p/392nhfcc81rmt0d10ykspfvtjc) |
+| 4 | plate 8 | (R07) | ✅ | [x0mn3yxqndrmr0d10ykvx6c2yw](https://replicate.com/p/x0mn3yxqndrmr0d10ykvx6c2yw) |
+| 5 | plate 9 | (R08) | ✅ | [5q8w2gf3ddrmt0d10yksk6hrwr](https://replicate.com/p/5q8w2gf3ddrmt0d10yksk6hrwr) |
+| 5 | plate 10 | (R09) | ✅ | [57n2r589qdrmy0d10ymbsvv8a8](https://replicate.com/p/57n2r589qdrmy0d10ymbsvv8a8) |
+| 6 | plate 11 | (R10) | ✅ | [padjs0hx2nrmt0d10ymbzbmkr0](https://replicate.com/p/padjs0hx2nrmt0d10ymbzbmkr0) |
+| 6 | plate 12 | (R11) | ✅ | [3vzxwxkbesrmw0d10ymazgh0tc](https://replicate.com/p/3vzxwxkbesrmw0d10ymazgh0tc) |
+| 7 | plate 13 | (R04) | ✅ | [8bvse1wzxsrmt0d10ym91sbn6w](https://replicate.com/p/8bvse1wzxsrmt0d10ym91sbn6w) |
+
+**Predictions: 20** (7 voices + 13 images, all used; 2 images of cap left). Estimated cost: voice ≈ $0.12 + images 13 × ≈ $0.04 = ≈ $0.52 → **≈ $0.64**, inside the approved cap ≈ $0.76 (Kontext price unconfirmed).
+
+## Findings from this run
+
+- **No narration line in the prompts + "no words, no letters, no captions" in all 13: zero text leaks** (the helium video leaked one plate). Confirms rule 2.11. R09 (a diagram with letters A to G) was the risk; the prism plate came out clean.
+- **Pace in words:** 185 words generated **83.0 s of voice** (from file sizes at 128 kbps) = **134 words per minute with pauses**, slower than the 144 of the helium video; per scene 120 to 156. Edited length **85.27 s**. The word range (130 to 190) held; the length (≈ 85 s) is a result, as the new rule says. Plan English at **135 to 145 wpm**.
+- **Source photos can be abstract:** the NIST moiré diagram (R05) became two clay swirl shapes; it reads as "a pattern" but not as a lattice. The graphite-layers model (R01) and the prism diagram worked well because they are simple solids.
+- **Infrastructure:** (1) the Wikimedia thumbnail/API endpoint throttled (429, timeouts): fetching originals from `upload.wikimedia.org/wikipedia/commons/<h0>/<h0h1>/<name>` (md5 path) worked instantly. (2) A download hung after the prediction succeeded and left a 0-byte file: `replicate_helper.py` now has timeouts, retries, prints the prediction id as soon as it exists and has `recover(id, dest)` to fetch a finished prediction without paying again. (3) Obsidian re-padded the Status table columns on save, which broke a strict regex that read prompts from the note: the parser must tolerate spaces. (4) Never `pkill -f` a pattern that appears in the shell command itself.
+
+## Editing
+
+- **Script:** `System/scripts/build_twisted_carbon.py` (from `build_helium2.py`): 7 voices (0.45 s between scenes, 1.2 s before the close, 0.25 s tail), 13 plates composed onto 1080×1920 with a feathered blurred background, a cross-fade within the scene and a page turn between scenes, slow 5 % push, **one three-line card per plate** (label, title, detail), vignette and grain. No sound or music.
+- **Render r1:** `Media/Twisted carbon - 85 seconds/render/tc-85s-9x16-r1.mp4`, **85.27 s**, 1080×1920.
+
+![[tc-85s-9x16-r1.mp4]]
+
