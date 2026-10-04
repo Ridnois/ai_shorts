@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: stages 0–4 done · generation in progress · all gates delegated by the user ("go for all steps by yourself")
+status: stages 0–6 done · render r1 · awaiting P7 · all gates delegated by the user ("go for all steps by yourself")
 tags: [research, youtube, status, helium, shorts]
 ---
 
@@ -23,9 +23,9 @@ Seventh video of the channel and the **first made entirely in English**. Idea: [
 | 2 Script | ✅ P3 | delegated | [[Script - Helium - why it cannot be made (70 seconds)]]: 175 words, 7 scenes |
 | 3 Direction | ✅ P4a | delegated | 13 plates, in the script |
 | 4 Prompts and budget | ✅ P4 | delegated · **cap ≈ $0.74** | below |
-| 5 Test | ⏳ | delegated | plate 1 + scene 1 voice |
-| 6 Generation | ⏳ | delegated | |
-| 7 Editing | ⏳ P7 | — | |
+| 5 Test | ✅ P5 | delegated | plate 1 (clean: clay look, no brand leak) + scene 1 voice; I could not judge the voice's sound |
+| 6 Generation | ✅ P6 | delegated | 7 voices, 13 plates + 2 retries (15 images = cap), all in series |
+| 7 Editing | ✅ render r1 · ⏳ P7 | — | `Media/Helium - 70 seconds/render/he2-76s-9x16-r1.mp4` |
 | 8 Publishing | ⏳ | — | |
 
 ## What I applied from the last iteration
@@ -98,4 +98,44 @@ Each prompt = narration sentence + "Redraw this exact … as a handmade plastici
 
 ## Prediction log
 
-*(filled in below as the run goes)*
+Format: `scene · category · model · status · prediction`.
+
+| Scene | Category | Model | Status | Prediction |
+| --- | --- | --- | --- | --- |
+| 1 | voice | `elevenlabs/v3` (`Roger`, `en`, 0.95) | ✅ used (P5) | [edrn01w81srmr0d10j1tf7013m](https://replicate.com/p/edrn01w81srmr0d10j1tf7013m) |
+| 2 | voice | same | ✅ | [npt5h467p9rmy0d10j1tnkmm54](https://replicate.com/p/npt5h467p9rmy0d10j1tnkmm54) |
+| 3 | voice | same | ✅ | [byt6xw6ygsrmt0d10j1shtanf8](https://replicate.com/p/byt6xw6ygsrmt0d10j1shtanf8) |
+| 4 | voice | same | ✅ | [q2qa38zcmxrmt0d10j1s8vfxyw](https://replicate.com/p/q2qa38zcmxrmt0d10j1s8vfxyw) |
+| 5 | voice | same | ✅ | [xjm0kf088xrmw0d10j29zn0knr](https://replicate.com/p/xjm0kf088xrmw0d10j29zn0knr) |
+| 6 | voice | same | ✅ | [xrv45m8zv9rmt0d10j2a5gcds0](https://replicate.com/p/xrv45m8zv9rmt0d10j2a5gcds0) |
+| 7 | voice | same | ✅ | [bzwhvdsqqxrmr0d10j29z50x14](https://replicate.com/p/bzwhvdsqqxrmr0d10j29z50x14) |
+| 1 | plate 1 | `flux-kontext-pro` (R01) | ✅ used (P5) | [4dmw0nv7zhrmy0d10j1v60mjmg](https://replicate.com/p/4dmw0nv7zhrmy0d10j1v60mjmg) |
+| 1 | plate 2 | (R02) | ✅ | [p0rfaw32x5rmt0d10j2a0g5tar](https://replicate.com/p/p0rfaw32x5rmt0d10j2a0g5tar) |
+| 2 | plate 3 | (R03) | ✅ | [q2ye19mbfhrmr0d10j29jmr18c](https://replicate.com/p/q2ye19mbfhrmr0d10j29jmr18c) |
+| 2 | plate 4 | (R04) | ✅ | [ch5tpmxsphrmt0d10j2bj2rq7c](https://replicate.com/p/ch5tpmxsphrmt0d10j2bj2rq7c) |
+| 3 | plate 5 | (R05) | ✅ | [8wmewxynw5rmw0d10j29nyqp7m](https://replicate.com/p/8wmewxynw5rmw0d10j29nyqp7m) |
+| 3 | plate 6 | (R06) | ✅ | [rxrt1zgaj5rmr0d10j2v5d0550](https://replicate.com/p/rxrt1zgaj5rmr0d10j2v5d0550) |
+| 4 | plate 7 | (R07) | ✅ | [7kpj7t1g89rmw0d10j2vtb3ywc](https://replicate.com/p/7kpj7t1g89rmw0d10j2vtb3ywc) |
+| 4 | plate 8 | (R08) | ✅ | [2kkmgsax75rmy0d10j2ts4kajc](https://replicate.com/p/2kkmgsax75rmy0d10j2ts4kajc) |
+| 5 | plate 9 v1 | (R09) | ❌ discarded: **the narration sentence leaked into the image as garbled text** | [pc1vkxcfvnrmt0d10j2rty99mc](https://replicate.com/p/pc1vkxcfvnrmt0d10j2rty99mc) |
+| 5 | plate 9 v2 | (R09), no narration line, "no words" | ✅ (retry) | [8rjajqdwrxrmt0d10j39755bag](https://replicate.com/p/8rjajqdwrxrmt0d10j39755bag) |
+| 5 | plate 10 | (R10) | ✅ | [s5hazne3hsrmt0d10j2vgt6rgm](https://replicate.com/p/s5hazne3hsrmt0d10j2vgt6rgm) |
+| 6 | plate 11 | (R01) | ✅ | [sn8pdf7m89rmr0d10j2s8ae0e0](https://replicate.com/p/sn8pdf7m89rmr0d10j2s8ae0e0) |
+| 6 | plate 12 | (R11) | ✅ | [vtdnmkrhfhrmy0d10j3ass3968](https://replicate.com/p/vtdnmkrhfhrmy0d10j3ass3968) |
+| 7 | plate 13 v1 | (R02) | ❌ discarded: padlock barely visible | [cvabr19nv1rmr0d10j3a8brhk8](https://replicate.com/p/cvabr19nv1rmr0d10j3a8brhk8) |
+| 7 | plate 13 v2 | (R02), larger padlock | ✅ (retry) | [nmg0mefa41rmy0d10j3avpjfr4](https://replicate.com/p/nmg0mefa41rmy0d10j3avpjfr4) |
+
+**Predictions: 22** (7 voices + 15 images: 13 used + 2 discarded) against a cap of 9 voices and 15 images: **within the cap, with no images left over.** Estimated cost: voice ≈ $0.10 · images 15 × ≈ $0.04 = ≈ $0.60 · **≈ $0.70** (Kontext price unconfirmed), approved cap ≈ $0.74.
+
+## Findings from this run
+
+- **The narration line in the prompt can leak into the image.** Plate 9 printed "This year a war cut off/QCoUnr". The other 12 prompts, which carried the same kind of line, did not. Rule for next time: put the narration only in the notes, or keep it and add "The image contains no words, no letters and no captions of any kind"; check every plate for text.
+- **Still states worked.** All 13 plates read clearly; the two "add a tiny bottle" plates (11, 12) and the padlock (13) worked because the added object is still and simple.
+- **English pace measured:** 175 words in ≈ 72.9 s of voice (from file sizes at 128 kbps) = **≈ 144 words per minute with pauses**; individual scenes ran from 121 to 179. Update [[Channel voice]] and the guidelines with this figure.
+- **Wide plates:** composing each plate onto a 1080×1920 canvas with a blurred background (instead of covering the height) kept the whole tanker, the dish and the gas field in frame.
+
+## Editing (3 Oct 2026)
+
+- **Script:** `System/scripts/build_helium2.py` (from `build_chips.py`). 7 voices (0.45 s between scenes, 1.2 s before the close, 0.25 s tail), 13 plates (2 per scene, 1 in the last; ≈ 5 s each, a cross-fade within the scene and a page turn between scenes), slow 5 % push, label cards on scenes 1 to 6 (English text), vignette and grain. No sound or music.
+- **Render r1:** `Media/Helium - 70 seconds/render/he2-76s-9x16-r1.mp4`, **≈ 75.8 s**, 1080×1920.
+
