@@ -2,7 +2,7 @@
 
     SOLO_PROYECTO=1 blender -b --factory-startup --python System/scripts/build_helium2.py   # assembles and measures
     blender -b --factory-startup --python System/scripts/build_helium2.py                  # assembles and renders
-Base: build_chips.py. First English video: 7 voices, 13 plates (2 per scene, 1 in the last), label cards on scenes 1 to 6.
+Base: build_chips.py. First English video: 7 voices, 13 plates (2 per scene, 1 in the last), one label card per plate (label, title, detail).
 Plates are pre-composed to 1080x1920 (blurred background + the sharp plate) in Media/Helium - 70 seconds/plates/_9x16/.
 """
 import os
@@ -29,10 +29,23 @@ ARCH = {i: f"he2-p{i:02d}-9x16.png" for i in range(1, 14)}
 POR_ESCENA = [2, 2, 2, 2, 2, 2, 1]
 OFF_X = {}
 ZOOM_IMG = {}
-# (label, title): see "On-screen text style"
-TEXTOS = {1: ("MRI", "Up to 1,500 L of helium"), 2: ("Uranium · thorium", "Decay makes helium"),
-          3: ("Not renewable", "Lost to space"), 4: ("Boiling point", "4.2 K · -269 °C"),
-          5: ("USGS 2025 est.", "US · Qatar · Russia: 85 %"), 6: ("Sealed magnets", "7 L · 0.7 L")}
+# On-screen cards: one per plate -> (label, title, detail). Context-specific, tied to the narration and the sources
+# in "Research - Helium - why it cannot be made". Title <= 26 characters, detail <= 40 (see "On-screen text style").
+TEXTOS = {
+    1: ("MRI scanner", "Up to 1,500 liters", "liquid helium in a conventional magnet"),
+    2: ("Liquid helium", "Stored at -269 °C", "in insulated dewars like this one"),
+    3: ("Where it comes from", "Uranium and thorium decay", "Each decay releases one helium nucleus"),
+    4: ("Where it is found", "Trapped with natural gas", "Only a few gas fields, e.g. Texas"),
+    5: ("Why not manufacture it", "No way to speed it up", "No known large-scale way to make it"),
+    6: ("Once released", "Escapes Earth's gravity", "Lost to space, never recovered"),
+    7: ("Why nothing else works", "Boils at 4.2 K (-269 °C)", "Hydrogen boils at 20 K, nitrogen at 77 K"),
+    8: ("Who needs that cold", "MRI magnets and chip fabs", "US use: MRI 15 %, chips and fibre 17 %"),
+    9: ("USGS 2025 estimate", "85 % from three countries", "US 43 % · Qatar 33 % · Russia 9.5 %"),
+    10: ("Price", "Spot price doubled", "after Qatar's output stopped in March"),
+    11: ("Sealed magnet", "7 liters instead of 1,500", "Philips' own figure"),
+    12: ("Newer still", "0.7 liters, closed circuit", "Siemens' own figure"),
+    13: ("The takeaway", "Use less, lose less", "The safest helium never escapes"),
+}
 
 sc = bpy.context.scene
 sc.render.fps = FPS
@@ -125,8 +138,8 @@ for i, e, j, n, a, b in esc_img:
 # ---------------------------------------------------------------- label card (On-screen text style)
 os.makedirs(FX, exist_ok=True)
 CX0, CX1 = 56, 56 + 894                                   # 56 px left margin; 130 px free on the right (Shorts buttons)
-CY = H * (1 - 0.275)                                      # centre between 22 and 33 % of the height from the bottom
-CY0, CY1 = CY - 105, CY + 105
+CY = H * (1 - 0.285)                                      # centre of the card, a little above the caption zone
+CY0, CY1 = CY - 140, CY + 140                             # three lines: label, title, detail
 RAD = 16
 COBRE = (0.78, 0.42, 0.22)
 yy_, xx_ = np.mgrid[0:H, 0:W].astype(np.float32)
@@ -160,17 +173,20 @@ def entra(st, prop_alfa, t0, t1):
     alfa(st, [(t0, 0.0), (t0 + 0.25, 1.0), (t1 - 0.20, 1.0), (t1, 0.0)])
 
 
-for e, (etq, tit) in TEXTOS.items():
-    t0, t1 = B[e - 1] + 0.5, B[e] - 0.15
-    cd = S.new_image(f"tarjeta-{e}", f"{FX}/tarjeta.png", 5, fr(t0))
+DETALLE = (0.30, 0.28, 0.26, 1.0)
+for i, e, j, n, a_, b_ in esc_img:
+    etq, tit, det = TEXTOS[i]
+    t0, t1 = a_ + 0.45, b_ - 0.15
+    cd = S.new_image(f"card-{i}", f"{FX}/tarjeta.png", 5, fr(t0))
     cd.frame_final_end = fr(t1)
     entra(cd, "blend_alpha", t0, t1)
     for t_, off in ((t0, -24), (t0 + 0.25, 0)):                    # 24 px rise on entering
         cd.transform.offset_y = off
         cd.transform.keyframe_insert("offset_y", frame=fr(t_))
-    for nombre, txt, font, size, col, y in ((f"etq-{e}", espaciado(etq), F_ETQ, 34, COBRE + (1.0,), 0.307),
-                                            (f"tit-{e}", tit, F_TIT, 58, TINTA, 0.250)):
-        tx = S.new_effect(nombre, "TEXT", 6 if "etq" in nombre else 7, fr(t0), length=fr(t1 - t0))
+    for nombre, txt, font, size, col, y, canal in ((f"etq-{i}", espaciado(etq), F_ETQ, 32, COBRE + (1.0,), 0.285 + 0.050, 6),
+                                                   (f"tit-{i}", tit, F_TIT, 56, TINTA, 0.285 + 0.001, 7),
+                                                   (f"det-{i}", det, F_ETQ, 34, DETALLE, 0.285 - 0.047, 8)):
+        tx = S.new_effect(nombre, "TEXT", canal, fr(t0), length=fr(t1 - t0))
         tx.text, tx.font_size, tx.font, tx.color = txt, size, font, col
         tx.anchor_x, tx.anchor_y = "LEFT", "CENTER"
         x_txt = (CX0 + 8 + 36) / W
