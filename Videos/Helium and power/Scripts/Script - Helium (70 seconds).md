@@ -2,412 +2,425 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: render r1 generado (71,9 s) · medios aprobados al pedir el montaje · pendiente tu revisión del video (P7)
-tags: [investigación, youtube, guion, helio, geopolítica]
+status: render r1 generated (71.9 s) · media approved on asking for the editing · awaiting your review of the video (P7) · recorded in Spanish
+tags: [research, youtube, script, helium, geopolitics]
 ---
 
-# Guion: el gas del que depende un tercio del mundo · helio y poder
+# Script: the gas a third of the world depends on · helium and power
 
-← [[Helium and power - Status]] · [[Research - Helium]] · [[YouTube Channel]] · [[Production process]] · [[Narration guide]] · estilo visual de bocetos técnicos (retirado) · [[Prompt - per-scene generation guide]] · [[Channel models]]
+← [[Helium and power - Status]] · [[Research - Helium]] · [[YouTube Channel]] · [[Production process]] · [[Narration guide]] · technical-sketch visual style (withdrawn) · [[Prompt - per-scene generation guide]] · [[Channel models]]
 
-> **Estado (3-oct-2026):** voz, sonido e imagen generados y montados. **Render r1: `render/helio-70s-r1.mp4`, 71,9 s.** Falta tu revisión del video completo (P7) y rechequear Ormuz y Ras Laffan antes de publicar. Medios en `Media/Helio y poder - 70 segundos/`; el proceso y las decisiones están en [[Helium and power - Status]].
-> **Datos a:** 3-oct-2026. El guion depende de una guerra en curso (Ormuz, Ras Laffan): **rechequear antes de grabar** ([[Research - Helium]], afirmaciones 20 y 21).
-> **Pregunta central:** ¿qué pasa cuando un tercio del helio del mundo sale del mercado de golpe, y por qué nadie pudo reemplazarlo rápido?
-> **Duración:** 6 escenas, 8 tomas, **176 palabras** de narración. La voz generada mide **67,8 s de voz útil** (≈ 156 palabras por minuto); con las pausas entre escenas y el cierre, el render dura **71,9 s**. Para quedar en 70 s exactos se corta la última frase de la escena 4 ("En marzo, su precio se duplicó", ≈ 2 s).
+> **Language:** recorded in **Spanish** before the English-only decision of 3 Oct 2026. Each scene below gives the recorded Spanish narration (the exact text that was voiced) and an English translation. Image and sound prompts were always in English.
+> **Status (3 Oct 2026):** voice, sound and image generated and edited. **Render r1: `render/helio-70s-r1.mp4`, 71.9 s.** Your review of the whole video (P7) is missing, and Hormuz and Ras Laffan must be re-checked before publishing. Media in `Media/Helio y poder - 70 segundos/`; the process and decisions are in [[Helium and power - Status]].
+> **Data as of:** 3 Oct 2026. The script depends on a war under way (Hormuz, Ras Laffan): **re-check before recording** ([[Research - Helium]], claims 20 and 21).
+> **Central question:** what happens when a third of the world's helium leaves the market at once, and why could nobody replace it quickly?
+> **Duration:** 6 scenes, 8 shots, **176 words** of narration. The generated voice measures **67.8 s of useful voice** (≈ 156 words per minute); with the pauses between scenes and the close, the render lasts **71.9 s**. To land on exactly 70 s the last sentence of scene 4 is cut ("In March, its price doubled", ≈ 2 s).
 
-## Cambios en esta versión
+## Changes in this version
 
-Este guion es la versión recortada de una primera de 258 palabras (≈ 2 minutos); se pasó de 258 a 176 (−82), siguiendo la regla de la [[Narration guide]]: **se sacrifica el detalle lateral, no la cadena causa → efecto**.
+This script is the trimmed version of a first one of 258 words (≈ 2 minutes); it went from 258 to 176 (−82), following the [[Narration guide]] rule: **sacrifice the side detail, not the cause → effect chain**.
 
-| Escena | Se quitó | Se conserva |
+| Scene | Removed | Kept |
 | --- | --- | --- |
-| 1 | nada | el golpe: ataque, gas detenido, un tercio del helio |
-| 2 | "no es solo para globos", los 2.000 litros, la fibra óptica | qué enfría (resonancias) y para qué más se usa (chips); no hay sustituto |
-| 3 | los 190 millones de m³ y el desglose 43 / 33 / ≈ 10 % | los **tres países = 85 %** y el único paso por Ormuz |
-| 4 | Corea del Sur y Taiwán, los cuatro grados sobre el cero absoluto | por qué no hay colchón (se evapora) y el precio |
-| 5 | "tercera productora", "desde abril", "fuera de su unión aduanera" | los permisos rusos hasta 2027 y la reserva estadounidense vendida |
-| 6 | "reparar Ras Laffan, años" | cuatro a seis meses aun con Ormuz abierto, y la pregunta final |
+| 1 | nothing | the blow: attack, gas stopped, a third of the helium |
+| 2 | "it is not just for balloons", the 2,000 litres, optical fibre | what it cools (MRI) and what else it is used for (chips); there is no substitute |
+| 3 | the 190 million m³ and the 43 / 33 / ≈ 10 % breakdown | the **three countries = 85 %** and the single passage through Hormuz |
+| 4 | South Korea and Taiwan, the four degrees above absolute zero | why there is no cushion (it evaporates) and the price |
+| 5 | "third producer", "since April", "outside its customs union" | Russian permits until 2027 and the sold US reserve |
+| 6 | "repairing Ras Laffan, years" | four to six months even with Hormuz open, and the final question |
 
-- El **85 %** sale de USGS (81 + 63 + 18 de 190 millones de m³ = 85,3 %); ver [[Research - Helium]].
-- Las **cifras 43 / 33 / 9,5** ya no las dice la voz; **se mantienen en la imagen** de la toma 3a (se añaden en edición).
-- Lo que se quitó sigue en [[Research - Helium]] por si se quiere una versión larga.
+- The **85 %** comes from USGS (81 + 63 + 18 of 190 million m³ = 85.3 %); see [[Research - Helium]].
+- The **43 / 33 / 9.5 figures** are no longer said by the voice; **they stay in the image** of shot 3a (added in editing).
+- What was removed remains in [[Research - Helium]] in case a long version is wanted.
 
 ---
 
-## Índice
+## Index
 
-Estado: ✅ generado y montado. 
+Status: ✅ generated and edited.
 
-| Escena | Guion | Voz | Imagen | Sonido |
+| Scene | Script | Voice | Image | Sound |
 | --- | --- | --- | --- | --- |
-| 1 · Se apaga la antorcha | [[#Guion · 1 Se apaga la antorcha]] | ✅ [[#Voz · escena 1]] | ✅ [[#Imagen · toma 1]] | ✅ [[#Sonido · escena 1]] |
-| 2 · Lo que enfría | [[#Guion · 2 Lo que enfría]] | ✅ [[#Voz · escena 2]] | ✅ [[#Imagen · toma 2]] | ✅ [[#Sonido · escena 2]] |
-| 3 · Tres países y un paso | [[#Guion · 3 Tres países y un paso]] | ✅ [[#Voz · escena 3]] | ✅ [[#Imagen · toma 3a]] · [[#Imagen · toma 3b]] | — |
-| 4 · Sin colchón | [[#Guion · 4 Sin colchón]] | ✅ [[#Voz · escena 4]] | ✅ [[#Imagen · toma 4]] | ✅ [[#Sonido · escena 4]] |
-| 5 · Los demás | [[#Guion · 5 Los demás]] | ✅ [[#Voz · escena 5]] | ✅ [[#Imagen · toma 5a]] · [[#Imagen · toma 5b]] | — |
-| 6 · Lo que sostiene | [[#Guion · 6 Lo que sostiene]] | ✅ [[#Voz · escena 6]] | ✅ [[#Imagen · toma 6]] | — |
+| 1 · The flare goes out | [[#Script · 1 The flare goes out]] | ✅ [[#Voice · scene 1]] | ✅ [[#Image · shot 1]] | ✅ [[#Sound · scene 1]] |
+| 2 · What it cools | [[#Script · 2 What it cools]] | ✅ [[#Voice · scene 2]] | ✅ [[#Image · shot 2]] | ✅ [[#Sound · scene 2]] |
+| 3 · Three countries and a passage | [[#Script · 3 Three countries and one passage]] | ✅ [[#Voice · scene 3]] | ✅ [[#Image · shot 3a]] · [[#Image · shot 3b]] | — |
+| 4 · No cushion | [[#Script · 4 No cushion]] | ✅ [[#Voice · scene 4]] | ✅ [[#Image · shot 4]] | ✅ [[#Sound · scene 4]] |
+| 5 · The others | [[#Script · 5 The others]] | ✅ [[#Voice · scene 5]] | ✅ [[#Image · shot 5a]] · [[#Image · shot 5b]] | — |
+| 6 · What it holds up | [[#Script · 6 What it holds up]] | ✅ [[#Voice · scene 6]] | ✅ [[#Image · shot 6]] | — |
 
-Secciones: [[#Resumen]] · [[#Guion]] · [[#Prompts de voz]] · [[#Prompts de imagen]] · [[#Prompts de sonido]] · [[#Animación]] · [[#Montaje]] · [[#Presupuesto de generación]] · [[#Comprobación de la guía de narración]] · [[#Datos que revisar antes de grabar]]
-
----
-
-## Resumen
-
-**Hilo:** un gas que casi nadie nombra. La historia arranca con el golpe (la planta de Qatar que se detiene) y, en cada escena, explica lo que el oyente necesita para entender la siguiente: qué es, por qué importa, quién lo produce, por qué no hay colchón y por qué los demás no alcanzan. El cierre vuelve a la primera imagen con una pregunta.
-
-**Forma:** la tensión viene del contexto, no de la espera ([[Narration guide]]). La **única pausa intencional** es el corte del ruido de la planta en la escena 1.
-
-**Estilo visual:** bocetos detallados de diseño industrial (estilo visual de bocetos técnicos (retirado)). El **acento cobre-naranja** marca en cada lámina lo que importa: la llama de la antorcha (y su ausencia), el helio líquido, el petrolero, la válvula, la llave, el globo.
-
-**Reglas de escena**
-
-- Personas solo como manos o siluetas dibujadas; sin rostros ni personas reales.
-- Un solo movimiento lento por toma; cada toma tiene un fotograma inicial y uno final con el mismo encuadre.
-- Sin palabras dentro de la imagen; los números y rótulos reales (43 %, 33 %, 9,5 %…) se añaden en edición. Círculos con número sí se aceptan.
-- Los hechos reales son **reconstrucciones dibujadas y declaradas**, nunca fotografías.
+Sections: [[#Summary]] · [[#Script]] · [[#Voice prompts]] · [[#Image prompts]] · [[#Sound prompts]] · [[#Animation]] · [[#Editing]] · [[#Generation budget]] · [[#Narration guide check]] · [[#Data to check before recording]]
 
 ---
 
-## Guion
+## Summary
 
-#### Guion · 1 Se apaga la antorcha
+**Thread:** a gas almost nobody names. The story starts with the blow (the Qatar plant that stops) and, in each scene, explains what the listener needs to understand the next: what it is, why it matters, who produces it, why there is no cushion and why the others fall short. The close returns to the first image with a question.
 
-**Sonido:** zumbido grave y constante de una gran planta industrial, con el rugido lejano de una antorcha, bajo la voz. En la frase "Se detuvo el gas" **se corta de golpe a silencio**, medio segundo, y sigue la voz.
+**Form:** tension comes from context, not from waiting ([[Narration guide]]). The **only intentional pause** is the cut of the plant noise in scene 1.
 
-**Plano:** vista en perspectiva, ancha, de un enorme complejo de gas natural licuado al anochecer: bastidores de tuberías, tanques esféricos y cilíndricos, torres de proceso y un muelle largo en una costa plana al fondo. A la derecha, una chimenea alta con una antorcha encendida; **la llama es el único acento cobre-naranja**. Sin personas. Movimiento: avance lentísimo hacia la antorcha. **Final:** la misma lámina y encuadre, pero la antorcha está apagada: sin llama, sin cobre en toda la hoja, solo una columna fina de humo gris.
+**Visual style:** detailed industrial-design sketches (technical-sketch visual style (withdrawn)). The **copper-orange accent** marks in each plate what matters: the flare's flame (and its absence), the liquid helium, the tanker, the valve, the key, the balloon.
 
-**Emoción:** la calma antinatural de algo enorme que se detiene. Aire contenido.
+**Scene rules**
+
+- People only as hands or drawn silhouettes; no faces or real people.
+- A single slow movement per shot; each shot has an initial and a final frame with the same framing.
+- No words inside the image; real numbers and labels (43 %, 33 %, 9.5 %…) are added in editing. Numbered circles are accepted.
+- Real events are **drawn and declared reconstructions**, never photographs.
+
+---
+
+## Script
+
+#### Script · 1 The flare goes out
+
+**Sound:** a deep, constant hum of a large industrial plant, with the distant roar of a flare, under the voice. At the phrase "Se detuvo el gas" ("the gas stopped") **it cuts abruptly to silence**, half a second, and the voice continues.
+
+**Shot:** a wide perspective view of an enormous liquefied natural gas complex at dusk: pipe racks, spherical and cylindrical tanks, process towers and a long jetty on a flat coast in the background. On the right, a tall stack with a lit flare; **the flame is the only copper-orange accent**. No people. Movement: a very slow advance toward the flare. **End:** the same plate and framing, but the flare is out: no flame, no copper on the whole sheet, just a thin column of grey smoke.
+
+**Emotion:** the unnatural calm of something huge stopping. Held breath.
 
 > En marzo de 2026, ataques de Irán golpearon Ras Laffan, en Qatar, la mayor planta de gas natural licuado del mundo. Se detuvo el gas. Y con él, algo que casi nadie nombra: un tercio del helio del planeta.
+>
+> *In March 2026, attacks by Iran hit Ras Laffan, in Qatar, the world's largest liquefied natural gas plant. The gas stopped. And with it, something almost nobody names: a third of the planet's helium.*
 
-→ [[#Voz · escena 1]] · [[#Imagen · toma 1]] · [[#Sonido · escena 1]]
+→ [[#Voice · scene 1]] · [[#Image · shot 1]] · [[#Sound · scene 1]]
 
-#### Guion · 2 Lo que enfría
+#### Script · 2 What it cools
 
-**Sonido:** el golpeteo rítmico y grave de un escáner de resonancia magnética, en un cuarto cerrado, bajo la voz.
+**Sound:** the deep rhythmic knocking of an MRI scanner, in a closed room, under the voice.
 
-**Plano:** vista en corte de un escáner de resonancia magnética: la carcasa en perspectiva de tres cuartos, con una mitad cortada para mostrar el criostato cilíndrico, las bobinas superconductoras y el recipiente que las envuelve; una camilla en el túnel. Cotas y unos pocos círculos numerados. Grises fríos; **el único acento cobre-naranja es la fina cubierta que contiene el helio líquido alrededor de las bobinas**. Movimiento: acercamiento lento hacia las bobinas. **Final:** el mismo corte, más cerca: la cubierta de helio llena casi todo el cuadro, con unas flechas que muestran el frío entrando.
+**Shot:** a cutaway view of an MRI scanner: the housing in three-quarter perspective, with one half cut away to show the cylindrical cryostat, the superconducting coils and the vessel that wraps them; a stretcher in the tunnel. Dimension lines and a few numbered circles. Cool greys; **the only copper-orange accent is the thin shell that holds the liquid helium around the coils**. Movement: slow zoom toward the coils. **End:** the same cut, closer: the helium shell fills almost the whole frame, with arrows showing the cold flowing in.
 
-**Emoción:** asombro callado ante lo que sostiene lo cotidiano; un leve vértigo.
+**Emotion:** quiet wonder at what holds up the everyday; a slight vertigo.
 
 > El helio enfría los imanes de las resonancias magnéticas y se usa para fabricar chips. Para temperaturas extremas, nada lo reemplaza.
+>
+> *Helium cools the magnets of MRI scanners and is used to make chips. For extreme temperatures, nothing replaces it.*
 
-→ [[#Voz · escena 2]] · [[#Imagen · toma 2]] · [[#Sonido · escena 2]]
+→ [[#Voice · scene 2]] · [[#Image · shot 2]] · [[#Sound · scene 2]]
 
-#### Guion · 3 Tres países y un paso
+#### Script · 3 Three countries and one passage
 
-**Plano 3a (~9 s):** lámina de diseño con tres tanques de gas a presión, de pie en una misma línea como un gráfico de barras, con alturas proporcionales a 43, 33 y 9,5: el primero el más alto, el segundo algo más bajo, el tercero pequeño. Cada uno con un círculo numerado (1, 2, 3) y una cota vertical. Grises fríos; **el tanque del medio (Qatar) lleva el único acento cobre-naranja**. Movimiento: plano fijo, con un acercamiento mínimo. **Final:** los tres tanques agrupados por un solo corchete y una cota común, sin cambios en los tanques.
+**Shot 3a (~9 s):** a design sheet with three pressurised gas tanks standing on one line like a bar chart, with heights proportional to 43, 33 and 9.5: the first the tallest, the second somewhat lower, the third small. Each with a numbered circle (1, 2, 3) and a vertical dimension. Cool greys; **the middle tank (Qatar) carries the only copper-orange accent**. Movement: fixed shot, with a minimal zoom. **End:** the three tanks grouped by a single bracket and a common dimension, with no changes to the tanks.
 
-**Emoción 3a:** el temor lento de ver cuán poco está repartido.
+**Emotion 3a:** the slow dread of seeing how little is distributed.
 
-**Plano 3b (~10 s):** vista cenital inclinada de un estrecho: dos costas de tierra rayada que aprietan un canal delgado de agua en gris plano, y un petrolero que entra por la izquierda, con una ruta punteada a través del canal. **El petrolero es el único acento cobre-naranja.** Cotas en el punto más estrecho. Movimiento: acercamiento lento al punto más estrecho. **Final:** la ruta se corta antes del punto más estrecho por una marca de barrera (dos trazos gruesos cruzados), con el petrolero detenido justo antes.
+**Shot 3b (~10 s):** an inclined overhead view of a strait: two coasts of hatched land squeezing a thin channel of flat grey water, and a tanker entering from the left, with a dotted route through the channel. **The tanker is the only copper-orange accent.** Dimensions at the narrowest point. Movement: slow zoom to the narrowest point. **End:** the route is cut before the narrowest point by a barrier mark (two heavy crossed strokes), with the tanker stopped just before.
 
-**Emoción 3b:** claustrofobia: un solo camino y está cerrado.
+**Emotion 3b:** claustrophobia: a single road and it is closed.
 
 > Tres países producen el 85 %: Estados Unidos, Qatar y Rusia. Y casi todo el helio de Qatar sale por un solo paso, el estrecho de Ormuz, que la guerra dejó casi cerrado.
+>
+> *Three countries produce 85 %: the United States, Qatar and Russia. And almost all of Qatar's helium leaves through a single passage, the Strait of Hormuz, which the war left almost closed.*
 
-→ [[#Voz · escena 3]] · [[#Imagen · toma 3a]] · [[#Imagen · toma 3b]]
+→ [[#Voice · scene 3]] · [[#Image · shot 3a]] · [[#Image · shot 3b]]
 
-#### Guion · 4 Sin colchón
+#### Script · 4 No cushion
 
-**Sonido:** un siseo grave y constante de gas frío que se escapa despacio de un contenedor, con crujidos tenues de metal.
+**Sound:** a deep, constant hiss of cold gas escaping slowly from a container, with faint metal creaks.
 
-**Plano:** vista en corte de un contenedor criogénico de transporte: un cilindro alto de doble pared sobre un bastidor, con la carcasa exterior cortada para mostrar el recipiente interior lleno hasta arriba de líquido, una cámara de vacío fina rayada y válvulas arriba. **El líquido y la línea de nivel son el único acento cobre-naranja.** Cota de la altura y círculos numerados. Movimiento: plano fijo con acercamiento mínimo. **Final:** el mismo corte y encuadre, con el nivel bajado a un tercio, el espacio de arriba vacío y rayado, y finas líneas de vapor que suben hacia las válvulas; el cobre queda solo en el líquido restante.
+**Shot:** a cutaway view of a cryogenic transport container: a tall double-walled cylinder on a frame, with the outer shell cut away to show the inner vessel filled to the top with liquid, a thin hatched vacuum chamber and valves on top. **The liquid and the level line are the only copper-orange accent.** Height dimension and numbered circles. Movement: fixed shot with minimal zoom. **End:** the same cut and framing, with the level lowered to a third, the space above empty and hatched, and thin vapour lines rising toward the valves; the copper stays only in the remaining liquid.
 
-**Emoción:** la inquietud lenta de algo que se escapa mientras se espera.
+**Emotion:** the slow unease of something escaping while you wait.
 
 > No se puede almacenar: viaja líquido y, a las seis semanas, se evapora. En marzo, su precio se duplicó.
+>
+> *It cannot be stored: it travels as a liquid and, after six weeks, it evaporates. In March, its price doubled.*
 
-→ [[#Voz · escena 4]] · [[#Imagen · toma 4]] · [[#Sonido · escena 4]]
+→ [[#Voice · scene 4]] · [[#Image · shot 4]] · [[#Sound · scene 4]]
 
-#### Guion · 5 Los demás
+#### Script · 5 The others
 
-**Plano 5a (~10 s) · Rusia:** lámina de una tubería larga que sale de una planta de proceso a la izquierda y corre hacia una valla fronteriza a la derecha, con una gran válvula de rueda a medio camino. Perspectiva, rayado, algunos círculos numerados. **La rueda de la válvula es el único acento cobre-naranja**, dibujada abierta. Movimiento: avance lento por la tubería. **Final:** la misma lámina, con la válvula cerrada, un candado grueso colgado y un sello redondo al lado (una forma simple, sin texto legible); válvula y candado en cobre-naranja.
+**Shot 5a (~10 s) · Russia:** a plate of a long pipeline leaving a process plant on the left and running toward a border fence on the right, with a large wheel valve halfway. Perspective, hatching, a few numbered circles. **The valve wheel is the only copper-orange accent**, drawn open. Movement: slow advance along the pipe. **End:** the same plate, with the valve closed, a thick padlock hanging and a round seal beside it (a simple shape, no legible text); valve and padlock in copper-orange.
 
-**Emoción 5a:** frialdad burocrática de un gesto mínimo con consecuencias grandes.
+**Emotion 5a:** the bureaucratic coldness of a minimal gesture with big consequences.
 
-**Plano 5b (~12 s) · Estados Unidos:** vista en corte del subsuelo con una caverna de almacenamiento, un pozo y una tubería desde una planta en superficie, en grises fríos con capas de roca rayadas. Arriba, una mano (en línea de contorno, sin rostro) ofrece una llave hacia el borde derecho. **La llave es el único acento cobre-naranja.** Movimiento: plano fijo. **Final:** una segunda mano recibe la llave de la primera; la caverna y la tubería, sin cambios.
+**Shot 5b (~12 s) · United States:** a cutaway of the subsurface with a storage cavern, a well and a pipeline from a surface plant, in cool greys with hatched rock layers. Above, a hand (in contour line, no face) offers a key toward the right edge. **The key is the only copper-orange accent.** Movement: fixed shot. **End:** a second hand receives the key from the first; the cavern and pipeline, unchanged.
 
-**Emoción 5b:** entrega silenciosa: algo público pasa a manos privadas.
+**Emotion 5b:** silent handover: something public passes into private hands.
 
 > Rusia exige permisos para exportarlo hasta fines de 2027. Estados Unidos, el mayor productor, vendió su reserva federal a una empresa privada en 2024 y no cubre lo que falta.
+>
+> *Russia demands permits to export it until the end of 2027. The United States, the largest producer, sold its federal reserve to a private company in 2024 and does not cover what is missing.*
 
-→ [[#Voz · escena 5]] · [[#Imagen · toma 5a]] · [[#Imagen · toma 5b]]
+→ [[#Voice · scene 5]] · [[#Image · shot 5a]] · [[#Image · shot 5b]]
 
-#### Guion · 6 Lo que sostiene
+#### Script · 6 What it holds up
 
-**Plano:** estudio de diseño de un globo de helio flotando atado a una cuerda, en perspectiva de tres cuartos, con un corte que muestra el gas dentro y finas líneas de llamada que salen hacia el espacio vacío alrededor. **El globo es el único acento cobre-naranja.** Trazo suelto, ánimo tranquilo. Movimiento: retroceso lentísimo. **Final:** cada línea de llamada termina ahora en un dibujo diminuto en grises fríos: un petrolero, una planta de proceso, un escáner de resonancia, un chip, una válvula y una cama de hospital, dispuestos alrededor del globo como un diagrama de dependencias.
+**Shot:** a design study of a helium balloon floating on a tether, in three-quarter perspective, with a cut showing the gas inside and thin leader lines going out into the empty space around it. **The balloon is the only copper-orange accent.** Loose line, calm mood. Movement: a very slow pull-back. **End:** each leader line now ends in a tiny drawing in cool greys: a tanker, a process plant, an MRI scanner, a chip, a valve and a hospital bed, arranged around the balloon like a dependency diagram.
 
-**Emoción:** ternura cotidiana y un pequeño escalofrío: todo esto se sostiene de algo que no vemos.
+**Emotion:** everyday tenderness and a small chill: all this hangs from something we do not see.
 
 > Aun si Ormuz reabre, normalizar el suministro tomaría de cuatro a seis meses. Un gas que casi nadie nombra sostiene hospitales y fábricas de chips. ¿Qué más depende de tres países y un estrecho?
+>
+> *Even if Hormuz reopens, normalising supply would take four to six months. A gas almost nobody names holds up hospitals and chip factories. What else depends on three countries and a strait?*
 
-*Cierre: sin música ni "suscríbete"; la lámina se queda un segundo y corta a negro.*
+*Close: no music and no "subscribe"; the plate stays for a second and cuts to black.*
 
-→ [[#Voz · escena 6]] · [[#Imagen · toma 6]]
+→ [[#Voice · scene 6]] · [[#Image · shot 6]]
 
 ---
 
-## Prompts de voz
+## Voice prompts
 
-**Generado el 3-oct-2026.** `qwen/qwen3-tts`: `voice_design` en la escena 1 y `voice_clone` desde esa toma en las demás, según [[Channel models]] y [[Channel voice]]. Las 5 clonaciones usaron la toma de la escena 1 como referencia, así que comparten timbre; no puedo oírlo, **lo verificas tú al ver el video (P7)**.
+**Generated on 3 Oct 2026.** `qwen/qwen3-tts`: `voice_design` in scene 1 and `voice_clone` from that take in the others, per [[Channel models]] and [[Channel voice]]. The 5 clonings used the scene 1 take as reference, so they share timbre; I cannot hear it, **you verify it when watching the video (P7)**.
 
-### Perfil de voz · decidido: B, narrador más joven y ágil
+### Voice profile · decided: B, younger and brisker narrator
 
-Perfil **B** elegido por el usuario (3-oct-2026): un narrador más joven y de ritmo ágil, que responde al feedback de que la narración iba lenta ([[Narration guide]]).
+Profile **B** chosen by the user (3 Oct 2026): a younger narrator with a brisk pace, answering the feedback that the narration was slow ([[Narration guide]]).
 
 - **`voice_description`:** *A calm, clear middle-aged male documentary narrator with a deep, warm voice and a slight rasp. Agile, confident and informative, with a natural brisk pace and no dramatic pauses.*
 - **`style_instruction`:** *speak at a brisk, fluent, steady pace in a calm, informative documentary tone*
-- **Escena 1:** `voice_design` (crea la voz). **Escenas 2–6:** `voice_clone` con la toma de la escena 1 como referencia y su texto como transcripción.
-- **Descartado sin probar:** el perfil A (un narrador mayor y áspero, con ritmo ágil).
+- **Scene 1:** `voice_design` (creates the voice). **Scenes 2–6:** `voice_clone` with the scene 1 take as reference and its text as transcript.
+- **Discarded without testing:** profile A (an older, rough narrator with a brisk pace).
 
-Idioma: español. Se lee el texto de la escena **tal cual**; las cifras como se dicen. Si el modelo las lee mal, se anota el cambio.
+Language: Spanish. The scene text is read **as is**; figures as they are said. If the model misreads them, the change is noted.
 
-### Voz · escena 1
-- **Texto:** En marzo de 2026, ataques de Irán golpearon Ras Laffan, en Qatar, la mayor planta de gas natural licuado del mundo. Se detuvo el gas. Y con él, algo que casi nadie nombra: un tercio del helio del planeta.
-- **Modo:** `voice_design` con el perfil B (crea la voz). Estado: ✅ **P5 aprobada** (3-oct-2026).
+### Voice · scene 1
+- **Text:** the recorded Spanish text of scene 1 (above).
+- **Mode:** `voice_design` with profile B (creates the voice). Status: ✅ **P5 approved** (3 Oct 2026).
 
-| Duración | Palabras | Ritmo | Prediction | Archivo |
+| Duration | Words | Pace | Prediction | File |
 | --- | --- | --- | --- | --- |
-| 15,2 s | 39 | ≈ 154 palabras por minuto | [`hm4md5y4b9rmw0d10379j2jtvg`](https://replicate.com/p/hm4md5y4b9rmw0d10379j2jtvg) | `helio-e1-voz-qwen-design-v1.wav` |
+| 15.2 s | 39 | ≈ 154 words per minute | [`hm4md5y4b9rmw0d10379j2jtvg`](https://replicate.com/p/hm4md5y4b9rmw0d10379j2jtvg) | `helio-e1-voz-qwen-design-v1.wav` |
 
 ![[helio-e1-voz-qwen-design-v1.wav]]
 
-No puedo escuchar el audio, así que **el timbre, la claridad y si suena "ágil" las juzgas tú**. Lo que sí medí: la escena 1 va a ≈ 154 palabras por minuto, y con las seis tomas generadas suman **67,8 s de voz útil** (sin silencios de entrada y salida), ≈ 156 palabras por minuto.
+I cannot listen to the audio, so **the timbre, the clarity and whether it sounds "brisk" are for you to judge**. What I did measure: scene 1 runs at ≈ 154 words per minute, and with the six takes generated they add up to **67.8 s of useful voice** (without entry and exit silences), ≈ 156 words per minute.
 
-### Voz · escena 2
-- **Texto:** El helio enfría los imanes de las resonancias magnéticas y se usa para fabricar chips. Para temperaturas extremas, nada lo reemplaza.
-- **Modo:** `voice_clone` desde la escena 1. Estado: ✅ generado
+### Voice · scene 2
+- **Text:** recorded Spanish of scene 2 (above).
+- **Mode:** `voice_clone` from scene 1. Status: ✅ generated
 
-| Duración | Voz útil | Prediction | Archivo |
+| Duration | Useful voice | Prediction | File |
 | --- | --- | --- | --- |
-| 10,2 s | 9,1 s | [`djffsf29tsrmr0d103d8r92g9w`](https://replicate.com/p/djffsf29tsrmr0d103d8r92g9w) | `helio-e2-voz-qwen-design-v1.wav` |
+| 10.2 s | 9.1 s | [`djffsf29tsrmr0d103d8r92g9w`](https://replicate.com/p/djffsf29tsrmr0d103d8r92g9w) | `helio-e2-voz-qwen-design-v1.wav` |
 
 ![[helio-e2-voz-qwen-design-v1.wav]]
 
-### Voz · escena 3
-- **Texto leído:** Tres países producen el ochenta y cinco por ciento: Estados Unidos, Qatar y Rusia. Y casi todo el helio de Qatar sale por un solo paso, el estrecho de Ormuz, que la guerra dejó casi cerrado.
-- **Modo:** `voice_clone`. Estado: ✅ generado
+### Voice · scene 3
+- **Text read:** Spanish of scene 3, with "85 %" read as "ochenta y cinco por ciento" (*eighty-five percent*).
+- **Mode:** `voice_clone`. Status: ✅ generated
 
-| Duración | Voz útil | Prediction | Archivo |
+| Duration | Useful voice | Prediction | File |
 | --- | --- | --- | --- |
-| 12,2 s | 11,6 s | [`93wt9n2c4xrmw0d103daw640j0`](https://replicate.com/p/93wt9n2c4xrmw0d103daw640j0) | `helio-e3-voz-qwen-design-v1.wav` |
+| 12.2 s | 11.6 s | [`93wt9n2c4xrmw0d103daw640j0`](https://replicate.com/p/93wt9n2c4xrmw0d103daw640j0) | `helio-e3-voz-qwen-design-v1.wav` |
 
 ![[helio-e3-voz-qwen-design-v1.wav]]
 
-### Voz · escena 4
-- **Texto:** No se puede almacenar: viaja líquido y, a las seis semanas, se evapora. En marzo, su precio se duplicó.
-- **Modo:** `voice_clone`. Estado: ✅ generado
+### Voice · scene 4
+- **Text:** Spanish of scene 4.
+- **Mode:** `voice_clone`. Status: ✅ generated
 
-| Duración | Voz útil | Prediction | Archivo |
+| Duration | Useful voice | Prediction | File |
 | --- | --- | --- | --- |
-| 9,0 s | 8,1 s | [`78zgasj81hrmy0d103dayemvq4`](https://replicate.com/p/78zgasj81hrmy0d103dayemvq4) | `helio-e4-voz-qwen-design-v1.wav` |
+| 9.0 s | 8.1 s | [`78zgasj81hrmy0d103dayemvq4`](https://replicate.com/p/78zgasj81hrmy0d103dayemvq4) | `helio-e4-voz-qwen-design-v1.wav` |
 
 ![[helio-e4-voz-qwen-design-v1.wav]]
 
-### Voz · escena 5
-- **Texto:** Rusia exige permisos para exportarlo hasta fines de 2027. Estados Unidos, el mayor productor, vendió su reserva federal a una empresa privada en 2024 y no cubre lo que falta.
-- **Modo:** `voice_clone`. Estado: ✅ generado
+### Voice · scene 5
+- **Text:** Spanish of scene 5.
+- **Mode:** `voice_clone`. Status: ✅ generated
 
-| Duración | Voz útil | Prediction | Archivo |
+| Duration | Useful voice | Prediction | File |
 | --- | --- | --- | --- |
-| 13,3 s | 12,2 s | [`5d5ch9j931rmr0d103d8w81w24`](https://replicate.com/p/5d5ch9j931rmr0d103d8w81w24) | `helio-e5-voz-qwen-design-v1.wav` |
+| 13.3 s | 12.2 s | [`5d5ch9j931rmr0d103d8w81w24`](https://replicate.com/p/5d5ch9j931rmr0d103d8w81w24) | `helio-e5-voz-qwen-design-v1.wav` |
 
 ![[helio-e5-voz-qwen-design-v1.wav]]
 
-### Voz · escena 6
-- **Texto:** Aun si Ormuz reabre, normalizar el suministro tomaría de cuatro a seis meses. Un gas que casi nadie nombra sostiene hospitales y fábricas de chips. ¿Qué más depende de tres países y un estrecho?
-- **Modo:** `voice_clone`. Estado: ✅ generado
+### Voice · scene 6
+- **Text:** Spanish of scene 6.
+- **Mode:** `voice_clone`. Status: ✅ generated
 
-| Duración | Voz útil | Prediction | Archivo |
+| Duration | Useful voice | Prediction | File |
 | --- | --- | --- | --- |
-| 12,6 s | 11,9 s | [`51225r2a09rmt0d103dbj5mjsc`](https://replicate.com/p/51225r2a09rmt0d103dbj5mjsc) | `helio-e6-voz-qwen-design-v1.wav` |
+| 12.6 s | 11.9 s | [`51225r2a09rmt0d103dbj5mjsc`](https://replicate.com/p/51225r2a09rmt0d103dbj5mjsc) | `helio-e6-voz-qwen-design-v1.wav` |
 
 ![[helio-e6-voz-qwen-design-v1.wav]]
 
 ---
 
-## Prompts de imagen
+## Image prompts
 
-**Generado el 3-oct-2026** con `black-forest-labs/flux-2-pro`, 1 MP, PNG: iniciales en 16:9 y finales con `match_input_image`. Cada prompt lleva **al final** el bloque de estilo de estilo visual de bocetos técnicos (retirado). Como imagen de referencia de estilo se pasa `estilo-iman-v1.png` (de `Media/_canal/estilo/`), y cada fotograma final recibe además **su inicial como entrada** para conservar el encuadre.
+**Generated on 3 Oct 2026** with `black-forest-labs/flux-2-pro`, 1 MP, PNG: initials in 16:9 and finals with `match_input_image`. Each prompt carries **at the end** the style block of the technical-sketch visual style (withdrawn). As the style reference image `estilo-iman-v1.png` is passed (from `Media/_canal/estilo/`), and each final frame also receives **its initial as input** to keep the framing.
 
-**Bloque de estilo (se agrega al final de todos):**
+**Style block (added at the end of all):**
 
 ```
 Detailed industrial design concept sketch on warm off-white paper: confident black ink and graphite linework with visible light construction lines, cross-hatching and contour hatching for volume, flat cool-grey marker fills in several tones, and a single copper-orange marker accent reserved for the one thing that matters. Technical-drawing feel: three-quarter perspective, cutaway and exploded views where useful, dimension lines, arrows, numbered callout circles and motion lines, but no readable text, no letters or numbers inside the drawing. Clearly a hand-drawn design sheet, not a photograph, not a 3D render, no faces, no logos.
 ```
 
-Prefijo de las cinco imágenes que no sean la primera de cada tanda: *"Draw it in exactly the same drawing style, line quality, paper and marker palette as the reference image."*
+Prefix of the five images that are not the first of each batch: *"Draw it in exactly the same drawing style, line quality, paper and marker palette as the reference image."*
 
-### Imagen · toma 1
-- **Inicial:** *A wide perspective sketch of a huge liquefied natural gas processing complex at dusk: rows of tall pipe racks, spherical and cylindrical storage tanks, process towers and a long jetty on a flat coast in the distance, a tall flare stack on the right burning with a bright flame. Loose confident linework, light construction lines to a vanishing point, hatching for shadows, no people. The flame is the only copper-orange accent. Calm, held-breath mood.*
-- **Final** (con el inicial como entrada): *The same sketch, same framing and same view, but the flare stack is now cold: no flame, no copper-orange anywhere on the sheet, only a thin grey wisp of smoke; everything in cool greys, still and silent.*
-- Estado: ✅ **P5 aprobada** (3-oct-2026).
+### Image · shot 1
+- **Initial:** *A wide perspective sketch of a huge liquefied natural gas processing complex at dusk: rows of tall pipe racks, spherical and cylindrical storage tanks, process towers and a long jetty on a flat coast in the distance, a tall flare stack on the right burning with a bright flame. Loose confident linework, light construction lines to a vanishing point, hatching for shadows, no people. The flame is the only copper-orange accent. Calm, held-breath mood.*
+- **Final** (with the initial as input): *The same sketch, same framing and same view, but the flare stack is now cold: no flame, no copper-orange anywhere on the sheet, only a thin grey wisp of smoke; everything in cool greys, still and silent.*
+- Status: ✅ **P5 approved** (3 Oct 2026).
 
-| Fotograma | Semilla | Prediction                                                                         | Archivo             |
+| Frame | Seed | Prediction | File |
 | --------- | ------- | ---------------------------------------------------------------------------------- | ------------------- |
-| Inicial   | 401     | [`pz3nrky8gsrmt0d103797gax58`](https://replicate.com/p/pz3nrky8gsrmt0d103797gax58) | `helio-e1-inicial-v1.png` |
-| Final     | 402     | [`xqqx9y9jdnrmr0d1037rfs04gc`](https://replicate.com/p/xqqx9y9jdnrmr0d1037rfs04gc) | `helio-e1-final-v1.png`   |
+| Initial | 401 | [`pz3nrky8gsrmt0d103797gax58`](https://replicate.com/p/pz3nrky8gsrmt0d103797gax58) | `helio-e1-inicial-v1.png` |
+| Final | 402 | [`xqqx9y9jdnrmr0d1037rfs04gc`](https://replicate.com/p/xqqx9y9jdnrmr0d1037rfs04gc) | `helio-e1-final-v1.png` |
 
-El inicial usó `estilo-iman-v1.png` como referencia de estilo; el final recibió el inicial como entrada.
+The initial used `estilo-iman-v1.png` as style reference; the final received the initial as input.
 
 ![[helio-e1-inicial-v1.png]]
 ![[helio-e1-final-v1.png]]
 
-**Revisión a la vista:** el estilo coincide con el set de referencia y la antorcha cobre-naranja del inicial desaparece en el final, que es lo que pide el plano. Desviaciones: el inicial trae **muchos círculos numerados** que recargan la lámina (en el final quedan vacíos); quedan **puntitos naranjas** en barandillas y luces que diluyen el "único acento"; el papel del final es algo más cálido. Si no te convence, se ajusta el prompt (menos llamadas, "no other orange on the sheet") antes de generar las otras 7 tomas.
+**Visual review:** the style matches the reference set and the copper-orange flare of the initial disappears in the final, which is what the shot asks. Deviations: the initial has **many numbered circles** that overload the plate (empty in the final); **orange dots** remain on railings and lights that dilute the "only accent"; the paper of the final is somewhat warmer. If it does not convince you, the prompt is adjusted (fewer callouts, "no other orange on the sheet") before generating the other 7 shots.
 
-Aprobada en P5 (3-oct-2026): los dos fotogramas, tal como están.
+Approved at P5 (3 Oct 2026): both frames, as they are.
 
-### Imagen · toma 2
-- **Inicial:** *A cutaway view of a magnetic resonance imaging scanner: the outer housing in three-quarter perspective with one half cut away to show the cylindrical cryostat inside, the superconducting coil windings and a vessel around them; a stretcher in the bore. Dimension lines and a few numbered callout circles. Cool grey markers for the housing and coils, and the single copper-orange accent only on the thin shell of the vessel that holds the liquid helium around the coils.*
+### Image · shot 2
+- **Initial:** *A cutaway view of a magnetic resonance imaging scanner: the outer housing in three-quarter perspective with one half cut away to show the cylindrical cryostat inside, the superconducting coil windings and a vessel around them; a stretcher in the bore. Dimension lines and a few numbered callout circles. Cool grey markers for the housing and coils, and the single copper-orange accent only on the thin shell of the vessel that holds the liquid helium around the coils.*
 - **Final:** *The same cutaway, now closer on the coil section: the copper-orange helium vessel wrapping the coil windings fills most of the frame, with a few arrows showing cold flowing inward and a couple of numbered callout circles. Same style and paper.*
-- Estado: ✅ generado
+- Status: ✅ generated
 
-| Fotograma | Semilla | Prediction | Archivo |
+| Frame | Seed | Prediction | File |
 | --- | --- | --- | --- |
-| Inicial (v2) | 421 | [`dagpx4prz9rmw0d103h9h3qhbr`](https://replicate.com/p/dagpx4prz9rmw0d103h9h3qhbr) | `helio-e2-inicial-v2.png` |
+| Initial (v2) | 421 | [`dagpx4prz9rmw0d103h9h3qhbr`](https://replicate.com/p/dagpx4prz9rmw0d103h9h3qhbr) | `helio-e2-inicial-v2.png` |
 | Final | 431 | [`78bgkmp3h5rmy0d103jap5s68w`](https://replicate.com/p/78bgkmp3h5rmy0d103jap5s68w) | `helio-e2-final-v1.png` |
 
 ![[helio-e2-inicial-v2.png]]
 ![[helio-e2-final-v1.png]]
 
-**Revisión:** la v2 muestra el corte con las capas y la cubierta de helio en cobre alrededor de las bobinas; la v1 tenía un rótulo ilegible en la carcasa y se descartó. El final se acerca a las bobinas y la cubierta cobre llena el cuadro.
+**Review:** v2 shows the cutaway with the layers and the copper helium shell around the coils; v1 had an illegible label on the housing and was discarded. The final zooms in on the coils and the copper shell fills the frame.
 
-### Imagen · toma 3a
-- **Inicial:** *A design sheet showing three tall pressurized gas storage tanks side by side on one shared line like a bar chart, heights proportional to 43, 33 and 9.5: the first tallest, the second somewhat shorter, the third small. Each with a numbered callout circle 1, 2, 3 and a vertical dimension line. Cool grey markers; the middle tank carries the single copper-orange accent. No other text.*
+### Image · shot 3a
+- **Initial:** *A design sheet showing three tall pressurized gas storage tanks side by side on one shared line like a bar chart, heights proportional to 43, 33 and 9.5: the first tallest, the second somewhat shorter, the third small. Each with a numbered callout circle 1, 2, 3 and a vertical dimension line. Cool grey markers; the middle tank carries the single copper-orange accent. No other text.*
 - **Final:** *The same three tanks, now grouped by one light bracket line and a single shared dimension line with one callout circle; the tanks unchanged.*
-- Estado: ✅ generado
+- Status: ✅ generated
 
-| Fotograma | Semilla | Prediction | Archivo |
+| Frame | Seed | Prediction | File |
 | --- | --- | --- | --- |
-| Inicial (v2) | 422 | [`0yjtav8ntdrmw0d103htm67s8w`](https://replicate.com/p/0yjtav8ntdrmw0d103htm67s8w) | `helio-e3a-inicial-v2.png` |
+| Initial (v2) | 422 | [`0yjtav8ntdrmw0d103htm67s8w`](https://replicate.com/p/0yjtav8ntdrmw0d103htm67s8w) | `helio-e3a-inicial-v2.png` |
 | Final | 432 | [`09ej60fxw9rmy0d103japff9r8`](https://replicate.com/p/09ej60fxw9rmy0d103japff9r8) | `helio-e3a-final-v1.png` |
 
 ![[helio-e3a-inicial-v2.png]]
 ![[helio-e3a-final-v1.png]]
 
-**Desviación:** los tres tanques salen **de la misma altura**, no proporcionales a 43 / 33 / 9,5 (el modelo ignoró la proporción); el del medio es el cobre. Las cifras 43, 33 y 9,5 aparecen como cotas en el inicial y se añaden/ajustan en edición. El final agrupa los tres con un corchete. La v1 tenía los tanques solapados y una pieza ajena.
+**Deviation:** the three tanks come out **at the same height**, not proportional to 43 / 33 / 9.5 (the model ignored the proportion); the middle one is the copper one. The figures 43, 33 and 9.5 appear as dimensions in the initial and are added/adjusted in editing. The final groups the three with a bracket. v1 had overlapping tanks and a foreign piece.
 
-### Imagen · toma 3b
-- **Inicial:** *A design view of a narrow sea strait seen from above at an angle: two coastlines of hatched land pinching a thin channel of flat cool-grey marker water, a single tanker ship entering the channel from the left with a dashed route line through it. The tanker is the only copper-orange accent. Construction lines and a dimension line across the narrowest point.*
+### Image · shot 3b
+- **Initial:** *A design view of a narrow sea strait seen from above at an angle: two coastlines of hatched land pinching a thin channel of flat cool-grey marker water, a single tanker ship entering the channel from the left with a dashed route line through it. The tanker is the only copper-orange accent. Construction lines and a dimension line across the narrowest point.*
 - **Final:** *The same strait and framing, the dashed route now stopped before the narrowest point by a bold barrier mark across the channel (two heavy crossed strokes), the tanker halted just before it, still copper-orange.*
-- Estado: ✅ generado
+- Status: ✅ generated
 
-| Fotograma | Semilla | Prediction | Archivo |
+| Frame | Seed | Prediction | File |
 | --- | --- | --- | --- |
-| Inicial (v2) | 423 | [`dfcebhvcj5rmr0d103hskf7phm`](https://replicate.com/p/dfcebhvcj5rmr0d103hskf7phm) | `helio-e3b-inicial-v2.png` |
+| Initial (v2) | 423 | [`dfcebhvcj5rmr0d103hskf7phm`](https://replicate.com/p/dfcebhvcj5rmr0d103hskf7phm) | `helio-e3b-inicial-v2.png` |
 | Final | 433 | [`crpay9sqz1rmy0d103jt7bt3cr`](https://replicate.com/p/crpay9sqz1rmy0d103jt7bt3cr) | `helio-e3b-final-v1.png` |
 
 ![[helio-e3b-inicial-v2.png]]
 ![[helio-e3b-final-v1.png]]
 
-**Revisión:** el petrolero es el único acento cobre; el final detiene la ruta con una barrera negra gruesa (una "X" pesada) y el barco justo antes. La v1 traía un "10 m" escrito y cápsulas sueltas en las esquinas.
+**Review:** the tanker is the only copper accent; the final stops the route with a thick black barrier (a heavy "X") and the ship just before. v1 had a written "10 m" and loose capsules in the corners.
 
-### Imagen · toma 4
-- **Inicial:** *A cutaway of a cryogenic transport container: a tall double-walled insulated cylinder on a frame, the outer shell cut away to show the inner vessel filled to the top with liquid, a thin hatched vacuum gap and valves on top. The liquid and its level line are the single copper-orange accent. A dimension line for the height and numbered callout circles.*
+### Image · shot 4
+- **Initial:** *A cutaway of a cryogenic transport container: a tall double-walled insulated cylinder on a frame, the outer shell cut away to show the inner vessel filled to the top with liquid, a thin hatched vacuum gap and valves on top. The liquid and its level line are the single copper-orange accent. A dimension line for the height and numbered callout circles.*
 - **Final:** *The same cutaway and framing, but the liquid level has dropped to about a third, the space above it empty and hatched, small curling vapor lines rising from the surface toward the valves, the remaining liquid still copper-orange.*
-- Estado: ✅ generado
+- Status: ✅ generated
 
-| Fotograma | Semilla | Prediction | Archivo |
+| Frame | Seed | Prediction | File |
 | --- | --- | --- | --- |
-| Inicial | 414 | [`j869bx4hfnrmw0d103gvcmqkgm`](https://replicate.com/p/j869bx4hfnrmw0d103gvcmqkgm) | `helio-e4-inicial-v1.png` |
+| Initial | 414 | [`j869bx4hfnrmw0d103gvcmqkgm`](https://replicate.com/p/j869bx4hfnrmw0d103gvcmqkgm) | `helio-e4-inicial-v1.png` |
 | Final | 434 | [`b8ebe0bm4xrmr0d103js60gt0w`](https://replicate.com/p/b8ebe0bm4xrmr0d103js60gt0w) | `helio-e4-final-v1.png` |
 
 ![[helio-e4-inicial-v1.png]]
 ![[helio-e4-final-v1.png]]
 
-**Revisión:** el contenedor en corte funciona y el nivel del líquido baja a un tercio con vapor que sube; el cobre queda solo en el líquido. Aprobada a la primera.
+**Review:** the cutaway container works and the liquid level drops to a third with rising vapour; the copper stays only in the liquid. Approved first time.
 
-### Imagen · toma 5a
-- **Inicial:** *A design sheet of a long pipeline leaving an industrial gas-processing plant on the left and running toward a border fence on the right, with a large wheel valve halfway along the line. Perspective sketch, hatching, a few numbered callout circles. The valve wheel is the single copper-orange accent, drawn open.*
+### Image · shot 5a
+- **Initial:** *A design sheet of a long pipeline leaving an industrial gas-processing plant on the left and running toward a border fence on the right, with a large wheel valve halfway along the line. Perspective sketch, hatching, a few numbered callout circles. The valve wheel is the single copper-orange accent, drawn open.*
 - **Final:** *The same sheet and framing, the pipeline unchanged, but the wheel valve is now turned shut, a heavy padlock hanging on it and a round rubber-stamp mark beside it (a simple round shape, no readable text). The valve and padlock are copper-orange.*
-- Estado: ✅ generado
+- Status: ✅ generated
 
-| Fotograma | Semilla | Prediction | Archivo |
+| Frame | Seed | Prediction | File |
 | --- | --- | --- | --- |
-| Inicial | 415 | [`4methbejfdrmy0d103gs4tc594`](https://replicate.com/p/4methbejfdrmy0d103gs4tc594) | `helio-e5a-inicial-v1.png` |
+| Initial | 415 | [`4methbejfdrmy0d103gs4tc594`](https://replicate.com/p/4methbejfdrmy0d103gs4tc594) | `helio-e5a-inicial-v1.png` |
 | Final | 435 | [`1dvvrdxhp9rmy0d103jtkf9s4w`](https://replicate.com/p/1dvvrdxhp9rmy0d103jtkf9s4w) | `helio-e5a-final-v1.png` |
 
 ![[helio-e5a-inicial-v1.png]]
 ![[helio-e5a-final-v1.png]]
 
-**Desviación:** en el final aparece el candado cobre en la válvula, pero **falta el sello redondo** que pedía el plano. En el inicial hay una "A" y una "E" sueltas en las cotas.
+**Deviation:** in the final the copper padlock appears on the valve, but **the round seal the shot asked for is missing**. In the initial there is a stray "A" and "E" in the dimensions.
 
-### Imagen · toma 5b
-- **Inicial:** *A cutaway view of the ground showing an underground storage cavern with a well and a pipeline from a surface plant, in cool greys with hatched rock layers. Above ground, one hand drawn in contour line, no face, holds out a key toward the right edge. The key is the single copper-orange accent.*
+### Image · shot 5b
+- **Initial:** *A cutaway view of the ground showing an underground storage cavern with a well and a pipeline from a surface plant, in cool greys with hatched rock layers. Above ground, one hand drawn in contour line, no face, holds out a key toward the right edge. The key is the single copper-orange accent.*
 - **Final:** *The same cutaway and framing, a second hand now takes the key from the first hand at the right edge, the key changing hands; the cavern and pipeline unchanged.*
-- Estado: ✅ generado
+- Status: ✅ generated
 
-| Fotograma | Semilla | Prediction | Archivo |
+| Frame | Seed | Prediction | File |
 | --- | --- | --- | --- |
-| Inicial (v2) | 425 | [`bw23es58j1rmr0d103hrdawpwc`](https://replicate.com/p/bw23es58j1rmr0d103hrdawpwc) | `helio-e5b-inicial-v2.png` |
+| Initial (v2) | 425 | [`bw23es58j1rmr0d103hrdawpwc`](https://replicate.com/p/bw23es58j1rmr0d103hrdawpwc) | `helio-e5b-inicial-v2.png` |
 | Final | 436 | [`dn1jn3zg6drmw0d103jsxvz8vw`](https://replicate.com/p/dn1jn3zg6drmw0d103jsxvz8vw) | `helio-e5b-final-v1.png` |
 
 ![[helio-e5b-inicial-v2.png]]
 ![[helio-e5b-final-v1.png]]
 
-**Desviación:** en el final queda una sola mano a la derecha sosteniendo la llave; **la primera mano desaparece** en vez de verse el traspaso entre dos. La v1 traía texto ilegible grabado en la llave y muchos números de cota, y se descartó.
+**Deviation:** in the final a single hand remains on the right holding the key; **the first hand disappears** instead of showing the handover between two. v1 had illegible text engraved on the key and many dimension numbers, and was discarded.
 
-### Imagen · toma 6
-- **Inicial:** *A design study of a single helium party balloon floating on a tether, three-quarter view, with a cutaway showing the gas inside and thin leader lines radiating outward toward the empty space around it. The balloon is the single copper-orange accent. Loose linework, quiet mood.*
+### Image · shot 6
+- **Initial:** *A design study of a single helium party balloon floating on a tether, three-quarter view, with a cutaway showing the gas inside and thin leader lines radiating outward toward the empty space around it. The balloon is the single copper-orange accent. Loose linework, quiet mood.*
 - **Final:** *The same sheet and framing, now each leader line ends in a tiny drawing in cool grey: a tanker ship, a processing plant, an MRI scanner, a computer chip, a pipeline valve and a hospital bed, arranged around the balloon like a diagram of dependencies. The balloon is still copper-orange.*
-- Estado: ✅ generado
+- Status: ✅ generated
 
-| Fotograma | Semilla | Prediction | Archivo |
+| Frame | Seed | Prediction | File |
 | --- | --- | --- | --- |
-| Inicial (v2) | 426 | [`p1k9z5eyj9rmy0d103hvq341vm`](https://replicate.com/p/p1k9z5eyj9rmy0d103hvq341vm) | `helio-e6-inicial-v2.png` |
+| Initial (v2) | 426 | [`p1k9z5eyj9rmy0d103hvq341vm`](https://replicate.com/p/p1k9z5eyj9rmy0d103hvq341vm) | `helio-e6-inicial-v2.png` |
 | Final | 437 | [`643gsq9b5xrmr0d103k8p74ndg`](https://replicate.com/p/643gsq9b5xrmr0d103k8p74ndg) | `helio-e6-final-v1.png` |
 
 ![[helio-e6-inicial-v2.png]]
 ![[helio-e6-final-v1.png]]
 
-**Revisión:** el globo con una ventana de corte y círculos vacíos al inicio; en el final cada línea termina en un dibujo (petrolero, planta, resonancia, chip, válvula, cama). **Desviación:** el petrolero y la resonancia salen **repetidos** y falta uno de los seis.
+**Review:** the balloon with a cutaway window and empty circles at the start; in the final each line ends in a drawing (tanker, plant, MRI, chip, valve, bed). **Deviation:** the tanker and the MRI come out **repeated** and one of the six is missing.
 
-### Miniatura
+### Thumbnail
 - **Prompt:** *A bold design sheet cover: a large copper-orange helium balloon at the center drawn with a cutaway, a thin chain of dashed lines linking it to a tiny tanker, a narrow strait and a flame at the corners. Clear single focal point and lots of empty space at the top for a title added in editing.*
-- El título y los números se añaden en edición. Estado: ✅ generado
+- The title and numbers are added in editing. Status: ✅ generated
 
-| Fotograma | Semilla | Prediction | Archivo |
+| Frame | Seed | Prediction | File |
 | --- | --- | --- | --- |
-| Miniatura (v2) | 428 | [`dvksj2rwznrmw0d103ja0mdsbr`](https://replicate.com/p/dvksj2rwznrmw0d103ja0mdsbr) | `helio-miniatura-v2.png` |
+| Thumbnail (v2) | 428 | [`dvksj2rwznrmw0d103ja0mdsbr`](https://replicate.com/p/dvksj2rwznrmw0d103ja0mdsbr) | `helio-miniatura-v2.png` |
 
 ![[helio-miniatura-v2.png]]
 
-**Revisión:** un globo cobre central con ventana de corte, un petrolero y una llama en las esquinas, y un recuadro vacío arriba para el título (se añade en edición). La v1 dibujó globos aerostáticos con canasta, que no son de helio, y se descartó.
+**Review:** a central copper balloon with a cutaway window, a tanker and a flame in the corners, and an empty box at the top for the title (added in editing). v1 drew hot-air balloons with a basket, which are not helium, and was discarded.
 
 ---
 
-## Prompts de sonido
+## Sound prompts
 
-**Generado el 3-oct-2026** con `stability-ai/stable-audio-2.5` (semillas 501, 502, 504). No puedo escuchar el audio: lo juzgas tú al ver el video (P7). El silencio no se genera: lo fija el montaje.
+**Generated on 3 Oct 2026** with `stability-ai/stable-audio-2.5` (seeds 501, 502, 504). I cannot listen to the audio: you judge it when watching the video (P7). Silence is not generated: the editing sets it.
 
-#### Sonido · escena 1
+#### Sound · scene 1
 - **Prompt:** *Constant low hum of a large industrial gas plant at dusk with the distant roar of a flare stack, steady for 14 seconds. No music, no voices, no melody.*
-- **Montaje:** el zumbido va **bajo la voz** y se corta de golpe en "Se detuvo el gas", con medio segundo de silencio total. Estado: ✅ generado
+- **Editing:** the hum goes **under the voice** and cuts abruptly at "Se detuvo el gas", with half a second of total silence. Status: ✅ generated
 
-| Duración pedida | Prediction | Archivo |
+| Requested duration | Prediction | File |
 | --- | --- | --- |
 | 14 s | [`w744kdsx7xrmy0d103d9zggnjc`](https://replicate.com/p/w744kdsx7xrmy0d103d9zggnjc) | `helio-e1-zumbido-planta-v1.mp3` |
 
 ![[helio-e1-zumbido-planta-v1.mp3]]
 
-El modelo entrega MP3 aunque el archivo se pidió como audio genérico; se guardó como `.mp3`. El corte a silencio en "Se detuvo el gas" se hace en el montaje.
+The model delivers MP3 even though the file was requested as generic audio; it was saved as `.mp3`. The cut to silence at "Se detuvo el gas" is made in the editing.
 
-#### Sonido · escena 2
+#### Sound · scene 2
 - **Prompt:** *A magnetic resonance imaging scanner running: rhythmic low knocking and buzzing pulses in an enclosed room, 10 seconds. No voices, no music.*
-- Estado: ✅ generado
+- Status: ✅ generated
 
-| Duración pedida | Prediction | Archivo |
+| Requested duration | Prediction | File |
 | --- | --- | --- |
 | 10 s | [`y1m52w9ymhrmw0d103d9typ368`](https://replicate.com/p/y1m52w9ymhrmw0d103d9typ368) | `helio-e2-resonancia-v1.mp3` |
 
 ![[helio-e2-resonancia-v1.mp3]]
 
-#### Sonido · escena 4
+#### Sound · scene 4
 - **Prompt:** *A low steady hiss of cold gas venting slowly from a metal container, with faint creaks of metal, 8 seconds. No voices, no music.*
-- Estado: ✅ generado
+- Status: ✅ generated
 
-| Duración pedida | Prediction | Archivo |
+| Requested duration | Prediction | File |
 | --- | --- | --- |
 | 8 s | [`mh8tgxhydsrmt0d103d99vjfdc`](https://replicate.com/p/mh8tgxhydsrmt0d103d99vjfdc) | `helio-e4-siseo-gas-v1.mp3` |
 
@@ -415,84 +428,84 @@ El modelo entrega MP3 aunque el archivo se pidió como audio genérico; se guard
 
 ---
 
-## Animación
+## Animation
 
-**Decidido: sin modelo de video** (3-oct-2026). Cada toma se monta en Blender con el fotograma inicial y el final fundiéndose ([[Blender editing]], [[Transitions and effects]]). Se descartan los 8 prompts de animación. La indicación de movimiento de cada plano del guion se traduce en el cambio de estado sincronizado con la voz y en el empuje lento de cámara.
+**Decided: no video model** (3 Oct 2026). Each shot is edited in Blender with the initial and the final frame cross-fading ([[Blender editing]], [[Transitions and effects]]). The 8 animation prompts are discarded. Each shot's movement cue from the script becomes the state change synced with the voice and the slow camera push.
 
 ---
 
-## Montaje
+## Editing
 
-Armado en el secuenciador de Blender con el script `render/build_helio.py` (copia en `Sistema/scripts/`). **Render r1: `render/helio-70s-r1.mp4`**, 1920×1080, 24 fps, H.264 y AAC, **71,9 s** (1.726 fotogramas); proyecto editable en `render/helio-70s.blend`.
+Assembled in Blender's sequencer with the script `render/build_helio.py` (copy in `System/scripts/`). **Render r1: `render/helio-70s-r1.mp4`**, 1920×1080, 24 fps, H.264 and AAC, **71.9 s** (1,726 frames); editable project in `render/helio-70s.blend`.
 
-**Línea de tiempo**
+**Timeline**
 
-| Tramo | Imagen | Voz | Cómo se transita |
+| Stretch | Image | Voice | How it transitions |
 | --- | --- | --- | --- |
-| 0:00 – 0:15,7 | toma 1 | escena 1 (desde 0:00,4) | Sin transición de entrada. La llama se apaga con "Se detuvo el gas" y el zumbido se corta en seco en ese instante |
-| 0:15,7 – 0:25,3 | toma 2 | escena 2 | Pasar la hoja. Acercamiento de 4 s a las bobinas |
-| 0:25,3 – 0:30,9 | toma 3a | escena 3, primera frase | Pasar la hoja. El corchete agrupa a los tres países |
-| 0:30,6 – 0:37,4 | toma 3b | escena 3, segunda frase | Fundido cruzado de 0,3 s. La barrera cierra el paso |
-| 0:37,4 – 0:46,0 | toma 4 | escena 4 | Pasar la hoja. El nivel baja con la voz |
-| 0:46,0 – 0:50,4 | toma 5a | escena 5, primera frase | Pasar la hoja. La válvula se cierra con candado |
-| 0:50,1 – 0:58,7 | toma 5b | escena 5, segunda frase | Fundido cruzado. La llave cambia de manos |
-| 0:58,7 – 1:11,9 | toma 6 | escena 6 | Pasar la hoja. Aparecen las dependencias mientras la cámara se aleja; 1 s de lámina fija y **corte seco a negro** |
+| 0:00 – 0:15.7 | shot 1 | scene 1 (from 0:00.4) | No entry transition. The flame goes out at "Se detuvo el gas" and the hum cuts dead at that instant |
+| 0:15.7 – 0:25.3 | shot 2 | scene 2 | Page turn. 4 s zoom to the coils |
+| 0:25.3 – 0:30.9 | shot 3a | scene 3, first sentence | Page turn. The bracket groups the three countries |
+| 0:30.6 – 0:37.4 | shot 3b | scene 3, second sentence | 0.3 s cross-fade. The barrier closes the passage |
+| 0:37.4 – 0:46.0 | shot 4 | scene 4 | Page turn. The level drops with the voice |
+| 0:46.0 – 0:50.4 | shot 5a | scene 5, first sentence | Page turn. The valve closes with the padlock |
+| 0:50.1 – 0:58.7 | shot 5b | scene 5, second sentence | Cross-fade. The key changes hands |
+| 0:58.7 – 1:11.9 | shot 6 | scene 6 | Page turn. The dependencies appear while the camera pulls back; 1 s of still plate and **hard cut to black** |
 
-**Efectos:** empuje lento de cámara (±6 %), viñeta, grano de papel, y sonidos de escena bajo la voz (resonancia en la escena 2, siseo en la 4). El diseño y los parámetros están en [[Transitions and effects]].
+**Effects:** slow camera push (±6 %), vignette, paper grain, and scene sounds under the voice (MRI in scene 2, hiss in scene 4). The design and parameters are in [[Transitions and effects]].
 
-**Verificación:** rendericé cinco fotogramas (a los 2,0, 9,3, 15,7, 30,9 y 71,0 s): se ven la viñeta y el grano, la llama encendida y apagada, el papel entre escenas, el estrecho y el cierre con el diagrama de dependencias. Confirmé que el archivo contiene la pista de audio. **No pude oír el audio ni ver el video entero**: el equilibrio entre la voz y los sonidos de fondo (volúmenes 0,18 a 0,30) y el ritmo general los juzgas tú en P7.
+**Verification:** I rendered five frames (at 2.0, 9.3, 15.7, 30.9 and 71.0 s): the vignette and grain, the lit and extinguished flame, the paper between scenes, the strait and the close with the dependency diagram are visible. I confirmed that the file contains the audio track. **I could not hear the audio or watch the whole video**: the balance between the voice and the background sounds (volumes 0.18 to 0.30) and the general pace are for you to judge at P7.
 
-**Lo que falta del montaje:** cifras y títulos en pantalla (43 / 33 / 9,5 % en la toma 3a), la miniatura con título, y las correcciones que pidas tras ver el video.
+**What the editing still lacks:** figures and titles on screen (43 / 33 / 9.5 % in shot 3a), the thumbnail with title, and the corrections you ask for after watching the video.
 
 ---
 
-## Presupuesto de generación
+## Generation budget
 
-**Aprobado en P4 el 3-oct-2026**, con las decisiones de abajo. Cantidades base; los intentos son hipótesis a medir.
+**Approved at P4 on 3 Oct 2026**, with the decisions below. Base quantities; the attempts are hypotheses to measure.
 
-| Categoría | Modelo | Prompts base | Predictions hechas | Estado |
+| Category | Model | Base prompts | Predictions made | Status |
 | --- | --- | --- | --- | --- |
-| Voz | `qwen/qwen3-tts` | 6 | 6 | ✅ generado |
-| Imagen | `black-forest-labs/flux-2-pro` | 17 | **23** (6 reintentos) | ✅ generado |
-| Sonido | `stability-ai/stable-audio-2.5` | 3 | 3 | ✅ generado |
-| Animación | — | 0 | — | descartada: fundidos en Blender |
+| Voice | `qwen/qwen3-tts` | 6 | 6 | ✅ generated |
+| Image | `black-forest-labs/flux-2-pro` | 17 | **23** (6 retries) | ✅ generated |
+| Sound | `stability-ai/stable-audio-2.5` | 3 | 3 | ✅ generated |
+| Animation | — | 0 | — | discarded: fades in Blender |
 | **Total** | | **26** | **32** | |
 
-**Imagen: 23 predictions para 17 prompts base.** Hubo 6 reintentos de fotogramas iniciales (toma 2, 3a, 3b, 5b, 6 y la miniatura) por texto ilegible, objeto equivocado (globos aerostáticos) o elementos sobrantes; el promedio fue ≈ 1,4 intentos por imagen, no los ≈ 3 supuestos. Los descartes están en `_descartes/`.
+**Image: 23 predictions for 17 base prompts.** There were 6 retries of initial frames (shots 2, 3a, 3b, 5b, 6 and the thumbnail) for illegible text, a wrong object (hot-air balloons) or extra elements; the average was ≈ 1.4 attempts per image, not the ≈ 3 assumed. The discards are in `_descartes/`.
 
-Se generó en este orden: voz, sonido, imagen (iniciales, reintentos, finales).
+It was generated in this order: voice, sound, image (initials, retries, finals).
 
-**Decisiones del usuario en P4**
+**User decisions at P4**
 
-1. **Voz:** B, narrador más joven y ágil.
-2. **Animación:** sin modelo de video, imágenes fundidas.
-3. **Largo:** 258 palabras (≈ 1:45 a 2:10). **Cambiado después a 70 s (176 palabras)**; ver *Cambios en esta versión*.
-
----
-
-## Comprobación de la guía de narración
-
-Lista de [[Narration guide]], antes de P3:
-
-- [x] **Todo gancho se resuelve.** "Un tercio del helio del planeta" (escena 1) se explica: qué es el helio y para qué sirve (2), quién lo produce (3), por qué no se reemplaza rápido (3–5) y qué significa (6).
-- [x] **Sin pausas de relleno.** La única pausa es el corte del ruido de la escena 1, con intención.
-- [x] **Cadena causa → efecto sin ver las imágenes:** ataque → se detiene el gas y el helio → casi todo sale por Ormuz → no se puede guardar → los demás no alcanzan.
-- [ ] **Leído en voz alta:** pendiente (lo hace el usuario en P3).
-- [x] **Duración medida con la voz real:** 67,8 s de voz útil; el render dura 71,9 s con pausas y cierre.
+1. **Voice:** B, a younger and brisker narrator.
+2. **Animation:** no video model, cross-faded images.
+3. **Length:** 258 words (≈ 1:45 to 2:10). **Later changed to 70 s (176 words)**; see *Changes in this version*.
 
 ---
 
-## Datos que revisar antes de grabar
+## Narration guide check
 
-Detalle y fuentes en [[Research - Helium]].
+Checklist of the [[Narration guide]], before P3:
 
-| Punto | Estado |
+- [x] **Every hook is resolved.** "A third of the planet's helium" (scene 1) is explained: what helium is and what it is for (2), who produces it (3), why it is not replaced quickly (3–5) and what it means (6).
+- [x] **No filler pauses.** The only pause is the cut of the noise in scene 1, on purpose.
+- [x] **Cause → effect chain without seeing the images:** attack → the gas and the helium stop → almost all leaves through Hormuz → it cannot be kept → the others do not suffice.
+- [ ] **Read aloud:** pending (the user does it at P3).
+- [x] **Duration measured with the real voice:** 67.8 s of useful voice; the render lasts 71.9 s with pauses and the close.
+
+---
+
+## Data to check before recording
+
+Detail and sources in [[Research - Helium]].
+
+| Point | Status |
 | --- | --- |
-| Tres países producen ≈ 85 % del helio (escena 3); 43 / 33 / ≈ 9,5 % solo en la imagen | ✅ USGS MCS 2026 (81 + 63 + 18 de 190) |
-| Seis semanas de evaporación (escena 4) | ✅ NPR, 3-abr-2026. Los 2.000 litros, los 4 K y Corea del Sur y Taiwán salieron de esta versión |
-| Precio al contado se duplicó en marzo (escena 4) | ✅ AP y Foreign Policy |
-| Rusia: permiso de exportación hasta fin de 2027 (escena 5) | ✅ Interfax, 14-abr-2026 |
-| EE. UU. vendió su reserva federal en 2024 (escena 5) | ✅ Messer, 27-jun-2024; el precio **no** se usa |
-| "Ormuz, que la guerra dejó casi cerrado" (escena 3) | ⏳ **Rechequear antes de grabar**: estado actual del estrecho |
-| "Normalizar tomaría de cuatro a seis meses" (escena 6) | ✅ Foreign Policy; ⏳ verificar si hay una estimación más reciente. "Años" para reparar Ras Laffan (AP) salió de esta versión |
-| "En marzo de 2026, ataques de Irán" (escena 1) | ⚠️ las fechas exactas difieren entre fuentes; se dice solo "en marzo" |
+| Three countries produce ≈ 85 % of helium (scene 3); 43 / 33 / ≈ 9.5 % only in the image | ✅ USGS MCS 2026 (81 + 63 + 18 of 190) |
+| Six weeks of evaporation (scene 4) | ✅ NPR, 3 Apr 2026. The 2,000 litres, the 4 K and South Korea and Taiwan left this version |
+| The spot price doubled in March (scene 4) | ✅ AP and Foreign Policy |
+| Russia: export permit until the end of 2027 (scene 5) | ✅ Interfax, 14 Apr 2026 |
+| The US sold its federal reserve in 2024 (scene 5) | ✅ Messer, 27 Jun 2024; the price is **not** used |
+| "Hormuz, which the war left almost closed" (scene 3) | ⏳ **Re-check before recording**: current state of the strait |
+| "Normalising would take four to six months" (scene 6) | ✅ Foreign Policy; ⏳ check whether there is a more recent estimate. "Years" to repair Ras Laffan (AP) left this version |
+| "In March 2026, attacks by Iran" (scene 1) | ⚠️ the exact dates differ between sources; only "in March" is said |

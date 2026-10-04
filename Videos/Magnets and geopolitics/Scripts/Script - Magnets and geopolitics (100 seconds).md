@@ -2,140 +2,141 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: versión corta · mismos datos que el borrador 1, sin segunda fuente aún
-tags: [investigación, youtube, guion, imanes, dirección, corto]
+status: short version · same data as draft 1, no second source yet · written in Spanish (translated here)
+tags: [research, youtube, script, magnets, direction, short]
 ---
 
-# Guion: el imán que detuvo una fábrica · 100 segundos
+# Script: the magnet that stopped a factory · 100 seconds
 
-← [[Script - Magnets and geopolitics (Quentin version)]] (versión larga) · [[Script - Magnets and geopolitics]] (borrador 1)
+← [[Script - Magnets and geopolitics (Quentin version)]] (long version) · [[Script - Magnets and geopolitics]] (draft 1)
 
-> **Datos a:** 3-oct-2026. La escena 9 depende del 10-nov-2026: publicar antes o actualizar.
-> **Duración:** 9 escenas, ≈ 220 palabras de narración. Con la hipótesis sin fuente de ~140 palabras por minuto, la voz ocupa ~95 s; con las pausas cierra en ~100 s. A medir al grabar. Si pasa, se corta la segunda frase de la escena 8.
+> **Language:** this script was written in **Spanish** before the English-only decision; the narration below is an English translation of the written Spanish. Not recorded in this version.
+> **Data as of:** 3 Oct 2026. Scene 9 depends on 10 Nov 2026: publish before or update.
+> **Duration:** 9 scenes, ≈ 220 words of narration. With the unsourced hypothesis of ~140 words per minute, the voice takes ~95 s; with the pauses it closes at ~100 s. To measure when recording. If it overruns, the second sentence of scene 8 is cut.
 
-## Qué se conserva y qué se sacrifica
+## What is kept and what is sacrificed
 
-En 100 segundos no cabe la cadena entera, así que se conserva solo lo que sostiene la emoción: **la línea detenida → el disco → la dependencia → la lentitud de la respuesta → la línea que vuelve**. Se sacrifican 2010, Mountain Pass, Molycorp, el 9 de octubre, Suzuki, Lynas y el 1-ene-2027. Están en la versión larga.
+In 100 seconds the whole chain does not fit, so only what holds the emotion is kept: **the stopped line → the disc → the dependence → the slowness of the response → the line that returns**. Sacrificed: 2010, Mountain Pass, Molycorp, 9 October, Suzuki, Lynas and 1 Jan 2027. They are in the long version.
 
-## Reglas de escena (las mismas de la versión larga)
+## Scene rules (the same as the long version)
 
-- **`[IMÁN]`**: disco plano de unos 3 cm de diámetro y 5 mm de grosor; gris plata mate con un brillo tenue de níquel, bordes apenas biselados, sin letras ni marcas. Siempre el mismo.
-- **`[MANO]`**: mano adulta sin rostro ni rasgos identificables; piel con un callo leve en la yema del pulgar, uñas cortas, sin anillos ni reloj.
-- Las personas son manos, espaldas o siluetas. Sin rostros, personas reales ni logotipos. Chicago es una **reconstrucción ilustrada y declarada**, no una foto.
-- Una emoción por escena. Un solo movimiento lento por plano, sin cortes dentro de la escena (salvo la 4 y la 9, que se indican).
-- Texto en pantalla: una cifra o una palabra, solo donde se indica.
+- **`[MAGNET]`**: a flat disc about 3 cm in diameter and 5 mm thick; matte silver-grey with a faint nickel sheen, barely bevelled edges, no letters or marks. Always the same.
+- **`[HAND]`**: an adult hand with no face or identifiable features; skin with a slight callus on the thumb pad, short nails, no rings or watch.
+- People are hands, backs or silhouettes. No faces, real people or logos. Chicago is an **illustrated and declared reconstruction**, not a photo.
+- One emotion per scene. A single slow movement per shot, with no cuts within the scene (except 4 and 9, which are indicated).
+- On-screen text: a figure or a word, only where indicated.
 
-*Voz:* pausada y cercana. Sin dramatizar. En un video tan corto, el silencio de la escena 1 es lo más caro del guion: no se recorta.
-
----
-
-## Guion
-
-#### 1 · El silencio de la línea (0:00–0:14)
-
-**Sonido:** 4 segundos del zumbido continuo de una línea de montaje. De golpe, todo se corta. Quedan 3 segundos de silencio total y entonces entra la voz.
-
-**Plano:** nave industrial enorme vista desde el extremo de una línea de montaje, a la altura de los ojos, con la línea alejándose hacia el fondo. Sobre ella, una hilera de carrocerías blancas de SUV sin ruedas ni puertas, detenidas una tras otra hasta perderse. A los lados, brazos robóticos amarillos congelados en pleno gesto. Una baliza naranja sobre un poste, apagada. No hay nadie. El piso pulido refleja los tubos de luz del techo. Movimiento: avance muy lento por el centro del pasillo.
-
-**Emoción:** la calma antinatural de algo que siempre se mueve y ya no. Aire contenido.
-
-> A finales de mayo de 2025, en una planta de Chicago, una línea de montaje dejó de moverse.
-> No faltaba acero. No hubo huelga. Faltaba un imán.
-
-#### 2 · El disco (0:14–0:21)
-
-**Plano:** primer plano de `[MANO]`, palma hacia arriba, sosteniendo `[IMÁN]` en el centro. Detrás, fuera de foco, la misma nave con las carrocerías detenidas. La luz de los tubos marca el borde del disco con una línea fina. El pulgar se curva un milímetro, como quien se resiste a cerrar el puño. Movimiento: acercamiento lentísimo hasta que el disco ocupa un tercio del cuadro.
-
-**Emoción:** desproporción. Algo que no pesa nada y tiene detenida a una fábrica. Casi ternura.
-
-> Un disco gris, del tamaño de una moneda. La espera duró cerca de una semana.
-
-#### 3 · El auto por dentro (0:21–0:31)
-
-**Plano:** un SUV blanco completo, visto de tres cuartos, sobre fondo negro liso. La carrocería se vuelve transparente como vidrio y revela el esqueleto: ejes, columna de dirección, asientos. En tres lugares (los frenos de una rueda, la dirección, un asiento) se enciende, uno por vez y con medio segundo de diferencia, un punto de luz cobre del tamaño de un grano de arroz que pulsa una sola vez. Movimiento: giro lento de la cámara alrededor del auto, un cuarto de vuelta.
-
-**Emoción:** asombro callado ante lo invisible; un leve vértigo al ver cuántas cosas dependen de algo que nadie mira.
-
-> Un auto lo usa en los frenos, la dirección, los asientos. Nadie lo ve. Nadie lo extraña. Hasta que falta.
-
-#### 4 · La pizca (0:31–0:45) · dos tomas de ~7 s
-
-**Plano 4a:** pantalla partida en dos mitades verticales. A la izquierda, un laboratorio desordenado: frascos con polvo gris, una taza de café. A la derecha, uno más ordenado: crisoles alineados, una libreta con anotaciones a mano. En cada mitad, visto solo por las manos, un investigador inclinado sobre un pequeño horno cuyo interior brilla naranja y tiñe la pared de atrás con la misma intensidad. Movimiento: acercamiento sincronizado al resplandor.
-
-**Emoción:** la intimidad extraña de dos personas lejanas que, sin saberlo, hacen lo mismo.
-
-**Plano 4b:** primer plano de una placa metálica que se pone roja desde abajo, con el aire ondulando encima. Sobre ella, `[IMÁN]` pegado a una arandela de acero. Una cucharilla sostenida por una pinza deja caer una pizca de polvo gris plateado, del tamaño de un grano de sal gruesa, junto al disco. La arandela sigue pegada, firme. Movimiento: plano fijo.
-
-**Emoción:** alivio, con una inquietud pequeña debajo: algo precioso se esconde en lo mínimo.
-
-> En 1984, dos equipos, uno en General Motors y otro en Sumitomo, crearon por separado el imán más fuerte hasta entonces.
-> Con una pizca de disprosio y terbio, aguanta el calor de un motor.
-
-#### 5 · Tres frascos (0:45–0:56)
-
-**Plano:** mesa larga de madera clara, vista de frente, junto a una ventana grande. Sobre ella, tres frascos de vidrio idénticos, alineados de izquierda a derecha, llenos de polvo gris fino. El primero, un poco más de la mitad (60 %); el segundo, casi hasta arriba (91 %); el tercero, hasta un dedo del borde (94 %). Sobre cada frasco aparece su cifra, en una sola línea. Movimiento: plano fijo; la cámara se desplaza un palmo a la derecha, de frasco en frasco, y se detiene en el último.
-
-**Emoción:** el temor lento de ver crecer un número. Inquietud sin ruido.
-
-> La mina es lo que se ve. China concentra el 60 % de la extracción, el 91 % del refinado y el 94 % de los imanes.
-
-#### 6 · El sello y la bandeja (0:56–1:06) · dos tomas de ~5 s
-
-**Plano 6a:** mesa de oficina de madera oscura, vista desde arriba. Una hoja con líneas de texto borrosas, sin palabras legibles. `[MANO]` baja con un sello de goma y lo presiona sobre la hoja; al levantarlo queda una marca roja y redonda. Sonido: un golpe seco, único.
-
-**Emoción:** frialdad de un gesto mínimo con consecuencias enormes.
-
-**Plano 6b:** estante de un almacén. Una bandeja de espuma negra con veinte huecos redondos del tamaño exacto del disco, en cuatro filas de cinco, todos vacíos. `[MANO]` entra desde arriba con los dedos extendidos, busca en un hueco, en el siguiente, y se detiene. Movimiento: acercamiento lento a la mano detenida.
-
-**Emoción:** el golpe pequeño de buscar algo que siempre estaba ahí y ya no está.
-
-> El 4 de abril de 2025, China exigió licencia para exportar siete tierras raras, entre ellas disprosio y terbio.
-> Los envíos cayeron.
-
-#### 7 · El relevo (1:06–1:13)
-
-**Plano:** una sola toma continua en la que `[IMÁN]` pasa de una `[MANO]` a otra en lugares distintos sin cortar: la caja de un camión, un banco de taller, un estante de bodega, la mesa de una línea de montaje. Cada traspaso es cuidadoso, como el de quien entrega algo frágil. La última palma queda abierta y espera. No llega nada. Sigue abierta un segundo más de lo cómodo. Movimiento: la cámara se desliza de mano en mano.
-
-**Emoción:** confianza y, de golpe, su fragilidad. Gente que no se conoce y depende de otra.
-
-> Ninguna fábrica hizo algo mal. Dependían de una pieza barata, de un proveedor que dependía de otro.
-
-#### 8 · Las dos manos (1:13–1:26)
-
-**Plano:** panel de control industrial con perillas y manómetros de aguja. Dos pares de manos. Unas, jóvenes, de uñas muy limpias, sostienen un cuaderno cerrado. Las otras, mayores, con la piel manchada y los nudillos hinchados, giran una perilla un pelo hacia la derecha y golpean suavemente un manómetro; la aguja se asienta. Las manos jóvenes abren el cuaderno y anotan algo. Luz cálida de lámpara. Movimiento: plano fijo, con un acercamiento mínimo a las manos mayores.
-
-**Emoción:** la ternura del saber que pasa de una persona a otra. Gratitud y tiempo.
-
-> Fabricar imanes en otro lugar es lo más lento. MP Materials llegaría a unas diez mil toneladas al año; la mayor fabricante china, JL MAG, a sesenta mil. Y, dijo un analista, el dinero no compra cuarenta años de experiencia.
-
-#### 9 · La nevera (1:26–1:40) · dos tomas
-
-**Sonido:** el primer clic de una cadena que se tensa y un zumbido que sube de a poco, el mismo de la escena 1.
-
-**Plano 9a (~4 s):** la nave de la escena 1, desde el mismo punto y con el mismo encuadre. Todo igual, y de pronto la baliza naranja se enciende y gira, tiñendo de naranja las paredes. La primera carrocería avanza unos centímetros. Plano fijo.
-
-**Emoción:** alivio, pero con memoria: ahora se sabe cuánto costó.
-
-**Plano 9b (~10 s):** una cocina por la tarde. Puerta de nevera blanca; en el centro, un dibujo de crayones (un sol y una casa torcida) sujeto por un imán redondo y negro. Luz de ventana lateral, amarilla y tibia; se oye el agua de una llave y una voz lejana de niño. La cámara se acerca despacio hasta el imán y se queda en él. Corte a negro.
-
-**Emoción:** ternura cotidiana y un pequeño escalofrío: todo esto se sostiene de algo que no vemos.
-
-> La línea de Chicago volvió a moverse.
-> La pausa de China vence el 10 de noviembre, y no hay extensión confirmada.
-> ¿Qué otras cosas pequeñas ocupan hoy el mismo lugar?
-
-*Cierre: 2 segundos de música baja sobre negro. Sin "suscríbete".*
+*Voice:* measured and close. Without dramatising. In such a short video, the silence of scene 1 is the most expensive thing in the script: it is not trimmed.
 
 ---
 
-## Datos que revisar antes de grabar
+## Script
 
-Los hechos son los del borrador 1 (hoja de afirmaciones, §4). Cambios y cautelas de esta versión:
+#### 1 · The silence of the line (0:00–0:14)
 
-| Punto | Estado |
+**Sound:** 4 seconds of the continuous hum of an assembly line. Suddenly, everything cuts. 3 seconds of total silence remain and then the voice enters.
+
+**Shot:** an enormous industrial hall seen from the end of an assembly line, at eye level, with the line receding into the background. On it, a row of white SUV bodies with no wheels or doors, stopped one after another until they disappear. At the sides, yellow robotic arms frozen mid-gesture. An orange beacon on a pole, off. There is nobody. The polished floor reflects the ceiling's light tubes. Movement: a very slow advance down the centre of the aisle.
+
+**Emotion:** the unnatural calm of something that always moves and no longer does. Held breath.
+
+> At the end of May 2025, at a plant in Chicago, an assembly line stopped moving.
+> Steel was not missing. There was no strike. A magnet was missing.
+
+#### 2 · The disc (0:14–0:21)
+
+**Shot:** close-up of `[HAND]`, palm up, holding `[MAGNET]` in the centre. Behind, out of focus, the same hall with the stopped bodies. The tube light marks the disc's edge with a fine line. The thumb curves a millimetre, like someone resisting closing the fist. Movement: a very slow zoom until the disc takes up a third of the frame.
+
+**Emotion:** disproportion. Something that weighs nothing and has a factory stopped. Almost tenderness.
+
+> A grey disc, the size of a coin. The wait lasted about a week.
+
+#### 3 · The car from the inside (0:21–0:31)
+
+**Shot:** a complete white SUV, seen from three-quarters, on a plain black background. The body becomes transparent like glass and reveals the skeleton: axles, steering column, seats. In three places (the brakes of a wheel, the steering, a seat) a copper point of light the size of a grain of rice lights up, one at a time and half a second apart, pulsing once. Movement: a slow orbit of the camera around the car, a quarter turn.
+
+**Emotion:** quiet wonder at the invisible; a slight vertigo at seeing how many things depend on something nobody looks at.
+
+> A car uses it in the brakes, the steering, the seats. Nobody sees it. Nobody misses it. Until it is missing.
+
+#### 4 · The pinch (0:31–0:45) · two shots of ~7 s
+
+**Shot 4a:** a screen split into two vertical halves. On the left, a messy laboratory: jars with grey powder, a coffee cup. On the right, a tidier one: aligned crucibles, a notebook with handwritten notes. In each half, seen only through the hands, a researcher bent over a small furnace whose interior glows orange and tints the back wall with the same intensity. Movement: a synchronised zoom to the glow.
+
+**Emotion:** the strange intimacy of two distant people who, without knowing it, do the same thing.
+
+**Shot 4b:** close-up of a metal plate turning red from below, with the air rippling above it. On it, `[MAGNET]` stuck to a steel washer. A spoon held by tweezers drops a pinch of silvery grey powder, the size of a grain of coarse salt, next to the disc. The washer stays stuck, firm. Movement: fixed shot.
+
+**Emotion:** relief, with a small unease underneath: something precious hides in the minimal.
+
+> In 1984, two teams, one at General Motors and another at Sumitomo, separately created the strongest magnet until then.
+> With a pinch of dysprosium and terbium, it withstands the heat of an engine.
+
+#### 5 · Three jars (0:45–0:56)
+
+**Shot:** a long table of light wood, seen from the front, beside a large window. On it, three identical glass jars, aligned from left to right, filled with fine grey powder. The first, a little over half (60 %); the second, almost to the top (91 %); the third, to a finger from the rim (94 %). Above each jar its figure appears, on a single line. Movement: fixed shot; the camera moves a hand's width to the right, from jar to jar, and stops at the last.
+
+**Emotion:** the slow dread of watching a number grow. Silent unease.
+
+> The mine is what you see. China concentrates 60 % of extraction, 91 % of refining and 94 % of the magnets.
+
+#### 6 · The stamp and the tray (0:56–1:06) · two shots of ~5 s
+
+**Shot 6a:** a dark-wood office desk, seen from above. A sheet with blurred lines of text, no legible words. `[HAND]` comes down with a rubber stamp and presses it on the sheet; when lifted, a red, round mark remains. Sound: a dry, single thud.
+
+**Emotion:** the coldness of a minimal gesture with enormous consequences.
+
+**Shot 6b:** a warehouse shelf. A black foam tray with twenty round holes the exact size of the disc, in four rows of five, all empty. `[HAND]` enters from above with fingers extended, searches one hole, the next, and stops. Movement: a slow zoom on the stopped hand.
+
+**Emotion:** the small blow of looking for something that was always there and is not.
+
+> On 4 April 2025, China demanded a license to export seven rare earths, among them dysprosium and terbium.
+> Shipments fell.
+
+#### 7 · The handover (1:06–1:13)
+
+**Shot:** a single continuous take in which `[MAGNET]` passes from one `[HAND]` to another in different places without cutting: a truck bed, a workshop bench, a warehouse shelf, an assembly-line table. Each handover is careful, like someone handing over something fragile. The last palm stays open and waits. Nothing arrives. It stays open a second longer than is comfortable. Movement: the camera slides from hand to hand.
+
+**Emotion:** trust and, suddenly, its fragility. People who do not know each other and depend on another.
+
+> No factory did anything wrong. They depended on a cheap part, from a supplier that depended on another.
+
+#### 8 · The two hands (1:13–1:26)
+
+**Shot:** an industrial control panel with knobs and needle gauges. Two pairs of hands. One, young, with very clean nails, holds a closed notebook. The other, older, with spotted skin and swollen knuckles, turns a knob a hair to the right and gently taps a gauge; the needle settles. The young hands open the notebook and note something down. Warm lamp light. Movement: fixed shot, with a minimal zoom on the older hands.
+
+**Emotion:** the tenderness of knowledge passing from one person to another. Gratitude and time.
+
+> Making magnets elsewhere is the slowest part. MP Materials would reach about ten thousand tonnes a year; China's largest maker, JL MAG, sixty thousand. And, an analyst said, money does not buy forty years of experience.
+
+#### 9 · The fridge (1:26–1:40) · two shots
+
+**Sound:** the first click of a chain tightening and a hum that slowly rises, the same as in scene 1.
+
+**Shot 9a (~4 s):** the hall of scene 1, from the same point and with the same framing. Everything is the same, and suddenly the orange beacon lights up and spins, tinting the walls orange. The first body advances a few centimetres. Fixed shot.
+
+**Emotion:** relief, but with memory: now it is known what it cost.
+
+**Shot 9b (~10 s):** a kitchen in the afternoon. A white fridge door; in the centre, a crayon drawing (a sun and a crooked house) held by a round black magnet. Side window light, yellow and warm; a tap running and a child's distant voice are heard. The camera slowly approaches the magnet and stays on it. Cut to black.
+
+**Emotion:** everyday tenderness and a small chill: all this hangs from something we do not see.
+
+> The Chicago line moved again.
+> China's pause expires on 10 November, and there is no confirmed extension.
+> What other small things occupy the same place today?
+
+*Close: 2 seconds of low music over black. No "subscribe".*
+
+---
+
+## Data to check before recording
+
+The facts are those of draft 1 (claims sheet, §4). Changes and cautions of this version:
+
+| Point | Status |
 |---|---|
-| "La espera duró cerca de una semana" y "volvió a moverse" (escenas 2 y 9) | Falta confirmar la duración y la reanudación en una fuente de Ford |
-| 60 / 91 / 94 % (escena 5) | IEA, datos de 2024; fuente primaria, confirmar en el informe completo |
-| "Siete tierras raras" bajo licencia el 4-abr-2025 (escena 6) | Falta una segunda fuente de prensa |
-| 10.000 t (MP Materials), 60.000 t (JL MAG), la frase del analista (escena 8) | **Una sola fuente secundaria** (Tech Times, 2-oct-2026). Verificar antes de grabar |
-| 10-nov-2026 sin extensión confirmada (escena 9) | **Contradicción abierta** con BISI (10-ene-2027). Si se confirma una extensión, se reescribe la escena 9 |
+| "The wait lasted about a week" and "moved again" (scenes 2 and 9) | The duration and the restart still need confirming in a Ford source |
+| 60 / 91 / 94 % (scene 5) | IEA, 2024 data; primary source, confirm in the full report |
+| "Seven rare earths" under license on 4 Apr 2025 (scene 6) | A second press source is missing |
+| 10,000 t (MP Materials), 60,000 t (JL MAG), the analyst's sentence (scene 8) | **A single secondary source** (Tech Times, 2 Oct 2026). Verify before recording |
+| 10 Nov 2026 with no confirmed extension (scene 9) | **Open contradiction** with BISI (10 Jan 2027). If an extension is confirmed, scene 9 is rewritten |

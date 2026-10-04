@@ -2,474 +2,475 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-03
-status: reescritura de dirección · mismos datos que el borrador 1, sin segunda fuente aún
-tags: [investigación, youtube, guion, imanes, dirección]
+status: direction rewrite · same data as draft 1, no second source yet · written in Spanish, translated to English (never recorded)
+tags: [research, youtube, script, magnets, direction]
 ---
 
-# Guion: el imán que detuvo una fábrica · versión de dirección
+# Script: the magnet that stopped a factory · direction version
 
-← [[Script - Magnets and geopolitics]] (borrador 1) · [[YouTube with AI - quality content guide]]
+← [[Script - Magnets and geopolitics]] (draft 1) · [[YouTube with AI - quality content guide]]
 
-> **Qué es esto:** el mismo episodio y los mismos hechos, contados con un hilo en vez de una lista. Cada escena trae la voz y un **plano escrito como prompt**: qué hay en cuadro, dónde, cómo se mueve y qué debe sentir quien mira. El estilo visual no se decide aquí (ver §3 del borrador 1); aquí solo van elementos y emociones.
-> **Datos a:** 3-oct-2026. La última sección depende del 10-nov-2026 (ver §4).
-> **Duración:** ≈ 2.000 palabras de narración. Con la hipótesis sin fuente de ~140 palabras por minuto serían ~14–15 min, más las pausas y los silencios. A medir al grabar.
+> **Language:** written in **Spanish** before the English-only decision of 3 Oct 2026 and translated here. It was never recorded; the short versions derive from it.
+> **What this is:** the same episode and the same facts, told with a thread instead of a list. Each scene brings the voice and a **shot written as a prompt**: what is in frame, where, how it moves and what the viewer should feel. The visual style is not decided here (see §3 of draft 1); here only elements and emotions go.
+> **Data as of:** 3 Oct 2026. The last section depends on 10 Nov 2026 (see §4).
+> **Duration:** ≈ 2,000 words of narration. With the unsourced hypothesis of ~140 words per minute it would be ~14–15 min, plus the pauses and silences. To measure when recording.
 
-## 0. Por qué el borrador 1 no funcionaba
+## 0. Why draft 1 did not work
 
-1. **Era una clase, no un relato.** Cada parte arrancaba con "Empecemos por lo simple". Nadie sigue una lista de datos; se sigue a alguien o a algo.
-2. **No tenía hilo.** La guía pide "un personaje o un lugar" (§4, punto 4). Aquí el hilo es **el disco**: lo vemos nacer en 1984, esconderse en un motor, desaparecer de una bandeja y volver a una nevera.
-3. **Las imágenes eran etiquetas.** "Tres barras", "línea de tiempo muy sencilla", "esquema de capas". Eso repite lo que la voz ya dijo. Un buen plano hace sentir lo que la voz no puede.
-4. **No había silencio.** La historia empieza con una máquina que se detuvo, y el guion no dejaba oír que se detenía.
-5. **Faltaba el final del hecho.** El borrador 1 deja la línea de Chicago parada. Aquí vuelve a moverse, y por eso el cierre pesa.
+1. **It was a lesson, not a story.** Each part began with "Let us start with the simple". Nobody follows a list of facts; one follows someone or something.
+2. **It had no thread.** The guide asks for "a character or a place" (§4, point 4). Here the thread is **the disc**: we see it born in 1984, hide in a motor, vanish from a tray and return to a fridge.
+3. **The images were labels.** "Three bars", "a very simple timeline", "a layer diagram". That repeats what the voice already said. A good shot makes you feel what the voice cannot.
+4. **There was no silence.** The story begins with a machine that stopped, and the script did not let you hear it stop.
+5. **The end of the fact was missing.** Draft 1 leaves the Chicago line stopped. Here it moves again, and that is why the close weighs.
 
-## 1. Reglas de escena
+## 1. Scene rules
 
-- **Cada prompt se entiende solo.** Antes de generar, se pegan en su lugar las definiciones de `[IMÁN]` y `[MANO]`.
-- **`[IMÁN]`**: disco plano de unos 3 cm de diámetro y 5 mm de grosor; gris plata mate con un brillo tenue de níquel, bordes apenas biselados, sin letras ni marcas. Siempre el mismo.
-- **`[MANO]`**: mano adulta sin rostro ni rasgos que identifiquen a nadie; piel con un callo leve en la yema del pulgar, uñas cortas, sin anillos ni reloj.
-- **Las personas son manos, espaldas o siluetas.** Nunca rostros, nunca personas reales, nunca logotipos ni marcas legibles. Todo lo que cuenta un hecho real (Chicago, Suzuki, los presidentes) es una **reconstrucción ilustrada y declarada**, no una foto. Es la regla de la guía (§4, imagen).
-- **Una emoción por escena.** Si el plano pide dos, se parte en dos.
-- **Movimiento lento y único** por plano: un avance, un retroceso o una deriva. Sin cortes dentro de la escena.
-- **Texto en pantalla: una cifra o una palabra, solo cuando se indica.**
-- **Sonido:** cuando el plano tiene sonido propio se anota. El episodio se escucha primero.
+- **Each prompt is understood on its own.** Before generating, the definitions of `[MAGNET]` and `[HAND]` are pasted into place.
+- **`[MAGNET]`**: a flat disc about 3 cm in diameter and 5 mm thick; matte silver-grey with a faint nickel sheen, barely bevelled edges, no letters or marks. Always the same.
+- **`[HAND]`**: an adult hand with no face or features identifying anyone; skin with a slight callus on the thumb pad, short nails, no rings or watch.
+- **People are hands, backs or silhouettes.** Never faces, never real people, never logos or legible brands. Everything that tells a real event (Chicago, Suzuki, the presidents) is an **illustrated and declared reconstruction**, not a photo. It is the guide's rule (§4, image).
+- **One emotion per scene.** If the shot asks for two, it is split in two.
+- **A single slow movement** per shot: an advance, a pull-back or a drift. No cuts within the scene.
+- **On-screen text: a figure or a word, only when indicated.**
+- **Sound:** when the shot has its own sound it is noted. The episode is listened to first.
 
-*Voz:* pausada y cercana, como quien cuenta algo a otra persona en una cocina de noche. Un segundo de pausa entre párrafos y tres entre secciones. Sin dramatizar: la emoción está en lo que se dice, no en cómo se dice.
-
----
-
-## 2. Guion
-
-### Apertura · Chicago (≈ 1 min 30 s)
-
-#### 1 · El silencio de la línea
-
-**Sonido:** primero, 6 segundos del zumbido continuo de una línea de montaje: motores, cadenas, aire comprimido. De golpe, todo se corta. Quedan 4 segundos de un silencio total y solo entonces entra la voz.
-
-**Plano:** nave industrial enorme vista desde el extremo de una línea de montaje, a la altura de los ojos. La línea se aleja hacia el fondo en perspectiva profunda. Sobre ella, una hilera de carrocerías blancas de SUV sin ruedas ni puertas, detenidas, una tras otra, hasta perderse. A los lados, brazos robóticos amarillos congelados en pleno gesto, uno con la pinza a medio cerrar. Una baliza naranja sobre un poste, apagada. No hay nadie. El piso pulido refleja los tubos de luz del techo. Movimiento: un avance muy lento por el centro del pasillo, menos de un metro en todo el plano.
-
-**Emoción:** la calma antinatural de algo que siempre se mueve y ya no. El aire contenido antes de una noticia.
-
-> A finales de mayo de 2025, en una planta de Chicago, una línea de montaje dejó de moverse.
->
-> *(pausa de tres segundos)*
->
-> No faltaba acero. No hubo huelga ni incendio. Faltaba una pieza que cabe en la palma de una mano.
-
-#### 2 · El disco
-
-**Plano:** primer plano de `[MANO]`, palma hacia arriba, sosteniendo `[IMÁN]` en el centro. Detrás, fuera de foco, la misma nave con las carrocerías detenidas, apenas manchas blancas y amarillas. La luz de los tubos cae desde arriba y marca el borde del disco con una línea fina de brillo. La mano está inmóvil, pero el pulgar se curva un milímetro, como quien se resiste a cerrar el puño. Movimiento: un acercamiento lentísimo hasta que el disco ocupa un tercio del cuadro.
-
-**Emoción:** desproporción. Algo que no pesa nada y que, sin embargo, tiene detenida a una fábrica entera. Casi ternura.
-
-> Un imán. Un disco gris, del tamaño de una moneda.
->
-> La planta fabricaba el Ford Explorer. Las empresas del sector contaron que la espera duró alrededor de una semana.
-
-#### 3 · El auto por dentro
-
-**Plano:** un SUV blanco completo, visto de tres cuartos, en un fondo negro liso. La carrocería se vuelve transparente, como de vidrio, y revela el esqueleto: ejes, columna de dirección, asientos, el riel de inyectores del motor. En cuatro lugares (los frenos de una rueda, la dirección, un asiento, los inyectores) se enciende, uno por vez, un punto pequeño de luz cobre del tamaño de un grano de arroz. Cada punto aparece con medio segundo de diferencia y pulsa una sola vez. Movimiento: giro lento de la cámara alrededor del auto, un cuarto de vuelta.
-
-**Emoción:** asombro callado ante lo invisible; la leve vertigo de descubrir cuántas cosas dependen de algo que nunca se ve.
-
-> Un auto como ese usa imanes en lugares donde casi nadie piensa. En los frenos. En la dirección. En los asientos eléctricos. En los inyectores de combustible.
->
-> Nadie los mira. Nadie los toca. Trabajan sin que nadie lo note, y por eso nadie los extraña. Hasta que faltan.
-
-#### 4 · La promesa
-
-**Plano:** `[IMÁN]` solo, apoyado de canto sobre una superficie de piedra oscura y fría, en un cuarto vacío. Una única ventana alta, fuera de cuadro, deja caer un rectángulo de luz que cruza la piedra y llega justo al disco. El polvo flota en esa luz. Movimiento: la cámara desciende desde arriba hasta quedar a la altura del disco, y el reflejo de la ventana aparece en su borde.
-
-**Emoción:** invitación. La sensación de que alguien va a contar algo con calma y que vale la pena quedarse.
-
-> Esta historia sigue a ese disco. Primero, qué guarda por dentro. Después, cómo casi todos acabaron fabricándose en un solo país. Luego, la primavera de 2025. Y al final, lo que intentan hacer otros países, y por qué tarda tanto.
+*Voice:* measured and close, like someone telling something to another person in a kitchen at night. A one-second pause between paragraphs and three between sections. Without dramatising: the emotion is in what is said, not in how it is said.
 
 ---
 
-### Parte 1 · Lo que guarda por dentro (≈ 3 min)
+## 2. Script
 
-#### 5 · La aguja
+### Opening · Chicago (≈ 1 min 30 s)
 
-**Plano:** cabina de madera de un barco antiguo, de noche. Sobre una mesa, una brújula de latón abierta; la aguja tiembla y se detiene apuntando a una esquina oscura. A un costado, una lámpara de aceite con la llama inclinada por el vaivén. Una carta náutica enrollada a medias. Sin personas. Movimiento: la cámara se queda quieta; lo único que se mueve es la aguja al asentarse y la llama.
+#### 1 · The silence of the line
 
-**Emoción:** fe antigua y paciente en algo pequeño que no falla.
+**Sound:** first, 6 seconds of the continuous hum of an assembly line: motors, chains, compressed air. Suddenly, everything cuts. 4 seconds of total silence remain and only then does the voice enter.
 
-> Durante siglos, un imán fue una promesa débil. Una aguja que apuntaba al norte.
+**Shot:** an enormous industrial hall seen from the end of an assembly line, at eye level. The line recedes into the background in deep perspective. On it, a row of white SUV bodies with no wheels or doors, stopped, one after another, until they disappear. At the sides, yellow robotic arms frozen mid-gesture, one with its gripper half closed. An orange beacon on a pole, off. There is nobody. The polished floor reflects the ceiling's light tubes. Movement: a very slow advance down the centre of the aisle, less than a metre in the whole shot.
 
-#### 6 · La nota
+**Emotion:** the unnatural calm of something that always moves and no longer does. The held breath before news.
 
-**Plano:** una cocina por la mañana. Puerta de nevera blanca, en cuadro completo. En el centro, un dibujo hecho con crayones, un sol y una casa torcida, sujeto por un imán redondo y negro. Más abajo, una lista de compras con letra apurada, sujeta por otro imán, de otro color. Luz de ventana lateral, amarilla y tibia. Fuera de cuadro suena una taza dejada sobre una mesa y el agua de una llave. Movimiento: acercamiento lento al dibujo, hasta que el imán negro queda en primer plano.
-
-**Emoción:** calidez doméstica, algo de nostalgia. La paz de lo cotidiano. (Este plano vuelve en el cierre, y tiene que dolerle un poco al espectador entonces.)
-
-> Una nota pegada a un refrigerador.
-
-#### 7 · Dos habitaciones, una luz
-
-**Plano:** pantalla partida en dos mitades verticales iguales. A la izquierda, un laboratorio con mesa desordenada: frascos con polvo gris, una taza con café, papeles. A la derecha, un laboratorio más ordenado: crisoles alineados, una libreta con anotaciones a mano. En cada mitad, visto de espaldas o solo por las manos, un investigador inclinado sobre un pequeño horno de laboratorio. En ambas, el interior del horno brilla naranja y tiñe de naranja la pared de atrás con la misma intensidad. Movimiento: acercamiento sincronizado en las dos mitades hacia el resplandor del horno.
-
-**Emoción:** esa extraña intimidad de dos personas lejanas que, sin saberlo, están haciendo lo mismo. Soledad compartida.
-
-> Eso cambió en 1984. En dos lugares distintos, dos equipos trabajaban por separado. Uno, en General Motors, en Estados Unidos. El otro, en la empresa japonesa Sumitomo.
+> At the end of May 2025, in a plant in Chicago, an assembly line stopped moving.
 >
-> Los dos mezclaron neodimio, hierro y boro. Los dos llegaron a lo mismo: un imán más fuerte que cualquiera que se hubiera hecho antes.
-
-#### 8 · Lo poco que necesita
-
-**Plano:** una mesa de taller de madera gastada. A la izquierda, un imán grande, negro y opaco, del tamaño de un ladrillo pequeño. A la derecha, `[IMÁN]`. `[MANO]` entra por la derecha y acerca el disco a una llave inglesa de acero pesada, apoyada en la mesa; el disco se pega con un clic seco, y la mano levanta la llave lentamente, medio palmo, con el disco aguantando todo el peso. El imán negro grande queda al fondo, sin hacer nada. Movimiento: plano fijo y bajo, a ras de mesa.
-
-**Emoción:** asombro callado ante la desproporción: lo diminuto sostiene lo pesado.
-
-> Lo asombroso no era lo que ese imán sostenía. Era lo poco que necesitaba para sostenerlo. Con el mismo peso, hacía un trabajo que antes pedía una pieza varias veces más grande.
+> *(three-second pause)*
 >
-> Y en un motor eléctrico, eso lo cambia todo. Un imán más fuerte permite un motor más pequeño, más liviano, más eficiente.
+> Steel was not missing. There was no strike or fire. A part that fits in the palm of a hand was missing.
 
-#### 9 · Cinco lugares
+#### 2 · The disc
 
-**Plano:** secuencia de cinco tomas de unos tres segundos, cada una un acercamiento hacia el interior de un objeto hasta encontrar `[IMÁN]` brillando en su sitio, siempre en el mismo lugar del cuadro, abajo a la izquierda. (1) El rotor de un motor de auto eléctrico, con los discos alineados en círculo. (2) Un taladro inalámbrico abierto por la mitad. (3) El brazo diminuto de un disco duro sobre su plato espejado. (4) El parlante de un audífono, la membrana vibrando. (5) El interior de la góndola de una turbina eólica, a gran altura, con el cielo claro por una abertura. Movimiento: en cada toma, un avance corto y suave.
+**Shot:** close-up of `[HAND]`, palm up, holding `[MAGNET]` in the centre. Behind, out of focus, the same hall with the stopped bodies, barely white and yellow smudges. The tube light falls from above and marks the disc's edge with a fine line of shine. The hand is motionless, but the thumb curves a millimetre, like someone resisting closing the fist. Movement: a very slow zoom until the disc takes up a third of the frame.
 
-**Emoción:** el placer de descubrir que lo mismo está en todas partes, y una ternura extraña hacia algo que se esconde.
+**Emotion:** disproportion. Something that weighs nothing and yet has a whole factory stopped. Almost tenderness.
 
-> Por eso terminaron en todas partes. En el motor de un auto eléctrico. En un taladro inalámbrico. En el brazo diminuto de un disco duro. En el parlante de unos audífonos. En el corazón de una turbina de viento.
-
-#### 10 · Un kilo
-
-**Plano:** un estacionamiento de asfalto vacío, al amanecer. En el centro, un auto híbrido compacto, gris, visto de frente y un poco desde arriba. Junto a la rueda delantera, sobre el asfalto, una pila pequeña de discos grises, más o menos un puñado grande, iluminada por un solo rayo bajo de sol que la hace brillar. El auto proyecta una sombra larga que casi la toca. Movimiento: retroceso muy lento, hasta que la pila se vuelve un punto junto al auto.
-
-**Emoción:** humildad. La sensación de que lo más importante cabe en lo más pequeño.
-
-> Se estima que el motor de un Toyota Prius lleva cerca de un kilo de neodimio. Un kilo, dentro de un auto de más de mil.
+> A magnet. A grey disc, the size of a coin.
 >
-> Casi nada. Y sin ese casi nada, el motor no es el mismo.
+> The plant made the Ford Explorer. Companies in the sector said the wait lasted about a week.
 
-#### 11 · El calor
+#### 3 · The car from the inside
 
-**Plano:** primer plano de una mesa metálica. `[IMÁN]` está pegado a una arandela de acero, ambos sobre una pequeña placa que empieza a ponerse roja desde abajo; encima se ve el aire ondulando por el calor. Poco a poco la arandela se va aflojando, se despega de un lado, se inclina y cae sobre la mesa con un tintineo pequeño. El disco queda ahí, quieto, sin haber cambiado de aspecto. Movimiento: plano fijo; la cámara solo se acerca un poco en la caída.
+**Shot:** a complete white SUV, seen from three-quarters, on a plain black background. The body becomes transparent, as if of glass, and reveals the skeleton: axles, steering column, seats, the engine's injector rail. In four places (the brakes of a wheel, the steering, a seat, the injectors) a small copper point of light the size of a grain of rice lights up, one at a time. Each point appears half a second apart and pulses once. Movement: a slow orbit of the camera around the car, a quarter turn.
 
-**Emoción:** la tristeza de ver que algo fuerte se debilita sin que se note por fuera. Una traición silenciosa.
+**Emotion:** quiet wonder at the invisible; the slight vertigo of discovering how many things depend on something never seen.
 
-> Pero este imán tiene un punto débil, y es el calor. Pasados unos cien grados, empieza a perder fuerza.
+> A car like that uses magnets in places where almost nobody thinks. In the brakes. In the steering. In the electric seats. In the fuel injectors.
 >
-> Y un motor, una turbina, trabajan justamente ahí, donde hace calor.
+> Nobody looks at them. Nobody touches them. They work without anyone noticing, and so nobody misses them. Until they are missing.
 
-#### 12 · La pizca
+#### 4 · The promise
 
-**Plano:** una cucharilla de laboratorio sostenida por una pinza. Sobre ella, una pizca de polvo gris plateado, del tamaño de un grano de sal gruesa. Fondo negro. Luego, en el mismo cuadro, el plano anterior se repite en pequeño a un costado: la placa roja, el aire ondulando, pero esta vez la arandela sigue pegada al disco y no cae. Movimiento: la cámara se acerca a la pizca hasta que el polvo se ve como pequeñas piedras brillantes.
+**Shot:** `[MAGNET]` alone, resting on its edge on a dark, cold stone surface, in an empty room. A single high window, out of frame, drops a rectangle of light that crosses the stone and reaches just the disc. Dust floats in that light. Movement: the camera descends from above until it is at the disc's height, and the window's reflection appears on its edge.
 
-**Emoción:** alivio, y debajo del alivio una inquietud pequeña: algo precioso se esconde en lo mínimo.
+**Emotion:** invitation. The feeling that someone is going to tell something calmly and that it is worth staying.
 
-> La solución es agregar una pizca de dos elementos más: disprosio y terbio. Muy poco. Con ellos, el imán aguanta el calor.
->
-> Y son más escasos, y más difíciles de obtener, que el propio neodimio.
-
-#### 13 · Lo que se sostiene
-
-**Plano:** `[MANO]` cierra lentamente el puño alrededor de `[IMÁN]`, hasta que el disco desaparece; solo se ve el puño, con los nudillos tensos, delante de un fondo oscuro. Movimiento: acercamiento mínimo; el plano termina en el puño cerrado.
-
-**Emoción:** peso. El agarre de quien acaba de entender cuánto depende de lo que tiene en la mano.
-
-> Así que tenemos un material pequeño. Difícil de reemplazar. Presente en casi todo lo que se mueve con electricidad.
->
-> Veamos de dónde viene.
+> This story follows that disc. First, what it holds inside. Then, how almost all of them ended up being made in a single country. Then, the spring of 2025. And at the end, what other countries are trying to do, and why it takes so long.
 
 ---
 
-### Parte 2 · Cómo acabó en un solo lugar (≈ 4 min)
+### Part 1 · What it holds inside (≈ 3 min)
 
-#### 14 · La piedra
+#### 5 · The needle
 
-**Plano:** `[MANO]` sostiene una piedra del tamaño de un puño, de un gris rosado, rugosa y opaca, con vetas oscuras. En el fondo, un paisaje de montaña seca fuera de foco. La luz de la tarde entra de lado y marca cada grano de la piedra. La mano la gira lentamente, mostrándola por un lado y por el otro. Movimiento: la cámara acompaña el giro y se acerca hasta ver la superficie de la piedra como un paisaje.
+**Shot:** the wooden cabin of an old ship, at night. On a table, an open brass compass; the needle trembles and stops pointing at a dark corner. To one side, an oil lamp with its flame tilted by the sway. A half-rolled nautical chart. No people. Movement: the camera stays still; the only things that move are the needle settling and the flame.
 
-**Emoción:** desengaño tranquilo. Lo importante no se ve valioso. Humildad de la materia.
+**Emotion:** ancient, patient faith in something small that does not fail.
 
-> Estos elementos se llaman tierras raras, y el nombre engaña. No son tan raras. Están en la corteza de la Tierra en cantidades que no asustan.
+> For centuries, a magnet was a weak promise. A needle that pointed north.
+
+#### 6 · The note
+
+**Shot:** a kitchen in the morning. A white fridge door, in full frame. In the centre, a crayon drawing, a sun and a crooked house, held by a round black magnet. Lower down, a shopping list in hurried handwriting, held by another magnet, of another colour. Side window light, yellow and warm. Off-screen, a cup being put on a table and a tap running. Movement: a slow zoom on the drawing, until the black magnet is in the foreground.
+
+**Emotion:** domestic warmth, some nostalgia. The peace of the everyday. (This shot returns at the close, and it has to hurt the viewer a little then.)
+
+> A note stuck to a refrigerator.
+
+#### 7 · Two rooms, one light
+
+**Shot:** a screen split into two equal vertical halves. On the left, a laboratory with a messy table: jars with grey powder, a cup of coffee, papers. On the right, a tidier laboratory: aligned crucibles, a notebook with handwritten notes. In each half, seen from behind or only through the hands, a researcher bent over a small laboratory furnace. In both, the furnace's interior glows orange and tints the back wall orange with the same intensity. Movement: a synchronised zoom in both halves toward the furnace's glow.
+
+**Emotion:** that strange intimacy of two distant people who, without knowing it, are doing the same thing. Shared solitude.
+
+> That changed in 1984. In two different places, two teams were working separately. One, at General Motors, in the United States. The other, at the Japanese company Sumitomo.
 >
-> Lo difícil no es encontrarlas. Es separarlas.
+> Both mixed neodymium, iron and boron. Both arrived at the same thing: a magnet stronger than any made before.
 
-#### 15 · Quince hermanos
+#### 8 · How little it needs
 
-**Plano:** el interior de una planta química, vista a lo largo de una fila muy larga de tanques de vidrio de unos dos metros de alto, uno detrás de otro, unidos por tuberías. Cada tanque contiene un líquido de un tono apenas distinto del vecino: un rosa pálido, un lila, un verde apagado, un amarillo claro. Vapor suave sube de las tapas. Al fondo, un par de botas de trabajo camina despacio entre los tanques y se pierde. Luz de neón blanquecina, sin ventanas. Movimiento: desplazamiento lateral muy lento a lo largo de toda la fila.
+**Shot:** a worn wooden workshop table. On the left, a large, black, opaque magnet, the size of a small brick. On the right, `[MAGNET]`. `[HAND]` enters from the right and brings the disc close to a heavy steel wrench resting on the table; the disc sticks with a dry click, and the hand slowly lifts the wrench, half a hand's width, with the disc holding all the weight. The large black magnet stays in the background, doing nothing. Movement: a fixed, low shot, at table level.
 
-**Emoción:** la monotonía de un trabajo largo y exacto; un desasosiego bajo, casi químico, por lo que se vierte allí.
+**Emotion:** quiet wonder at the disproportion: the tiny holds the heavy.
 
-> Las tierras raras aparecen mezcladas. Quince o más elementos con una química casi idéntica, como quince hermanos que se visten igual.
+> What was amazing was not what that magnet held. It was how little it needed to hold it. With the same weight, it did a job that used to ask for a piece several times bigger.
 >
-> Separarlos exige muchas etapas, con químicos que contaminan, y una experiencia que lleva décadas acumular.
+> And in an electric motor, that changes everything. A stronger magnet allows a smaller, lighter, more efficient motor.
 
-#### 16 · El desierto
+#### 9 · Five places
 
-**Plano:** una mina a cielo abierto en el desierto, vista desde el borde y de lejos, al atardecer. Un gran cráter de terrazas de tierra clara y rojiza. Muy al fondo, un solo camión diminuto avanza por un camino que baja en espiral. Sobre el horizonte, montañas bajas y un cielo sin nubes de color durazno. Hay viento y se oye. Movimiento: la cámara avanza muy poco, como quien se asoma al borde.
+**Shot:** a sequence of five shots of about three seconds, each a zoom into the interior of an object until `[MAGNET]` is found glowing in its place, always in the same part of the frame, bottom left. (1) The rotor of an electric car motor, with the discs aligned in a circle. (2) A cordless drill opened in half. (3) The tiny arm of a hard drive over its mirrored platter. (4) The speaker of a headphone, the membrane vibrating. (5) The inside of a wind turbine nacelle, at great height, with clear sky through an opening. Movement: in each shot, a short, soft advance.
 
-**Emoción:** grandeza solitaria; el orgullo tranquilo de un lugar que fue el centro del mundo sin saberlo.
+**Emotion:** the pleasure of discovering that the same thing is everywhere, and a strange tenderness toward something that hides.
 
-> Durante buena parte del siglo veinte, el mayor productor de tierras raras del mundo no estaba en China. Estaba en el desierto de California, en una mina llamada Mountain Pass, descubierta en 1949.
+> That is why they ended up everywhere. In the motor of an electric car. In a cordless drill. In the tiny arm of a hard drive. In the speaker of a pair of headphones. In the heart of a wind turbine.
 
-#### 17 · La marea
+#### 10 · One kilo
 
-**Plano:** una estepa enorme y llana, de pasto seco bajo un cielo pálido. Al centro, una planta industrial con chimeneas largas que sueltan humo gris hacia un lado, empujado por el viento. De un extremo al otro del cuadro, una vía de tren con vagones cargados de mineral oscuro que avanza sin parar; el tren es tan largo que no se ve su final. Ninguna persona. Movimiento: panorámica horizontal muy lenta, siguiendo el tren.
+**Shot:** an empty asphalt parking lot, at dawn. In the centre, a compact hybrid car, grey, seen from the front and a little from above. Beside the front wheel, on the asphalt, a small pile of grey discs, about a big handful, lit by a single low ray of sun that makes it shine. The car casts a long shadow that almost touches it. Movement: a very slow pull-back, until the pile becomes a dot beside the car.
 
-**Emoción:** la sensación de una corriente enorme, imparable y sin mala intención. Escala, no villanos.
+**Emotion:** humility. The feeling that the most important thing fits in the smallest.
 
-> Entre 1985 y 1995, China pasó de producir una quinta parte de las tierras raras del mundo a producir cerca de tres quintas partes. Tenía grandes yacimientos, como Bayán Obo, en Mongolia Interior. Y producía más barato, en parte porque les exigía menos a las empresas en cuidado del ambiente.
-
-#### 18 · La reja
-
-**Plano:** el mismo cráter de la escena 16, pero a mediodía y de cerca, desde el camino de entrada. Una reja de malla metálica con un candado grande y oxidado. Un cartel descolorido, sin texto legible. Detrás, la mina quieta, con una máquina amarilla abandonada al fondo. El viento arrastra polvo a ras de suelo y una bolsa de plástico se engancha en la reja. Luz plana y dura, sin sombra. Movimiento: plano fijo, solo se mueven el polvo y la bolsa.
-
-**Emoción:** abandono. La misma quietud de la fábrica del principio, pero sin la esperanza de que alguien vuelva mañana.
-
-> Mountain Pass no pudo competir. La empresa que la operaba, Molycorp, se declaró en quiebra en 2015, y la mina quedó en silencio.
+> It is estimated that a Toyota Prius's motor carries about a kilo of neodymium. One kilo, inside a car of over a thousand.
 >
-> Dos años después la compró un grupo de inversionistas que incluía a una empresa china. Según lo que se cita, con una participación minoritaria.
+> Almost nothing. And without that almost nothing, the motor is not the same.
 
-#### 19 · Tres frascos
+#### 11 · The heat
 
-**Plano:** una mesa larga de madera clara, vista de frente, junto a una ventana grande que da a un patio. Sobre la mesa, tres frascos de vidrio idénticos, alineados de izquierda a derecha, llenos de un polvo gris fino. El primero está lleno hasta un poco más de la mitad (60 %), el segundo casi hasta arriba (91 %), el tercero hasta un dedo del borde (94 %). Sobre cada frasco aparece, en una sola línea, su cifra. En cada uno, el nivel del polvo ha sido marcado por la luz de la ventana en el vidrio. Movimiento: plano fijo; la cámara solo se desplaza un palmo hacia la derecha, de un frasco al siguiente, y se detiene en el último.
+**Shot:** close-up of a metal table. `[MAGNET]` is stuck to a steel washer, both on a small plate that starts to turn red from below; above, the air can be seen rippling with the heat. Little by little the washer loosens, peels off on one side, tilts and falls on the table with a small clink. The disc stays there, still, with no change in appearance. Movement: fixed shot; the camera only moves in a little on the fall.
 
-**Emoción:** el temor lento de ver cómo un número crece. Inquietud sin ruido.
+**Emotion:** the sadness of seeing something strong weaken without it showing outside. A silent betrayal.
 
-> La mina es lo que se ve. Lo que decidió todo ocurrió después.
+> But this magnet has a weak point, and it is heat. Past about a hundred degrees, it starts to lose strength.
 >
-> La Agencia Internacional de Energía publicó las cifras de 2024. China concentra alrededor del sesenta por ciento de la extracción de las tierras raras que se usan en imanes. Pero concentra el noventa y uno por ciento del refinado. Y el noventa y cuatro por ciento de los imanes de neodimio.
+> And a motor, a turbine, work precisely there, where it is hot.
+
+#### 12 · The pinch
+
+**Shot:** a laboratory spoon held by tweezers. On it, a pinch of silvery grey powder, the size of a grain of coarse salt. Black background. Then, in the same frame, the previous shot repeats in small to one side: the red plate, the air rippling, but this time the washer stays stuck to the disc and does not fall. Movement: the camera approaches the pinch until the powder looks like small shining stones.
+
+**Emotion:** relief, and under the relief a small unease: something precious hides in the minimal.
+
+> The solution is to add a pinch of two more elements: dysprosium and terbium. Very little. With them, the magnet withstands the heat.
 >
-> Fíjate cómo crece el número a medida que el mineral se acerca al producto.
+> And they are scarcer, and harder to obtain, than neodymium itself.
 
-#### 20 · Veinte años
+#### 13 · What is held
 
-**Plano:** el mismo tercer frasco de la escena anterior, en el mismo lugar de la mesa y con la misma ventana detrás. Dentro de cada segundo del plano pasa una estación: la luz de la ventana cambia de color, hojas de un árbol del patio cambian y desaparecen, nieva un poco, vuelve el verde. Mientras tanto, el polvo del frasco sube lentamente, de la mitad hasta casi el borde. Texto en pantalla, al inicio y al final: "2005" y "2025". Movimiento: plano fijo.
+**Shot:** `[HAND]` slowly closes the fist around `[MAGNET]`, until the disc disappears; only the fist is seen, with tense knuckles, in front of a dark background. Movement: a minimal zoom; the shot ends on the closed fist.
 
-**Emoción:** la acumulación que nadie nota mientras ocurre. Melancolía por el tiempo que pasa sin que se haga nada.
+**Emotion:** weight. The grip of someone who has just understood how much depends on what they hold in their hand.
 
-> En 2005, China fabricaba cerca de la mitad de estos imanes. Veinte años después, casi todos.
-
-#### 21 · El camino de ida y vuelta
-
-**Plano:** muelle de un puerto al amanecer. Un gran barco portacontenedores se aleja de la costa, cargado, con la proa hacia un horizonte rosado. En primer plano, sacos oscuros de mineral descansan sobre una paleta, atados con una cinta. A un lado, ya en otro cuadro del mismo plano, una caja pequeña de cartón viaja sobre una cinta transportadora hacia la salida, y dentro de ella se alcanza a ver un disco. El barco se hace pequeño. Movimiento: panorámica muy lenta, desde los sacos hasta el barco.
-
-**Emoción:** dependencia. Un hilo invisible que ata lo que sale con lo que vuelve.
-
-> Se podía sacar el mineral fuera de China. Pero había que mandarlo allá para refinarlo, y luego para fabricar el imán. El camino de ida tenía siempre un camino de vuelta.
-
-#### 22 · Dos puertas
-
-**Plano:** pantalla partida. A la izquierda, a pleno día, una mina inmensa con maquinaria amarilla, camiones y una nube de polvo; se ve desde lejos y se entiende de un vistazo. A la derecha, al anochecer, la puerta metálica sin letrero de una bodega sin ventanas, con una sola lámpara encendida encima y la sombra de un hombre que pasa de largo por la acera. Ninguna señal en la puerta. Movimiento: acercamiento lento solo en la mitad derecha; la izquierda queda fija.
-
-**Emoción:** inquietud ante lo que no se ve. El poder callado.
-
-> El control de una mina se ve. El control del proceso, no. Es silencioso. Y es el que más pesa.
+> So we have a small material. Hard to replace. Present in almost everything that moves with electricity.
+>
+> Let us see where it comes from.
 
 ---
 
-### Parte 3 · Cuando se vuelve un instrumento (≈ 4 min)
+### Part 2 · How it ended up in one place (≈ 4 min)
 
-#### 23 · La puerta
+#### 14 · The stone
 
-**Plano:** un pasillo largo y vacío, de paredes lisas. Al fondo, una puerta pesada de metal se cierra muy despacio, y la franja de luz que entra por ella se va estrechando hasta ser una línea. Quien mira está al final del pasillo, de pie, y no puede llegar a tiempo. Movimiento: la cámara no se mueve; se mueve solo la puerta.
+**Shot:** `[HAND]` holds a stone the size of a fist, pinkish grey, rough and opaque, with dark veins. In the background, a dry mountain landscape out of focus. Afternoon light enters from the side and marks every grain of the stone. The hand slowly turns it, showing one side and then the other. Movement: the camera accompanies the turn and moves in until the stone's surface is seen as a landscape.
 
-**Emoción:** tensión. Un umbral que se cierra y la certeza de que importa.
+**Emotion:** calm disillusion. What matters does not look valuable. The humility of matter.
 
-> Que un país produzca casi todo de algo no es un conflicto. Se vuelve uno cuando ese algo puede cerrarse como una puerta.
-
-#### 24 · El puerto en silencio
-
-**Plano:** un puerto de carga de noche. Grúas inmensas, quietas, con sus luces rojas en lo alto. Sobre el muelle, pilas de contenedores en espera, alineadas, sin movimiento. En una caseta de aduana, una sola ventana iluminada con una silueta sentada, inmóvil. El agua negra refleja las luces. Nadie habla; solo se oye el agua. Movimiento: un recorrido lento a lo largo del muelle, a la altura de un contenedor.
-
-**Emoción:** ambigüedad. Un rumor, una amenaza que nadie dice en voz alta, y esa es justamente su fuerza.
-
-> La primera vez fue en 2010. Durante una disputa en el mar entre China y Japón, se informó que los envíos de tierras raras hacia Japón se habían detenido. China lo negó.
+> These elements are called rare earths, and the name deceives. They are not so rare. They are in the Earth's crust in amounts that do not frighten.
 >
-> Lo que quedó fue la advertencia. En Japón empezaron a buscar otros proveedores.
+> The hard part is not finding them. It is separating them.
 
-#### 25 · El sello
+#### 15 · Fifteen brothers
 
-**Plano:** una mesa de oficina de madera oscura, vista desde arriba. Una hoja de papel con líneas de texto borrosas, sin palabras legibles. `[MANO]` baja con un sello de goma y lo presiona con firmeza sobre la parte inferior de la hoja; al levantarlo queda una marca roja y redonda. Al fondo, la sombra de una ventana con persianas. Sonido: un golpe seco, único. Movimiento: plano fijo, la cámara solo se acerca al sello en el momento del golpe.
+**Shot:** the interior of a chemical plant, seen along a very long row of glass tanks about two metres high, one behind another, joined by pipes. Each tank holds a liquid of a tone barely different from its neighbour: a pale pink, a lilac, a muted green, a light yellow. Soft steam rises from the lids. At the back, a pair of work boots walks slowly between the tanks and disappears. Whitish neon light, no windows. Movement: a very slow lateral drift along the whole row.
 
-**Emoción:** la frialdad de un gesto minúsculo con consecuencias enormes. La banalidad de las decisiones grandes.
+**Emotion:** the monotony of long, exact work; a low, almost chemical unease for what is poured there.
 
-> Casi quince años después llegó la segunda. El 4 de abril de 2025, China puso bajo licencia de exportación siete tierras raras, medianas y pesadas. Entre ellas, el disprosio y el terbio, los que ayudan al imán a aguantar el calor.
+> Rare earths appear mixed. Fifteen or more elements with almost identical chemistry, like fifteen brothers who dress the same.
 >
-> Desde ese día, los imanes que los llevan necesitan un permiso para salir del país.
+> Separating them demands many stages, with chemicals that pollute, and an experience that takes decades to accumulate.
+
+#### 16 · The desert
+
+**Shot:** an open-pit mine in the desert, seen from the edge and from afar, at dusk. A large crater of terraces of light, reddish earth. Far in the background, a single tiny truck advances along a road that spirals down. On the horizon, low mountains and a cloudless peach-coloured sky. There is wind and it can be heard. Movement: the camera advances very little, like someone peering over the edge.
+
+**Emotion:** solitary grandeur; the quiet pride of a place that was the centre of the world without knowing it.
+
+> For a good part of the twentieth century, the world's largest rare-earth producer was not in China. It was in the California desert, at a mine called Mountain Pass, discovered in 1949.
+
+#### 17 · The tide
+
+**Shot:** an enormous flat steppe of dry grass under a pale sky. In the centre, an industrial plant with long chimneys releasing grey smoke to one side, pushed by the wind. From one end of the frame to the other, a railway line with wagons loaded with dark ore advancing without stopping; the train is so long that its end cannot be seen. No people. Movement: a very slow horizontal pan, following the train.
+
+**Emotion:** the feeling of an enormous current, unstoppable and without ill intent. Scale, not villains.
+
+> Between 1985 and 1995, China went from producing a fifth of the world's rare earths to producing nearly three fifths. It had large deposits, such as Bayan Obo, in Inner Mongolia. And it produced cheaper, partly because it demanded less of companies in environmental care.
+
+#### 18 · The gate
+
+**Shot:** the same crater of scene 16, but at midday and up close, from the entrance road. A metal mesh gate with a large rusty padlock. A faded sign, no legible text. Behind, the still mine, with an abandoned yellow machine in the background. Wind drags dust along the ground and a plastic bag catches on the gate. Flat, hard light, no shadow. Movement: fixed shot, only the dust and the bag move.
+
+**Emotion:** abandonment. The same stillness as the factory at the start, but without the hope that someone returns tomorrow.
+
+> Mountain Pass could not compete. The company that operated it, Molycorp, declared bankruptcy in 2015, and the mine fell silent.
 >
-> El neodimio, en sí, no estaba en la lista. Pero la lista tocaba lo que hace útil al imán.
+> Two years later it was bought by a group of investors that included a Chinese company. According to what is cited, with a minority stake.
 
-#### 26 · La bandeja vacía
+#### 19 · Three jars
 
-**Plano:** el estante de un almacén de repuestos, a la altura de una persona. Una bandeja de espuma negra con veinte huecos redondos, del tamaño exacto del disco, en cuatro filas de cinco. Todos están vacíos. `[MANO]` entra desde arriba con los dedos extendidos, busca en el primer hueco, luego en el segundo, luego en el tercero, cada vez más despacio, y se detiene. Luz fría de un tubo sobre el estante. Movimiento: acercamiento lento a la mano detenida sobre la bandeja.
+**Shot:** a long table of light wood, seen from the front, beside a large window that looks onto a courtyard. On the table, three identical glass jars, aligned from left to right, filled with a fine grey powder. The first is filled a little over half (60 %), the second almost to the top (91 %), the third to a finger from the rim (94 %). Above each jar its figure appears, on a single line. In each, the powder level has been marked by the window's light on the glass. Movement: fixed shot; the camera only moves a hand's width to the right, from one jar to the next, and stops at the last.
 
-**Emoción:** el pequeño golpe de alcanzar algo que siempre estaba ahí y ya no está. Desconcierto antes del miedo.
+**Emotion:** the slow dread of watching a number grow. Silent unease.
 
-> Los envíos cayeron con rapidez. Las fábricas lo notaron antes que los gobiernos.
-
-#### 27a · Los brazos caídos
-
-**Plano:** la misma línea de montaje de la escena 1, pero ahora de cerca, a media altura y desde un costado. Una silueta humana con chaleco reflectante, vista de espaldas, está de pie junto a una carrocería detenida con los brazos caídos a los costados. No toca nada. La baliza naranja, apagada. A su lado, en el suelo, una herramienta eléctrica dejada con el cable enrollado. Movimiento: acercamiento lentísimo por detrás de la silueta.
-
-**Emoción:** la incomodidad de quien no puede trabajar sin haber hecho nada mal. Una vergüenza que no le corresponde.
-
-> Pocas semanas después, un proveedor se quedó sin imanes, y la línea del Explorer, en Chicago, se detuvo.
-
-#### 27b · La hilera interrumpida
-
-**Plano:** un estacionamiento de fábrica en Japón, al alba, visto desde un puente. Filas de autos compactos terminados, estacionados en perfecto orden. La última fila queda a la mitad, y las líneas pintadas del piso siguen hasta el fondo, vacías, como una frase interrumpida. Niebla baja. Un solo pájaro cruza. Movimiento: un deslizamiento lento hacia la fila que se corta.
-
-**Emoción:** una quietud limpia y triste. Algo que debía continuar y se detuvo a la mitad.
-
-> El 26 de mayo, en Japón, Suzuki detuvo la producción de su modelo Swift. Fue la primera automotriz japonesa afectada de forma directa.
+> The mine is what you see. What decided everything happened afterwards.
 >
-> En junio, el presidente ejecutivo de Ford describió su abastecimiento con tres palabras: "día a día".
-
-#### 28 · El relevo
-
-**Plano:** una sola toma continua, en la que `[IMÁN]` pasa de una `[MANO]` a otra, cada una en un lugar distinto, sin que la cámara corte: la caja de un camión, un banco de taller, un estante de bodega, la mesa de una línea de montaje. Cada traspaso es un gesto cuidadoso, como el de quien entrega algo frágil. Al llegar a la última mano, la palma está abierta, lista, y espera. No llega nada. La palma sigue abierta un segundo más de lo cómodo. Movimiento: una cámara que se desliza de mano en mano, en un solo recorrido continuo.
-
-**Emoción:** confianza, y de golpe, su fragilidad. Una cadena de personas que no se conocen y que dependen unas de otras.
-
-> Ninguna de esas fábricas hizo algo mal. Dependían de una pieza barata, comprada a un proveedor, que dependía a su vez de otro proveedor.
-
-#### 29 · El móvil
-
-**Plano:** una sala vacía, de techo muy alto, con el suelo de madera. Del techo cuelga un móvil enorme, de equilibrio delicado, hecho de hilos finos y piezas pequeñas que giran: un auto en miniatura, una turbina, un teléfono, una lavadora, un avión, un respirador médico. Todo el conjunto cuelga de un hilo único que sostiene `[IMÁN]` por arriba, atado como un colgante. Todo oscila despacio. La luz de un tragaluz hace sombras largas y móviles sobre el piso. Texto en pantalla: "≈ 6,5 billones de dólares al año · estimación". Movimiento: retroceso lento hasta ver el móvil completo.
-
-**Emoción:** asombro y fragilidad. Cuánto cuelga de algo tan pequeño.
-
-> El 9 de octubre, China amplió el alcance. Por primera vez, la regla también tocaba productos hechos fuera de China que contuvieran material chino, y las tecnologías para procesarlo.
+> The International Energy Agency published the figures for 2024. China concentrates around sixty percent of the extraction of the rare earths used in magnets. But it concentrates ninety-one percent of refining. And ninety-four percent of the neodymium magnets.
 >
-> La Agencia Internacional de Energía calculó qué quedaba en riesgo si se aplicaba por completo: unos seis billones y medio de dólares de producción al año fuera de China. Casi la mitad, tres billones, de la industria automotriz.
->
-> Es una estimación, no una medición. Pero dice cuánto cuelga de una pieza tan pequeña.
+> Notice how the number grows as the mineral gets closer to the product.
 
-#### 30 · La pausa
+#### 20 · Twenty years
 
-**Plano:** el mismo móvil de la escena anterior, ahora en calma: todas las piezas se han ido deteniendo, una a una, hasta quedar casi quietas. Solo una, la turbina, sigue temblando con una vibración mínima, y el hilo del que cuelga está tenso. El tragaluz proyecta ahora una luz más suave. Movimiento: plano fijo, con una leve deriva hacia la pieza que aún tiembla.
+**Shot:** the same third jar of the previous scene, in the same place on the table and with the same window behind. Within every second of the shot a season passes: the window light changes colour, leaves of a courtyard tree change and vanish, it snows a little, the green returns. Meanwhile, the powder in the jar rises slowly, from half to almost the rim. On-screen text, at the start and at the end: "2005" and "2025". Movement: fixed shot.
 
-**Emoción:** alivio parcial. Un respiro que no termina de serlo.
+**Emotion:** the accumulation nobody notices while it happens. Melancholy for the time that passes without anything being done.
 
-> Hacia fines de octubre, después de una reunión entre los presidentes de Estados Unidos y de China en Corea del Sur, China aceptó suspender esa ampliación por un año.
->
-> Las restricciones de abril, en cambio, siguieron vigentes.
+> In 2005, China made about half of these magnets. Twenty years later, almost all.
+
+#### 21 · The round trip
+
+**Shot:** a port quay at dawn. A large container ship moves away from the coast, loaded, with its bow toward a pink horizon. In the foreground, dark sacks of ore rest on a pallet, tied with a strap. To one side, in another part of the same shot's frame, a small cardboard box travels on a conveyor belt toward the exit, and inside it a disc can be glimpsed. The ship becomes small. Movement: a very slow pan, from the sacks to the ship.
+
+**Emotion:** dependence. An invisible thread that ties what leaves with what returns.
+
+> The ore could be taken out of China. But it had to be sent there to be refined, and then to make the magnet. The road out always had a road back.
+
+#### 22 · Two doors
+
+**Shot:** a split screen. On the left, in full daylight, an immense mine with yellow machinery, trucks and a cloud of dust; it is seen from afar and understood at a glance. On the right, at dusk, the unmarked metal door of a windowless warehouse, with a single lamp lit above and the shadow of a man walking past on the pavement. No sign on the door. Movement: a slow zoom only on the right half; the left stays fixed.
+
+**Emotion:** unease before what is not seen. Quiet power.
+
+> The control of a mine is seen. The control of the process is not. It is silent. And it is the one that weighs most.
 
 ---
 
-### Parte 4 · La respuesta (≈ 4 min)
+### Part 3 · When it becomes an instrument (≈ 4 min)
 
-#### 31 · Tierra desnuda
+#### 23 · The door
 
-**Plano:** el terreno vacío de una futura fábrica en las afueras de una ciudad, bajo un cielo gris de nubes bajas. Una losa de hormigón recién vertida, aún sin muros. Cuatro estacas con cinta naranja marcan el perímetro. En el fondo, una grúa pequeña y un contenedor de obra con una luz encendida. No hay nadie. Sopla un viento frío. Movimiento: elevación lenta de la cámara, de la losa hasta ver todo el terreno.
+**Shot:** a long, empty corridor with smooth walls. At the far end, a heavy metal door closes very slowly, and the strip of light coming through it narrows until it is a line. The viewer is at the end of the corridor, standing, and cannot get there in time. Movement: the camera does not move; only the door does.
 
-**Emoción:** una esperanza que empieza en la tierra vacía, y la longitud del camino que falta.
+**Emotion:** tension. A threshold that closes and the certainty that it matters.
 
-> ¿Qué se hace cuando se descubre una dependencia así? La respuesta parece simple: fabricar imanes en otro lugar.
+> A country producing almost all of something is not a conflict. It becomes one when that something can be closed like a door.
+
+#### 24 · The silent port
+
+**Shot:** a cargo port at night. Immense cranes, still, with their red lights high up. On the quay, stacks of containers waiting, aligned, without movement. In a customs booth, a single lit window with a seated silhouette, motionless. The black water reflects the lights. Nobody speaks; only the water is heard. Movement: a slow tracking shot along the quay, at the height of a container.
+
+**Emotion:** ambiguity. A rumour, a threat nobody says aloud, and that is precisely its strength.
+
+> The first time was in 2010. During a sea dispute between China and Japan, it was reported that rare-earth shipments to Japan had stopped. China denied it.
 >
-> En la práctica, es lo más lento de todo.
+> What remained was the warning. In Japan they began looking for other suppliers.
 
-#### 32 · La mina despierta
+#### 25 · The stamp
 
-**Plano:** el mismo cráter de Mountain Pass de las escenas 16 y 18, otra vez desde el borde, al amanecer. Ahora, en el fondo, hay una grúa pequeña, camiones detenidos con las luces encendidas, un par de focos sobre un edificio nuevo con el techo aún sin terminar. La reja de la escena 18 está abierta. Un hilo de humo blanco sube recto. Movimiento: avance muy lento, igual que en la escena 16.
+**Shot:** a dark-wood office desk, seen from above. A sheet of paper with blurred lines of text, no legible words. `[HAND]` comes down with a rubber stamp and presses it firmly on the lower part of the sheet; when lifted, a red, round mark remains. At the back, the shadow of a window with blinds. Sound: a dry, single thud. Movement: fixed shot, the camera only moves in on the stamp at the moment of the blow.
 
-**Emoción:** la terquedad tranquila de volver a empezar. Calidez en un lugar que estuvo muerto.
+**Emotion:** the coldness of a minuscule gesture with enormous consequences. The banality of big decisions.
 
-> En julio de 2025, el Departamento de Defensa de Estados Unidos acordó invertir 400 millones de dólares en acciones preferentes de MP Materials, la empresa que opera Mountain Pass. A cambio, la empresa se comprometió a construir una planta de imanes.
-
-#### 33 · Diez contra sesenta
-
-**Plano:** el interior de una bodega muy grande, en vista cenital, con estanterías metálicas alineadas. Al principio solo se ven diez estanterías llenas de cajas pequeñas y ordenadas, bajo una luz clara. La cámara retrocede despacio y se revela que, más allá, a la derecha, la bodega sigue con cincuenta estanterías más, también llenas, hasta perderse en la distancia. Entre ambos grupos hay un pasillo vacío. Texto en pantalla: "10.000 t" bajo el primer grupo, "60.000 t" bajo el segundo. Movimiento: retroceso lento y continuo, de una sola vez.
-
-**Emoción:** vértigo sereno. No es derrota, es distancia.
-
-> Según un análisis publicado a comienzos de octubre de 2026, la primera planta empezó a producir en diciembre de 2025, con la meta de llegar a tres mil toneladas al año hacia 2027. Una segunda se espera para 2028. Juntas, unas diez mil.
+> Almost fifteen years later came the second. On 4 April 2025, China put seven rare earths, medium and heavy, under export license. Among them, dysprosium and terbium, the ones that help the magnet withstand heat.
 >
-> La mayor fabricante china, JL MAG, apunta a sesenta mil en 2027.
-
-#### 34 · El palé solitario
-
-**Plano:** una nave inmensa, casi vacía, con capacidad para cientos de tambores. En el centro, un solo palé con ocho tambores metálicos grises, sellados, bajo una única lámpara colgante. Alrededor, el piso de hormigón, limpio y marcado con líneas amarillas que delimitan espacios que nadie ocupa. Se oye el eco de un motor lejano. Movimiento: plano fijo y simétrico; la cámara avanza muy poco hacia el palé.
-
-**Emoción:** una vela pequeña en una sala enorme. Un comienzo modesto que conmueve más que lo que prometería uno grande.
-
-> Hay una dificultad más fina: los elementos pesados. Lynas, la mayor productora fuera de China, informó para el primer trimestre de 2026 unas ocho toneladas de disprosio y terbio.
+> From that day, the magnets that carry them need a permit to leave the country.
 >
-> Es un comienzo. Pero esa demanda, según el mismo análisis, se mide en miles.
+> Neodymium itself was not on the list. But the list touched what makes the magnet useful.
 
-#### 35 · Las dos manos
+#### 26 · The empty tray
 
-**Plano:** un panel de control industrial con perillas, manómetros de aguja y una pantalla verde apagada. Dos pares de manos. Unas, jóvenes, con las uñas muy limpias, sostienen un cuaderno cerrado. Las otras, mayores, con la piel manchada y los nudillos hinchados, giran una perilla un pelo hacia la derecha, golpean suavemente un manómetro con un dedo y vuelven a girar. La aguja se asienta. Las manos jóvenes abren el cuaderno y anotan algo. Nadie habla. Luz cálida de lámpara de escritorio. Movimiento: plano fijo, con un acercamiento minúsculo hacia las manos mayores.
+**Shot:** the shelf of a spare-parts warehouse, at a person's height. A black foam tray with twenty round holes, the exact size of the disc, in four rows of five. All are empty. `[HAND]` enters from above with fingers extended, searches the first hole, then the second, then the third, each time more slowly, and stops. Cold tube light above the shelf. Movement: a slow zoom on the stopped hand over the tray.
 
-**Emoción:** la ternura del saber que se pasa de una persona a otra. Gratitud y tiempo.
+**Emotion:** the small blow of reaching for something that was always there and is not. Bewilderment before fear.
 
-> Un analista lo resumió así: el dinero no puede comprar cuarenta años de experiencia en procesos.
+> Shipments fell quickly. Factories noticed before governments did.
+
+#### 27a · The fallen arms
+
+**Shot:** the same assembly line of scene 1, but now up close, at mid height and from the side. A human silhouette in a reflective vest, seen from behind, stands next to a stopped body with arms hanging at the sides. It touches nothing. The orange beacon, off. Beside it, on the floor, an electric tool left with its cable coiled. Movement: a very slow zoom from behind the silhouette.
+
+**Emotion:** the discomfort of someone who cannot work without having done anything wrong. A shame that is not theirs.
+
+> A few weeks later, a supplier ran out of magnets, and the Explorer line, in Chicago, stopped.
+
+#### 27b · The interrupted row
+
+**Shot:** a factory parking lot in Japan, at dawn, seen from a bridge. Rows of finished compact cars, parked in perfect order. The last row stops halfway, and the painted lines on the floor continue to the back, empty, like an interrupted sentence. Low fog. A single bird crosses. Movement: a slow slide toward the row that is cut.
+
+**Emotion:** a clean, sad stillness. Something that should continue and stopped halfway.
+
+> On 26 May, in Japan, Suzuki halted production of its Swift model. It was the first Japanese automaker directly affected.
 >
-> Una planta se construye en tres años. Saber hacerla funcionar es otra cosa. Eso se aprende con los años, y de a poco, de manos que ya lo saben.
+> In June, Ford's chief executive described its supply in three words: "day to day".
 
-#### 36 · Diez candados
+#### 28 · The handover
 
-**Plano:** una barandilla metálica larga, vista de lado, sobre un fondo gris. Diez candados idénticos esperan abiertos, colgando de la barra, a la misma distancia uno del otro. Una `[MANO]` los cierra uno por uno, de izquierda a derecha, sin prisa ni vacilación. Cada cierre se oye. Sonido: diez clics secos, separados por un segundo. Movimiento: desplazamiento lateral lento que sigue a la mano.
+**Shot:** a single continuous take, in which `[MAGNET]` passes from one `[HAND]` to another, each in a different place, without the camera cutting: a truck bed, a workshop bench, a warehouse shelf, an assembly-line table. Each handover is a careful gesture, like someone handing over something fragile. On reaching the last hand, the palm is open, ready, and waits. Nothing arrives. The palm stays open a second longer than is comfortable. Movement: a camera sliding from hand to hand, in a single continuous run.
 
-**Emoción:** frialdad procedimental. Algo que se repite con calma, y esa calma da miedo.
+**Emotion:** trust, and suddenly, its fragility. A chain of people who do not know each other and depend on one another.
 
-> Y la tensión sigue. En junio de 2026, China sumó a diez empresas estadounidenses, entre ellas MP Materials, a sus listas de control de exportaciones, como respuesta a nuevas sanciones.
+> None of those factories did anything wrong. They depended on a cheap part, bought from a supplier, which depended in turn on another supplier.
+
+#### 29 · The mobile
+
+**Shot:** an empty room with a very high ceiling and a wooden floor. From the ceiling hangs an enormous, delicately balanced mobile, made of fine threads and small spinning pieces: a miniature car, a turbine, a phone, a washing machine, an aeroplane, a medical ventilator. The whole hangs from a single thread that holds `[MAGNET]` at the top, tied like a pendant. Everything oscillates slowly. A skylight's light makes long, moving shadows on the floor. On-screen text: "≈ 6.5 trillion dollars a year · estimate". Movement: a slow pull-back until the whole mobile is seen.
+
+**Emotion:** wonder and fragility. How much hangs from something so small.
+
+> On 9 October, China widened the scope. For the first time, the rule also touched products made outside China that contained Chinese material, and the technologies to process it.
 >
-> El conflicto no terminó con la pausa. Cambió de forma.
+> The International Energy Agency calculated what would be at risk if it were applied in full: about six and a half trillion dollars of production a year outside China. Almost half, three trillion, of the car industry.
+>
+> It is an estimate, not a measurement. But it says how much hangs from such a small part.
+
+#### 30 · The pause
+
+**Shot:** the same mobile of the previous scene, now calm: all the pieces have been stopping, one by one, until almost still. Only one, the turbine, keeps trembling with a minimal vibration, and the thread it hangs from is taut. The skylight now casts a softer light. Movement: fixed shot, with a slight drift toward the piece that still trembles.
+
+**Emotion:** partial relief. A breather that never quite becomes one.
+
+> Toward the end of October, after a meeting between the presidents of the United States and China in South Korea, China agreed to suspend that widening for a year.
+>
+> The April restrictions, however, remained in force.
 
 ---
 
-### Cierre · Dos fechas y una cocina (≈ 2 min)
+### Part 4 · The response (≈ 4 min)
 
-#### 37 · El pasillo
+#### 31 · Bare earth
 
-**Plano:** un pasillo largo y oscuro, con el piso pulido. A lo lejos, sobre el suelo, hay dos luces pequeñas y cálidas, separadas por una distancia de unos cuantos pasos. Frente a la primera, una sombra alargada. La cámara avanza despacio hacia la primera luz sin llegar a ella. Texto en pantalla: "10 nov 2026" bajo la primera luz y "1 ene 2027" bajo la segunda. Movimiento: un avance continuo muy lento.
+**Shot:** the empty site of a future factory on the outskirts of a city, under a grey sky of low clouds. A freshly poured concrete slab, still without walls. Four stakes with orange tape mark the perimeter. In the background, a small crane and a site container with a light on. There is nobody. A cold wind blows. Movement: a slow rise of the camera, from the slab until the whole site is seen.
 
-**Emoción:** espera serena. Una incertidumbre que no angustia, solo mantiene la atención.
+**Emotion:** a hope that begins in empty earth, and the length of the road still missing.
 
-> Cuando se grabó este episodio, el 3 de octubre de 2026, había dos fechas por delante.
+> What is done when such a dependence is discovered? The answer seems simple: make magnets somewhere else.
 >
-> La primera: el 10 de noviembre de 2026, cuando vence la pausa de China. Hasta donde pude verificar, no hay una extensión confirmada. Puede prorrogarse, puede aplicarse solo a algunos elementos o puede volver entera. No lo sabemos.
+> In practice, it is the slowest thing of all.
+
+#### 32 · The mine awakens
+
+**Shot:** the same Mountain Pass crater of scenes 16 and 18, again from the edge, at dawn. Now, in the background, there is a small crane, stopped trucks with their lights on, a couple of floodlights on a new building with its roof not yet finished. The gate of scene 18 is open. A thread of white smoke rises straight. Movement: a very slow advance, the same as in scene 16.
+
+**Emotion:** the quiet stubbornness of starting again. Warmth in a place that was dead.
+
+> In July 2025, the US Department of Defense agreed to invest 400 million dollars in preferred shares of MP Materials, the company that operates Mountain Pass. In exchange, the company committed to building a magnet plant.
+
+#### 33 · Ten against sixty
+
+**Shot:** the interior of a very large warehouse, in overhead view, with aligned metal shelving. At first only ten shelves are seen, full of small, tidy boxes, under a clear light. The camera pulls back slowly and it is revealed that, beyond, to the right, the warehouse continues with fifty more shelves, also full, until lost in the distance. Between both groups there is an empty aisle. On-screen text: "10,000 t" under the first group, "60,000 t" under the second. Movement: a slow, continuous pull-back, in one go.
+
+**Emotion:** serene vertigo. It is not defeat, it is distance.
+
+> According to an analysis published in early October 2026, the first plant started producing in December 2025, with the goal of reaching three thousand tonnes a year by 2027. A second is expected for 2028. Together, about ten thousand.
 >
-> La segunda: el 1 de enero de 2027, cuando entra en vigor una norma del Departamento de Defensa de Estados Unidos que prohíbe usar imanes de origen chino en compras militares.
+> China's largest maker, JL MAG, aims at sixty thousand in 2027.
 
-#### 38 · La línea vuelve a moverse
+#### 34 · The lone pallet
 
-**Sonido:** casi al final de la escena, el primer clic de una cadena que se tensa, luego un zumbido que sube de a poco. Es el mismo sonido de la escena 1, ahora escuchado como un regalo.
+**Shot:** an immense, almost empty hall, with capacity for hundreds of drums. In the centre, a single pallet with eight grey metal drums, sealed, under a single hanging lamp. Around it, the concrete floor, clean and marked with yellow lines delimiting spaces nobody occupies. The echo of a distant motor is heard. Movement: fixed, symmetrical shot; the camera advances very little toward the pallet.
 
-**Plano:** la misma nave de la escena 1, desde el mismo punto y con el mismo encuadre. Todo igual al principio: las carrocerías detenidas, la baliza apagada. De pronto, la baliza naranja se enciende y empieza a girar, tiñendo de naranja las paredes. La primera carrocería avanza unos centímetros. Los brazos robóticos se mueven. Aparece, en el fondo, la silueta de la misma persona con chaleco, de espaldas, que levanta una mano. Movimiento: plano fijo, idéntico al de la escena 1, para que se note la diferencia.
+**Emotion:** a small candle in an enormous room. A modest beginning that moves more than a big one would promise.
 
-**Emoción:** alivio, pero un alivio con memoria. Ahora se sabe cuánto costó.
-
-> Volvamos a la línea de Chicago. Después de más o menos una semana, volvió a moverse.
+> There is a finer difficulty: the heavy elements. Lynas, the largest producer outside China, reported for the first quarter of 2026 about eight tonnes of dysprosium and terbium.
 >
-> Lo que se detuvo ahí no fue una máquina enorme ni un material misterioso. Fue una pieza pequeña, dentro de un sistema que casi nadie había mirado de cerca.
+> It is a start. But that demand, according to the same analysis, is measured in thousands.
 
-#### 39 · La nevera
+#### 35 · The two hands
 
-**Plano:** la misma cocina de la escena 6, pero ahora más tarde, con luz de tarde. El dibujo de crayones sigue en la puerta de la nevera, sujeto por el imán negro, y ahora hay otro dibujo al lado, más nuevo. Todo está igual y todo es distinto. Se oye el agua de la llave y una voz lejana de niño que no se entiende. La cámara se acerca despacio hasta el imán, y luego, sin cortar, retrocede y sale de la cocina por una puerta, mostrando en cada habitación un objeto cotidiano (un ventilador, un teléfono, una tetera eléctrica) con una luz diminuta que parpadea una vez y se apaga. Movimiento: un recorrido continuo y lento, de la nevera hacia fuera.
+**Shot:** an industrial control panel with knobs, needle gauges and a switched-off green screen. Two pairs of hands. One, young, with very clean nails, holds a closed notebook. The other, older, with spotted skin and swollen knuckles, turns a knob a hair to the right, gently taps a gauge with a finger and turns again. The needle settles. The young hands open the notebook and note something down. Nobody speaks. Warm desk-lamp light. Movement: fixed shot, with a minuscule zoom toward the older hands.
 
-**Emoción:** ternura cotidiana, y un pequeño escalofrío de gratitud: todo esto se sostiene, ahora lo sabemos, de algo que no vemos.
+**Emotion:** the tenderness of knowledge passed from one person to another. Gratitude and time.
 
-> Quizás eso es lo que cuenta esta historia. Que la fuerza de un país ya no se mide solo en lo que saca de la tierra, sino en lo que sabe hacer con ella: esa cadena larga de pasos, del mineral al imán, que tarda décadas en aprenderse.
+> An analyst summed it up like this: money cannot buy forty years of process experience.
 >
-> Y queda una pregunta abierta. Cuando algo tan común se vuelve estratégico, ¿qué otras cosas pequeñas, hoy invisibles, ocupan el mismo lugar?
+> A plant is built in three years. Knowing how to make it run is another thing. That is learned over the years, and little by little, from hands that already know it.
 
-**Fin:** música a bajo volumen durante 10 segundos sobre negro. Sin "suscríbete" pegado al relato.
+#### 36 · Ten padlocks
+
+**Shot:** a long metal railing, seen from the side, against a grey background. Ten identical padlocks wait open, hanging from the bar, at the same distance from one another. A `[HAND]` closes them one by one, from left to right, without haste or hesitation. Each closing is heard. Sound: ten dry clicks, a second apart. Movement: a slow lateral drift following the hand.
+
+**Emotion:** procedural coldness. Something repeated calmly, and that calm is frightening.
+
+> And the tension continues. In June 2026, China added ten US companies, among them MP Materials, to its export-control lists, in response to new sanctions.
+>
+> The conflict did not end with the pause. It changed shape.
 
 ---
 
-## 3. Qué cambió en los datos respecto al borrador 1
+### Close · Two dates and a kitchen (≈ 2 min)
 
-Los hechos son los mismos y siguen necesitando segunda fuente (ver la hoja de afirmaciones del borrador 1, §4). Estos cuatro puntos son nuevos o más cautelosos y hay que revisarlos:
+#### 37 · The corridor
 
-| Cambio | Motivo |
+**Shot:** a long, dark corridor with a polished floor. In the distance, on the floor, there are two small, warm lights, separated by a distance of a few steps. In front of the first, a long shadow. The camera advances slowly toward the first light without reaching it. On-screen text: "10 Nov 2026" under the first light and "1 Jan 2027" under the second. Movement: a very slow continuous advance.
+
+**Emotion:** serene waiting. An uncertainty that does not distress, only keeps attention.
+
+> When this episode was recorded, on 3 October 2026, there were two dates ahead.
+>
+> The first: 10 November 2026, when China's pause expires. As far as I could verify, there is no confirmed extension. It may be extended, it may apply only to some elements or it may return in full. We do not know.
+>
+> The second: 1 January 2027, when a US Department of Defense rule enters into force prohibiting the use of Chinese-origin magnets in military purchases.
+
+#### 38 · The line moves again
+
+**Sound:** almost at the end of the scene, the first click of a chain tightening, then a hum that slowly rises. It is the same sound as in scene 1, now heard as a gift.
+
+**Shot:** the same hall of scene 1, from the same point and with the same framing. Everything the same at first: the stopped bodies, the beacon off. Suddenly, the orange beacon lights up and starts to spin, tinting the walls orange. The first body advances a few centimetres. The robotic arms move. At the back appears the silhouette of the same person in a vest, seen from behind, raising a hand. Movement: fixed shot, identical to that of scene 1, so the difference is noticed.
+
+**Emotion:** relief, but a relief with memory. Now it is known what it cost.
+
+> Let us go back to the Chicago line. After about a week, it moved again.
+>
+> What stopped there was not an enormous machine or a mysterious material. It was a small part, inside a system that almost nobody had looked at closely.
+
+#### 39 · The fridge
+
+**Shot:** the same kitchen of scene 6, but now later, in afternoon light. The crayon drawing is still on the fridge door, held by the black magnet, and now there is another drawing beside it, newer. Everything is the same and everything is different. The tap running and a child's distant voice, not understood, are heard. The camera slowly approaches the magnet, and then, without cutting, pulls back and leaves the kitchen through a door, showing in each room an everyday object (a fan, a phone, an electric kettle) with a tiny light that blinks once and goes out. Movement: a continuous, slow tracking shot, from the fridge outward.
+
+**Emotion:** everyday tenderness, and a small chill of gratitude: all this is held up, now we know, by something we do not see.
+
+> Perhaps that is what this story tells. That a country's strength is no longer measured only in what it takes from the earth, but in what it knows how to do with it: that long chain of steps, from ore to magnet, that takes decades to learn.
+>
+> And an open question remains. When something so common becomes strategic, what other small things, invisible today, occupy the same place?
+
+**End:** low-volume music for 10 seconds over black. No "subscribe" glued to the story.
+
+---
+
+## 3. What changed in the data compared with draft 1
+
+The facts are the same and still need a second source (see draft 1's claims sheet, §4). These four points are new or more cautious and must be reviewed:
+
+| Change | Reason |
 |---|---|
-| Se quitó "pasó a ser su mayor accionista" (MP Materials) | La hoja de afirmaciones solo respalda la inversión de 400 millones en acciones preferentes; lo de "mayor accionista" no estaba verificado |
-| La escena 38 dice que la línea de Chicago "volvió a moverse" tras ~una semana | Se infiere de "parada de cerca de una semana"; confirmar la reanudación en una fuente de Ford |
-| En 2010 se quitó la frase "los precios subieron" | No está en la hoja de afirmaciones; solo "interrupción informada" y "China lo negó" |
-| La demanda de disprosio y terbio "se mide en miles" se atribuye al análisis de Tech Times | Es de la misma fuente única que las cifras de MP, Lynas y JL MAG; verificar antes de grabar |
+| "became its largest shareholder" (MP Materials) was removed | The claims sheet only supports the 400 million investment in preferred shares; "largest shareholder" was not verified |
+| Scene 38 says the Chicago line "moved again" after ~a week | It is inferred from "stoppage of about a week"; confirm the restart in a Ford source |
+| In 2010 the phrase "prices rose" was removed | It is not in the claims sheet; only "reported interruption" and "China denied it" |
+| The demand for dysprosium and terbium "measured in thousands" is attributed to the Tech Times analysis | It is from the same single source as the MP, Lynas and JL MAG figures; verify before recording |
 
-**Fecha del cierre:** sigue abierta la contradicción entre BISI (extensión hasta el 10-ene-2027) y Tech Times / Mining Technology (10-nov-2026, sin extensión confirmada). La escena 37 usa la fecha prudente. Si se confirma una extensión, se rehacen las escenas 37 y 38.
+**Close date:** the contradiction between BISI (extension to 10 Jan 2027) and Tech Times / Mining Technology (10 Nov 2026, no confirmed extension) stays open. Scene 37 uses the prudent date. If an extension is confirmed, scenes 37 and 38 are redone.
 
-## 4. Revisión antes de producir
+## 4. Review before producing
 
-- [ ] Todas las personas son manos, espaldas o siluetas. No hay rostros, personas reales ni logotipos legibles.
-- [ ] Las escenas de Chicago, Suzuki y las reuniones de gobierno se declaran como **reconstrucción ilustrada** en la descripción.
-- [ ] `[IMÁN]` y `[MANO]` se pegan íntegros en cada prompt que los usa. Si el disco cambia entre planos, el hilo se pierde.
-- [ ] Las escenas 1, 16/18/32, 6/39 y 1/38 forman pares: se generan juntas y con el mismo encuadre.
-- [ ] Se escuchó sin mirar la pantalla y las escenas 19, 29 y 33 se entienden solo con la voz.
-- [ ] Una persona escuchó el episodio entero sabiendo que lo hizo una IA y lo habría seguido.
-- [ ] Se resolvió la fecha de la pausa (10-nov-2026 o 10-ene-2027) y se publica antes de esa fecha o se actualiza el cierre.
+- [ ] All people are hands, backs or silhouettes. There are no faces, real people or legible logos.
+- [ ] The Chicago and Suzuki scenes and the government meetings are declared as an **illustrated reconstruction** in the description.
+- [ ] `[MAGNET]` and `[HAND]` are pasted in full into every prompt that uses them. If the disc changes between shots, the thread is lost.
+- [ ] Scenes 1, 16/18/32, 6/39 and 1/38 form pairs: they are generated together and with the same framing.
+- [ ] It was listened to without looking at the screen and scenes 19, 29 and 33 are understood by voice alone.
+- [ ] A person listened to the whole episode knowing an AI made it and would have followed it.
+- [ ] The date of the pause was resolved (10 Nov 2026 or 10 Jan 2027) and it is published before that date or the close is updated.
