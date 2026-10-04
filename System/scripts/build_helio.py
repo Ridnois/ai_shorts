@@ -1,11 +1,11 @@
-"""Monta el video "Helio y poder" (70 s) en el secuenciador de Blender 5.2.
+"""Assembles the video "Helium and power" (70 s) in Blender 5.2's sequencer.
 
-Uso (desde la carpeta del video):
+Usage (from the video's folder):
     blender -b --factory-startup --python render/build_helio.py
 
-Salida: render/helio-70s-r1.mp4 y render/helio-70s.blend
-El diseño de transiciones y efectos está documentado en
-Sistema/Montaje/Transiciones y efectos.md
+Output: render/helio-70s-r1.mp4 and render/helio-70s.blend
+The design of transitions and effects is documented in
+System/Editing/Transitions and effects.md (Spanish narration)
 """
 import array
 import os
@@ -14,21 +14,21 @@ import wave
 import bpy
 import numpy as np
 
-# ---------------------------------------------------------------- parámetros
+# ---------------------------------------------------------------- parameters
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VOZ, AUD, ILU, OUT = (f"{ROOT}/{d}" for d in ("voz", "audio", "ilustraciones", "render"))
 FX = f"{OUT}/_fx"
 FPS, W, H = 24, 1920, 1080
 
-GAP_ESCENA = 0.30          # silencio entre voces (s)
-INICIO_VOZ = 0.40          # la voz de la escena 1 entra a los 0,6 s
-COLA = 1.00                # imagen que se queda tras la última palabra, antes del corte a negro
-DIP = 0.20                 # mitad de "pasar la hoja": sale y entra, cada una DIP s
-CRUCE = 0.30               # fundido cruzado entre tomas de una misma escena
-ZOOM = 0.06                # empuje lento de cámara (6 %)
-PAPEL = (0.89, 0.83, 0.68)  # color del papel, en lineal
-VIGNETA = 0.55             # opacidad de la viñeta
-GRANO = 0.10               # opacidad del grano
+GAP_ESCENA = 0.30          # silence between voices (s)
+INICIO_VOZ = 0.40          # the scene 1 voice enters at 0.6 s
+COLA = 1.00                # image that stays after the last word, before the cut to black
+DIP = 0.20                 # half of the "page turn": exits and enters, each DIP s
+CRUCE = 0.30               # cross-fade between shots of the same scene
+ZOOM = 0.06                # slow camera push (6 %)
+PAPEL = (0.89, 0.83, 0.68)  # paper colour, in linear
+VIGNETA = 0.55             # vignette opacity
+GRANO = 0.10               # grain opacity
 VOL_VOZ, VOL_ZUMBIDO, VOL_RESONANCIA, VOL_SISEO = 1.0, 0.30, 0.18, 0.22
 
 sc = bpy.context.scene
@@ -40,9 +40,9 @@ bpy.context.preferences.edit.keyframe_new_interpolation_type = "LINEAR"
 fr = lambda t: round(t * FPS)
 
 
-# ---------------------------------------------------------------- análisis de voz
+# ---------------------------------------------------------------- voice analysis
 def analiza(path):
-    """Devuelve (inicio_voz, fin_voz) en s del archivo."""
+    """Returns (voice_start, voice_end) in s of the file."""
     w = wave.open(path)
     sr = w.getframerate()
     a = array.array("h")
@@ -59,12 +59,12 @@ t = INICIO_VOZ
 for n in range(1, 7):
     f = f"helio-e{n}-voz-qwen-design-v1.wav"
     a, b = analiza(f"{VOZ}/{f}")
-    ini, fin = max(0.0, a - 0.08), b + 0.12          # recorte de silencios
+    ini, fin = max(0.0, a - 0.08), b + 0.12          # trimming of silences
     voces.append({"n": n, "f": f, "ini": ini, "fin": fin, "abs": t, "dur": fin - ini})
     t += (fin - ini) + GAP_ESCENA
-cue = lambda n, ft: voces[n - 1]["abs"] + (ft - voces[n - 1]["ini"])   # tiempo del archivo -> línea de tiempo
+cue = lambda n, ft: voces[n - 1]["abs"] + (ft - voces[n - 1]["ini"])   # file time -> timeline
 
-# fronteras de escena: a la mitad del silencio entre voces
+# scene boundaries: halfway through the silence between voices
 B = [0.0] + [v["abs"] + v["dur"] + GAP_ESCENA / 2 for v in voces[:5]] + [voces[5]["abs"] + voces[5]["dur"] + COLA]
 T_FIN = B[6]
 
@@ -77,33 +77,33 @@ for v in voces:
 
 # ---------------------------------------------------------------- imagen
 # Cada toma: (id, canal, inicio, fin, inicial, final, cambio_empieza, cambio_dura, zoom)
-# El cambio de estado es el fundido del fotograma final sobre el inicial, sincronizado con la voz.
+# The state change is the fade of the final frame over the initial one, synced with the voice.
 CORTE_3, CORTE_5 = cue(3, 5.66), cue(5, 4.85)
 tomas = [
-    ("e1",  2, B[0], B[1], "e1-inicial-v1", "e1-final-v1", cue(1, 8.51), 0.50, +1),   # la antorcha se apaga en "Se detuvo el gas"
-    ("e2",  2, B[1], B[2], "e2-inicial-v2", "e2-final-v1", cue(2, 4.33), 4.00, +1),   # acercamiento a las bobinas
-    ("e3a", 2, B[2], CORTE_3, "e3a-inicial-v2", "e3a-final-v1", cue(3, 3.25), 1.20, +1),  # el corchete agrupa a los tres países
-    ("e3b", 4, CORTE_3 - CRUCE, B[3], "e3b-inicial-v2", "e3b-final-v1", cue(3, 10.2), 0.80, +1),  # la barrera cierra el paso
-    ("e4",  2, B[3], B[4], "e4-inicial-v1", "e4-final-v1", cue(4, 1.70), 3.40, +1),   # el nivel baja mientras se dice que se evapora
-    ("e5a", 2, B[4], CORTE_5, "e5a-inicial-v1", "e5a-final-v1", cue(5, 3.20), 1.00, +1),  # la válvula se cierra con candado
-    ("e5b", 4, CORTE_5 - CRUCE, B[5], "e5b-inicial-v2", "e5b-final-v1", cue(5, 7.89), 2.00, +1),  # la llave cambia de manos
-    ("e6",  2, B[5], B[6], "e6-inicial-v2", "e6-final-v1", cue(6, 5.70), 4.50, -1),   # aparecen las dependencias; la cámara se aleja
+    ("e1",  2, B[0], B[1], "e1-inicial-v1", "e1-final-v1", cue(1, 8.51), 0.50, +1),   # the flare goes out at "Se detuvo el gas" ("the gas stopped")
+    ("e2",  2, B[1], B[2], "e2-inicial-v2", "e2-final-v1", cue(2, 4.33), 4.00, +1),   # zoom to the coils
+    ("e3a", 2, B[2], CORTE_3, "e3a-inicial-v2", "e3a-final-v1", cue(3, 3.25), 1.20, +1),  # the bracket groups the three countries
+    ("e3b", 4, CORTE_3 - CRUCE, B[3], "e3b-inicial-v2", "e3b-final-v1", cue(3, 10.2), 0.80, +1),  # the barrier closes the passage
+    ("e4",  2, B[3], B[4], "e4-inicial-v1", "e4-final-v1", cue(4, 1.70), 3.40, +1),   # the level drops while it is said that it evaporates
+    ("e5a", 2, B[4], CORTE_5, "e5a-inicial-v1", "e5a-final-v1", cue(5, 3.20), 1.00, +1),  # the valve closes with a padlock
+    ("e5b", 4, CORTE_5 - CRUCE, B[5], "e5b-inicial-v2", "e5b-final-v1", cue(5, 7.89), 2.00, +1),  # the key changes hands
+    ("e6",  2, B[5], B[6], "e6-inicial-v2", "e6-final-v1", cue(6, 5.70), 4.50, -1),   # the dependencies appear; the camera pulls back
 ]
-CRUCE_ENTRADA = {"e3b", "e5b"}      # entran con fundido cruzado sobre la toma anterior (misma escena)
-CRUCE_SALIDA = {"e3a", "e5a"}       # ceden el paso: las cubre la toma siguiente
-SIN_SALIDA = {"e6"}                 # la última toma termina en corte seco a negro
+CRUCE_ENTRADA = {"e3b", "e5b"}      # they enter with a cross-fade over the previous shot (same scene)
+CRUCE_SALIDA = {"e3a", "e5a"}       # they give way: the next shot covers them
+SIN_SALIDA = {"e6"}                 # the last shot ends in a hard cut to black
 
 
 def img(nombre, fn, canal, t0, t1):
     st = S.new_image(nombre, f"{ILU}/helio-{fn}.png", canal, fr(t0))
     st.frame_final_end = fr(t1)
     w, h = st.elements[0].orig_width, st.elements[0].orig_height
-    st.transform.scale_x = st.transform.scale_y = max(W / w, H / h)      # llenar el cuadro
+    st.transform.scale_x = st.transform.scale_y = max(W / w, H / h)      # fill the frame
     return st
 
 
 def alfa(st, puntos):
-    """Keyframes de opacidad; los puntos se ordenan y se quitan los repetidos."""
+    """Opacity keyframes; the points are sorted and repeats removed."""
     vistos = {}
     for t_, val in puntos:
         vistos[fr(t_)] = val
@@ -113,7 +113,7 @@ def alfa(st, puntos):
 
 
 def empuje(st, t0, t1, ts, direccion):
-    """Zoom lineal de la toma (t0..t1); la capa que entra tarde (ts) arranca en el valor que ya llevaba la toma."""
+    """Linear zoom of the shot (t0..t1); the layer that enters late (ts) starts at the value the shot already had."""
     base = st.transform.scale_x
     k = lambda t_: 1.0 + ZOOM * ((t_ - t0) / (t1 - t0) if direccion > 0 else 1 - (t_ - t0) / (t1 - t0))
     for t_ in (ts, t1):
@@ -122,7 +122,7 @@ def empuje(st, t0, t1, ts, direccion):
         st.transform.keyframe_insert("scale_y", frame=fr(t_))
 
 
-# papel de fondo: se ve en "pasar la hoja"
+# background paper: shows in the "page turn"
 papel = S.new_effect("papel", "COLOR", 1, 1, length=fr(T_FIN))
 papel.color = PAPEL
 
@@ -132,24 +132,24 @@ for tid, canal, t0, t1, ini, fin, c0, cd, dirz in tomas:
     empuje(A, t0, t1, t0, dirz)
     empuje(Bf, t0, t1, c0, dirz)
 
-    # opacidad de la capa inicial: entrada y salida de la toma
+    # opacity of the initial layer: entry and exit of the shot
     pa = []
     if tid in CRUCE_ENTRADA:
-        pa += [(t0, 0.0), (t0 + CRUCE, 1.0)]            # fundido cruzado sobre la toma anterior
+        pa += [(t0, 0.0), (t0 + CRUCE, 1.0)]            # cross-fade over the previous shot
     elif tid != "e1":
-        pa += [(t0, 0.0), (t0 + DIP, 1.0)]              # "pasar la hoja": sale del papel
+        pa += [(t0, 0.0), (t0 + DIP, 1.0)]              # "page turn": comes out of the paper
     if tid not in CRUCE_SALIDA and tid not in SIN_SALIDA:
-        pa += [(t1 - DIP, 1.0), (t1, 0.0)]              # "pasar la hoja": se va al papel
+        pa += [(t1 - DIP, 1.0), (t1, 0.0)]              # "page turn": goes into the paper
     if pa:
         alfa(A, pa)
 
-    # opacidad de la capa final: el cambio de estado y la misma salida
+    # opacity of the final layer: the state change and the same exit
     pb = [(c0, 0.0), (min(c0 + cd, t1), 1.0)]
     if tid not in CRUCE_SALIDA and tid not in SIN_SALIDA:
         pb += [(t1 - DIP, 1.0), (t1, 0.0)]
     alfa(Bf, pb)
 
-# ---------------------------------------------------------------- efectos de textura
+# ---------------------------------------------------------------- texture effects
 os.makedirs(FX, exist_ok=True)
 yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
 r = np.sqrt(((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2)
@@ -178,9 +178,9 @@ gstrip = S.new_image("grano", g_path, 15, 1)
 gstrip.frame_final_end = dur
 gstrip.blend_type, gstrip.blend_alpha = "OVERLAY", GRANO
 
-# ---------------------------------------------------------------- sonido de ambiente
+# ---------------------------------------------------------------- ambient sound
 def rampa(st, prop, puntos):
-    """Keyframes de (fotograma, valor) para una propiedad de la tira (volumen)."""
+    """Keyframes of (frame, value) for a strip property (volume)."""
     for f_, val in puntos:
         setattr(st, prop, val)
         st.keyframe_insert(prop, frame=f_)
@@ -199,11 +199,11 @@ def sfx(nombre, fn, canal, t0, vol, hasta=None, fade_in=0.3, fade_out=0.4):
     return st
 
 
-# zumbido de la planta: bajo la voz y CORTE SECO en "Se detuvo el gas"
+# plant hum: under the voice and HARD CUT at "Se detuvo el gas"
 z = S.new_sound("zumbido", f"{AUD}/helio-e1-zumbido-planta-v1.mp3", 21, 1)
 z.frame_final_end = fr(cue(1, 8.51))
 z.volume = VOL_ZUMBIDO
-rampa(z, "volume", [(1, 0.0), (fr(0.6), VOL_ZUMBIDO)])         # entra suave, corta duro
+rampa(z, "volume", [(1, 0.0), (fr(0.6), VOL_ZUMBIDO)])         # enters softly, cuts hard
 sfx("resonancia", "helio-e2-resonancia-v1.mp3", 22, B[1] + 0.2, VOL_RESONANCIA, hasta=B[2] - 0.1)
 sfx("siseo", "helio-e4-siseo-gas-v1.mp3", 23, B[3] + 0.2, VOL_SISEO, hasta=B[4] - 0.1)
 

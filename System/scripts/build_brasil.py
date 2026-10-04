@@ -1,10 +1,10 @@
-"""Monta "Brasil y embajadas" (Short vertical 9:16, ~60 s) en el secuenciador de Blender 5.2.
+"""Assembles "Brazil and embassies" (vertical 9:16 Short, ~60 s) in Blender 5.2's sequencer.
 
-Uso (desde la carpeta del video):
-    SOLO_PROYECTO=1 blender -b --factory-startup --python render/build_brasil.py   # solo arma y mide
-    blender -b --factory-startup --python render/build_brasil.py                  # arma y renderiza
-Salida: render/brasil-60s-9x16-r3.mp4 y render/brasil-60s.blend
-Base: build_helio.py (mismas transiciones: "pasar la hoja", empuje lento, viñeta y grano).
+Usage (from the video's folder):
+    SOLO_PROYECTO=1 blender -b --factory-startup --python render/build_brasil.py   # assembles and measures only
+    blender -b --factory-startup --python render/build_brasil.py                  # assembles and renders
+Output: render/brasil-60s-9x16-r3.mp4 and render/brasil-60s.blend
+Base: build_helio.py (same transitions: "page turn", slow push, vignette and grain). Spanish narration.
 """
 import array
 import os
@@ -18,19 +18,19 @@ VOZ, AUD, ILU, OUT = (f"{ROOT}/{d}" for d in ("voz", "audio", "ilustraciones", "
 FX = f"{OUT}/_fx"
 FPS, W, H = 24, 1080, 1920                      # vertical, Shorts
 
-GAPS = [0.45, 0.45, 0.50, 1.20, 0.50, 0.50]     # silencio entre voces; 0,7 s antes de la escena 5 (la pregunta)
+GAPS = [0.45, 0.45, 0.50, 1.20, 0.50, 0.50]     # silence between voices; 1.2 s before scene 5 (the question)
 INICIO_VOZ, COLA = 0.50, 1.20
-PAD_INI, PAD_FIN = 0.08, 0.25                   # recorte de silencios de cada toma de voz
+PAD_INI, PAD_FIN = 0.08, 0.25                   # trim of silences of each voice take
 DIP, ZOOM = 0.20, 0.06
-PAPEL = (0.914, 0.913, 0.876)    # papel de las láminas v3 medido en sRGB; el efecto COLOR lo toma tal cual
+PAPEL = (0.914, 0.913, 0.876)    # paper of the v3 plates measured in sRGB; the COLOR effect takes it as is
 VIGNETA, GRANO = 0.22, 0.08
 VOL_VOZ, VOL_MAZO, VOL_ESCUELA = 1.0, 0.55, 0.22
-MAZO_EN = 3.0                                    # s dentro de la voz 2 ("condenado"), estimado sin tiempos por palabra
+MAZO_EN = 3.0                                    # s into voice 2 ("condenado", "convicted"), estimated without per-word times
 
 sc = bpy.context.scene
 sc.render.fps = FPS
 sc.render.resolution_x, sc.render.resolution_y, sc.render.resolution_percentage = W, H, 100
-sc.view_settings.view_transform = "Standard"      # AgX (por defecto) apaga el color del papel
+sc.view_settings.view_transform = "Standard"      # AgX (the default) mutes the paper colour
 sc.sequence_editor_create()
 S = sc.sequence_editor.strips
 bpy.context.preferences.edit.keyframe_new_interpolation_type = "LINEAR"
@@ -59,8 +59,8 @@ B = [0.0] + [v["abs"] + v["dur"] + GAPS[i] / 2 for i, v in enumerate(voces[:6])]
 T_FIN = B[7]
 
 for v in voces:
-    # frame_offset_start también adelanta el inicio visible: la tira se crea `ini` antes para que
-    # lo audible empiece en `abs` y termine en `abs + dur` (si no, se corta el final de la frase)
+    # frame_offset_start also advances the visible start: the strip is created `ini` earlier so that
+    # the audible part starts at `abs` and ends at `abs + dur` (otherwise the end of the sentence is cut)
     st = S.new_sound(f"voz-e{v['n']}", f"{VOZ}/{v['f']}", 30, fr(v["abs"]) - fr(v["ini"]))
     st.frame_offset_start = fr(v["ini"])
     st.frame_final_end = fr(v["abs"]) + fr(v["dur"])
@@ -68,12 +68,12 @@ for v in voces:
     assert st.frame_final_start == fr(v["abs"]), (v["n"], st.frame_final_start, fr(v["abs"]))
     v["strip"] = st
 
-# papel de fondo (se ve en "pasar la hoja" y donde se recorta la imagen)
+# background paper (shows in the "page turn" and where the image is cropped)
 papel = S.new_effect("papel", "COLOR", 1, 1, length=fr(T_FIN))
 papel.color = PAPEL
 
-# (id, archivo, inicio, fin, acercamiento base, dirección del empuje)
-# Láminas v3: una sola lámina por escena, sin dibujos secundarios; el acercamiento llena mejor el cuadro.
+# (id, file, start, end, base zoom, push direction)
+# v3 plates: a single plate per scene, no secondary drawings; the zoom fills the frame better.
 tomas = [
     ("e1", "brasil-e1-v3.png", B[0], B[1], 1.00, +1),
     ("e2", "brasil-e2-v4.png", B[1], B[2], 0.96, +1),
@@ -81,7 +81,7 @@ tomas = [
     ("e4", "brasil-e4-v3.png", B[3], B[4], 1.00, +1),
     ("e5", "brasil-e5-v3.png", B[4], B[5], 0.96, +1),
     ("e6", "brasil-e6-v3.png", B[5], B[6], 0.98, +1),
-    ("e1b", "brasil-e1-v3.png", B[6], B[7], 1.00, -1),         # cierre: vuelve a la urna
+    ("e1b", "brasil-e1-v3.png", B[6], B[7], 1.00, -1),         # close: back to the ballot box
 ]
 
 
@@ -101,7 +101,7 @@ def img(nombre, fn, canal, t0, t1, zoom):
     k = max(W / w, H / h) * zoom
     st.transform.scale_x = st.transform.scale_y = k
     if nombre not in ("e1", "e1b"):
-        st.transform.offset_y = 90                  # sube el dibujo: foco entre el 15 y el 60 % de la altura
+        st.transform.offset_y = 90                  # raises the drawing: focus between 15 and 60 % of the height
     return st, k
 
 
@@ -124,7 +124,7 @@ for tid, fn, t0, t1, arriba, d in tomas:
     if pa:
         alfa(st, pa)
 
-# texto en pantalla (cifras que salieron del guion); arriba de la zona de subtítulos
+# on-screen text (figures taken out of the script); above the caption zone
 FUENTE = bpy.data.fonts.load("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")
 
 
@@ -143,7 +143,7 @@ texto("tx-3", "580 días · 2021", B[2] + 0.8, B[3] - 0.2)
 texto("tx-4", "2020 → 2022", B[3] + 0.8, B[4] - 0.2)
 texto("tx-6", "47 detenidos", B[5] + 1.0, B[6] - 0.2)
 
-# viñeta y grano
+# vignette and grain
 os.makedirs(FX, exist_ok=True)
 yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
 r = np.sqrt(((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2)

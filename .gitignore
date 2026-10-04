@@ -1,5 +1,6 @@
-# Media generada: solo en esta máquina
+# Generated media: only on this machine
 Media/
+__pycache__/
 .obsidian/workspace.json
 .obsidian/workspaces.json
 .obsidian/cache

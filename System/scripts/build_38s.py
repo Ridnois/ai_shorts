@@ -1,13 +1,13 @@
-"""Monta el video de 38 s en el secuenciador de Blender.
-Uso: blender -b --factory-startup --python render/build_38s.py   (desde la carpeta de la versión)
-Salida: render/imanes-38s-r1.mp4 y render/imanes-38s.blend
+"""Assembles the 38 s video in Blender's sequencer.
+Usage: blender -b --factory-startup --python render/build_38s.py   (from the version's folder)
+Output: render/imanes-38s-r1.mp4 and render/imanes-38s.blend
 """
 import bpy, os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) if "__file__" in globals() else os.getcwd()
 VOZ, ILU, OUT = f"{ROOT}/voz", f"{ROOT}/ilustraciones", f"{ROOT}/render"
 FPS, W, H = 24, 1920, 1080
-CORTAR_ENVIOS = True   # escena 3: se corta "Los envíos cayeron"
+CORTAR_ENVIOS = True   # scene 3: "Los envíos cayeron" ("Shipments fell") is cut
 
 sc = bpy.context.scene
 sc.render.fps = FPS
@@ -16,7 +16,7 @@ sc.sequence_editor_create()
 S = sc.sequence_editor.strips
 f = lambda t: round(t * FPS)
 
-# --- Voz: (archivo, recorte inicial s, recorte final s, inicio en la línea de tiempo s)
+# --- Voice: (file, initial trim s, final trim s, start on the timeline s)
 voz = [
     ("e1-voz-qwen-design-v3.wav", 0.14, 7.70, 3.00),
     ("e2-voz-qwen-design-v3.wav", 0.00, 9.40, 10.96),
@@ -26,11 +26,11 @@ voz = [
 end_audio = 0
 for i, (fn, a, b, t0) in enumerate(voz, 1):
     st = S.new_sound(f"voz-e{i}", f"{VOZ}/{fn}", 5, f(t0))
-    st.frame_offset_start = f(a)                       # recorte al inicio
-    st.frame_final_end = f(t0) + f(b - a)              # recorte al final
+    st.frame_offset_start = f(a)                       # trim at the start
+    st.frame_final_end = f(t0) + f(b - a)              # trim at the end
     end_audio = max(end_audio, st.frame_final_end)
 
-# --- Imagen: tomas (inicio s, fin s, imagen inicial, imagen final)
+# --- Image: shots (start s, end s, initial image, final image)
 tomas = [
     ("e1",  0.00, 10.76, "e1-inicial-v3.png",  "e1-final-v1.png"),
     ("e2", 10.76, 20.56, "e2-inicial-v2.png",  "e2-final-v1.png"),
@@ -48,7 +48,7 @@ for name, t0, t1, ini, fin in tomas:
     d = t1 - t0
     a = add_img(f"{name}-inicial", ini, 1, t0, t1)
     b = add_img(f"{name}-final", fin, 2, t0 + 0.35 * d, t1)
-    # fundido de la imagen final sobre la inicial
+    # fade of the final image over the initial
     b.blend_alpha = 0.0
     b.keyframe_insert("blend_alpha", frame=f(t0 + 0.35 * d))
     b.blend_alpha = 1.0

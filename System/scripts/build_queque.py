@@ -1,9 +1,9 @@
-"""Monta "Queque" (Short vertical 9:16, ≈ 80 s) en el secuenciador de Blender 5.2.
+"""Assembles "Lemon cake" (vertical 9:16 Short, ≈ 80 s) in Blender 5.2's sequencer.
 
-    SOLO_PROYECTO=1 blender -b --factory-startup --python render/build_queque.py   # arma y mide
-    blender -b --factory-startup --python render/build_queque.py                  # arma y renderiza
-Base: build_brasil.py. Cambios: voz en mp3 (se analiza con aud), 20 láminas repartidas por escena con fundido
-cruzado, banda de papel bajo los textos de paso, sin efectos de sonido.
+    SOLO_PROYECTO=1 blender -b --factory-startup --python render/build_queque.py   # assembles and measures
+    blender -b --factory-startup --python render/build_queque.py                  # assembles and renders
+Base: build_brasil.py. Changes: mp3 voice (analysed with aud), 20 plates spread per scene with cross-fade,
+a paper band under the step texts, no sound effects. (Spanish narration; the script keeps its Spanish names.)
 """
 import os
 
@@ -16,7 +16,7 @@ VOZ, ILU, OUT = (f"{ROOT}/{d}" for d in ("voz", "ilustraciones", "render"))
 FX = f"{OUT}/_fx"
 FPS, W, H = 24, 1080, 1920
 
-GAPS = [0.40, 0.40, 0.40, 0.40, 0.40, 0.40, 0.90]     # silencio entre voces; más largo antes del cierre
+GAPS = [0.40, 0.40, 0.40, 0.40, 0.40, 0.40, 0.90]     # silence between voices; longer before the close
 INICIO_VOZ, COLA = 0.50, 1.20
 PAD_INI, PAD_FIN = 0.08, 0.25
 DIP, XF, ZOOM = 0.20, 0.30, 0.05
@@ -24,10 +24,10 @@ PAPEL = (0.945, 0.935, 0.86)
 VIGNETA, GRANO = 0.20, 0.08
 VOL_VOZ = 1.0
 
-# imagen -> archivo ; reparto de láminas por escena (suman 20)
-ARCH = {i: f"queque-i{i:02d}-gpt-v.png" for i in range(1, 21)}          # gpt-image-1.5, 2:3 extendido a 9:16
+# image -> file ; plates per scene (add up to the total)
+ARCH = {i: f"queque-i{i:02d}-gpt-v.png" for i in range(1, 21)}          # gpt-image-1.5, 2:3 extended to 9:16
 POR_ESCENA = [2, 3, 3, 2, 3, 3, 2, 2]
-# (etiqueta, título): ver "Estilo de texto en pantalla"
+# (label, title): see "On-screen text style"
 TEXTOS = {1: ("6 pasos", "Queque de limón"), 2: ("Paso 1", "Temperatura ambiente"), 3: ("Paso 2", "Batir hasta dejar pálido"),
           4: ("Paso 3", "Los huevos, de a uno"), 5: ("Paso 4", "Mezclar lo justo"), 6: ("Paso 5", "Horno a 180 °C"),
           7: ("Paso 6", "El palillo sale limpio")}
@@ -65,7 +65,7 @@ B = [0.0] + [v["abs"] + v["dur"] + GAPS[i] / 2 for i, v in enumerate(voces[:7])]
 T_FIN = B[8]
 
 for v in voces:
-    # la tira se crea `ini` antes: frame_offset_start también adelanta el inicio visible
+    # the strip is created `ini` earlier: frame_offset_start also advances the visible start
     st = S.new_sound(f"voz-e{v['n']}", f"{VOZ}/{v['f']}", 30, fr(v["abs"]) - fr(v["ini"]))
     st.frame_offset_start = fr(v["ini"])
     st.frame_final_end = fr(v["abs"]) + fr(v["dur"])
@@ -86,7 +86,7 @@ def alfa(st, puntos):
         st.keyframe_insert("blend_alpha", frame=f_)
 
 
-# ---------------------------------------------------------------- láminas
+# ---------------------------------------------------------------- plates
 idx, esc_img = 1, []
 for e, n in enumerate(POR_ESCENA, start=1):
     t0, t1 = B[e - 1], B[e]
@@ -101,35 +101,35 @@ for i, e, j, n, a, b in esc_img:
     st = S.new_image(f"i{i:02d}", f"{ILU}/{ARCH[i]}", 2 + (j % 2), fr(ini))
     st.frame_final_end = fr(fin)
     w, h = st.elements[0].orig_width, st.elements[0].orig_height
-    k = max(W / w, H / h) * 1.07                                   # deja sitio para subir el dibujo sin dejar huecos
+    k = max(W / w, H / h) * 1.07                                   # leaves room to raise the drawing without leaving gaps
     st.transform.scale_x = st.transform.scale_y = k
-    st.transform.offset_y = 60                                      # sube el dibujo: la tarjeta no pisa el sujeto
-    for t_ in (ini, fin):                                           # empuje lento
+    st.transform.offset_y = 60                                      # raises the drawing: the card does not cover the subject
+    for t_ in (ini, fin):                                           # slow push
         z = 1.0 + ZOOM * (t_ - ini) / (fin - ini)
         st.transform.scale_x = st.transform.scale_y = k * z
         st.transform.keyframe_insert("scale_x", frame=fr(t_))
         st.transform.keyframe_insert("scale_y", frame=fr(t_))
     pa = []
     if j > 0:
-        pa += [(ini, 0.0), (ini + XF, 1.0)]                         # fundido cruzado dentro de la escena
+        pa += [(ini, 0.0), (ini + XF, 1.0)]                         # cross-fade within the scene
     elif e > 1:
-        pa += [(ini, 0.0), (ini + DIP, 1.0)]                        # "pasar la hoja"
+        pa += [(ini, 0.0), (ini + DIP, 1.0)]                        # "page turn"
     if j == n - 1 and e < 8:
         pa += [(fin - DIP, 1.0), (fin, 0.0)]
     if pa:
         alfa(st, pa)
 
-# ---------------------------------------------------------------- tarjeta de etiqueta (Estilo de texto en pantalla)
+# ---------------------------------------------------------------- label card (On-screen text style)
 os.makedirs(FX, exist_ok=True)
-CX0, CX1 = 56, 56 + 894                                   # margen izquierdo 56 px; 130 px libres a la derecha (botones de Shorts)
-CY = H * (1 - 0.275)                                      # centro entre el 22 y el 33 % de la altura desde abajo
+CX0, CX1 = 56, 56 + 894                                   # 56 px left margin; 130 px free on the right (Shorts buttons)
+CY = H * (1 - 0.275)                                      # centre between 22 and 33 % of the height from the bottom
 CY0, CY1 = CY - 105, CY + 105
 RAD = 16
 COBRE = (0.78, 0.42, 0.22)
 yy_, xx_ = np.mgrid[0:H, 0:W].astype(np.float32)
 dx = np.maximum(np.maximum(CX0 + RAD - xx_, xx_ - (CX1 - RAD)), 0)
 dy = np.maximum(np.maximum(CY0 + RAD - yy_, yy_ - (CY1 - RAD)), 0)
-dist = np.sqrt(dx ** 2 + dy ** 2) - RAD                   # <0 dentro de la tarjeta redondeada
+dist = np.sqrt(dx ** 2 + dy ** 2) - RAD                   # <0 inside the rounded card
 dentro = np.clip(0.5 - dist, 0, 1)
 borde = np.clip(1.0 - np.abs(dist + 0.5), 0, 1) * 0.25
 barra = ((xx_ >= CX0) & (xx_ < CX0 + 8)).astype(np.float32) * dentro
@@ -141,7 +141,7 @@ for c in range(3):
     rgba[..., c] = base * (1 - barra) + COBRE[c] * barra
 rgba[..., 3] = np.maximum(dentro * 0.94, borde * dentro)
 tarjeta = bpy.data.images.new("tarjeta", W, H, alpha=True)
-tarjeta.pixels.foreach_set(rgba[::-1].ravel())            # Blender guarda de abajo hacia arriba
+tarjeta.pixels.foreach_set(rgba[::-1].ravel())            # Blender stores bottom to top
 tarjeta.filepath_raw = f"{FX}/tarjeta.png"
 tarjeta.file_format = "PNG"
 tarjeta.save()
@@ -150,7 +150,7 @@ F_TIT = bpy.data.fonts.load("/usr/share/fonts/truetype/noto/NotoSansDisplay-Bold
 F_ETQ = bpy.data.fonts.load("/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf")
 TINTA = (0.11, 0.10, 0.09, 1.0)
 HAIR = "\u200a"
-espaciado = lambda t: HAIR.join(t.upper().replace(" ", "  "))    # etiqueta en mayúsculas con espaciado ancho
+espaciado = lambda t: HAIR.join(t.upper().replace(" ", "  "))    # label in capitals with wide spacing
 
 
 def entra(st, prop_alfa, t0, t1):
@@ -162,7 +162,7 @@ for e, (etq, tit) in TEXTOS.items():
     cd = S.new_image(f"tarjeta-{e}", f"{FX}/tarjeta.png", 5, fr(t0))
     cd.frame_final_end = fr(t1)
     entra(cd, "blend_alpha", t0, t1)
-    for t_, off in ((t0, -24), (t0 + 0.25, 0)):                    # ascenso de 24 px al entrar
+    for t_, off in ((t0, -24), (t0 + 0.25, 0)):                    # 24 px rise on entering
         cd.transform.offset_y = off
         cd.transform.keyframe_insert("offset_y", frame=fr(t_))
     for nombre, txt, font, size, col, y in ((f"etq-{e}", espaciado(etq), F_ETQ, 34, COBRE + (1.0,), 0.307),
@@ -176,7 +176,7 @@ for e, (etq, tit) in TEXTOS.items():
             tx.keyframe_insert("location", frame=fr(t_))
         entra(tx, "blend_alpha", t0, t1)
 
-# ---------------------------------------------------------------- viñeta y grano
+# ---------------------------------------------------------------- vignette and grain
 yy2, xx2 = np.mgrid[0:H, 0:W].astype(np.float32)
 r = np.sqrt(((xx2 - W / 2) / (W / 2)) ** 2 + ((yy2 - H / 2) / (H / 2)) ** 2)
 vig = np.clip(1.0 - 0.45 * np.clip(r - 0.55, 0, None) ** 1.6, 0.0, 1.0)
