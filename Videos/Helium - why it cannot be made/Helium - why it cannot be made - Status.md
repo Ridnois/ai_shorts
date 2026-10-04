@@ -132,10 +132,25 @@ Format: `scene · category · model · status · prediction`.
 - **The narration line in the prompt can leak into the image.** Plate 9 printed "This year a war cut off/QCoUnr". The other 12 prompts, which carried the same kind of line, did not. Rule for next time: put the narration only in the notes, or keep it and add "The image contains no words, no letters and no captions of any kind"; check every plate for text.
 - **Still states worked.** All 13 plates read clearly; the two "add a tiny bottle" plates (11, 12) and the padlock (13) worked because the added object is still and simple.
 - **English pace measured:** 175 words in ≈ 72.9 s of voice (from file sizes at 128 kbps) = **≈ 144 words per minute with pauses**; individual scenes ran from 121 to 179. Update [[Channel voice]] and the guidelines with this figure.
-- **Wide plates:** composing each plate onto a 1080×1920 canvas with a blurred background (instead of covering the height) kept the whole tanker, the dish and the gas field in frame.
+- **Wide plates:** composing each plate onto a 1080×1920 canvas with a blurred background (instead of covering the height) kept the whole tanker, the dish and the gas field in frame. The first composite showed hard seams where the sharp plate met the blur; the final one feathers the edges (PIL gradient mask; this machine's system Python has no `numpy`, and the first attempt failed silently inside a chained command, so check that generated files actually changed).
 
 ## Editing (3 Oct 2026)
 
 - **Script:** `System/scripts/build_helium2.py` (from `build_chips.py`). 7 voices (0.45 s between scenes, 1.2 s before the close, 0.25 s tail), 13 plates (2 per scene, 1 in the last; ≈ 5 s each, a cross-fade within the scene and a page turn between scenes), slow 5 % push, label cards on scenes 1 to 6 (English text), vignette and grain. No sound or music.
 - **Render r1:** `Media/Helium - 70 seconds/render/he2-76s-9x16-r1.mp4`, **≈ 75.8 s**, 1080×1920.
 
+
+**Spend (estimated):** voice ≈ $0.10 + images 15 × ≈ $0.04 = ≈ $0.60 → **≈ $0.70**, inside the approved cap ≈ $0.74 (Kontext price unconfirmed).
+
+### What I checked and what I did not
+
+- ✅ All 13 used plates looked at together on a contact sheet; the two discarded ones are in `plates/_descartes/`. No brand or text leaks in the final plates.
+- ✅ Render finished (50 MB, 1080×1920, 75.84 s per the edit) and seven frames (seconds 3, 13, 27, 37, 50, 62, 72): cards legible, subjects clear, seams feathered.
+- ❌ **I did not hear the audio or watch the whole video:** how `Roger` sounds in English, the pace (per scene it ran from 121 to 179 words per minute; scene 4 is the slowest, scene 7 the fastest), the fades, and whether plate changes land where they should.
+- **Reservations:** plates 11 and 12 add a tiny orange bottle that reads as a bottle, not as "seven liters" (the card says it); plate 4 is a flat clay slab of a gas field, not a wellhead; plate 7's accent reads as a frost blob. The sealed-magnet figures (7 L, 0.7 L) are **manufacturer claims** (Philips, Siemens): say so in the description.
+
+### Awaiting your decision (P7)
+
+1. **Watch and listen** to `he2-76s-9x16-r1.mp4`: is the English voice (`Roger`) right, or should I test `Bradford`? Is the pace OK?
+2. Do any plates need redoing (≈ $0.04 each, over the 15-image cap)?
+3. For publishing (P8): title, a description with sources (the research note), the CC attributions for R01–R11, "data as of 3 Oct 2026", the manufacturer-figures caveat for the sealed magnets, and the AI disclosure, all in English.

@@ -12,7 +12,7 @@ tags: [research, youtube, hub]
 
 A narrated-learning channel made with AI, built on the criteria in [[YouTube with AI - quality content guide]]. This vault is the **process for producing videos iteratively**: fixed steps, and media generated only after the user approves.
 
-> **Language rule (3 Oct 2026): everything is in English.** Notes, scripts, narration, on-screen text, video descriptions, prompts and pipeline states. Voice: `elevenlabs/v3`, `language_code: en` ([[Channel voice]]). Videos 1 to 5 were made in Spanish and stay as a historical record; their notes were translated, but their narration was not.
+> **Language rule (3 Oct 2026): everything is in English.** Notes, scripts, narration, on-screen text, video descriptions, prompts and pipeline states. Voice: `elevenlabs/v3`, `language_code: en` ([[Channel voice]]). Videos 1 to 6 were made in Spanish and stay as a historical record; their notes were translated, but their narration was not.
 
 > **Master rule:** no media is generated until gate P4 ([[Production process]]).
 
@@ -65,3 +65,4 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | Lemon cake (Short 9:16, 81 s) | 7 · r2, awaiting P7 | `elevenlabs/v3` and 20 `gpt-image-1.5` plates (≈ $1.57) | [[Lemon cake - Status]] |
 | Bike stems (Short 9:16, 63 s) | 7 · r2, awaiting P7 | `elevenlabs/v3` and 8 `wan-2.7-image` plates (≈ $0.26) | [[Bike stems - Status]] |
 | Chips and lithography (Short 9:16, ≈ 93 s) | 7 · r1, awaiting P7 | `elevenlabs/v3`, 8 `flux-kontext-pro` images (≈ $0.48) | [[Chips and lithography - Status]] |
+| Helium - why it cannot be made (Short 9:16, ≈ 76 s, **English**) | 7 · r1, awaiting P7 | `elevenlabs/v3` `en`, 13 `flux-kontext-pro` plates (≈ $0.70) | [[Helium - why it cannot be made - Status]] |

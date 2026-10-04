@@ -16,7 +16,7 @@ tags: [research, youtube, voice, replicate]
 - **Why this model:** the user chose it over `minimax/speech-2.8-turbo` and `qwen3-tts` ("Elevenlabs is better", lemon-cake Short); English is its strongest language, and it keeps the same API, parameters and price already used in the pipeline.
 - **Why `Roger`:** it is the voice the user already approved in Spanish (continuity of timbre across the channel), and it is a native English voice: ElevenLabs describes it as a relaxed, resonant male voice, which suits calm explanatory narration. The wrapper on Replicate offers 26 voices (Rachel, Drew, Clyde, Paul, Aria, Domi, Dave, Roger, Fin, Sarah, James, Jane, Juniper, Arabella, Hope, Bradford, Reginald, Gaming, Austin, Kuon, Blondie, Priyanka, Alexandra, Monika, Mark, Grimblewood).
 - **Alternative to test at P5 if `Roger` does not convince:** `Bradford` (articulate British storyteller). The test is one scene (≈ $0.01 per voice). **I cannot hear the difference: the user decides, and the voice is not changed afterwards.**
-- **Pace (to be measured):** English is planned at ≈ 150 words per minute with pauses, the same as Spanish was; **measure with the first English script** (one full-script sample, not one sentence) and correct this figure.
+- **Pace (measured on the first English video, 3 Oct 2026):** 175 words in ≈ 72.9 s of voice (estimated from file sizes at 128 kbps) = **≈ 144 words per minute with pauses**; per scene it ran from 121 to 179. Plan with **≈ 145 words per minute** ([[Helium - why it cannot be made - Status]]).
 - **One take per scene** with the exact script text. **Sentences are never cut** (see [[Guidelines for new scripts]] §4).
 - **Acronyms and numbers:** write them as they are spoken if the model reads them badly (for example "ASML" → "A S M L"), and note the change.
 
@@ -30,8 +30,9 @@ tags: [research, youtube, voice, replicate]
 | Lemon cake (80 s, Spanish) | `elevenlabs/v3`, `Roger`, `es` | ≈ 150 | "Elevenlabs is better" |
 | Bike stems (63 s, Spanish) | `elevenlabs/v3`, `Roger`, `es` | ≈ 150 | See [[Bike stems - Status]] |
 | Chips and lithography (≈ 93 s, Spanish) | `elevenlabs/v3`, `Roger`, `es` | ≈ 144 | See [[Chips and lithography - Status]] |
+| Helium - why it cannot be made (≈ 76 s, **English**) | `elevenlabs/v3`, `Roger`, `en`, 0.95 | ≈ 144 | First English video; awaiting the user's ear at P7 ([[Helium - why it cannot be made - Status]]) |
 
 ## Open
 
 - Timbre and naturalness are for the user to judge alone: the audio is not heard during production.
-- The English voice has not been tested yet; the first English video will be the test (P5).
+- The English voice was generated on 3 Oct 2026 and is **awaiting the user's judgement** (P7 of the first English video).

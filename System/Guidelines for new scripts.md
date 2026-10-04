@@ -42,7 +42,7 @@ tags: [research, youtube, script, guidelines, feedback]
 ### Duration and pace
 
 - A Short (9:16) fits ≈ 60 s, but **"longer is fine"** if needed (63 to 93 s worked). Do not speed up the voice to make it fit.
-- **Adapt the script to the pace of the voice, or use a model with `speed`**; do not cut blindly or regenerate. Planning: ≈ 150 words per minute with `elevenlabs/v3` at `speed` 0.95 (Lemon cake: 197 words → 77.6 s; Chips: 211 words → 88 s). **Measure with the complete script**, not one sentence (a single sentence gave 122; the whole script, 156). **The English pace is still to be measured** ([[Channel voice]]).
+- **Adapt the script to the pace of the voice, or use a model with `speed`**; do not cut blindly or regenerate. Planning: ≈ 145 to 150 words per minute with `elevenlabs/v3` at `speed` 0.95 (Lemon cake, Spanish: 197 words → 77.6 s; Chips, Spanish: 211 words → 88 s; **Helium, English: 175 words → 72.9 s ≈ 144 wpm**). **Measure with the complete script**, not one sentence (a single sentence gave 122; the whole script, 156). Details in [[Channel voice]].
 - Hook in the **first 3 s**, with the strongest image.
 
 ### Checklist before P3
@@ -69,6 +69,7 @@ Style, method and prompt template: [[Visual style - plasticine miniatures]]. Sou
 | 2.7 | **An "almost right" image is accepted.** What can be fixed in editing is not regenerated. One retry per image; if it fails twice, accept it, reframe it or drop the shot. |
 | 2.8 | **Vertical 9:16, safe zone:** subject between 15 % and 60 % of the height; nothing key in the bottom third or the top 6 %. |
 | 2.9 | **The result has to be worth watching:** if the images are not understood without the voice, they are not ready. |
+| 2.11 | **Do not paste the narration sentence into the image prompt without a guard.** In the Helium video one prompt that began with `Narration: "…"` printed that sentence, garbled, inside the image. Keep the narration in the notes, or add "The image contains no words, no letters and no captions of any kind", and check every plate for text. |
 | 2.10 | **Check the reference for text and brands** before using it: a photo with a legible brand ("PRADO BRAZIL" on a padlock) leaks it into the image; the prompt asks for a blank, unmarked surface. |
 
 ## 3. Voice and sound
@@ -83,7 +84,7 @@ Style, method and prompt template: [[Visual style - plasticine miniatures]]. Sou
 - **A voice sentence is never cut.** In Blender, `frame_offset_start` also advances the visible start; the strip is created `ini` seconds earlier and an `assert` checks that the audible part starts and ends complete, with a 0.25 s tail (Brazil r1 error).
 - **Silences:** 0.45 to 0.5 s between scenes; 1.2 s before the central question; 0.5 s of intro and 1.2 s of tail.
 - **On-screen text:** sober label card (copper bar, spaced label, bold title), max. 4 words: [[On-screen text style]]. Between 22 % and 33 % from the bottom.
-- **Plates:** one every ≈ 4 s, cross-fade within the scene and "page turn" between scenes; zoom 0.96 to 1.0, slow 6 % push. Plate changes should land on the word they explain (not yet synced to each word). With only 8 images in a 90 s Short (Chips) each plate stays ≈ 10 s: prefer 12 or more.
+- **Plates:** one every ≈ 4 s, cross-fade within the scene and "page turn" between scenes; zoom 0.96 to 1.0, slow 6 % push. Plate changes should land on the word they explain (not yet synced to each word). With only 8 images in a 90 s Short (Chips) each plate stayed ≈ 10 s; the Helium Short used 13 plates (≈ 5 s each). Prefer 12 or more. **Wide plates:** compose each onto a 1080×1920 canvas (blurred background, feathered edges, sharp plate at ≈ 40 % of the height) instead of covering the height, so nothing is cropped.
 - **Say what was not verified:** the full video is not watched or heard, only frames and headers; gate P7 is the user's.
 - **Before putting a symbol on screen** (→, ≈), check that the typeface has it: Noto Sans Display Bold has no "→" and it showed as a box (Stems, r1). Use "·" or "to".
 - Details: [[Blender editing]], [[Transitions and effects]].
@@ -104,4 +105,4 @@ Style, method and prompt template: [[Visual style - plasticine miniatures]]. Sou
 - [ ] **Plate changes synced to the word**, not only to the scene.
 - [ ] Try the text style on a political topic (figure + source) and define 16:9.
 - [ ] Confirm the `flux-kontext-pro` price on Replicate (≈ $0.04 from memory); test `match_input_image` and a scene with no object ([[Visual style - plasticine miniatures]]).
-- [ ] **Measure the English pace and the English voice** with the first English script ([[Channel voice]]).
+- [x] Measured the English pace with the first English script (≈ 144 wpm). [ ] The English voice itself still needs the user's ear.
