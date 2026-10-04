@@ -52,6 +52,8 @@ Implementation: `System/scripts/build_video.py` reads the plate's `card` (a list
 
 The user's verdict on the style (Magnetar, 4 Oct 2026): *"The style of the added text is good and appealing, keep improving."* **The card, callout and copper-accent look stays as it is**; improvements go into specificity (§2), placement over real images and the captions, not into a redesign.
 
+The whole system (tokens, components, safe zones, highlight rule) is written as one table in [[Channel playbook]] §3.
+
 ## 4. Copy examples (Twisted carbon, rewritten with the specificity test)
 
 | Plate | Before (v2) | After (v3) |

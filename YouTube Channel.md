@@ -32,7 +32,7 @@ YouTube Channel.md
 ├── System/
 │   ├── Guidelines for new scripts.md   ← main entry point
 │   ├── Process/    Fast workflow · Production process · Media convention · Feedback loop
-│   ├── Content/    Idea and hook quality · Channel identity · Narration guide · Channel voice · Shorts quality bar · Channel strategy · YouTube with AI (quality guide)
+│   ├── Content/    Idea and hook quality · Channel identity · Narration guide · Channel voice · Shorts quality bar · Channel strategy · Channel playbook · YouTube with AI (quality guide)
 │   ├── Visual/     Illustration pipeline · On-screen text style · Per-scene prompt
 │   ├── Editing/    Blender editing · Transitions and effects
 │   ├── Models/     Channel models (prices)
@@ -52,11 +52,13 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | Is the idea worth it? | [[Idea and hook quality]] |
 | How to write | [[Narration guide]] · [[Channel voice]] |
 | What makes a Short top tier (hook, captions, rhythm, checklist) | [[Shorts quality bar]] |
-| Monetization, policies, brand and multi-platform plan | [[Channel strategy]] |
+| Monetization, policies, multi-platform plan | [[Channel strategy]] |
+| Engagement, on-screen design system, brand and mission | [[Channel playbook]] |
 | How it looks | [[Illustration pipeline]] · [[On-screen text style]] · [[Channel identity]] |
 | How to call Replicate | [[Prompt - per-scene generation guide]] · [[Channel models]] |
 | How to edit | [[Blender editing]] · [[Transitions and effects]] |
 | Model research | [[Research - Flux Kontext Pro with references (power)]] |
+| Free resource directories (sound, references, data) | [[Research - Free resource directories (FMHY)]] |
 
 ## Videos
 

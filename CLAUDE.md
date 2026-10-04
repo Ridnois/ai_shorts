@@ -8,7 +8,7 @@ This vault (`~/Documents/youtube`) is the **single source of knowledge** of an E
 2. `System/Guidelines for new scripts.md`: every quality rule, compressed (idea → script → illustrations → text → voice → editing → process). **Read it whole before writing anything.**
 3. `System/Process/Fast workflow.md`: how a video is produced (packages, models, prices, budget).
 4. For a new video also: `System/Content/Shorts quality bar.md` (the bar every Short must clear), `System/Content/Idea and hook quality.md`, `System/Visual/Illustration pipeline.md`, `System/Content/Narration guide.md`, `System/Content/Channel identity.md`, `System/Visual/On-screen text style.md`.
-5. On demand: `System/Content/Channel strategy.md` (monetization, policies, brand, multi-platform plan), `System/Process/Production process.md` (stages and gates), `System/Process/Media convention.md`, `System/Editing/Blender editing.md`, `System/Content/Channel voice.md`, `System/Models/Channel models.md`, and the video's `<Topic> - Status` note.
+5. On demand: `System/Content/Channel strategy.md` (monetization, policies, multi-platform plan), `System/Content/Channel playbook.md` (engagement, on-screen design system, brand and mission), `System/Process/Production process.md` (stages and gates), `System/Process/Media convention.md`, `System/Editing/Blender editing.md`, `System/Content/Channel voice.md`, `System/Models/Channel models.md`, and the video's `<Topic> - Status` note.
 
 ## 2. Hard rules (never skip)
 
@@ -44,7 +44,7 @@ When the user gives feedback (after a render, or about the process), follow **`S
 ```
 YouTube Channel.md            index · videos table
 System/Guidelines…            all rules, compressed          System/Process/   workflow · process · media · feedback loop
-System/Content/               idea quality · identity · narration · voice · Shorts quality bar · channel strategy · quality guide
+System/Content/               idea quality · identity · narration · voice · Shorts quality bar · channel strategy · channel playbook · quality guide
 System/Visual/                illustration pipeline · prompts · on-screen text
 System/Editing/               Blender editing · transitions   System/Models/    models and prices
 System/scripts/               build_video.py · stock_photos.py · replicate_helper.py · check_vault.py · legacy build_*.py

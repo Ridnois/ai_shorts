@@ -8,7 +8,7 @@ tags: [research, youtube, shorts, retention, captions, quality]
 
 # Shorts quality bar
 
-← [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Narration guide]] · [[On-screen text style]] · [[Channel strategy]]
+← [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Narration guide]] · [[On-screen text style]] · [[Channel strategy]] · [[Channel playbook]]
 
 > **User feedback (Magnetar, 4 Oct 2026):** *"narrative oriented too much on storytelling, this could be something you need to know after 3 seconds"*, *"add transcriptions… word by word so users can follow the narrative with the audio off"*, *"the style of the added text is good and appealing, keep improving the render guidelines"*, *"create top tier quality youtube shorts."* This note is the bar a Short must clear before P7. Status of the evidence: the platform facts are sourced (§7); the craft rules below are **working hypotheses from common Shorts practice and this channel's feedback, not measured here**. The first Analytics data replaces them ([[Channel strategy]] §6).
 
@@ -30,7 +30,7 @@ tags: [research, youtube, shorts, retention, captions, quality]
 | Element | Rule |
 | --- | --- |
 | What | **One word at a time**, centred, in the order spoken; the word changes on the voice, not on a fixed beat. The script's own spelling is shown ("1,232" stays a figure) |
-| Look | Noto Sans Display Bold, 104 px, capitals, white with a dark outline and a soft shadow; **words that contain a digit are copper** (the channel accent) |
+| Look | Noto Sans Display Bold, 104 px, capitals, white with a dark outline and a soft shadow; **words that contain a digit are copper** (the channel accent), and so are up to six key terms listed in `plan.json` `keywords` |
 | Place | centred at **16.5 % from the bottom** (`CAP_Y` in the builder): above the Shorts interface, below the card zone; cards and callouts never enter it |
 | Timing | from `voice/<take>.words.json` (whisper word timestamps, `System/scripts/word_timings.py`); estimated by characters and punctuation when the file is missing (a reasonable fallback, not exact) |
 | Hold | a word stays until the next one starts, but never across a pause longer than 0.55 s |
@@ -62,6 +62,7 @@ Voice only today. **Open item:** a quiet music bed and tasteful transitions coul
 
 | Fact | Source |
 | --- | --- |
+| Since 31 March 2025 a Shorts view counts every start or replay with no minimum watch time; **engaged views** is the measure monetization uses | YouTube Help, Shorts views (fetched 4 Oct 2026) |
 | Shorts can be up to 3 minutes (announced Sept 2024) | Wikipedia, *YouTube Shorts* |
 | Shorts reached over 100 billion views a day (Nov 2025) | Wikipedia, *YouTube Shorts* |
 | Shorts creators receive 45 % of the Shorts ad revenue pool (regular videos 55 %) | Wikipedia, *YouTube Shorts* |

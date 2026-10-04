@@ -52,6 +52,11 @@ INVARIANTS = [
     ("System/Content/Channel strategy.md", "inauthentic content", "monetization policy awareness"),
     ("System/Content/Channel strategy.md", "Not verified", "strategy says what was not verified"),
     ("CLAUDE.md", "need-to-know", "agent guide carries the new hard rule"),
+    # engagement, design and brand playbook (4 Oct 2026)
+    ("System/Content/Channel playbook.md", "Engaged views", "engaged views, not raw views"),
+    ("System/Content/Channel playbook.md", "On-screen design system", "text box and highlight design written down"),
+    ("System/Content/Channel playbook.md", "Mission (one sentence)", "channel mission"),
+    ("System/Content/Channel playbook.md", "Not verified", "playbook says what is hypothesis"),
 ]
 
 problems = []
@@ -101,7 +106,7 @@ for rel in notes:
 
 # builder guards that encode feedback (code, not notes)
 _b = open(os.path.join(ROOT, "System", "scripts", "build_video.py"), encoding="utf-8").read()
-for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions")):
+for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions"), ("write_srt(", "caption track export")):
     if _needle not in _b:
         problems.append(f"build_video.py lost its guard: {_needle} ({_why})")
 
