@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: stages 0–3 done (user: "idea gate is good and scripting going well, continue") · stock downloaded · P4 approved by the user 4 Oct 2026 (prompts + budget, cap ≈ $0.29) · P5 test done, awaiting the user's ear
+status: stages 0–3 done (user: "idea gate is good and scripting going well, continue") · stock downloaded · P4 approved by the user 4 Oct 2026 (prompts + budget, cap ≈ $0.29) · P5 and P6 approved ("Got for it") · render r3 built, awaiting P7
 tags: [research, youtube, status, magnetar, neutron-star, shorts]
 ---
 
@@ -21,8 +21,10 @@ Short 9:16, English, 151 words. Question: *how can a star the size of a city be 
 | 2 Script | ✅ P3 | user | 151 words, 7 scenes |
 | 3 Direction | ✅ P4a | pending glance | Visual plan below: 11 plates, 3 generated |
 | 4 Prompts and budget | ✅ P4 | user: "I approve" (4 Oct 2026), cap ≈ $0.29 | below |
-| 5 Test | ⏳ **P5** | **awaiting you** | scene-1 voice + plate 2 done; listen and look, then say go |
-| 6 Generation, 7 Editing, 8 Publishing | ⏳ | — | not started |
+| 5 Test | ✅ P5 | user: "Got for it" (4 Oct 2026) | scene-1 voice + plate 2 |
+| 6 Generation | ✅ | covered by the same go-ahead | 7 voice takes, 3 plates |
+| 7 Editing | ⏳ **P7** | **awaiting you** | `Media/Magnetar/render/mg-61s-9x16-r3.mp4` |
+| 8 Publishing | ⏳ | — | description below |
 
 ## Visual plan (type: S stock · G generated explainer · N number plate built in Blender)
 
@@ -86,10 +88,27 @@ Estimated duration (derived, not planned): 151 words ≈ 63 s at ≈ 144 wpm.
 - s1 · voice · `elevenlabs/v3` Roger `en` 0.95 (`next_text` = scene 2) · ✅ `voice/mg-s1-voice-v1.mp3` · 99 characters ≈ $0.01 · [bv2wqj01…](https://replicate.com/p/bv2wqj017nrmt0d10zmrydab5r)
 - p2 · image G1 · `gpt-image-1.5` medium 2:3 png · ✅ `plates/mg-p02-scale-v1.png` · ≈ $0.05 · [g9dqjvvc…](https://replicate.com/p/g9dqjvvcw9rmw0d10zms7avx58)
 - One HTTP 429 on the first image call (rate limit, no prediction created, no cost); retried once after 15 s.
-- Used so far: 2 predictions, ≈ $0.06 of the ≈ $0.29 cap.
+- s2–s7 · voice · `elevenlabs/v3` Roger `en` 0.95 (`previous_text`/`next_text`) · ✅ `voice/mg-s2…s7-voice-v1.mp3` · 108 to 141 characters each · ids h35fynny…, g5hc9sgz…, 7x9r4dja…, 4m26t3kk…, sty57h6g…, pry846fs…
+- p6 · image G2 · `gpt-image-1.5` · ✅ `plates/mg-p06-cutaway-v1.png` · [qej9jb5g…](https://replicate.com/p/qej9jb5g3xrmy0d10zq9x7t10m)
+- p8 · image G3 · `gpt-image-1.5` · ✅ `plates/mg-p08-burst-v1.png` · [mghm2atj…](https://replicate.com/p/mghm2atjyhrmr0d10zqvpqcxnm)
+- Five more 429s (rate limit, no prediction created, no cost); each retried after a wait.
+- **Total: 10 predictions, 7 voice takes + 3 images, ≈ $0.24 of the ≈ $0.29 cap. No image was regenerated.**
 
 ## P5 result
 
 - **Plate 2:** I looked at it. No letters, no numbers, no labels; a pale cracked sphere with blue arcs at its poles spans the city grid. It reads as "a sphere the size of a city". The sphere is perfectly smooth and the grid is photoreal, so the blue arcs are decorative rather than field lines; fine for scale, not a data claim.
 - **Voice:** generated but **not heard** (I cannot hear audio). 99 characters returned a 120 KB file. The voice is your decision at P5 and is not changed afterwards.
 - Next, if you say go: voice scenes 2 to 7, then plates G2 and G3, in series (≈ $0.23 more), then the Blender build with `CHECK=1`.
+
+## Editing (render r3)
+
+`Media/Magnetar/plan.json` → `System/scripts/build_video.py`. **60.9 s** (derived: 151 words ≈ 149 wpm with pauses), 1080×1920, 24 fps. `CHECK=1`: all seven voices have lead-in, tail and padded silence, in order (`CHECK RESULT all voices complete`).
+
+- **Looked at (stills at 2, 4, 12, 21, 23, 28, 31, 38, 41, 50, 57, 58 s):** layout, cards, callouts, no leaked text in the three generated plates. Three fixes after r1: the Earth card title overflowed (shortened), the magnetar was cropped at the left edge (focus moved to the star), the burst plate lost the Earth to the 9:16 crop (now `contain` on a dark gradient). r1 and r2 were deleted.
+- **Number plates** (teaspoon, trillion ×, 0.1 s) are a violet gradient with the card only: clean, but visually bare. If it feels empty at P7, give them a backdrop (stock or generated) in the rework.
+- **Not verified:** I cannot hear the voice or watch the video in motion: pace, transitions and the voice are yours at P7. Plate changes land by scene, not on the word.
+- **Content to check:** plate 7 "0.1 s = 100,000 years of Sun" has one secondary source (Astronomy, Sept 2015) and "about 0.2 s" comes from a search summary of the arXiv paper: confirm both in arXiv astro-ph/0609595 before publishing. The burst plate shows a teardrop-shaped wave, not a sphere (artistic).
+
+## Description draft (stage 8)
+
+The 2004 giant flare of the magnetar SGR 1806-20, explained in 60 seconds. Sources: NASA/JPL, *Different Neutron Star Types* (June 2020); Astronomy magazine, Sept 2015; arXiv astro-ph/0505491, astro-ph/0604386, astro-ph/0609595. Images: NASA/JPL, NASA/SDO (public domain), Milky Way photo CC0; schematic plates generated with AI (gpt-image-1.5); voice generated with AI (ElevenLabs v3). Data as of 4 Oct 2026.

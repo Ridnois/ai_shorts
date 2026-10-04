@@ -68,4 +68,4 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | Chips and lithography (Short 9:16, ≈ 93 s) | 7 · r1, awaiting P7 | `elevenlabs/v3`, 8 `flux-kontext-pro` images (≈ $0.48) | [[Chips and lithography - Status]] |
 | Twisted carbon (Short 9:16, ≈ 85 s, **English**) | 7 · r1, awaiting P7 | First video built with the idea-quality rules; `elevenlabs/v3` `en`, 13 `flux-kontext-pro` plates (≈ $0.64) | [[Twisted carbon - Status]] |
 | Helium - why it cannot be made (Short 9:16, ≈ 76 s, **English**) | 7 · r1, awaiting P7 | `elevenlabs/v3` `en`, 13 `flux-kontext-pro` plates (≈ $0.70) | [[Helium - why it cannot be made - Status]] |
-| Magnetar (Short 9:16, ≈ 63 s derived, **English**) | 4 · P4 awaiting approval | Script + visual plan + stock done; no media generated; budget ≈ $0.24 (cap ≈ $0.29) | [[Magnetar - Status]] |
+| Magnetar (Short 9:16, 61 s, **English**) | 7 · r3, awaiting P7 | `elevenlabs/v3` `en`, 3 `gpt-image-1.5` plates + 5 NASA/CC0 stock photos (≈ $0.24) | [[Magnetar - Status]] |
