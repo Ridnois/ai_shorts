@@ -51,8 +51,9 @@ The stages are those of [[Production process]]; they are reviewed together:
 | **Voice (English)** | `elevenlabs/v3`, `Roger`, `language_code: en` | ≈ $0.10 per 1,000 characters | Chosen by the user for the channel. Parameters in [[Channel voice]] and [[Guidelines for new scripts]] §3 |
 | **Word timings (captions, every video)** | `vaibhavs10/incredibly-fast-whisper` with `timestamp: word`, via `System/scripts/word_timings.py` | ≈ $0.01 per take (**unconfirmed**; measured on the Superconductors video, see its Status) | Without it the builder estimates the timings; see [[Blender editing]] |
 | Voice · cheap alternative | `qwen/qwen3-tts` | ≈ $0.02 per 1,000 | No `speed`, ≈ 122 words per minute; English quality untested |
-| Sound | `sepal/audiogen` | ≈ $0.011 | **Only if the script asks for it**; 16 kHz. `mmaudio` fails with text only |
-| Animation and music | None | $0 | Editing cross-fades plates in Blender |
+| **Sound design (every video)** | synthesized by `build_video.py` from `plan.json` `sound` | $0 | whoosh, ticks, pings, thump and a quiet drone ([[Blender editing]] §Sound design) |
+| Extra sound and music | Free libraries (YouTube Audio Library, Sonniss, Pixabay, Incompetech) | $0 | **Only if the script asks for it**, credited, approved at P4a ([[Guidelines for new scripts]] §3). Generators (`audiogen`, 16 kHz) are a fallback with approval |
+| Animation | None | $0 | Editing cross-fades plates in Blender |
 
 **Not used:** `qwen-image-edit-plus` to generate (copies the references), `flux-2-pro` (expensive), `stable-audio-2.5` ($0.20 per file).
 
@@ -80,7 +81,7 @@ The stages are those of [[Production process]]; they are reviewed together:
 | Image (stock) | free sources | plates | $0 | $0 | — |
 | Background removal | `bria/remove-background` | stock photos that become cutouts | to measure | | |
 | Word timings | `incredibly-fast-whisper` | one per voice take | ≈ $0.01 (unconfirmed) | | |
-| Sound | `audiogen` | only if the script asks | ≈ $0.011 | | |
+| Sound | free library (not a generator) | only if the script asks | $0 | | |
 | P5 test | one of each | | | (inside the total) | |
 | **Total and cap** | | | | | |
 

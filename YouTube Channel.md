@@ -36,6 +36,7 @@ YouTube Channel.md
 │   ├── Visual/     Illustration pipeline · On-screen text style · Per-scene prompt
 │   ├── Editing/    Blender editing · Transitions and effects
 │   ├── Models/     Channel models (prices)
+│   ├── Brand/      avatar · banner · mark (drawn by scripts/make_brand.py): channel name **Cutaway**, see [[Channel playbook]] §4
 │   └── scripts/    build_video.py (the builder) · stock_photos.py · replicate_helper.py · check_vault.py · legacy build_*.py
 ├── Research/       general notes on models and styles, unrelated to a script
 └── Videos/         one folder per video: Status, scripts, research

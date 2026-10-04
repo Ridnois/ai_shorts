@@ -17,6 +17,13 @@ ROOT = os.getcwd()
 SKIP = (".git", ".obsidian", "Media", "__pycache__")
 
 INVARIANTS = [
+    # Free sound sources research, 4 Oct 2026
+    ("System/Guidelines for new scripts.md", "Sound and music are opt-in", "sound only from free licensed libraries, credited, approved"),
+    ("System/Guidelines for new scripts.md", "BigSoundBank and Freesound are deferred", "user deferred those two sources"),
+    ("System/Guidelines for new scripts.md", "RemArc", "BBC effects are non-commercial"),
+    ("System/Content/Shorts quality bar.md", "free licensed libraries", "quality bar points at the sound rule"),
+    ("System/Process/Fast workflow.md", "Free libraries", "workflow prices sound at $0 from libraries"),
+    ("System/Process/Media convention.md", "sound/", "sound folder with credits"),
     # (file, phrase, which feedback it encodes)
     ("System/Content/Idea and hook quality.md", "street-lamp test", "idea quality gate (helium feedback, 4 Oct 2026)"),
     ("System/Content/Idea and hook quality.md", "five candidate hooks", "hook earns its reaction"),
@@ -56,6 +63,10 @@ INVARIANTS = [
     ("System/Content/Channel playbook.md", "Engaged views", "engaged views, not raw views"),
     ("System/Content/Channel playbook.md", "On-screen design system", "text box and highlight design written down"),
     ("System/Content/Channel playbook.md", "Mission (one sentence)", "channel mission"),
+    ("System/Content/Channel playbook.md", "Name: Cutaway", "channel name"),
+    ("System/Editing/Blender editing.md", "Sound design", "synthesized sound design documented"),
+    ("System/Editing/Blender editing.md", "progress bar", "progress bar documented"),
+    ("System/Guidelines for new scripts.md", "synthesized by the builder", "sound design on by default"),
     ("System/Content/Channel playbook.md", "Not verified", "playbook says what is hypothesis"),
 ]
 
@@ -106,7 +117,7 @@ for rel in notes:
 
 # builder guards that encode feedback (code, not notes)
 _b = open(os.path.join(ROOT, "System", "scripts", "build_video.py"), encoding="utf-8").read()
-for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions"), ("write_srt(", "caption track export")):
+for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions"), ("write_srt(", "caption track export"), ("add_brand()", "brand layer"), ("add_sound()", "sound design")):
     if _needle not in _b:
         problems.append(f"build_video.py lost its guard: {_needle} ({_why})")
 

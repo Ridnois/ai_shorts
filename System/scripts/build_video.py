@@ -15,6 +15,9 @@ What it does (see System/Editing/Blender editing.md and System/Visual/Illustrati
   * One card per plate: context (label, title, detail), number (big figure, caption, source) or margin note; vignette and grain.
   * Word-by-word captions (plan `texts`, one narration string per voice; timings from voice/<take>.words.json made by
     System/scripts/word_timings.py, else estimated): one big word at a time in the lower caption zone, so the video follows with the sound off.
+  * Brand layer (plan `brand`): a copper progress bar at the top, the ring-and-dot mark and the series tag top-left.
+  * Sound design (plan `sound`): synthesized here with numpy (no model, no cost): scene whooshes, plate ticks, card pings,
+    callout ticks, an opening thump and a very quiet drone bed, as one WAV mixed under the voice.
   * No bare backdrops: a plate whose file is a blank placeholder is refused (a number card sits on a real photo or explainer).
 
 plan.json: see the docstring of `load_plan` and `System/Visual/Illustration pipeline.md` §6.
@@ -325,6 +328,7 @@ for _sc in PLAN["scenes"]:
                              "set allow_bare only if the user asked for it)")
         if not os.path.exists(f"{ROOT}/{_pl['file']}"):
             raise SystemExit(f"missing plate file: {_pl['file']}")
+EVENTS = [(0.0, "thump")]                       # (time, kind) for the sound design
 idx = 0
 flat = []
 for e, scene in enumerate(PLAN["scenes"], start=1):
@@ -380,6 +384,9 @@ for i, e, j, n, a, b, pl in flat:
         for s_ in strips:
             alpha(s_, pa)
 
+    if j > 0 or e > 1:
+        EVENTS.append((ini, "whoosh" if j == 0 else "tick2"))
+
     # callouts (they appear after the card is in, one after another)
     for ci, co in enumerate(pl.get("callouts", [])):
         tgt = (co["target"][0] * W, co["target"][1] * H)
@@ -397,6 +404,7 @@ for i, e, j, n, a, b, pl in flat:
             continue
         cs = S.new_image(f"callout{i:02d}-{ci}", callout_image(tgt, lxy, bw, bh, f"{i}_{ci}"), 20 + ci, fr(c0t))   # own channel: overlapping strips on one channel get bumped into the card's channels
         cs.frame_final_end = fr(c1t)
+        EVENTS.append((c0t, "tick"))
         cs.blend_type = "ALPHA_OVER"
         fade(cs, c0t, c1t)
         add_text(f"co{i}-{ci}", txt, F_BODY, size, INK, 24 + ci, c0t, c1t, lxy[0] + 22, lxy[1] + bh / 2, rise=False)
@@ -409,6 +417,7 @@ for i, e, j, n, a, b, pl in flat:
     if card:
         kind = card.get("kind", "context") if isinstance(card, dict) else "context"
         t0, t1 = a + 0.45, b - 0.15
+        EVENTS.append((t0, "ping"))
         cd = S.new_image(f"card{i:02d}", CARD_PNG, 7, fr(t0))
         cd.frame_final_end = fr(t1)
         cd.blend_type = "ALPHA_OVER"
@@ -529,6 +538,119 @@ def add_captions():
     print("CAPTIONS", n, "words,", "timed by whisper" if any(os.path.exists(os.path.splitext(v["f"])[0].replace("/_padded", "") + ".words.json") for v in voices) else "estimated")
 
 add_captions()
+
+
+# ---------------------------------------------------------------- brand layer: progress bar, mark, series tag
+def add_brand():
+    br = PLAN.get("brand")
+    if not br:
+        return
+    bx0, bx1, by, bh = 56, W - 56, 70, 8                      # top of the frame, inside the margins
+    yy_, xx_ = np.mgrid[0:H, 0:W].astype(np.float32)
+    inside = ((xx_ >= bx0) & (xx_ < bx1) & (yy_ >= by) & (yy_ < by + bh)).astype(np.float32)
+    track = np.zeros((H, W, 4), np.float32)
+    track[..., :3] = 1.0
+    track[..., 3] = inside * 0.28
+    fill = np.zeros((H, W, 4), np.float32)
+    fill[..., 0], fill[..., 1], fill[..., 2] = COPPER
+    fill[..., 3] = inside
+    ts = S.new_image("bar-track", save_rgba(track, "bar_track"), 17, 1)
+    ts.frame_final_end = fr(T_END)
+    ts.blend_type = "ALPHA_OVER"
+    fs_ = S.new_image("bar-fill", save_rgba(fill, "bar_fill"), 18, 1)
+    fs_.frame_final_end = fr(T_END)
+    fs_.blend_type = "ALPHA_OVER"
+    fs_.crop.max_x = bx1 - bx0 + (W - bx1)                     # start fully cropped from the right (nothing visible)
+    fs_.crop.keyframe_insert("max_x", frame=1)
+    fs_.crop.max_x = W - bx1                                   # end: the whole bar
+    fs_.crop.keyframe_insert("max_x", frame=fr(T_END))
+    fs_.crop.min_x = bx0
+    mark = f"{os.getcwd()}/System/Brand/mark.png"
+    if os.path.exists(mark):
+        ms = S.new_image("brand-mark", mark, 19, 1)
+        ms.frame_final_end = fr(T_END)
+        ms.blend_type, ms.blend_alpha = "ALPHA_OVER", 0.9
+        ms.transform.offset_x, ms.transform.offset_y = 56 + 48 - W / 2, H / 2 - 150
+    if br.get("series"):
+        tx = S.new_effect("series-tag", "TEXT", 40, 1, length=fr(T_END) - 1)
+        tx.text, tx.font, tx.font_size, tx.color = spaced(br["series"]), F_BODY, 30, (0.976, 0.965, 0.933, 0.92)
+        tx.anchor_x, tx.anchor_y = "LEFT", "CENTER"
+        tx.location = ((56 + 104) / W, 1 - 150 / H)
+        tx.use_outline, tx.outline_color, tx.outline_width = True, (0.04, 0.035, 0.03, 1.0), 0.12      # readable on light and dark plates
+        tx.use_shadow, tx.shadow_color, tx.shadow_offset, tx.shadow_blur = True, (0, 0, 0, 0.6), 0.03, 0.03
+
+
+# ---------------------------------------------------------------- sound design (synthesized, deterministic)
+def synth_sound(sr=48000):
+    """Returns (sfx, bed) float arrays: events from EVENTS, and a quiet drone. Everything is numpy; levels are low and unheard by the agent."""
+    n = int((T_END + 1.0) * sr)
+    sfx, bed = np.zeros(n, np.float32), np.zeros(n, np.float32)
+    rng = np.random.default_rng(11)
+    sn = PLAN.get("sound", {})
+
+    def put(t0, x):
+        i0 = max(0, int(t0 * sr))
+        x = x[: max(0, n - i0)]
+        sfx[i0:i0 + len(x)] += x
+
+    def env(L, a, tau):
+        t = np.arange(L) / sr
+        return np.minimum(t / max(a, 1e-4), 1.0) * np.exp(-t / tau)
+
+    def lowpass(x, k):
+        c = np.cumsum(np.pad(x, (k, 0)))
+        return (c[k:] - c[:-k]) / k
+
+    for t_, kind in EVENTS:
+        if kind == "thump":                                       # opening hit: a short sub tone
+            L = int(0.55 * sr); t = np.arange(L) / sr
+            put(max(0.0, t_ - 0.02), (np.sin(2 * np.pi * (58 - 18 * t) * t) * env(L, 0.004, 0.16) * 0.22).astype(np.float32))
+        elif kind in ("whoosh", "tick2"):                         # a soft filtered-noise sweep that ends on the cut
+            L = int((0.42 if kind == "whoosh" else 0.22) * sr)
+            z = rng.standard_normal(L).astype(np.float32)
+            low, hp = lowpass(z, 60), z - lowpass(z, 12)
+            u = np.linspace(0, 1, L, dtype=np.float32)
+            sweep = low * (1 - u) * 4.0 + hp * u * 0.9
+            sh = np.sin(np.pi * u) ** 2
+            put(t_ - L / sr * 0.7, (sweep * sh * (0.075 if kind == "whoosh" else 0.04)).astype(np.float32))
+        elif kind == "ping":                                      # a card arrives: two soft partials
+            L = int(0.7 * sr); t = np.arange(L) / sr
+            x = (np.sin(2 * np.pi * 880 * t) + 0.6 * np.sin(2 * np.pi * 1320 * t)) * env(L, 0.006, 0.17)
+            put(t_, (x * 0.055).astype(np.float32))
+        elif kind == "tick":                                      # a callout arrives: a tiny click
+            L = int(0.06 * sr); t = np.arange(L) / sr
+            x = np.sin(2 * np.pi * 2600 * t) * np.exp(-t / 0.007) + 0.3 * rng.standard_normal(L) * np.exp(-t / 0.002)
+            put(t_, (x * 0.05).astype(np.float32))
+    if sn.get("bed", True):                                       # drone bed: A minor, very low, slow swells
+        t = np.arange(n) / sr
+        for f_, a_, ph in ((110.0, 1.0, 0.0), (164.81, 0.6, 1.3), (220.0, 0.5, 2.1), (329.63, 0.25, 0.7)):
+            lfo = 0.75 + 0.25 * np.sin(2 * np.pi * (0.07 + 0.013 * f_ / 110) * t + ph)
+            bed += (a_ * lfo * (np.sin(2 * np.pi * f_ * t) + 0.18 * np.sin(2 * np.pi * 2 * f_ * t))).astype(np.float32)
+        bed *= 0.012
+        bed *= np.minimum(t / 1.2, 1.0) * np.clip((T_END + 0.8 - t) / 1.6, 0.0, 1.0)
+    return sfx * sn.get("sfx_gain", 1.0), bed * sn.get("bed_gain", 1.0)
+
+
+def add_sound():
+    sn = PLAN.get("sound")
+    if not sn:
+        return
+    import wave
+    sfx, bed = synth_sound()
+    for name, arr, ch in (("sfx", sfx, 31), ("bed", bed, 32)):
+        if not np.any(arr) or (name == "sfx" and not sn.get("sfx", True)):
+            continue
+        a = np.clip(arr, -0.9, 0.9)
+        path = f"{FX}/sound_{name}.wav"
+        with wave.open(path, "wb") as w:
+            w.setnchannels(1); w.setsampwidth(2); w.setframerate(48000)
+            w.writeframes((a * 32767).astype("<i2").tobytes())
+        S.new_sound(f"sound-{name}", path, ch, 1)
+        print(f"SOUND {name}: {len(a) / 48000:.1f} s, peak {np.abs(a).max():.3f}, rms {np.sqrt((a ** 2).mean()):.4f}")
+
+
+add_brand()
+add_sound()
 
 # ---------------------------------------------------------------- vignette and grain
 yy2, xx2 = np.mgrid[0:H, 0:W].astype(np.float32)

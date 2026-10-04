@@ -52,6 +52,8 @@ Read in each model's *Pricing* section. Per-megapixel prices count **input and o
 
 ### Sound
 
+**Generated sound is the fallback.** The default source is a free licensed library ($0, real recordings): see [[Guidelines for new scripts]] §3 and [[Research - Free resource directories (FMHY)]]. The table below applies only when the user approves a generator.
+
 | Model | Price | Notes |
 | --- | --- | --- |
 | `stability-ai/stable-audio-2.5` **(used)** | **$0.20 per file** | The most expensive per unit in the whole channel |

@@ -26,11 +26,12 @@ Media/
     ├── voice/                       narration takes (mp3) and voice/_padded/ (wav, made by the builder)
     ├── plates/                      generated images and cutouts (png) + _refs/ (references) + _descartes/ (discards)
     ├── stock/                       free stock photos + _credits.jsonl (title, author, license, page)
+    ├── sound/                       only if approved: library sounds and music + _credits.jsonl
     ├── plan.json                    the video's plan for System/scripts/build_video.py
     └── render/                      final video, the .blend and render/_fx/ (generated layers)
 ```
 
-- **New videos (from 4 Oct 2026) use English inner names** (`voice`, `plates`, `stock`, `render`) because `build_video.py` reads them. Sound, if the script asks for it, goes in `sound/`.
+- **New videos (from 4 Oct 2026) use English inner names** (`voice`, `plates`, `stock`, `render`) because `build_video.py` reads them. Sound, if the script asks for it, goes in `sound/` with a `_credits.jsonl` like `stock/`.
 - **Older videos keep their Spanish inner names** (`voz`, `ilustraciones`, `render`, folders such as `Imanes - 38 segundos`, `Brasil y embajadas - 60 segundos`, `Chips - 85 segundos`) because their per-video scripts and `.blend` projects refer to them. Changing them breaks those projects.
 - `<N seconds>` is the **measured** duration of the render, set after the voice exists (the folder can be called `<Video> (wip)` until then).
 

@@ -27,10 +27,10 @@ Each stage ends in a **gate 🚦**: the user reviews and approves before moving 
 | 0 | **Idea** | Topic, central question, for whom and why now, **plus the ranked angles and five hook candidates** ([[Idea and hook quality]]) | **P1** · the chosen angle, its alternatives and the hook |
 | 1 | **Research** | **Facts bank (≥ 15 remarkable facts) and scoring table first**, then the claims sheet for the chosen facts: every figure with source and date; what is unverified is marked | **P2** · that the facts are remarkable and supported |
 | 2 | **Script** | Narration per scene, written for the ear, per [[Narration guide]], **sized in words (130 to 190), not in seconds** | **P3** · the text, read aloud |
-| 3 | **Direction: the visual plan** | One row per plate: **type** (stock photo, generated explainer, cutout, photo edit, number plate), **source**, the **usefulness sentence** ("this plate lets the viewer see ___ so they understand ___"), callouts and the card, per [[Illustration pipeline]] and [[On-screen text style]]; sound only if the script needs it | **P4a** · the visual plan |
+| 3 | **Direction: the visual plan** | One row per plate: **type** (stock photo, generated explainer, cutout, photo edit, number plate), **source**, the **usefulness sentence** ("this plate lets the viewer see ___ so they understand ___"), callouts and the card, per [[Illustration pipeline]] and [[On-screen text style]]; sound only if the script needs it, as a plan row with a free licensed source and credits ([[Guidelines for new scripts]] §3) | **P4a** · the visual plan |
 | 4 | **Prompts, stock photos and budget** | Stock photos chosen and downloaded (free, credits logged), one content-first prompt per generated plate, voice prompts, `plan.json`, and the list of *predictions* with model and quantity ([[Prompt - per-scene generation guide]]) | **P4** · prompts and budget. **Generation can start from here** |
 | 5 | **Tests** | Fixed references and a single scene of each category | **P5** · the look and the voice |
-| 6 | **Generation** | The rest, by category (voice → image; sound only if the script requires it), in small batches | **P6** · each category, separately |
+| 6 | **Generation** | The rest, by category (voice → image; sound only if the script requires it, taken from a free library), in small batches | **P6** · each category, separately |
 | 7 | **Editing** | Cut in Blender ([[Blender editing]]) | **P7** · the cut |
 | 8 | **Publishing** | Title, thumbnail, description with sources and AI disclosure | **P8** · before publishing |
 

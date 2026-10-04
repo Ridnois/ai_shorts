@@ -51,7 +51,10 @@ tags: [research, youtube, process, feedback, vault]
 | 4 Oct 2026 | One builder script per video | `build_video.py` + `plan.json`, padded and checked voices | [[Blender editing]] |
 | 4 Oct 2026 | A scene-setting, story-style hook of 12 to 20 words | A need-to-know claim of ≤ 10 words inside 3 s; explain, do not narrate | [[Narration guide]], [[Shorts quality bar]] |
 | 4 Oct 2026 | Creative explainers and number cards on bare gradients | Scientifically faithful schematics; cards only on real photos or explainers | [[Illustration pipeline]] |
+| 4 Oct 2026 | Generated sound effects (`audiogen`, 16 kHz) as the only sound route | Opt-in sound from free licensed libraries, credited; BigSoundBank and Freesound deferred | [[Guidelines for new scripts]] §3 |
 | 4 Oct 2026 | Cards and callouts only | Cards, callouts and word-by-word captions on every video | [[Blender editing]], [[On-screen text style]] |
+| 4 Oct 2026 | Sound off by default (and, in a parallel edit the same day, opt-in from licensed libraries only) | The builder's synthesized sound design on by default; recordings and music stay opt-in and licensed | [[Guidelines for new scripts]] §3, [[Blender editing]] |
+| 4 Oct 2026 | A proposed channel name and avatar "to decide" | **Cutaway**, "How it works. With sources.", the ring-and-dot avatar | [[Channel playbook]] §4 |
 
 ## 4. The coherence check
 

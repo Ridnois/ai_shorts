@@ -107,8 +107,12 @@ Source feedback: **Magnetar, 4 Oct 2026** (*"illustrations are too creative and 
 
 - **Voice: `elevenlabs/v3`, `Roger`, `language_code: en`, `speed` 0.95**, `previous_text` / `next_text` for intonation. "Elevenlabs is better." (`qwen3-tts` only as a cheap alternative, no speed control.) **I cannot hear the difference: the voice is the user's choice** at P5, and it is not changed afterwards. Details and alternative (`Bradford`): [[Channel voice]].
 - **One take per scene, with the exact script text.** Sentences are never cut (see §4).
-- **No sound effects by default.** `audiogen` sounds at 16 kHz and the user rejected the first one ("no blender sound"); ask for them only if the script requires it. Pending from Brazil's feedback: "the audio is fine, the quality could improve a lot and add dynamism" → try another sound model **only with approval**.
-- `mmaudio` does not work with text only. `stable-audio-2.5` is out because of price.
+- **The channel's sound design is synthesized by the builder and is on by default** (user request, 4 Oct 2026: *"add sound design"*, after the Magnetar render; it replaces "no sound by default"): `plan.json` `sound` → `build_video.py` writes an original WAV with numpy (no model, no license, no cost): a short sub thump on the first frame, a soft whoosh on each scene cut, a quieter tick on each plate change inside a scene, a two-partial ping when a card arrives, a tiny click when a callout arrives, and a very quiet A-minor drone bed. Levels, measured on the Superconductors video: voice ≈ −22 dBFS while speaking, effects ≈ −31 dBFS, bed ≈ −37 dBFS; `sfx_gain` and `bed_gain` in the plan adjust them. **The agent cannot hear it**: it is checked by numbers and declared at P7 ([[Blender editing]] §Sound design). **For anything else (a real recording, a music track), sound and music are opt-in, from free licensed libraries, never invented** (research of 4 Oct 2026, [[Research - Free resource directories (FMHY)]]). Before the sound design existed the default was none: the user rejected the first generated sound ("no blender sound") and Brazil's feedback asked for better quality and dynamism, so a script may propose sound **only as a row in the visual plan (P4a) with a source, a license and a purpose**, and it is used only after approval.
+  - **Sources, in order:** YouTube Audio Library (music and effects; no Content ID claims; YouTube only) → Sonniss GDC bundles (effects; no credit; no AI/ML use) → Pixabay (check each track) → Incompetech (music; CC BY 4.0, credit line mandatory). **BigSoundBank and Freesound are deferred**: not used and no helper built until the user says so.
+  - **Never:** BBC Sound Effects (RemArc, non-commercial), any CC BY-NC file, game-rip sites, and any library whose license was not read (NCS, BenSound, Free Music Archive).
+  - **Every sound is credited:** `Media/<video>/sound/_credits.jsonl` (title, author, license, page) copied to the Status attribution table; CC BY goes into the description.
+  - **Use it as a cue, not as a claim:** under the voice (volume 0.18 to 0.22, 0.3 s in, 0.4 s out), music bed ≤ 0.12, one repeated tick for number cards, silence as a tool; a sound never implies a real-world sound it is not.
+  - `audiogen` (16 kHz) and other generators are a fallback only with approval; `mmaudio` does not work with text only; `stable-audio-2.5` is out because of price.
 
 ## 4. Editing
 
@@ -141,7 +145,7 @@ Source feedback: **Magnetar, 4 Oct 2026** (*"illustrations are too creative and 
 
 ## 6. Open items
 
-- [ ] **Sound quality and dynamism** (Brazil feedback): no proven solution.
+- [ ] **Sound quality and dynamism** (Brazil feedback): free-library route defined (§3); not piloted yet, and `build_video.py` has no sound field in `plan.json`.
 - [ ] **Plate changes synced to the word**, not only to the scene (word timings now exist: [[Blender editing]] captions).
 - [ ] Rework [[Magnetar - Status]] with the new rules (real backdrops for the three number plates, a scientific plate 2 and 6, captions, a need-to-know opener); the render r3 is the *before*.
 - [ ] Try the text style on a political topic (figure + source) and define 16:9.

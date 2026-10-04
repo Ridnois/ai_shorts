@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: v2 · FMHY pages and the audio licenses read on each site 4 Oct 2026 · image/data sources still unverified · nothing applied to the rules yet
+status: v2 · FMHY pages and the audio licenses read on each site 4 Oct 2026 · image/data sources still unverified · rules applied across the vault 4 Oct 2026
 tags: [research, youtube, sources, sound, images, ideas]
 ---
 
@@ -32,7 +32,7 @@ FMHY (fmhy.net) is a link directory, not a source: it **lists** sites and says n
 | **Pixabay Music / SFX** | music, effects | Pixabay license: commercial, no attribution; not as standalone files | No | Not addressed on the license page; check per track | quick music beds |
 | **Incompetech** (Kevin MacLeod) | music | CC BY 4.0; monetized YouTube allowed | **Yes**: "Title Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0" | Known to be claimed sometimes; keep the page as proof | ambient/dark underscore |
 
-**Order of use:** BigSoundBank → Freesound (CC0 filter) → Sonniss → YouTube Audio Library for music. Credits go into `Media/<video>/sound/_credits.jsonl` like photos and into the Status attribution table.
+**Decision (user, 4 Oct 2026): BigSoundBank and Freesound are kept for later**; no helper, not in the workflow. **Order of use now:** YouTube Audio Library → Sonniss → Pixabay → Incompetech. The rules live in [[Guidelines for new scripts]] §3; this note is the evidence. Credits go into `Media/<video>/sound/_credits.jsonl` like photos and into the Status attribution table.
 
 ## Examples on a real script ([[Script - Superconductors]])
 
@@ -61,11 +61,12 @@ These are proposals; search terms are queries to try, not files found. Rules tha
 - **Game-rip sites** (The Sounds Resource, Spriters Resource): copyrighted.
 - Any FMHY item from the piracy sections.
 
-## Proposed next steps (need approval; nothing applied yet)
+## Proposed next steps 
 
-1. Add Freesound (API key; terms not read) and Smithsonian Open Access to `stock_photos.py`, or a sibling `sound_search.py`, with the same `_credits.jsonl` log. Needs the user's free keys.
-2. Pilot on one video: replace `audiogen` with 2 to 3 Freesound CC0 sounds; judge by ear (the agent cannot hear it).
-3. If the pilot works: add the sources to [[Illustration pipeline]] §5, replace the "Sound" lines in [[Guidelines for new scripts]] §3, and add an invariant to `check_vault.py`.
+1. Pilot on one video: 2 to 3 sounds from Sonniss or YouTube Audio Library (manual download, license noted); add a `sound` field to `plan.json` and `build_video.py`. Judge by ear (the agent cannot hear it).
+2. Later: Freesound (API key; terms not read) and BigSoundBank, plus Smithsonian Open Access for images, in `stock_photos.py` or a sibling helper.
+
+Applied on 4 Oct 2026: rules in [[Guidelines for new scripts]] §3, [[Shorts quality bar]], [[Channel playbook]], [[Fast workflow]], [[Channel models]], [[Production process]], [[Media convention]], [[Transitions and effects]], [[Prompt - per-scene generation guide]], [[Feedback loop]], `CLAUDE.md`, and an invariant in `check_vault.py`.
 
 ## Not verified
 

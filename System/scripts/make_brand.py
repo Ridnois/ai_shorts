@@ -38,6 +38,8 @@ def draw_mark(d, cx, cy, s, label=True):
         bw, bh = s * 3.2, s * 0.9
         d.rounded_rectangle([x2, y2 - bh / 2, x2 + bw, y2 + bh / 2], radius=bh * 0.2, fill=PAPER)
         d.rectangle([x2, y2 - bh / 2, x2 + bh * 0.16, y2 + bh / 2], fill=COPPER)
+        for k_, wfrac in ((0.27, 0.70), (0.58, 0.45)):                    # two ink lines: it reads as a label with text
+            d.rounded_rectangle([x2 + bh * 0.42, y2 - bh / 2 + bh * k_ - bh * 0.07, x2 + bh * 0.42 + (bw - bh * 0.8) * wfrac, y2 - bh / 2 + bh * k_ + bh * 0.07], radius=bh * 0.07, fill=INK)
 
 
 def small(img, w, h):
@@ -51,16 +53,20 @@ small(m, 96, 96).save(f"{OUT}/mark.png")
 
 # avatar 800: the whole annotation (ring, dot, leader, label) inside the circular crop (radius 400)
 A = ground(800 * SS, 800 * SS)
-draw_mark(ImageDraw.Draw(A), 300 * SS, 500 * SS, 78 * SS)
+draw_mark(ImageDraw.Draw(A), 213 * SS, 472 * SS, 78 * SS)
 small(A, 800, 800).save(f"{OUT}/avatar.png")
-svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+svg = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
 <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c1a17"/><stop offset="1" stop-color="#0b1a2b"/></linearGradient></defs>
 <rect width="800" height="800" fill="url(#g)"/>
+<g transform="translate(-87 -28)">
 <circle cx="300" cy="500" r="78" fill="none" stroke="#c76b38" stroke-width="11"/>
 <circle cx="300" cy="500" r="40.6" fill="#c76b38"/>
 <line x1="355.2" y1="444.8" x2="502.8" y2="313" stroke="#c76b38" stroke-width="7"/>
 <rect x="502.8" y="278" width="249.6" height="70" rx="14" fill="#f9f6ee"/>
 <rect x="502.8" y="278" width="11" height="70" fill="#c76b38"/>
+<rect x="532" y="291" width="154" height="10" rx="5" fill="#1c1a17"/>
+<rect x="532" y="318" width="99" height="10" rx="5" fill="#1c1a17"/>
+</g>
 </svg>
 '''
 open(f"{OUT}/avatar.svg", "w").write(svg)
@@ -70,12 +76,12 @@ Wb, Hb = 2560, 1440
 B = ground(Wb * 1, Hb * 1).convert("RGBA")
 bs = Image.new("RGBA", (Wb * 2, Hb * 2), (0, 0, 0, 0))
 d = ImageDraw.Draw(bs)
-draw_mark(d, 1090 * 2, 745 * 2, 62 * 2)
+draw_mark(d, 851 * 2, 720 * 2, 62 * 2, label=False)
 bs = bs.resize((Wb, Hb), Image.LANCZOS)
 B = Image.alpha_composite(B, bs)
 d = ImageDraw.Draw(B)
 f1, f2 = ImageFont.truetype(BOLD, 190), ImageFont.truetype(REG, 54)
-d.text((1230, 650), "Cutaway", font=f1, fill=PAPER, anchor="lm")
-d.text((1240, 800), "HOW IT WORKS.  WITH SOURCES.", font=f2, fill=COPPER, anchor="lm")
+d.text((981, 700), "Cutaway", font=f1, fill=PAPER, anchor="lm")
+d.text((991, 850), "HOW IT WORKS.  WITH SOURCES.", font=f2, fill=COPPER, anchor="lm")
 B.convert("RGB").save(f"{OUT}/banner.png")
 print("ok", os.listdir(OUT))

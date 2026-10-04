@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: stages 0–3 done · delegated by the user ("build a youtube short all by yourself", 4 Oct 2026): P4 to P6 run by the agent within the cap, stop at the render (P7) · render r1 built, awaiting P7
+status: stages 0–3 done · delegated by the user ("build a youtube short all by yourself", 4 Oct 2026): P4 to P6 run by the agent within the cap, stop at the render (P7) · render r2 built (brand layer, sound design), awaiting P7
 tags: [research, youtube, status, superconductors, shorts]
 ---
 
@@ -23,7 +23,7 @@ Short 9:16, English, 162 words. Question: why can a superconductor carry current
 | 4 Prompts and budget | ✅ | **delegated by the user** (4 Oct 2026), cap ≈ $0.47 | below |
 | 5 Test | ⏭ folded into 6 | delegation | a failed first plate is the test |
 | 6 Generation | ✅ | delegation | 8 voice takes, 4 plates (no retry needed), 8 word-timing runs |
-| 7 Editing | ⏳ **P7 is yours** | | `Media/Superconductors/render/sc-72s-9x16-r1.mp4` |
+| 7 Editing | ⏳ **P7 is yours** | | `Media/Superconductors/render/sc-72s-9x16-r2.mp4` (r1 deleted; r2 adds the brand layer, the sound design, copper key terms and `sc.srt`) |
 | 8 Publishing | ⏳ | — | description below |
 
 ## Visual plan (S stock · G generated explainer)
@@ -106,6 +106,14 @@ Looked at all five: no text or brand, except the LHC photo, which shows a "MEYER
 - **Not verified:** how the voice sounds, whether the captions land on the spoken words in motion, the pace, the transitions; the full video was not watched. Gate P7 stays with the user.
 - **Content to check before publishing:** the primary sources named in [[Script - Superconductors]] (Drozdov 2015 and 2019, the Dias retractions, the gravimeter record); the facts come from Wikipedia and EIA.
 
+## Render r2: brand layer and sound design (user request, 4 Oct 2026)
+
+- **Brand layer:** progress bar at the top filling over 71.9 s, ring-and-dot mark and the series tag "The mechanism" top-left (the tag got a dark outline after a still showed it unreadable on light plates). Looked at stills at 1, 9, 24, 36, 55 and 70 s.
+- **Copper key terms in the captions:** `keywords` = zero, resistance, pairing, freezer, miracle (plus every figure).
+- **Caption file:** `Media/Superconductors/render/sc.srt` (5 words per cue) to upload as a caption track.
+- **Sound design:** synthesized by the builder; `SOUND sfx` peak 0.150 and rms 0.0055, `SOUND bed` peak 0.024 and rms 0.0088, against voice ≈ −22 dBFS; `sfx_gain` 0.7. **Not heard.** Check at P7: is the opening thump too hard, are the whooshes audible under the voice, does the drone bed disturb? Dials: `sound` in `plan.json`.
+- **Not verified:** how the top bar and tag sit under YouTube's own top overlay; the mix.
+
 ## Description draft (stage 8)
 
-Why superconductors carry current with zero resistance, and what a room-temperature one could change, in about 70 seconds. Sources: Wikipedia articles *Superconductivity*, *Meissner effect*, *Room-temperature superconductor*, *Large Hadron Collider*; EIA FAQ 105 (transmission losses 2018 to 2022); to be confirmed against Drozdov et al., *Nature* 2015 and 2019. Photos: J. Bobroff and F. Bouquet (CC BY-SA 3.0), alpinethread (CC BY-SA 2.0), Novoklimov (CC0), H. Kamerlingh Onnes portrait, 1923 (public domain), via Wikimedia Commons. Schematic plates generated with AI (gpt-image-1.5), not to scale; voice generated with AI (ElevenLabs v3). Data as of 4 Oct 2026.
+Why superconductors carry current with zero resistance, and what a room-temperature one could change, in about 70 seconds. Sources: Wikipedia articles *Superconductivity*, *Meissner effect*, *Room-temperature superconductor*, *Large Hadron Collider*; EIA FAQ 105 (transmission losses 2018 to 2022); to be confirmed against Drozdov et al., *Nature* 2015 and 2019. Photos: J. Bobroff and F. Bouquet (CC BY-SA 3.0), alpinethread (CC BY-SA 2.0), Novoklimov (CC0), H. Kamerlingh Onnes portrait, 1923 (public domain), via Wikimedia Commons. Schematic plates generated with AI (gpt-image-1.5), not to scale; voice generated with AI (ElevenLabs v3); sound design synthesized in Blender. Data as of 4 Oct 2026.

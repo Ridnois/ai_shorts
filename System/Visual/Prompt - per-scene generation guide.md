@@ -47,7 +47,7 @@ One take per scene, **with the exact script text** (a sentence is never cut). Cu
 
 ## 3. Sound and music
 
-None by default. Only if the script requires it, and with approval at P4 ([[Guidelines for new scripts]] §3). There is no animation: the editing cross-fades and pushes the plates ([[Blender editing]]).
+None by default. If the script asks for it, take it from a **free licensed library** (sources, credits and levels in [[Guidelines for new scripts]] §3), not from a generator, with approval at P4a; files go to `sound/` with `_credits.jsonl`. There is no animation: the editing cross-fades and pushes the plates ([[Blender editing]]).
 
 ## 4. Log
 

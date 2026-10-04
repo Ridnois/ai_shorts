@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: v1 · requested by the user (4 Oct 2026); YouTube statements fetched from YouTube Help that day, everything marked "hypothesis" is untested on this channel
+status: v2 · name, avatar, banner, progress bar, series tag and sound design added (4 Oct 2026); v1 requested by the user (4 Oct 2026); YouTube statements fetched from YouTube Help that day, everything marked "hypothesis" is untested on this channel
 tags: [research, youtube, engagement, design, branding, mission, guidelines]
 ---
 
@@ -83,10 +83,10 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 | Word-by-word captions                                                           | built ([[Blender editing]])                                                        |
 | `.srt` caption track for upload                                                 | built (`render/<prefix>.srt`, 5 words per cue)                                     |
 | Source tags on cards                                                            | built                                                                              |
-| **Progress bar** (a thin copper line at the very bottom filling over the video) | proposal (H: shows the end is near and encourages watching to the loop); not built |
-| **Series tag** (a small copper label top-left: "The mechanism")                 | proposal, after the series names are decided                                       |
-| **Quiet music bed**                                                             | proposal, needs approval and a source with a license ([[Shorts quality bar]] §5)   |
-| **Sound design** (a soft tick on a number card)                                 | proposal; the user rejected the first sound effects, so only with approval         |
+| **Progress bar** (a thin copper line near the top, 56 px margins, filling over the video) | built (`brand` in `plan.json`); H: shows the end is near and encourages watching to the loop |
+| **Series tag** and **brand mark** (ring and dot, top-left, with the series name in spaced capitals) | built; the series names are proposals: The mechanism, The number, The catch |
+| **Quiet drone bed**                                                             | built, synthesized (A minor, ≈ −37 dBFS), user request 4 Oct 2026; a licensed music track stays opt-in ([[Guidelines for new scripts]] §3)   |
+| **Sound design** (whoosh, ticks, pings, opening thump)                          | built, synthesized, on by default; **not heard by the agent** ([[Blender editing]] §Sound design)         |
 
 ## 4. Mission, brand and identity (proposal; the user decides)
 
@@ -110,7 +110,19 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 
 **Visual identity:** copper accent on paper-white boxes over real images, Noto Sans Display Bold, one gradient family per topic, the **callout dot with its ring as the logo mark** (a copper dot inside a thin ring on a dark ground: it is already the channel's recurring device). Avatar: that mark. Banner: the mark, the one-line mission, a photo-and-callout crop.
 
-**Name and tagline (to decide):** the name should say *mechanism* or *how it works*; the tagline is the mission shortened ("How it works. With sources."). **Not decided, not researched for availability:** check the handle is free on YouTube, TikTok and Instagram before choosing. YouTube handles are unique and a channel name or handle can be changed twice per 14 days (verified, YouTube Help); the page lists up to 14 profile links.
+**Name: Cutaway.** Tagline: **"How it works. With sources."** (user, 4 Oct 2026: *"the mission is good, invent something catchy and well positioned for channel name"*.) Why it fits: a *cutaway* is the diagram that cuts the outside away to show the inside, which is exactly what the channel does with a mechanism (the schematics and the callouts that name the parts); it is one word, easy to say and spell, and it says nothing about physics only, so it survives the move to materials, biology or software. Wordmark: "Cutaway" in Noto Sans Display Bold, paper-white on ink, with the copper ring-and-dot to its left.
+
+**Handle (not verified):** the fetch tool cannot read YouTube channel pages, so **availability on YouTube, TikTok and Instagram is unchecked**. Try in this order in YouTube Studio: `@cutaway`, `@cutawayhq`, `@watchcutaway`, `@cutaway.science`; use the first free one on all three platforms. YouTube handles are unique and the name or handle can be changed twice per 14 days (verified, YouTube Help). Fallback names if "Cutaway" is taken or too crowded: **Part Names**, **Show the Part**, **Teardown Minute**. **Trademark and search crowding are not researched**: search "Cutaway" on YouTube before committing.
+
+**Brand assets** (drawn by `System/scripts/make_brand.py`, kept in `System/Brand/`):
+
+| File | Use | Design |
+| --- | --- | --- |
+| `avatar.png` (800 px) and `avatar.svg` | profile picture | an annotation: a copper ring with a dot, a leader line, a paper label with two text lines, on a dark ground that fades from ink to the cryogenic navy; centred inside the circular crop |
+| `banner.png` (2560 × 1440) | channel banner | ring-and-dot, "Cutaway" and the tagline, centred in the middle safe area (**YouTube's 1546 × 423 safe-area size is from memory, not verified**: check the Studio preview) |
+| `mark.png` (96 px) | watermark inside every Short, top-left | ring and dot only |
+
+**The Short follows the brand:** `brand` in `plan.json` adds, on every video, the copper **progress bar** at the top (it fills from left to right over the whole video), the **mark** and the **series tag** ("The mechanism", "The number" or "The catch", in spaced capitals); the cards, callouts and captions already use the same tokens (§3.1). Series names are the agent's proposal: change them in one place.
 
 **Channel description template (about 3 lines, searchable words first):** *[Mission sentence]. New Short every [cadence]: [series names]. Every figure is sourced in the description; voices and schematics are AI-generated.*
 
@@ -121,10 +133,10 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 ## 5. Open decisions for the user
 
 - Approve or change the mission sentence and the five pillars.
-- Channel name, handle, tagline; the logo mark (the callout dot) as avatar.
-- Whether to add the progress bar and the series tag (small build work, no cost).
+- Confirm the name **Cutaway** and the tagline, then check the handle (above); look at `System/Brand/avatar.png` and `banner.png`.
+- The three series names (The mechanism, The number, The catch).
 - Whether Shorts titles follow §2, and whether long videos get custom thumbnails ([[Channel strategy]] §4).
-- Music bed and sound design: yes or no.
+- Listen to the first Short's sound design (the agent cannot): too loud, too busy, or fine? The levels are plan parameters.
 
 ## 6. Not verified
 

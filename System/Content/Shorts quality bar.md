@@ -45,7 +45,7 @@ tags: [research, youtube, shorts, retention, captions, quality]
 
 ## 5. Sound
 
-Voice only today. **Open item:** a quiet music bed and tasteful transitions could add dynamism (user, Brazil feedback); test one source with approval at P4 ([[Guidelines for new scripts]] §6). Never sound effects "because Shorts have them".
+Every Short has the **synthesized sound design** (whoosh on scene cuts, ticks on plates and callouts, a ping on cards, an opening thump, a very quiet drone; [[Blender editing]] §Sound design): each cue marks a change the eye is about to see, nothing else. Any extra recording or music comes from **free licensed libraries** (YouTube Audio Library, Sonniss, Pixabay, Incompetech; BigSoundBank and Freesound deferred), as a row of the visual plan, with approval and credits ([[Guidelines for new scripts]] §3). Never sound effects "because Shorts have them"; each one has a purpose.
 
 ## 6. Checklist before P7 (the agent runs it and says what it could not check)
 

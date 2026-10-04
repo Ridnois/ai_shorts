@@ -17,6 +17,7 @@ This vault (`~/Documents/youtube`) is the **single source of knowledge** of an E
 - **Every plate passes the usefulness test** and sits in a **visual plan** (stock photo, generated explainer, cutout, photo edit, number plate). Stock photos are free and credited; generated plates are **content-first prompts** with references and **no custom style**; style is applied in Blender.
 - **The first 3 seconds are a need-to-know claim** (≤ 10 words, no story opener); the script **explains, it does not narrate**; **explainers are scientifically faithful schematics** (nothing invented); **no number card or callout on a bare gradient**; **every video has word-by-word captions** (`System/Content/Shorts quality bar.md`).
 - **Text and added content** pass the specificity test ([[Channel identity]] voice): callouts name parts, a number card carries the figure, margin notes give a voice, context cards cite a source. No generic labels.
+- **Sound:** the builder synthesizes the channel's sound design by default (`sound` in `plan.json`, user request 4 Oct 2026); any recording or music track is opt-in from a free licensed library with credits and approval; no ML-generated sound; BigSoundBank and Freesound are deferred (`System/Guidelines for new scripts.md` §3).
 - **Rigor:** every figure has a source and a date; weak facts are attributed or left out; the research note says what was not verified.
 - **Be honest about what you could not check** (you cannot hear audio or watch a whole video): say it, and leave P7 to the user.
 - **Notes live in the vault** (Markdown, Obsidian), never as artifacts or documents elsewhere. Keep them short; **delete obsolete notes** instead of archiving (git keeps history); keep one note per video for the status.
@@ -32,6 +33,7 @@ When the user gives feedback (after a render, or about the process), follow **`S
 | --- | --- |
 | Stock photos (free, credited) | `python3 System/scripts/stock_photos.py search "<query>" --source openverse\|nasa\|commons` and `get …` |
 | Replicate calls | `System/scripts/replicate_helper.py` (`run`, `download` with retries, `recover(id, dest)`) with `REPLICATE_API_TOKEN` from `.env` |
+| Sound or music (opt-in, free licensed libraries, credited; BigSoundBank and Freesound deferred) | `System/Guidelines for new scripts.md` §3, manual download with the license recorded in `Media/<Video>/sound/_credits.jsonl` |
 | Word timings for the captions | `python3 System/scripts/word_timings.py Media/<Video>` (needs `REPLICATE_API_TOKEN`; the builder estimates if skipped) |
 | Assemble and render | `VIDEO="Media/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`, then without `SOLO_PROYECTO` in the background |
 | Pipeline runner | `~/Documents/youtube-pipeline/pipeline.py` (a user service; its prompts follow these notes) |
