@@ -54,6 +54,10 @@ tags: [research, youtube, process, feedback, vault]
 | 4 Oct 2026 | Generated sound effects (`audiogen`, 16 kHz) as the only sound route | Opt-in sound from free licensed libraries, credited; BigSoundBank and Freesound deferred | [[Guidelines for new scripts]] §3 |
 | 4 Oct 2026 | Cards and callouts only | Cards, callouts and word-by-word captions on every video | [[Blender editing]], [[On-screen text style]] |
 | 4 Oct 2026 | Sound off by default (and, in a parallel edit the same day, opt-in from licensed libraries only) | The builder's synthesized sound design on by default; recordings and music stay opt-in and licensed | [[Guidelines for new scripts]] §3, [[Blender editing]] |
+| 4 Oct 2026 | In-video branding (progress bar, ring-and-dot mark, series tag) | **None inside the video**; the brand lives on the channel page and in the recurring look of cards and captions | [[Channel playbook]] §3.4 and §4, [[Blender editing]] |
+| 4 Oct 2026 | A scene-setting list of facts that "explains" | One theme line, bridges, ≤ 5 facts, a concrete payoff ending, a cut test | [[Guidelines for new scripts]] §0.8 to 0.9, §1.10 to 1.12, [[Narration guide]] |
+| 4 Oct 2026 | One image every 4 to 6 s (12 to 14 plates) | One image every 3 to 4 s (16 to 20 plates), half real photos, 2 to 3 candidates per scene | [[Illustration pipeline]], [[Shorts quality bar]] §4 |
+| 4 Oct 2026 | Captions at 104 px | 88 px | [[On-screen text style]] |
 | 4 Oct 2026 | A proposed channel name and avatar "to decide" | **Cutaway**, "How it works. With sources.", the ring-and-dot avatar | [[Channel playbook]] §4 |
 
 ## 4. The coherence check

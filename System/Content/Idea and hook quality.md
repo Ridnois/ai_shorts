@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: v2 · need-to-know opener added (Magnetar feedback, 4 Oct 2026); v1 from the first English helium video
+status: v3 · plain-words test and the Plain criterion added (Superconductors feedback, 4 Oct 2026); v2 need-to-know opener; v1 from the first English helium video
 tags: [research, youtube, script, idea, hook, quality]
 ---
 
@@ -38,8 +38,9 @@ Score each fact or angle 1 to 5 (a table in the Research note, shown at P1):
 | **Depth** | It has a *why* that rewards understanding, not just a number |
 | **Evidence** | Two sources, or one primary source |
 | **Showable** | A real object with a photo can carry it |
+| **Plain** | Someone with no background can say what it is after one sentence, with no defined term (new, Superconductors feedback: *"not surprising nor clear enough"*; the agent had scored its own surprise 5) |
 
-**Rules:** the thread of the video must score **≥ 4 on surprise and on scale**. Keep the top one as the thread and two or three as supports. Write the rejected top candidates in one line each, so the user can swap.
+**Rules:** the thread of the video must score **≥ 4 on surprise, on scale and on plain**. **Scores are the agent's guess: run the coffee test** (say the thread in one plain sentence as if to a friend; if the friend would say "so what?", it scores ≤ 3 on surprise). Keep the top one as the thread and two or three as supports. Write the rejected top candidates in one line each, so the user can swap.
 
 **Street-lamp test.** If the central question could be answered by a news headline or a product spec ("MRI machines use a lot of helium"), it is a street lamp. Go back to §1.
 
@@ -48,6 +49,7 @@ Score each fact or angle 1 to 5 (a table in the Research note, shown at P1):
 ## 3. The hook gives a reason before it asks for a reaction
 
 - **The hook is the most astonishing true thing about the subject, stated plainly, with its meaning attached.** The reaction comes from the idea, never from the delivery.
+- **Plain words (Superconductors feedback, hook rated 2 of 5):** no jargon the viewer needs defined ("zero resistance"); say the effect in everyday words and let the jargon arrive in scene 2.
 - **A big number alone is not a hook.** "Fifteen hundred liters" means nothing until the viewer knows why it matters.
 - Prefer **universal scale, paradox, or behaviour that breaks intuition**. Sound like someone who knows the field: specific, confident, no filler.
 - **Write five candidate hooks** in the Research note and pick one with two tests: *would I stop if a friend told me this?* and *does it open a question the next scene answers?* A hook that is only a reaction ("you won't believe…") fails.

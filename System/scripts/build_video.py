@@ -15,7 +15,6 @@ What it does (see System/Editing/Blender editing.md and System/Visual/Illustrati
   * One card per plate: context (label, title, detail), number (big figure, caption, source) or margin note; vignette and grain.
   * Word-by-word captions (plan `texts`, one narration string per voice; timings from voice/<take>.words.json made by
     System/scripts/word_timings.py, else estimated): one big word at a time in the lower caption zone, so the video follows with the sound off.
-  * Brand layer (plan `brand`): a copper progress bar at the top, the ring-and-dot mark and the series tag top-left.
   * Sound design (plan `sound`): synthesized here with numpy (no model, no cost): scene whooshes, plate ticks, card pings,
     callout ticks, an opening thump and a very quiet drone bed, as one WAV mixed under the voice.
   * No bare backdrops: a plate whose file is a blank placeholder is refused (a number card sits on a real photo or explainer).
@@ -42,7 +41,7 @@ GAPS = PLAN["gaps"]
 START, TAIL = PLAN.get("start", 0.5), PLAN.get("tail", 1.2)
 PAD_LEAD, PAD_TAIL, FADE_IN, FADE_OUT = 0.30, 0.40, 0.02, 0.05      # voice padding and fades (s)
 LEAD_KEEP, TAIL_KEEP = 0.12, 0.30                                    # silence kept around the speech in the timeline (s)
-DIP, XF, ZOOM = 0.20, 0.30, 0.05
+DIP, XF, ZOOM = 0.20, 0.20, 0.08            # zoom pushes in on odd plates and out on even ones (more movement)
 PAPER = (0.945, 0.935, 0.86)
 VIGNETTE, GRAIN = 0.20, 0.08
 COPPER = (0.78, 0.42, 0.22)
@@ -50,7 +49,7 @@ INK = (0.11, 0.10, 0.09, 1.0)
 INK_SOFT = (0.30, 0.28, 0.26, 1.0)
 HAIR = " "
 CAP_Y = 0.835                       # caption baseline (fraction of the height from the top); the Shorts interface covers the last ≈ 15 %
-CAP_SIZE, CAP_GAP = 104, 0.55       # caption font size (px) and the longest pause (s) a word stays on screen
+CAP_SIZE, CAP_GAP = 88, 0.55        # caption font size (px) and the longest pause (s) a word stays on screen
 
 sc = bpy.context.scene
 sc.render.fps = FPS
@@ -339,6 +338,9 @@ for e, scene in enumerate(PLAN["scenes"], start=1):
         idx += 1
         flat.append((idx, e, j, n, t0 + j * seg, t0 + (j + 1) * seg, pl))
 
+LONG = [(i, round(float(b - a), 1)) for i, e, j, n, a, b, pl in flat if b - a > 5.0]
+print("PLATES", len(flat), "| durations", [round(float(b - a), 1) for i, e, j, n, a, b, pl in flat])
+print("LONG PLATE (> 5 s, add a reference image):", LONG if LONG else "none")
 for i, e, j, n, a, b, pl in flat:
     ini = a - (XF / 2 if j > 0 else 0)
     fin = b + (XF / 2 if j < n - 1 else 0)
@@ -354,7 +356,8 @@ for i, e, j, n, a, b, pl in flat:
         oy = max(-(h * k - H) / 2, min((h * k - H) / 2, (fy - 0.5) * h * k + 60))
         st.transform.offset_x, st.transform.offset_y = ox, oy
         for t_ in (ini, fin):
-            z = 1.0 + pl.get("zoom", ZOOM) * (t_ - ini) / (fin - ini)
+            u_ = (t_ - ini) / (fin - ini)
+            z = 1.0 + pl.get("zoom", ZOOM) * (u_ if i % 2 else 1.0 - u_)
             st.transform.scale_x = st.transform.scale_y = k * z
             st.transform.keyframe_insert("scale_x", frame=fr(t_))
             st.transform.keyframe_insert("scale_y", frame=fr(t_))
@@ -368,7 +371,8 @@ for i, e, j, n, a, b, pl in flat:
         st.frame_final_end = fr(fin)
         st.blend_type = "ALPHA_OVER"
         for t_ in (ini, fin):
-            z = 1.0 + pl.get("zoom", ZOOM) * (t_ - ini) / (fin - ini)
+            u_ = (t_ - ini) / (fin - ini)
+            z = 1.0 + pl.get("zoom", ZOOM) * (u_ if i % 2 else 1.0 - u_)
             st.transform.scale_x = st.transform.scale_y = z
             st.transform.keyframe_insert("scale_x", frame=fr(t_))
             st.transform.keyframe_insert("scale_y", frame=fr(t_))
@@ -527,7 +531,7 @@ def add_captions():
             continue
         tx = S.new_effect(f"cap{n:03d}", "TEXT", 16, fr(s), length=fr(end) - fr(s))
         tx.text = w.upper()
-        tx.font, tx.font_size = F_TITLE, min(CAP_SIZE, int(1500 / max(len(w), 1)))   # long words shrink to fit the frame
+        tx.font, tx.font_size = F_TITLE, min(CAP_SIZE, int(1300 / max(len(w), 1)))   # long words shrink to fit the frame
         key = any(c.isdigit() for c in w) or "".join(c for c in w.lower() if c.isalnum()) in KEYWORDS   # figures and plan.keywords are copper
         tx.color = COPPER + (1.0,) if key else (1.0, 1.0, 1.0, 1.0)
         tx.anchor_x, tx.anchor_y = "CENTER", "CENTER"
@@ -538,46 +542,6 @@ def add_captions():
     print("CAPTIONS", n, "words,", "timed by whisper" if any(os.path.exists(os.path.splitext(v["f"])[0].replace("/_padded", "") + ".words.json") for v in voices) else "estimated")
 
 add_captions()
-
-
-# ---------------------------------------------------------------- brand layer: progress bar, mark, series tag
-def add_brand():
-    br = PLAN.get("brand")
-    if not br:
-        return
-    bx0, bx1, by, bh = 56, W - 56, 70, 8                      # top of the frame, inside the margins
-    yy_, xx_ = np.mgrid[0:H, 0:W].astype(np.float32)
-    inside = ((xx_ >= bx0) & (xx_ < bx1) & (yy_ >= by) & (yy_ < by + bh)).astype(np.float32)
-    track = np.zeros((H, W, 4), np.float32)
-    track[..., :3] = 1.0
-    track[..., 3] = inside * 0.28
-    fill = np.zeros((H, W, 4), np.float32)
-    fill[..., 0], fill[..., 1], fill[..., 2] = COPPER
-    fill[..., 3] = inside
-    ts = S.new_image("bar-track", save_rgba(track, "bar_track"), 17, 1)
-    ts.frame_final_end = fr(T_END)
-    ts.blend_type = "ALPHA_OVER"
-    fs_ = S.new_image("bar-fill", save_rgba(fill, "bar_fill"), 18, 1)
-    fs_.frame_final_end = fr(T_END)
-    fs_.blend_type = "ALPHA_OVER"
-    fs_.crop.max_x = bx1 - bx0 + (W - bx1)                     # start fully cropped from the right (nothing visible)
-    fs_.crop.keyframe_insert("max_x", frame=1)
-    fs_.crop.max_x = W - bx1                                   # end: the whole bar
-    fs_.crop.keyframe_insert("max_x", frame=fr(T_END))
-    fs_.crop.min_x = bx0
-    mark = f"{os.getcwd()}/System/Brand/mark.png"
-    if os.path.exists(mark):
-        ms = S.new_image("brand-mark", mark, 19, 1)
-        ms.frame_final_end = fr(T_END)
-        ms.blend_type, ms.blend_alpha = "ALPHA_OVER", 0.9
-        ms.transform.offset_x, ms.transform.offset_y = 56 + 48 - W / 2, H / 2 - 150
-    if br.get("series"):
-        tx = S.new_effect("series-tag", "TEXT", 40, 1, length=fr(T_END) - 1)
-        tx.text, tx.font, tx.font_size, tx.color = spaced(br["series"]), F_BODY, 30, (0.976, 0.965, 0.933, 0.92)
-        tx.anchor_x, tx.anchor_y = "LEFT", "CENTER"
-        tx.location = ((56 + 104) / W, 1 - 150 / H)
-        tx.use_outline, tx.outline_color, tx.outline_width = True, (0.04, 0.035, 0.03, 1.0), 0.12      # readable on light and dark plates
-        tx.use_shadow, tx.shadow_color, tx.shadow_offset, tx.shadow_blur = True, (0, 0, 0, 0.6), 0.03, 0.03
 
 
 # ---------------------------------------------------------------- sound design (synthesized, deterministic)
@@ -649,7 +613,6 @@ def add_sound():
         print(f"SOUND {name}: {len(a) / 48000:.1f} s, peak {np.abs(a).max():.3f}, rms {np.sqrt((a ** 2).mean()):.4f}")
 
 
-add_brand()
 add_sound()
 
 # ---------------------------------------------------------------- vignette and grain

@@ -70,5 +70,5 @@ Rules you want changed, things the agent should always or never do, ideas for th
 
 ## 7. Keep and change (for the agent to turn into rules)
 
-**Keep exactly:** text distribution
-**Change from now on:**
+**Keep exactly:** text distribution, and notes
+**Change from now on:** no progress bar nor branding, more reference images and better written scripts

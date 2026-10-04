@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """Draws the channel's brand assets into System/Brand/ (run from the vault root): python3 System/scripts/make_brand.py
-  mark.png     96 px ring-and-dot (transparent), watermark on the Shorts
   avatar.png   800 px profile picture; avatar.svg the vector source
   banner.png   2560 x 1440 channel banner (the text sits in the 1546 x 423 centre safe area)
 Colours and fonts are the tokens of System/Content/Channel playbook.md §3.1."""
@@ -45,11 +44,6 @@ def draw_mark(d, cx, cy, s, label=True):
 def small(img, w, h):
     return img.resize((w, h), Image.LANCZOS)
 
-
-# mark: ring and dot only, transparent
-m = Image.new("RGBA", (96 * SS, 96 * SS), (0, 0, 0, 0))
-draw_mark(ImageDraw.Draw(m), 48 * SS, 48 * SS, 36 * SS, label=False)
-small(m, 96, 96).save(f"{OUT}/mark.png")
 
 # avatar 800: the whole annotation (ring, dot, leader, label) inside the circular crop (radius 400)
 A = ground(800 * SS, 800 * SS)

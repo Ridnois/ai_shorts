@@ -64,10 +64,21 @@ INVARIANTS = [
     ("System/Content/Channel playbook.md", "On-screen design system", "text box and highlight design written down"),
     ("System/Content/Channel playbook.md", "Mission (one sentence)", "channel mission"),
     ("System/Content/Channel playbook.md", "Name: Cutaway", "channel name"),
+    # Superconductors feedback, 4 Oct 2026
+    ("System/Guidelines for new scripts.md", "Plain-words test", "hook in plain words"),
+    ("System/Guidelines for new scripts.md", "One thread, a fact budget", "theme line and fact budget"),
+    ("System/Guidelines for new scripts.md", "concrete payoff", "concrete ending"),
+    ("System/Guidelines for new scripts.md", "Cut test", "compact scripts"),
+    ("System/Guidelines for new scripts.md", "Reference images are the main source of change", "more reference images"),
+    ("System/Content/Narration guide.md", "theme line", "through-line"),
+    ("System/Content/Shorts quality bar.md", "LONG PLATE", "a new image every 3 to 4 s"),
+    ("System/Content/Shorts quality bar.md", "No branding inside the video", "no in-video branding"),
+    ("System/Visual/On-screen text style.md", "Keep exactly", "text layout is frozen"),
+    ("System/Content/Channel voice.md", "Expressiveness", "expressive voice A/B"),
+    ("CLAUDE.md", "no branding inside the video", "agent guide carries it"),
     ("System/Process/Post-render feedback template.md", "Keep exactly", "feedback template has its keep/change section"),
     ("System/Process/Feedback loop.md", "Post-render feedback template", "the loop points at the template"),
     ("System/Editing/Blender editing.md", "Sound design", "synthesized sound design documented"),
-    ("System/Editing/Blender editing.md", "progress bar", "progress bar documented"),
     ("System/Guidelines for new scripts.md", "synthesized by the builder", "sound design on by default"),
     ("System/Content/Channel playbook.md", "Not verified", "playbook says what is hypothesis"),
 ]
@@ -119,7 +130,9 @@ for rel in notes:
 
 # builder guards that encode feedback (code, not notes)
 _b = open(os.path.join(ROOT, "System", "scripts", "build_video.py"), encoding="utf-8").read()
-for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions"), ("write_srt(", "caption track export"), ("add_brand()", "brand layer"), ("add_sound()", "sound design")):
+if "def add_brand" in _b:
+    problems.append("build_video.py still has the brand layer the user asked to remove (feedback, 4 Oct 2026)")
+for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions"), ("write_srt(", "caption track export"), ("LONG PLATE", "long plates are reported"), ("add_sound()", "sound design")):
     if _needle not in _b:
         problems.append(f"build_video.py lost its guard: {_needle} ({_why})")
 

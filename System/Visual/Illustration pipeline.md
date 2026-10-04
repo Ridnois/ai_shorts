@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: v2 · scientific fidelity and no bare backdrops added (Magnetar feedback, 4 Oct 2026); v1 replaced the plasticine style
+status: v3 · more reference images, realism and faster change (Superconductors feedback, 4 Oct 2026); v2 scientific fidelity and no bare backdrops; v1 replaced the plasticine style
 tags: [research, youtube, illustration, images, stock-photos, pipeline]
 ---
 
@@ -34,7 +34,7 @@ Before any prompt, the script note gets a **visual plan**: one row per plate wit
 | **E · Edit of a real photo** | change one thing in a real photo (remove text, extend, recolour a part) | `black-forest-labs/flux-kontext-pro` (as an editor, never a restyler) | ≈ $0.04 |
 | **N · Number or text plate** | a single figure or a fact that needs no image | built in Blender ([[On-screen text style]]) | $0 |
 
-**Mix by default (a Short of 12 to 14 plates):** at least **a third stock photos**, at least **a third generated explainers or cutouts**, the rest free; **no two consecutive plates of the same type** (a stock `full` photo next to a stock `full` photo is the same type; alternate with an explainer, or change both the treatment and the subject); a plate is held about **4 to 6 s**, so a Short has roughly one plate per 5 s of voice.
+**Mix by default (a Short of 16 to 20 plates, a new image every ≈ 3 to 4 s, none over 5 s; Superconductors feedback: *"add more reference images, so it changes faster"*):** at least **half real photos or real scientific figures (free)**, at least **a third generated explainers or cutouts**; **no two consecutive plates of the same type** (a stock `full` photo next to a stock `full` photo is the same type; alternate with an explainer, or change both the treatment and the subject); a plate is held about **3 to 4 s**, so a Short has roughly one plate per 3 to 4 s of voice. **The same photo may appear twice if the crop shows a different detail** (`focus` and `zoom` in the plan).
 
 **Plan example (one row):** `7 · S+callouts · "a helium dewar in a lab" · lets the viewer see how large and plain the tank is so they understand that helium is stored as a cold liquid in unglamorous steel · source: Wikimedia (CC BY-SA) · callouts: valve, wheeled base`.
 
@@ -71,6 +71,8 @@ Helper: `System/scripts/stock_photos.py` (search, download, credits log).
 | **NASA images** | API, no key | mostly public domain (check the guidelines) | space, labs, materials, engineering |
 | **Wikimedia Commons** | search by API, **fetch originals directly** from `upload.wikimedia.org` (the thumbnail API throttles) | CC0, CC BY, CC BY-SA, public domain | diagrams, history, science |
 | Pexels, Pixabay, Unsplash (API) | need a free API key | their own permissive licenses | generic photography; **ask the user for keys before relying on them** |
+
+**Quota:** find **2 to 3 candidate photos or figures per scene** before writing the visual plan (Commons, NASA, Openverse; real diagrams from papers or Wikipedia as `contain` plates, credited). When a real photo exists, **photo plus callouts beats a generated schematic** (rule 2.15 in [[Guidelines for new scripts]]).
 
 **Selection:** relevance first (does it show the exact thing the narration names?), then quality (≥ 1,080 px wide, sharp, no watermark, no visible brand unless it is the subject), then license. **License and attribution are recorded for every photo** in `Media/<video>/stock/_credits.jsonl` and copied into the Status note's attribution table; CC BY and CC BY-SA photos are credited in the description. No identifiable people unless the person is the subject and the license allows it.
 

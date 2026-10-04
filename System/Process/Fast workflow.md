@@ -64,8 +64,8 @@ The stages are those of [[Production process]]; they are reviewed together:
 1. **Only images that appear in the cut**; every budget row cites the script second where it is used.
 2. **1 image per shot**; 2 only if the shot needs a before and an after.
 3. **Cap per video = base images × 1.2.** Going over needs approval.
-4. **Minimal test (P5):** one scene, one image, one model. Compare models only if the user asks.
-5. **Stock first:** a plate that shows a real thing is a free stock photo; generate only what cannot be photographed (insides, processes, structures). Default **≤ 5 generated images per Short.**
+4. **Minimal test (P5):** one scene, one image, one model. Compare models only if the user asks. **Exception, voice:** scene 1 twice (default and the expressive variant of [[Channel voice]]), ≈ $0.02, the user picks.
+5. **Stock first, and many of them:** a new image every ≈ 3 to 4 s (16 to 20 plates for 160 words), at least half real photos or figures, 2 to 3 candidates found per scene; a plate that shows a real thing is a free stock photo; generate only what cannot be photographed (insides, processes, structures). Default **≤ 5 generated images per Short.**
 6. **Prompts in the positive**; fix the prompt **before** retrying and retry **once**.
 7. **Series, not parallel** (429).
 8. **Discards go to `_descartes/`** and are not regenerated "to compare".
@@ -95,7 +95,7 @@ The stages are those of [[Production process]]; they are reviewed together:
 
 - **Image:** generated plates in 2:3 (the nearest to 9:16) or as transparent cutouts; stock photos as they are; everything is composed onto 1080×1920 in Blender (`full`, `contain`, `cutout`). Safe zone and image rules: [[Illustration pipeline]] and [[Guidelines for new scripts]] §2.
 - **Render in Blender:** `System/scripts/build_video.py` from a `plan.json` (1080×1920, 24 fps, H.264 and AAC); see [[Blender editing]].
-- **Length is planned in words (130 to 190 for a Short), never in seconds;** the duration is measured after the voice exists (≈ 144 words per minute in English).
+- **Length is planned in words (130 to 190 for a Short, aim 130 to 160), never in seconds;** the duration is measured after the voice exists (≈ 144 words per minute in English).
 - **Render name:** `<video>-<duration>-9x16-r<n>.mp4` ([[Media convention]]).
 - Videos over 2 min stay 16:9.
 

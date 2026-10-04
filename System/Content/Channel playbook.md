@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: v2 · name, avatar, banner, progress bar, series tag and sound design added (4 Oct 2026); v1 requested by the user (4 Oct 2026); YouTube statements fetched from YouTube Help that day, everything marked "hypothesis" is untested on this channel
+status: v3 · in-video branding removed (progress bar, mark, series tag: Superconductors feedback, 4 Oct 2026); v2 name, avatar, banner and sound design; v1 requested by the user (4 Oct 2026); YouTube statements fetched from YouTube Help that day, everything marked "hypothesis" is untested on this channel
 tags: [research, youtube, engagement, design, branding, mission, guidelines]
 ---
 
@@ -34,7 +34,7 @@ tags: [research, youtube, engagement, design, branding, mission, guidelines]
 | Moment            | Goal                                                  | What we do                                                                                                                                                                                                                  |
 | ----------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **0 to 3 s**      | the viewer does not swipe                             | need-to-know claim ≤ 10 words, the strongest real image, first word captioned at once ([[Shorts quality bar]] §1)                                                                                                           |
-| **3 to 20 s**     | the viewer sees the question is answered step by step | one idea per scene, cause then effect; a new image, callout or card every ≈ 4 to 6 s                                                                                                                                        |
+| **3 to 20 s**     | the viewer sees the question is answered step by step | one idea per scene, cause then effect; a new image every ≈ 3 to 4 s, with callouts and cards on top                                                                                                                                        |
 | **Middle**        | a reason to keep watching                             | a **number the viewer wants to check** (rewatch spike, H), a surprise that reverses an assumption ("the record needs 1.5 million atmospheres")                                                                              |
 | **Close**         | the idea sticks and the video **loops**               | one idea to finish alone; the last plate is the first plate again (H: a seamless loop raises replays, which count as views)                                                                                                 |
 | **After**         | comments, trust, subscribers                          | **pinned comment with the sources and one corrections line**; answer every serious comment within a day, in the specialist's voice; a question in the description that has a checkable answer, not "what do you think?" (H) |
@@ -68,7 +68,7 @@ The style is approved (*"good and appealing"*, Magnetar feedback). This section 
 | **Number card**    | same box; **figure 124 px bold copper**, caption 44 px bold, source 30 px                                                                                          | the one figure the argument rests on                            | one per video as the main number; others only if each carries a scene (Superconductors uses four, all sourced) |
 | **Margin note**    | same box, label "Margin note", two lines ≤ 30 characters, 46 px bold                                                                                               | the specialist's dry aside                                      | ≤ 2 per video                                                                                                  |
 | **Callout**        | copper dot (13 px) with a ring, 2 px leader line, paper label with a copper bar, 34 px text; enters 1 s after the plate, 0.6 s apart                               | **name a real part** of the photo or schematic                  | 1 to 3 per plate; 1 to 4 words; the dot sits on the part; labels never cover the card or the caption zone      |
-| **Caption**        | one word at a time, 104 px bold capitals, white, dark outline and shadow, centred at 16.5 % from the bottom; long words shrink                                     | the silent viewer follows the whole script                      | figures copper; **key terms copper** (`keywords` in `plan.json`, ≤ 6 per video); a word holds until the next   |
+| **Caption**        | one word at a time, 88 px bold capitals, white, dark outline and shadow, centred at 16.5 % from the bottom; long words shrink                                     | the silent viewer follows the whole script                      | figures copper; **key terms copper** (`keywords` in `plan.json`, ≤ 6 per video); a word holds until the next   |
 | **Highlight rule** | copper means "this is the thing to remember": a figure, a key term, a dot                                                                                          | the eye learns one signal                                       | never highlight more than one word in three; never two colours of emphasis                                     |
 | **Motion**         | cards and texts fade in 0.25 s with a 24 px rise, out 0.2 s; plates push 5 %; cross-fade 0.3 s within a scene, short dip between scenes                            | calm, readable motion                                           | no shakes, no flashes, no zoom punches                                                                         |
 
@@ -83,8 +83,7 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 | Word-by-word captions                                                           | built ([[Blender editing]])                                                        |
 | `.srt` caption track for upload                                                 | built (`render/<prefix>.srt`, 5 words per cue)                                     |
 | Source tags on cards                                                            | built                                                                              |
-| **Progress bar** (a thin copper line near the top, 56 px margins, filling over the video) | built (`brand` in `plan.json`); H: shows the end is near and encourages watching to the loop |
-| **Series tag** and **brand mark** (ring and dot, top-left, with the series name in spaced capitals) | built; the series names are proposals: The mechanism, The number, The catch |
+| **Progress bar, brand mark, series tag** | **removed** (Superconductors feedback, 4 Oct 2026: brand layer rated 0, *"unnecessary, should be removed"*; *"no progress bar nor branding"*). The video carries no branding; the brand lives in the channel page, the name and the recurring look of the cards |
 | **Quiet drone bed**                                                             | built, synthesized (A minor, ≈ −37 dBFS), user request 4 Oct 2026; a licensed music track stays opt-in ([[Guidelines for new scripts]] §3)   |
 | **Sound design** (whoosh, ticks, pings, opening thump)                          | built, synthesized, on by default; **not heard by the agent** ([[Blender editing]] §Sound design)         |
 
@@ -114,15 +113,14 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 
 **Handle (not verified):** the fetch tool cannot read YouTube channel pages, so **availability on YouTube, TikTok and Instagram is unchecked**. Try in this order in YouTube Studio: `@cutaway`, `@cutawayhq`, `@watchcutaway`, `@cutaway.science`; use the first free one on all three platforms. YouTube handles are unique and the name or handle can be changed twice per 14 days (verified, YouTube Help). Fallback names if "Cutaway" is taken or too crowded: **Part Names**, **Show the Part**, **Teardown Minute**. **Trademark and search crowding are not researched**: search "Cutaway" on YouTube before committing.
 
-**Brand assets** (drawn by `System/scripts/make_brand.py`, kept in `System/Brand/`):
+**Brand assets** (channel page only; drawn by `System/scripts/make_brand.py`, kept in `System/Brand/`):
 
 | File | Use | Design |
 | --- | --- | --- |
 | `avatar.png` (800 px) and `avatar.svg` | profile picture | an annotation: a copper ring with a dot, a leader line, a paper label with two text lines, on a dark ground that fades from ink to the cryogenic navy; centred inside the circular crop |
 | `banner.png` (2560 × 1440) | channel banner | ring-and-dot, "Cutaway" and the tagline, centred in the middle safe area (**YouTube's 1546 × 423 safe-area size is from memory, not verified**: check the Studio preview) |
-| `mark.png` (96 px) | watermark inside every Short, top-left | ring and dot only |
 
-**The Short follows the brand:** `brand` in `plan.json` adds, on every video, the copper **progress bar** at the top (it fills from left to right over the whole video), the **mark** and the **series tag** ("The mechanism", "The number" or "The catch", in spaced capitals); the cards, callouts and captions already use the same tokens (§3.1). Series names are the agent's proposal: change them in one place.
+**The Short itself carries no branding** (no progress bar, mark or series tag; removed on the user's feedback). It stays recognisable through the cards, callouts, copper highlight and captions (§3.1). Series names (The mechanism, The number, The catch) are content formats for playlists and descriptions only. *Interpretation to confirm:* the feedback row called "Brand layer" listed avatar and name too; the agent read the verdict as **about the video**, and kept the channel's name, avatar and banner (the channel page needs them).
 
 **Channel description template (about 3 lines, searchable words first):** *[Mission sentence]. New Short every [cadence]: [series names]. Every figure is sourced in the description; voices and schematics are AI-generated.*
 
@@ -134,7 +132,7 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 
 - Approve or change the mission sentence and the five pillars.
 - Confirm the name **Cutaway** and the tagline, then check the handle (above); look at `System/Brand/avatar.png` and `banner.png`.
-- The three series names (The mechanism, The number, The catch).
+- The three series names (The mechanism, The number, The catch), used only as playlist names.
 - Whether Shorts titles follow §2, and whether long videos get custom thumbnails ([[Channel strategy]] §4).
 - Listen to the first Short's sound design (the agent cannot): too loud, too busy, or fine? The levels are plan parameters.
 

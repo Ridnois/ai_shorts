@@ -41,13 +41,13 @@ tags: [research, youtube, feedback, <topic>]
 
 | Layer | Rating | What you saw or heard, and what you want instead |
 | --- | --- | --- |
-| **Hook** (first 3 s: is it a claim you need to hear? does it stop you?) | | |
+| **Hook** (first 3 s: plain words, a claim you need to hear, does it stop you?) | | |
 | **Idea and content** (is it surprising, clear, scientifically right?) | | |
-| **Script and pace** (explains or narrates? drags anywhere? too dense?) | | |
+| **Script and pace** (one theme you can say in a sentence? lost in facts? compact enough?) | | |
 | **Illustrations and photos** (useful, faithful, one per idea?) | | |
 | **Text boxes, callouts, highlight** (readable, specific, in the right place?) | | |
 | **Captions** (on the spoken word? readable on every image?) | | |
-| **Brand layer** (progress bar, mark, series tag, avatar, name) | | |
+| **Channel assets** (name, avatar, banner; the video itself carries no branding) | | |
 | **Voice** (timbre, speed, intonation, mispronounced words) | | |
 | **Sound design** (thump, whooshes, ticks, pings, drone: too loud, missing, annoying?) | | |
 | **Editing** (cuts, cross-fades, how long an image stays, transitions) | | |
@@ -66,7 +66,7 @@ tags: [research, youtube, feedback, <topic>]
 - [ ] The voice sounds natural and the pace feels right
 - [ ] Each caption word lands on the spoken word
 - [ ] The sound design is at a comfortable level (adjust `sfx_gain`, `bed_gain`)
-- [ ] Transitions and the progress bar look right in motion
+- [ ] Transitions and the speed of image changes look right in motion
 - [ ] The facts you know are correct; list any doubt here:
 
 ## 5. After publishing (fill 48 hours and 7 days later; see [[Channel strategy]] §6)
