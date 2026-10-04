@@ -11,10 +11,15 @@ I think you should use the model on the style it performs best, not custom illus
 
 Based on all i told you, redesign the illustration pipeline in order to integrate outside sources and generate better, more related with the content images. you could generate images with transparent background and apply background gradient colors and styles on blender.
 
-Work more on the vault's definition of text and added content, it still being too generic, souless and with lack of personalization, consider this requirement into the image generation pipeline too. (Remember, edit the vault to )
+Work more on the vault's definition of text and added content, it still being too generic, souless and with lack of personalization, consider this requirement into the image generation pipeline too. (Remember, edit the vault to make it work better on next iterations)
 
 ## Technical
 
 Small voice cut on the start of the video, make sure voices clips are complete and well put into the blender video sequencer.
 
-You could add 
+## Vault management
+
+I want to make sure that all suggestions and requirements always ends on improvements on the knowledge present on this vault. our focus is to edit the content based on my feedback, you can show me what you changed but focus on seeing all the vault as a single source of knowledge and keep it coherent with general ideas and feedback accross all documents.
+
+Make sure the agent that works on this vault gets their guide
+
