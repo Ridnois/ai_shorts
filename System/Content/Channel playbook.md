@@ -31,14 +31,14 @@ tags: [research, youtube, engagement, design, branding, mission, guidelines]
 
 **Principle:** engagement is a *result of the viewer's time being well spent*, not a request. The channel never asks for likes, never says "subscribe", never ends on a call to action ([[Narration guide]]). It earns them with the sequence below. Rules marked **(H)** are hypotheses to test; the others follow from §1.
 
-| Moment | Goal | What we do |
-| --- | --- | --- |
-| **0 to 3 s** | the viewer does not swipe | need-to-know claim ≤ 10 words, the strongest real image, first word captioned at once ([[Shorts quality bar]] §1) |
-| **3 to 20 s** | the viewer sees the question is answered step by step | one idea per scene, cause then effect; a new image, callout or card every ≈ 4 to 6 s |
-| **Middle** | a reason to keep watching | a **number the viewer wants to check** (rewatch spike, H), a surprise that reverses an assumption ("the record needs 1.5 million atmospheres") |
-| **Close** | the idea sticks and the video **loops** | one idea to finish alone; the last plate is the first plate again (H: a seamless loop raises replays, which count as views) |
-| **After** | comments, trust, subscribers | **pinned comment with the sources and one corrections line**; answer every serious comment within a day, in the specialist's voice; a question in the description that has a checkable answer, not "what do you think?" (H) |
-| **Across videos** | a reason to subscribe | series with fixed formats ([[Channel strategy]] §4), playlists per series, each description links the next video of the series, the long video links back to its Shorts |
+| Moment            | Goal                                                  | What we do                                                                                                                                                                                                                  |
+| ----------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **0 to 3 s**      | the viewer does not swipe                             | need-to-know claim ≤ 10 words, the strongest real image, first word captioned at once ([[Shorts quality bar]] §1)                                                                                                           |
+| **3 to 20 s**     | the viewer sees the question is answered step by step | one idea per scene, cause then effect; a new image, callout or card every ≈ 4 to 6 s                                                                                                                                        |
+| **Middle**        | a reason to keep watching                             | a **number the viewer wants to check** (rewatch spike, H), a surprise that reverses an assumption ("the record needs 1.5 million atmospheres")                                                                              |
+| **Close**         | the idea sticks and the video **loops**               | one idea to finish alone; the last plate is the first plate again (H: a seamless loop raises replays, which count as views)                                                                                                 |
+| **After**         | comments, trust, subscribers                          | **pinned comment with the sources and one corrections line**; answer every serious comment within a day, in the specialist's voice; a question in the description that has a checkable answer, not "what do you think?" (H) |
+| **Across videos** | a reason to subscribe                                 | series with fixed formats ([[Channel strategy]] §4), playlists per series, each description links the next video of the series, the long video links back to its Shorts                                                     |
 
 **Loop of improvement:** after 48 hours and 7 days write into the Status note engaged views, share who stay (Studio), subscribers gained, comments; after every 10 Shorts run [[Feedback loop]] on the data. **Never** buy views, use engagement groups or mislead in titles (§1).
 
@@ -50,27 +50,27 @@ The style is approved (*"good and appealing"*, Magnetar feedback). This section 
 
 ### 3.1 Tokens
 
-| Token | Value | Use |
-| --- | --- | --- |
-| Paper | `#F9F6EE` at 94 % | the card and callout boxes |
-| Ink | `#1C1A17` / soft `#4D4741` | text on paper |
-| **Copper** | `#C76B38` | the signature: callout dots and lines, card bar, big figures, copper words in captions |
-| Caption white | `#FFFFFF`, outline `#0A0907` | captions only |
-| Titles and figures | Noto Sans Display Bold | cards, captions |
-| Labels and details | Noto Sans Regular | callouts, card details |
-| Gradients | one family per topic (cold blue cryogenics, warm copper energy, deep green materials), dark enough for paper boxes | behind `contain` photos and cutouts only, **never bare** |
+| Token              | Value                                                                                                              | Use                                                                                    |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| Paper              | `#F9F6EE` at 94 %                                                                                                  | the card and callout boxes                                                             |
+| Ink                | `#1C1A17` / soft `#4D4741`                                                                                         | text on paper                                                                          |
+| **Copper**         | `#C76B38`                                                                                                          | the signature: callout dots and lines, card bar, big figures, copper words in captions |
+| Caption white      | `#FFFFFF`, outline `#0A0907`                                                                                       | captions only                                                                          |
+| Titles and figures | Noto Sans Display Bold                                                                                             | cards, captions                                                                        |
+| Labels and details | Noto Sans Regular                                                                                                  | callouts, card details                                                                 |
+| Gradients          | one family per topic (cold blue cryogenics, warm copper energy, deep green materials), dark enough for paper boxes | behind `contain` photos and cutouts only, **never bare**                               |
 
 ### 3.2 Components
 
-| Component | Spec | Used for | Limits |
-| --- | --- | --- | --- |
-| **Context card** | 894 × 280 px, 16 px corners, 8 px copper bar on the left, centred at 28.5 % from the bottom; label 32 px spaced capitals in copper, title 56 px bold, detail 34 px | frame and source a fact (place and date, the claim, the source) | title ≤ 26 characters; detail ≤ 40; one card per plate |
-| **Number card** | same box; **figure 124 px bold copper**, caption 44 px bold, source 30 px | the one figure the argument rests on | one per video as the main number; others only if each carries a scene (Superconductors uses four, all sourced) |
-| **Margin note** | same box, label "Margin note", two lines ≤ 30 characters, 46 px bold | the specialist's dry aside | ≤ 2 per video |
-| **Callout** | copper dot (13 px) with a ring, 2 px leader line, paper label with a copper bar, 34 px text; enters 1 s after the plate, 0.6 s apart | **name a real part** of the photo or schematic | 1 to 3 per plate; 1 to 4 words; the dot sits on the part; labels never cover the card or the caption zone |
-| **Caption** | one word at a time, 104 px bold capitals, white, dark outline and shadow, centred at 16.5 % from the bottom; long words shrink | the silent viewer follows the whole script | figures copper; **key terms copper** (`keywords` in `plan.json`, ≤ 6 per video); a word holds until the next |
-| **Highlight rule** | copper means "this is the thing to remember": a figure, a key term, a dot | the eye learns one signal | never highlight more than one word in three; never two colours of emphasis |
-| **Motion** | cards and texts fade in 0.25 s with a 24 px rise, out 0.2 s; plates push 5 %; cross-fade 0.3 s within a scene, short dip between scenes | calm, readable motion | no shakes, no flashes, no zoom punches |
+| Component          | Spec                                                                                                                                                               | Used for                                                        | Limits                                                                                                         |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **Context card**   | 894 × 280 px, 16 px corners, 8 px copper bar on the left, centred at 28.5 % from the bottom; label 32 px spaced capitals in copper, title 56 px bold, detail 34 px | frame and source a fact (place and date, the claim, the source) | title ≤ 26 characters; detail ≤ 40; one card per plate                                                         |
+| **Number card**    | same box; **figure 124 px bold copper**, caption 44 px bold, source 30 px                                                                                          | the one figure the argument rests on                            | one per video as the main number; others only if each carries a scene (Superconductors uses four, all sourced) |
+| **Margin note**    | same box, label "Margin note", two lines ≤ 30 characters, 46 px bold                                                                                               | the specialist's dry aside                                      | ≤ 2 per video                                                                                                  |
+| **Callout**        | copper dot (13 px) with a ring, 2 px leader line, paper label with a copper bar, 34 px text; enters 1 s after the plate, 0.6 s apart                               | **name a real part** of the photo or schematic                  | 1 to 3 per plate; 1 to 4 words; the dot sits on the part; labels never cover the card or the caption zone      |
+| **Caption**        | one word at a time, 104 px bold capitals, white, dark outline and shadow, centred at 16.5 % from the bottom; long words shrink                                     | the silent viewer follows the whole script                      | figures copper; **key terms copper** (`keywords` in `plan.json`, ≤ 6 per video); a word holds until the next   |
+| **Highlight rule** | copper means "this is the thing to remember": a figure, a key term, a dot                                                                                          | the eye learns one signal                                       | never highlight more than one word in three; never two colours of emphasis                                     |
+| **Motion**         | cards and texts fade in 0.25 s with a 24 px rise, out 0.2 s; plates push 5 %; cross-fade 0.3 s within a scene, short dip between scenes                            | calm, readable motion                                           | no shakes, no flashes, no zoom punches                                                                         |
 
 ### 3.3 Safe zones (Shorts interface)
 
@@ -78,15 +78,15 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 
 ### 3.4 Other supports on the video
 
-| Support | Status |
-| --- | --- |
-| Word-by-word captions | built ([[Blender editing]]) |
-| `.srt` caption track for upload | built (`render/<prefix>.srt`, 5 words per cue) |
-| Source tags on cards | built |
+| Support                                                                         | Status                                                                             |
+| ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Word-by-word captions                                                           | built ([[Blender editing]])                                                        |
+| `.srt` caption track for upload                                                 | built (`render/<prefix>.srt`, 5 words per cue)                                     |
+| Source tags on cards                                                            | built                                                                              |
 | **Progress bar** (a thin copper line at the very bottom filling over the video) | proposal (H: shows the end is near and encourages watching to the loop); not built |
-| **Series tag** (a small copper label top-left: "The mechanism") | proposal, after the series names are decided |
-| **Quiet music bed** | proposal, needs approval and a source with a license ([[Shorts quality bar]] §5) |
-| **Sound design** (a soft tick on a number card) | proposal; the user rejected the first sound effects, so only with approval |
+| **Series tag** (a small copper label top-left: "The mechanism")                 | proposal, after the series names are decided                                       |
+| **Quiet music bed**                                                             | proposal, needs approval and a source with a license ([[Shorts quality bar]] §5)   |
+| **Sound design** (a soft tick on a number card)                                 | proposal; the user rejected the first sound effects, so only with approval         |
 
 ## 4. Mission, brand and identity (proposal; the user decides)
 
@@ -98,13 +98,13 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 
 **Brand pillars (each is a rule the vault already enforces):**
 
-| Pillar | Meaning | Where it is enforced |
-| --- | --- | --- |
-| **Precise** | every figure sourced and dated; weak facts attributed | [[Guidelines for new scripts]] Rigor |
-| **Surprising** | the chosen angle scores ≥ 4 on surprise and scale | [[Idea and hook quality]] |
-| **Calm** | no hype words, no shouting, no false urgency | [[Channel identity]] banned words |
+| Pillar                    | Meaning                                                               | Where it is enforced                                |
+| ------------------------- | --------------------------------------------------------------------- | --------------------------------------------------- |
+| **Precise**               | every figure sourced and dated; weak facts attributed                 | [[Guidelines for new scripts]] Rigor                |
+| **Surprising**            | the chosen angle scores ≥ 4 on surprise and scale                     | [[Idea and hook quality]]                           |
+| **Calm**                  | no hype words, no shouting, no false urgency                          | [[Channel identity]] banned words                   |
 | **Honest about machines** | says when the voice and the schematics are AI, and what is simplified | description template, Status "known simplification" |
-| **Real over decorative** | real photos for real things, faithful schematics for hidden things | [[Illustration pipeline]] |
+| **Real over decorative**  | real photos for real things, faithful schematics for hidden things    | [[Illustration pipeline]]                           |
 
 **Voice:** the curious specialist ([[Channel identity]]): tells you what you need to know, never narrates a story.
 
