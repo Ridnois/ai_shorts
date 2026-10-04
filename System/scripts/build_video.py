@@ -486,6 +486,20 @@ def take_words(v, text):
     return estimate_words(text, v["a"], v["b"], None)
 
 
+KEYWORDS = {"".join(c for c in k.lower() if c.isalnum()) for k in PLAN.get("keywords", [])}   # up to ~6 key terms per video, shown in copper
+
+
+def write_srt(placed, per_cue=5):
+    """render/<prefix>.srt: the same words in cues of `per_cue` words, to upload as a caption track (search, translation, accessibility)."""
+    ts = lambda t: f"{int(t // 3600):02d}:{int(t % 3600 // 60):02d}:{int(t % 60):02d},{int(t % 1 * 1000):03d}"
+    out = []
+    for k in range(0, len(placed), per_cue):
+        c = placed[k:k + per_cue]
+        end = min(c[-1][2], placed[k + per_cue][1]) if k + per_cue < len(placed) else c[-1][2]
+        out.append(f"{k // per_cue + 1}\n{ts(c[0][1])} --> {ts(max(end, c[0][1] + 0.3))}\n{' '.join(x[0] for x in c)}\n")
+    open(f"{OUT}/{PLAN['prefix']}.srt", "w", encoding="utf-8").write("\n".join(out))
+
+
 def add_captions():
     texts = PLAN.get("texts")
     if not texts:
@@ -495,6 +509,7 @@ def add_captions():
     for v, text in zip(voices, texts):
         for w, s, e in take_words(v, text):
             placed.append((w, v["abs"] + s - v["ini"], v["abs"] + e - v["ini"]))
+    write_srt(placed)
     n = 0
     for i_, (w, s, e) in enumerate(placed):
         nxt = placed[i_ + 1][1] if i_ + 1 < len(placed) else T_END
@@ -504,7 +519,7 @@ def add_captions():
         tx = S.new_effect(f"cap{n:03d}", "TEXT", 16, fr(s), length=fr(end) - fr(s))
         tx.text = w.upper()
         tx.font, tx.font_size = F_TITLE, min(CAP_SIZE, int(1500 / max(len(w), 1)))   # long words shrink to fit the frame
-        key = any(c.isdigit() for c in w)                  # figures are copper, everything else white
+        key = any(c.isdigit() for c in w) or "".join(c for c in w.lower() if c.isalnum()) in KEYWORDS   # figures and plan.keywords are copper
         tx.color = COPPER + (1.0,) if key else (1.0, 1.0, 1.0, 1.0)
         tx.anchor_x, tx.anchor_y = "CENTER", "CENTER"
         tx.location = (0.5, 1 - CAP_Y)
