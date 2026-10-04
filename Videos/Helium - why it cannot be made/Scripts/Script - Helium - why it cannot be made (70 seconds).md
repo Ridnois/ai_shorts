@@ -69,7 +69,7 @@ Style: [[Visual style - plasticine miniatures]], vertical 9:16 filled in editing
 - [x] The close leaves an idea, no moral or call to action.
 - [x] Every claim is sourced or attributed ("manufacturers" for the sealed-magnet figures: the source table marks them).
 - [x] Every plate has a real object and photo with license (see Status).
-- [ ] Read aloud (the user does it); pace measured with the real voice.
+- [x] Read aloud (the user does it); pace measured with the real voice.
 
 ## Rigor notes
 
