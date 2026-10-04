@@ -1,56 +1,57 @@
 ---
-tipo: investigación
-creado: 2026-10-03
-actualizado: 2026-10-03
-tags: [investigación, youtube, pipeline, hub]
+type: research
+created: 2026-10-03
+updated: 2026-10-03
+tags: [research, youtube, pipeline, hub]
 ---
 
-# 🏭 Pipeline de videos
+# 🏭 Video pipeline
 
-← [[Canal YouTube]] · [[Proceso de producción]] · [[Flujo rápido]]
+← [[YouTube Channel]] · [[Production process]] · [[Fast workflow]]
 
-Una **nota por idea** en `Pipeline/Ideas/`; su propiedad `estado` es la columna de la tabla. Cambiar `estado` en la tabla  es la orden; el runner hace el trabajo y deja el siguiente estado.
+One **note per idea** in `Pipeline/Ideas/`; its `status` property is the table column. Changing `status` in the table is the command; the runner does the work and leaves the next status.
 
-![[Tabla pipeline.base]]
+![[Pipeline table.base]]
 
-## Estados
+## States
 
 ```
-idea ──▶ construir-guion ──▶ construyendo-guion ──▶ guion-listo
-                  ▲ tú              ▲ runner              │ revisas P1–P4a y P4
-                                                          ▼
-render-listo ◀── (montaje, a mano) ◀── ilustraciones-listas ◀── generando-assets ◀── generar-assets
-                                              ▲ runner                ▲ runner            ▲ tú
-                                                                                  (exige presupuesto aprobado)
+idea ──▶ build-script ──▶ building-script ──▶ script-ready
+              ▲ you             ▲ runner            │ you review P1–P4a and P4
+                                                    ▼
+render-ready ◀── (editing, by hand) ◀── illustrations-ready ◀── generating-assets ◀── generate-assets
+                                              ▲ runner                ▲ runner            ▲ you
+                                                                              (requires an approved budget)
 ```
 
-| Estado | Quién lo pone | Significa |
+| Status | Set by | Meaning |
 | --- | --- | --- |
-| `idea` | tú | Solo la nota; no pasa nada |
-| `construir-guion` | **tú** (disparador) | Pide investigación, guion, dirección, prompts y presupuesto (etapas 0–4, solo texto) |
-| `construyendo-guion` | runner | En curso |
-| `guion-listo` | runner | Texto y presupuesto estimado listos. **Aquí revisas P1–P4** |
-| `generar-assets` | **tú** (disparador) | Pide voz e imágenes. Solo corre si `presupuesto_aprobado_usd` > 0 |
-| `generando-assets` | runner | Gastando en Replicate |
-| `ilustraciones-listas` | runner | Voz e imágenes en `Media/`. **Aquí revisas P6** |
-| `render-listo` | tú | Montaje en Blender hecho ([[Montaje en Blender]]); P7 aprobada |
-| `error` | runner | Algo falló; el motivo está en la columna *Error*. Corrígelo y vuelve a poner el disparador |
+| `idea` | you | Just the note; nothing happens |
+| `build-script` | **you** (trigger) | Asks for research, script, direction, prompts and budget (stages 0–4, text only) |
+| `building-script` | runner | In progress |
+| `script-ready` | runner | Text and estimated budget ready. **You review P1–P4 here** |
+| `generate-assets` | **you** (trigger) | Asks for voice and images. Only runs if `approved_budget_usd` > 0 |
+| `generating-assets` | runner | Spending on Replicate |
+| `illustrations-ready` | runner | Voice and images in `Media/`. **You review P6 here** |
+| `render-ready` | you | Editing in Blender done ([[Blender editing]]); P7 approved |
+| `error` | runner | Something failed; the reason is in the *Error* column. Fix it and set the trigger again |
 
-## Cómo se usa (todo desde Obsidian)
+## How to use it (all from Obsidian)
 
-El runner corre solo como servicio de usuario (`youtube-pipeline.service`, revisa la tabla cada 15 s). No hay que abrir una terminal.
+The runner runs by itself as a user service (`youtube-pipeline.service`, checks the table every 15 s). There is no need to open a terminal.
 
-1. En la tabla (vista **Esta semana**), botón **New**: escribe el título. En ≈ 15 s la nota recibe sus propiedades. Rellena `publicar` (fecha) y el tema en el cuerpo.
-2. Cambia `estado` a `construir-guion` → pasa a `construyendo-guion` → `guion-listo`. Revisa.
-3. Si apruebas el presupuesto, escribe la cifra en `presupuesto_aprobado_usd` y pon `generar-assets`.
-4. Revisa láminas y voz (`ilustraciones-listas`); monta; pon `render-listo`.
+1. In the table (**This week** view), **New** button: type the title. Within ≈ 15 s the note gets its properties. Fill in `publish` (date) and the topic in the body. **Write the idea in English.**
+2. Change `status` to `build-script` → it becomes `building-script` → `script-ready`. Review.
+3. If you approve the budget, write the figure in `approved_budget_usd` and set `generate-assets`.
+4. Review plates and voice (`illustrations-ready`); edit; set `render-ready`.
 
-Servicio: `systemctl --user status youtube-pipeline` · registro: `journalctl --user -u youtube-pipeline -f` · parar: `systemctl --user stop youtube-pipeline`.
+Service: `systemctl --user status youtube-pipeline` · log: `journalctl --user -u youtube-pipeline -f` · stop: `systemctl --user stop youtube-pipeline`.
 
-## Reglas
+## Rules
 
-- **El controlador vive fuera del vault**, en `~/Documents/youtube-pipeline` (repo propio). El vault solo tiene notas y la tabla.
-- **No se gasta sin presupuesto aprobado** (regla madre de [[Proceso de producción]]). El tope duro es ×1,2 de `presupuesto_aprobado_usd`.
-- El runner de guion **no puede llamar a Replicate** (solo lee y escribe notas); el de assets sí.
-- El tope se aplica por instrucción al modelo y se comprueba **después** con `costo_real_usd`; no es un corte técnico.
-- Una idea en `*-ando` (en curso) tras un corte del runner queda atascada: vuelve a poner el disparador en la tabla.
+- **The controller lives outside the vault**, in `~/Documents/youtube-pipeline` (its own repo). The vault only has notes and the table.
+- **Nothing is spent without an approved budget** (master rule of [[Production process]]). The hard cap is ×1.2 of `approved_budget_usd`.
+- The script runner **cannot call Replicate** (it only reads and writes notes); the assets runner can.
+- The cap is applied by instruction to the model and checked **afterwards** with `actual_cost_usd`; it is not a technical cutoff.
+- An idea in `building-*` or `generating-*` (in progress) after a runner crash stays stuck: set the trigger again in the table.
+- **Language:** scripts, research and descriptions are written in English ([[YouTube Channel]]).

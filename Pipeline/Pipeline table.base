@@ -1,0 +1,80 @@
+filters:
+  and:
+    - file.inFolder("Pipeline/Ideas")
+properties:
+  file.name:
+    displayName: Idea
+  note.status:
+    displayName: Status
+  note.format:
+    displayName: Format
+  note.publish:
+    displayName: Publish
+  note.estimated_budget_usd:
+    displayName: Est. budget $
+  note.approved_budget_usd:
+    displayName: Approved budget $
+  note.actual_cost_usd:
+    displayName: Actual cost $
+  note.video:
+    displayName: Video
+  note.error:
+    displayName: Error
+views:
+  - type: table
+    name: This week
+    filters:
+      and:
+        - note.publish >= today() - "1 day"
+        - note.publish <= today() + "7 days"
+    sort:
+      - property: note.publish
+        direction: ASC
+    order:
+      - file.name
+      - note.status
+      - note.publish
+      - note.format
+      - note.estimated_budget_usd
+      - note.approved_budget_usd
+      - note.actual_cost_usd
+      - note.error
+  - type: table
+    name: All
+    groupBy:
+      property: note.status
+      direction: ASC
+    order:
+      - file.name
+      - note.status
+      - note.format
+      - note.estimated_budget_usd
+      - note.approved_budget_usd
+      - note.actual_cost_usd
+      - note.video
+      - note.error
+  - type: table
+    name: Queued or working
+    filters:
+      or:
+        - note.status == "build-script"
+        - note.status == "building-script"
+        - note.status == "generate-assets"
+        - note.status == "generating-assets"
+    order:
+      - file.name
+      - note.status
+      - note.approved_budget_usd
+  - type: table
+    name: Awaiting your decision
+    filters:
+      or:
+        - note.status == "script-ready"
+        - note.status == "illustrations-ready"
+        - note.status == "error"
+    order:
+      - file.name
+      - note.status
+      - note.estimated_budget_usd
+      - note.approved_budget_usd
+      - note.error
