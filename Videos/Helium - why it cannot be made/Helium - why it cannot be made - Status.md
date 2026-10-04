@@ -178,6 +178,6 @@ File: `Media/Helium - 70 seconds/render/he2-76s-9x16-r1.mp4` (local only: `Media
 
 ## Post-render feedback (4 Oct 2026) and what changed
 
-User feedback ([[Post-render feedback]]): word count as the length metric; the hook is boring (a reaction before a reason); the information itself is weak ("of a universe of bright stars, you pointed at a street lamp"). The vault now applies this by default ([[Idea and hook quality]], [[Guidelines for new scripts]] §0, [[Production process]], [[Fast workflow]], [[Narration guide]], the idea template and the pipeline runner).
+User feedback ([[Videos/Helium - why it cannot be made/Scripts/Post-render feedback]]): word count as the length metric; the hook is boring (a reaction before a reason); the information itself is weak ("of a universe of bright stars, you pointed at a street lamp"). The vault now applies this by default ([[Idea and hook quality]], [[Guidelines for new scripts]] §0, [[Production process]], [[Fast workflow]], [[Narration guide]], the idea template and the pipeline runner).
 
 **This video does not meet the new rules**: no facts bank, no scoring, and a street-lamp hook (the MRI's 1,500 liters). It stays as rendered until you decide: the rework would start from the facts bank (helium made in stars, inert, superfluid, "second most abundant element yet scarce on Earth", all to be sourced) and reuse the voice and the plate pipeline; a new script means new voice takes (≈ $0.10) and likely new plates (≈ $0.04 each).
