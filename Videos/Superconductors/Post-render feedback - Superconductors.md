@@ -15,24 +15,24 @@ tags: [research, youtube, feedback, superconductors]
 ## 1. Verdict
 
 **Would you publish it as it is?** yes after small fixes
-**In one sentence, the best thing:** 
-**In one sentence, the worst thing:**
+**In one sentence, the best thing:** the general layout, visual text, visual explanation
+**In one sentence, the worst thing:** the illustrations and the boring narrative
 
 ## 2. By layer (rating 1 to 5, then your words)
 
-| Layer | Rating | What you saw or heard, and what you want instead |
-| --- | --- | --- |
-| **Hook** (first 3 s: is it a claim you need to hear? does it stop you?) — *"Some wires carry electricity with zero resistance. Not low. Zero."* | | |
-| **Idea and content** (is it surprising, clear, scientifically right?) | | |
-| **Script and pace** (explains or narrates? drags anywhere? too dense?) | | |
-| **Illustrations and photos** (useful, faithful, one per idea?) — the levitation, LHC and diamond-anvil plates are held longest (9 to 12 s) | | |
-| **Text boxes, callouts, highlight** (readable, specific, in the right place?) | | |
-| **Captions** (on the spoken word? readable on every image?) | | |
-| **Brand layer** (progress bar, mark, series tag, avatar, name) | | |
-| **Voice** (timbre, speed, intonation, mispronounced words) | | |
-| **Sound design** (thump, whooshes, ticks, pings, drone: too loud, missing, annoying?) — first time it exists; synthesized, never heard by the agent | | |
-| **Editing** (cuts, cross-fades, how long an image stays, transitions) | | |
-| **Ending** (does it leave an idea? does it loop?) | | |
+| Layer                                                                                                                                               | Rating | What you saw or heard, and what you want instead                   |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------------------------------------------------------------------ |
+| **Hook** (first 3 s: is it a claim you need to hear? does it stop you?) — *"Some wires carry electricity with zero resistance. Not low. Zero."*     | 2      | It vague, i may dont know what zero resistance means               |
+| **Idea and content** (is it surprising, clear, scientifically right?)                                                                               | 2      | not surprising nor clear enough, well researched                   |
+| **Script and pace** (explains or narrates? drags anywhere? too dense?)                                                                              | 2      | boring, feels unconnected, could be more compacted                 |
+| **Illustrations and photos** (useful, faithful, one per idea?) — the levitation, LHC and diamond-anvil plates are held longest (9 to 12 s)          | 3      | getting better, could improve, be more realistic and related with  |
+| **Text boxes, callouts, highlight** (readable, specific, in the right place?)                                                                       |        |                                                                    |
+| **Captions** (on the spoken word? readable on every image?)                                                                                         |        |                                                                    |
+| **Brand layer** (progress bar, mark, series tag, avatar, name)                                                                                      |        |                                                                    |
+| **Voice** (timbre, speed, intonation, mispronounced words)                                                                                          |        |                                                                    |
+| **Sound design** (thump, whooshes, ticks, pings, drone: too loud, missing, annoying?) — first time it exists; synthesized, never heard by the agent |        |                                                                    |
+| **Editing** (cuts, cross-fades, how long an image stays, transitions)                                                                               |        |                                                                    |
+| **Ending** (does it leave an idea? does it loop?)                                                                                                   |        |                                                                    |
 
 ## 3. Moments (use the time in the video)
 
