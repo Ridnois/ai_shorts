@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-05
 updated: 2026-10-05
-status: v1 · written from TikTok's public docs and secondary guides; nothing uploaded yet
+status: v2 · "not verified" items checked 5 Oct 2026 against secondary guides (TikTok's own pages would not load); nothing uploaded yet
 tags: [tiktok, upload, process, multi-platform]
 ---
 
@@ -22,7 +22,7 @@ Add a `## TikTok` section to the video's `Upload - <Topic>` note ([[Upload - Cop
 
 | Field | Rule |
 | --- | --- |
-| **File** | the same `render/*.mp4` (1080×1920); check it opens and is under the app's size limit (**unverified**, a ≈ 65 to 80 MB render has not been tried) |
+| **File** | the same `render/*.mp4` (1080×1920); MP4 H.264 + AAC is the safe format. **Upload from the web (TikTok Studio, limit ≈ 4 GB), not the phone:** guides give the mobile limit as ≈ 72 MB on Android and ≈ 287 MB on iPhone, and our renders are ≈ 65 to 81 MB, so an Android upload could fail. Default max length is 3 min, no problem for a Short |
 | **Caption** | the claim in plain words + 3 to 5 hashtags (1 broad such as `#science`, 2 to 3 on the topic); **no sources wall**: TikTok captions are short, put the 1 to 2 key sources as `Source: <name, date>` and the full list in the pinned comment |
 | **Cover** | a frame with the hook readable inside the safe zone (pick in the upload screen) |
 | **Pinned comment** | the sources and corrections, same text as YouTube's |
@@ -31,7 +31,7 @@ Add a `## TikTok` section to the video's `Upload - <Topic>` note ([[Upload - Cop
 
 ## 3. Safe-zone test (once, then record the result)
 
-TikTok's interface covers the **right edge and the bottom ≈ 20 %** (caption, buttons) ([guide](https://zeely.ai/blog/tiktok-safe-zones/), a secondary source). Our captions sit **16.5 % from the bottom** (`CAP_Y`), tuned for Shorts. **First video only:** upload privately, open it in the app, check captions, plates' key labels and number cards are not covered. If they are, raise `CAP_Y` for a TikTok export (`plan.json`) and record the value in [[Channel strategy]] §5; do not change the YouTube master for it.
+TikTok's interface covers the **right edge and the bottom 15 to 20 %** (caption, action bar) ([Zeely](https://zeely.ai/blog/tiktok-safe-zones/) says 20 %, [Sendcove](https://www.sendcove.app/integrations/tiktok/video-specs) says 15 %; TikTok's own page gave no numbers). Our captions sit **16.5 % from the bottom** (`CAP_Y`), tuned for Shorts: **inside the risky band**, so the test below is likely to fail. **First video only:** upload privately, open it in the app, check captions, plates' key labels and number cards are not covered. If they are, raise `CAP_Y` for a TikTok export (`plan.json`) and record the value in [[Channel strategy]] §5; do not change the YouTube master for it.
 
 ## 4. Settings at upload (user)
 
@@ -42,8 +42,11 @@ TikTok's interface covers the **right edge and the bottom ≈ 20 %** (caption, b
 
 ## 5. After posting
 
-Record in the video's Status note: link, date, 48 h and 7 d views, average watch time, shares, followers gained (TikTok Studio / Analytics). Use it in the [[Channel strategy]] §6 loop **next to YouTube's**: same hook, different audience, so compare per video. Creator Rewards eligibility: not verified.
+Record in the video's Status note: link, date, 48 h and 7 d views, average watch time, shares, followers gained (TikTok Studio / Analytics). Use it in the [[Channel strategy]] §6 loop **next to YouTube's**: same hook, different audience, so compare per video. 
+**Creator Rewards (secondary guides, 5 Oct 2026):** 10,000 followers, 100,000 views in the last 30 days, age 18+, a personal account, and **original videos longer than 1 minute** (shorter ones earn nothing). **Consequence for scripts:** our 130 to 160 words land at ≈ 50 to 65 s (Copper: 60.8 s, **just under or at the line**). Do not stretch Shorts for TikTok; if the program becomes reachable, plan a few 65 to 75 s videos on purpose. Re-check on TikTok's page then.
 
-## 6. Not verified
+## 6. Still not verified
 
-No video has been uploaded to TikTok. After the first one, fix this note with what differs (size limit, cover picker, safe zone, label wording) and add the account handle.
+- TikTok's **own** pages (AI-label setting wording, safe-zone numbers, Creator Rewards rules) did not load; every number above is from third-party guides that sometimes disagree (mobile size limit, safe zone 15 vs 20 %).
+- The exact label in the app, and whether C2PA metadata survives our Blender render (TikTok detects AI media this way, secondary sources).
+- No video has been uploaded to TikTok. After the first one, fix this note with what differs and add the account handle.

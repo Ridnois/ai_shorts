@@ -57,7 +57,7 @@ Disclose when content **realistically** depicts something that did not happen or
 | **Platforms** | YouTube Shorts (primary), TikTok, Instagram Reels; later X and a newsletter for sources. Same handle everywhere, same avatar and banner in the copper accent |
 | **Native uploads** | upload the file to each platform; do not re-upload a download with another platform's watermark. Check each platform's AI-label setting at upload (**unverified**) |
 | **Safe zones** | the caption zone (16.5 % from the bottom) is chosen for Shorts; TikTok and Reels interfaces cover more of the bottom: **test one video** and adjust `CAP_Y` per platform if captions are hidden |
-| **Monetization elsewhere** | TikTok's Creator Rewards Program and Instagram's bonuses have their own thresholds (**not verified**: the official page could not be read); sponsorships, affiliate links to the books and components shown, and a newsletter are platform-independent |
+| **Monetization elsewhere** | TikTok's Creator Rewards Program and Instagram's bonuses have their own thresholds (TikTok's, from secondary guides: 10k followers, 100k views in 30 days, videos over 1 minute; see [[TikTok upload]] §5); sponsorships, affiliate links to the books and components shown, and a newsletter are platform-independent |
 | **Pinned comment** | sources and corrections, every video; it builds trust and gives the algorithm comments to read |
 
 ## 6. Measure and learn (the loop that makes the channel better)
