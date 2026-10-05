@@ -14,6 +14,7 @@ THUMBS = {  # name: (hero file, lines, index of the orange line, where the text 
     "thumb-b": ("hero-b.png", ["NOT RARE.", "STILL A FIGHT."], 1, ("start", 650)),     # the pebble sits lower: keep the text off it
     "thumb-c": ("hero-c.png", ["60% IN", "ONE COUNTRY"], 0, ("end", 1280)),
     "thumb-jk": ("hero-jk.jpg", ["BEFORE", "GUTENBERG"], 1, ("end", 1280)),          # Jikji and Gutenberg (free stock hero, no generation)
+    "thumb-sp": ("hero-sp.jpg", ["CHIPS DEPEND", "ON ONE TOWN"], 1, ("end", 1280)),          # Spruce Pine quartz (free stock hero)
     "thumb-cu": ("hero-cu.png", ["17 YEARS TO", "OPEN A MINE"], 0, ("end", 1280)),   # Copper and the AI race
 }
 def cover(im):
