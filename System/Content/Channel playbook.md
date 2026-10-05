@@ -87,9 +87,9 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 | **Quiet drone bed**                                                             | built, synthesized (A minor, ≈ −37 dBFS), user request 4 Oct 2026; a licensed music track stays opt-in ([[Guidelines for new scripts]] §3)   |
 | **Sound design** (whoosh, ticks, pings, opening thump)                          | built, synthesized, on by default; **not heard by the agent** ([[Blender editing]] §Sound design)         |
 
-## 4. Mission, brand and identity (proposal; the user decides)
+## 4. Mission, brand and identity (name, logo, slogan and banner decided 5 Oct 2026; mission and pillars proposed)
 
-**Mission (one sentence):** *Make the machinery behind the headlines understandable in a minute, with the sources on screen.*
+**Mission (one sentence):** *Make science entertaining: the strange machinery behind the world, in a minute you will want to watch again.* (user, 5 Oct 2026: *"Dont focus on 'science media with sources' make it more like 'science entertainment'"*; replaces "…understandable in a minute, with the sources on screen". Sourcing stays a rigor rule in the description, not the positioning. Agent's rewording: the user confirms.)
 
 **Promise to the viewer:** you will leave knowing *how* something works and *why* it is hard, and you can check every number.
 
@@ -107,20 +107,21 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 
 **Voice:** the curious specialist ([[Channel identity]]): tells you what you need to know, never narrates a story.
 
-**Visual identity:** copper accent on paper-white boxes over real images, Noto Sans Display Bold, one gradient family per topic. **Mascot and logo: a geometric copper fox** (user, 4 Oct 2026: *"I want a redesign for the brand, add an animal into it and science as the topic"*): the fox is the curious specialist (fox-copper is already the signature colour) and its right eye is the callout ring-and-dot, so the old mark survives inside the new one. Avatar: the fox head. Banner: fox, wordmark, tagline. The fox lives on the channel page only, never inside a Short.
+**Visual identity:** in the videos, a copper accent on paper-white boxes over real images, Noto Sans Display Bold, one gradient family per topic. **Channel brand (decided 5 Oct 2026, register in [[Brand options]]):** the Redtail logo, an NFL-style snarling orange fox head in a ring with a slanted italic block wordmark and the bushy tail curling behind it; palette oranges, cream white and navy (user: *"i like orange"*; the generated art leans red). The logo, avatar and banner live on the channel page only, never inside a Short.
 
-**Name: Cutaway.** Tagline: **"Science, cut open. With sources."** (was "How it works. With sources.") (user, 4 Oct 2026: *"the mission is good, invent something catchy and well positioned for channel name"*.) Why it fits: a *cutaway* is the diagram that cuts the outside away to show the inside, which is exactly what the channel does with a mechanism (the schematics and the callouts that name the parts); it is one word, easy to say and spell, and the topic is **science in general** (physics, materials, biology, space), not physics only. Wordmark: "Cutaway" in Noto Sans Display Bold, paper-white on ink, with the fox to its left.
+**Name and slogan:** **Redtail** (user, 5 Oct 2026: *"Redtail it is"*; replaces Cutaway). Slogan: **"Science at full speed."** with the second line **"Strange, fast and true."** (user: *"Banner b is the winner"*). The brand sells **science entertainment**, not sourcing; sourcing stays a rigor rule in the description.
 
-**Handle (not verified):** the fetch tool cannot read YouTube channel pages, so **availability on YouTube, TikTok and Instagram is unchecked**. Try in this order in YouTube Studio: `@cutaway`, `@cutawayhq`, `@watchcutaway`, `@cutaway.science`; use the first free one on all three platforms. YouTube handles are unique and the name or handle can be changed twice per 14 days (verified, YouTube Help). Fallback names if "Cutaway" is taken or too crowded: **Part Names**, **Show the Part**, **Teardown Minute**. **Trademark and search crowding are not researched**: search "Cutaway" on YouTube before committing.
+**Handle (not verified):** the fetch tool cannot read YouTube channel pages, so **availability on YouTube, TikTok and Instagram is unchecked**. Try in this order in YouTube Studio: `@redtail`, `@redtailscience`, `@watchredtail`, `@redtail.science`; use the first free one on all three platforms. YouTube handles are unique and the name or handle can be changed twice per 14 days (verified, YouTube Help). A web search found no science channel named Redtail, which is not proof. **Trademark and search crowding are not researched**: search "Redtail" on YouTube and the USPTO site before committing.
 
-**Brand assets** (channel page only; drawn by `System/scripts/make_brand.py`, kept in `System/Brand/`):
+**Brand assets** (channel page only; files and how they were made in [[Brand options]]):
 
-| File | Use | Design |
+| File | Use | State |
 | --- | --- | --- |
-| `avatar.png` (800 px) | profile picture | the copper fox head (paper cheeks, ink ears and nose, right eye = ring-and-dot lens) on a ground that fades from ink to the cryogenic navy; centred inside the circular crop |
-| `banner.png` (2560 × 1440) | channel banner | fox, "Cutaway" and the tagline, centred in the middle safe area (**YouTube's 1546 × 423 safe-area size is from memory, not verified**: check the Studio preview) |
+| `System/Brand/Redtail/redtail-logo.png` | the logo (1024², transparent) | done |
+| `System/Brand/Redtail/redtail-banner.png` | channel banner 2560 × 1440; art inside the 1546 × 423 centre safe area (from memory: check Studio's preview) | done |
+| avatar | head only, about 800 px, circular crop | **not made** |
 
-**The Short itself carries no branding** (no progress bar, mark or series tag; removed on the user's feedback). It stays recognisable through the cards, callouts, copper highlight and captions (§3.1). Series names (The mechanism, The number, The catch) are content formats for playlists and descriptions only. *Interpretation to confirm:* the feedback row called "Brand layer" listed avatar and name too; the agent read the verdict as **about the video**, and kept the channel's name, avatar and banner (the channel page needs them).
+**The Short itself carries no branding** (no progress bar, mark or series tag; removed on the user's feedback). It stays recognisable through the cards, callouts, copper highlight and captions (§3.1). Series names (The mechanism, The number, The catch) are content formats for playlists and descriptions only. The channel name, logo and banner are kept on the channel page, which needs them.
 
 **Channel description template (about 3 lines, searchable words first):** *[Mission sentence]. New Short every [cadence]: [series names]. Every figure is sourced in the description; voices and schematics are AI-generated.*
 
@@ -131,7 +132,7 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 ## 5. Open decisions for the user
 
 - Approve or change the mission sentence and the five pillars.
-- Confirm the name **Cutaway** and the tagline, then check the handle (above); look at `System/Brand/avatar.png` and `banner.png`.
+- Confirm the new mission sentence, then check the handle (above) and decide whether the avatar is drawn locally (free) or regenerated (≈ $0.05).
 - The three series names (The mechanism, The number, The catch), used only as playlist names.
 - Whether Shorts titles follow §2, and whether long videos get custom thumbnails ([[Channel strategy]] §4).
 - Listen to the first Short's sound design (the agent cannot): too loud, too busy, or fine? The levels are plan parameters.

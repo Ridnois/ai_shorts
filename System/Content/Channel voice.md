@@ -10,13 +10,14 @@ tags: [research, youtube, voice, replicate]
 
 ← [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Narration guide]]
 
-## Current (English, from 3 Oct 2026)
+## Current (English, from 5 Oct 2026): Austin
 
-- **Model:** `elevenlabs/v3`, voice **`Roger`**, `language_code: en`, `speed` 0.95, with `previous_text` and `next_text` for intonation. ≈ $0.10 per 1,000 characters.
-- **Why this model:** the user chose it over `minimax/speech-2.8-turbo` and `qwen3-tts` ("Elevenlabs is better", lemon-cake Short); English is its strongest language, and it keeps the same API, parameters and price already used in the pipeline.
-- **Why `Roger`:** it is the voice the user already approved in Spanish (continuity of timbre across the channel), and it is a native English voice: ElevenLabs describes it as a relaxed, resonant male voice, which suits calm explanatory narration. The wrapper on Replicate offers 26 voices (Rachel, Drew, Clyde, Paul, Aria, Domi, Dave, Roger, Fin, Sarah, James, Jane, Juniper, Arabella, Hope, Bradford, Reginald, Gaming, Austin, Kuon, Blondie, Priyanka, Alexandra, Monika, Mark, Grimblewood).
-- **Alternative to test at P5 if `Roger` does not convince:** `Bradford` (articulate British storyteller). The test is one scene (≈ $0.01 per voice). **I cannot hear the difference: the user decides, and the voice is not changed afterwards.**
-- **Pace (measured on the first English video, 3 Oct 2026):** 175 words in ≈ 72.9 s of voice (estimated from file sizes at 128 kbps) = **≈ 144 words per minute with pauses**; per scene it ran from 121 to 179. Plan with **≈ 145 words per minute** ([[Helium - why it cannot be made - Status]]).
+- **Voice: `Austin`** (user, 5 Oct 2026: *"Austin it is"*, after testing Mark, Austin and Dave; Aria and Bradford rejected; the test is in [[Voice samples]]). Model `elevenlabs/v3`, `language_code: en`, with `previous_text` and `next_text` for intonation. ≈ $0.10 per 1,000 characters. **Replaces `Roger`.**
+- **Speed:** the user set **`speed` 1.0 ("pace 1") for the first Austin video** ([[Battery and lithium - Status]]). In the test at 0.95 Austin ran ≈ 179 words per minute (estimated from file size, unmeasured), well above the 145 planned for Roger: **measure Austin on the first complete script** and write the planning pace here.
+- **Why this model:** the user chose it over `minimax/speech-2.8-turbo` and `qwen3-tts` ("Elevenlabs is better", lemon-cake Short); English is its strongest language.
+- **Why Austin:** brand fit. The channel is now **Redtail, science entertainment** ([[Brand options]]), and the user wanted a relaxed, conversational young American male voice in the register of Mark. I cannot hear it: the user chose by ear.
+- **Previous voice (retired 5 Oct 2026): `Roger`**, relaxed resonant male voice, used for the first English videos (Helium, Twisted carbon, Magnetar, Superconductors, Moon, Asteroid mining); their Status notes still say Roger as a record.
+- **Pace with Roger (measured on the first English video, 3 Oct 2026; Austin not yet measured):** 175 words in ≈ 72.9 s of voice (estimated from file sizes at 128 kbps) = **≈ 144 words per minute with pauses**; per scene it ran from 121 to 179. Plan with **≈ 145 words per minute** ([[Helium - why it cannot be made - Status]]).
 - **Expressiveness (Superconductors feedback, 4 Oct 2026: voice 3 of 5, *"needs improvement, rhythm could be more controlled and passionate"*, and *"the pace could improve"*).** Hypotheses, **not heard by the agent**; the user's ear decides:
   1. **Controlled rhythm comes from the script:** sentences of 6 to 14 words with real full stops, a comma only where a breath belongs, a delivery note per scene (calm, rising, amused, grave) in the script table ([[Guidelines for new scripts]] §1.12). The ElevenLabs v3 `stability` default is 0.5.
   2. **Passion variant to test:** `stability` 0.35 and `style` 0.35 (both schema inputs of `elevenlabs/v3`, defaults 0.5 and 0), with one audio tag at the start of a scene where the delivery note asks for it (for example `[curious]` or `[serious]`; v3 reads bracketed tags as direction). Tags go in the voice prompt only, **never in the caption text** (`plan.json` `texts` stays plain).
@@ -35,6 +36,8 @@ tags: [research, youtube, voice, replicate]
 | Bike stems (63 s, Spanish) | `elevenlabs/v3`, `Roger`, `es` | ≈ 150 | See [[Bike stems - Status]] |
 | Chips and lithography (≈ 93 s, Spanish) | `elevenlabs/v3`, `Roger`, `es` | ≈ 144 | See [[Chips and lithography - Status]] |
 | Helium - why it cannot be made (≈ 76 s, **English**) | `elevenlabs/v3`, `Roger`, `en`, 0.95 | ≈ 144 | First English video; awaiting the user's ear at P7 ([[Helium - why it cannot be made - Status]]) |
+
+| Battery and lithium (200 words, **English**) | `elevenlabs/v3`, **`Austin`**, `en`, 1.0 (user) | to measure | first Austin video ([[Battery and lithium - Status]]) |
 
 ## Open
 

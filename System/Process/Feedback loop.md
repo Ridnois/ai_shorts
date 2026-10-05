@@ -60,6 +60,8 @@ tags: [research, youtube, process, feedback, vault]
 | 4 Oct 2026 | Captions at 104 px | 88 px | [[On-screen text style]] |
 | 4 Oct 2026 | A proposed channel name and avatar "to decide" | **Cutaway**, "How it works. With sources.", the ring-and-dot avatar | [[Channel playbook]] §4 |
 | 4 Oct 2026 | *"redesign for the brand, add an animal into it and science as the topic"* | copper fox mascot, tagline "Science, cut open. With sources.", science-wide audience | [[Channel playbook]] §4 |
+| 5 Oct 2026 | Positioning and slogans around "science media with sources" (*"Dont focus on 'science media with sources' make it more like 'science entertainment'"*) | **Science entertainment** as the brand promise; sourcing stays a rigor rule in descriptions; slogans like "Follow the tail.", "Science at full speed.", "Science with teeth." | [[Channel playbook]] §4, [[Brand options]] |
+| 5 Oct 2026 | Names, logos and banners explored in one session (*"Redtail it is"*, *"Banner b is the winner"*) | Name **Redtail**, NFL-style fox logo, slogan **"Science at full speed."**, banner B; the rest archived as text | [[Brand options]], [[Channel playbook]] §4 |
 
 ## 4. The coherence check
 

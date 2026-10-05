@@ -48,7 +48,7 @@ The stages are those of [[Production process]]; they are reviewed together:
 | Image · other | `wan-video/wan-2.7-image` ≈ $0.02 (unconfirmed, up to 3 references, tends to draw objects from memory) | | Fallback |
 | Image · draft | `black-forest-labs/flux-2-klein-4b` | ≈ $0.015 | Fails at counts and copies references |
 | Image · hard scene | `bytedance/seedream-5-lite` | $0.035 | That scene only |
-| **Voice (English)** | `elevenlabs/v3`, `Roger`, `language_code: en` | ≈ $0.10 per 1,000 characters | Chosen by the user for the channel. Parameters in [[Channel voice]] and [[Guidelines for new scripts]] §3 |
+| **Voice (English)** | `elevenlabs/v3`, `Austin`, `language_code: en` | ≈ $0.10 per 1,000 characters | Chosen by the user for the channel (5 Oct 2026). Parameters in [[Channel voice]] and [[Guidelines for new scripts]] §3 |
 | **Word timings (captions, every video)** | `vaibhavs10/incredibly-fast-whisper` with `timestamp: word`, via `System/scripts/word_timings.py` | ≈ $0.01 per take (**unconfirmed**; measured on the Superconductors video, see its Status) | Without it the builder estimates the timings; see [[Blender editing]] |
 | Voice · cheap alternative | `qwen/qwen3-tts` | ≈ $0.02 per 1,000 | No `speed`, ≈ 122 words per minute; English quality untested |
 | **Sound design (every video)** | synthesized by `build_video.py` from `plan.json` `sound` | $0 | whoosh, ticks, pings, thump and a quiet drone ([[Blender editing]] §Sound design) |

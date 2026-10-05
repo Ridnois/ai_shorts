@@ -45,7 +45,7 @@ Read in each model's *Pricing* section. Per-megapixel prices count **input and o
 | `resemble-ai/chatterbox-turbo` | $0.025 per 1,000 characters | ≈ $0.025 |
 | `minimax/speech-2.8-turbo` | $0.06 per 1,000 tokens (≈ 1 token per character) | ≈ $0.06 |
 | `minimax/speech-2.8-hd` | $0.10 per 1,000 tokens | ≈ $0.10 |
-| `elevenlabs/v3` **(current, English `Roger`)** | $0.10 per 1,000 characters | ≈ $0.10 |
+| `elevenlabs/v3` **(current, English `Austin`)** | $0.10 per 1,000 characters | ≈ $0.10 |
 | `google/gemini-3.1-flash-tts` | $2 per million input tokens + $0.04 per 1,000 output | ≈ $0.015 per 15 s take; ≈ $0.07 per 70 s |
 
 `elevenlabs/v3` voices on Replicate (26): Rachel, Drew, Clyde, Paul, Aria, Domi, Dave, Roger, Fin, Sarah, James, Jane, Juniper, Arabella, Hope, Bradford, Reginald, Gaming, Austin, Kuon, Blondie, Priyanka, Alexandra, Monika, Mark, Grimblewood. English choice and alternative: [[Channel voice]].

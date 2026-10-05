@@ -64,9 +64,10 @@ INVARIANTS = [
     ("System/Content/Channel playbook.md", "Engaged views", "engaged views, not raw views"),
     ("System/Content/Channel playbook.md", "On-screen design system", "text box and highlight design written down"),
     ("System/Content/Channel playbook.md", "Mission (one sentence)", "channel mission"),
-    ("System/Content/Channel playbook.md", "Name: Cutaway", "channel name"),
-    ("System/Content/Channel playbook.md", "geometric copper fox", "brand mascot (user, 4 Oct 2026)"),
-    ("System/Content/Channel playbook.md", "Science, cut open", "science tagline"),
+    ("System/Content/Channel voice.md", "Austin it is", "channel voice (user, 5 Oct 2026)"),
+    ("System/Content/Channel playbook.md", "Redtail it is", "channel name (user, 5 Oct 2026)"),
+    ("System/Content/Channel playbook.md", "[[Brand options]]", "brand logo under review (user, 5 Oct 2026: old avatar and banner deleted as a bias)"),
+    ("System/Content/Channel playbook.md", "Science at full speed", "Redtail slogan (user, 5 Oct 2026: banner B)"),
     # Superconductors feedback, 4 Oct 2026
     ("System/Guidelines for new scripts.md", "Plain-words test", "hook in plain words"),
     ("System/Guidelines for new scripts.md", "One thread, a fact budget", "theme line and fact budget"),

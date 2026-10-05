@@ -36,7 +36,7 @@ YouTube Channel.md
 │   ├── Visual/     Illustration pipeline · On-screen text style · Per-scene prompt
 │   ├── Editing/    Blender editing · Transitions and effects
 │   ├── Models/     Channel models (prices)
-│   ├── Brand/      avatar (copper fox) · banner (drawn by scripts/make_brand.py): channel name **Cutaway**, see [[Channel playbook]] §4
+│   ├── Brand/      Redtail logo and banner, brand register and archive: [[Brand options]] · [[Logo references]] · decision in [[Channel playbook]] §4 · voice candidates: [[Voice samples]]
 │   └── scripts/    build_video.py (the builder) · stock_photos.py · replicate_helper.py · check_vault.py · legacy build_*.py
 ├── Research/       general notes on models and styles, unrelated to a script
 └── Videos/         one folder per video: Status, scripts, research
@@ -51,7 +51,7 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | Stages and gates | [[Production process]] |
 | Where media is stored | [[Media convention]] |
 | Is the idea worth it? | [[Idea and hook quality]] |
-| How to write | [[Narration guide]] · [[Channel voice]] |
+| How to write | [[Narration guide]] · [[Channel voice]] · voice candidates: [[Voice samples]] |
 | What makes a Short top tier (hook, captions, rhythm, checklist) | [[Shorts quality bar]] |
 | Monetization, policies, multi-platform plan | [[Channel strategy]] |
 | Engagement, on-screen design system, brand and mission | [[Channel playbook]] |
@@ -78,3 +78,4 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | Moon (Short 9:16, 137 words, **English**) | 7 · built by the agent on the user's delegation (option C of [[The Moon is leaving us]]), awaiting P7 | first video with all the Superconductors-feedback rules: plain hook, theme line, 18 plates, no branding; 2 `gpt-image-1.5` plates + a drawn diagram + 13 NASA and Commons photos (≈ $0.24) | [[Moon - Status]] |
 | Superconductors (Short 9:16, 162 words, **English**) | 7 · built by the agent on the user's delegation, awaiting P7 | first video with the Magnetar-feedback rules: need-to-know opener, faithful schematics, real backdrops, word-by-word captions; 4 `gpt-image-1.5` plates + 5 Commons photos | [[Superconductors - Status]] |
 | Asteroid mining (Short 9:16, 162 words, **English**) | 7 · built by the agent on the user's delegation, awaiting P7 | the chain of a real mine in four steps (127 g brought home so far, ball-pit landing, no zero-gravity refining, the platinum market); 19 plates, 17 NASA or JAXA or Commons photos and 2 schematics; [[Asteroid mining - Status]] |
+| Battery and lithium (Short 9:16, **200 words** by the user's request, **English**, first with the **Austin** voice at speed 1.0) | 3 · waiting for P4 (budget ≈ $0.35, cap ≈ $0.41) | stages 0 to 3 done: 19-fact bank, 21-plate plan with 13 stock photos downloaded; nothing generated | [[Battery and lithium - Status]] · [[Script - Battery and lithium]] |

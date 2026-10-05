@@ -43,7 +43,7 @@ Every prompt ends in a Replicate *prediction* (`System/scripts/replicate_helper.
 
 ## 2. Voice: `elevenlabs/v3`
 
-One take per scene, **with the exact script text** (a sentence is never cut). Current parameters (voice `Roger`, `language_code: en`, `speed`, `previous_text` / `next_text`) in [[Channel voice]]. Figures and acronyms are written as spoken if the model misreads them, and the change is noted; **the captions keep the clean spelling** through `captions` in `plan.json` ([[Blender editing]]). The takes are padded and faded in the edit ([[Blender editing]]), because the files often start and end abruptly.
+One take per scene, **with the exact script text** (a sentence is never cut). Current parameters (voice `Austin`, `language_code: en`, `speed`, `previous_text` / `next_text`) in [[Channel voice]]. Figures and acronyms are written as spoken if the model misreads them, and the change is noted; **the captions keep the clean spelling** through `captions` in `plan.json` ([[Blender editing]]). The takes are padded and faded in the edit ([[Blender editing]]), because the files often start and end abruptly.
 
 ## 3. Sound and music
 
