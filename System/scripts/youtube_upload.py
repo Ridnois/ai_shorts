@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""YouTube Data API v3 uploader (stdlib only). Setup and gotchas: System/Process/YouTube upload.md
+"""YouTube Data API v3 uploader (stdlib only). Setup and gotchas: System/Publish.md
   python3 System/scripts/youtube_upload.py auth                      # once: browser consent, prints YT_REFRESH_TOKEN
   python3 System/scripts/youtube_upload.py upload VIDEO.mp4 --title T --desc-file D.txt [--thumb T.jpg] [--privacy private]
 Reads YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN from .env (vault root) or the environment."""
@@ -79,7 +79,7 @@ u.add_argument("--desc", default=""); u.add_argument("--desc-file")
 u.add_argument("--thumb"); u.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
 u.add_argument("--publish-at"); u.add_argument("--category", default="28")  # 28 = Science & Technology
 a = p.parse_args()
-if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env (System/Process/YouTube upload.md)")
+if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env (System/Publish.md)")
 try:
     auth() if a.cmd == "auth" else upload(a)
 except urllib.error.HTTPError as e:

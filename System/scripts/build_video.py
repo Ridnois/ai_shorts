@@ -4,7 +4,7 @@
     VIDEO="Media/<folder>" blender -b --factory-startup --python System/scripts/build_video.py                  # assemble and render
     VIDEO=... CHECK=1 ...        # also mixes the audio down and checks that every voice starts and ends complete
 
-What it does (see System/Editing/Blender editing.md and System/Visual/Illustration pipeline.md):
+What it does (see System/Playbook.md §3 and §6):
   * Voices: each take is padded (0.30 s of silence before, 0.40 s after, 20 ms fade-in) into voice/_padded/*.wav and
     placed so the whole clip is audible. The TTS files often start abruptly; the padding and fades remove the "cut" at the start.
   * Plates of three types, over a gradient background made here:
@@ -19,7 +19,7 @@ What it does (see System/Editing/Blender editing.md and System/Visual/Illustrati
     callout ticks, an opening thump and a very quiet drone bed, as one WAV mixed under the voice.
   * No bare backdrops: a plate whose file is a blank placeholder is refused (a number card sits on a real photo or explainer).
 
-plan.json: see the docstring of `load_plan` and `System/Visual/Illustration pipeline.md` §6.
+plan.json: see the docstring of `load_plan` and `System/Playbook.md` §6.
 """
 import glob
 import json
@@ -414,7 +414,7 @@ for i, e, j, n, a, b, pl in flat:
         fade(cs, c0t, c1t)
         add_text(f"co{i}-{ci}", txt, F_BODY, size, INK, 24 + ci, c0t, c1t, lxy[0] + 22, lxy[1] + bh / 2, rise=False)
 
-    # card: three kinds (see System/Visual/On-screen text style.md)
+    # card: three kinds (see System/Style.md)
     #   context (list or {"kind": "context", "card": [label, title, detail]}): label, title, detail
     #   number  {"kind": "number", "value": "1.1°", "caption": "twist angle", "source": "Nature, 2018"}
     #   note    {"kind": "note", "text": "Yes, the stuff in your pencil."}   (a short aside in the narrator's voice)

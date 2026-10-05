@@ -2,7 +2,7 @@
 """Channel metrics log.  From the vault root:
   python3 System/scripts/analytics.py add <video> <youtube|tiktok> <24h|7d|28d> views=1200 viewed_pct=71 ...
   python3 System/scripts/analytics.py report      # rewrites Analytics/Report.md
-Data: Analytics/videos.csv (what each video IS) and Analytics/snapshots.csv (what it DID). Rules: System/Process/Analytics.md"""
+Data: Analytics/videos.csv (what each video IS) and Analytics/snapshots.csv (what it DID). Rules: System/Publish.md"""
 import csv, datetime, os, statistics, sys
 
 D = "Analytics"

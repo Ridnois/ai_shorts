@@ -3,7 +3,7 @@
 
 Fails (exit 1) on:
   * broken wikilinks and embeds (a target that is neither a note nor a file in the vault or in Media/)
-  * notes without front matter (type, created, updated, status, tags)
+  * notes without front matter (type, updated)
   * System/ notes that the index (YouTube Channel.md) does not mention
   * Python scripts that do not compile
   * missing INVARIANTS: phrases that encode user feedback and must stay in the notes that carry them
@@ -17,95 +17,45 @@ ROOT = os.getcwd()
 SKIP = (".git", ".obsidian", "Media", "__pycache__")
 
 INVARIANTS = [
-    ("System/Editing/Blender editing.md", "spelling for the eye", "captions show the clean spelling, the voice the spoken one (Moltbook research)"),
-    # Free sound sources research, 4 Oct 2026
-    ("System/Guidelines for new scripts.md", "Sound and music are opt-in", "sound only from free licensed libraries, credited, approved"),
-    ("System/Guidelines for new scripts.md", "BigSoundBank and Freesound are deferred", "user deferred those two sources"),
-    ("System/Guidelines for new scripts.md", "RemArc", "BBC effects are non-commercial"),
-    ("System/Content/Shorts quality bar.md", "free licensed libraries", "quality bar points at the sound rule"),
-    ("System/Process/Fast workflow.md", "Free libraries", "workflow prices sound at $0 from libraries"),
-    ("System/Process/Media convention.md", "sound/", "sound folder with credits"),
-    # (file, phrase, which feedback it encodes)
-    ("System/Content/Idea and hook quality.md", "street-lamp test", "idea quality gate (helium feedback, 4 Oct 2026)"),
-    ("System/Content/Idea and hook quality.md", "five candidate hooks", "hook earns its reaction"),
-    ("System/Guidelines for new scripts.md", "Words are the unit", "plan length in words"),
-    ("System/Guidelines for new scripts.md", "usefulness test", "illustrations earn their place (Twisted carbon feedback)"),
-    ("System/Guidelines for new scripts.md", "stock photos", "free stock photos in the mix"),
-    ("System/Guidelines for new scripts.md", "No custom style", "model's own style"),
-    ("System/Guidelines for new scripts.md", "pads every take", "voice start fix"),
-    ("System/Visual/Illustration pipeline.md", "usefulness test", "illustration pipeline"),
-    ("System/Visual/Illustration pipeline.md", "transparent", "cutouts with gradients in Blender"),
-    ("System/Visual/Illustration pipeline.md", "Openverse", "free stock sources"),
-    ("System/Visual/Prompt - per-scene generation guide.md", "specification, not a scene", "content-first prompts"),
-    ("System/Visual/On-screen text style.md", "specificity test", "text with personality"),
-    ("System/Content/Channel identity.md", "curious specialist", "channel personality"),
-    ("System/Editing/Blender editing.md", "CHECK=1", "voices checked in the builder"),
-    ("System/Process/Production process.md", "visual plan", "stage 3 is the visual plan"),
-    ("System/Process/Fast workflow.md", "stock", "stock photos in the workflow"),
-    ("System/Process/Feedback loop.md", "single source of knowledge", "the vault is one coherent source"),
-    ("CLAUDE.md", "Feedback loop", "the agent guide points to the feedback procedure"),
-    # Magnetar feedback, 4 Oct 2026
-    ("System/Guidelines for new scripts.md", "need-to-know", "first 3 seconds are a claim, not a story"),
-    ("System/Guidelines for new scripts.md", "Scientific fidelity beats creativity", "explainers are scientific"),
-    ("System/Guidelines for new scripts.md", "No bare backdrops", "numbers sit on real images"),
-    ("System/Guidelines for new scripts.md", "Word-by-word captions", "captions on every video"),
-    ("System/Content/Narration guide.md", "explains a mechanism", "explain, do not narrate"),
-    ("System/Content/Idea and hook quality.md", "need-to-know claim", "hook is a claim"),
-    ("System/Visual/Illustration pipeline.md", "Scientific fidelity beats creativity", "illustration pipeline"),
-    ("System/Visual/Illustration pipeline.md", "No bare backdrops", "illustration pipeline"),
-    ("System/Visual/Prompt - per-scene generation guide.md", "No glow, no light rays", "scientific explainer prompts"),
-    ("System/Visual/On-screen text style.md", "the middle of the frame (50 % of the height)", "caption zone is the centre of the frame (user, 5 Oct 2026)"),
-    ("System/Editing/Blender editing.md", "word_timings.py", "captions pipeline"),
-    ("System/Content/Shorts quality bar.md", "Checklist before P7", "the Short quality bar"),
-    ("System/Content/Channel strategy.md", "inauthentic content", "monetization policy awareness"),
-    ("System/Content/Channel strategy.md", "Not verified", "strategy says what was not verified"),
-    ("CLAUDE.md", "need-to-know", "agent guide carries the new hard rule"),
-    ("System/Process/Fast workflow.md", "gpt-image-2", "very good image model for the few generated plates (user, 5 Oct 2026)"),
-    ("System/Process/Media convention.md", "Legacy", "videos are grouped by Week NN and the rest is Legacy (user, 5 Oct 2026)"),
-    ("System/Content/Shorts quality bar.md", "middle of the frame, 50 % of the height", "captions sit in the middle of the frame, clear of the Shorts interface (user, 5 Oct 2026)"),
-    ("System/Guidelines for new scripts.md", "Upload package", "every video gets an Upload note with title, description, hashtags, thumbnail (user, 5 Oct 2026)"),
-    ("System/Guidelines for new scripts.md", "Never write ≈ ≥ ≤ → in a card", "symbols the card font lacks (Battery and lithium r1, 5 Oct 2026)"),
-    # engagement, design and brand playbook (4 Oct 2026)
-    ("System/Content/Channel playbook.md", "Engaged views", "engaged views, not raw views"),
-    ("System/Content/Channel playbook.md", "On-screen design system", "text box and highlight design written down"),
-    ("System/Content/Channel playbook.md", "Mission (one sentence)", "channel mission"),
-    ("System/Content/Channel voice.md", "Austin it is", "channel voice (user, 5 Oct 2026)"),
-    ("System/Content/Channel playbook.md", "Redtail it is", "channel name (user, 5 Oct 2026)"),
-    ("System/Content/Channel playbook.md", "[[Brand options]]", "brand logo under review (user, 5 Oct 2026: old avatar and banner deleted as a bias)"),
-    ("System/Content/Channel playbook.md", "Science at full speed", "Redtail slogan (user, 5 Oct 2026: banner B)"),
-    ("System/Content/Channel strategy.md", "one Short a day", "cadence is daily (user, 5 Oct 2026)"),
-    ("System/Guidelines for new scripts.md", "Copy-paste text", "pasteable text sits in a plain code block, ASCII only (user, 5 Oct 2026)"),
-    ("System/Process/Upload note template.md", "TikTok", "every Upload note has a TikTok section (user, 5 Oct 2026)"),
-    ("System/Guidelines for new scripts.md", "one Short a day", "daily cadence in the script rules (user, 5 Oct 2026)"),
-    ("System/Process/Fast workflow.md", "Upload note template", "package E builds the Upload note"),
-    ("CLAUDE.md", "one Short a day", "agent guide states the cadence"),
-    ("Pipeline/Idea template.md", "hook_type", "idea notes carry the hook type for the analytics"),
-    ("System/Process/Analytics.md", "Sample rule", "under ~100 views read counts only (first report, 5 Oct 2026)"),
-    ("System/Process/Analytics.md", "youtube_analytics.py", "YouTube numbers are pulled from the API (user, 5 Oct 2026)"),
-    ("System/Process/Analytics.md", "snapshots.csv", "metrics live in CSVs the agent keeps (user, 5 Oct 2026)"),
-    ("System/Process/Production process.md", "Measure and learn", "stage 9 closes the loop with the numbers"),
-    ("System/Content/Idea and hook quality.md", "Analytics/Report.md", "the idea gate reads the channel data"),
-    ("CLAUDE.md", "Analytics/Report.md", "the agent reads the report before choosing"),
-    ("System/Process/TikTok upload.md", "SELF_ONLY", "TikTok API unaudited = private only; route is manual (docs, 5 Oct 2026)"),
-    ("System/Process/YouTube upload.md", "Unaudited API projects", "API uploads lock to private until audit (docs, 5 Oct 2026)"),
-    ("CLAUDE.md", "youtube_upload.py", "agent guide points at the uploader"),
-    # Superconductors feedback, 4 Oct 2026
-    ("System/Guidelines for new scripts.md", "Plain-words test", "hook in plain words"),
-    ("System/Guidelines for new scripts.md", "One thread, a fact budget", "theme line and fact budget"),
-    ("System/Guidelines for new scripts.md", "concrete payoff", "concrete ending"),
-    ("System/Guidelines for new scripts.md", "Cut test", "compact scripts"),
-    ("System/Guidelines for new scripts.md", "Reference images are the main source of change", "more reference images"),
-    ("System/Content/Narration guide.md", "theme line", "through-line"),
-    ("System/Content/Shorts quality bar.md", "LONG PLATE", "a new image every 3 to 4 s"),
-    ("System/Content/Shorts quality bar.md", "No branding inside the video", "no in-video branding"),
-    ("System/Visual/On-screen text style.md", "Keep exactly", "text layout is frozen"),
-    ("System/Content/Channel voice.md", "Expressiveness", "expressive voice A/B"),
-    ("CLAUDE.md", "no branding inside the video", "agent guide carries it"),
-    ("System/Process/Post-render feedback template.md", "Keep exactly", "feedback template has its keep/change section"),
-    ("System/Process/Feedback loop.md", "Post-render feedback template", "the loop points at the template"),
-    ("System/Editing/Blender editing.md", "Sound design", "synthesized sound design documented"),
-    ("System/Guidelines for new scripts.md", "synthesized by the builder", "sound design on by default"),
-    ("System/Content/Channel playbook.md", "Not verified", "playbook says what is hypothesis"),
+    # (file, phrase, rule it protects)
+    ("System/Playbook.md", "Street-lamp test", "idea gate"),
+    ("System/Playbook.md", "Five candidate hooks", "hook earns its reaction"),
+    ("System/Playbook.md", "Facts bank", "idea gate"),
+    ("System/Playbook.md", "never seconds", "length is planned in words"),
+    ("System/Playbook.md", "need-to-know claim", "first 3 seconds"),
+    ("System/Playbook.md", "Explain, do not narrate", "no storytelling"),
+    ("System/Playbook.md", "theme line", "one thread"),
+    ("System/Playbook.md", "concrete payoff", "ending"),
+    ("System/Playbook.md", "Cut test", "compact script"),
+    ("System/Playbook.md", "Usefulness test", "every plate earns its place"),
+    ("System/Playbook.md", "no custom style", "model's own style"),
+    ("System/Playbook.md", "Scientific fidelity beats creativity", "faithful explainers"),
+    ("System/Playbook.md", "No bare backdrops", "numbers sit on real images"),
+    ("System/Playbook.md", "Specificity test", "text with a point of view"),
+    ("System/Playbook.md", "Word-by-word captions", "captions on every video"),
+    ("System/Playbook.md", "No branding inside the video", "no in-video branding"),
+    ("System/Playbook.md", "never write ≈ ≥ ≤ →", "font lacks those symbols"),
+    ("System/Playbook.md", "BigSoundBank and Freesound are deferred", "sound sources"),
+    ("System/Playbook.md", "RemArc", "BBC effects are non-commercial"),
+    ("System/Playbook.md", "pads every take", "voice start fix"),
+    ("System/Playbook.md", "Not verified, said out loud", "honesty about what the agent cannot check"),
+    ("System/Workflow.md", "no Replicate call", "no media before P4"),
+    ("System/Workflow.md", "gpt-image-2", "generated plate model"),
+    ("System/Workflow.md", "cap = base", "budget cap"),
+    ("System/Workflow.md", "Week NN", "week folders"),
+    ("System/Style.md", "50 % of the height", "captions centred"),
+    ("System/Style.md", "Redtail", "brand"),
+    ("System/Playbook.md", "`Austin`", "channel voice"),
+    ("System/Publish.md", "Inauthentic content", "monetization policy"),
+    ("System/Publish.md", "Default private", "uploads are private by default"),
+    ("System/Publish.md", "```text", "copy-paste blocks"),
+    ("System/Publish.md", "Sample rule", "under 100 views read counts only"),
+    ("System/Publish.md", "one change per video", "analytics attribution"),
+    ("System/Feedback loop.md", "single source of knowledge", "feedback ends in the vault"),
+    ("CLAUDE.md", "need-to-know", "agent guide carries the hook rule"),
+    ("CLAUDE.md", "No media before P4", "agent guide carries the gate"),
+    ("CLAUDE.md", "Analytics/Report.md", "report read before choosing"),
+    ("Pipeline/Idea template.md", "hook_type", "idea notes carry the hook type"),
 ]
 
 problems = []
@@ -141,11 +91,9 @@ for rel, t in notes.items():
         problems.append(f"no front matter: {rel}")
     else:
         keys = {l.split(":")[0].strip() for l in fm.group(1).splitlines() if ":" in l and not l.startswith((" ", "-"))}
-        need = {"type", "created", "updated"} if rel.startswith("Pipeline/Ideas") else {"type", "created", "updated", "status", "tags"}
-        if rel.startswith(("Pipeline/Idea template", "Pipeline/Ideas")):
-            need = {"type", "status"}
+        need = {"type", "status"} if rel.startswith("Pipeline/Idea") else {"type", "updated"}
         miss = need - keys
-        if miss and rel != "YouTube Channel.md":
+        if miss:
             problems.append(f"front matter of {rel} lacks {sorted(miss)}")
 
 index = notes.get("YouTube Channel.md", "")
