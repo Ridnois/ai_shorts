@@ -42,7 +42,7 @@ YouTube Channel.md
 └── Videos/         Week 01 (current) and Legacy; one folder per video: Status, scripts, research, upload note
 ```
 
-A new video = a folder in `Videos/Week NN/` (the current week) with its `<Topic> - Status` note, copied from the template in [[Production process]]; Week 01 is the Battery and lithium video, Week 02 the copper video.
+A new video = a folder in `Videos/Week NN/` (the current week) with its `<Topic> - Status` note, copied from the template in [[Production process]]; Week 01 (5 to 11 Oct 2026) holds the Battery and lithium and the Copper and the AI race videos.
 
 ## Reference by topic
 
@@ -67,17 +67,12 @@ A new video = a folder in `Videos/Week NN/` (the current week) with its `<Topic>
 
 Videos are grouped by publishing week: **Week 01 is the first video made under the full process**; everything before it is **Legacy** (user, 5 Oct 2026). Notes live in `Videos/Week NN/<Topic>/`, media in `Media/Week NN/<Video>/` ([[Media convention]]).
 
-### Week 02
-
-| Video | Stage | Status | Note |
-| --- | --- | --- | --- |
-| Copper and the AI race (Short 9:16, **160 words**, **English**, ≈ 61 s, **Austin** at speed 1.0, new caption layout, `gpt-image-2`) | 7 · r1 rendering, awaiting P7 | delegated by the user: 7 voice takes, 1 `gpt-image-2` plate, 7 word-timing runs (≈ $0.41 of a ≈ $0.49 cap, price of the image unconfirmed); 18 plates, 10 free photos | [[Copper and the AI race - Status]] · [[Script - Copper and the AI race]] |
-
 ### Week 01
 
 | Video | Stage | Status | Note |
 | --- | --- | --- | --- |
 | Battery and lithium (Short 9:16, **200 words** by the user's request, **English**, ≈ 72 s, first with the **Austin** voice at speed 1.0) | 7 · r1 rendered (the user: "perfect"); 8 · upload package ready | delegated by the user: 9 voice takes, 3 `gpt-image-1.5` plates, 8 word-timing runs (≈ $0.35 of a ≈ $0.41 cap); 21 plates, 14 free photos | [[Battery and lithium - Status]] · [[Script - Battery and lithium]] · [[Upload - Battery and lithium]] |
+| Copper and the AI race (Short 9:16, **160 words**, **English**, ≈ 61 s, **Austin** at speed 1.0, new caption layout, `gpt-image-2`) | 7 · r1 rendered, awaiting P7 | delegated by the user: 7 voice takes, 1 `gpt-image-2` plate, 7 word-timing runs (≈ $0.41 of a ≈ $0.49 cap, price of the image unconfirmed); 18 plates, 10 free photos | [[Copper and the AI race - Status]] · [[Script - Copper and the AI race]] |
 
 ### Legacy
 

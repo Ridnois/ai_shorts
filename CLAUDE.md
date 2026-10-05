@@ -52,6 +52,6 @@ System/Visual/                illustration pipeline · prompts · on-screen text
 System/Editing/               Blender editing · transitions   System/Models/    models and prices
 System/scripts/               build_video.py · stock_photos.py · replicate_helper.py · check_vault.py · legacy build_*.py
 Pipeline/                     idea queue, template and table   Research/         general model research
-Videos/Week NN/<Topic>/       Status · Research · Scripts · feedback · Upload (Week 01 is the current week; Videos/Legacy/ holds everything made before it)
+Videos/Week NN/<Topic>/       Status · Research · Scripts · feedback · Upload (a Week NN is a calendar week, Mon to Sun; Week 01 = 5 to 11 Oct 2026; Videos/Legacy/ holds everything made before it)
 Media/Week NN/<Video>/        generated media, same week as the note (local, gitignored); Media/Legacy/, Media/_canal/ (shared, brand)
 ```

@@ -3,10 +3,10 @@ type: research
 created: 2026-10-05
 updated: 2026-10-05
 status: stages 0 to 4 done, generation done, rendering (delegated by the user: "do it all for yourself")
-tags: [research, youtube, script, copper, ai, shorts, week-02]
+tags: [research, youtube, script, copper, ai, shorts, week-01]
 ---
 
-# Script · Copper and the AI race (Week 02)
+# Script · Copper and the AI race (Week 01)
 
 ← [[Copper and the AI race - Status]] · [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Narration guide]] · [[Idea and hook quality]]
 
@@ -78,7 +78,7 @@ Voice text spells "S and P". **Caption display spellings** (`plan.json` `caption
 
 ## 4. Visual plan (S stock photo · G generated explainer), 18 plates
 
-**17 stock, 1 generated** (the vault now generates ≤ 3 plates and spends on a very good model: `gpt-image-2`). Photos in `Media/Week 02/Copper-AI/stock/`, credits in `_credits.jsonl` and in [[Copper and the AI race - Status]].
+**17 stock, 1 generated** (the vault now generates ≤ 3 plates and spends on a very good model: `gpt-image-2`). Photos in `Media/Week 01/Copper-AI/stock/`, credits in `_credits.jsonl` and in [[Copper and the AI race - Status]].
 
 | # | Scene | Type | Source | This plate lets the viewer see ___ so they understand ___ |
 | --- | --- | --- | --- | --- |
