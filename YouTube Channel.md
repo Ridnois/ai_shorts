@@ -70,7 +70,7 @@ Videos are grouped by publishing week: **Week 01 is the first video made under t
 
 | Video | Stage | Status | Note |
 | --- | --- | --- | --- |
-| Battery and lithium (Short 9:16, **200 words** by the user's request, **English**, ≈ 72 s, first with the **Austin** voice at speed 1.0) | 7 · r1 rendered, awaiting P7 | delegated by the user: 9 voice takes, 3 `gpt-image-1.5` plates, 8 word-timing runs (≈ $0.35 of a ≈ $0.41 cap); 21 plates, 14 free photos | [[Battery and lithium - Status]] · [[Script - Battery and lithium]] |
+| Battery and lithium (Short 9:16, **200 words** by the user's request, **English**, ≈ 72 s, first with the **Austin** voice at speed 1.0) | 7 · r1 rendered (the user: "perfect"); 8 · upload package ready | delegated by the user: 9 voice takes, 3 `gpt-image-1.5` plates, 8 word-timing runs (≈ $0.35 of a ≈ $0.41 cap); 21 plates, 14 free photos | [[Battery and lithium - Status]] · [[Script - Battery and lithium]] · [[Upload - Battery and lithium]] |
 
 ### Legacy
 

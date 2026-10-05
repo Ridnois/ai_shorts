@@ -60,6 +60,8 @@ INVARIANTS = [
     ("System/Content/Channel strategy.md", "inauthentic content", "monetization policy awareness"),
     ("System/Content/Channel strategy.md", "Not verified", "strategy says what was not verified"),
     ("CLAUDE.md", "need-to-know", "agent guide carries the new hard rule"),
+    ("System/Process/Media convention.md", "Legacy", "videos are grouped by Week NN and the rest is Legacy (user, 5 Oct 2026)"),
+    ("System/Guidelines for new scripts.md", "Upload package", "every video gets an Upload note with title, description, hashtags, thumbnail (user, 5 Oct 2026)"),
     ("System/Guidelines for new scripts.md", "Never write ≈ ≥ ≤ → in a card", "symbols the card font lacks (Battery and lithium r1, 5 Oct 2026)"),
     # engagement, design and brand playbook (4 Oct 2026)
     ("System/Content/Channel playbook.md", "Engaged views", "engaged views, not raw views"),

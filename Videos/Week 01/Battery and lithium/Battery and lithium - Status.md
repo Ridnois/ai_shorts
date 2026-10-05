@@ -10,7 +10,7 @@ tags: [research, youtube, status, battery, lithium, shorts]
 
 ← [[YouTube Channel]] · [[Script - Battery and lithium]] · [[Fast workflow]] · [[Guidelines for new scripts]] · [[Channel voice]]
 
-Short 9:16, English, **200 words** (the user's number, above the 130 to 190 range), first video with the **Austin** voice at **`speed` 1.0** ("pace 1"). Question: why did a metal that is not rare become something countries compete for? Media in `Media/Week 01/Battery-lithium/` (prefix `bt-`). The Short itself carries no branding ([[Channel playbook]] §4).
+Short 9:16, English, **200 words** (the user's number, above the 130 to 190 range), first video with the **Austin** voice at **`speed` 1.0** ("pace 1"). Question: why did a metal that is not rare become something countries compete for? Media in `Media/Week 01/Battery-lithium/` (prefix `bt-`); this is **Week 01**, the first video of the weekly schedule ([[Media convention]]). The Short itself carries no branding ([[Channel playbook]] §4).
 
 ## Stage log
 
@@ -53,7 +53,7 @@ One retry of one plate fits inside the total cap; going over needs your approval
 - G3 sodium · ✅ `plates/bt-p17-sodium-v1.png` · [andv36ss…](https://replicate.com/p/andv36ss5drmr0d11kwvm1y6vr)
 - Word timings · `incredibly-fast-whisper` word, 8 runs · ✅ `voice/*.words.json`
 
-**Total: 20 predictions (9 voice, 3 images, 8 timings), ≈ $0.35 of the ≈ $0.41 cap** (voice ≈ $0.115, images ≈ $0.15 at the unconfirmed $0.05, timings ≈ $0.08 at the unconfirmed $0.01); no retries. Replicate's `metrics` carry no cost, so the dashboard check is yours.
+**Total for the video: 20 predictions (9 voice, 3 images, 8 timings), ≈ $0.35 of the ≈ $0.41 cap**; **thumbnails (P8, requested separately): 3 `gpt-image-1.5` hero images, medium, ≈ $0.15 of a $0.18 cap** (`Media/Week 01/Battery-lithium/upload/_log.jsonl`) (voice ≈ $0.115, images ≈ $0.15 at the unconfirmed $0.05, timings ≈ $0.08 at the unconfirmed $0.01); no retries. Replicate's `metrics` carry no cost, so the dashboard check is yours.
 
 ## Checks done by the agent (stills and numbers)
 

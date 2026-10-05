@@ -69,7 +69,7 @@ The stages are those of [[Production process]]; they are reviewed together:
 6. **Prompts in the positive**; fix the prompt **before** retrying and retry **once**.
 7. **Series, not parallel** (429).
 8. **Discards go to `_descartes/`** and are not regenerated "to compare".
-9. **No thumbnail on Shorts**; on long videos reuse an image from the video.
+9. **Thumbnails (updated 5 Oct 2026):** a Short gets one when the channel can upload it: YouTube announced custom Shorts thumbnails on 24 July 2026 for Partner Program channels, desktop first; otherwise pick the opening frame. The feed shows none, so it is polish, not the lever. Make it as **a generated hero image (`gpt-image-1.5`, ≈ $0.05, no text in the prompt) plus text composed locally by `System/scripts/make_thumbnail.py`** (1080×1920, text and subject inside the centre 3:2 band); 3 candidates, budgeted like any generated plate. Long videos reuse an image from the video.
 10. **A model research does not count as the video's cost** (see [[Guidelines for new scripts]] §5).
 
 ## 5. P4 budget (fixed format, in dollars)
