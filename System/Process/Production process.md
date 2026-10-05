@@ -38,7 +38,7 @@ Each stage ends in a **gate 🚦**: the user reviews and approves before moving 
 
 A short request ("a script about the power moves around helium") starts the process and **ends at gate P4**, not at the media:
 
-1. Create the video's folder in `Videos/` with its `<Topic> - Status` note.
+1. Create the video's folder in `Videos/Week NN/` (the current week) with its `<Topic> - Status` note; a new week = a new `Videos/Week NN/` and `Media/Week NN/` pair.
 2. Do stages 0 to 4 **as text only**: idea and question, research with sources and dates, script per [[Narration guide]], the visual plan per [[Illustration pipeline]], and the voice and image prompts, ready to paste, with the *predictions* budget per category.
 3. Everything is marked as a **draft awaiting approval**; gates P1 to P4 are approved by the user, not by Claude.
 4. Deliver a summary and **stop**. Replicate is not called, nothing is created in `Media/` and nothing is edited until the user approves P4 and asks for it.
@@ -60,14 +60,18 @@ A short request ("a script about the power moves around helium") starts the proc
 (vault root)  ← text, versioned in git
 ├── YouTube Channel.md               channel index
 ├── System/                          rules that apply to every video
-└── Videos/<Topic>/                  one folder per video
-    ├── <Topic> - Status.md          current stage and approvals log
-    ├── Research - <Topic>.md
-    └── Scripts/                     script versions
+└── Videos/
+    ├── Week NN/<Topic>/             one folder per video, grouped by publishing week (Week 01 = the first video under the process)
+    │   ├── <Topic> - Status.md      current stage and approvals log
+    │   ├── Research - <Topic>.md
+    │   ├── Scripts/                 script versions
+    │   └── Upload - <Topic>.md      the upload package (title, description, hashtags, thumbnail, checklist)
+    └── Legacy/<Topic>/              everything made before Week 01 (kept as a record)
 
 Media/              ← media, only on this machine (ignored by git)
-├── _canal/                          shared: style, references, music
-└── <Video> - <N seconds>/           voz · audio · ilustraciones · miniatura · render
+├── _canal/                          shared: style, references, music, brand drafts
+├── Week NN/<Video>/                 voice · plates · stock · render (the same week as the note in Videos/)
+└── Legacy/<Video> - <N seconds>/    older videos, with their Spanish inner names
 ```
 
 ## Status template per video

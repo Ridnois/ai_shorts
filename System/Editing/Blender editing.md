@@ -15,8 +15,8 @@ Stage 7 of the [[Production process]]: the cut is assembled in Blender 5.2's vid
 ## How it runs
 
 ```
-VIDEO="Media/<Video> - <N seconds>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py   # assemble, measure, check the voices
-VIDEO="Media/<Video> - <N seconds>" blender -b --factory-startup --python System/scripts/build_video.py                          # assemble and render
+VIDEO="Media/Week NN/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py   # assemble, measure, check the voices
+VIDEO="Media/Week NN/<Video>" blender -b --factory-startup --python System/scripts/build_video.py                          # assemble and render
 ```
 
 - Run the first command, read the printed timings and the `CHECK` lines, then render **in the background** (≈ 3 to 5 minutes for 85 s). Paths in the saved `.blend` are absolute, so it can be reopened from anywhere.
@@ -40,7 +40,7 @@ Feedback (Twisted carbon, 4 Oct 2026): *"small voice cut on the start of the vid
 Feedback (Magnetar, 4 Oct 2026): *"add transcriptions to the video, word by word, so users can follow the narrative with the audio off."* Every video has them:
 
 1. `plan.json` gets `texts`: one narration string per voice take, exactly as voiced (the builder asserts the counts match). **`captions` (optional, same length, `""` = same as `texts`) holds the spelling for the eye**: the voice reads "two hundred fifty kelvin", the caption shows "250 K". The aligner maps the display words onto the heard words, so the word counts may differ (Moltbook research, 4 Oct 2026).
-2. `python3 System/scripts/word_timings.py Media/<Video>` asks `vaibhavs10/incredibly-fast-whisper` (`timestamp: word`) for the word times of each take and writes `voice/<take>.words.json` (≈ $0.01 per take, 429s are retried by the helper). If a file is missing, the builder **estimates** the times from the characters and punctuation inside the measured speech span.
+2. `python3 System/scripts/word_timings.py "Media/Week NN/<Video>"` asks `vaibhavs10/incredibly-fast-whisper` (`timestamp: word`) for the word times of each take and writes `voice/<take>.words.json` (≈ $0.01 per take, 429s are retried by the helper). If a file is missing, the builder **estimates** the times from the characters and punctuation inside the measured speech span.
 3. `build_video.py` maps the script's own words onto those times (if whisper heard a different number of words, the script words are spread over the heard span by characters) and adds one `TEXT` strip per word on **channel 16**: Noto Sans Display Bold 104 px, capitals, white, outline and shadow, copper when the word has a digit, centred at `CAP_Y` = 83.5 % from the top. A word stays until the next starts, up to 0.55 s across a pause.
 4. `keywords` in `plan.json` (≤ 6 key terms) are shown in copper like figures; the builder also writes `render/<prefix>.srt` (5 words per cue) to upload as a caption track.
 5. It prints `CAPTIONS n words, timed by whisper | estimated`. **Verify by stills** (a word is on screen where the voice speaks it is *not* verifiable by the agent).

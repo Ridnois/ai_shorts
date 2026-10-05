@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Redtail logo: style 2 (the user's winner) with the new wordmark, gpt-image-1.5, one prediction. python3 System/scripts/gen_redtail_logo.py [n]
-Cap $0.06 (5 Oct 2026). Output Media/Brand redtail/<n>.png (transparent); id logged in _log.jsonl."""
+Cap $0.06 (5 Oct 2026). Output Media/_canal/brand-redtail/<n>.png (transparent); id logged in _log.jsonl."""
 import sys, json, os
 sys.path.insert(0, "System/scripts")
 os.environ.setdefault("REPLICATE_API_TOKEN", next(l.split("=", 1)[1].strip() for l in open(".env") if l.startswith("REPLICATE_API_TOKEN")))
 import replicate_helper as R
-OUT = "Media/Brand redtail"; os.makedirs(OUT, exist_ok=True)
+OUT = "Media/_canal/brand-redtail"; os.makedirs(OUT, exist_ok=True)
 REFS = ["System/Brand/Redtail/redtail-style-reference.png"]
 PROMPT = ("Redesign this sports-team logo for a science explainer channel renamed REDTAIL. Keep the same style: the aggressive side-profile orange fox head in a round ring, "
           "sharp angular planes, thick dark outline, American football (NFL) look. Replace the lettering: the only text is the word REDTAIL, spelled exactly R-E-D-T-A-I-L, "

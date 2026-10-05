@@ -3,7 +3,7 @@
     SOLO_PROYECTO=1 blender -b --factory-startup --python System/scripts/build_helium2.py   # assembles and measures
     blender -b --factory-startup --python System/scripts/build_helium2.py                  # assembles and renders
 Base: build_chips.py. First English video: 7 voices, 13 plates (2 per scene, 1 in the last), one label card per plate (label, title, detail).
-Plates are pre-composed to 1080x1920 (blurred background + the sharp plate) in Media/Helium - 70 seconds/plates/_9x16/.
+Plates are pre-composed to 1080x1920 (blurred background + the sharp plate) in Media/Legacy/Helium - 70 seconds/plates/_9x16/.
 """
 import os
 
@@ -11,7 +11,7 @@ import aud
 import bpy
 import numpy as np
 
-ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "Media", "Helium - 70 seconds")
+ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "Media", "Legacy", "Helium - 70 seconds")
 VOZ, ILU, OUT = (f"{ROOT}/{d}" for d in ("voice", "plates/_9x16", "render"))
 FX = f"{OUT}/_fx"
 FPS, W, H = 24, 1080, 1920

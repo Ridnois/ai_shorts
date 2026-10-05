@@ -39,10 +39,10 @@ YouTube Channel.md
 │   ├── Brand/      Redtail logo and banner, brand register and archive: [[Brand options]] · [[Logo references]] · decision in [[Channel playbook]] §4 · voice candidates: [[Voice samples]]
 │   └── scripts/    build_video.py (the builder) · stock_photos.py · replicate_helper.py · check_vault.py · legacy build_*.py
 ├── Research/       general notes on models and styles, unrelated to a script
-└── Videos/         one folder per video: Status, scripts, research
+└── Videos/         Week 01 (current) and Legacy; one folder per video: Status, scripts, research, upload note
 ```
 
-A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied from the template in [[Production process]].
+A new video = a folder in `Videos/Week NN/` (the current week) with its `<Topic> - Status` note, copied from the template in [[Production process]]; Week 01 is the Battery and lithium video.
 
 ## Reference by topic
 
@@ -64,6 +64,16 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 
 ## Videos
 
+Videos are grouped by publishing week: **Week 01 is the first video made under the full process**; everything before it is **Legacy** (user, 5 Oct 2026). Notes live in `Videos/Week NN/<Topic>/`, media in `Media/Week NN/<Video>/` ([[Media convention]]).
+
+### Week 01
+
+| Video | Stage | Status | Note |
+| --- | --- | --- | --- |
+| Battery and lithium (Short 9:16, **200 words** by the user's request, **English**, ≈ 72 s, first with the **Austin** voice at speed 1.0) | 7 · r1 rendered, awaiting P7 | delegated by the user: 9 voice takes, 3 `gpt-image-1.5` plates, 8 word-timing runs (≈ $0.35 of a ≈ $0.41 cap); 21 plates, 14 free photos | [[Battery and lithium - Status]] · [[Script - Battery and lithium]] |
+
+### Legacy
+
 | Video | Stage | Status | Note |
 | --- | --- | --- | --- |
 | Magnets and geopolitics (38 s) | 7 · provisional cut | First video; made before the process existed | [[Magnets and geopolitics - Status]] |
@@ -78,4 +88,3 @@ A new video = a folder in `Videos/` with its `<Topic> - Status` note, copied fro
 | Moon (Short 9:16, 137 words, **English**) | 7 · built by the agent on the user's delegation (option C of [[The Moon is leaving us]]), awaiting P7 | first video with all the Superconductors-feedback rules: plain hook, theme line, 18 plates, no branding; 2 `gpt-image-1.5` plates + a drawn diagram + 13 NASA and Commons photos (≈ $0.24) | [[Moon - Status]] |
 | Superconductors (Short 9:16, 162 words, **English**) | 7 · built by the agent on the user's delegation, awaiting P7 | first video with the Magnetar-feedback rules: need-to-know opener, faithful schematics, real backdrops, word-by-word captions; 4 `gpt-image-1.5` plates + 5 Commons photos | [[Superconductors - Status]] |
 | Asteroid mining (Short 9:16, 162 words, **English**) | 7 · built by the agent on the user's delegation, awaiting P7 | the chain of a real mine in four steps (127 g brought home so far, ball-pit landing, no zero-gravity refining, the platinum market); 19 plates, 17 NASA or JAXA or Commons photos and 2 schematics; [[Asteroid mining - Status]] |
-| Battery and lithium (Short 9:16, **200 words** by the user's request, **English**, ≈ 72 s, first with the **Austin** voice at speed 1.0) | 7 · r1 rendered, awaiting P7 | delegated by the user: 9 voice takes, 3 `gpt-image-1.5` plates, 8 word-timing runs (≈ $0.35 of a ≈ $0.41 cap); 21 plates, 14 free photos | [[Battery and lithium - Status]] · [[Script - Battery and lithium]] |

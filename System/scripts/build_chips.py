@@ -4,7 +4,7 @@
     blender -b --factory-startup --python System/scripts/build_chips.py                  # assembles and renders
 Base: build_queque.py. 7 voices, 8 plates (2 in scene 5), label cards on scenes 1 to 6. Narration and on-screen
 text are Spanish (made before the English-only decision); for English videos change `TEXTOS` and the voice files.
-Media folder: Media/Chips - 85 segundos/ (voz/, ilustraciones/, render/).
+Media folder: Media/Legacy/Chips - 85 segundos/ (voz/, ilustraciones/, render/).
 """
 import os
 
@@ -12,7 +12,7 @@ import aud
 import bpy
 import numpy as np
 
-ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "Media", "Chips - 85 segundos")
+ROOT = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "Media", "Legacy", "Chips - 85 segundos")
 VOZ, ILU, OUT = (f"{ROOT}/{d}" for d in ("voz", "ilustraciones", "render"))
 FX = f"{OUT}/_fx"
 FPS, W, H = 24, 1080, 1920

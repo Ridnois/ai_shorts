@@ -33,9 +33,9 @@ When the user gives feedback (after a render, or about the process), follow **`S
 | --- | --- |
 | Stock photos (free, credited) | `python3 System/scripts/stock_photos.py search "<query>" --source openverse\|nasa\|commons` and `get …` |
 | Replicate calls | `System/scripts/replicate_helper.py` (`run`, `download` with retries, `recover(id, dest)`) with `REPLICATE_API_TOKEN` from `.env` |
-| Sound or music (opt-in, free licensed libraries, credited; BigSoundBank and Freesound deferred) | `System/Guidelines for new scripts.md` §3, manual download with the license recorded in `Media/<Video>/sound/_credits.jsonl` |
-| Word timings for the captions | `python3 System/scripts/word_timings.py Media/<Video>` (needs `REPLICATE_API_TOKEN`; the builder estimates if skipped) |
-| Assemble and render | `VIDEO="Media/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`, then without `SOLO_PROYECTO` in the background |
+| Sound or music (opt-in, free licensed libraries, credited; BigSoundBank and Freesound deferred) | `System/Guidelines for new scripts.md` §3, manual download with the license recorded in `Media/Week NN/<Video>/sound/_credits.jsonl` |
+| Word timings for the captions | `python3 System/scripts/word_timings.py "Media/Week NN/<Video>"` (needs `REPLICATE_API_TOKEN`; the builder estimates if skipped) |
+| Assemble and render | `VIDEO="Media/Week NN/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`, then without `SOLO_PROYECTO` in the background |
 | Pipeline runner | `~/Documents/youtube-pipeline/pipeline.py` (a user service; its prompts follow these notes) |
 | Vault coherence | `python3 System/scripts/check_vault.py` |
 
@@ -51,5 +51,6 @@ System/Visual/                illustration pipeline · prompts · on-screen text
 System/Editing/               Blender editing · transitions   System/Models/    models and prices
 System/scripts/               build_video.py · stock_photos.py · replicate_helper.py · check_vault.py · legacy build_*.py
 Pipeline/                     idea queue, template and table   Research/         general model research
-Videos/<Topic>/               Status · Research · Scripts · feedback   Media/   generated media (local, gitignored)
+Videos/Week NN/<Topic>/       Status · Research · Scripts · feedback · Upload (Week 01 is the current week; Videos/Legacy/ holds everything made before it)
+Media/Week NN/<Video>/        generated media, same week as the note (local, gitignored); Media/Legacy/, Media/_canal/ (shared, brand)
 ```

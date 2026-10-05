@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: v1 · template for the user's feedback after a render (P7); copy it to Videos/<Topic>/Post-render feedback - <Topic>.md
+status: v1 · template for the user's feedback after a render (P7); copy it to Videos/Week NN/<Topic>/Post-render feedback - <Topic>.md
 tags: [research, youtube, process, feedback, template]
 ---
 
@@ -10,7 +10,7 @@ tags: [research, youtube, process, feedback, template]
 
 ← [[YouTube Channel]] · [[Feedback loop]] · [[Production process]]
 
-**How to use it:** copy everything below the line into `Videos/<Topic>/Post-render feedback - <Topic>.md` (the agent does this when a render is ready), fill what you want, leave the rest empty, and tell the agent *"feedback is in"*. Free sentences are fine; **your words are kept verbatim**. The agent then follows [[Feedback loop]]: classifies every point by layer, edits the vault everywhere it applies, adds an invariant to `check_vault.py`, and answers with a *what changed where* table, appended below as **Response**.
+**How to use it:** copy everything below the line into `Videos/Week NN/<Topic>/Post-render feedback - <Topic>.md` (the agent does this when a render is ready), fill what you want, leave the rest empty, and tell the agent *"feedback is in"*. Free sentences are fine; **your words are kept verbatim**. The agent then follows [[Feedback loop]]: classifies every point by layer, edits the vault everywhere it applies, adds an invariant to `check_vault.py`, and answers with a *what changed where* table, appended below as **Response**.
 
 Scale for the ratings: **1** = redo, **2** = weak, **3** = acceptable, **4** = good, **5** = keep exactly as is. Leave blank if you did not judge it.
 
@@ -29,7 +29,7 @@ tags: [research, youtube, feedback, <topic>]
 
 ← [[YouTube Channel]] · [[<Topic> - Status]] · [[Feedback loop]]
 
-**Render watched:** `Media/<Topic>/render/<file>.mp4` · **Watched with sound?** yes / no · **Device:** phone / desktop
+**Render watched:** `Media/Week NN/<Topic>/render/<file>.mp4` · **Watched with sound?** yes / no · **Device:** phone / desktop
 
 ## 1. Verdict
 

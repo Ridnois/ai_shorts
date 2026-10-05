@@ -11,7 +11,7 @@ import aud
 import bpy
 import numpy as np
 
-ROOT = sorted(__import__("glob").glob(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "Media", "Twisted carbon*")))[0]
+ROOT = sorted(__import__("glob").glob(os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "Media", "Legacy", "Twisted carbon*")))[0]
 VOZ, ILU, OUT = (f"{ROOT}/{d}" for d in ("voice", "plates/_9x16", "render"))
 FX = f"{OUT}/_fx"
 FPS, W, H = 24, 1080, 1920

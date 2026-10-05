@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """The Redtail channel banner (the user's winner, banner B, 5 Oct 2026). Free, local (PIL), no model call.
 2560x1440; crest + slogan sit inside the 1546x423 centre safe area (size from memory, check the Studio preview). python3 System/scripts/make_redtail_banner.py
-Writes System/Brand/Redtail/redtail-banner.png and a preview with the safe-area guide in Media/Brand redtail/."""
+Writes System/Brand/Redtail/redtail-banner.png and a preview with the safe-area guide in Media/_canal/brand-redtail/."""
 import os
 from PIL import Image, ImageDraw, ImageFont
-OUT = "Media/Brand redtail"; os.makedirs(OUT, exist_ok=True)
+OUT = "Media/_canal/brand-redtail"; os.makedirs(OUT, exist_ok=True)
 NAVY, INK, CREAM, ORANGE = (11, 26, 43), (20, 22, 38), (249, 240, 220), (240, 110, 30)
 BOLDI = "/usr/share/fonts/truetype/noto/NotoSansDisplay-BoldItalic.ttf"
 LOGO = "System/Brand/Redtail/redtail-logo.png"
