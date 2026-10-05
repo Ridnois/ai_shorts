@@ -23,7 +23,7 @@ Short 9:16, English, **200 words** (the user's number, above the 130 to 190 rang
 | 4 Prompts and budget | ✅ | **delegated by the user** (5 Oct 2026: *"Follow the steps until the render, use the date atemporally, keep the 200 words"*), cap ≈ $0.41 | prompts in the script note §5, budget below |
 | 5 Test | ⏭ folded into 6 | delegation | | scene 1 voice twice (default and the expressive variant), one generated plate and one stock photo composed |
 | 6 Generation | ✅ | delegation | 9 voice takes (8 + the scene 1 alternative), 3 plates (no retry), 8 word-timing runs |
-| 7 Editing | ⏳ **P7 is yours** | | `Media/Battery-lithium/render/bt-72s-9x16-r1.mp4` (+ `bt.srt`) |
+| 7 Editing | ✅ rendered · ⏳ **P7 is yours** | | `Media/Battery-lithium/render/bt-72s-9x16-r1.mp4` (65 MB, 71.9 s, 1080×1920, 24 fps; + `bt.srt`) |
 | 8 Publishing | ⏳ | | |
 
 Stock photos (free) were downloaded **before** P4 as part of package B into `Media/Battery-lithium/stock/` (credits in `_credits.jsonl`). **Weak points that remain:** five photos are small (345 to 722 px) and are shown as `contain` plates; no photo shows lithium clearly floating on water (the hook is carried by the voice and by the jar-of-oil photo); G1 was written from a specification, **not from a real cell diagram** (none was available in a fetchable format).
@@ -79,3 +79,11 @@ One retry of one plate fits inside the total cap; going over needs your approval
 | `bt-sodium2.jpg` | Faradion sodium-ion battery - Science Museum, London.jpg | The wub | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:Faradion_sodium-ion_battery_-_Science_Museum,_London.jpg) |
 
 **CC BY and CC BY-SA photos need a credit line in the description** (author, title, license, link). `bt-phone.jpg` (Samsung) is in the folder but not used.
+
+## Not verified by the agent (said out loud, for your P7)
+
+- **I did not hear the audio or watch the whole video**: how Austin sounds, whether the pace (≈ 187 words per minute while speaking) feels rushed, whether the sound design is balanced, and the motion of pushes and transitions. I looked at 24 stills and read the build numbers; the mp4's header shows the expected duration and an audio and a video track.
+- **A/B of scene 1:** the default take is in the video; compare it with `voice/bt-s1-voice-alt.mp3` (`stability` 0.35, `style` 0.35, `[curious]`) and tell me which wins.
+- **Facts to recheck before publishing:** the 18-month pond figure (sources say 12 to 24), IEA's "about 60 %" (a global 2024 refining share), CATL's sodium-ion claims (secondary sources), and the text of MOFCOM Notices 58 and 70 (read through law-firm and trade summaries). The pause is described atemporally ("for one year… a pause is not a repeal") so the video does not go stale.
+- **Weak images:** five small photos shown as `contain`; G1 was not built from a real cell diagram; G3's "larger ions" is a schematic (the radius ratio is not sourced in the vault); the CATL plant photo is the German site.
+- **Description to write at P8** with the credit lines for the CC BY and CC BY-SA photos, the sources, the AI disclosure (voice and schematics) and the cut-off date.
