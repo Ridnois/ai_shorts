@@ -8,7 +8,7 @@ tags: [youtube, upload, week-01, battery, lithium, shorts]
 
 # Upload · Battery and lithium (Week 01)
 
-← [[Battery and lithium - Status]] · [[Script - Battery and lithium]] · [[Channel playbook]] · [[Shorts quality bar]]
+← [[Battery and lithium - Status]] · [[Script - Battery and lithium]] · [[Style]] · [[Playbook]]
 
 User request (5 Oct 2026): *"Its perfect, now i want it to prepare for upload, reorganize the media files, organize the videos by week, this one is week 1 and the rest is legacy. then prepare note to show me the video, description, hashtags, and thumbnail… remember to research on how to build all of this in order to be captivating and improve metrics"*. **Nothing has been uploaded, scheduled or published: that is a manual step in YouTube Studio** (the API route discussed earlier is not built).
 
@@ -24,7 +24,7 @@ User: *"Thmbnail b is the winner, tittle recomendation is good, follow your reco
 
 *Heads-up recorded:* thumbnail B's text says the same thing as the title (not rare, a fight); I had paired the title with A so they would complement each other. It still works; if the repetition bothers you, title 2 ("Your Battery Runs on a Metal That Floats") pairs better with B.
 
-**Upload status (5 Oct 2026): not uploaded.** The channel is `UCCZX7-YPNPntwPKI1hdv2hQ` (REDTAIL, 0 videos), Studio is signed in and the Upload dialog is open in a Chrome tab. Claude in Chrome's `file_upload` accepts at most **10 MB** and the render is **65 MB**; a workaround that served the file from a temporary localhost server and attached it from the page was **denied by the permission check and was not pursued** (the server was shut down). Ways forward, the user decides: (a) the user attaches the file in the open dialog and the agent fills the rest; (b) the user explicitly approves the localhost route; (c) a one-time YouTube Data API setup (OAuth client created by the user; **guide and script now exist: [[YouTube upload]]**), which also serves the weekly cadence. Visibility: **Private until the user chooses a schedule** (the weekly slot is not decided).
+**Upload status (5 Oct 2026): not uploaded.** The channel is `UCCZX7-YPNPntwPKI1hdv2hQ` (REDTAIL, 0 videos), Studio is signed in and the Upload dialog is open in a Chrome tab. Claude in Chrome's `file_upload` accepts at most **10 MB** and the render is **65 MB**; a workaround that served the file from a temporary localhost server and attached it from the page was **denied by the permission check and was not pursued** (the server was shut down). Ways forward, the user decides: (a) the user attaches the file in the open dialog and the agent fills the rest; (b) the user explicitly approves the localhost route; (c) a one-time YouTube Data API setup (OAuth client created by the user; **guide and script now exist: [[Publish]]**), which also serves the weekly cadence. Visibility: **Private until the user chooses a schedule** (the weekly slot is not decided).
 
 ## 1. The video
 
@@ -40,7 +40,7 @@ User: *"Thmbnail b is the winner, tittle recomendation is good, follow your reco
 | 2   | Your Battery Runs on a Metal That Floats                   | 40         | the video's first line: a click lands on a payoff in 3 seconds; short, fits whole in the feed                                                        |
 | 3   | The Lightest Metal Is a Political Pressure Point           | 48         | plain and accurate; the weakest on curiosity                                                                                                         |
 
-**Recommendation: title 1 with thumbnail A.** Rules used: YouTube allows 100 characters; the keyword goes first because only the first ≈ 40 to 50 show in the feed (third-party sources, below); no banned words ([[Channel identity]]); the title promises only what the video delivers (it explains why countries compete: processing, not scarcity).
+**Recommendation: title 1 with thumbnail A.** Rules used: YouTube allows 100 characters; the keyword goes first because only the first ≈ 40 to 50 show in the feed (third-party sources, below); no banned words ([[Style]]); the title promises only what the video delivers (it explains why countries compete: processing, not scarcity).
 
 ## 3. Description (paste as it is; 1980 characters, the limit is 5,000)
 
@@ -91,7 +91,7 @@ Three candidates, 1080×1920 (9:16), JPEG under 300 KB each. The hero images wer
 | **B** | NOT RARE. STILL A FIGHT. | a silver pebble floating on still water at sunset | the best-looking; states the paradox; the pebble is a stand-in for lithium |
 | **C** | 60% IN ONE COUNTRY | white powder pouring from a bottle | the weakest: the "bottleneck" metaphor does not read; the number is the strongest part |
 
-**Can you upload it?** YouTube announced custom Shorts thumbnails on 24 July 2026, **for YouTube Partner Program channels first, desktop**; wider access "over time" (YouTube Blog; third-party reports give the details: 9:16 image, important content inside a 3:2 safe zone, no A/B testing for Shorts). **If the channel is not in the Partner Program yet, the option is not there:** use the fallback, choose a frame in Studio or the app (the opening frame, the jar of lithium, is the strongest). Also: **99.9 % of Shorts views start in the Shorts feed, where no thumbnail is shown** (ppc.land, a trade site: treat the number as indicative), so the thumbnail matters on the channel page, search and TV, not for the main feed. The vault's old rule "no thumbnail on Shorts" is updated accordingly ([[Guidelines for new scripts]] §5).
+**Can you upload it?** YouTube announced custom Shorts thumbnails on 24 July 2026, **for YouTube Partner Program channels first, desktop**; wider access "over time" (YouTube Blog; third-party reports give the details: 9:16 image, important content inside a 3:2 safe zone, no A/B testing for Shorts). **If the channel is not in the Partner Program yet, the option is not there:** use the fallback, choose a frame in Studio or the app (the opening frame, the jar of lithium, is the strongest). Also: **99.9 % of Shorts views start in the Shorts feed, where no thumbnail is shown** (ppc.land, a trade site: treat the number as indicative), so the thumbnail matters on the channel page, search and TV, not for the main feed. The vault's old rule "no thumbnail on Shorts" is updated accordingly ([[Playbook]] §5).
 
 **Disclosure:** a thumbnail made with AI is exempt from YouTube's synthetic-content label (YouTube Help lists "thumbnail, title, or infographic" among the productivity uses).
 
@@ -127,13 +127,13 @@ A question that is easy to answer in one line, and it invites corrections (the c
 | 3:2 safe zone, desktop upload, no A/B test, 99.9 % of views in the feed | [PPC Land](https://ppc.land/youtube-ends-2-year-wait-for-shorts-thumbnails-but-blocks-a-b-testing/) | trade press: indicative |
 | Title limit 100; about 40 to 50 characters visible; keyword first; 60 to 80 characters perform best | search results from [hashtagtools.io](https://hashtagtools.io/blog/youtube-shorts-character-limits-title-description-hashtags-2026), [miraflow.ai](https://miraflow.ai/blog/youtube-shorts-titles-descriptions-2026-templates) | **third-party blogs: hypotheses** |
 | Benchmarks: hold above 80 % through the first 3 seconds, above 70 % average viewed; below 30 % "viewed" the Short dies; most swipes happen in the first 2 seconds | search results from [prepublish.ai](https://prepublish.ai/blog/viewed-vs-swiped-away-youtube-shorts), [tubeanalytics.net](https://www.tubeanalytics.net/blog/youtube-shorts-retention-guide) | **third-party blogs: hypotheses** |
-| Engaged views (not raw views) drive promotion and monetization | [[Shorts quality bar]] §7 (YouTube Help, 4 Oct 2026) | official |
+| Engaged views (not raw views) drive promotion and monetization | [[Playbook]] §7 (YouTube Help, 4 Oct 2026) | official |
 
-**What the video already does for the metrics** (from [[Shorts quality bar]]): a need-to-know claim in the first 8 words, speech from 0.15 s, the strongest real image from frame 1, a new image every ≈ 3 s, captions from the first word, a concrete ending, and **the last plate is the first plate** so the Short loops without a seam.
+**What the video already does for the metrics** (from [[Playbook]]): a need-to-know claim in the first 8 words, speech from 0.15 s, the strongest real image from frame 1, a new image every ≈ 3 s, captions from the first word, a concrete ending, and **the last plate is the first plate** so the Short loops without a seam.
 
 ## 9. After publishing: what to measure and what to change
 
-**The numbers now live in `Analytics/snapshots.csv` ([[Analytics]] §3); this table is the reading guide, not the log.** Record them at 24 hours, 7 days and 28 days (Studio › Analytics › Content › the Short). **These are the first data points the channel has: the benchmarks above are hypotheses until they are replaced by your own numbers** ([[Channel strategy]] §6).
+**The numbers now live in `Analytics/snapshots.csv` ([[Publish]] §3); this table is the reading guide, not the log.** Record them at 24 hours, 7 days and 28 days (Studio › Analytics › Content › the Short). **These are the first data points the channel has: the benchmarks above are hypotheses until they are replaced by your own numbers** ([[Publish]] §6).
 
 | Metric | What it tells | 24 h | 7 days | If it is low, change |
 | --- | --- | --- | --- | --- |
@@ -153,9 +153,9 @@ One change at a time, written in the next Status note ([[Feedback loop]]).
 - [ ] Thumbnail uploaded or the opening frame chosen; audience set to *not made for kids*; the synthetic-content question answered.
 - [ ] Scheduled in the daily slot; after publishing: pin the comment, then log the 24 h numbers in §9.
 
-## 11. TikTok (@redtail_media; process in [[TikTok upload]])
+## 11. TikTok (@redtail_media; process in [[Publish]])
 
-User request (5 Oct 2026): *"Start the uploading process of the battery video to tiktok, i will upload manually the video"*. The user uploads; this is the package to paste. **First TikTok video, so it doubles as the safe-zone test ([[TikTok upload]] §3): post it Only me (private) first.**
+User request (5 Oct 2026): *"Start the uploading process of the battery video to tiktok, i will upload manually the video"*. The user uploads; this is the package to paste. **First TikTok video, so it doubles as the safe-zone test ([[Publish]] §3): post it Only me (private) first.**
 
 | Field | Value |
 | --- | --- |
@@ -183,4 +183,4 @@ Sources: USGS, Mineral Commodity Summaries 2026 (Lithium): https://pubs.usgs.gov
 - [ ] Uploaded as **Only me**; open it in the app and check the captions, labels and number cards are not hidden by TikTok's buttons or text (bottom 15 to 20 %, right edge). Tell the agent what is covered.
 - [ ] If covered: the agent raises `CAP_Y` for a TikTok export; re-upload.
 - [ ] Switched to Everyone; pinned comment posted; AI label confirmed on the video.
-- [ ] The agent logs the link and the 48 h numbers here and fixes [[TikTok upload]] with what differed (cover picker, size, label wording).
+- [ ] The agent logs the link and the 48 h numbers here and fixes [[Publish]] with what differed (cover picker, size, label wording).

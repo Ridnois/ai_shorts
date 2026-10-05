@@ -8,9 +8,9 @@ tags: [research, youtube, script, battery, lithium, shorts]
 
 # Script · Battery and lithium
 
-← [[Battery and lithium - Status]] · [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Narration guide]] · [[Idea and hook quality]]
+← [[Battery and lithium - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Playbook]] · [[Playbook]]
 
-User request (5 Oct 2026): *"create a new video, this one is about battery technology, lithium and political tension. 200 words, pace 1"*. **200 words is the user's number: it is above the vault's 130 to 190 range (aim 130 to 160)**, so the cut test below was run hard. **"Pace 1" is read as `elevenlabs/v3` `speed` 1.0** (the old default is 0.95). Voice: **Austin** ([[Channel voice]]).
+User request (5 Oct 2026): *"create a new video, this one is about battery technology, lithium and political tension. 200 words, pace 1"*. **200 words is the user's number: it is above the vault's 130 to 190 range (aim 130 to 160)**, so the cut test below was run hard. **"Pace 1" is read as `elevenlabs/v3` `speed` 1.0** (the old default is 0.95). Voice: **Austin** ([[Playbook]]).
 
 **Theme line (plain words):** *lithium is not scarce, but a few countries control who processes it, and that is where the tension comes from.* **One question:** why did a metal that is not rare become something countries compete for?
 

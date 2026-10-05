@@ -8,7 +8,7 @@ tags: [youtube, upload, week-01, battery, ev, shorts]
 
 # Upload · EV battery tech (Week 01)
 
-← [[EV battery tech - Status]] · [[Script - EV battery tech]] · [[YouTube upload]] · [[Upload note template]] · [[Upload - Copper and the AI race]]
+← [[EV battery tech - Status]] · [[Script - EV battery tech]] · [[Publish]] · [[Publish]] · [[Upload - Copper and the AI race]]
 
 User request (5 Oct 2026): *"…upload it to youtube"*. Uploaded with `youtube_upload.py`: id **WhNq3ry6sBw**, https://studio.youtube.com/video/WhNq3ry6sBw/edit, **private**. Processing, copyright checks and the synthetic-content answer were not checked by the agent. No thumbnail was made (≈ $0.25 saved); YouTube will offer opening frames.
 
@@ -54,8 +54,8 @@ Not made for kids; synthetic content: the script sends yes (user decides); categ
 
 ## TikTok
 
-Not prepared yet: caption = the first description line plus 3 hashtags (#EV #batteries #science), AI-generated content ON ([[TikTok upload]]).
+Not prepared yet: caption = the first description line plus 3 hashtags (#EV #batteries #science), AI-generated content ON ([[Publish]]).
 
 ## Not verified
 
-The agent did not watch or hear the video. AAA 39% is a secondary report; "most of that is the cabin heater" is the summaries' reading; Geotab 2.3% is an average; one photo is a motorcycle battery line; the Tesla name is visible in a charger photo. Metrics: `Analytics/` ([[Analytics]]); pull at about 24 h, 7 d, 28 d.
+The agent did not watch or hear the video. AAA 39% is a secondary report; "most of that is the cabin heater" is the summaries' reading; Geotab 2.3% is an average; one photo is a motorcycle battery line; the Tesla name is visible in a charger photo. Metrics: `Analytics/` ([[Publish]]); pull at about 24 h, 7 d, 28 d.

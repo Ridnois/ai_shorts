@@ -15,7 +15,7 @@ tags: [youtube, pipeline, option-4-oct]
 
 # Why the night sky is dark
 
-← [[Pipeline]] · [[YouTube Channel]] · [[Idea and hook quality]]
+← [[Pipeline]] · [[YouTube Channel]] · [[Playbook]]
 
 ## Idea
 

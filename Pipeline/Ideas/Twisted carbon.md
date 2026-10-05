@@ -19,7 +19,7 @@ tags: [youtube, pipeline]
 
 ## Idea
 
-Carbon, metamaterials, superconductors and "such", starting from a CORDIS article on graphene metamaterials that control the speed of light ([link](https://cordis.europa.eu/article/id/204458-graphene-metamaterials-control-the-speed-of-light)). Delegated by the user: "follow all the steps for yourself until the render." Built with the new idea-quality rules ([[Idea and hook quality]]).
+Carbon, metamaterials, superconductors and "such", starting from a CORDIS article on graphene metamaterials that control the speed of light ([link](https://cordis.europa.eu/article/id/204458-graphene-metamaterials-control-the-speed-of-light)). Delegated by the user: "follow all the steps for yourself until the render." Built with the new idea-quality rules ([[Playbook]]).
 
 ## Angle
 

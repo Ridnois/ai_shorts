@@ -15,7 +15,7 @@ tags: [youtube, pipeline, option-4-oct]
 
 # The kilogram was a cylinder
 
-← [[Pipeline]] · [[YouTube Channel]] · [[Idea and hook quality]]
+← [[Pipeline]] · [[YouTube Channel]] · [[Playbook]]
 
 ## Idea
 

@@ -15,7 +15,7 @@ tags: [youtube, pipeline, option-4-oct]
 
 # The Moon is leaving us
 
-← [[Pipeline]] · [[YouTube Channel]] · [[Idea and hook quality]]
+← [[Pipeline]] · [[YouTube Channel]] · [[Playbook]]
 
 ## Idea
 

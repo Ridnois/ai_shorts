@@ -8,7 +8,7 @@ tags: [research, youtube, script, copper, ai, shorts, week-01]
 
 # Script · Copper and the AI race (Week 01)
 
-← [[Copper and the AI race - Status]] · [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Narration guide]] · [[Idea and hook quality]]
+← [[Copper and the AI race - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Playbook]] · [[Playbook]]
 
 User request (5 Oct 2026): *"Create a new video about copper, where comes from, what is used for and why is key on the AI race. do it all for yourself, given that we are using less generated images and more stock, you can use a very good model, update the vault and proceed to the video creation"*. **Full delegation:** stages 0 to 7 run by the agent within the cap; the render is the stop.
 

@@ -1,0 +1,39 @@
+---
+type: process
+updated: 2026-10-05
+status: v1 · platform policy, upload notes, YouTube and TikTok routes, analytics loop
+---
+
+# Publish and measure (P8 and after)
+
+One Short a day; "New Shorts every day." in every description. Confirm title, description, thumbnail and visibility with the user before any upload.
+
+## Policy that can sink the channel (YouTube Help, read 4 Oct 2026; re-read quarterly)
+
+- **Inauthentic content** (since 15 July 2025) is not monetizable: AI content from generic templates that looks mass-produced. Safe: distinct threads per video, real photos with credit, faithful schematics, sourced facts, one original synthesis per video, a consistent look. Never ship a video whose only difference is the topic word.
+- **Disclosure:** realistic depictions of things that did not happen must be disclosed; clearly non-realistic schematics and a synthetic narrator need not be, but the uploader sets `containsSyntheticMedia: true` and descriptions carry an AI line. TikTok: turn **AI-generated content ON**.
+- **No malicious clickbait:** a hook promises only what the video then shows.
+- **Money:** YPP Shorts route = 1,000 subscribers + 10 M qualified Shorts views in 90 days; long-form route = 1,000 subscribers + 4,000 public watch hours in 12 months (Shorts watch time does not count). Since 31 March 2025 a Shorts view is any start or replay; **engaged views** is the measure monetization uses. Plan a monthly 6 to 10 minute video after the first 15 Shorts. Not verified: the early-access tier, CPMs, other platforms' payouts, algorithm weights.
+- TikTok Creator Rewards (third-party guides): 10k followers, 100k views in 30 days, original videos longer than 1 minute. Do not stretch Shorts for it.
+
+## Upload note (`Videos/Week NN/<Topic>/Upload - <Topic>.md`, copy the newest one as the skeleton)
+
+Sections in order: header and status (video, render path, duration, words, upload id) · **three titles** (≤ 100 characters, searchable statement, keyword first, no all caps or emoji; one recommended) · **YouTube description** (claim and search words in the first two lines, "New Shorts every day.", SOURCES as real links with cut-off date, PHOTO CREDITS for CC BY and CC BY-SA, the AI line, 3 to 5 relevant hashtags last) · thumbnail pick · **pinned comment** (one question plus an invitation to correct a figure, sources) · Studio settings (not made for kids, synthetic-content answer, slot) · **TikTok** (file uploaded from the web, cover with hook inside the safe zone, caption = claim + 1 to 2 key sources + 3 to 5 hashtags, pinned comment, AI label ON) · claims table (claim, source, strength) · checklist (facts rechecked, text pasted intact, `Analytics/videos.csv` row, pulls scheduled).
+
+**Copy-paste text:** every text the user pastes sits in its own ```` ```text ```` block, plain ASCII: `-` bullets, `|` separators, no `>`, no `•`, no curly quotes, no `<` `>` (YouTube rejects angle brackets). Metrics are not kept in the note: they live in `Analytics/`.
+
+## YouTube route
+
+`python3 System/scripts/youtube_upload.py upload "<mp4>" --title "…" --desc-file <txt> --thumb <jpg> [--privacy private] [--publish-at <UTC>]`. **Default private; never public unless the user said so for that video.** Sets `containsSyntheticMedia`. `auth` needs the user once (client id and secret in `.env`; open the consent link in the browser profile that is on the test-user list; the app is in Testing so the refresh token expires every 7 days: run `auth` again on `invalid_grant`). Unaudited API projects lock uploads to private until the YouTube audit. Quota: 1,600 of 10,000 units per upload. Not automated: captions (`render/<prefix>.srt` is uploaded by hand), playlists, the pinned comment. Never print or note a token. Setup detail: Google Cloud project `redtail-upload`, YouTube Data API v3, OAuth Desktop client, scope `youtube.upload`.
+
+## TikTok route (manual)
+
+Same 9:16 master, uploaded natively from TikTok Studio on the web (phone limits ≈ 72 MB Android, renders are 65 to 81 MB), no other platform's watermark, no TikTok library sound. The agent prepares the package; the user posts. API (Content Posting, draft mode `video.upload`) researched, not built: needs a developer app and review; build `tiktok_upload.py` only if the user wants it. After posting record link, date, 48 h and 7 d numbers by typing them into `Analytics/` (below).
+
+## Analytics loop
+
+- Data lives in `Analytics/videos.csv` (what each video is: words, duration_s, hook_type, hook, plates, voice, published, youtube_id, tiktok_id; fill at P8) and `Analytics/snapshots.csv` (video × platform × age). `Analytics/Report.md` is generated: never edit it by hand. Dated analyses in `Analytics/Reports/`.
+- **Pull** at about 24 h, 7 d, 28 d: `python3 System/scripts/youtube_analytics.py pull`, then `python3 System/scripts/analytics.py report`. Typed numbers (TikTok, Studio-only like viewed vs swiped away): `python3 System/scripts/analytics.py add "<Video>" youtube 24h views=… viewed_pct=…`. Analytics auth is separate from upload auth (`youtube_analytics.py auth`, weekly in Testing). The API returned no rows for videos 1 to 2 hours old.
+- **The five decision metrics and what to change first when low:** `viewed_pct` → first sentence and image · `avg_pct_viewed` → length, pace, middle scenes · `engaged_views` → ending and loop seam · `shares` → payoff and stakes · `subs_gained` → channel page, consistency. **Sample rule:** under ≈ 100 views read counts only, change nothing.
+- **Loop:** P1 reads the report; after each pull write one *Learnings* line in the Status note; **one change per video** so the next snapshot can attribute it; every 10 videos run the [[Feedback loop]] on the data and replace third-party benchmarks (≈ 80 % held through 3 s, ≈ 70 % average viewed, < 30 % viewed is dead: guesses) with the channel's medians. Kill criterion: if 20 Shorts average under about a third viewed, change the idea gate and hook before the visuals.
+- Not verified: Studio export format, whether viewed vs swiped away is in the API, populated retention and traffic-source responses.

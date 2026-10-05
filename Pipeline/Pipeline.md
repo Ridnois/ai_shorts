@@ -8,7 +8,7 @@ tags: [research, youtube, pipeline, hub]
 
 # 🏭 Video pipeline
 
-← [[YouTube Channel]] · [[Production process]] · [[Fast workflow]]
+← [[YouTube Channel]] · [[Workflow]] · [[Workflow]]
 
 One **note per idea** in `Pipeline/Ideas/`; its `status` property is the table column. Changing `status` in the table is the command; the runner does the work and leaves the next status.
 
@@ -34,7 +34,7 @@ render-ready ◀── (editing, by hand) ◀── illustrations-ready ◀─�
 | `generate-assets` | **you** (trigger) | Asks for voice and images. Only runs if `approved_budget_usd` > 0 |
 | `generating-assets` | runner | Spending on Replicate |
 | `illustrations-ready` | runner | Voice and images in `Media/`. **You review P6 here** |
-| `render-ready` | you | Editing in Blender done ([[Blender editing]]); P7 approved |
+| `render-ready` | you | Editing in Blender done ([[Playbook]]); P7 approved |
 | `error` | runner | Something failed; the reason is in the *Error* column. Fix it and set the trigger again |
 
 ## How to use it (all from Obsidian)
@@ -51,7 +51,7 @@ Service: `systemctl --user status youtube-pipeline` · log: `journalctl --user -
 ## Rules
 
 - **The controller lives outside the vault**, in `~/Documents/youtube-pipeline` (its own repo). The vault only has notes and the table.
-- **Nothing is spent without an approved budget** (master rule of [[Production process]]). The hard cap is ×1.2 of `approved_budget_usd`.
+- **Nothing is spent without an approved budget** (master rule of [[Workflow]]). The hard cap is ×1.2 of `approved_budget_usd`.
 - The script runner **cannot call Replicate** (it only reads and writes notes); the assets runner can.
 - The cap is applied by instruction to the model and checked **afterwards** with `actual_cost_usd`; it is not a technical cutoff.
 - An idea in `building-*` or `generating-*` (in progress) after a runner crash stays stuck: set the trigger again in the table.

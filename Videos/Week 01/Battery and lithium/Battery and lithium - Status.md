@@ -8,9 +8,9 @@ tags: [research, youtube, status, battery, lithium, shorts]
 
 # Battery and lithium · status
 
-← [[YouTube Channel]] · [[Script - Battery and lithium]] · [[Fast workflow]] · [[Guidelines for new scripts]] · [[Channel voice]]
+← [[YouTube Channel]] · [[Script - Battery and lithium]] · [[Workflow]] · [[Playbook]] · [[Playbook]]
 
-Short 9:16, English, **200 words** (the user's number, above the 130 to 190 range), first video with the **Austin** voice at **`speed` 1.0** ("pace 1"). Question: why did a metal that is not rare become something countries compete for? Media in `Media/Week 01/Battery-lithium/` (prefix `bt-`); this is **Week 01**, the first video of the weekly schedule ([[Media convention]]). The Short itself carries no branding ([[Channel playbook]] §4).
+Short 9:16, English, **200 words** (the user's number, above the 130 to 190 range), first video with the **Austin** voice at **`speed` 1.0** ("pace 1"). Question: why did a metal that is not rare become something countries compete for? Media in `Media/Week 01/Battery-lithium/` (prefix `bt-`); this is **Week 01**, the first video of the weekly schedule ([[Workflow]]). The Short itself carries no branding ([[Style]] §4).
 
 ## Stage log
 
@@ -40,7 +40,7 @@ Stock photos (free) were downloaded **before** P4 as part of package B into `Med
 | P5 test           | scene 1 voice twice, one plate               | (inside the lines above)                                                      |                              |              |             |
 | **Total and cap** |                                              |                                                                               |                              | **≈ $0.345** | **≈ $0.41** |
 
-One retry of one plate fits inside the total cap; going over needs your approval. Prices are rates read in [[Channel models]], not confirmed on Replicate's pages; the real charge is not in the API's `metrics`, so I will report the dashboard check as unverified.
+One retry of one plate fits inside the total cap; going over needs your approval. Prices are rates read in [[Workflow]], not confirmed on Replicate's pages; the real charge is not in the API's `metrics`, so I will report the dashboard check as unverified.
 
 **Decisions taken with the delegation:** the borderline thread stays (no answer given, so the agent keeps the chosen one); the pause sentence is **atemporal** (scene 6 now says "for one year… a pause is not a repeal", no end date); the 200 words are kept; Zimbabwe stays cut.
 

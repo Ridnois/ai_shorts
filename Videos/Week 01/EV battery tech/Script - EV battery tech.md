@@ -8,7 +8,7 @@ tags: [research, youtube, script, battery, ev, shorts, week-01]
 
 # Script · EV battery tech (Week 01)
 
-← [[EV battery tech - Status]] · [[YouTube Channel]] · [[Guidelines for new scripts]] · [[Narration guide]] · [[Idea and hook quality]]
+← [[EV battery tech - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Playbook]] · [[Playbook]]
 
 User request (5 Oct 2026): *"New video, Batteries, durability, temperatures and costs. a interesting research about how the ev industry is putting battery tech forward, upload it to youtube"*. Read as a delegation to the end of the pipeline: the agent runs stages 0 to 8 within the cap and uploads **private**. Not a repeat of [[Battery and lithium - Status]] (lithium, processing, politics): this one is wear, weather and price.
 
