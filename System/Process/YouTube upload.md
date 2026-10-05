@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-05
 updated: 2026-10-05
-status: v1 · guide and script written, never run against YouTube (needs the one-time setup in §1)
+status: v2 · first real upload done 5 Oct 2026 (Copper and the AI race, private); consent lessons added
 tags: [youtube, upload, api, process, setup]
 ---
 
@@ -53,3 +53,11 @@ python3 System/scripts/youtube_upload.py upload "Media/Week NN/<Video>/render/<f
 ## 4. Not verified
 
 The script and the steps above were written from API documentation and **have not been run**: no OAuth client exists yet, so nothing has touched the channel. First real upload = a private test of the Battery and lithium render; check in Studio that the title, description, thumbnail, synthetic-content flag and the Short classification came out right, and fix this note with what differs.
+
+## 5. First real run (5 Oct 2026): what happened
+
+- **Consent error "Access blocked… 403 access_denied":** the consent link opened in the user's *default browser*, which was signed into a different Google profile ("REDTAIL") that was not on the app's test-user list. **Fix: open the link in the profile signed in as the account on the test-user list** (here `s.altamiranorid@gmail.com`), pick the Redtail channel if asked, then Advanced → Go to the app → Allow. Claude in Chrome cannot operate accounts.google.com, so the consent click is always the user's.
+- **"Publish app" is greyed out while the app has a logo:** a logo on the consent screen requires Google verification before publishing. Choices: stay in **Testing** (the refresh token lasts 7 days: run `auth` again each week) or remove the logo, then publish (unverified production shows the warning once, no 7-day expiry). The user's app is still in Testing.
+- **The token goes to `.env` without being printed** (`YT_REFRESH_TOKEN`); the agent never echoes it. The `auth` command waits on `127.0.0.1:8765` for one redirect: start it in the background and watch its output.
+- **Upload worked:** 81 MB in one streamed PUT, private, `uploaded <id>`; Studio showed the metadata, the video still processing.
+- **Thumbnail:** none sent (not made; Shorts thumbnails need the Partner Program).

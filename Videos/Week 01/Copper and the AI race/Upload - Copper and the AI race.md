@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-05
 updated: 2026-10-05
-status: package ready; upload to YouTube pending the one-time OAuth consent (private first)
+status: UPLOADED to YouTube as private on 5 Oct 2026 (video id YRX0VfpPMtU); publishing, thumbnail and pinned comment are the user's
 tags: [youtube, upload, week-01, copper, ai, shorts]
 ---
 
@@ -11,6 +11,10 @@ tags: [youtube, upload, week-01, copper, ai, shorts]
 ← [[Copper and the AI race - Status]] · [[Script - Copper and the AI race]] · [[YouTube upload]] · [[Upload - Battery and lithium]]
 
 User request (5 Oct 2026): *"Upload the last video to youtube, you have credentials on .env now"*. The last video is **Copper and the AI race**. Same rules as [[Upload - Battery and lithium]]: the claim and search words first, sources as links, photo credits, the AI line, 5 relevant hashtags last. **Visibility: private** until the user chooses to publish (an unaudited API project is locked to private anyway, [[YouTube upload]] §3).
+
+## Upload result (5 Oct 2026)
+
+Uploaded with `System/scripts/youtube_upload.py` (the first real run): video id **YRX0VfpPMtU**, Studio link https://studio.youtube.com/video/YRX0VfpPMtU/edit, share link https://youtu.be/YRX0VfpPMtU. **Sent as private**, category Science & Technology, not made for kids, `containsSyntheticMedia: true`. Studio showed the title and the full description as written; **the file was still processing** (checks pending) when the agent looked, so visibility, the HD version and the copyright checks were not confirmed. No thumbnail was sent. **To do by the user:** wait for processing, choose the visibility or a schedule, post the pinned comment, decide the synthetic-content answer, upload `render/cu.srt` if wanted.
 
 ## Video
 
