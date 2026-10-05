@@ -1,41 +1,41 @@
 [
  {
   "kind": "youtube#video",
-  "etag": "RvWRY225RTLnWikRaoIZfOLRrhc",
-  "id": "a3faPJ87qsk",
+  "etag": "h8yHz9CujyULHF2x4B8k2xiIK-I",
+  "id": "lQRLoZYWFwU",
   "snippet": {
-   "publishedAt": "2026-10-05T22:33:00Z",
+   "publishedAt": "2026-10-05T23:39:21Z",
    "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
-   "title": "The First Metal-Type Book Is Not the Gutenberg Bible",
-   "description": "The first book printed with metal type is not the Gutenberg Bible. It is the Jikji, a Korean book from 1377, and its printer's mistakes are the proof.\n\nNew Shorts every day.\n\nSOURCES\n- BnF (Bibliotheque nationale de France), Jikji, treasure of the world of printing (printed 1377 at Heungdeok Temple, Cheongju; provenance; free on Gallica): https://bnf.fr/en/jikji-treasure-world-printing\n- Global Jikji, Movable Metal Type of Goryeo Korea (the postscript: \"printed with cast metal type at Heungdeoksa Temple outside Cheongju Magistracy\"): https://www.globaljikji.org/en/sub.do?menukey=4103\n- Open Culture, The oldest book printed with movable type is not the Gutenberg Bible (September 2026): https://www.openculture.com/2026/09/the-oldest-book-printed-with-movable-type-is-not-the-gutenberg-bible-jikji.html\n- Wikipedia, Jikji (the upside-down, omitted and tilted characters scholars cite as evidence of loose metal type): https://en.wikipedia.org/wiki/Jikji\n- From Jikji to Gutenberg, University of Utah: https://jikji.utah.edu/\nThe Gutenberg Bible is dated 1450 to 1455 depending on the source, so the gap is 73 to 78 years. Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nJikji pages and Jikji cover: public domain | Jikji open book: Zytheme, CC0 | Gutenberg Bible: Joshua Keller, CC BY 2.0 | Early metal type pieces: Ken Eckert, CC BY-SA 4.0 | Tripitaka Koreana woodblock: Steve46814, CC BY-SA 3.0 | Heungdeoksa: Lawinc82, CC BY-SA 3.0 | Cheongju Early Printing Museum: hyolee2, CC BY-SA 3.0\n\nThe narration and the diagrams are AI-generated or drawn for this video; the photos are real.\n\n#Jikji #Gutenberg #printing #history #Korea",
+   "title": "Most Computer Chips Start in Rock From One Small Town",
+   "description": "Most computer chips start in a quartz crucible, and most of that quartz comes from one small town in North Carolina: Spruce Pine. Why a silicon crystal needs ultra-pure quartz, and what stopped after Hurricane Helene in 2024.\n\nNew Shorts every day.\n\nSOURCES\n- Wikipedia, Spruce Pine Mining District (about 70 to 90 % of the world's high-purity quartz; molten silicon reacts with almost all materials except quartz above 1,400 C; Helene 2024; stockpiled crucibles prevented immediate shortages): https://en.wikipedia.org/wiki/Spruce_Pine_Mining_District\n- The Quartz Corp, Silicon wafer production (one crucible pulls about 8 ingots in about 400 hours; a 300 mm ingot yields about 2 million chips): https://www.thequartzcorp.com/silicon-wafer-production\n- The Quartz Corp, Geology (pegmatites almost free from inclusions): https://www.thequartzcorp.com/geology\n- Sibelco, High-purity quartz (two uniquely pure ore bodies at Spruce Pine; crucibles for the Czochralski process): https://www.sibelco.com/materials/high-purity-quartz\nThe 16 million chips per crucible is a rough calculation from the Quartz Corp figures above (chip sizes vary). The share of supply differs by source (about 70 to 90 %). Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nDowntown Spruce Pine, used crucible photos, silicon boule and 1956 crystal puller: public domain | Silicon wafer: Peellden, CC BY-SA 3.0 | Silicon crystal: Massimiliano Lincetto, CC BY-SA 4.0 | Pegmatite rock (Ruggles mine, New Hampshire, shown as an example of the rock type): James St. John, CC BY 2.0 | Hurricane Helene damage (Buncombe County, North Carolina): NCDOT Communications, CC BY 2.0\n\nThe narration and the diagrams are AI-generated or drawn for this video; the photos are real.\n\n#semiconductors #quartz #chips #SprucePine #supplychain",
    "thumbnails": {
     "default": {
-     "url": "https://i9.ytimg.com/vi/a3faPJ87qsk/default.jpg?sqp=COjJkNYG&rs=AOn4CLD_6l6hsC-Phvb1cq_hpm60zB4lkw",
+     "url": "https://i9.ytimg.com/vi/lQRLoZYWFwU/default.jpg?sqp=CNDqkNYG&rs=AOn4CLAhQD__UaaDLPXq8TsPOBEYyGh-OA",
      "width": 120,
      "height": 90
     },
     "medium": {
-     "url": "https://i9.ytimg.com/vi/a3faPJ87qsk/mqdefault.jpg?sqp=COjJkNYG&rs=AOn4CLDhqp7xCEBeHJQakxPxDsHe5LR7zA",
+     "url": "https://i9.ytimg.com/vi/lQRLoZYWFwU/mqdefault.jpg?sqp=CNDqkNYG&rs=AOn4CLDmc_eKowbwaOQ_8smLcFOUeCZjTA",
      "width": 320,
      "height": 180
     },
     "high": {
-     "url": "https://i9.ytimg.com/vi/a3faPJ87qsk/hqdefault.jpg?sqp=COjJkNYG&rs=AOn4CLB-GoRNz44dhBLZJJbR5IxyQFuoMg",
+     "url": "https://i9.ytimg.com/vi/lQRLoZYWFwU/hqdefault.jpg?sqp=CNDqkNYG&rs=AOn4CLBVn6eQ1ud0-CwrHHiHJG4iF9PQwA",
      "width": 480,
      "height": 360
     },
     "standard": {
-     "url": "https://i9.ytimg.com/vi/a3faPJ87qsk/sddefault.jpg?sqp=COjJkNYG&rs=AOn4CLA0qJjFihXcS15dDipoSv4NEmnUIA",
+     "url": "https://i9.ytimg.com/vi/lQRLoZYWFwU/sddefault.jpg?sqp=CNDqkNYG&rs=AOn4CLC4X7tOO8oy6V1JRBme_yKXOxXgfg",
      "width": 640,
      "height": 480
     },
     "maxres": {
-     "url": "https://i9.ytimg.com/vi/a3faPJ87qsk/maxresdefault.jpg?sqp=COjJkNYG&rs=AOn4CLBFxkZfR1MKLj44vI7krpwMfKaPXw",
+     "url": "https://i9.ytimg.com/vi/lQRLoZYWFwU/maxresdefault.jpg?sqp=CNDqkNYG&rs=AOn4CLAHNSvM6Nx7V1lw0D9qrffF6I6YYg",
      "width": 1280,
      "height": 720
     },
     "qhd": {
-     "url": "https://i9.ytimg.com/vi/a3faPJ87qsk/qhddefault.jpg?sqp=COjJkNYG&rs=AOn4CLCSanBaANyOPOlMV5Gp7368wnSQZw",
+     "url": "https://i9.ytimg.com/vi/lQRLoZYWFwU/qhddefault.jpg?sqp=CNDqkNYG&rs=AOn4CLDu1v3xrQdEjucDXhg1vPQVOMQhGg",
      "width": 2560,
      "height": 1440
     }
@@ -44,12 +44,12 @@
    "categoryId": "28",
    "liveBroadcastContent": "none",
    "localized": {
-    "title": "The First Metal-Type Book Is Not the Gutenberg Bible",
-    "description": "The first book printed with metal type is not the Gutenberg Bible. It is the Jikji, a Korean book from 1377, and its printer's mistakes are the proof.\n\nNew Shorts every day.\n\nSOURCES\n- BnF (Bibliotheque nationale de France), Jikji, treasure of the world of printing (printed 1377 at Heungdeok Temple, Cheongju; provenance; free on Gallica): https://bnf.fr/en/jikji-treasure-world-printing\n- Global Jikji, Movable Metal Type of Goryeo Korea (the postscript: \"printed with cast metal type at Heungdeoksa Temple outside Cheongju Magistracy\"): https://www.globaljikji.org/en/sub.do?menukey=4103\n- Open Culture, The oldest book printed with movable type is not the Gutenberg Bible (September 2026): https://www.openculture.com/2026/09/the-oldest-book-printed-with-movable-type-is-not-the-gutenberg-bible-jikji.html\n- Wikipedia, Jikji (the upside-down, omitted and tilted characters scholars cite as evidence of loose metal type): https://en.wikipedia.org/wiki/Jikji\n- From Jikji to Gutenberg, University of Utah: https://jikji.utah.edu/\nThe Gutenberg Bible is dated 1450 to 1455 depending on the source, so the gap is 73 to 78 years. Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nJikji pages and Jikji cover: public domain | Jikji open book: Zytheme, CC0 | Gutenberg Bible: Joshua Keller, CC BY 2.0 | Early metal type pieces: Ken Eckert, CC BY-SA 4.0 | Tripitaka Koreana woodblock: Steve46814, CC BY-SA 3.0 | Heungdeoksa: Lawinc82, CC BY-SA 3.0 | Cheongju Early Printing Museum: hyolee2, CC BY-SA 3.0\n\nThe narration and the diagrams are AI-generated or drawn for this video; the photos are real.\n\n#Jikji #Gutenberg #printing #history #Korea"
+    "title": "Most Computer Chips Start in Rock From One Small Town",
+    "description": "Most computer chips start in a quartz crucible, and most of that quartz comes from one small town in North Carolina: Spruce Pine. Why a silicon crystal needs ultra-pure quartz, and what stopped after Hurricane Helene in 2024.\n\nNew Shorts every day.\n\nSOURCES\n- Wikipedia, Spruce Pine Mining District (about 70 to 90 % of the world's high-purity quartz; molten silicon reacts with almost all materials except quartz above 1,400 C; Helene 2024; stockpiled crucibles prevented immediate shortages): https://en.wikipedia.org/wiki/Spruce_Pine_Mining_District\n- The Quartz Corp, Silicon wafer production (one crucible pulls about 8 ingots in about 400 hours; a 300 mm ingot yields about 2 million chips): https://www.thequartzcorp.com/silicon-wafer-production\n- The Quartz Corp, Geology (pegmatites almost free from inclusions): https://www.thequartzcorp.com/geology\n- Sibelco, High-purity quartz (two uniquely pure ore bodies at Spruce Pine; crucibles for the Czochralski process): https://www.sibelco.com/materials/high-purity-quartz\nThe 16 million chips per crucible is a rough calculation from the Quartz Corp figures above (chip sizes vary). The share of supply differs by source (about 70 to 90 %). Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nDowntown Spruce Pine, used crucible photos, silicon boule and 1956 crystal puller: public domain | Silicon wafer: Peellden, CC BY-SA 3.0 | Silicon crystal: Massimiliano Lincetto, CC BY-SA 4.0 | Pegmatite rock (Ruggles mine, New Hampshire, shown as an example of the rock type): James St. John, CC BY 2.0 | Hurricane Helene damage (Buncombe County, North Carolina): NCDOT Communications, CC BY 2.0\n\nThe narration and the diagrams are AI-generated or drawn for this video; the photos are real.\n\n#semiconductors #quartz #chips #SprucePine #supplychain"
    }
   },
   "status": {
-   "uploadStatus": "uploaded",
+   "uploadStatus": "processed",
    "privacyStatus": "private",
    "license": "youtube",
    "embeddable": true,
@@ -67,7 +67,74 @@
  },
  {
   "kind": "youtube#video",
-  "etag": "RQES3KwHYKA2T8oTmfBwnLIV694",
+  "etag": "7vhxZXOa1dgk7eXlgx7P-qaXrN8",
+  "id": "a3faPJ87qsk",
+  "snippet": {
+   "publishedAt": "2026-10-05T22:51:24Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "The First Metal-Type Book Is Not the Gutenberg Bible",
+   "description": "The first book printed with metal type is not the Gutenberg Bible. It is the Jikji, a Korean book from 1377, and its printer's mistakes are the proof.\n\nNew Shorts every day.\n\nSOURCES\n- BnF (Bibliotheque nationale de France), Jikji, treasure of the world of printing (printed 1377 at Heungdeok Temple, Cheongju; provenance; free on Gallica): https://bnf.fr/en/jikji-treasure-world-printing\n- Global Jikji, Movable Metal Type of Goryeo Korea (the postscript: \"printed with cast metal type at Heungdeoksa Temple outside Cheongju Magistracy\"): https://www.globaljikji.org/en/sub.do?menukey=4103\n- Open Culture, The oldest book printed with movable type is not the Gutenberg Bible (September 2026): https://www.openculture.com/2026/09/the-oldest-book-printed-with-movable-type-is-not-the-gutenberg-bible-jikji.html\n- Wikipedia, Jikji (the upside-down, omitted and tilted characters scholars cite as evidence of loose metal type): https://en.wikipedia.org/wiki/Jikji\n- From Jikji to Gutenberg, University of Utah: https://jikji.utah.edu/\nThe Gutenberg Bible is dated 1450 to 1455 depending on the source, so the gap is 73 to 78 years. Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nJikji pages and Jikji cover: public domain | Jikji open book: Zytheme, CC0 | Gutenberg Bible: Joshua Keller, CC BY 2.0 | Early metal type pieces: Ken Eckert, CC BY-SA 4.0 | Tripitaka Koreana woodblock: Steve46814, CC BY-SA 3.0 | Heungdeoksa: Lawinc82, CC BY-SA 3.0 | Cheongju Early Printing Museum: hyolee2, CC BY-SA 3.0\n\nThe narration and the diagrams are AI-generated or drawn for this video; the photos are real.\n\n#Jikji #Gutenberg #printing #history #Korea",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/a3faPJ87qsk/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/a3faPJ87qsk/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/a3faPJ87qsk/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/a3faPJ87qsk/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/a3faPJ87qsk/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    },
+    "qhd": {
+     "url": "https://i.ytimg.com/vi/a3faPJ87qsk/qhddefault.jpg",
+     "width": 2560,
+     "height": 1440
+    }
+   },
+   "channelTitle": "REDTAIL",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "The First Metal-Type Book Is Not the Gutenberg Bible",
+    "description": "The first book printed with metal type is not the Gutenberg Bible. It is the Jikji, a Korean book from 1377, and its printer's mistakes are the proof.\n\nNew Shorts every day.\n\nSOURCES\n- BnF (Bibliotheque nationale de France), Jikji, treasure of the world of printing (printed 1377 at Heungdeok Temple, Cheongju; provenance; free on Gallica): https://bnf.fr/en/jikji-treasure-world-printing\n- Global Jikji, Movable Metal Type of Goryeo Korea (the postscript: \"printed with cast metal type at Heungdeoksa Temple outside Cheongju Magistracy\"): https://www.globaljikji.org/en/sub.do?menukey=4103\n- Open Culture, The oldest book printed with movable type is not the Gutenberg Bible (September 2026): https://www.openculture.com/2026/09/the-oldest-book-printed-with-movable-type-is-not-the-gutenberg-bible-jikji.html\n- Wikipedia, Jikji (the upside-down, omitted and tilted characters scholars cite as evidence of loose metal type): https://en.wikipedia.org/wiki/Jikji\n- From Jikji to Gutenberg, University of Utah: https://jikji.utah.edu/\nThe Gutenberg Bible is dated 1450 to 1455 depending on the source, so the gap is 73 to 78 years. Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nJikji pages and Jikji cover: public domain | Jikji open book: Zytheme, CC0 | Gutenberg Bible: Joshua Keller, CC BY 2.0 | Early metal type pieces: Ken Eckert, CC BY-SA 4.0 | Tripitaka Koreana woodblock: Steve46814, CC BY-SA 3.0 | Heungdeoksa: Lawinc82, CC BY-SA 3.0 | Cheongju Early Printing Museum: hyolee2, CC BY-SA 3.0\n\nThe narration and the diagrams are AI-generated or drawn for this video; the photos are real.\n\n#Jikji #Gutenberg #printing #history #Korea"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "1",
+   "likeCount": "0",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "0"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "q4LjM3P2M2x9INbMcnmy_0-jCEg",
   "id": "WhNq3ry6sBw",
   "snippet": {
    "publishedAt": "2026-10-05T20:19:59Z",
@@ -121,7 +188,7 @@
    "selfDeclaredMadeForKids": false
   },
   "statistics": {
-   "viewCount": "27",
+   "viewCount": "84",
    "likeCount": "2",
    "dislikeCount": "0",
    "favoriteCount": "0",
@@ -130,7 +197,7 @@
  },
  {
   "kind": "youtube#video",
-  "etag": "IDhulRR2bRSqgwnhL6RX4SfGezo",
+  "etag": "UBRV9iiv1deB9sE_DNKufJ7zaHc",
   "id": "YRX0VfpPMtU",
   "snippet": {
    "publishedAt": "2026-10-05T18:29:37Z",
@@ -184,8 +251,8 @@
    "selfDeclaredMadeForKids": false
   },
   "statistics": {
-   "viewCount": "124",
-   "likeCount": "1",
+   "viewCount": "152",
+   "likeCount": "2",
    "dislikeCount": "0",
    "favoriteCount": "0",
    "commentCount": "0"
@@ -193,7 +260,7 @@
  },
  {
   "kind": "youtube#video",
-  "etag": "h3OfQKfk_Dc9emHqd7NJJnFxel4",
+  "etag": "JfsTFGMj8rncyOSAAYinKQGC7tM",
   "id": "zwNmTGoXPu0",
   "snippet": {
    "publishedAt": "2026-10-05T17:31:47Z",
@@ -246,7 +313,7 @@
    "selfDeclaredMadeForKids": false
   },
   "statistics": {
-   "viewCount": "70",
+   "viewCount": "86",
    "likeCount": "1",
    "dislikeCount": "0",
    "favoriteCount": "0",
