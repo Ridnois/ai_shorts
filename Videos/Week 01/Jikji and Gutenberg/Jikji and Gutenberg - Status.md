@@ -65,6 +65,10 @@ No thumbnail image is budgeted. If you want a hero image for the upload: one `gp
 - Replica metal plate and two more Gutenberg photos failed (Wikimedia 429); the Gutenberg photo is reused with two crops. 10 photos used; credits in `stock/_credits.jsonl` (Public domain, CC0, CC BY 2.0, CC BY-SA 3.0, CC BY-SA 4.0: the CC BY and BY-SA ones must be credited in the description).
 - `jk-book.jpg` (the postscript page, 500 px) and `jk-jikji2.jpg` (the BnF cover with the handwritten French note, 350 px) are small and soft; both are framed (`contain`), not full-screen.
 
+## Short version (user, 5 Oct 2026: *"try a shorter version, 90 words"*)
+
+[[Script - Jikji and Gutenberg (short)]]: 91 words, 5 scenes, 12 plates, same images. Media in `Media/Week 01/Jikji-short/` (prefix `jks`). Scene 1 and 3 voice takes are **reused** from the long cut (same text; their `previous_text` / `next_text` context differed, so prosody may differ slightly); 3 new takes (scenes 2, 4, 5, about 330 characters) and 3 timing runs, about **$0.06** more (running total about $0.21 against the long cut's $0.18 cap; the request counted as approval for the variant).
+
 ## Decisions and open points
 
 1. Budget approved (5 Oct 2026).
