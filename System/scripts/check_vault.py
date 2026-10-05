@@ -65,6 +65,8 @@ INVARIANTS = [
     ("System/Content/Channel playbook.md", "On-screen design system", "text box and highlight design written down"),
     ("System/Content/Channel playbook.md", "Mission (one sentence)", "channel mission"),
     ("System/Content/Channel playbook.md", "Name: Cutaway", "channel name"),
+    ("System/Content/Channel playbook.md", "geometric copper fox", "brand mascot (user, 4 Oct 2026)"),
+    ("System/Content/Channel playbook.md", "Science, cut open", "science tagline"),
     # Superconductors feedback, 4 Oct 2026
     ("System/Guidelines for new scripts.md", "Plain-words test", "hook in plain words"),
     ("System/Guidelines for new scripts.md", "One thread, a fact budget", "theme line and fact budget"),

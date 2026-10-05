@@ -59,6 +59,7 @@ tags: [research, youtube, process, feedback, vault]
 | 4 Oct 2026 | One image every 4 to 6 s (12 to 14 plates) | One image every 3 to 4 s (16 to 20 plates), half real photos, 2 to 3 candidates per scene | [[Illustration pipeline]], [[Shorts quality bar]] §4 |
 | 4 Oct 2026 | Captions at 104 px | 88 px | [[On-screen text style]] |
 | 4 Oct 2026 | A proposed channel name and avatar "to decide" | **Cutaway**, "How it works. With sources.", the ring-and-dot avatar | [[Channel playbook]] §4 |
+| 4 Oct 2026 | *"redesign for the brand, add an animal into it and science as the topic"* | copper fox mascot, tagline "Science, cut open. With sources.", science-wide audience | [[Channel playbook]] §4 |
 
 ## 4. The coherence check
 

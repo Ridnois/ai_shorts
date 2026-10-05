@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-04
 updated: 2026-10-04
-status: v3 · in-video branding removed (progress bar, mark, series tag: Superconductors feedback, 4 Oct 2026); v2 name, avatar, banner and sound design; v1 requested by the user (4 Oct 2026); YouTube statements fetched from YouTube Help that day, everything marked "hypothesis" is untested on this channel
+status: v4 · brand redesign: fox mascot, science as the topic (user, 4 Oct 2026); v3 · in-video branding removed (progress bar, mark, series tag: Superconductors feedback, 4 Oct 2026); v2 name, avatar, banner and sound design; v1 requested by the user (4 Oct 2026); YouTube statements fetched from YouTube Help that day, everything marked "hypothesis" is untested on this channel
 tags: [research, youtube, engagement, design, branding, mission, guidelines]
 ---
 
@@ -93,7 +93,7 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 
 **Promise to the viewer:** you will leave knowing *how* something works and *why* it is hard, and you can check every number.
 
-**Audience:** curious adults who like physics, engineering and materials; they do not want hype and they notice mistakes.
+**Audience:** curious adults who like science (physics, materials, biology, space, the body); they do not want hype and they notice mistakes.
 
 **Brand pillars (each is a rule the vault already enforces):**
 
@@ -107,9 +107,9 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 
 **Voice:** the curious specialist ([[Channel identity]]): tells you what you need to know, never narrates a story.
 
-**Visual identity:** copper accent on paper-white boxes over real images, Noto Sans Display Bold, one gradient family per topic, the **callout dot with its ring as the logo mark** (a copper dot inside a thin ring on a dark ground: it is already the channel's recurring device). Avatar: that mark. Banner: the mark, the one-line mission, a photo-and-callout crop.
+**Visual identity:** copper accent on paper-white boxes over real images, Noto Sans Display Bold, one gradient family per topic. **Mascot and logo: a geometric copper fox** (user, 4 Oct 2026: *"I want a redesign for the brand, add an animal into it and science as the topic"*): the fox is the curious specialist (fox-copper is already the signature colour) and its right eye is the callout ring-and-dot, so the old mark survives inside the new one. Avatar: the fox head. Banner: fox, wordmark, tagline. The fox lives on the channel page only, never inside a Short.
 
-**Name: Cutaway.** Tagline: **"How it works. With sources."** (user, 4 Oct 2026: *"the mission is good, invent something catchy and well positioned for channel name"*.) Why it fits: a *cutaway* is the diagram that cuts the outside away to show the inside, which is exactly what the channel does with a mechanism (the schematics and the callouts that name the parts); it is one word, easy to say and spell, and it says nothing about physics only, so it survives the move to materials, biology or software. Wordmark: "Cutaway" in Noto Sans Display Bold, paper-white on ink, with the copper ring-and-dot to its left.
+**Name: Cutaway.** Tagline: **"Science, cut open. With sources."** (was "How it works. With sources.") (user, 4 Oct 2026: *"the mission is good, invent something catchy and well positioned for channel name"*.) Why it fits: a *cutaway* is the diagram that cuts the outside away to show the inside, which is exactly what the channel does with a mechanism (the schematics and the callouts that name the parts); it is one word, easy to say and spell, and the topic is **science in general** (physics, materials, biology, space), not physics only. Wordmark: "Cutaway" in Noto Sans Display Bold, paper-white on ink, with the fox to its left.
 
 **Handle (not verified):** the fetch tool cannot read YouTube channel pages, so **availability on YouTube, TikTok and Instagram is unchecked**. Try in this order in YouTube Studio: `@cutaway`, `@cutawayhq`, `@watchcutaway`, `@cutaway.science`; use the first free one on all three platforms. YouTube handles are unique and the name or handle can be changed twice per 14 days (verified, YouTube Help). Fallback names if "Cutaway" is taken or too crowded: **Part Names**, **Show the Part**, **Teardown Minute**. **Trademark and search crowding are not researched**: search "Cutaway" on YouTube before committing.
 
@@ -117,8 +117,8 @@ Top 10 %: free (the title bar). Subject between 15 % and 60 % of the height. **C
 
 | File | Use | Design |
 | --- | --- | --- |
-| `avatar.png` (800 px) and `avatar.svg` | profile picture | an annotation: a copper ring with a dot, a leader line, a paper label with two text lines, on a dark ground that fades from ink to the cryogenic navy; centred inside the circular crop |
-| `banner.png` (2560 × 1440) | channel banner | ring-and-dot, "Cutaway" and the tagline, centred in the middle safe area (**YouTube's 1546 × 423 safe-area size is from memory, not verified**: check the Studio preview) |
+| `avatar.png` (800 px) | profile picture | the copper fox head (paper cheeks, ink ears and nose, right eye = ring-and-dot lens) on a ground that fades from ink to the cryogenic navy; centred inside the circular crop |
+| `banner.png` (2560 × 1440) | channel banner | fox, "Cutaway" and the tagline, centred in the middle safe area (**YouTube's 1546 × 423 safe-area size is from memory, not verified**: check the Studio preview) |
 
 **The Short itself carries no branding** (no progress bar, mark or series tag; removed on the user's feedback). It stays recognisable through the cards, callouts, copper highlight and captions (§3.1). Series names (The mechanism, The number, The catch) are content formats for playlists and descriptions only. *Interpretation to confirm:* the feedback row called "Brand layer" listed avatar and name too; the agent read the verdict as **about the video**, and kept the channel's name, avatar and banner (the channel page needs them).
 

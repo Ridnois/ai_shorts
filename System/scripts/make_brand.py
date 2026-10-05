@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Draws the channel's brand assets into System/Brand/ (run from the vault root): python3 System/scripts/make_brand.py
-  avatar.png   800 px profile picture; avatar.svg the vector source
+  avatar.png   800 px profile picture (the copper fox)
   banner.png   2560 x 1440 channel banner (the text sits in the 1546 x 423 centre safe area)
 Colours and fonts are the tokens of System/Content/Channel playbook.md §3.1."""
 from PIL import Image, ImageDraw, ImageFont
@@ -41,41 +41,47 @@ def draw_mark(d, cx, cy, s, label=True):
             d.rounded_rectangle([x2 + bh * 0.42, y2 - bh / 2 + bh * k_ - bh * 0.07, x2 + bh * 0.42 + (bw - bh * 0.8) * wfrac, y2 - bh / 2 + bh * k_ + bh * 0.07], radius=bh * 0.07, fill=INK)
 
 
+FOX = [  # (polygon, colour) in a -1..1 box: head, white cheeks, inner ears, nose; the right eye is the callout ring-and-dot
+    ([(-1, -.95), (-.45, -.45), (.45, -.45), (1, -.95), (.95, .1), (0, 1), (-.95, .1)], COPPER),
+    ([(-.95, .1), (0, .25), (.95, .1), (0, 1)], PAPER),
+    ([(-.82, -.7), (-.55, -.4), (-.8, -.2)], INK), ([(.82, -.7), (.55, -.4), (.8, -.2)], INK),
+    ([(-.12, .78), (.12, .78), (0, .93)], INK),
+]
+
+
+def draw_fox(d, cx, cy, s):
+    """s = half-width in px. A fox that is also an annotation: its right eye is the channel's ring-and-dot."""
+    for pts, col in FOX:
+        d.polygon([(cx + x * s, cy + y * s) for x, y in pts], fill=col)
+    e = lambda x, y, r, **k: d.ellipse([cx + (x - r) * s, cy + (y - r) * s, cx + (x + r) * s, cy + (y + r) * s], **k)
+    e(-.38, -.02, .09, fill=INK)
+    e(.38, -.02, .2, outline=PAPER, width=max(2, round(s * 0.05)))
+    e(.38, -.02, .09, fill=INK)
+
+
 def small(img, w, h):
     return img.resize((w, h), Image.LANCZOS)
 
 
-# avatar 800: the whole annotation (ring, dot, leader, label) inside the circular crop (radius 400)
+# avatar 800: the fox centred inside the circular crop
 A = ground(800 * SS, 800 * SS)
-draw_mark(ImageDraw.Draw(A), 213 * SS, 472 * SS, 78 * SS)
+draw_fox(ImageDraw.Draw(A), 400 * SS, 410 * SS, 250 * SS)
 small(A, 800, 800).save(f"{OUT}/avatar.png")
-svg = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
-<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c1a17"/><stop offset="1" stop-color="#0b1a2b"/></linearGradient></defs>
-<rect width="800" height="800" fill="url(#g)"/>
-<g transform="translate(-87 -28)">
-<circle cx="300" cy="500" r="78" fill="none" stroke="#c76b38" stroke-width="11"/>
-<circle cx="300" cy="500" r="40.6" fill="#c76b38"/>
-<line x1="355.2" y1="444.8" x2="502.8" y2="313" stroke="#c76b38" stroke-width="7"/>
-<rect x="502.8" y="278" width="249.6" height="70" rx="14" fill="#f9f6ee"/>
-<rect x="502.8" y="278" width="11" height="70" fill="#c76b38"/>
-<rect x="532" y="291" width="154" height="10" rx="5" fill="#1c1a17"/>
-<rect x="532" y="318" width="99" height="10" rx="5" fill="#1c1a17"/>
-</g>
-</svg>
-'''
-open(f"{OUT}/avatar.svg", "w").write(svg)
+if os.path.exists(f"{OUT}/avatar.svg"):
+    os.remove(f"{OUT}/avatar.svg")                # the vector twin was the old mark; PNG is what Studio takes
 
-# banner 2560 x 1440: wordmark, tagline and mark inside the centre safe area (1546 x 423)
+# banner 2560 x 1440: fox, wordmark and tagline inside the centre safe area (1546 x 423)
 Wb, Hb = 2560, 1440
-B = ground(Wb * 1, Hb * 1).convert("RGBA")
-bs = Image.new("RGBA", (Wb * 2, Hb * 2), (0, 0, 0, 0))
-d = ImageDraw.Draw(bs)
-draw_mark(d, 851 * 2, 720 * 2, 62 * 2, label=False)
-bs = bs.resize((Wb, Hb), Image.LANCZOS)
-B = Image.alpha_composite(B, bs)
+B = ground(Wb, Hb)
+bs = Image.new("RGB", (Wb * 2, Hb * 2), (0, 0, 0))
+mask = Image.new("L", bs.size, 0)
+big = Image.new("RGBA", bs.size, (0, 0, 0, 0))
+draw_fox(ImageDraw.Draw(big), 880 * 2, 720 * 2, 130 * 2)
+big = big.resize((Wb, Hb), Image.LANCZOS)
+B = B.convert("RGBA"); B.alpha_composite(big)
 d = ImageDraw.Draw(B)
-f1, f2 = ImageFont.truetype(BOLD, 190), ImageFont.truetype(REG, 54)
-d.text((981, 700), "Cutaway", font=f1, fill=PAPER, anchor="lm")
-d.text((991, 850), "HOW IT WORKS.  WITH SOURCES.", font=f2, fill=COPPER, anchor="lm")
+f1, f2 = ImageFont.truetype(BOLD, 170), ImageFont.truetype(REG, 50)
+d.text((1050, 690), "Cutaway", font=f1, fill=PAPER, anchor="lm")
+d.text((1058, 830), "SCIENCE, CUT OPEN.  WITH SOURCES.", font=f2, fill=COPPER, anchor="lm")
 B.convert("RGB").save(f"{OUT}/banner.png")
 print("ok", os.listdir(OUT))
