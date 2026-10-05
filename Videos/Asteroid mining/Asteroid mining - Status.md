@@ -22,8 +22,8 @@ Short 9:16, English, 162 words. Question: what are the steps of a real asteroid 
 | 3 Direction | ✅ | agent | visual plan below: 19 plates, 2 generated |
 | 4 Prompts and budget | ✅ | **delegated by the user** (5 Oct 2026), cap ≈ $0.33 | below |
 | 5 Test | ⏭ folded into 6 | delegation | |
-| 6 Generation | ⏳ | delegation | |
-| 7 Editing | ⏳ **P7 is yours** | | |
+| 6 Generation | ✅ | delegation | 7 voice takes, 2 plates (no retry), 7 word-timing runs; ≈ $0.27 of the ≈ $0.33 cap |
+| 7 Editing | ⏳ **P7 is yours** | | `Media/Asteroid-mining/render/am-61s-9x16-r1.mp4` (+ `am.srt`) |
 | 8 Publishing | ⏳ | — | |
 
 ## Visual plan (S stock · G generated explainer)
