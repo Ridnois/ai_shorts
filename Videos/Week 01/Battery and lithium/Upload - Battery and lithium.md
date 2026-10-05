@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-05
 updated: 2026-10-05
-status: upload package ready for the user's review (P8); nothing is uploaded or scheduled
+status: decided (thumbnail B, title 1, the rest as recommended); the upload itself is blocked on how to send the 65 MB file (see §0)
 tags: [youtube, upload, week-01, battery, lithium, shorts]
 ---
 
@@ -11,6 +11,20 @@ tags: [youtube, upload, week-01, battery, lithium, shorts]
 ← [[Battery and lithium - Status]] · [[Script - Battery and lithium]] · [[Channel playbook]] · [[Shorts quality bar]]
 
 User request (5 Oct 2026): *"Its perfect, now i want it to prepare for upload, reorganize the media files, organize the videos by week, this one is week 1 and the rest is legacy. then prepare note to show me the video, description, hashtags, and thumbnail… remember to research on how to build all of this in order to be captivating and improve metrics"*. **Nothing has been uploaded, scheduled or published: that is a manual step in YouTube Studio** (the API route discussed earlier is not built).
+
+## 0. Decisions (5 Oct 2026)
+
+User: *"Thmbnail b is the winner, tittle recomendation is good, follow your recomendations on the rest. then proceed to upload my video"*.
+
+| Item | Decision |
+| --- | --- |
+| Thumbnail | **B** ("NOT RARE. STILL A FIGHT.", `Media/Week 01/Battery-lithium/upload/thumb-b.jpg`); A and C are archived as ideas (their files stay in `upload/` and can be deleted) |
+| Title | **Lithium Isn't Rare, So Why Do Countries Fight Over It?** (54 characters) |
+| Description, hashtags, pinned comment, Studio settings | as in §3, §4, §6, §7 |
+
+*Heads-up recorded:* thumbnail B's text says the same thing as the title (not rare, a fight); I had paired the title with A so they would complement each other. It still works; if the repetition bothers you, title 2 ("Your Battery Runs on a Metal That Floats") pairs better with B.
+
+**Upload status (5 Oct 2026): not uploaded.** The channel is `UCCZX7-YPNPntwPKI1hdv2hQ` (REDTAIL, 0 videos), Studio is signed in and the Upload dialog is open in a Chrome tab. Claude in Chrome's `file_upload` accepts at most **10 MB** and the render is **65 MB**; a workaround that served the file from a temporary localhost server and attached it from the page was **denied by the permission check and was not pursued** (the server was shut down). Ways forward, the user decides: (a) the user attaches the file in the open dialog and the agent fills the rest; (b) the user explicitly approves the localhost route; (c) a one-time YouTube Data API setup (OAuth client created by the user), which also serves the weekly cadence. Visibility: **Private until the user chooses a schedule** (the weekly slot is not decided).
 
 ## 1. The video
 
@@ -129,7 +143,7 @@ One change at a time, written in the next Status note ([[Feedback loop]]).
 
 ## 10. Checklist before pressing publish
 
-- [ ] Watched and listened to the full video (the agent did not) and the A/B of scene 1 chosen (`voice/bt-s1-voice-alt.mp3`).
+- [x] Watched and approved by the user ("Its perfect", 5 Oct 2026); the scene 1 A/B was not mentioned, so the default take stays.
 - [ ] Facts to recheck from [[Battery and lithium - Status]] (the 18-month figure, IEA's 60 %, CATL's claims, the two Chinese notices).
 - [ ] Title, description, hashtags and pinned comment pasted; photo credits intact.
 - [ ] Thumbnail uploaded or the opening frame chosen; audience set to *not made for kids*; the synthetic-content question answered.
