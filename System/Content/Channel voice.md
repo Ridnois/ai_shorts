@@ -13,7 +13,7 @@ tags: [research, youtube, voice, replicate]
 ## Current (English, from 5 Oct 2026): Austin
 
 - **Voice: `Austin`** (user, 5 Oct 2026: *"Austin it is"*, after testing Mark, Austin and Dave; Aria and Bradford rejected; the test is in [[Voice samples]]). Model `elevenlabs/v3`, `language_code: en`, with `previous_text` and `next_text` for intonation. ≈ $0.10 per 1,000 characters. **Replaces `Roger`.**
-- **Speed:** the user set **`speed` 1.0 ("pace 1") for the first Austin video** ([[Battery and lithium - Status]]). In the test at 0.95 Austin ran ≈ 179 words per minute (estimated from file size, unmeasured), well above the 145 planned for Roger: **measure Austin on the first complete script** and write the planning pace here.
+- **Speed:** the user set **`speed` 1.0 ("pace 1") for the first Austin video** ([[Battery and lithium - Status]]). In the test at 0.95 Austin ran ≈ 179 words per minute (estimated from file size, unmeasured), well above the 145 planned for Roger: **measured on Battery and lithium (5 Oct 2026, `speed` 1.0): 200 words in ≈ 64.0 s of speech = ≈ 187 words per minute while speaking, ≈ 170 with the scene gaps (71.9 s in all, 8 takes from 41 to 172 characters; per scene it ran from 168 to 193 wpm)**. Plan Austin at **≈ 170 words per minute**: 200 words ≈ 70 s. That is faster than Roger's 145; if it feels rushed, lower `speed` (0.95 was not measured). The user's ear decides.
 - **Why this model:** the user chose it over `minimax/speech-2.8-turbo` and `qwen3-tts` ("Elevenlabs is better", lemon-cake Short); English is its strongest language.
 - **Why Austin:** brand fit. The channel is now **Redtail, science entertainment** ([[Brand options]]), and the user wanted a relaxed, conversational young American male voice in the register of Mark. I cannot hear it: the user chose by ear.
 - **Previous voice (retired 5 Oct 2026): `Roger`**, relaxed resonant male voice, used for the first English videos (Helium, Twisted carbon, Magnetar, Superconductors, Moon, Asteroid mining); their Status notes still say Roger as a record.
@@ -37,7 +37,7 @@ tags: [research, youtube, voice, replicate]
 | Chips and lithography (≈ 93 s, Spanish) | `elevenlabs/v3`, `Roger`, `es` | ≈ 144 | See [[Chips and lithography - Status]] |
 | Helium - why it cannot be made (≈ 76 s, **English**) | `elevenlabs/v3`, `Roger`, `en`, 0.95 | ≈ 144 | First English video; awaiting the user's ear at P7 ([[Helium - why it cannot be made - Status]]) |
 
-| Battery and lithium (200 words, **English**) | `elevenlabs/v3`, **`Austin`**, `en`, 1.0 (user) | to measure | first Austin video ([[Battery and lithium - Status]]) |
+| Battery and lithium (200 words, **English**) | `elevenlabs/v3`, **`Austin`**, `en`, 1.0 (user) | ≈ 187 speaking, ≈ 170 with gaps | first Austin video ([[Battery and lithium - Status]]) |
 
 ## Open
 

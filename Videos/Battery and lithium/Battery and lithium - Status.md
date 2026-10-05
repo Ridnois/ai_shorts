@@ -21,12 +21,12 @@ Short 9:16, English, **200 words** (the user's number, above the 130 to 190 rang
 | 2 Script | ✅ | agent | 200 words, 8 scenes, 5 facts, 3 spoken figures |
 | 3 Direction | ✅ | agent | 21-plate visual plan, 18 stock and 3 generated; on-screen text plan |
 | 4 Prompts and budget | ✅ | **delegated by the user** (5 Oct 2026: *"Follow the steps until the render, use the date atemporally, keep the 200 words"*), cap ≈ $0.41 | prompts in the script note §5, budget below |
-| 5 Test | ⏳ | | scene 1 voice twice (default and the expressive variant), one generated plate and one stock photo composed |
-| 6 Generation | ⏳ | | |
-| 7 Editing | ⏳ | | |
+| 5 Test | ⏭ folded into 6 | delegation | | scene 1 voice twice (default and the expressive variant), one generated plate and one stock photo composed |
+| 6 Generation | ✅ | delegation | 9 voice takes (8 + the scene 1 alternative), 3 plates (no retry), 8 word-timing runs |
+| 7 Editing | ⏳ **P7 is yours** | | `Media/Battery-lithium/render/bt-72s-9x16-r1.mp4` (+ `bt.srt`) |
 | 8 Publishing | ⏳ | | |
 
-Stock photos (free) were downloaded **before** P4 as part of package B: 13 of 14 in `Media/Battery-lithium/stock/` (credits in `_credits.jsonl`); `bt-sodium2` (Faradion) was rate-limited by Wikimedia and is still to fetch. **Weak points to decide:** five photos are small (345 to 722 px), no photo shows lithium clearly floating, one phone photo shows a Samsung logo, and one NASA image carries a date stamp (to crop). They are listed in the script note §4.
+Stock photos (free) were downloaded **before** P4 as part of package B into `Media/Battery-lithium/stock/` (credits in `_credits.jsonl`). **Weak points that remain:** five photos are small (345 to 722 px) and are shown as `contain` plates; no photo shows lithium clearly floating on water (the hook is carried by the voice and by the jar-of-oil photo); G1 was written from a specification, **not from a real cell diagram** (none was available in a fetchable format).
 
 ## P4 budget (dollars; Replicate is not called before your approval)
 
@@ -46,8 +46,36 @@ One retry of one plate fits inside the total cap; going over needs your approval
 
 ## Prediction log
 
-(empty: nothing is called before P4)
+- Voice · `elevenlabs/v3` Austin `en` 1.0 (`previous_text`/`next_text`), 8 takes, 1,099 characters · ✅ `voice/bt-s1…s8-voice-v1.mp3` · ids in `voice/_log.jsonl` (s1 [zzd7vrvw…](https://replicate.com/p/zzd7vrvwesrmr0d11kv9e9hrb4), s2 [qef70bdh…](https://replicate.com/p/qef70bdh5drmt0d11kv9a6zes4), s8 [6bvgp48w…](https://replicate.com/p/6bvgp48w39rmt0d11kwb40zknw))
+- Voice alternative of scene 1 · `stability` 0.35, `style` 0.35, a `[curious]` tag · ✅ `voice/bt-s1-voice-alt.mp3` · [dkm353jf…](https://replicate.com/p/dkm353jfkdrmt0d11kw9jymq9r). **For your A/B at P7; the default take is in the video.**
+- G1 cell · `gpt-image-1.5` 2:3 medium · ✅ `plates/bt-p04-cell-v1.png` (cropped to `…-crop.png`) · [rd5dmc5k…](https://replicate.com/p/rd5dmc5kthrmw0d11kw9weee74)
+- G2 chain · ✅ `plates/bt-p10-chain-v1.png` · [kb3q9zfj…](https://replicate.com/p/kb3q9zfjwsrmr0d11kwb7n6pf4)
+- G3 sodium · ✅ `plates/bt-p17-sodium-v1.png` · [andv36ss…](https://replicate.com/p/andv36ss5drmr0d11kwvm1y6vr)
+- Word timings · `incredibly-fast-whisper` word, 8 runs · ✅ `voice/*.words.json`
 
-## Attribution table
+**Total: 20 predictions (9 voice, 3 images, 8 timings), ≈ $0.35 of the ≈ $0.41 cap** (voice ≈ $0.115, images ≈ $0.15 at the unconfirmed $0.05, timings ≈ $0.08 at the unconfirmed $0.01); no retries. Replicate's `metrics` carry no cost, so the dashboard check is yours.
 
-Filled from `Media/Battery-lithium/stock/_credits.jsonl` when the photos are final (13 photos so far: Wikimedia Commons, NASA, ESA; CC BY, CC BY-SA, public domain: CC BY and CC BY-SA need the credit line in the description).
+## Checks done by the agent (stills and numbers)
+
+`PLATES 21`, durations 3.0 to 4.2 s, `LONG PLATE: none`; `CAPTIONS 195 words, timed by whisper`; every voice complete (lead-in, tail, order ok); stills looked at on 24 frames: captions land on the spoken words (turning, 2025, plus, 1, sodium…), callouts sit on the parts they name, the cards render. **Fixed during the build:** the "≈" in the number card was a box (Noto Sans Display Bold lacks it, as the guidelines warn) and the caption overflowed the card; "≈" and "≥" are removed from the cards; the NASA date stamp was cropped; the Samsung phone photo was replaced by a logo-free cell photo.
+
+## Attribution table (built from `stock/_credits.jsonl`; 14 photos used)
+
+| File | Title | Author | License | Source |
+| --- | --- | --- | --- | --- |
+| `bt-oil.jpg` | Lithium in mineral oil.jpg | Sea Moon | CC BY 2.0 | [page](https://commons.wikimedia.org/wiki/File:Lithium_in_mineral_oil.jpg) |
+| `bt-element.jpg` | Lithium element cropped.jpg | W. Oelen | CC BY-SA 3.0 | [page](https://commons.wikimedia.org/wiki/File:Lithium_element_cropped.jpg) |
+| `bt-atacama1.jpg` | Salar de Atacama Lithium salt ponds 2018.jpg | NASA Earth Observatory,  Operational Land Imager (OLI) by La | Public domain | [page](https://commons.wikimedia.org/wiki/File:Salar_de_Atacama_Lithium_salt_ponds_2018.jpg) |
+| `bt-atacama2.jpg` | Lithium Ponds of Chile's Salar de Atacama (SVS15006).jpg | NASA's Scientific Visualization Studio - SSAI/Ross K. Walter | Public domain | [page](https://commons.wikimedia.org/wiki/File:Lithium_Ponds_of_Chile's_Salar_de_Atacama_(SVS15006).jpg) |
+| `bt-atacama3.jpg` | Salar de Atacama, Chile ESA386674.jpg | European Space Agency | CC BY-SA 3.0 igo | [page](https://commons.wikimedia.org/wiki/File:Salar_de_Atacama,_Chile_ESA386674.jpg) |
+| `bt-greenbushes.jpg` | Open pit of the Greenbushes mine, January 2023 07.jpg | Calistemon | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:Open_pit_of_the_Greenbushes_mine,_January_2023_07.jpg) |
+| `bt-carbonate.jpg` | Lithium carbonate.jpg | n/a | Public domain | [page](https://commons.wikimedia.org/wiki/File:Lithium_carbonate.jpg) |
+| `bt-catl1.jpg` | CATL in Arnstadt 2.jpg | Giorno2 | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:CATL_in_Arnstadt_2.jpg) |
+| `bt-catl2.jpg` | CATL, IAA 2024, Hanover (P1190827).jpg | Matti Blume | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:CATL,_IAA_2024,_Hanover_(P1190827).jpg) |
+| `bt-port1.jpg` | Container ship NYK Themis at the Port of Los Angeles.jpg | Downtowngal | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:Container_ship_NYK_Themis_at_the_Port_of_Los_Angeles.jpg) |
+| `bt-port2.jpg` | Container Cranes, Ship Dock - geograph.org.uk - 456695.jpg | George Robinson | CC BY-SA 2.0 | [page](https://commons.wikimedia.org/wiki/File:Container_Cranes,_Ship_Dock_-_geograph.org.uk_-_456695.jpg) |
+| `bt-sodium1.jpg` | Sodium-ion battery (size 18650).jpg | Vladimir022009 | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:Sodium-ion_battery_(size_18650).jpg) |
+| `bt-cells.jpg` | 18650 and 21700 lithium ion battery cell.jpg | Sevenethics | CC0 | [page](https://commons.wikimedia.org/wiki/File:18650_and_21700_lithium_ion_battery_cell.jpg) |
+| `bt-sodium2.jpg` | Faradion sodium-ion battery - Science Museum, London.jpg | The wub | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:Faradion_sodium-ion_battery_-_Science_Museum,_London.jpg) |
+
+**CC BY and CC BY-SA photos need a credit line in the description** (author, title, license, link). `bt-phone.jpg` (Samsung) is in the folder but not used.

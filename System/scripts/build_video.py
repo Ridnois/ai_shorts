@@ -31,6 +31,9 @@ import numpy as np
 
 ROOT = os.path.abspath(os.environ.get("VIDEO") or sorted(glob.glob("Media/*"))[-1])
 PLAN = json.load(open(f"{ROOT}/plan.json", encoding="utf-8"))
+_bad = [c for c in "≈≥≤→" if c in json.dumps(PLAN["scenes"], ensure_ascii=False)]
+if _bad:                                                          # Noto Sans Display Bold has none of these: they render as boxes
+    raise SystemExit(f"plan.json uses {_bad}, which the card font lacks: write about / or more / to / ·")
 OUT = f"{ROOT}/render"
 FX = f"{OUT}/_fx"
 os.makedirs(FX, exist_ok=True)
