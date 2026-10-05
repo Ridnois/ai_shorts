@@ -24,14 +24,15 @@ tags: [analytics, metrics, report]
 
 Below the median (needs 3+ videos): none
 
-## youtube at 1h (1 videos)
+## youtube at 1h (2 videos)
 
 | video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [[Copper and the AI race - Status]] | 9 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
-| **median** | 9 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
+| [[Jikji and Gutenberg - Status]] | 1 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
+| **median** | 5 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
 
-**Too few views to read percentages (< 100): Copper and the AI race.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
+**Too few views to read percentages (< 100): Copper and the AI race, Jikji and Gutenberg.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
 
 Below the median (needs 3+ videos): none
 
@@ -51,8 +52,8 @@ Below the median (needs 3+ videos): none
 
 | video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[EV battery tech - Status]] | 84 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
-| **median** | 84 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
+| [[EV battery tech - Status]] | 89 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
+| **median** | 89 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
 
 **Too few views to read percentages (< 100): EV battery tech.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
 

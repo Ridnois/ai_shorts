@@ -1,41 +1,41 @@
 [
  {
   "kind": "youtube#video",
-  "etag": "h8yHz9CujyULHF2x4B8k2xiIK-I",
+  "etag": "7o2XPTBQF9DEoyB6Nn4DPPCEN50",
   "id": "lQRLoZYWFwU",
   "snippet": {
-   "publishedAt": "2026-10-05T23:39:21Z",
+   "publishedAt": "2026-10-05T23:54:43Z",
    "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
    "title": "Most Computer Chips Start in Rock From One Small Town",
    "description": "Most computer chips start in a quartz crucible, and most of that quartz comes from one small town in North Carolina: Spruce Pine. Why a silicon crystal needs ultra-pure quartz, and what stopped after Hurricane Helene in 2024.\n\nNew Shorts every day.\n\nSOURCES\n- Wikipedia, Spruce Pine Mining District (about 70 to 90 % of the world's high-purity quartz; molten silicon reacts with almost all materials except quartz above 1,400 C; Helene 2024; stockpiled crucibles prevented immediate shortages): https://en.wikipedia.org/wiki/Spruce_Pine_Mining_District\n- The Quartz Corp, Silicon wafer production (one crucible pulls about 8 ingots in about 400 hours; a 300 mm ingot yields about 2 million chips): https://www.thequartzcorp.com/silicon-wafer-production\n- The Quartz Corp, Geology (pegmatites almost free from inclusions): https://www.thequartzcorp.com/geology\n- Sibelco, High-purity quartz (two uniquely pure ore bodies at Spruce Pine; crucibles for the Czochralski process): https://www.sibelco.com/materials/high-purity-quartz\nThe 16 million chips per crucible is a rough calculation from the Quartz Corp figures above (chip sizes vary). The share of supply differs by source (about 70 to 90 %). Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nDowntown Spruce Pine, used crucible photos, silicon boule and 1956 crystal puller: public domain | Silicon wafer: Peellden, CC BY-SA 3.0 | Silicon crystal: Massimiliano Lincetto, CC BY-SA 4.0 | Pegmatite rock (Ruggles mine, New Hampshire, shown as an example of the rock type): James St. John, CC BY 2.0 | Hurricane Helene damage (Buncombe County, North Carolina): NCDOT Communications, CC BY 2.0\n\nThe narration and the diagrams are AI-generated or drawn for this video; the photos are real.\n\n#semiconductors #quartz #chips #SprucePine #supplychain",
    "thumbnails": {
     "default": {
-     "url": "https://i9.ytimg.com/vi/lQRLoZYWFwU/default.jpg?sqp=CNDqkNYG&rs=AOn4CLAhQD__UaaDLPXq8TsPOBEYyGh-OA",
+     "url": "https://i.ytimg.com/vi/lQRLoZYWFwU/default.jpg",
      "width": 120,
      "height": 90
     },
     "medium": {
-     "url": "https://i9.ytimg.com/vi/lQRLoZYWFwU/mqdefault.jpg?sqp=CNDqkNYG&rs=AOn4CLDmc_eKowbwaOQ_8smLcFOUeCZjTA",
+     "url": "https://i.ytimg.com/vi/lQRLoZYWFwU/mqdefault.jpg",
      "width": 320,
      "height": 180
     },
     "high": {
-     "url": "https://i9.ytimg.com/vi/lQRLoZYWFwU/hqdefault.jpg?sqp=CNDqkNYG&rs=AOn4CLBVn6eQ1ud0-CwrHHiHJG4iF9PQwA",
+     "url": "https://i.ytimg.com/vi/lQRLoZYWFwU/hqdefault.jpg",
      "width": 480,
      "height": 360
     },
     "standard": {
-     "url": "https://i9.ytimg.com/vi/lQRLoZYWFwU/sddefault.jpg?sqp=CNDqkNYG&rs=AOn4CLC4X7tOO8oy6V1JRBme_yKXOxXgfg",
+     "url": "https://i.ytimg.com/vi/lQRLoZYWFwU/sddefault.jpg",
      "width": 640,
      "height": 480
     },
     "maxres": {
-     "url": "https://i9.ytimg.com/vi/lQRLoZYWFwU/maxresdefault.jpg?sqp=CNDqkNYG&rs=AOn4CLAHNSvM6Nx7V1lw0D9qrffF6I6YYg",
+     "url": "https://i.ytimg.com/vi/lQRLoZYWFwU/maxresdefault.jpg",
      "width": 1280,
      "height": 720
     },
     "qhd": {
-     "url": "https://i9.ytimg.com/vi/lQRLoZYWFwU/qhddefault.jpg?sqp=CNDqkNYG&rs=AOn4CLDu1v3xrQdEjucDXhg1vPQVOMQhGg",
+     "url": "https://i.ytimg.com/vi/lQRLoZYWFwU/qhddefault.jpg",
      "width": 2560,
      "height": 1440
     }
@@ -43,6 +43,7 @@
    "channelTitle": "REDTAIL",
    "categoryId": "28",
    "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
    "localized": {
     "title": "Most Computer Chips Start in Rock From One Small Town",
     "description": "Most computer chips start in a quartz crucible, and most of that quartz comes from one small town in North Carolina: Spruce Pine. Why a silicon crystal needs ultra-pure quartz, and what stopped after Hurricane Helene in 2024.\n\nNew Shorts every day.\n\nSOURCES\n- Wikipedia, Spruce Pine Mining District (about 70 to 90 % of the world's high-purity quartz; molten silicon reacts with almost all materials except quartz above 1,400 C; Helene 2024; stockpiled crucibles prevented immediate shortages): https://en.wikipedia.org/wiki/Spruce_Pine_Mining_District\n- The Quartz Corp, Silicon wafer production (one crucible pulls about 8 ingots in about 400 hours; a 300 mm ingot yields about 2 million chips): https://www.thequartzcorp.com/silicon-wafer-production\n- The Quartz Corp, Geology (pegmatites almost free from inclusions): https://www.thequartzcorp.com/geology\n- Sibelco, High-purity quartz (two uniquely pure ore bodies at Spruce Pine; crucibles for the Czochralski process): https://www.sibelco.com/materials/high-purity-quartz\nThe 16 million chips per crucible is a rough calculation from the Quartz Corp figures above (chip sizes vary). The share of supply differs by source (about 70 to 90 %). Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nDowntown Spruce Pine, used crucible photos, silicon boule and 1956 crystal puller: public domain | Silicon wafer: Peellden, CC BY-SA 3.0 | Silicon crystal: Massimiliano Lincetto, CC BY-SA 4.0 | Pegmatite rock (Ruggles mine, New Hampshire, shown as an example of the rock type): James St. John, CC BY 2.0 | Hurricane Helene damage (Buncombe County, North Carolina): NCDOT Communications, CC BY 2.0\n\nThe narration and the diagrams are AI-generated or drawn for this video; the photos are real.\n\n#semiconductors #quartz #chips #SprucePine #supplychain"
@@ -50,7 +51,7 @@
   },
   "status": {
    "uploadStatus": "processed",
-   "privacyStatus": "private",
+   "privacyStatus": "public",
    "license": "youtube",
    "embeddable": true,
    "publicStatsViewable": true,
@@ -134,7 +135,7 @@
  },
  {
   "kind": "youtube#video",
-  "etag": "q4LjM3P2M2x9INbMcnmy_0-jCEg",
+  "etag": "5PYiuYZF0O9rqOI6v3rf9JvPBNo",
   "id": "WhNq3ry6sBw",
   "snippet": {
    "publishedAt": "2026-10-05T20:19:59Z",
@@ -188,7 +189,7 @@
    "selfDeclaredMadeForKids": false
   },
   "statistics": {
-   "viewCount": "84",
+   "viewCount": "89",
    "likeCount": "2",
    "dislikeCount": "0",
    "favoriteCount": "0",
