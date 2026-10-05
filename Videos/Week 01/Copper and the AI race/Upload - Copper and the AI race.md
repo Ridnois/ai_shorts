@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-05
 updated: 2026-10-05
-status: UPLOADED to YouTube as private on 5 Oct 2026 (video id YRX0VfpPMtU); publishing, thumbnail and pinned comment are the user's
+status: UPLOADED (video id YRX0VfpPMtU, sent as private; Studio showed it Public when last looked, changed by the user); thumbnail added via the API; pinned comment is the user's
 tags: [youtube, upload, week-01, copper, ai, shorts]
 ---
 
@@ -54,9 +54,13 @@ Keyword first, hedged like the script ("may be geology" → "could limit"), no b
 
 `#copper #AI #datacenters #mining #science` (inside the description).
 
-## Thumbnail
+## Thumbnail (added 5 Oct 2026)
 
-**Not made.** Custom Shorts thumbnails need the Partner Program ([[Fast workflow]] §4.9); the upload script reports the failure and keeps the video. If wanted: hero image with `gpt-image-2` plus text from `System/scripts/make_thumbnail.py`.
+User: *"I uploaded the lithium video manually and added the thmbnail with no problem, check if you can generate and add one for the las video (copper)"*. Made: hero image with `openai/gpt-image-2` (high, one prediction, [47tndpt7…](https://replicate.com/p/47tndpt73srmy0d11n9r6cd6a4), ≈ $0.25 unconfirmed, a terraced open pit in copper-orange light) plus the text **"17 YEARS TO OPEN A MINE"** composed by `System/scripts/make_thumbnail.py` (entry `thumb-cu`), 1080×1920, 378 KB, text inside the 3:2 band: `Media/Week 01/Copper-AI/upload/thumb-cu.jpg`.
+
+![[thumb-cu.jpg|230]]
+
+**Added through the API** (`thumbnails.set`, the `youtube.upload` scope is enough): YouTube answered `youtube#thumbnailSetResponse`. When the agent looked at Studio afterwards the preview panel was still dark (processing), so **the user should confirm the thumbnail shows**. The channel clearly can use custom thumbnails (the user added one by hand on the lithium video), so the earlier "Partner Program only" assumption does not hold here.
 
 ## Pinned comment (post by hand after publishing)
 
