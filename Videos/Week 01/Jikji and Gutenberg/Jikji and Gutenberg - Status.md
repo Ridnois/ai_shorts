@@ -24,7 +24,7 @@ Short 9:16, English, **146 words** (about 52 s of speech), Austin at `speed` 1.0
 | 5 Test | skipped | | no new technique |
 | 6 Generation | ✅ | delegation | 7 voice takes, 0 generated plates, 7 word-timing runs, 3 drawn diagrams |
 | 7 Edit | ✅ rendered r2 · ⏳ **P7 is yours** | | `Media/Week 01/Jikji/render/jk-62s-9x16-r2.mp4` (+ `jk.srt`) |
-| 8 Publish | not started | | upload only after you confirm title, description, thumbnail, visibility |
+| 8 Publish | ✅ uploaded private, short cut | **user, 5 Oct 2026**: *"Upload the last video to youtube, make sure you upload the thumbnail too"* | see [[Upload - Jikji and Gutenberg]]; `videos.csv` row added |
 
 ## P4 budget (dollars)
 

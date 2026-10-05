@@ -1,3 +1,7 @@
 video,platform,age,date,views,engaged_views,viewed_pct,avg_view_s,avg_pct_viewed,completion_pct,likes,comments,shares,saves,subs_gained,new_viewers_pct,feed_pct,notes
 Copper and the AI race,youtube,1h,2026-10-05,9,,,,,,0,0,,,,,,data api counts 2026-10-05 (analytics api had no row yet); published=2026-10-05T18:29Z; privacy=public
 Battery and lithium,youtube,2h,2026-10-05,46,,,,,,1,2,,,,,,data api counts 2026-10-05 (analytics api had no row yet); published=2026-10-05T17:31Z; privacy=public
+Jikji and Gutenberg,youtube,0h,2026-10-05,0,,,,,,0,0,,,,,,data api counts 2026-10-05 (analytics api had no row yet); published=2026-10-05T22:33Z; privacy=private
+EV battery tech,youtube,2h,2026-10-05,27,,,,,,2,0,,,,,,data api counts 2026-10-05 (analytics api had no row yet); published=2026-10-05T20:19Z; privacy=public
+Copper and the AI race,youtube,4h,2026-10-05,124,,,,,,1,0,,,,,,data api counts 2026-10-05 (analytics api had no row yet); published=2026-10-05T18:29Z; privacy=public
+Battery and lithium,youtube,5h,2026-10-05,70,,,,,,1,2,,,,,,data api counts 2026-10-05 (analytics api had no row yet); published=2026-10-05T17:31Z; privacy=public

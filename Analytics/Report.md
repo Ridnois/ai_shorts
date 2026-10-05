@@ -10,7 +10,18 @@ tags: [analytics, metrics, report]
 
 ← [[YouTube Channel]] · [[Publish]] (rules) · data: `Analytics/snapshots.csv`, `Analytics/videos.csv`
 
-**2 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Publish]] §Analytics loop).
+**4 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Publish]] §Analytics loop).
+
+## youtube at 0h (1 videos)
+
+| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [[Jikji and Gutenberg - Status]] | 0 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
+| **median** | 0 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
+
+**Too few views to read percentages (< 100): Jikji and Gutenberg.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
+
+Below the median (needs 3+ videos): none
 
 ## youtube at 1h (1 videos)
 
@@ -23,12 +34,33 @@ tags: [analytics, metrics, report]
 
 Below the median (needs 3+ videos): none
 
-## youtube at 2h (1 videos)
+## youtube at 2h (2 videos)
 
 | video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [[Battery and lithium - Status]] | 46 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
-| **median** | 46 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
+| [[EV battery tech - Status]] | 27 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
+| **median** | 36.5 |  |  |  |  |  | 1.5 | 1 |  |  |  |  |  |
+
+**Too few views to read percentages (< 100): Battery and lithium, EV battery tech.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
+
+Below the median (needs 3+ videos): none
+
+## youtube at 4h (1 videos)
+
+| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [[Copper and the AI race - Status]] | 124 |  |  |  |  |  | 1 | 0 |  |  |  |  |  |
+| **median** | 124 |  |  |  |  |  | 1 | 0 |  |  |  |  |  |
+
+Below the median (needs 3+ videos): none
+
+## youtube at 5h (1 videos)
+
+| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [[Battery and lithium - Status]] | 70 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
+| **median** | 70 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
 
 **Too few views to read percentages (< 100): Battery and lithium.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
 
