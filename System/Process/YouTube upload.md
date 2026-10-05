@@ -10,7 +10,7 @@ tags: [youtube, upload, api, process, setup]
 
 ← [[YouTube Channel]] · [[Fast workflow]] · [[Production process]] · [[Channel strategy]]
 
-**Why:** the browser route failed on [[Upload - Battery and lithium]] (Claude in Chrome's `file_upload` takes ≤ 10 MB; a render is ≈ 65 MB). The YouTube Data API has no such limit and also serves the weekly cadence. Tool: `System/scripts/youtube_upload.py` (stdlib, no install).
+**Why:** the browser route failed on [[Upload - Battery and lithium]] (Claude in Chrome's `file_upload` takes ≤ 10 MB; a render is ≈ 65 MB). The YouTube Data API has no such limit and also serves the daily cadence. Tool: `System/scripts/youtube_upload.py` (stdlib, no install).
 
 ## 1. One-time setup (the user, ≈ 10 minutes)
 

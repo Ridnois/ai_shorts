@@ -57,7 +57,7 @@ User: *"Write 3 options for the channel description, same procedure, register an
 >
 > Redtail explains the strangest things in space and physics and how they actually work, one mechanism per Short, in about a minute.
 >
-> New Shorts every week. Figures are sourced in each description; voices and schematics are AI-generated.
+> New Shorts every day. Figures are sourced in each description; voices and schematics are AI-generated.
 
 **Option 2 · the fox's voice (346 characters)**
 
@@ -65,7 +65,7 @@ User: *"Write 3 options for the channel description, same procedure, register an
 >
 > Redtail is a fox with a thing for the strangest things in space and physics. Every Short follows one idea from the first question to the last surprise, with real photos and clean schematics.
 >
-> Strange, fast and true. New Shorts every week. Voices and schematics are AI-generated; every figure is sourced in the video description.
+> Strange, fast and true. New Shorts every day. Voices and schematics are AI-generated; every figure is sourced in the video description.
 
 **Option 3 · search first (361 characters)**
 
@@ -73,6 +73,6 @@ User: *"Write 3 options for the channel description, same procedure, register an
 >
 > Redtail follows one surprising mechanism per video with real photos and faithful schematics. Science at full speed. Strange, fast and true.
 >
-> New Shorts every week. Sources are listed in each description. Voices and schematics are AI-generated.
+> New Shorts every day. Sources are listed in each description. Voices and schematics are AI-generated.
 
 Agent's view: **1** is the shortest and the closest to the banner; **2** has the most personality but personifies the fox (a mascot, not a fake expert); **3** opens with the plain-words topic, the best for search. Caveat: the phrase narrows the channel to space and physics, while the playbook's audience still lists materials, biology and the body (and older videos cover chips, helium and a lemon cake): if the channel will widen again, the phrase must widen too. Nothing is applied to the channel; the playbook's "Channel description template" is updated after the pick.

@@ -148,3 +148,31 @@ One change at a time, written in the next Status note ([[Feedback loop]]).
 - [ ] Title, description, hashtags and pinned comment pasted; photo credits intact.
 - [ ] Thumbnail uploaded or the opening frame chosen; audience set to *not made for kids*; the synthetic-content question answered.
 - [ ] Scheduled in the daily slot; after publishing: pin the comment, then log the 24 h numbers in §9.
+
+## 11. TikTok (@redtail_media; process in [[TikTok upload]])
+
+User request (5 Oct 2026): *"Start the uploading process of the battery video to tiktok, i will upload manually the video"*. The user uploads; this is the package to paste. **First TikTok video, so it doubles as the safe-zone test ([[TikTok upload]] §3): post it Only me (private) first.**
+
+| Field | Value |
+| --- | --- |
+| File | `Media/Week 01/Battery-lithium/render/bt-72s-9x16-r2.mp4` (65 MB, 72 s, 1080×1920). **Upload from the web** ([TikTok Studio](https://www.tiktok.com/tiktokstudio/upload)): the phone limit may be lower than 65 MB on Android. At 72 s it is also over the 1 minute Creator Rewards asks for |
+| Cover | Edit cover: pick the frame of the first 3 seconds (the lithium floating), or upload `upload/thumb-b.jpg` if the picker allows it |
+| Visibility | **Only me** for the safe-zone check, then Everyone |
+| AI-generated content | **ON** (AI voice and generated plates) |
+| Comments | allowed; Duet/Stitch: your choice |
+| Music | none added (the video has its own sound design) |
+
+**Caption** (≈ 200 characters; paste as it is):
+
+> Lithium isn't rare. About 60% of it is refined in one country. Why the lightest metal became a pressure point. Source: USGS Mineral Commodity Summaries 2026, IEA Critical Minerals Outlook 2025. #lithium #batteries #science #geopolitics #sodiumion
+
+**Pinned comment** (post after publishing; TikTok allows pinning a comment from the video's menu):
+
+> Sources: USGS, Mineral Commodity Summaries 2026 (Lithium), https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf · IEA, Global Critical Minerals Outlook 2025 (China's share of refining) · CATL's sodium-ion figures are company claims. Photos are real (Wikimedia Commons, NASA, ESA); narration and schematics are AI-generated. Which part surprised you more: a metal that floats, or one country refining about 60% of it?
+
+**Checklist:**
+
+- [ ] Uploaded as **Only me**; open it in the app and check the captions, labels and number cards are not hidden by TikTok's buttons or text (bottom 15 to 20 %, right edge). Tell the agent what is covered.
+- [ ] If covered: the agent raises `CAP_Y` for a TikTok export; re-upload.
+- [ ] Switched to Everyone; pinned comment posted; AI label confirmed on the video.
+- [ ] The agent logs the link and the 48 h numbers here and fixes [[TikTok upload]] with what differed (cover picker, size, label wording).
