@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Composes Shorts thumbnails (1080x1920, 9:16) from a generated hero image and local text, so the spelling is exact.
-    python3 System/scripts/make_thumbnail.py "Media/Week NN/<Video>/upload"   (edit THUMBS below)
+    python3 System/scripts/make_thumbnail.py "Media/Week NN/<Video>/upload" [thumb-name ...]   (edit THUMBS below)
 Important content stays inside the centre 3:2 band (y 600 to 1320): thumbnails render near 3:2 on channel pages, search and TV
 (ppc.land, Shorts thumbnails, July 2026; YouTube's own post gives no sizes). The Redtail mark sits below the band."""
 import os, sys
@@ -13,6 +13,7 @@ THUMBS = {  # name: (hero file, lines, index of the orange line, where the text 
     "thumb-a": ("hero-a.png", ["THE METAL", "THAT FLOATS"], 1, ("end", 1280)),
     "thumb-b": ("hero-b.png", ["NOT RARE.", "STILL A FIGHT."], 1, ("start", 650)),     # the pebble sits lower: keep the text off it
     "thumb-c": ("hero-c.png", ["60% IN", "ONE COUNTRY"], 0, ("end", 1280)),
+    "thumb-cu": ("hero-cu.png", ["17 YEARS TO", "OPEN A MINE"], 0, ("end", 1280)),   # Copper and the AI race
 }
 def cover(im):
     s = max(W / im.width, H / im.height); im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
@@ -35,4 +36,5 @@ def compose(folder, name, hero, lines, hot, where):
     lg = Image.open(LOGO).convert("RGBA"); lg.thumbnail((250, 250)); im.alpha_composite(lg, ((W - lg.width) // 2, 1560))
     out = f"{folder}/{name}.jpg"; im.convert("RGB").save(out, quality=90, optimize=True); return out, os.path.getsize(out)
 if __name__ == "__main__":
-    for n, (h, l, k, w) in THUMBS.items(): print(compose(sys.argv[1], n, h, l, k, w))
+    for n, (h, l, k, w) in THUMBS.items():
+        if len(sys.argv) < 3 or n in sys.argv[2:]: print(compose(sys.argv[1], n, h, l, k, w))
