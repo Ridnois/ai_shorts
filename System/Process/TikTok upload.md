@@ -18,7 +18,7 @@ The Content Posting API's Direct Post from an **unaudited client is limited to p
 
 ## 2. The package (agent, per video, after the YouTube package)
 
-Add a `## TikTok` section to the video's `Upload - <Topic>` note ([[Upload - Copper and the AI race]] is the model):
+Add a `## TikTok` section (caption and pinned comment in a plain ```` ```text ```` block, ASCII only: [[Guidelines for new scripts]] "Copy-paste text") to the video's `Upload - <Topic>` note ([[Upload - Copper and the AI race]] is the model):
 
 | Field | Rule |
 | --- | --- |

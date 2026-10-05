@@ -30,25 +30,27 @@ Keyword first, hedged like the script ("may be geology" → "could limit"), no b
 
 ## Description (1932 characters)
 
-> One AI server rack can hold over two miles of copper cable, yet AI is only a small slice of the world's copper. Why a new mine takes about 17 years, and why that could limit the AI race.
->
-> New Shorts every day.
->
-> SOURCES
-> • S&P Global, copper supply gap study, 8 January 2026 (17 years from discovery to production; a 25% shortfall by 2040 is a forecast): https://press.spglobal.com/2026-01-08-Substantial-Shortfall-in-Copper-Supply-Widens-as-the-Race-for-AI-and-Growing-Defense-Spending-Add-to-Accelerating-Demand,-New-S-P-Global-Study-Finds
-> • USGS, Mineral Commodity Summaries 2026, Copper: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-copper.pdf
-> • IEA, Global Critical Minerals Outlook 2025: https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals
-> • Nvidia GB200 NVL72, about 5,000 copper cables and over 2 miles per rack (Nvidia's figures, as reported by LightCounting): https://www.lightcounting.com/research-note/april-2024-all-eyes-on-nvidia-352
-> • Copper in electric cars, 83 kg against 23 kg (ICSG 2018, cited in this study): https://www.sciencedirect.com/science/article/abs/pii/S0921344920305152
-> • How porphyry copper deposits form (Nature Reviews Earth & Environment, 2021): https://www.nature.com/articles/s43017-021-00182-8
-> Figures checked on 5 October 2026.
->
-> PHOTO CREDITS (Wikimedia Commons)
-> Server rack cables: Derrick Coetzee from Berkeley, CA, USA, CC0 · Native copper: Flipin,OG, CC0 · Transformer busbars: Wtshymanski, CC BY-SA 3.0 · Transmission line: Eduardo Sanchez, CC0 · Electric car charging: Julian Herzog (Website), CC BY 4.0 · Copper pipes: Achim Hering, CC BY 3.0 · Chalcopyrite: Didier Descouens, CC BY-SA 3.0 · Chuquicamata mine: Diego Delso, CC BY-SA 4.0 · Bingham Canyon Mine: David Ratledge, CC BY 4.0, and Farragutful, CC BY-SA 4.0
->
-> The narration and the schematic are AI-generated; the photos are real.
->
-> #copper #AI #datacenters #mining #science
+```text
+One AI server rack can hold over two miles of copper cable, yet AI is only a small slice of the world's copper. Why a new mine takes about 17 years, and why that could limit the AI race.
+
+New Shorts every day.
+
+SOURCES
+- S&P Global, copper supply gap study, 8 January 2026 (17 years from discovery to production; a 25% shortfall by 2040 is a forecast): https://press.spglobal.com/2026-01-08-Substantial-Shortfall-in-Copper-Supply-Widens-as-the-Race-for-AI-and-Growing-Defense-Spending-Add-to-Accelerating-Demand,-New-S-P-Global-Study-Finds
+- USGS, Mineral Commodity Summaries 2026, Copper: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-copper.pdf
+- IEA, Global Critical Minerals Outlook 2025: https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals
+- Nvidia GB200 NVL72, about 5,000 copper cables and over 2 miles per rack (Nvidia's figures, as reported by LightCounting): https://www.lightcounting.com/research-note/april-2024-all-eyes-on-nvidia-352
+- Copper in electric cars, 83 kg against 23 kg (ICSG 2018, cited in this study): https://www.sciencedirect.com/science/article/abs/pii/S0921344920305152
+- How porphyry copper deposits form (Nature Reviews Earth & Environment, 2021): https://www.nature.com/articles/s43017-021-00182-8
+Figures checked on 5 October 2026.
+
+PHOTO CREDITS (Wikimedia Commons)
+Server rack cables: Derrick Coetzee from Berkeley, CA, USA, CC0 | Native copper: Flipin,OG, CC0 | Transformer busbars: Wtshymanski, CC BY-SA 3.0 | Transmission line: Eduardo Sanchez, CC0 | Electric car charging: Julian Herzog (Website), CC BY 4.0 | Copper pipes: Achim Hering, CC BY 3.0 | Chalcopyrite: Didier Descouens, CC BY-SA 3.0 | Chuquicamata mine: Diego Delso, CC BY-SA 4.0 | Bingham Canyon Mine: David Ratledge, CC BY 4.0, and Farragutful, CC BY-SA 4.0
+
+The narration and the schematic are AI-generated; the photos are real.
+
+#copper #AI #datacenters #mining #science
+```
 
 ## Hashtags
 
@@ -64,7 +66,9 @@ User: *"I uploaded the lithium video manually and added the thmbnail with no pro
 
 ## Pinned comment (post by hand after publishing)
 
-> Which surprised you more: two miles of copper in one rack, or that a new mine takes about 17 years? If I got a number wrong, tell me and I will pin the correction.
+```text
+Which surprised you more: two miles of copper in one rack, or that a new mine takes about 17 years? If I got a number wrong, tell me and I will pin the correction.
+```
 
 ## Studio settings
 

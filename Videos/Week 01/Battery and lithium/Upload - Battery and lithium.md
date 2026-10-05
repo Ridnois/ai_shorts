@@ -44,24 +44,26 @@ User: *"Thmbnail b is the winner, tittle recomendation is good, follow your reco
 
 ## 3. Description (paste as it is; 1980 characters, the limit is 5,000)
 
-> Lithium isn't rare, but about 60% of it is refined in one country. How the lightest metal became a pressure point, and the battery that could walk away from it.
->
-> New Shorts every day.
->
-> SOURCES
-> • USGS, Mineral Commodity Summaries 2026, Lithium: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf
-> • IEA, Global Critical Minerals Outlook 2025 (China's share of lithium refining): https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals
-> • China's export licenses for high-end batteries, cathodes and graphite anodes (MOFCOM Decision 58, 9 Oct 2025) and their one-year suspension (Decision 70, 7 Nov 2025): https://www.ess-news.com/2025/10/13/china-imposes-new-export-controls-on-lithium-ion-battery-technology/ and https://www.cirs-group.com/en/chemicals/china-temporarily-suspends-export-controls-on-key-raw-materials-including-rare-earths-lithium-batteries-and-diamond
-> • CATL's sodium-ion batteries (company claims): https://carnewschina.com/2025/12/28/catl-confirms-2026-large-scale-sodium-ion-battery-deployment-in-multiple-sectors/
-> • Atacama evaporation ponds: sources give about 12 to 24 months; the video uses about 18, from Albemarle's description.
-> Figures checked on 5 October 2026.
->
-> PHOTO CREDITS (Wikimedia Commons)
-> Lithium in mineral oil: Sea Moon, CC BY 2.0 · Lithium: W. Oelen, CC BY-SA 3.0 · Lithium-ion cells: Sevenethics, CC0 · Salar de Atacama: NASA Earth Observatory and NASA SVS (public domain), ESA (CC BY-SA 3.0 IGO) · Greenbushes mine: Calistemon, CC BY-SA 4.0 · CATL, Arnstadt: Giorno2, CC BY-SA 4.0 · CATL, IAA 2024: Matti Blume, CC BY-SA 4.0 · NYK Themis at the Port of Los Angeles: Downtowngal, CC BY-SA 4.0 · Container cranes: George Robinson, CC BY-SA 2.0 · Sodium-ion cell: Vladimir022009, CC BY-SA 4.0 · Faradion sodium-ion cell, Science Museum: The wub, CC BY-SA 4.0
->
-> The narration and the schematics are AI-generated; the photos are real.
->
-> #lithium #batteries #science #geopolitics #sodiumion
+```text
+Lithium isn't rare, but about 60% of it is refined in one country. How the lightest metal became a pressure point, and the battery that could walk away from it.
+
+New Shorts every day.
+
+SOURCES
+- USGS, Mineral Commodity Summaries 2026, Lithium: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf
+- IEA, Global Critical Minerals Outlook 2025 (China's share of lithium refining): https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals
+- China's export licenses for high-end batteries, cathodes and graphite anodes (MOFCOM Decision 58, 9 Oct 2025) and their one-year suspension (Decision 70, 7 Nov 2025): https://www.ess-news.com/2025/10/13/china-imposes-new-export-controls-on-lithium-ion-battery-technology/ and https://www.cirs-group.com/en/chemicals/china-temporarily-suspends-export-controls-on-key-raw-materials-including-rare-earths-lithium-batteries-and-diamond
+- CATL's sodium-ion batteries (company claims): https://carnewschina.com/2025/12/28/catl-confirms-2026-large-scale-sodium-ion-battery-deployment-in-multiple-sectors/
+- Atacama evaporation ponds: sources give about 12 to 24 months; the video uses about 18, from Albemarle's description.
+Figures checked on 5 October 2026.
+
+PHOTO CREDITS (Wikimedia Commons)
+Lithium in mineral oil: Sea Moon, CC BY 2.0 | Lithium: W. Oelen, CC BY-SA 3.0 | Lithium-ion cells: Sevenethics, CC0 | Salar de Atacama: NASA Earth Observatory and NASA SVS (public domain), ESA (CC BY-SA 3.0 IGO) | Greenbushes mine: Calistemon, CC BY-SA 4.0 | CATL, Arnstadt: Giorno2, CC BY-SA 4.0 | CATL, IAA 2024: Matti Blume, CC BY-SA 4.0 | NYK Themis at the Port of Los Angeles: Downtowngal, CC BY-SA 4.0 | Container cranes: George Robinson, CC BY-SA 2.0 | Sodium-ion cell: Vladimir022009, CC BY-SA 4.0 | Faradion sodium-ion cell, Science Museum: The wub, CC BY-SA 4.0
+
+The narration and the schematics are AI-generated; the photos are real.
+
+#lithium #batteries #science #geopolitics #sodiumion
+```
 
 How it was built:
 
@@ -95,7 +97,9 @@ Three candidates, 1080×1920 (9:16), JPEG under 300 KB each. The hero images wer
 
 ## 6. Pinned comment (post it right after publishing)
 
-> Which part surprised you more: a metal that floats, or one country refining about 60% of it? If I got a number wrong, tell me and I will pin the correction.
+```text
+Which part surprised you more: a metal that floats, or one country refining about 60% of it? If I got a number wrong, tell me and I will pin the correction.
+```
 
 A question that is easy to answer in one line, and it invites corrections (the channel's rigor promise).
 
@@ -164,11 +168,15 @@ User request (5 Oct 2026): *"Start the uploading process of the battery video to
 
 **Caption** (≈ 200 characters; paste as it is):
 
-> Lithium isn't rare. About 60% of it is refined in one country. Why the lightest metal became a pressure point. Source: USGS Mineral Commodity Summaries 2026, IEA Critical Minerals Outlook 2025. #lithium #batteries #science #geopolitics #sodiumion
+```text
+Lithium isn't rare. About 60% of it is refined in one country. Why the lightest metal became a pressure point. Source: USGS Mineral Commodity Summaries 2026, IEA Critical Minerals Outlook 2025. #lithium #batteries #science #geopolitics #sodiumion
+```
 
 **Pinned comment** (post after publishing; TikTok allows pinning a comment from the video's menu):
 
-> Sources: USGS, Mineral Commodity Summaries 2026 (Lithium), https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf · IEA, Global Critical Minerals Outlook 2025 (China's share of refining) · CATL's sodium-ion figures are company claims. Photos are real (Wikimedia Commons, NASA, ESA); narration and schematics are AI-generated. Which part surprised you more: a metal that floats, or one country refining about 60% of it?
+```text
+Sources: USGS, Mineral Commodity Summaries 2026 (Lithium): https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf | IEA, Global Critical Minerals Outlook 2025 (China's share of refining) | CATL's sodium-ion figures are company claims. Photos are real (Wikimedia Commons, NASA, ESA); narration and schematics are AI-generated. Which part surprised you more: a metal that floats, or one country refining about 60% of it?
+```
 
 **Checklist:**
 
