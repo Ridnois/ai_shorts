@@ -40,7 +40,7 @@ Until 2019 a platinum-iridium cylinder made in **1889** *was* the kilogram, by d
 
 **Not verified yet:** where the cylinder is kept and how many copies exist (not in the pages read); which direction it drifted (unknown, say "diverged"); any comparison for 50 micrograms.
 
-## Five candidate hooks (plain words, ≤ 10 words)
+## Five candidate hooks (different types; plain words; hook test in [[Playbook]] §2)
 
 1. **(proposed)** "Until 2019, one metal cylinder in Paris was the kilogram."
 2. "Your bathroom scale traces back to one metal cylinder."

@@ -8,7 +8,7 @@ tags: [research, youtube, status, battery, lithium, shorts]
 
 # Battery and lithium · status
 
-← [[YouTube Channel]] · [[Script - Battery and lithium]] · [[Workflow]] · [[Playbook]] · [[Playbook]]
+← [[YouTube Channel]] · [[Script - Battery and lithium]] · [[Workflow]] · [[Playbook]]
 
 Short 9:16, English, **200 words** (the user's number, above the 130 to 190 range), first video with the **Austin** voice at **`speed` 1.0** ("pace 1"). Question: why did a metal that is not rare become something countries compete for? Media in `Media/Week 01/Battery-lithium/` (prefix `bt-`); this is **Week 01**, the first video of the weekly schedule ([[Workflow]]). The Short itself carries no branding ([[Style]] §4).
 

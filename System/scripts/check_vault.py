@@ -7,7 +7,7 @@ Fails (exit 1) on:
   * System/ notes that the index (YouTube Channel.md) does not mention
   * Python scripts that do not compile
   * missing INVARIANTS: phrases that encode user feedback and must stay in the notes that carry them
-When feedback adds a rule, add its invariant below in the same pass (see System/Process/Feedback loop.md).
+When feedback adds a rule, add its invariant below in the same pass (see System/Feedback loop.md).
 """
 import os
 import re

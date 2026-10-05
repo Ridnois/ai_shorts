@@ -8,7 +8,7 @@ tags: [research, youtube, script, battery, ev, shorts, week-01]
 
 # Script · EV battery tech (Week 01)
 
-← [[EV battery tech - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Playbook]] · [[Playbook]]
+← [[EV battery tech - Status]] · [[YouTube Channel]] · [[Playbook]]
 
 User request (5 Oct 2026): *"New video, Batteries, durability, temperatures and costs. a interesting research about how the ev industry is putting battery tech forward, upload it to youtube"*. Read as a delegation to the end of the pipeline: the agent runs stages 0 to 8 within the cap and uploads **private**. Not a repeat of [[Battery and lithium - Status]] (lithium, processing, politics): this one is wear, weather and price.
 
@@ -51,11 +51,11 @@ User request (5 Oct 2026): *"New video, Batteries, durability, temperatures and 
 
 ## 2. Five hooks
 
-1. **"Electric car batteries lose about two percent a year."** (9 words; plain, checkable, opens "so how long?" and "what makes it worse?") **chosen**
-2. "Fast charging wears a battery twice as fast." (8; strong but narrower)
-3. "Cold weather cuts an electric car's range by a third." (9; true only with the heater on: needs the caveat)
+1. **"Electric car batteries lose about two percent a year."** (plain, checkable, opens "so how long?" and "what makes it worse?") **chosen**
+2. "Fast charging wears a battery twice as fast." (strong but narrower)
+3. "Cold weather cuts an electric car's range by a third." (true only with the heater on: needs the caveat)
 4. "A car battery now costs about a third of what it did." (unsourced, rejected)
-5. "Your electric car's worst enemy is not the weather." (9; a tease, no claim)
+5. "Your electric car's worst enemy is not the weather." (a tease, no claim)
 
 Test: *would I stop?* (1: "only two percent? I was told they die in five years") *does it open a question the next scene answers?* (yes).
 

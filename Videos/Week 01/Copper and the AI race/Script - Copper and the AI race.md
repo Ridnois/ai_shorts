@@ -8,7 +8,7 @@ tags: [research, youtube, script, copper, ai, shorts, week-01]
 
 # Script · Copper and the AI race (Week 01)
 
-← [[Copper and the AI race - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Playbook]] · [[Playbook]]
+← [[Copper and the AI race - Status]] · [[YouTube Channel]] · [[Playbook]]
 
 User request (5 Oct 2026): *"Create a new video about copper, where comes from, what is used for and why is key on the AI race. do it all for yourself, given that we are using less generated images and more stock, you can use a very good model, update the vault and proceed to the video creation"*. **Full delegation:** stages 0 to 7 run by the agent within the cap; the render is the stop.
 
@@ -54,11 +54,11 @@ User request (5 Oct 2026): *"Create a new video about copper, where comes from, 
 
 ## 2. Five hooks
 
-1. **"One AI rack holds over two miles of copper cable."** (10 words; one concrete, checkable image that joins copper and AI; the card names Nvidia's figure) **chosen**
-2. "Making more copper takes seventeen years." (6; a strong claim, but it does not yet tie to AI)
-3. "Almost everything a copper miner digs is thrown away." (9; plain and surprising, origin only)
-4. "AI has a metal problem, and it is not chips." (9; vague)
-5. "Copper is why AI cannot scale faster." (7; hype, unsupported)
+1. **"One AI rack holds over two miles of copper cable."** (one concrete, checkable image that joins copper and AI; the card names Nvidia's figure) **chosen**
+2. "Making more copper takes seventeen years." (a strong claim, but it does not yet tie to AI)
+3. "Almost everything a copper miner digs is thrown away." (plain and surprising, origin only)
+4. "AI has a metal problem, and it is not chips." (vague)
+5. "Copper is why AI cannot scale faster." (hype, unsupported)
 
 Test: *would I stop?* (1: "two miles in one rack?") *does it open a question the next scene answers?* (why copper, why so much).
 

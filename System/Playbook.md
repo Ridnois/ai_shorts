@@ -1,43 +1,45 @@
 ---
 type: rules
 updated: 2026-10-05
-status: v1 · consolidated from 20 notes (idea, script, visuals, text, voice, editing, quality bar)
+status: v2 · hook rule rewritten as a test (no word count); fail states; demand check; [H] marks untested rules
 ---
 
 # Playbook: every rule for a Short
 
-Read it whole before writing anything. One note, no history: when feedback changes a rule, **edit the rule here** ([[Feedback loop]]). Process, models and prices: [[Workflow]]. Publishing and numbers: [[Publish]]. Look and brand: [[Style]].
+Read it whole before writing anything. **[H] marks a hypothesis** (a number or habit not yet tested on channel data); the 10-video review in [[Publish]] §Analytics loop turns each into a kept, changed or deleted rule. Model to imitate: [[Model script]]. One note, no history: when feedback changes a rule, **edit the rule here** ([[Feedback loop]]). Process, models and prices: [[Workflow]]. Publishing and numbers: [[Publish]]. Look and brand: [[Style]].
 
 **Product:** vertical Shorts (9:16) for YouTube and TikTok, English, one a day. Goal: narrated learning you enjoy even knowing it is AI. Same master on both platforms.
 
 ## 1. Idea (gate P1; read `Analytics/Report.md` first)
 
 1. **Facts bank:** ≥ 15 remarkable true facts (origin and scale, strange behaviour, extremes, connections, expert details; uses and news last), each with source and date.
-2. **Score** each angle 1 to 5 on surprise, scale, depth, evidence, showable, plain. **The thread must score ≥ 4 on surprise, scale and plain.** Show the table and one line per rejected candidate. Report data: a hook type or topic that held `viewed_pct`, `shares`, `subs_gained` earns a bonus; one that fell is not repeated without a new angle (under 10 videos with data it guides, it does not decide).
-3. **Street-lamp test:** if a headline or product spec answers the central question, go back to 1. **Expert test:** a specialist would call it "the interesting part"; each scene has one detail a generic explainer skips. **Coffee test:** the thread in one plain sentence; a friend saying "so what?" means surprise ≤ 3.
-4. **Five candidate hooks;** pick by "would I stop?" and "does it open a question the next scene answers?". The hook type (surprising fact, surprising number, question, contradiction, stakes) goes in the Status note and `Analytics/videos.csv`.
+2. **Score** each angle 1 to 5 on surprise, scale, depth, evidence, showable, plain. **The thread must score ≥ 4 on surprise, scale and plain.** Show only the chosen row and one line per rejected candidate. **Argue against it:** a second pass lists the three strongest reasons a viewer would scroll past; if any is not answered by the thread, rescore it lower. Scores are the agent's guess until Report data exists. Report data: a hook type or topic that held `viewed_pct`, `shares`, `subs_gained` earns a bonus; one that fell is not repeated without a new angle (under 10 videos with data it guides, it does not decide).
+3. **Street-lamp test (it has a fail state):** if a headline or product spec answers the central question, go back to 1. **"Borderline" is a fail:** either change the angle, or write one sentence saying which mechanism beyond the headline the video adds and get the user's yes before P2. Never record "borderline" and proceed. **Expert test:** a specialist would call it "the interesting part"; each scene has one detail a generic explainer skips. **Coffee test:** the thread in one plain sentence; a friend saying "so what?" means surprise ≤ 3.
+4. **Five candidate hooks of different types;** pick with the **hook test** in §2 (not by length). The hook type (surprising fact, surprising number, question, contradiction, stakes) goes in the Status note and `Analytics/videos.csv`.
 5. **Original synthesis:** one derived comparison or number per video (monetization policy: no template content).
+6. **Demand check (outside evidence):** one line per finalist: is the subject searched or shared? Search autocomplete for the plain question, and the views of 3 comparable Shorts or videos. No demand and a strong thread = write why it still earns a slot. Record it in the Status note.
+7. **Topic spread [H]:** two consecutive videos never share a topic family (batteries, metals, space, medicine, machines...); use `series` in `videos.csv` only for a recurring format with at least 5 videos.
 
 ## 2. Script (gate P3)
 
-- **Length in words, never seconds:** 130 to 190, aim 130 to 160, 6 to 8 scenes. Austin runs ≈ 170 wpm (≈ 187 speaking), so 160 words ≈ 60 s; report duration only after the voice exists.
+- **Length in words, never seconds:** 130 to 190, aim 130 to 160, 6 to 8 scenes [H]. Austin runs ≈ 170 wpm (≈ 187 speaking), so 160 words ≈ 60 s; report duration only after the voice exists.
 - **One question, one theme line** (plain words, stated in scene 1 or 2). **Every scene opens with a bridge** back to it ("so", "that is why", "the catch"); the close answers it. **≤ 5 facts, ≤ 3 spoken figures.** One new idea per scene.
-- **Scene 1: need-to-know claim, ≤ 10 words, first clause (≈ 7 words) inside 3 s, plain words** (no term defined later: "Some wires waste no electricity. Almost nobody can use them.", not "zero resistance"). No date or scene opener, "Imagine", question, greeting, "did you know". It gives a reason before it asks for a reaction; a big number alone is not a hook. Resolved within its scene or the next: what it is, why, what it means.
+- **Scene 1 = the hook: a need-to-know claim a stranger understands at once.** Length is whatever lets the first clause be spoken inside 3 s (check it on the voice take, not by counting). **Hook test, all five must hold:** (1) **Plain:** no term that a later scene defines ("Some wires waste no electricity. Almost nobody can use them.", not "zero resistance"). (2) **Reason to care before the reaction:** it names a consequence for the viewer, a broken expectation, or a stake; a big number alone is not a hook. (3) **Open question:** a curious friend would ask "why?" or "how?", and the next scene answers it. (4) **Sound-off:** the first caption word plus the first image already raise that question. (5) **Honest:** the video delivers exactly what it promises (no malicious clickbait). No date opener, "Imagine", greeting, "did you know", or question as the first words. Resolved within its scene or the next.
 - **Explain, do not narrate:** mechanism, cause → effect joined by "because / so / but", never "and then". Cut side detail, never the why. Concrete beats abstract. Facts answer "so what changes?" in at least two scenes.
-- **Structure:** 1 claim (8 to 10 words) · 2 minimal context (16 to 26) · 3 to 5 causal chain (20 to 30 each) · 6 turn (20 to 30) · 7 close (15 to 25).
+- **Structure:** 1 hook · 2 minimal context (16 to 26) · 3 to 5 causal chain (20 to 30 each) · 6 turn (20 to 30) · 7 close (15 to 25).
 - **Close = concrete payoff:** one plain sentence that answers the question and says what it means for something the viewer knows; repeatable to a friend. No aphorism, moral, summary or call to action. If it fits, the last plate is the first (loop).
 - **Cut test:** delete each sentence in turn; if the video still answers its question, it stays deleted.
 - **For the ear:** sentences of 6 to 16 words, active verbs, varied length, ≤ 1 rhetorical question, no exclamation marks, one deliberate silence (1.2 s before the central question). A **delivery note per scene** (calm, rising, amused, grave). Figures and dates go on screen, not in the voice. Numbers and acronyms are written as spoken if the model misreads them ("A S M L").
 - **Rigor:** every figure has source and date; weak facts attributed or cut ("could"); convicted ≠ accused ≠ investigated; if sources conflict, say "a base recipe from several sources"; respect the focus the user fixed; the research note says what was not verified.
 - **Script table columns:** scene · exact voice text · words · visual plan (plate type, source, usefulness sentence) · on-screen text · source.
 
-**Checklist before P3:** facts bank and scores · street-lamp and expert tests · five hooks · words in range · scene 1 passes · theme line and bridges · facts ≤ 5 · cut test · concrete ending · understandable without the images · read aloud, no drag · every claim sourced.
+**Checklist before P3:** facts bank and scores · street-lamp (not borderline), expert and against-the-idea tests · demand check · five hooks of different types · words in range · scene 1 passes the hook test · theme line and bridges · facts ≤ 5 · cut test · concrete ending · understandable without the images · read aloud, no drag · every claim sourced.
 
 ## 3. Visuals (gate P4a: the visual plan, one row per plate)
 
 - **Usefulness test per plate:** "this plate lets the viewer see ___ so they understand ___". If it cannot be written, cut or replace it.
 - **Types:** S stock photo (free, credited) · G generated explainer · C cutout · E photo edit · D drawn diagram (Pillow, exact geometry) · N number plate. **Real things are photographed, hidden things (insides, processes, scales) are explained.** Photo plus callouts beats a generated schematic.
-- **Rhythm:** a new image every ≈ 3 to 4 s, none over 5 s: **16 to 20 plates for 160 words.** At least half real photos or figures, ≥ a third explainers or cutouts, no two consecutive plates of the same type unless treatment and subject both differ. The same photo may return with a different crop (`focus`, `zoom`). Order plates by the sentence they illustrate.
+- **Rhythm:** a new image every ≈ 3 to 4 s, none over 5 s: **16 to 20 plates for 160 words** [H]. At least half real photos or figures, ≥ a third explainers or cutouts, no two consecutive plates of the same type unless treatment and subject both differ. The same photo may return with a different crop (`focus`, `zoom`). Order plates by the sentence they illustrate.
 - **Find 2 to 3 candidate photos per scene** before the plan (Openverse, NASA, Commons; real diagrams as `contain` plates). Pick relevance first, then ≥ 1,080 px, sharp, no watermark or brand, then license. Credits go to `stock/_credits.jsonl` as downloaded; CC BY and CC BY-SA are credited in the description. No identifiable people unless they are the subject.
 - **Generated plates: ≤ 3 per Short, `openai/gpt-image-2`, content-first prompts, no custom style** (no clay, sketch, "cinematic", mood, props). Prompt order: subject (exact name) · structure (parts, count, arrangement, from the research note) · view (cutaway, exploded, top-down) · what must be readable (paraphrase, never the narration sentence) · what each reference supplies · output ("plain background, no letters, numbers or labels"; `background: transparent` for cutouts). Use 1 to 4 real references; do not paste narration into a prompt; check every reference for text and brands.
 - **Scientific fidelity beats creativity:** an explainer is a textbook schematic of the established model, only what the research note supports; prompt what must not appear ("no glow, no light rays, no decorative particles"); check every element against the note; mark "schematic" in Status when simplified. Unsourced element → regenerate once without it or use a photo. Image models restyle diagrams: use diagrams as references or `contain` plates, not as sources to redraw.
@@ -56,7 +58,7 @@ Read it whole before writing anything. One note, no history: when feedback chang
 ## 5. Voice and sound
 
 - **Voice:** `elevenlabs/v3`, `Austin`, `language_code: en`, `speed` 1.0, `previous_text` / `next_text`, one take per scene with the exact script text. Optional expressive variant (`stability` 0.35, `style` 0.35, one `[tag]` per scene in the voice prompt only, never in captions) is an A/B at P5 on scene 1; the user's ear decides. The agent cannot hear: declare it at P7.
-- **Sound:** the builder synthesizes the sound design by default (`sound` in `plan.json`: thump, scene whooshes, plate ticks, card pings, callout clicks, A-minor drone; levels voice ≈ −22, effects ≈ −31, bed ≈ −37 dBFS; dials `sfx_gain`, `bed_gain`). Any recording or music is **opt-in**: a plan row with source, license and purpose, approved at P4a, from YouTube Audio Library → Sonniss → Pixabay (per track) → Incompetech (CC BY, credit); credits in `sound/_credits.jsonl`; volume under voice 0.18 to 0.22, bed ≤ 0.12. **Never:** BBC/RemArc (non-commercial), CC BY-NC, game rips, unread licenses (NCS, BenSound, FMA). **BigSoundBank and Freesound are deferred**; no ML-generated sound.
+- **Sound:** the builder synthesizes the sound design by default (`sound` in `plan.json`: thump, scene whooshes, plate ticks, card pings, callout clicks, A-minor drone; levels voice ≈ −22, effects ≈ −31, bed ≈ −37 dBFS [H]; dials `sfx_gain`, `bed_gain`). Any recording or music is **opt-in**: a plan row with source, license and purpose, approved at P4a, from YouTube Audio Library → Sonniss → Pixabay (per track) → Incompetech (CC BY, credit); credits in `sound/_credits.jsonl`; volume under voice 0.18 to 0.22, bed ≤ 0.12. **Never:** BBC/RemArc (non-commercial), CC BY-NC, game rips, unread licenses (NCS, BenSound, FMA). **BigSoundBank and Freesound are deferred**; no ML-generated sound.
 
 ## 6. Edit (Blender 5.2, `build_video.py` + `plan.json`)
 
@@ -67,7 +69,7 @@ Read it whole before writing anything. One note, no history: when feedback chang
 
 ## 7. Checklist before P7 (the agent runs it and says what it could not check)
 
-- [ ] Scene 1 ≤ 10 words, plain, first clause inside 3 s; speech ≤ 0.2 s after frame 1
+- [ ] Scene 1 passes the five-part hook test; first clause spoken inside 3 s on the real take; speech ≤ 0.2 s after frame 1
 - [ ] Captions on from the first word (`CAPTIONS n words` printed), stills show no overlap with cards or callouts
 - [ ] Every plate has a usefulness sentence; every generated plate checked against the research note
 - [ ] No bare gradient plate; a new image every ≈ 3 to 4 s, none over 5 s

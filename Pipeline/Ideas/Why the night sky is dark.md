@@ -39,7 +39,7 @@ In an endless, unchanging universe every line of sight would end on a star, so t
 
 **Not verified yet:** the common claim that expansion matters *less* than finite age (sources disagree on weights); how bright the sky would be; the Hubble Deep Field numbers.
 
-## Five candidate hooks (plain words, ≤ 10 words)
+## Five candidate hooks (different types; plain words; hook test in [[Playbook]] §2)
 
 1. **(proposed)** "A dark night sky tells us the universe began."
 2. "In an endless universe, the night sky would blaze."

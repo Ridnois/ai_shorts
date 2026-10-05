@@ -8,7 +8,7 @@ tags: [research, youtube, pipeline, hub]
 
 # 🏭 Video pipeline
 
-← [[YouTube Channel]] · [[Workflow]] · [[Workflow]]
+← [[YouTube Channel]] · [[Workflow]]
 
 One **note per idea** in `Pipeline/Ideas/`; its `status` property is the table column. Changing `status` in the table is the command; the runner does the work and leaves the next status.
 

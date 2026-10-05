@@ -8,7 +8,7 @@ tags: [research, youtube, status, battery, ev, shorts, week-01]
 
 # EV battery tech · status (Week 01)
 
-← [[YouTube Channel]] · [[Script - EV battery tech]] · [[Workflow]] · [[Playbook]] · [[Playbook]]
+← [[YouTube Channel]] · [[Script - EV battery tech]] · [[Workflow]] · [[Playbook]]
 
 Short 9:16, English, **155 words**, Austin at `speed` 1.0, **Week 01**. Question: how long does an EV battery really last, and what does it cost? Media in `Media/Week 01/EV-battery/` (prefix `ev-`). Different angle from [[Battery and lithium - Status]] (that one: lithium, processing, politics).
 

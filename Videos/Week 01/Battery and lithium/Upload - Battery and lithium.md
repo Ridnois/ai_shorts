@@ -133,7 +133,7 @@ A question that is easy to answer in one line, and it invites corrections (the c
 
 ## 9. After publishing: what to measure and what to change
 
-**The numbers now live in `Analytics/snapshots.csv` ([[Publish]] §3); this table is the reading guide, not the log.** Record them at 24 hours, 7 days and 28 days (Studio › Analytics › Content › the Short). **These are the first data points the channel has: the benchmarks above are hypotheses until they are replaced by your own numbers** ([[Publish]] §6).
+**The numbers now live in `Analytics/snapshots.csv` ([[Publish]] §Analytics loop); this table is the reading guide, not the log.** Record them at 24 hours, 7 days and 28 days (Studio › Analytics › Content › the Short). **These are the first data points the channel has: the benchmarks above are hypotheses until they are replaced by your own numbers** ([[Publish]] §Analytics loop).
 
 | Metric | What it tells | 24 h | 7 days | If it is low, change |
 | --- | --- | --- | --- | --- |
@@ -155,7 +155,7 @@ One change at a time, written in the next Status note ([[Feedback loop]]).
 
 ## 11. TikTok (@redtail_media; process in [[Publish]])
 
-User request (5 Oct 2026): *"Start the uploading process of the battery video to tiktok, i will upload manually the video"*. The user uploads; this is the package to paste. **First TikTok video, so it doubles as the safe-zone test ([[Publish]] §3): post it Only me (private) first.**
+User request (5 Oct 2026): *"Start the uploading process of the battery video to tiktok, i will upload manually the video"*. The user uploads; this is the package to paste. **First TikTok video, so it doubles as the safe-zone test ([[Publish]] §Analytics loop): post it Only me (private) first.**
 
 | Field | Value |
 | --- | --- |

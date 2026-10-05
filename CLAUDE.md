@@ -10,14 +10,14 @@ On demand: `System/Style.md` (on-screen text, design tokens, brand, persona) whe
 ## Hard rules
 
 - **No media before P4** (prompts and budget approved, in dollars). If the user delegates, record it in Status and continue within the cap (base × 1.2); **stop at the render (P7)**. Replicate calls in series, one retry per image, prediction id logged at once.
-- **The idea is a gate:** facts bank ≥ 15, scores, street-lamp and expert tests, five hooks. **Length is planned in words** (130 to 190, aim 130 to 160).
-- **First 3 seconds = need-to-know claim in plain words (≤ 10 words, no jargon, no story opener);** one theme line every scene bridges back to, ≤ 5 facts, concrete ending; explain, do not narrate.
+- **The idea is a gate:** facts bank ≥ 15, scores, street-lamp and expert tests ("borderline" = fail), a demand check, five hooks of different types. **Length is planned in words** (130 to 190, aim 130 to 160).
+- **First 3 seconds = a need-to-know claim a stranger understands at once (plain, a reason to care, opens a question the next scene answers; judged by the hook test, never by word count; no story opener);** one theme line every scene bridges back to, ≤ 5 facts, concrete ending; explain, do not narrate.
 - **Every plate passes the usefulness test;** a new image every 3 to 4 s (none over 5 s, 16 to 20 plates); stock photos first (free, credited), ≤ 3 generated plates with content-first prompts and no custom style; schematics are scientifically faithful; no card or callout on a bare gradient.
 - **Word-by-word captions on every video; no branding inside the video.** Text passes the specificity test.
 - **Sound:** synthesized by the builder by default; any recording or music is opt-in, licensed, credited, approved.
 - **Publish:** upload private by default and only after the user confirms title, description, thumbnail, visibility; pasteable text in plain ASCII ```` ```text ```` blocks; fill `Analytics/videos.csv` at P8; pull numbers at about 24 h, 7 d, 28 d; under about 100 views read counts only.
 - **Rigor and honesty:** every figure has source and date; say what you could not check (you cannot hear audio or watch a whole video); P7 is the user's.
-- **Notes live in the vault** (Markdown), never as artifacts or docs elsewhere; keep them short; delete obsolete notes instead of archiving; one Status note per video.
+- **Notes live in the vault** (Markdown), never as artifacts or docs elsewhere; keep them short (size ceilings per note type in [[Workflow]], enforced by `check_vault.py`); delete obsolete notes instead of archiving; one Status note per video.
 - **Done = `python3 System/scripts/check_vault.py` passes.**
 
 ## Gotchas that already cost time

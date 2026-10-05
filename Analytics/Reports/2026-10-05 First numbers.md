@@ -30,7 +30,7 @@ Channel: **2 subscribers**, 2 videos (Data API). The **Analytics API returned no
 ## 2. What this says, and what it does not
 
 - **Nothing about retention, hook strength or pace.** Viewed vs swiped away, average percentage viewed, shares and subscribers gained are not available yet, and **45 and 9 views cannot support a rate** anyway. Battery got more early views than Copper; the videos were published an hour apart, to different moments of the evening, and the user's own views and shares are inside these counts. **Do not rank the hook types on this.**
-- **Comments exist on Battery (2)**: the first reaction signal; read them for what people questioned (a free fact-check, [[Publish]] §3).
+- **Comments exist on Battery (2)**: the first reaction signal; read them for what people questioned (a free fact-check, [[Publish]] §Analytics loop).
 - Both are the channel's first two data points: **the baseline that every later video is compared with.**
 
 ## 3. Findings about the measuring itself (these are certain)
@@ -45,7 +45,7 @@ Channel: **2 subscribers**, 2 videos (Data API). The **Analytics API returned no
 
 | Where | Change |
 | --- | --- |
-| [[Publish]] §3, §5, §6 | rhythm: instant counts at 1 to 24 h, full metrics from the first day the API answers (test), then 7 d and 28 d; the sample rule (< 100 views: counts only); the collector exists (`youtube_analytics.py`) and what it needs (API enabled, read-only consent) |
+| [[Publish]] §Analytics loop | rhythm: instant counts at 1 to 24 h, full metrics from the first day the API answers (test), then 7 d and 28 d; the sample rule (< 100 views: counts only); the collector exists (`youtube_analytics.py`) and what it needs (API enabled, read-only consent) |
 | `System/scripts/analytics.py` | report groups by real age; low-sample warning |
 | `System/scripts/youtube_analytics.py` | built; falls back to Data API counts when the Analytics API is empty; saves raw JSON |
 | [[Workflow]] stage 8 and 9 | P8 fills `youtube_id` and `published` in `videos.csv`; stage 9 says to run `pull` |
@@ -54,8 +54,8 @@ Channel: **2 subscribers**, 2 videos (Data API). The **Analytics API returned no
 
 ## 5. Questions for the next report (about 3 days after the first)
 
-1. When does the Analytics API start returning rows (hours after publishing)? Record the answer in [[Publish]] §6.
+1. When does the Analytics API start returning rows (hours after publishing)? Record the answer in [[Publish]] §Analytics loop.
 2. Does `viewed_pct` exist in the API at all? (Not in the pull; if absent, the user types it from Studio.)
 3. What are the retention drops of both videos (`retention-<id>.json`)? Map them to scenes in the Status notes.
-4. Which topic family and hook type get more views per day after the first 48 h, once the user's own views are out of the noise? Needs ≥ 5 videos before any rule changes ([[Publish]] §5).
+4. Which topic family and hook type get more views per day after the first 48 h, once the user's own views are out of the noise? Needs ≥ 5 videos before any rule changes ([[Publish]] §Analytics loop).
 5. What did the Battery commenters ask or dispute?

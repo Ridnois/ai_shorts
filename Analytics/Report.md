@@ -8,9 +8,9 @@ tags: [analytics, metrics, report]
 
 # Metrics report
 
-← [[YouTube Channel]] · [[Publish]] (rules) · data: `Analytics/snapshots.csv`, `Analytics/videos.csv`
+← [[YouTube Channel]] · [[Analytics]] (rules) · data: `Analytics/snapshots.csv`, `Analytics/videos.csv`
 
-**2 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Publish]] §5).
+**2 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Publish]] §Analytics loop).
 
 ## youtube at 1h (1 videos)
 
@@ -19,7 +19,7 @@ tags: [analytics, metrics, report]
 | [[Copper and the AI race - Status]] | 9 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
 | **median** | 9 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
 
-**Too few views to read percentages (< 100): Copper and the AI race.** Counts only; do not act on rates ([[Publish]] §5).
+**Too few views to read percentages (< 100): Copper and the AI race.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
 
 Below the median (needs 3+ videos): none
 
@@ -30,7 +30,7 @@ Below the median (needs 3+ videos): none
 | [[Battery and lithium - Status]] | 46 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
 | **median** | 46 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
 
-**Too few views to read percentages (< 100): Battery and lithium.** Counts only; do not act on rates ([[Publish]] §5).
+**Too few views to read percentages (< 100): Battery and lithium.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
 
 Below the median (needs 3+ videos): none
 

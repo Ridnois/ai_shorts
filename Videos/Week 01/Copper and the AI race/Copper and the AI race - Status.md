@@ -8,7 +8,7 @@ tags: [research, youtube, status, copper, ai, shorts, week-01]
 
 # Copper and the AI race · status (Week 01)
 
-← [[YouTube Channel]] · [[Script - Copper and the AI race]] · [[Workflow]] · [[Playbook]] · [[Playbook]]
+← [[YouTube Channel]] · [[Script - Copper and the AI race]] · [[Workflow]] · [[Playbook]]
 
 Short 9:16, English, **160 words**, Austin at `speed` 1.0, **Week 01** (the same calendar week as [[Battery and lithium - Status]]: both were made on Monday 5 Oct 2026; [[Workflow]]). Question: why can't the AI race just make more copper? Media in `Media/Week 01/Copper-AI/` (prefix `cu-`). First video with **the new caption layout** (captions centred, cards below) and **the new image model** (`gpt-image-2`, one plate).
 

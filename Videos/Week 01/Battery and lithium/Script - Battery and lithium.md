@@ -8,7 +8,7 @@ tags: [research, youtube, script, battery, lithium, shorts]
 
 # Script · Battery and lithium
 
-← [[Battery and lithium - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Playbook]] · [[Playbook]]
+← [[Battery and lithium - Status]] · [[YouTube Channel]] · [[Playbook]]
 
 User request (5 Oct 2026): *"create a new video, this one is about battery technology, lithium and political tension. 200 words, pace 1"*. **200 words is the user's number: it is above the vault's 130 to 190 range (aim 130 to 160)**, so the cut test below was run hard. **"Pace 1" is read as `elevenlabs/v3` `speed` 1.0** (the old default is 0.95). Voice: **Austin** ([[Playbook]]).
 
@@ -55,10 +55,10 @@ User request (5 Oct 2026): *"create a new video, this one is about battery techn
 
 ## 2. Five hooks
 
-1. **"Your battery runs on a metal that floats."** (8 words; plain; true; the next scene explains why it is light and why it matters) **chosen**
-2. "The lightest metal there is runs your phone, and countries fight over it." (14 words: too long, and "fight" is stronger than the evidence)
-3. "One country processes most of the world's lithium." (8; a headline, the street lamp)
-4. "The Big Bang made lithium, and got the amount wrong." (10; the best, but off the brief, see B)
+1. **"Your battery runs on a metal that floats."** (plain; true; the next scene explains why it is light and why it matters) **chosen**
+2. "The lightest metal there is runs your phone, and countries fight over it." ("fight" is stronger than the evidence)
+3. "One country processes most of the world's lithium." (a headline, the street lamp)
+4. "The Big Bang made lithium, and got the amount wrong." (the best, but off the brief, see B)
 5. "A pause on November tenth could shake every battery maker." (hype and unsupported: rejected)
 
 Test: *would I stop?* (1: yes, "floats?") *does it open a question the next scene answers?* (yes: what metal, why does it matter).
