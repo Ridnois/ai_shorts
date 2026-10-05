@@ -73,6 +73,7 @@ INVARIANTS = [
     ("System/Content/Channel playbook.md", "Redtail it is", "channel name (user, 5 Oct 2026)"),
     ("System/Content/Channel playbook.md", "[[Brand options]]", "brand logo under review (user, 5 Oct 2026: old avatar and banner deleted as a bias)"),
     ("System/Content/Channel playbook.md", "Science at full speed", "Redtail slogan (user, 5 Oct 2026: banner B)"),
+    ("System/Process/TikTok upload.md", "SELF_ONLY", "TikTok API unaudited = private only; route is manual (docs, 5 Oct 2026)"),
     ("System/Process/YouTube upload.md", "Unaudited API projects", "API uploads lock to private until audit (docs, 5 Oct 2026)"),
     ("CLAUDE.md", "youtube_upload.py", "agent guide points at the uploader"),
     # Superconductors feedback, 4 Oct 2026
