@@ -95,3 +95,27 @@ Looked at all thirteen on one contact sheet: no brands or legible text except th
 ## Prediction log
 
 `scene · category · model · status · cost · URL`
+- Voice · `elevenlabs/v3` Roger `en` 0.95 (`previous_text`/`next_text`), 7 takes, ≈ 930 characters · ✅ `voice/am-s1…s7-voice-v1.mp3` · [5sebh2f6…](https://replicate.com/p/5sebh2f6p9rmt0d118b8dgzj9w), [43pap50v…](https://replicate.com/p/43pap50v39rmr0d118br941a3g), [xxn97s2d…](https://replicate.com/p/xxn97s2dmnrmt0d118btcpz8tr), [mgptwx42…](https://replicate.com/p/mgptwx42g5rmt0d118bsnpx3vw), [tfc5ehwv…](https://replicate.com/p/tfc5ehwvnxrmr0d118crzb7x6g), [svg7xmye…](https://replicate.com/p/svg7xmyexsrmt0d118cr38xnng), [8r1sxq82…](https://replicate.com/p/8r1sxq82gsrmr0d118d9ehhg9m)
+- Images · `gpt-image-1.5` medium 2:3 png · ✅ `plates/am-p09-rubble-v1`, `am-p11-reaction-v1` · [xnq36y9n…](https://replicate.com/p/xnq36y9n1drmw0d118d9zbztd8), [yapa7cc6…](https://replicate.com/p/yapa7cc6hhrmw0d118d8mcv6dr) · no retry
+- Word timings · `incredibly-fast-whisper` word, 7 takes (one run timed out in the middle and was repeated for the missing takes; one extra take of a few cents at most) · ✅ `voice/*.words.json`
+- Several HTTP 429s (nothing created, nothing charged).
+- **Total: ≈ 17 predictions, ≈ $0.27 at the unconfirmed prices, under the ≈ $0.33 cap.**
+
+## Plate checks (looked at each generated plate; stock photos looked at on a contact sheet)
+
+| Plate | Checked against the research note | Known simplification |
+| --- | --- | --- |
+| G2 rubble pile | loose angular boulders with gaps, no solid core or crust, no text | drawn as a cut bowl showing the inside; the 40 % void fraction is the source's estimate (40 ± 10 %), not measured on the drawing; boulders are far larger than real ones relative to the body |
+| G1 reaction | a drill arrow into the rock and a same-size arrow pushing the craft away, no text | a generic spacecraft, not a real design; the arrows are the only forces drawn |
+
+## Editing (render r1)
+
+`Media/Asteroid-mining/plan.json` → `System/scripts/build_video.py`: **61.3 s** (derived), 1080×1920, 24 fps, 19 plates of 2.9 to 4.2 s, no `LONG PLATE`. `CHECK=1`: `all voices complete`. `CAPTIONS 157 words, timed by whisper`. Sound design synthesized (sfx rms 0.0062, bed rms 0.0088); **not heard**.
+
+- **Opener:** the voice of scene 1 plays 0.38 to 3.51 s; the first clause ("We've brought home just a hundred twenty-seven grams") lands inside 3 s (whisper timing, not heard).
+- **Looked at (stills):** first pass at 1, 6, 10, 15, 25, 29, 36, 46, 49, 56 s. Fixed after it: the "≈" glyph printed as a box (the typeface lacks it; rule §4 of the guidelines already said so), the Eros photo (760 px) was blown up (now `contain`), the reaction schematic was cropped at both sides (now `contain`), the rubble callout pointed at a rock instead of a gap.
+- **Not verified:** how the voice sounds, whether captions land on the spoken words in motion, pace and transitions; callout dots on the real photos were placed by eye; the full video was not watched. **Gate P7 is yours.**
+
+## Description draft (stage 8)
+
+How a real asteroid mine would work, step by step, and which steps nobody has solved, in about a minute. Sources: Wikipedia articles *OSIRIS-REx*, *Hayabusa2*, *101955 Bennu*, *Asteroid mining*, *Platinum*, *AstroForge*; University of Arizona News, "OSIRIS-REx scientists: Taking asteroid sample was like punching a ball pit" (July 2022); to be confirmed against NASA mission pages, the *Science* 2022 papers and USGS Mineral Commodity Summaries 2025. Cost figures are the sum of published numbers of different years and currencies (≈ $1.1 billion). Photos: NASA, NASA/Goddard/University of Arizona, NASA/JPL/JHUAPL, ISAS/JAXA, A. T. Palmer (US OWI), A. Dulyan, via NASA Images and Wikimedia Commons. Two schematics generated with AI (gpt-image-1.5), not to scale; voice generated with AI (ElevenLabs v3); sound design synthesized in Blender. Data as of 5 Oct 2026.
