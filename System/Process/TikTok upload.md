@@ -10,11 +10,34 @@ tags: [tiktok, upload, process, multi-platform]
 
 ← [[YouTube Channel]] · [[YouTube upload]] · [[Channel strategy]] §5 · [[Fast workflow]] · [[Shorts quality bar]]
 
-**Rule:** TikTok gets the **same 9:16 master** as YouTube (burned-in word captions, no watermark, no in-video branding), **uploaded natively**; never re-upload a download carrying another platform's mark. **Route today: manual upload by the user** (TikTok Studio on the web, or the app). The agent prepares the package; the user posts.
+**Rule:** TikTok gets the **same 9:16 master** as YouTube (burned-in word captions, no watermark, no in-video branding), **uploaded natively**; never re-upload a download carrying another platform's mark. **Route today: manual upload by the user** (the API route is in §1) (TikTok Studio on the web, or the app). The agent prepares the package; the user posts.
 
-## 1. Why not the API (deferred, YAGNI)
+## 1. The API route (researched 5 Oct 2026; not built)
 
-The Content Posting API's Direct Post from an **unaudited client is limited to private (`SELF_ONLY`) posts and five users per 24 h**; lifting it needs a TikTok audit of the app ([TikTok docs](https://developers.tiktok.com/docs/en/content-sharing-guidelines)). It also needs a developer app and an approved product. The cadence is now one Short a day (user, 5 Oct 2026), so a manual upload every day is real work: **revisit the API (and its audit) early**, or schedule a batch of days in TikTok Studio. Not verified: audit lead time.
+**Two modes**, both under the Content Posting API ([docs](https://developers.tiktok.com/doc/content-posting-api-get-started)):
+
+| | Direct Post | **Upload (inbox draft)** |
+| --- | --- | --- |
+| Endpoint | `/v2/post/publish/video/init/` | `/v2/post/publish/inbox/video/init/` ([docs](https://developers.tiktok.com/doc/content-posting-api-get-started-upload-content)) |
+| Scope | `video.publish` | `video.upload` |
+| Result | posts straight away | the video lands in the user's TikTok **inbox as a draft**; the user taps the notification and finishes the post in the app (caption, cover, AI label, visibility) |
+| Unaudited app | **private only** (`SELF_ONLY`), 5 users per 24 h, account must be private ([guidelines](https://developers.tiktok.com/docs/en/content-sharing-guidelines)) | restriction not stated in the docs; a third-party guide mentions no audit for drafts (**unverified**) |
+| Daily cap | about 15 posts per creator per day (guidelines) | not stated |
+
+**Recommendation: Upload (draft) mode.** The user still taps once per video, but that tap is where the AI-generated label, the cover and the safe-zone check happen, which stay a human decision anyway. It avoids needing the Direct Post audit. The agent would do the 65 to 80 MB transfer (chunked `PUT` with `Content-Range`, `Content-Type: video/mp4`) and read the result from `/v2/post/publish/status/fetch/`.
+
+**What the user must do once (≈ 30 min plus waiting):**
+
+1. Register at [developers.tiktok.com](https://developers.tiktok.com/) (a guide says a business email is required and a personal account is not eligible: **unverified**; try the channel's Redtail email).
+2. Create an app, add the **Content Posting API** product, request the scope **`video.upload`** (the docs say the app must be approved for it).
+3. Redirect URI: `http://127.0.0.1:8765/` (same local listener as the YouTube `auth`); if TikTok refuses a loopback URI, say so and we adapt.
+4. Submit the app for review: a demo video of the flow and a privacy policy page are typical requirements (**unverified**; a guide says 5 to 10 business days).
+5. While waiting, use the **sandbox** (no review; up to 5 sandboxes, each shareable with 10 accounts): per the docs it cannot post public videos, so it tests the plumbing only.
+6. Put `TT_CLIENT_KEY` and `TT_CLIENT_SECRET` in `.env` (never in a note). Access tokens last about 24 h and refresh tokens about 365 days (guide, unverified), so there is no weekly re-login like YouTube's Testing mode.
+
+**What the agent builds once the app is approved:** `System/scripts/tiktok_upload.py` (stdlib only, like `youtube_upload.py`): `auth` (OAuth with PKCE, refresh token to `.env`), `upload <mp4>` (init, chunked PUT, poll status). **Not built yet on purpose:** it cannot be tested before approval, and the scope and review rules above may change what it needs.
+
+**Until then:** the manual route in §2 to §5. At one Short a day, schedule several days at once in TikTok Studio to keep it cheap.
 
 ## 2. The package (agent, per video, after the YouTube package)
 
