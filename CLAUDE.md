@@ -8,7 +8,7 @@ This vault (`~/Documents/youtube`) is the **single source of knowledge** of an E
 2. `System/Guidelines for new scripts.md`: every quality rule, compressed (idea → script → illustrations → text → voice → editing → process). **Read it whole before writing anything.**
 3. `System/Process/Fast workflow.md`: how a video is produced (packages, models, prices, budget).
 4. For a new video also: `System/Content/Shorts quality bar.md` (the bar every Short must clear), `System/Content/Idea and hook quality.md`, `System/Visual/Illustration pipeline.md`, `System/Content/Narration guide.md`, `System/Content/Channel identity.md`, `System/Visual/On-screen text style.md`.
-5. On demand: `System/Content/Channel strategy.md` (monetization, policies, multi-platform plan), `System/Content/Channel playbook.md` (engagement, on-screen design system, brand and mission), `System/Process/Production process.md` (stages and gates), `System/Process/Media convention.md`, `System/Editing/Blender editing.md`, `System/Content/Channel voice.md`, `System/Models/Channel models.md`, and the video's `<Topic> - Status` note.
+5. On demand: `System/Content/Channel strategy.md` (monetization, policies, multi-platform plan), `System/Content/Channel playbook.md` (engagement, on-screen design system, brand and mission), `System/Process/Production process.md` (stages and gates), `System/Process/Media convention.md`, `System/Process/YouTube upload.md` (when uploading), `System/Editing/Blender editing.md`, `System/Content/Channel voice.md`, `System/Models/Channel models.md`, and the video's `<Topic> - Status` note.
 
 ## 2. Hard rules (never skip)
 
@@ -36,6 +36,7 @@ When the user gives feedback (after a render, or about the process), follow **`S
 | Sound or music (opt-in, free licensed libraries, credited; BigSoundBank and Freesound deferred) | `System/Guidelines for new scripts.md` §3, manual download with the license recorded in `Media/Week NN/<Video>/sound/_credits.jsonl` |
 | Word timings for the captions | `python3 System/scripts/word_timings.py "Media/Week NN/<Video>"` (needs `REPLICATE_API_TOKEN`; the builder estimates if skipped) |
 | Assemble and render | `VIDEO="Media/Week NN/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`, then without `SOLO_PROYECTO` in the background |
+| Upload to YouTube (API, private by default; one-time setup by the user) | `python3 System/scripts/youtube_upload.py upload …`; guide `System/Process/YouTube upload.md` (confirm title, description, thumbnail and visibility with the user first) |
 | Pipeline runner | `~/Documents/youtube-pipeline/pipeline.py` (a user service; its prompts follow these notes) |
 | Vault coherence | `python3 System/scripts/check_vault.py` |
 

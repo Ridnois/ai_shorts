@@ -31,7 +31,7 @@ Plus the video's `<Topic> - Status` note and its script. Everything else is refe
 YouTube Channel.md
 ├── System/
 │   ├── Guidelines for new scripts.md   ← main entry point
-│   ├── Process/    Fast workflow · Production process · Media convention · Feedback loop · Post-render feedback template
+│   ├── Process/    Fast workflow · Production process · Media convention · YouTube upload · Feedback loop · Post-render feedback template
 │   ├── Content/    Idea and hook quality · Channel identity · Narration guide · Channel voice · Shorts quality bar · Channel strategy · Channel playbook · YouTube with AI (quality guide)
 │   ├── Visual/     Illustration pipeline · On-screen text style · Per-scene prompt
 │   ├── Editing/    Blender editing · Transitions and effects
@@ -50,6 +50,7 @@ A new video = a folder in `Videos/Week NN/` (the current week) with its `<Topic>
 | --- | --- |
 | Stages and gates | [[Production process]] |
 | Where media is stored | [[Media convention]] |
+| Uploading to YouTube (API setup, script, gotchas) | [[YouTube upload]] |
 | Is the idea worth it? | [[Idea and hook quality]] |
 | How to write | [[Narration guide]] · [[Channel voice]] · voice candidates: [[Voice samples]] |
 | What makes a Short top tier (hook, captions, rhythm, checklist) | [[Shorts quality bar]] |

@@ -72,6 +72,8 @@ INVARIANTS = [
     ("System/Content/Channel playbook.md", "Redtail it is", "channel name (user, 5 Oct 2026)"),
     ("System/Content/Channel playbook.md", "[[Brand options]]", "brand logo under review (user, 5 Oct 2026: old avatar and banner deleted as a bias)"),
     ("System/Content/Channel playbook.md", "Science at full speed", "Redtail slogan (user, 5 Oct 2026: banner B)"),
+    ("System/Process/YouTube upload.md", "Unaudited API projects", "API uploads lock to private until audit (docs, 5 Oct 2026)"),
+    ("CLAUDE.md", "youtube_upload.py", "agent guide points at the uploader"),
     # Superconductors feedback, 4 Oct 2026
     ("System/Guidelines for new scripts.md", "Plain-words test", "hook in plain words"),
     ("System/Guidelines for new scripts.md", "One thread, a fact budget", "theme line and fact budget"),

@@ -24,13 +24,13 @@ User: *"Thmbnail b is the winner, tittle recomendation is good, follow your reco
 
 *Heads-up recorded:* thumbnail B's text says the same thing as the title (not rare, a fight); I had paired the title with A so they would complement each other. It still works; if the repetition bothers you, title 2 ("Your Battery Runs on a Metal That Floats") pairs better with B.
 
-**Upload status (5 Oct 2026): not uploaded.** The channel is `UCCZX7-YPNPntwPKI1hdv2hQ` (REDTAIL, 0 videos), Studio is signed in and the Upload dialog is open in a Chrome tab. Claude in Chrome's `file_upload` accepts at most **10 MB** and the render is **65 MB**; a workaround that served the file from a temporary localhost server and attached it from the page was **denied by the permission check and was not pursued** (the server was shut down). Ways forward, the user decides: (a) the user attaches the file in the open dialog and the agent fills the rest; (b) the user explicitly approves the localhost route; (c) a one-time YouTube Data API setup (OAuth client created by the user), which also serves the weekly cadence. Visibility: **Private until the user chooses a schedule** (the weekly slot is not decided).
+**Upload status (5 Oct 2026): not uploaded.** The channel is `UCCZX7-YPNPntwPKI1hdv2hQ` (REDTAIL, 0 videos), Studio is signed in and the Upload dialog is open in a Chrome tab. Claude in Chrome's `file_upload` accepts at most **10 MB** and the render is **65 MB**; a workaround that served the file from a temporary localhost server and attached it from the page was **denied by the permission check and was not pursued** (the server was shut down). Ways forward, the user decides: (a) the user attaches the file in the open dialog and the agent fills the rest; (b) the user explicitly approves the localhost route; (c) a one-time YouTube Data API setup (OAuth client created by the user; **guide and script now exist: [[YouTube upload]]**), which also serves the weekly cadence. Visibility: **Private until the user chooses a schedule** (the weekly slot is not decided).
 
 ## 1. The video
 
-![[bt-72s-9x16-r1.mp4|320]]
+![[bt-72s-9x16-r2.mp4|320]]
 
-`Media/Week 01/Battery-lithium/render/bt-72s-9x16-r1.mp4` · 71.9 s · 1080×1920 · 200 words · Austin, speed 1.0 · captions burned in. Subtitle file for Studio: `render/bt.srt` (the narration with timings; the burned-in captions are for sound-off viewers, the SRT is for accessibility and search).
+`Media/Week 01/Battery-lithium/render/bt-72s-9x16-r2.mp4` · 71.9 s · 1080×1920 · 200 words · Austin, speed 1.0 · captions burned in. Subtitle file for Studio: `render/bt.srt` (the narration with timings; the burned-in captions are for sound-off viewers, the SRT is for accessibility and search).
 
 ## 2. Title (pick one; the first ≈ 40 characters are what the feed shows)
 
