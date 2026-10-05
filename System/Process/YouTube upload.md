@@ -44,7 +44,7 @@ python3 System/scripts/youtube_upload.py upload "Media/Week NN/<Video>/render/<f
 | Gotcha | Consequence |
 | --- | --- |
 | **Unaudited API projects (created after 28 July 2020) have uploads locked to private.** | Every API upload lands private until the project passes the [YouTube API Services audit](https://support.google.com/youtube/contact/yt_api_form). Fine while the plan is "private until the user schedules"; to let the script publish, file the audit form or switch visibility by hand in Studio. |
-| Quota: `videos.insert` costs 1,600 units of 10,000 per day | ≈ 6 uploads a day; plenty for weekly Shorts. A failed attempt still spends quota. |
+| Quota: `videos.insert` costs 1,600 units of 10,000 per day | ≈ 6 uploads a day; plenty for one Short a day. A failed attempt still spends quota. |
 | Testing-mode refresh tokens last 7 days | §1 step 7. If `invalid_grant` appears, run `auth` again. |
 | Scope `youtube.upload` only | The token cannot read, edit or delete videos; changing a title later is done in Studio. |
 | Thumbnails | `thumbnails.set` works only if the channel may use custom thumbnails; for a Short that needs the Partner Program ([[Fast workflow]] §4.9). The script reports the failure and keeps the upload. |

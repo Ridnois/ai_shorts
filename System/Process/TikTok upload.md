@@ -14,7 +14,7 @@ tags: [tiktok, upload, process, multi-platform]
 
 ## 1. Why not the API (deferred, YAGNI)
 
-The Content Posting API's Direct Post from an **unaudited client is limited to private (`SELF_ONLY`) posts and five users per 24 h**; lifting it needs a TikTok audit of the app ([TikTok docs](https://developers.tiktok.com/docs/en/content-sharing-guidelines)). It also needs a developer app and an approved product. One Short a week is cheaper by hand. Revisit if the cadence passes ≈ 5 a week or a scheduler is wanted. Not verified: audit lead time.
+The Content Posting API's Direct Post from an **unaudited client is limited to private (`SELF_ONLY`) posts and five users per 24 h**; lifting it needs a TikTok audit of the app ([TikTok docs](https://developers.tiktok.com/docs/en/content-sharing-guidelines)). It also needs a developer app and an approved product. The cadence is now one Short a day (user, 5 Oct 2026), so a manual upload every day is real work: **revisit the API (and its audit) early**, or schedule a batch of days in TikTok Studio. Not verified: audit lead time.
 
 ## 2. The package (agent, per video, after the YouTube package)
 
@@ -44,6 +44,10 @@ TikTok's interface covers the **right edge and the bottom 15 to 20 %** (caption,
 
 Record in the video's Status note: link, date, 48 h and 7 d views, average watch time, shares, followers gained (TikTok Studio / Analytics). Use it in the [[Channel strategy]] §6 loop **next to YouTube's**: same hook, different audience, so compare per video. 
 **Creator Rewards (secondary guides, 5 Oct 2026):** 10,000 followers, 100,000 views in the last 30 days, age 18+, a personal account, and **original videos longer than 1 minute** (shorter ones earn nothing). **Consequence for scripts:** our 130 to 160 words land at ≈ 50 to 65 s (Copper: 60.8 s, **just under or at the line**). Do not stretch Shorts for TikTok; if the program becomes reachable, plan a few 65 to 75 s videos on purpose. Re-check on TikTok's page then.
+
+## Account (set up 5 Oct 2026)
+
+**@redtail_media** (https://www.tiktok.com/@redtail_media), created by the user. Avatar: `Media/_canal/brand-redtail/1.png` (the Redtail logo), set through Edit profile on the web; **it took a few minutes to show** after Save, so reload before retrying. TikTok has no banner. Bio: *Science at full speed. New Shorts every day. Sources in comments.* (changed from "every week" the same day) Display name still `redtail_media` (changeable once per 7 days). The browser tool uploads ≤ 10 MB, so the videos are uploaded by the user.
 
 ## 6. Still not verified
 

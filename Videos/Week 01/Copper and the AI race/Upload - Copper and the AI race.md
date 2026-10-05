@@ -32,7 +32,7 @@ Keyword first, hedged like the script ("may be geology" → "could limit"), no b
 
 > One AI server rack can hold over two miles of copper cable, yet AI is only a small slice of the world's copper. Why a new mine takes about 17 years, and why that could limit the AI race.
 >
-> New Shorts every week.
+> New Shorts every day.
 >
 > SOURCES
 > • S&P Global, copper supply gap study, 8 January 2026 (17 years from discovery to production; a 25% shortfall by 2040 is a forecast): https://press.spglobal.com/2026-01-08-Substantial-Shortfall-in-Copper-Supply-Widens-as-the-Race-for-AI-and-Growing-Defense-Spending-Add-to-Accelerating-Demand,-New-S-P-Global-Study-Finds

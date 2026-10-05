@@ -46,7 +46,7 @@ User: *"Thmbnail b is the winner, tittle recomendation is good, follow your reco
 
 > Lithium isn't rare, but about 60% of it is refined in one country. How the lightest metal became a pressure point, and the battery that could walk away from it.
 >
-> New Shorts every week.
+> New Shorts every day.
 >
 > SOURCES
 > • USGS, Mineral Commodity Summaries 2026, Lithium: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf
@@ -103,7 +103,7 @@ A question that is easy to answer in one line, and it invites corrections (the c
 
 | Field | Value |
 | --- | --- |
-| Visibility | schedule it, in a fixed weekly slot (the channel promises *new Shorts every week*); pick the hour from Analytics › Audience › *When your viewers are on YouTube* once there is data; before that any consistent slot is a guess |
+| Visibility | schedule it, in a fixed daily slot (the channel promises *new Shorts every day*); pick the hour from Analytics › Audience › *When your viewers are on YouTube* once there is data; before that any consistent slot is a guess |
 | Audience | **Not made for kids** (required choice) |
 | Altered or synthetic content | **No** is my reading of the policy: the narration is a stock synthetic voice, not a real person's, and the schematics are not photorealistic scenes; the policy asks for a label on realistic content that could be mistaken for real. **The decision is yours** (YouTube Help, *altered or synthetic content*) |
 | Category | Science & Technology |
@@ -147,4 +147,4 @@ One change at a time, written in the next Status note ([[Feedback loop]]).
 - [ ] Facts to recheck from [[Battery and lithium - Status]] (the 18-month figure, IEA's 60 %, CATL's claims, the two Chinese notices).
 - [ ] Title, description, hashtags and pinned comment pasted; photo credits intact.
 - [ ] Thumbnail uploaded or the opening frame chosen; audience set to *not made for kids*; the synthetic-content question answered.
-- [ ] Scheduled in the weekly slot; after publishing: pin the comment, then log the 24 h numbers in §9.
+- [ ] Scheduled in the daily slot; after publishing: pin the comment, then log the 24 h numbers in §9.

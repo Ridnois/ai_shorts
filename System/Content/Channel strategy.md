@@ -45,7 +45,7 @@ Disclose when content **realistically** depicts something that did not happen or
 
 - **Promise (one line):** *the mechanism behind the headline, in 60 seconds, with the sources on screen.* Narrated learning, curious specialist ([[Channel identity]]). Audience: curious adults who like physics, engineering, materials and how things work (the first 10 videos).
 - **A series, not a feed:** 3 recurring formats with the same look and different substance ([[Channel identity]] devices): *The mechanism* (how X works), *The number* (one figure and why it is that), *The catch* (why X is harder than it sounds, like the superconductor freezer). Series names are the user's call.
-- **Cadence:** **2 to 3 Shorts a week** is enough to learn and keeps every video reviewed; quality (the [[Shorts quality bar]]) beats volume, and low volume protects against §2. Do not batch.
+- **Cadence (user decision, 5 Oct 2026: *"It should be new shorts every day"*):** **one Short a day**, and the channel says so on YouTube and TikTok. This replaces the earlier 2 to 3 a week. The [[Shorts quality bar]] and every gate still apply per video, so daily means a lean pipeline (one delegated run per video, [[Fast workflow]]), not lower quality; the risk is §2 (mass-produced AI content), so watch the first 10 videos' retention before scaling further. Do not batch.
 - **Pair with long videos:** Shorts feed a **monthly 6 to 10 minute video** that goes deeper on the best-performing topic (the only route that earns the 4,000-hour threshold; the Wikipedia summary reports education doing better in long form). A Short ends on the idea; the description links the long video.
 - **Topic selection:** the facts-bank score is the filter; add **demand**: search the topic on YouTube and Google Trends before P1 and note the top three existing videos and what they miss.
 
@@ -71,7 +71,7 @@ Disclose when content **realistically** depicts something that did not happen or
 
 - Channel name, handle, avatar and banner (brand assets; none exist yet).
 - The three series names and whether to start the long-video track.
-- Cadence (proposal: 2 to 3 a week) and which platforms to open first.
+- Which platforms to open first (cadence is decided: one Short a day).
 - Whether to spend on a quiet music bed and a second voice test ([[Shorts quality bar]] §5).
 - Permission to read Analytics together after the first 10 videos.
 
