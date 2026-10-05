@@ -69,6 +69,8 @@ No thumbnail image is budgeted. If you want a hero image for the upload: one `gp
 
 [[Script - Jikji and Gutenberg (short)]]: 91 words, 5 scenes, 12 plates, same images. Media in `Media/Week 01/Jikji-short/` (prefix `jks`). Scene 1 and 3 voice takes are **reused** from the long cut (same text; their `previous_text` / `next_text` context differed, so prosody may differ slightly); 3 new takes (scenes 2, 4, 5, about 330 characters) and 3 timing runs, about **$0.06** more (running total about $0.21 against the long cut's $0.18 cap; the request counted as approval for the variant).
 
+**Short version result:** rendered `Media/Week 01/Jikji-short/render/jks-39s-9x16-r1.mp4` (38.7 s, 12 plates of 2.6 to 4.0 s, `CAPTIONS 90 words, timed by whisper`, all 5 voices complete); stills looked at on 10 frames (cards below captions, no overlaps, diagrams clear of captions). Not heard or watched: the reused takes (scenes 1 and 3) may sit slightly differently next to the new ones; whisper heard "Jikji" correctly in scene 2. Which cut to publish is yours.
+
 ## Decisions and open points
 
 1. Budget approved (5 Oct 2026).
