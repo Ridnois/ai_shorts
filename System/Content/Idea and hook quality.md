@@ -29,6 +29,8 @@ Every fact gets a source and a date as usual ([[Guidelines for new scripts]] §1
 
 ## 2. Score and choose
 
+**Read `Analytics/Report.md` first** ([[Analytics]] §4): once videos have data, a hook type or topic family that held `viewed_pct`, `shares` and `subs_gained` above the channel's median earns a bonus when ranking angles; one that fell below is not repeated without a new angle. With fewer than 10 videos with data the report guides, it does not decide.
+
 Score each fact or angle 1 to 5 (a table in the Research note, shown at P1):
 
 | Criterion | 5 means |

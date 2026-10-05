@@ -133,7 +133,7 @@ A question that is easy to answer in one line, and it invites corrections (the c
 
 ## 9. After publishing: what to measure and what to change
 
-Fill this in at 24 hours and at 7 days (Studio › Analytics › Content › the Short). **These are the first data points the channel has: the benchmarks above are hypotheses until they are replaced by your own numbers** ([[Channel strategy]] §6).
+**The numbers now live in `Analytics/snapshots.csv` ([[Analytics]] §3); this table is the reading guide, not the log.** Record them at 24 hours, 7 days and 28 days (Studio › Analytics › Content › the Short). **These are the first data points the channel has: the benchmarks above are hypotheses until they are replaced by your own numbers** ([[Channel strategy]] §6).
 
 | Metric | What it tells | 24 h | 7 days | If it is low, change |
 | --- | --- | --- | --- | --- |

@@ -62,7 +62,7 @@ Disclose when content **realistically** depicts something that did not happen or
 
 ## 6. Measure and learn (the loop that makes the channel better)
 
-1. **Per Short, after 48 hours and 7 days**, copy into the video's Status note: views, **engaged views** (the measure monetization uses since 31 March 2025, when a view became any start or replay), the share of viewers who stay past the first seconds (Studio's "viewed vs swiped away", if shown for the video), average percentage viewed, subscribers gained, comments. Where to find them: YouTube Studio → Content → the video → Analytics.
+1. **Per Short, at 24 hours, 7 days and 28 days**, record the numbers with `System/scripts/analytics.py` into `Analytics/snapshots.csv` (full procedure and the metric catalogue: [[Analytics]]); the generated [[Report]] holds the medians. The metrics to read are: views, **engaged views** (the measure monetization uses since 31 March 2025, when a view became any start or replay), the share of viewers who stay past the first seconds (Studio's "viewed vs swiped away", if shown for the video), average percentage viewed, subscribers gained, comments. Where to find them: YouTube Studio → Content → the video → Analytics.
 2. **After every 10 Shorts**, run [[Feedback loop]] on the *data*, not only on the user's taste: which hooks held, which scenes lost people (the retention graph), which topics gained subscribers; update [[Shorts quality bar]] and [[Idea and hook quality]] with what held.
 3. **Milestones (not promises):** 10 videos → first retention data and a hook pattern; 30 videos → judge the series; 1,000 subscribers → apply for the program if the route is within reach; long video #1 after the first 15 Shorts.
 4. **Kill criteria:** if 20 Shorts average under about a third of viewers staying past the first seconds, change the *idea* gate and the hook before changing visuals. (The threshold is a guess; replace it with the channel's own median after 10 videos.)
@@ -73,7 +73,7 @@ Disclose when content **realistically** depicts something that did not happen or
 - The three series names and whether to start the long-video track.
 - Which platforms to open first (cadence is decided: one Short a day).
 - Whether to spend on a quiet music bed and a second voice test ([[Shorts quality bar]] §5).
-- Permission to read Analytics together after the first 10 videos.
+- ~~Permission to read Analytics together after the first 10 videos~~: replaced by [[Analytics]] (user, 5 Oct 2026: the user reads Studio, the vault keeps the data and learns from it from the first video).
 
 ## 8. Not verified (said plainly)
 

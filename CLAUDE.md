@@ -8,7 +8,8 @@ This vault (`~/Documents/youtube`) is the **single source of knowledge** of an E
 2. `System/Guidelines for new scripts.md`: every quality rule, compressed (idea → script → illustrations → text → voice → editing → process). **Read it whole before writing anything.**
 3. `System/Process/Fast workflow.md`: how a video is produced (packages, models, prices, budget).
 4. For a new video also: `System/Content/Shorts quality bar.md` (the bar every Short must clear), `System/Content/Idea and hook quality.md`, `System/Visual/Illustration pipeline.md`, `System/Content/Narration guide.md`, `System/Content/Channel identity.md`, `System/Visual/On-screen text style.md`.
-5. On demand: `System/Content/Channel strategy.md` (monetization, policies, multi-platform plan), `System/Content/Channel playbook.md` (engagement, on-screen design system, brand and mission), `System/Process/Production process.md` (stages and gates), `System/Process/Media convention.md`, `System/Process/YouTube upload.md` (when uploading), `System/Editing/Blender editing.md`, `System/Content/Channel voice.md`, `System/Models/Channel models.md`, and the video's `<Topic> - Status` note.
+5. **Before choosing an idea, hook or length:** `Analytics/Report.md` (the channel's own numbers; rules in `System/Process/Analytics.md`).
+6. On demand: `System/Content/Channel strategy.md` (monetization, policies, multi-platform plan), `System/Content/Channel playbook.md` (engagement, on-screen design system, brand and mission), `System/Process/Production process.md` (stages and gates), `System/Process/Media convention.md`, `System/Process/YouTube upload.md` (when uploading), `System/Editing/Blender editing.md`, `System/Content/Channel voice.md`, `System/Models/Channel models.md`, and the video's `<Topic> - Status` note.
 
 ## 2. Hard rules (never skip)
 
@@ -38,6 +39,7 @@ When the user gives feedback (after a render, or about the process), follow **`S
 | Assemble and render | `VIDEO="Media/Week NN/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`, then without `SOLO_PROYECTO` in the background |
 | Upload to YouTube (API, private by default; one-time setup by the user) | `python3 System/scripts/youtube_upload.py upload …`; guide `System/Process/YouTube upload.md` (confirm title, description, thumbnail and visibility with the user first) |
 | Pipeline runner | `~/Documents/youtube-pipeline/pipeline.py` (a user service; its prompts follow these notes) |
+| Record or read channel metrics (24 h, 7 d, 28 d snapshots; the user reads Studio, the agent keeps the CSVs) | `python3 System/scripts/analytics.py add …` then `report`; `System/Process/Analytics.md` |
 | Vault coherence | `python3 System/scripts/check_vault.py` |
 
 **Gotchas that already cost time:** Replicate answers HTTP 429 under bursts (the helper now waits and retries; nothing is charged); the Wikimedia thumbnail API throttles (fetch originals from `upload.wikimedia.org` directly); the system Python has no `numpy` (Blender's does); `.blend` files need absolute paths; Blender's background mixdown is silent (the builder checks the strips instead); Obsidian re-pads Markdown tables on save (parse tolerantly); never `pkill -f` a pattern that appears in your own command; if a download hangs, recover the prediction, never regenerate.
@@ -51,6 +53,7 @@ System/Content/               idea quality · identity · narration · voice · 
 System/Visual/                illustration pipeline · prompts · on-screen text
 System/Editing/               Blender editing · transitions   System/Models/    models and prices
 System/scripts/               build_video.py · stock_photos.py · replicate_helper.py · check_vault.py · legacy build_*.py
+Analytics/                    videos.csv · snapshots.csv · Report.md (generated, never edited by hand)
 Pipeline/                     idea queue, template and table   Research/         general model research
 Videos/Week NN/<Topic>/       Status · Research · Scripts · feedback · Upload (a Week NN is a calendar week, Mon to Sun; Week 01 = 5 to 11 Oct 2026; Videos/Legacy/ holds everything made before it)
 Media/Week NN/<Video>/        generated media, same week as the note (local, gitignored); Media/Legacy/, Media/_canal/ (shared, brand)

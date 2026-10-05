@@ -34,6 +34,7 @@ tags: [research, youtube, process, feedback, vault]
 | On-screen text and added content, personality | [[On-screen text style]], [[Channel identity]], [[Guidelines for new scripts]] (T rules) |
 | Voice, audio, editing, technical defects | [[Blender editing]], `System/scripts/build_video.py`, [[Guidelines for new scripts]] §3 and §4, [[Channel voice]] |
 | Gates, costs, delegation | [[Production process]], [[Fast workflow]], [[Guidelines for new scripts]] §5 |
+| **Data from the channel** (retention, viewed vs swiped away, shares, subscribers) | [[Analytics]] (record), then the layer of the cause: hook → [[Idea and hook quality]] and [[Narration guide]]; pace and length → [[Guidelines for new scripts]]; visuals → [[Illustration pipeline]] |
 | How the agent should work | `CLAUDE.md` (vault root), this note |
 
 ## 3. Conflicts and supersession

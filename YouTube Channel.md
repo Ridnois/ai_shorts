@@ -31,7 +31,7 @@ Plus the video's `<Topic> - Status` note and its script. Everything else is refe
 YouTube Channel.md
 ├── System/
 │   ├── Guidelines for new scripts.md   ← main entry point
-│   ├── Process/    Fast workflow · Production process · Media convention · YouTube upload · TikTok upload · Feedback loop · Post-render feedback template
+│   ├── Process/    Fast workflow · Production process · Media convention · YouTube upload · TikTok upload · Analytics · Feedback loop · Post-render feedback template
 │   ├── Content/    Idea and hook quality · Channel identity · Narration guide · Channel voice · Shorts quality bar · Channel strategy · Channel playbook · YouTube with AI (quality guide)
 │   ├── Visual/     Illustration pipeline · On-screen text style · Per-scene prompt
 │   ├── Editing/    Blender editing · Transitions and effects
@@ -39,6 +39,7 @@ YouTube Channel.md
 │   ├── Brand/      Redtail logo and banner, brand register and archive: [[Brand options]] · [[Logo references]] · decision in [[Channel playbook]] §4 · voice candidates: [[Voice samples]]
 │   └── scripts/    build_video.py (the builder) · stock_photos.py · replicate_helper.py · check_vault.py · legacy build_*.py
 ├── Research/       general notes on models and styles, unrelated to a script
+├── Analytics/      videos.csv · snapshots.csv · Report.md (generated)
 └── Videos/         Week 01 (current) and Legacy; one folder per video: Status, scripts, research, upload note
 ```
 
@@ -52,6 +53,7 @@ A new video = a folder in `Videos/Week NN/` (the current week) with its `<Topic>
 | Where media is stored | [[Media convention]] |
 | Uploading to YouTube (API setup, script, gotchas) | [[YouTube upload]] |
 | Uploading the same Short to TikTok (manual route, package, settings) | [[TikTok upload]] |
+| What we measure, how numbers are recorded and how they change the next video | [[Analytics]] · generated [[Report]] |
 | Is the idea worth it? | [[Idea and hook quality]] |
 | How to write | [[Narration guide]] · [[Channel voice]] · voice candidates: [[Voice samples]] |
 | What makes a Short top tier (hook, captions, rhythm, checklist) | [[Shorts quality bar]] |
