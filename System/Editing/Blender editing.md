@@ -57,7 +57,7 @@ Feedback (Magnetar, 4 Oct 2026): *"add transcriptions to the video, word by word
 - **Motion:** pushes are 8 % and alternate (in on odd plates, out on even ones); cross-fades within a scene are 0.2 s.
 
 - **Bare backdrops are refused:** a plate whose file name contains `blank` stops the build ([[Illustration pipeline]] §1.7); `allow_bare: true` in the plan overrides it only if the user asks. Missing plate files also stop the build.
-- **Callout labels are clamped above the caption zone**, and moved above the card as before.
+- **Callout labels are clamped above the caption zone** (captions at 50 % of the height, `CAP_Y`); the card is centred at 66 % (`CY`), below the captions, so labels never meet it.
 
 ## Plates, backgrounds, callouts and cards
 

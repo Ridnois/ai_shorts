@@ -51,7 +51,7 @@ COPPER = (0.78, 0.42, 0.22)
 INK = (0.11, 0.10, 0.09, 1.0)
 INK_SOFT = (0.30, 0.28, 0.26, 1.0)
 HAIR = " "
-CAP_Y = 0.835                       # caption baseline (fraction of the height from the top); the Shorts interface covers the last ≈ 15 %
+CAP_Y = 0.50                        # caption centre (fraction of the height from the top): the middle of the frame, clear of the Shorts interface (user, 5 Oct 2026: the old 0.835 sat under the channel name, title and sound ticker)
 CAP_SIZE, CAP_GAP = 88, 0.55        # caption font size (px) and the longest pause (s) a word stays on screen
 
 sc = bpy.context.scene
@@ -244,7 +244,7 @@ def compose_layer(plate, idx):
 
 # ---------------------------------------------------------------- label card (three lines) and callouts
 CX0, CX1 = 56, 56 + 894
-CY = round(H * (1 - 0.285))
+CY = round(H * 0.66)                  # card centre: below the captions, above the Shorts bottom text (last ≈ 25 %), left of the action buttons (card spans x 56 to 950)
 CY0, CY1 = CY - 140, CY + 140
 RAD = 16
 
@@ -402,9 +402,7 @@ for i, e, j, n, a, b, pl in flat:
         bw = int(len(txt) * size * 0.56 + 44)
         bh = 64
         lxy = (co["label"][0] * W - bw / 2, co["label"][1] * H - bh / 2)
-        lxy = (min(max(lxy[0], 24), W - bw - 24), min(max(lxy[1], 24), round(H * CAP_Y) - 90 - bh))      # never in the caption zone
-        if lxy[1] + bh > CY0 - 12 and lxy[1] < CY1 + 12:             # never over the card: move the label above it
-            lxy = (lxy[0], CY0 - bh - 24)
+        lxy = (min(max(lxy[0], 24), W - bw - 24), min(max(lxy[1], 24), round(H * CAP_Y) - 90 - bh))      # never in the caption zone (the card sits below the captions, so labels above them never meet it)
         c0t = a + 1.0 + 0.6 * ci
         c1t = b - 0.15
         if c1t - c0t < 1.0:

@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-03
 updated: 2026-10-04
-status: v4 · word-by-word captions and the caption zone added; the Magnetar feedback called the card style "good and appealing" (4 Oct 2026); v3 text with purpose and personality
+status: v5 · captions moved to the centre of the frame and cards below them (the Shorts interface covered the old caption position, user feedback 5 Oct 2026); v4 word-by-word captions and the caption zone added; the Magnetar feedback called the card style "good and appealing" (4 Oct 2026); v3 text with purpose and personality
 tags: [research, youtube, style, typography, text]
 ---
 
@@ -39,13 +39,13 @@ tags: [research, youtube, style, typography, text]
 | Element | Specification |
 | --- | --- |
 | **Typefaces** | Noto Sans Display Bold (titles, numbers), Noto Sans Regular (labels, details, callouts) |
-| **Context card** | warm paper `#F9F6EE` at 94 %, 16 px corners, 1 px graphite border at 25 %, **8 px copper bar** on the left; 894 × 280 px, centred at **28.5 % of the height from the bottom** (the caption zone stays free); label 32 px spaced capitals in copper `#C76B38`, title 56 px bold in ink `#1C1A17`, detail 34 px in `#4D4741` |
+| **Context card** | warm paper `#F9F6EE` at 94 %, 16 px corners, 1 px graphite border at 25 %, **8 px copper bar** on the left; 894 × 280 px, centred at **66 % of the height from the top**: below the captions, above the Shorts bottom text, left of the action buttons; label 32 px spaced capitals in copper `#C76B38`, title 56 px bold in ink `#1C1A17`, detail 34 px in `#4D4741` |
 | **Number card** | same card; the figure 124 px bold in copper, caption 44 px bold, source 30 px |
 | **Margin note card** | same card; label "Margin note" in copper, the text on two lines of ≤ 30 characters, 46 px bold |
-| **Callout** | copper dot (13 px) with a ring, leader line (2 px), label in a small paper box with a copper bar, 34 px; **never over the card**: labels move above it automatically |
+| **Callout** | copper dot (13 px) with a ring, leader line (2 px), label in a small paper box with a copper bar, 34 px; **never in the caption zone**: labels are clamped above it |
 | **Motion** | fade in over 0.25 s with a 24 px rise (cards), out over 0.2 s; the card enters 0.45 s after its plate; callouts enter 1 s after the plate, 0.6 s apart |
 | **One at a time** | one card per plate; never two cards at once |
-| **Captions (every video)** | one word at a time, centred at **16.5 % from the bottom**, Noto Sans Display Bold 88 px, capitals, white with a dark outline and a soft shadow, figures in copper; cards and callouts never enter this zone (callout labels are clamped above it). Rules and timing: [[Shorts quality bar]] §3 |
+| **Captions (every video)** | one word at a time, centred at **the middle of the frame (50 % of the height)**, Noto Sans Display Bold 88 px, capitals, white with a dark outline and a soft shadow, figures in copper; cards and callouts never enter this zone (callout labels are clamped above it, the card sits below it). Rules and timing: [[Shorts quality bar]] §3 |
 | **Backdrop** | a card or callout always sits on a real photo or a faithful explainer, never on a bare gradient ([[Illustration pipeline]] §1.7) |
 
 Implementation: `System/scripts/build_video.py` reads the plate's `card` (a list for a context card, or `{"kind": "number" | "note", …}`) and its `callouts` from `plan.json` ([[Illustration pipeline]] §6, [[Blender editing]]).

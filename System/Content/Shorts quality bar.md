@@ -38,7 +38,7 @@ tags: [research, youtube, shorts, retention, captions, quality]
 | --- | --- |
 | What | **One word at a time**, centred, in the order spoken; the word changes on the voice, not on a fixed beat. The script's own spelling is shown ("1,232" stays a figure) |
 | Look | Noto Sans Display Bold, **88 px** (was 104; feedback: *"font could be a little bit smaller"*; layout otherwise rated 5 of 5), capitals, white with a dark outline and a soft shadow; **words that contain a digit are copper** (the channel accent), and so are up to six key terms listed in `plan.json` `keywords` |
-| Place | centred at **16.5 % from the bottom** (`CAP_Y` in the builder): above the Shorts interface, below the card zone; cards and callouts never enter it |
+| Place | centred at **the middle of the frame, 50 % of the height** (`CAP_Y` in the builder). User feedback, 5 Oct 2026: *"the youtube shorts ui overlaps the captions, redesign the layout… captions should go more on the center"*: the old position (16.5 % from the bottom) sat under the channel name, title and sound ticker. Cards sit below them (66 % from the top), callout labels above; cards and callouts never enter the caption zone |
 | Timing | from `voice/<take>.words.json` (whisper word timestamps, `System/scripts/word_timings.py`); estimated by characters and punctuation when the file is missing (a reasonable fallback, not exact) |
 | Hold | a word stays until the next one starts, but never across a pause longer than 0.55 s |
 | Check | read the word list in the render log, and look at stills at the start of three scenes; **timing against the real voice is not verified by the agent** (it cannot hear) |
