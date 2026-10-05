@@ -1,3 +1,8 @@
+---
+type: research
+updated: 2026-10-05
+status: YouTube Studio idea suggestions (user note); read at P1 with the Report
+---
 
 Based on [Why Copper Could Limit the AI Race](https://studio.youtube.com/video/YRX0VfpPMtU) and your focus on uncovering hidden supply-chain, mineral, and physical infrastructure bottlenecks behind major tech trends (such as your video on lithium), here are three targeted concepts designed to match that style:
 

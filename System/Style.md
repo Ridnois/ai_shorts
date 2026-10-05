@@ -6,7 +6,7 @@ status: v1 · channel identity, on-screen design system and brand in one note
 
 # Style: voice persona, on-screen design, brand
 
-Approved by the user ("good and appealing, keep improving"): **keep the layout exactly**; improve specificity, placement over real images and captions, not the design. Rules for what text says: [[Playbook]] §4.
+Captions are always the top layer (see Layers below). Approved by the user ("good and appealing, keep improving"): **keep the layout exactly**; improve specificity, placement over real images and captions, not the design. Rules for what text says: [[Playbook]] §4.
 
 ## Brand
 
@@ -37,6 +37,7 @@ Spent years next to the machines and papers behind the news; precise, quietly co
 | **Number card** | same box; figure 124 px bold copper, caption 44 px bold, source 30 px |
 | **Margin note** | same box, label "Margin note", two lines ≤ 30 characters, 46 px bold |
 | **Callout** | copper dot 13 px with ring, 2 px leader, paper label with copper bar, 34 px; enters 1 s after the plate, 0.6 s apart; labels clamped above the caption zone |
+| **Layers** | **Captions are the top layer**: cards, callouts and their text always sit under the captions (user, 5 Oct 2026: *"added text and pointers are covering the captions, that should be below the captions"*; builder `CAP_CH`) |
 | **Motion** | cards fade in 0.25 s with a 24 px rise, out 0.2 s, card enters 0.45 s after its plate; no shakes, flashes or zoom punches |
 
 Layout from the top: top 10 % free (Shorts title bar) · callout labels · captions at 50 % · cards at 66 % · last ≈ 25 % and the right edge ≈ 12 % belong to the platform interface. TikTok covers more of the bottom 15 to 20 %: unverified, test once with a private upload and, if needed, raise `CAP_Y` for a TikTok export (`plan.json`) without touching the YouTube master.

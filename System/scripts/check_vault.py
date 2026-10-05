@@ -121,7 +121,7 @@ for rel in notes:
 _b = open(os.path.join(ROOT, "System", "scripts", "build_video.py"), encoding="utf-8").read()
 if "def add_brand" in _b:
     problems.append("build_video.py still has the brand layer the user asked to remove (feedback, 4 Oct 2026)")
-for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions"), ("write_srt(", "caption track export"), ("LONG PLATE", "long plates are reported"), ("add_sound()", "sound design"), ("plan.captions needs one string", "display captions")):
+for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions"), ("write_srt(", "caption track export"), ("LONG PLATE", "long plates are reported"), ("add_sound()", "sound design"), ("plan.captions needs one string", "display captions"), ("CAP_CH = 40", "captions are the top layer, above cards and callouts")):
     if _needle not in _b:
         problems.append(f"build_video.py lost its guard: {_needle} ({_why})")
 

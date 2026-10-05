@@ -52,6 +52,7 @@ INK = (0.11, 0.10, 0.09, 1.0)
 INK_SOFT = (0.30, 0.28, 0.26, 1.0)
 HAIR = " "
 CAP_Y = 0.50                        # caption centre (fraction of the height from the top): the middle of the frame, clear of the Shorts interface (user, 5 Oct 2026: the old 0.835 sat under the channel name, title and sound ticker)
+CAP_CH = 40                         # captions are the top layer: above cards (channels 7 to 10), callouts (20 to 27) and their text (user, 5 Oct 2026)
 CAP_SIZE, CAP_GAP = 88, 0.55        # caption font size (px) and the longest pause (s) a word stays on screen
 
 sc = bpy.context.scene
@@ -533,7 +534,7 @@ def add_captions():
         end = min(nxt, e + CAP_GAP, T_END)                 # hold until the next word, but not across a long pause
         if fr(end) <= fr(s):
             continue
-        tx = S.new_effect(f"cap{n:03d}", "TEXT", 16, fr(s), length=fr(end) - fr(s))
+        tx = S.new_effect(f"cap{n:03d}", "TEXT", CAP_CH, fr(s), length=fr(end) - fr(s))
         tx.text = w.upper()
         tx.font, tx.font_size = F_TITLE, min(CAP_SIZE, int(1300 / max(len(w), 1)))   # long words shrink to fit the frame
         key = any(c.isdigit() for c in w) or "".join(c for c in w.lower() if c.isalnum()) in KEYWORDS   # figures and plan.keywords are copper
