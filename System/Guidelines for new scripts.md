@@ -150,6 +150,7 @@ Source feedback: **Magnetar, 4 Oct 2026** (*"illustrations are too creative and 
 - **Replicate helper:** `System/scripts/replicate_helper.py` has timeouts and download retries, prints the prediction id at creation and has `recover(id, dest)`; use it if a download hangs, never regenerate.
 - **Reading prompts from the Status note:** Obsidian re-pads table columns on save, so parsers must tolerate spaces around the pipes.
 - **Never `pkill -f` a pattern that also appears in the shell command** (it kills the shell); match the process name and arguments with `ps` and `awk`.
+- **Order plates by the sentence they illustrate** (Asteroid mining build, 5 Oct 2026): the builder splits a scene's time equally among its plates, so the third plate is on screen while the last third of the sentence is spoken; put the photo of the Moon last if the voice says "Moon" last. Look at stills at the *spoken* word, not at the plate start.
 - **Image models restyle diagrams into abstractions** (a moiré diagram became clay swirls): use diagrams as *references for a generated explainer* or show them as `contain` plates, not as sources to be redrawn.
 
 ## 6. Open items
