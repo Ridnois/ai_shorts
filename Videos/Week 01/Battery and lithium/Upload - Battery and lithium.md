@@ -16,11 +16,11 @@ User request (5 Oct 2026): *"Its perfect, now i want it to prepare for upload, r
 
 User: *"Thmbnail b is the winner, tittle recomendation is good, follow your recomendations on the rest. then proceed to upload my video"*.
 
-| Item | Decision |
-| --- | --- |
-| Thumbnail | **B** ("NOT RARE. STILL A FIGHT.", `Media/Week 01/Battery-lithium/upload/thumb-b.jpg`); A and C are archived as ideas (their files stay in `upload/` and can be deleted) |
-| Title | **Lithium Isn't Rare, So Why Do Countries Fight Over It?** (54 characters) |
-| Description, hashtags, pinned comment, Studio settings | as in §3, §4, §6, §7 |
+| Item                                                   | Decision                                                                                                                                                                 |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Thumbnail                                              | **B** ("NOT RARE. STILL A FIGHT.", `Media/Week 01/Battery-lithium/upload/thumb-b.jpg`); A and C are archived as ideas (their files stay in `upload/` and can be deleted) |
+| Title                                                  | **Lithium Isn't Rare, So Why Do Countries Fight Over It?** (54 characters)                                                                                               |
+| Description, hashtags, pinned comment, Studio settings | as in §3, §4, §6, §7                                                                                                                                                     |
 
 *Heads-up recorded:* thumbnail B's text says the same thing as the title (not rare, a fight); I had paired the title with A so they would complement each other. It still works; if the repetition bothers you, title 2 ("Your Battery Runs on a Metal That Floats") pairs better with B.
 
@@ -34,11 +34,11 @@ User: *"Thmbnail b is the winner, tittle recomendation is good, follow your reco
 
 ## 2. Title (pick one; the first ≈ 40 characters are what the feed shows)
 
-| # | Title | Characters | Why |
-| --- | --- | --- | --- |
-| 1 | **Lithium Isn't Rare, So Why Do Countries Fight Over It?** | 54 | the keyword first, the video's own question, no hype word; pairs with thumbnail A (the thumbnail shows the "floats" curiosity, the title the stakes) |
-| 2 | Your Battery Runs on a Metal That Floats | 40 | the video's first line: a click lands on a payoff in 3 seconds; short, fits whole in the feed |
-| 3 | The Lightest Metal Is a Political Pressure Point | 48 | plain and accurate; the weakest on curiosity |
+| #   | Title                                                      | Characters | Why                                                                                                                                                  |
+| --- | ---------------------------------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Lithium Isn't Rare, So Why Do Countries Fight Over It?** | 54         | the keyword first, the video's own question, no hype word; pairs with thumbnail A (the thumbnail shows the "floats" curiosity, the title the stakes) |
+| 2   | Your Battery Runs on a Metal That Floats                   | 40         | the video's first line: a click lands on a payoff in 3 seconds; short, fits whole in the feed                                                        |
+| 3   | The Lightest Metal Is a Political Pressure Point           | 48         | plain and accurate; the weakest on curiosity                                                                                                         |
 
 **Recommendation: title 1 with thumbnail A.** Rules used: YouTube allows 100 characters; the keyword goes first because only the first ≈ 40 to 50 show in the feed (third-party sources, below); no banned words ([[Channel identity]]); the title promises only what the video delivers (it explains why countries compete: processing, not scarcity).
 
