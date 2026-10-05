@@ -24,7 +24,7 @@ tags: [research, youtube, process, costs, replicate]
 
 ## 2. Flow in 5 packages
 
-The stages are those of [[Production process]]; they are reviewed together:
+The stages are those of [[Production process]]; they are reviewed together (one Short a day, so one run per video and a lean package; the quality rules do not shrink):
 
 | Package | Includes | Gate |
 | --- | --- | --- |
@@ -32,7 +32,8 @@ The stages are those of [[Production process]]; they are reviewed together:
 | **B · Budget** | **Stock photos picked and downloaded (free, credits logged)**, prompts for the generated plates (content-first, [[Prompt - per-scene generation guide]]), voice prompts, `plan.json`, and the cost in dollars (§5) | **P4**: spending is authorized here |
 | **C · Test** | Voice of scene 1, **one generated cutout and one stock photo composed in Blender** (≈ $0.10 max.) | **P5** |
 | **D · Generation** | **By category, in order: voice → image** (sound only if the script requires it) | P6, one approval per category |
-| **E · Editing and publishing** | Render, description | **P7–P8** |
+| **E · Editing and publishing** | Render; the **Upload note** from [[Upload note template]] (YouTube description and a TikTok caption, in copy-paste blocks); the `Analytics/videos.csv` row | **P7–P8** |
+| **F · Measure** | `youtube_analytics.py pull` at about 24 h, 7 d, 28 d; the generated [[Report]] feeds the next idea ([[Analytics]]) | none |
 
 **Master rule: Replicate is not called before P4.** If the user delegates ("carry on until the render"), note it in the Status and continue without stopping within the cap.
 

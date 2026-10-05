@@ -7,6 +7,7 @@ estimated_budget_usd:
 approved_budget_usd: 
 actual_cost_usd: 
 video: 
+hook_type: 
 error: 
 created: {{date}}
 updated: {{date}}
