@@ -33,7 +33,7 @@ Every prompt ends in a Replicate *prediction* (`System/scripts/replicate_helper.
 
 **Style:** none. The default of the model is the style ([[Illustration pipeline]] §1.4). If the output must be neutral, one line: *"clean, modern technical illustration"* or *"realistic product-photo rendering"*, chosen by the subject.
 
-**Model by role:** `openai/gpt-image-1.5` for explainers and cutouts (several references, `input_fidelity: high` when a shape must be kept, `background: transparent` for cutouts); `flux-kontext-pro` only to **edit** a real photo; other models in [[Fast workflow]] §3.
+**Model by role:** `openai/gpt-image-2` for explainers and cutouts (several references, `input_fidelity: high` when a shape must be kept, `background: transparent` for cutouts); `flux-kontext-pro` only to **edit** a real photo; other models in [[Fast workflow]] §3.
 
 ### Worked examples (to verify against the research note before use)
 

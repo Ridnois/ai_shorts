@@ -29,7 +29,7 @@ Before any prompt, the script note gets a **visual plan**: one row per plate wit
 | Type | Use it for | Source | Cost |
 | --- | --- | --- | --- |
 | **S · Stock photo** | real subjects: places, equipment, materials, historical objects | free sources, §5 | $0 |
-| **G · Generated explainer** | insides and processes: cutaways, cross-sections, exploded views, schematics, scale comparisons | `openai/gpt-image-1.5` with a descriptive prompt and references, §3 | ≈ $0.05 |
+| **G · Generated explainer** | insides and processes: cutaways, cross-sections, exploded views, schematics, scale comparisons | `openai/gpt-image-2` with a descriptive prompt and references, §3 | ≈ $0.05 |
 | **C · Cutout** | a single object or part, placed on a Blender gradient with a soft shadow and callouts | transparent PNG: generated with `background: transparent`, or a stock photo cut out with `bria/remove-background` | ≈ $0.05, or $0 + the cut-out |
 | **E · Edit of a real photo** | change one thing in a real photo (remove text, extend, recolour a part) | `black-forest-labs/flux-kontext-pro` (as an editor, never a restyler) | ≈ $0.04 |
 | **D · Drawn diagram** | a mechanism whose geometry matters (directions, angles, scale) and that a generator got wrong | a short Pillow script in `System/scripts/` with the exact geometry (example: `make_tide_diagram.py`, the tidal bulge ahead of the Earth–Moon line, Moon video; the generated version put the bulge on the line and the Moon's arrow outward), callouts added in Blender | $0 |
@@ -45,7 +45,7 @@ Full recipe and templates in [[Prompt - per-scene generation guide]]. The rules:
 
 - **Fully descriptive and content-first.** Name the **exact object or process**, its **parts and their count and arrangement**, the **view** (side, cross-section, exploded, top-down), and **what must be readable** about it. If the real thing has a known structure (a superconducting MRI magnet, a graphene lattice, a split-ring resonator), describe that structure, not a vague likeness.
 - **Explain, do not stage.** Prompts describe machines and processes ("a cross-section of a cylindrical cryostat: an outer steel shell, a vacuum gap, a liquid-helium vessel, and a coil of wire at the centre"), not scenes.
-- **References do the heavy lifting.** Pass 1 to 4 real photos or diagrams (`input_images` in `gpt-image-1.5`) and **say what each one supplies** ("image 1: the real shape of the dewar; image 2: the layout of a cutaway view"). Prefer references from the stock sources in §5; keep their credits.
+- **References do the heavy lifting.** Pass 1 to 4 real photos or diagrams (`input_images` in `gpt-image-2`) and **say what each one supplies** ("image 1: the real shape of the dewar; image 2: the layout of a cutaway view"). Prefer references from the stock sources in §5; keep their credits.
 - **No style block.** Optionally one neutral line about the output: "clean, modern, high-detail technical illustration on a plain background". No clay, no sketch, no "hand-drawn".
 - **Transparent background when the plate is a cutout:** `background: transparent`, `output_format: png`, subject centred with margin, no ground shadow, no floor (the shadow is added in Blender).
 - **No text inside the image:** labels are added as callouts in Blender. State it ("no letters, no numbers, no labels"), and **check each plate for leaks** (rule 2.11 in [[Guidelines for new scripts]]).
@@ -55,7 +55,7 @@ Full recipe and templates in [[Prompt - per-scene generation guide]]. The rules:
 
 | Role | Model | Notes |
 | --- | --- | --- |
-| Explainers and cutouts with references | **`openai/gpt-image-1.5`** | follows detailed prompts and several references best; `background: transparent`; aspect ratios 1:1, 3:2, 2:3 only; `quality` medium; `input_fidelity: high` when the reference shape must be kept |
+| Explainers and cutouts with references | **`openai/gpt-image-2`** | follows detailed prompts and several references best; `background: transparent`; aspect ratios 1:1, 3:2, 2:3 only; `quality` medium; `input_fidelity: high` when the reference shape must be kept |
 | Real-photo edits | `black-forest-labs/flux-kontext-pro` | one `input_image`; use it to **edit** a photo, not to convert it to a style; a prompt that carries narration text can leak it into the image |
 | Hard edits and real-object grounding | `google/nano-banana-2` | with `image_search`; ≈ $0.067 |
 | Background removal | `bria/remove-background` (alternatives `lucataco/remove-bg`, `cjwbw/rembg`) | for stock photos that become cutouts; **price and quality unconfirmed: test on one image** |
@@ -99,7 +99,7 @@ Each video has a `plan.json` consumed by `System/scripts/build_video.py` ([[Blen
 
 ## 7. Budget and tests
 
-Stock photos cost nothing; generated explainers and cutouts ≈ $0.05 each; background removal to be measured. A Short plans **≤ 5 generated images** by default, so a typical image budget is **under $0.40**, with the usual cap (base × 1.2) and a **P5 test** of the whole chain (one generated cutout, one stock photo, composed in Blender).
+Stock photos cost nothing; generated explainers and cutouts ≈ $0.05 (`gpt-image-1.5`) to ≈ $0.10 (`gpt-image-2`, unconfirmed) each; background removal to be measured. A Short plans **≤ 5 generated images** by default, so a typical image budget is **under $0.40**, with the usual cap (base × 1.2) and a **P5 test** of the whole chain (one generated cutout, one stock photo, composed in Blender).
 
 ## 8. What this replaces
 

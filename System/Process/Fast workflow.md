@@ -40,7 +40,7 @@ The stages are those of [[Production process]]; they are reviewed together:
 
 | Task | Model | Price | Notes |
 | --- | --- | --- | --- |
-| **Image · generated explainers and cutouts (default, 4 Oct 2026)** | `openai/gpt-image-1.5` (medium quality; 1:1, 3:2 or 2:3) with a descriptive prompt and up to 4 references; `background: transparent` for cutouts; `input_fidelity: high` to keep a reference's shape | ≈ $0.05 (**unconfirmed on Replicate**) | The model's own style; no style block ([[Illustration pipeline]]) |
+| **Image · generated explainers and cutouts (default from 5 Oct 2026)** | **`openai/gpt-image-2`** (`quality` medium or high, `aspect_ratio` 2:3 or 9:16, `output_format: png`) with a descriptive prompt and `input_images` (no `input_fidelity` parameter); `background: transparent` for cutouts | **not shown by Replicate's API: budget ≈ $0.10 per plate until measured** (`gpt-image-1.5` was ≈ $0.05 unconfirmed) | A *very good* model on purpose: a Short is mostly stock now, so it generates **≤ 3 plates** and quality beats price. Ranked first for text and diagram accuracy in 2026 comparisons (third-party, see [[Channel models]]). The model's own style; no style block ([[Illustration pipeline]]). Fallback: `gpt-image-1.5` |
 | **Image · stock photos** | free sources (Openverse, NASA, Wikimedia) via `System/scripts/stock_photos.py` | $0 | Credits logged; ask the user for Pexels, Pixabay or Unsplash keys if needed |
 | Image · background removal | `bria/remove-background` (alternatives `lucataco/remove-bg`, `cjwbw/rembg`) | **to measure** (test on one image) | Turns a stock photo into a cutout |
 | Image · photo edit | `black-forest-labs/flux-kontext-pro` | ≈ $0.04 (unconfirmed) | **Edits** a real photo (remove text, extend, recolour a part); one `input_image`; not used to restyle |
@@ -65,7 +65,7 @@ The stages are those of [[Production process]]; they are reviewed together:
 2. **1 image per shot**; 2 only if the shot needs a before and an after.
 3. **Cap per video = base images × 1.2.** Going over needs approval.
 4. **Minimal test (P5):** one scene, one image, one model. Compare models only if the user asks. **Exception, voice:** scene 1 twice (default and the expressive variant of [[Channel voice]]), ≈ $0.02, the user picks.
-5. **Stock first, and many of them:** a new image every ≈ 3 to 4 s (16 to 20 plates for 160 words), at least half real photos or figures, 2 to 3 candidates found per scene; a plate that shows a real thing is a free stock photo; generate only what cannot be photographed (insides, processes, structures). Default **≤ 5 generated images per Short.**
+5. **Stock first, and many of them:** a new image every ≈ 3 to 4 s (16 to 20 plates for 160 words), at least half real photos or figures, 2 to 3 candidates found per scene; a plate that shows a real thing is a free stock photo; generate only what cannot be photographed (insides, processes, structures). Default **≤ 3 generated images per Short (5 Oct 2026: stock-first, so each generated plate gets the best model).**
 6. **Prompts in the positive**; fix the prompt **before** retrying and retry **once**.
 7. **Series, not parallel** (429).
 8. **Discards go to `_descartes/`** and are not regenerated "to compare".
@@ -77,7 +77,7 @@ The stages are those of [[Production process]]; they are reviewed together:
 | Category | Model | Quantity | Unit price | Subtotal | Cap (×1.2) |
 | --- | --- | --- | --- | --- | --- |
 | Voice | `elevenlabs/v3` | takes (per scene) | ≈ $0.10 per 1,000 characters | | |
-| Image (generated) | `gpt-image-1.5` | generated plates only (≤ 5 by default, each with its second) | ≈ $0.05 (unconfirmed) | | |
+| Image (generated) | `gpt-image-2` | generated plates only (≤ 3 by default: stock first; each with its second) | ≈ $0.10 (unconfirmed) | | |
 | Image (stock) | free sources | plates | $0 | $0 | — |
 | Background removal | `bria/remove-background` | stock photos that become cutouts | to measure | | |
 | Word timings | `incredibly-fast-whisper` | one per voice take | ≈ $0.01 (unconfirmed) | | |
@@ -106,6 +106,6 @@ The stages are those of [[Production process]]; they are reviewed together:
 1. **Stage 3, visual plan:** one row per plate (type S, G, C, E or N, source, usefulness sentence).
 2. **Package B:** download the stock photos (`stock_photos.py`, credits in `stock/_credits.jsonl`); write the content-first prompts for the generated plates ([[Prompt - per-scene generation guide]]).
 3. **P5 test:** one generated cutout and one stock photo composed in Blender with a callout.
-4. **Generation:** `gpt-image-1.5` in series, one retry per image, ≤ 5 images by default; background removal for stock cutouts.
+4. **Generation:** `gpt-image-2` in series, one retry per image, ≤ 5 images by default; background removal for stock cutouts.
 5. **Edit:** `plan.json` + `build_video.py`: types `full`, `contain`, `cutout` over gradients, callouts, cards, padded voices, `CHECK=1`.
 6. **Past method (retired):** Kontext + a real reference redrawn as plasticine (videos 6 to 8). Evidence and tests: [[Research - Flux Kontext Pro with references (power)]].

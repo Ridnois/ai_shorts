@@ -92,7 +92,7 @@ Source feedback: **Magnetar, 4 Oct 2026** (*"illustrations are too creative and 
 | 2.3 | **Real things are photographed, hidden things are explained.** Real subjects → free stock photos (Openverse, NASA, Wikimedia; credits recorded). Insides, processes, structures and scales → a generated explainer (cutaway, cross-section, exploded view, schematic). Never a decorative stand-in. |
 | 2.4 | **Prompts are specifications, not scenes:** exact object or process, its parts and their count and arrangement, the view, what must be readable, what each reference supplies. No mood, no "dramatic", no theatre, no props that explain nothing. ([[Prompt - per-scene generation guide]]) |
 | 2.5 | **No custom style.** No style block, no clay, no sketch. The model's default look is the style; the look of the video comes from the Blender edit (gradients, shadows, framing, callouts, text). |
-| 2.6 | **Generate full frames or transparent cutouts** (`gpt-image-1.5`, `background: transparent`); place them on gradients in Blender (`type: full | contain | cutout` in `plan.json`). |
+| 2.6 | **Generate full frames or transparent cutouts** (`gpt-image-2`, `background: transparent`); place them on gradients in Blender (`type: full | contain | cutout` in `plan.json`). |
 | 2.7 | **Check every plate against the facts** (counts, structure, labels) and for leaked text. A beautiful but wrong cutaway fails 2.1. One retry per image; if it fails twice, change the prompt's content or the plate type. |
 | 2.8 | **Vertical 9:16, safe zone:** subject between 15 % and 60 % of the height; the card zone (≈ 21 % to 36 % from the bottom) stays free; callout labels never sit over the card. |
 | 2.9 | **Plates without the voice must still make sense.** If the images are not understood without the narration, the plan is not ready. |
@@ -138,7 +138,7 @@ Source feedback: **Magnetar, 4 Oct 2026** (*"illustrations are too creative and 
 
 - **Master rule: no media is generated before P4** (prompts + budget approved, in dollars). Every approval is written in the video's Status. If the user **delegates** ("carry on until the render"), note it and run without stopping, but respect the cap.
 - **Cost:** it worries the user ("it is getting expensive, too much testing"). Cap per category = base × 1.2; a minimal test at P5; series of ≤ 10 calls, **in series**, never in parallel; fix the prompt before retrying. Going over the cap needs approval.
-- **The images that are generated are the ones in the cut**, 1 per plate by default; a Short plans **≤ 5 generated images** and the rest are free stock photos or built in Blender.
+- **The images that are generated are the ones in the cut**, 1 per plate by default; a Short plans **≤ 3 generated images (stock first; from 5 Oct 2026 with `gpt-image-2`)** and the rest are free stock photos or built in Blender.
 - **Research goes separate from scripts** (models, styles, references): notes in `Research/`, tests in `Media/_canal/investigacion/`, cost accounted separately. A video note only links the conclusion.
 - **Do not move other videos' folders.** Files carry their video's prefix (Obsidian resolves embeds by name). Discards go to `_descartes/`.
 - **Notes in the vault, never artifacts or Claude Docs.**

@@ -8,7 +8,7 @@ tags: [research, youtube, models, replicate, costs]
 
 # Channel models
 
-> **Current selection: [[Fast workflow]]** (§3: `gpt-image-1.5` for generated explainers and transparent cutouts, free stock photos, `flux-kontext-pro` only to edit a real photo, `bria/remove-background` for cutouts, `elevenlabs/v3`). This note only keeps the price tables; where they differ, [[Fast workflow]] rules. Method: [[Illustration pipeline]].
+> **Current selection: [[Fast workflow]]** (§3: `gpt-image-2` for generated explainers (from 5 Oct 2026; `gpt-image-1.5` before) and transparent cutouts, free stock photos, `flux-kontext-pro` only to edit a real photo, `bria/remove-background` for cutouts, `elevenlabs/v3`). This note only keeps the price tables; where they differ, [[Fast workflow]] rules. Method: [[Illustration pipeline]].
 
 ← [[YouTube Channel]] · [[Production process]] · [[Prompt - per-scene generation guide]] · [[Channel voice]] · [[Illustration pipeline]]
 
@@ -24,7 +24,7 @@ Read in each model's *Pricing* section. Per-megapixel prices count **input and o
 
 | Model | Price | Input references | Notes |
 | --- | --- | --- | --- |
-| `openai/gpt-image-1.5` **(current for generated plates)** | ≈ $0.05 at medium quality (**OpenAI's rate, unconfirmed on Replicate**) | up to several `input_images`; `input_fidelity` low or high | `background: transparent` for cutouts; ratios 1:1, 3:2, 2:3 only; best instruction following; see [[Illustration pipeline]] |
+| `openai/gpt-image-1.5` **(previous default; fallback, cheaper)** | ≈ $0.05 at medium quality (**OpenAI's rate, unconfirmed on Replicate**) | up to several `input_images`; `input_fidelity` low or high | `background: transparent` for cutouts; ratios 1:1, 3:2, 2:3 only; best instruction following; see [[Illustration pipeline]] |
 | `bria/remove-background` (alternatives `lucataco/remove-bg`, `cjwbw/rembg`) | **unmeasured: test on one image** | one `image` | Cuts a stock photo out into a transparent PNG |
 | `black-forest-labs/flux-kontext-pro` **(photo edits only)** | ≈ $0.04 per image (**from memory, unconfirmed**) | a single `input_image` | Edits a real photo (remove text, extend, recolour a part); no longer the default generator |
 | `black-forest-labs/flux-2-pro` (used before) | $0.015 per run + $0.015 per input megapixel + $0.015 per output megapixel → **≈ $0.045 with one reference** | up to 8 | **Does not understand negative prompts**: "no text" may add text |
@@ -35,7 +35,7 @@ Read in each model's *Pricing* section. Per-megapixel prices count **input and o
 | `recraft-ai/recraft-v4.1` | $0.04 per image | **none** (prompt, size and aspect only) | Design focus; not useful for generating the final from the initial |
 | `google/imagen-4-ultra` | $0.06 per image | — | Text to image only |
 | `google/nano-banana-2` | $0.067 (1K), $0.101 (2K), $0.151 (4K) per image | up to 14 | Conversational editing and image blending; the most expensive useful one for editing |
-| `openai/gpt-image-2` | no readable price on the page | — | Not evaluated |
+| `openai/gpt-image-2` **(current for generated plates, 5 Oct 2026)** | **no readable price** (budget ≈ $0.10 per plate until measured on the dashboard) | `input_images`; **no `input_fidelity`**; `quality` low/medium/high, `background`, `aspect_ratio` incl. 2:3, 9:16, 1152x2048 and 2160x3840 | Chosen because a Short now generates ≤ 3 plates, so a very good model is affordable. Third-party 2026 comparisons rank it first for legible text and diagrams (Artificial Analysis Image Arena Elo ≈ 1,339, Sept 2026, via search summaries of tech-insider.org and scholarviz.com), with Nano Banana Pro (4K, grounded edits) and FLUX.2 behind: **hypotheses until the vault's own plates are compared** |
 
 ### Voice
 
