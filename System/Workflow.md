@@ -1,12 +1,14 @@
 ---
 type: process
 updated: 2026-10-05
-status: v1 · stages, gates, budget, models, files, commands in one note
+status: v2 · delegated flow is the default; listening rubric; note size ceilings
 ---
 
 # Workflow: stages, budget, models, files
 
 Rules for the content: [[Playbook]]. One run per video, one Short a day; **Sonnet-class model, no subagents** (the work is sequential).
+
+**Note size ceilings** (words, enforced by `check_vault.py`): Script 2,700 · Upload 2,300 · Status 1,500 (ceilings set from today's notes; lower them as notes shrink). Leave out: scoring rows of rejected threads (one line each), prompts once generated (the prediction log keeps the id), attribution tables (credits live in `stock/_credits.jsonl` and the Upload description), research prose that repeats the facts bank.
 
 ## Token discipline
 
@@ -14,27 +16,28 @@ Read `CLAUDE.md`, [[Playbook]], this note, `Analytics/Report.md`, then only the 
 
 ## Stages and gates
 
-The user approves each gate; the agent proposes and never approves for them. If the user **delegates** ("carry on until the render"), write the delegation and the cap in Status and continue without stopping, within the cap; stop at the render (P7).
+**The normal run is delegated** (every Week 01 video was): the user asks for a video, the agent records the delegation and the cap in Status and runs A to E without stopping; **the render (P7) is where it stops.** Without delegation the user approves each gate and the agent never approves for them.
 
 | Package | Stages | Gate |
 | --- | --- | --- |
-| **A · Text** | idea (facts bank, scores, five hooks) → research (claims with source and date) → script in words → visual plan (one row per plate) | P1 to P3 + P4a, one review |
-| **B · Budget** | stock photos downloaded (free, credits), content-first prompts, voice prompts, `plan.json`, dollar budget with cap | **P4: spending allowed from here; no Replicate call and no file in `Media/` before it** |
-| **C · Test** | voice of scene 1, one cutout and one stock photo composed in Blender (≈ $0.10 max) | P5 |
-| **D · Generation** | by category: voice → word timings → images (in series) | P6 |
-| **E · Edit** | `build_video.py`, `CHECK=1`, render in the background | **P7 (the user)** |
-| **F · Publish and measure** | Upload note, `Analytics/videos.csv` row, pulls at 24 h, 7 d, 28 d ([[Publish]]) | P8 |
+| **A · Text** | idea (facts bank, scores, against-the-idea pass, demand check, five hooks) → research (claims with source and date) → script in words → visual plan (one row per plate) | P1 to P3 + P4a; the street-lamp test cannot be "borderline" |
+| **B · Budget** | stock photos downloaded (free, credits), content-first prompts, voice prompts, `plan.json`, dollar budget with cap | **P4: spending allowed from here; no Replicate call and no file in `Media/` before it** (delegation counts as approval, written in Status) |
+| **C · Generation** | voice → word timings → images (in series) | within the cap |
+| **D · Edit** | `build_video.py`, `CHECK=1`, render in the background | **P7 (the user)**, with the listening rubric below |
+| **E · Publish and measure** | Upload note, `Analytics/videos.csv` row, pulls ([[Publish]]) | P8 |
 
-Every approval is written in the Status note (date, what). A change in an approved stage reopens the later ones. A new video request ends at P4 as text: Status note, research, script with visual plan, prompts, `plan.json`, budget.
+A **test stage** (voice of scene 1, one cutout and one stock photo composed, ≈ $0.10) is run only when a new technique, voice setting or model is tried; routine videos skip it. A change in an approved stage reopens the later ones. A new video request without delegation ends at P4 as text: Status note, research, script with visual plan, prompts, `plan.json`, budget.
+
+**Listening rubric at P7:** the agent cannot hear, so the user answers three short questions and the answers are written in Status under *Feedback*: (1) does the voice sound natural? (2) is the pace right (too fast, right, too slow)? (3) is the sound mix right (effects and bed against the voice)? These are the only audio evidence the vault has.
 
 ## Budget (show in dollars with cap = base × 1.2 before spending)
 
 | Category | Model | Unit price |
 | --- | --- | --- |
 | Voice | `elevenlabs/v3` | ≈ $0.10 per 1,000 characters |
-| Generated plates (≤ 3) | `openai/gpt-image-2` (`quality` medium/high, `aspect_ratio` 2:3 or 9:16, `output_format: png`, `input_images`; no `input_fidelity`) | no price shown by the API: budget ≈ $0.10 each until measured (fallback `gpt-image-1.5` ≈ $0.05) |
+| Generated plates (≤ 3) | `openai/gpt-image-2` (`quality` medium/high, `aspect_ratio` 2:3 or 9:16, `output_format: png`, `input_images`; no `input_fidelity`) | **unconfirmed**: the API shows no price; budget ≈ $0.25 at `high` (Copper and EV notes) until the user reads the Replicate dashboard once and the real figure replaces this line (fallback `gpt-image-1.5` ≈ $0.05) |
 | Stock photos | `System/scripts/stock_photos.py` | $0 |
-| Background removal | `bria/remove-background` | unmeasured: test one |
+| Background removal | `bria/remove-background` | **unconfirmed**: test one and write the price |
 | Photo edit | `black-forest-labs/flux-kontext-pro` (edits a real photo, never restyles) | ≈ $0.04 |
 | Hard edit | `google/nano-banana-2` | ≈ $0.067 |
 | Word timings | `vaibhavs10/incredibly-fast-whisper` via `word_timings.py` | ≈ $0.01 per take |
@@ -76,10 +79,10 @@ Never `pkill -f` a pattern that appears in your own command (match with `ps` and
 
 | Stage | Status | Approved (date) | Note |
 | --- | --- | --- | --- |
-| 0 Idea · 1 Research · 2 Script · 3 Visual plan | | | angle, five hooks, hook type, theme line |
+| 0 Idea · 1 Research · 2 Script · 3 Visual plan | | | angle, hook type, theme line, demand check, street-lamp result (pass or reason) |
 | 4 Prompts, stock, budget | | | budget table, cap, delegation if any |
-| 5 Test · 6 Generation | | | prediction log |
+| 5 Test (only if a new technique) · 6 Generation | | | prediction log |
 | 7 Edit | | | render names, what was not verified |
 | 8 Publish · 9 Measure | | | upload id; *Learnings* per pull |
 
-Plus: attribution table (from `stock/_credits.jsonl`), known simplifications of schematics, *Feedback* (user's words verbatim).
+Plus: known simplifications of schematics, *Not verified*, *Feedback* (user's words verbatim, with the listening-rubric answers). No attribution table: credits are in `stock/_credits.jsonl` and the Upload description.

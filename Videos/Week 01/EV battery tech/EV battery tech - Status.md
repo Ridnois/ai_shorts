@@ -51,21 +51,6 @@ No thumbnail image was generated (≈ $0.25 saved): see [[Upload - EV battery te
 
 `PLATES 18`, durations 2.9 to 4.2 s, `LONG PLATE: none`; `CAPTIONS 149 words, timed by whisper`; all 7 voices complete (lead-in, tail, order ok); 61.4 s with the gaps. Stills looked at on 14 frames of r1: captions sit mid-frame, cards below, callouts above. **Fixed after r1:** the two anode plates (gentle and fast) looked identical because the 2:3 image covers almost the whole frame; r2 shows each half as its own `contain` plate on a gradient.
 
-## Attribution table (built from `stock/_credits.jsonl`; 10 of 13 downloaded photos used)
-
-| File | Author | License | Source |
-| --- | --- | --- | --- |
-| `ev-leafpack.jpg` | Gereon Meyer | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:Battery-Pack-Leaf.jpg) |
-| `ev-leafcut.jpg` | Norsk Elbilforening | CC BY 2.0 | [page](https://commons.wikimedia.org/wiki/File:2013_Nissan_Leaf_cutaway_(2).jpg) |
-| `ev-teslapack.jpg` | Norio Nakayama | CC BY-SA 2.0 | [page](https://commons.wikimedia.org/wiki/File:Tesla_Roadster_Sport_battery_pack_rear.jpg) |
-| `ev-supercharger.jpg` | Daniel Lu | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:Tesla_Supercharger_Inyokern_California_2026_dllu.jpg) |
-| `ev-desert.jpg` | Brocken Inaglory | CC BY-SA 3.0 | [page](https://commons.wikimedia.org/wiki/File:Sand_dunes_and_road_in_Death_Valley.jpg) |
-| `ev-snowcharge.jpg` | Guttorm Flatabø | CC BY 2.0 | [page](https://www.flickr.com/photos/gflatabo/4443378518) |
-| `ev-winterroad.jpg` | Bert Kaufmann | CC BY 2.0 | [page](https://www.flickr.com/photos/roebot/5292186041) |
-| `ev-heatpump.jpg` | Votpuske | CC BY 4.0 | [page](https://commons.wikimedia.org/wiki/File:Tesla_heat_pump_01.jpg) |
-| `ev-packline.jpg` | Vigor0503 | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:EvokeMotorcycles_Battery_Pack_Production_May_2023-10.jpg) |
-| `ev-lfpbus.jpg` | Yo-Co-Man | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:Lithium_Iron_Phosphate_LiFePO4_Cells_700Ah_in_Parallel_and_Series_and_Busbar_-_1.jpg) |
-
 ## Not verified by the agent (said out loud, for your P7)
 
 - **I did not hear the audio or watch the whole video:** how Austin sounds on this script, the pace, the sound mix, the motion, whether the captions land on the spoken words.

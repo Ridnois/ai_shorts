@@ -43,11 +43,6 @@ User request (5 Oct 2026): *"create a new video, this one is about battery techn
 | Candidate thread                                                                           | Surprise | Scale | Depth | Evidence | Showable | Plain |
 | ------------------------------------------------------------------------------------------ | -------- | ----- | ----- | -------- | -------- | ----- |
 | **A · Lithium is not scarce; processing is the chokepoint, and countries use it** (chosen) | 4        | 4     | 5     | 4        | 4        | 4     |
-| B · The Big Bang got lithium wrong by 3× (facts 1, 2)                                      | 5        | 5     | 4     | 5        | 2        | 4     |
-| C · The sun refines it: the Atacama ponds (facts 9, 10)                                    | 4        | 3     | 4     | 4        | 5        | 5     |
-| D · From the exploding cell to the Nobel (facts 4, 5)                                      | 3        | 3     | 4     | 5        | 3        | 4     |
-| E · Zimbabwe and "resource nationalism" (fact 14)                                          | 3        | 3     | 3     | 4        | 3        | 4     |
-| F · The 10 November 2026 deadline (facts 15, 16)                                           | 4        | 4     | 3     | 3        | 3        | 4     |
 
 **Chosen: A, with C (ponds) and the sodium exit as supports and F as the dated stakes.** Rejected in one line: **B** is the brightest star but has no link to batteries or politics (a separate video: *"The Big Bang made lithium and got the amount wrong"*); **D** has no tension; **E** was cut by the 5-fact budget (Zimbabwe's ban fits in one line if the user wants it back); **F** alone is a headline and dates fast.
 
@@ -110,13 +105,9 @@ Mix: 18 S, 3 G (14 % generated; no two consecutive plates of the same type witho
 
 **On-screen text plan** (specificity test; one number per video): number card on plate 10 **"about 60 % of refined lithium: China"** (IEA, 2025); context card on plate 14 **"Paused for one year (7 Nov 2025) · MOFCOM Notice 70"** (atemporal: it says what happened, not when it ends); callouts "lithium metal" (1), "evaporation ponds" (6), "sodium-ion cell, 18650 size" (16). No margin notes. Fact 8 (150 million t known against 290,000 t mined) is not used on screen.
 
-## 5. Prompts for the generated plates (P4; `gpt-image-1.5`, 2:3, medium; specifications, not scenes; no style)
+## 5. Generated plates
 
-Every prompt ends with: *"Plain light-grey background. No glow, no light rays, no decorative particles, no text. The image contains no letters, no numbers and no labels."* (rule 2.13). **References to pick before generating:** a textbook diagram of a lithium-ion cell for G1 (Commons has several; none downloaded yet), and none for G2 and G3.
-
-- **G1 · cell.** A clean textbook cross-section schematic of one lithium-ion cell, side view. On the left a thick slab of graphite drawn as stacked flat parallel sheets; on the right a thick slab of metal oxide drawn as a regular lattice of small blocks; between them a thin separator and a pale electrolyte. Twelve identical small round ions move through the electrolyte from the left slab toward the right slab, shown by one thick arrow. Outside, a wire loops from the left slab to the right slab through a small lamp, with one thick arrow along the wire in the same direction. Nothing else.
-- **G2 · chain.** A flat schematic of four stages from left to right, connected by three arrows of equal length: a salt flat seen from above with rectangular evaporation ponds; a heap of white powder; an industrial chemical plant with tanks and pipes; a rectangular battery cell. All four drawn at the same height. Nothing else.
-- **G3 · sodium.** Two identical layered crystal structures side by side, drawn as stacked flat sheets. In the left one, small round ions sit between the sheets; in the right one, round ions about one third larger fill the same gaps, so the sheets sit slightly further apart. Same scale, same layout. Nothing else.
+Prompts were content-first specifications (subject, structure, view, what must be readable, "no glow, no text"); they are kept in git history and the Status prediction log, not here.
 
 ## 6. Sources and what was not verified
 

@@ -49,23 +49,6 @@ Short 9:16, English, **160 words**, Austin at `speed` 1.0, **Week 01** (the same
 
 `PLATES 18`, durations 3.0 to 3.8 s, `LONG PLATE: none`; `CAPTIONS 156 words, timed by whisper`; all 7 voices complete (lead-in, tail, order ok); 60.8 s with the gaps (about 54 s of speech: ≈ 178 words per minute while speaking, ≈ 161 with the gaps). Stills looked at on 25 frames: captions sit in the middle of the frame, cards below them, callouts above. **Fixed during the build:** the first card's title ran off the card (shortened); the "Magma" label moved closer to its target.
 
-## Attribution table (built from `stock/_credits.jsonl`; 10 photos used)
-
-| File | Title | Author | License | Source |
-| --- | --- | --- | --- | --- |
-| `cu-rack.jpg` | Rear of rack at NERSC data center - closeup.jpg | Derrick Coetzee from Berkeley, CA, USA | CC0 | [page](https://commons.wikimedia.org/wiki/File:Rear_of_rack_at_NERSC_data_center_-_closeup.jpg) |
-| `cu-native.jpg` | Native copper mineral specimen.jpg | Flipin,OG | CC0 | [page](https://commons.wikimedia.org/wiki/File:Native_copper_mineral_specimen.jpg) |
-| `cu-bus.jpg` | Arc Furnace transformer bus.jpg | Wtshymanski | CC BY-SA 3.0 | [page](https://commons.wikimedia.org/wiki/File:Arc_Furnace_transformer_bus.jpg) |
-| `cu-pylon.jpg` | Phase2 HVDC Transmission Line.jpg | Eduardo Sanchez | CC0 | [page](https://commons.wikimedia.org/wiki/File:Phase2_HVDC_Transmission_Line.jpg) |
-| `cu-ev.jpg` | Car2Go Charging Station Stuttgart 2013 01.jpg | Julian Herzog (Website) | CC BY 4.0 | [page](https://commons.wikimedia.org/wiki/File:Car2Go_Charging_Station_Stuttgart_2013_01.jpg) |
-| `cu-pipes.jpg` | 2 inch copper pipe firestops.jpg | Achim Hering | CC BY 3.0 | [page](https://commons.wikimedia.org/wiki/File:2_inch_copper_pipe_firestops.jpg) |
-| `cu-chalco.jpg` | Chalcopyrite botroïdale.jpg | Didier Descouens | CC BY-SA 3.0 | [page](https://commons.wikimedia.org/wiki/File:Chalcopyrite_botroïdale.jpg) |
-| `cu-chuqui.jpg` | Mina de Chuquicamata, Calama, Chile, 2016-02-01, DD 121.JPG | Diego Delso | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:Mina_de_Chuquicamata,_Calama,_Chile,_2016-02-01,_DD_121.JPG) |
-| `cu-bingham1.jpg` | Bingham Canyon Mine (2) - Salt Lake County, Utah - May 11, 201 | David Ratledge | CC BY 4.0 | [page](https://commons.wikimedia.org/wiki/File:Bingham_Canyon_Mine_(2)_-_Salt_Lake_County,_Utah_-_May_11,_2012.jpg) |
-| `cu-bingham2.jpg` | 2019 Bingham Canyon Mine 06.jpg | Farragutful | CC BY-SA 4.0 | [page](https://commons.wikimedia.org/wiki/File:2019_Bingham_Canyon_Mine_06.jpg) |
-
-**CC BY and CC BY-SA photos need a credit line in the description.** The planned cathode, haul-truck, drill-core, data-center and smelter photos were not downloaded (Wikimedia rate limits).
-
 ## Not verified by the agent (said out loud, for your P7)
 
 - **I did not hear the audio or watch the whole video:** how Austin sounds on this script, the pace, the sound mix, the motion.

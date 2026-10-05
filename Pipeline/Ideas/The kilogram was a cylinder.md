@@ -21,7 +21,7 @@ tags: [youtube, pipeline, option-4-oct]
 
 **Plain question:** why did the world stop defining the kilogram with one metal cylinder, and what defines it now?
 
-**Theme line (rule 0.9):** *the kilogram stopped being an object because the object was changing.*
+**Theme line :** *the kilogram stopped being an object because the object was changing.*
 
 ## Angle
 

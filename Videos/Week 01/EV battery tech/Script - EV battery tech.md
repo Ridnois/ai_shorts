@@ -42,10 +42,6 @@ User request (5 Oct 2026): *"New video, Batteries, durability, temperatures and 
 | Candidate thread | Surprise | Scale | Depth | Evidence | Showable | Plain |
 | --- | --- | --- | --- | --- | --- | --- |
 | **A · Wear is slow (2%) and charging power beats heat; cold costs range, not life; LFP made packs cheap** (chosen) | 4 | 4 | 4 | 4 | 4 | 5 |
-| B · Fast charging in 5 minutes (facts 15 to 17) | 4 | 3 | 3 | 2 | 3 | 5 |
-| C · Lithium plating: why cold charging can plate metal (fact 12) | 5 | 3 | 5 | 3 | 3 | 3 |
-| D · Price per kWh and the LFP shift (facts 6 to 9) | 3 | 4 | 3 | 5 | 3 | 4 |
-| E · The warranty and the 12% after 200,000 miles (facts 13, 14) | 3 | 3 | 3 | 3 | 3 | 4 |
 
 **Chosen: A**, with the plating mechanism (C) as the explainer for "why charging hard wears it", D as the cost close. Rejected, one line each: **B** is mostly company claims (CATL, BYD) and dates fast (the user can swap it in as a separate video); **C** alone is too technical for a plain opener; **E** is warranty fine print. **Coffee test:** *"Electric car batteries only lose about 2% a year, and how fast you charge matters more than heat."* A friend would say "huh, I thought hot weather killed them": surprise 4. **Street-lamp test: borderline** ("EV batteries last long and got cheap" is a headline); rescued by the mechanism and the counter-intuitive ranking (charging power over climate, cold costs range not life). **Expert test:** plating on graphite, the 80% state-of-charge condition and the heater share of winter loss are what a generic explainer skips.
 

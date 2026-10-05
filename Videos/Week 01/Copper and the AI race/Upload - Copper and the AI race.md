@@ -10,7 +10,7 @@ tags: [youtube, upload, week-01, copper, ai, shorts]
 
 ← [[Copper and the AI race - Status]] · [[Script - Copper and the AI race]] · [[Publish]] · [[Upload - Battery and lithium]]
 
-User request (5 Oct 2026): *"Upload the last video to youtube, you have credentials on .env now"*. The last video is **Copper and the AI race**. Same rules as [[Upload - Battery and lithium]]: the claim and search words first, sources as links, photo credits, the AI line, 5 relevant hashtags last. **Visibility: private** until the user chooses to publish (an unaudited API project is locked to private anyway, [[Publish]] §3).
+User request (5 Oct 2026): *"Upload the last video to youtube, you have credentials on .env now"*. The last video is **Copper and the AI race**. Same rules as [[Upload - Battery and lithium]]: the claim and search words first, sources as links, photo credits, the AI line, 5 relevant hashtags last. **Visibility: private** until the user chooses to publish (an unaudited API project is locked to private anyway, [[Publish]] §Analytics loop).
 
 ## Upload result (5 Oct 2026)
 

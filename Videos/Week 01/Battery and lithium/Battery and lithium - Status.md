@@ -10,7 +10,7 @@ tags: [research, youtube, status, battery, lithium, shorts]
 
 ← [[YouTube Channel]] · [[Script - Battery and lithium]] · [[Workflow]] · [[Playbook]]
 
-Short 9:16, English, **200 words** (the user's number, above the 130 to 190 range), first video with the **Austin** voice at **`speed` 1.0** ("pace 1"). Question: why did a metal that is not rare become something countries compete for? Media in `Media/Week 01/Battery-lithium/` (prefix `bt-`); this is **Week 01**, the first video of the weekly schedule ([[Workflow]]). The Short itself carries no branding ([[Style]] §4).
+Short 9:16, English, **200 words** (the user's number, above the 130 to 190 range), first video with the **Austin** voice at **`speed` 1.0** ("pace 1"). Question: why did a metal that is not rare become something countries compete for? Media in `Media/Week 01/Battery-lithium/` (prefix `bt-`); this is **Week 01**, the first video of the weekly schedule ([[Workflow]]). The Short itself carries no branding ([[Playbook]] §4).
 
 ## Stage log
 
@@ -58,27 +58,6 @@ One retry of one plate fits inside the total cap; going over needs your approval
 ## Checks done by the agent (stills and numbers)
 
 `PLATES 21`, durations 3.0 to 4.2 s, `LONG PLATE: none`; `CAPTIONS 195 words, timed by whisper`; every voice complete (lead-in, tail, order ok); stills looked at on 24 frames: captions land on the spoken words (turning, 2025, plus, 1, sodium…), callouts sit on the parts they name, the cards render. **Fixed during the build:** the "≈" in the number card was a box (Noto Sans Display Bold lacks it, as the guidelines warn) and the caption overflowed the card; "≈" and "≥" are removed from the cards; the NASA date stamp was cropped; the Samsung phone photo was replaced by a logo-free cell photo.
-
-## Attribution table (built from `stock/_credits.jsonl`; 14 photos used)
-
-| File                 | Title                                                      | Author                                                       | License          | Source                                                                                                     |
-| -------------------- | ---------------------------------------------------------- | ------------------------------------------------------------ | ---------------- | ---------------------------------------------------------------------------------------------------------- |
-| `bt-oil.jpg`         | Lithium in mineral oil.jpg                                 | Sea Moon                                                     | CC BY 2.0        | [page](https://commons.wikimedia.org/wiki/File:Lithium_in_mineral_oil.jpg)                                 |
-| `bt-element.jpg`     | Lithium element cropped.jpg                                | W. Oelen                                                     | CC BY-SA 3.0     | [page](https://commons.wikimedia.org/wiki/File:Lithium_element_cropped.jpg)                                |
-| `bt-atacama1.jpg`    | Salar de Atacama Lithium salt ponds 2018.jpg               | NASA Earth Observatory,  Operational Land Imager (OLI) by La | Public domain    | [page](https://commons.wikimedia.org/wiki/File:Salar_de_Atacama_Lithium_salt_ponds_2018.jpg)               |
-| `bt-atacama2.jpg`    | Lithium Ponds of Chile's Salar de Atacama (SVS15006).jpg   | NASA's Scientific Visualization Studio - SSAI/Ross K. Walter | Public domain    | [page](https://commons.wikimedia.org/wiki/File:Lithium_Ponds_of_Chile's_Salar_de_Atacama_(SVS15006).jpg)   |
-| `bt-atacama3.jpg`    | Salar de Atacama, Chile ESA386674.jpg                      | European Space Agency                                        | CC BY-SA 3.0 igo | [page](https://commons.wikimedia.org/wiki/File:Salar_de_Atacama,_Chile_ESA386674.jpg)                      |
-| `bt-greenbushes.jpg` | Open pit of the Greenbushes mine, January 2023 07.jpg      | Calistemon                                                   | CC BY-SA 4.0     | [page](https://commons.wikimedia.org/wiki/File:Open_pit_of_the_Greenbushes_mine,_January_2023_07.jpg)      |
-| `bt-carbonate.jpg`   | Lithium carbonate.jpg                                      | n/a                                                          | Public domain    | [page](https://commons.wikimedia.org/wiki/File:Lithium_carbonate.jpg)                                      |
-| `bt-catl1.jpg`       | CATL in Arnstadt 2.jpg                                     | Giorno2                                                      | CC BY-SA 4.0     | [page](https://commons.wikimedia.org/wiki/File:CATL_in_Arnstadt_2.jpg)                                     |
-| `bt-catl2.jpg`       | CATL, IAA 2024, Hanover (P1190827).jpg                     | Matti Blume                                                  | CC BY-SA 4.0     | [page](https://commons.wikimedia.org/wiki/File:CATL,_IAA_2024,_Hanover_(P1190827).jpg)                     |
-| `bt-port1.jpg`       | Container ship NYK Themis at the Port of Los Angeles.jpg   | Downtowngal                                                  | CC BY-SA 4.0     | [page](https://commons.wikimedia.org/wiki/File:Container_ship_NYK_Themis_at_the_Port_of_Los_Angeles.jpg)   |
-| `bt-port2.jpg`       | Container Cranes, Ship Dock - geograph.org.uk - 456695.jpg | George Robinson                                              | CC BY-SA 2.0     | [page](https://commons.wikimedia.org/wiki/File:Container_Cranes,_Ship_Dock_-_geograph.org.uk_-_456695.jpg) |
-| `bt-sodium1.jpg`     | Sodium-ion battery (size 18650).jpg                        | Vladimir022009                                               | CC BY-SA 4.0     | [page](https://commons.wikimedia.org/wiki/File:Sodium-ion_battery_(size_18650).jpg)                        |
-| `bt-cells.jpg`       | 18650 and 21700 lithium ion battery cell.jpg               | Sevenethics                                                  | CC0              | [page](https://commons.wikimedia.org/wiki/File:18650_and_21700_lithium_ion_battery_cell.jpg)               |
-| `bt-sodium2.jpg`     | Faradion sodium-ion battery - Science Museum, London.jpg   | The wub                                                      | CC BY-SA 4.0     | [page](https://commons.wikimedia.org/wiki/File:Faradion_sodium-ion_battery_-_Science_Museum,_London.jpg)   |
-
-**CC BY and CC BY-SA photos need a credit line in the description** (author, title, license, link). `bt-phone.jpg` (Samsung) is in the folder but not used.
 
 ## Not verified by the agent (said out loud, for your P7)
 

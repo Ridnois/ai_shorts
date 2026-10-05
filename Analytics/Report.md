@@ -8,7 +8,7 @@ tags: [analytics, metrics, report]
 
 # Metrics report
 
-← [[YouTube Channel]] · [[Analytics]] (rules) · data: `Analytics/snapshots.csv`, `Analytics/videos.csv`
+← [[YouTube Channel]] · [[Publish]] (rules) · data: `Analytics/snapshots.csv`, `Analytics/videos.csv`
 
 **2 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Publish]] §Analytics loop).
 

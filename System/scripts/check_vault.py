@@ -6,6 +6,8 @@ Fails (exit 1) on:
   * notes without front matter (type, updated)
   * System/ notes that the index (YouTube Channel.md) does not mention
   * Python scripts that do not compile
+  * `[[Note]] §Heading` references whose heading does not exist (numbered §N must match "## N." in that note)
+  * per-video notes over their size ceiling; index missing a video's YouTube id; Script scene 1 differing from the hook in Analytics/videos.csv
   * missing INVARIANTS: phrases that encode user feedback and must stay in the notes that carry them
 When feedback adds a rule, add its invariant below in the same pass (see System/Feedback loop.md).
 """
@@ -56,7 +58,21 @@ INVARIANTS = [
     ("CLAUDE.md", "No media before P4", "agent guide carries the gate"),
     ("CLAUDE.md", "Analytics/Report.md", "report read before choosing"),
     ("Pipeline/Idea template.md", "hook_type", "idea notes carry the hook type"),
+    ("System/Playbook.md", "Hook test", "hook is judged by a test, not by word count"),
+    ("System/Playbook.md", "\"Borderline\" is a fail", "street-lamp test has a fail state"),
+    ("System/Playbook.md", "Demand check", "ideas get outside evidence"),
+    ("System/Playbook.md", "Topic spread", "no two videos in a row on one topic family"),
+    ("System/Playbook.md", "[H]", "untested rules are marked as hypotheses"),
+    ("System/Workflow.md", "Listening rubric", "the user's ear is the only audio evidence"),
+    ("System/Workflow.md", "Note size ceilings", "per-video notes stay short"),
+    ("System/Model script.md", "Hook rewrites", "a model to imitate"),
 ]
+FORBIDDEN = [
+    # (file, phrase, why): rules the user removed; must not come back
+    ("System/Playbook.md", "≤ 10 words", "hook quality is not measured in words (feedback, 5 Oct 2026)"),
+    ("CLAUDE.md", "≤ 10 words", "hook quality is not measured in words (feedback, 5 Oct 2026)"),
+]
+CEILING = {"Script - ": 2700, "Upload - ": 2300, " - Status": 1500}
 
 problems = []
 notes, names = {}, set()
@@ -116,6 +132,46 @@ for r, d, f in os.walk(os.path.join(ROOT, "System", "scripts")):
                 compile(open(os.path.join(r, x), encoding="utf-8").read(), x, "exec")      # syntax only
             except SyntaxError as e:
                 problems.append(f"does not compile: {x}: {str(e)[:80]}")
+
+for rel, phrase, why in FORBIDDEN:
+    if phrase.lower() in notes.get(rel, "").lower():
+        problems.append(f"{rel} contains \"{phrase}\": {why}")
+
+# section references: [[Note]] §N or §Heading must point at a real heading
+SEC = re.compile(r"\[\[([^\]|#]+)\]\] §([0-9]+|[A-Za-z][A-Za-z ]*[A-Za-z])")
+by_name = {os.path.splitext(os.path.basename(r))[0]: t for r, t in notes.items()}
+for rel, t in notes.items():
+    if rel.startswith("Analytics/Reports/"):
+        continue          # dated reports are history
+    for m in SEC.finditer(t):
+        tgt, ref = m.group(1).strip(), m.group(2).strip()
+        body = by_name.get(tgt)
+        if body is None:
+            continue
+        heads = re.findall(r"(?m)^#+ (.*)$", body)
+        ok = any(h.startswith(ref + ".") for h in heads) if ref.isdigit() else any(ref.lower().startswith(h.lower()) or h.lower().startswith(ref.lower()) for h in heads)
+        if not ok:
+            problems.append(f"dead section reference in {rel}: [[{tgt}]] §{ref}")
+
+# per-video note size ceilings (words)
+for rel, t in notes.items():
+    if rel.startswith("Videos/"):
+        n = len(t.split())
+        for key, cap in CEILING.items():
+            if key in os.path.basename(rel) and n > cap:
+                problems.append(f"{rel} has {n} words, ceiling {cap} (Workflow: Note size ceilings)")
+
+# the index knows every published video; Script scene 1 equals the hook in videos.csv
+import csv
+norm = lambda s: re.sub(r"[^a-z0-9 ]", "", s.lower()).strip()
+with open(os.path.join(ROOT, "Analytics", "videos.csv"), encoding="utf-8") as fh:
+    for row in csv.DictReader(fh):
+        if row["youtube_id"] and row["youtube_id"] not in index:
+            problems.append(f"YouTube Channel.md lacks the id of {row['video']} ({row['youtube_id']})")
+        sc = next((t for r, t in notes.items() if os.path.basename(r) == f"Script - {row['video']}.md"), "")
+        m = re.search(r"(?m)^\|\s*1\s*\|\s*([^|]+?)\s*\|", sc[sc.find("Voice (exact text)"):]) if "Voice (exact text)" in sc else None
+        if m and norm(m.group(1)) != norm(row["hook"]):
+            problems.append(f"hook in videos.csv differs from scene 1 of the script: {row['video']}")
 
 for rel, phrase, why in INVARIANTS:
     t = notes.get(rel, "")

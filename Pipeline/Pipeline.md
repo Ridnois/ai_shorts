@@ -10,6 +10,8 @@ tags: [research, youtube, pipeline, hub]
 
 ← [[YouTube Channel]] · [[Workflow]]
 
+**State, 5 Oct 2026:** the three Week 01 videos were built interactively under delegation, not by the runner; both ideas below are still `idea`. The runner is optional. If it is used, its prompts must follow [[Playbook]] (hook test, no "borderline" street-lamp, demand check, topic spread) and the delegated flow in [[Workflow]]. Delete this note and the runner if it stays unused after the first 10 videos.
+
 One **note per idea** in `Pipeline/Ideas/`; its `status` property is the table column. Changing `status` in the table is the command; the runner does the work and leaves the next status.
 
 ![[Pipeline table.base]]

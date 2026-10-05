@@ -57,7 +57,7 @@ Read it whole before writing anything. **[H] marks a hypothesis** (a number or h
 
 ## 5. Voice and sound
 
-- **Voice:** `elevenlabs/v3`, `Austin`, `language_code: en`, `speed` 1.0, `previous_text` / `next_text`, one take per scene with the exact script text. Optional expressive variant (`stability` 0.35, `style` 0.35, one `[tag]` per scene in the voice prompt only, never in captions) is an A/B at P5 on scene 1; the user's ear decides. The agent cannot hear: declare it at P7.
+- **Voice:** `elevenlabs/v3`, `Austin`, `language_code: en`, `speed` 1.0, `previous_text` / `next_text`, one take per scene with the exact script text. Optional expressive variant (`stability` 0.35, `style` 0.35, one `[tag]` per scene in the voice prompt only, never in captions) is an A/B in a test run on scene 1; the user's ear decides. The agent cannot hear: declare it at P7.
 - **Sound:** the builder synthesizes the sound design by default (`sound` in `plan.json`: thump, scene whooshes, plate ticks, card pings, callout clicks, A-minor drone; levels voice ≈ −22, effects ≈ −31, bed ≈ −37 dBFS [H]; dials `sfx_gain`, `bed_gain`). Any recording or music is **opt-in**: a plan row with source, license and purpose, approved at P4a, from YouTube Audio Library → Sonniss → Pixabay (per track) → Incompetech (CC BY, credit); credits in `sound/_credits.jsonl`; volume under voice 0.18 to 0.22, bed ≤ 0.12. **Never:** BBC/RemArc (non-commercial), CC BY-NC, game rips, unread licenses (NCS, BenSound, FMA). **BigSoundBank and Freesound are deferred**; no ML-generated sound.
 
 ## 6. Edit (Blender 5.2, `build_video.py` + `plan.json`)

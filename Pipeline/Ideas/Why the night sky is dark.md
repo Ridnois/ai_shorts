@@ -21,7 +21,7 @@ tags: [youtube, pipeline, option-4-oct]
 
 **Plain question:** if there are countless stars, why is the night sky dark?
 
-**Theme line (rule 0.9):** *the dark of the night is a clue that the universe had a beginning.*
+**Theme line :** *the dark of the night is a clue that the universe had a beginning.*
 
 ## Angle
 

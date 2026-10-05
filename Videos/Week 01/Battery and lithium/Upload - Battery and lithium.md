@@ -24,7 +24,7 @@ User: *"Thmbnail b is the winner, tittle recomendation is good, follow your reco
 
 *Heads-up recorded:* thumbnail B's text says the same thing as the title (not rare, a fight); I had paired the title with A so they would complement each other. It still works; if the repetition bothers you, title 2 ("Your Battery Runs on a Metal That Floats") pairs better with B.
 
-**Upload status (5 Oct 2026): not uploaded.** The channel is `UCCZX7-YPNPntwPKI1hdv2hQ` (REDTAIL, 0 videos), Studio is signed in and the Upload dialog is open in a Chrome tab. Claude in Chrome's `file_upload` accepts at most **10 MB** and the render is **65 MB**; a workaround that served the file from a temporary localhost server and attached it from the page was **denied by the permission check and was not pursued** (the server was shut down). Ways forward, the user decides: (a) the user attaches the file in the open dialog and the agent fills the rest; (b) the user explicitly approves the localhost route; (c) a one-time YouTube Data API setup (OAuth client created by the user; **guide and script now exist: [[Publish]]**), which also serves the weekly cadence. Visibility: **Private until the user chooses a schedule** (the weekly slot is not decided).
+**Upload status:** uploaded and public, id zwNmTGoXPu0 (see [[2026-10-05 First numbers]]).
 
 ## 1. The video
 
@@ -69,7 +69,7 @@ How it was built:
 
 - **The first two lines carry the search words** (lithium, refined, pressure point, battery) and the claim; the rest is below the fold.
 - **Sources are real links to what was read** (USGS and IEA were read directly; the Chinese notices through summaries; CATL's claims are labelled as the company's). The pond figure is stated as a range because the sources disagree.
-- **Photo credits are mandatory** for the CC BY and CC BY-SA photos (author, license). They are listed in [[Battery and lithium - Status]] §Attribution. *Open point:* the CC BY-SA photos sit inside a video that is not itself CC BY-SA; the channel already did this on earlier videos and treats the video as a collection, but this is **not legal advice**: if you want zero doubt, swap those photos for CC0 or public-domain ones.
+- **Photo credits are mandatory** for the CC BY and CC BY-SA photos (author, license). They are listed in `stock/_credits.jsonl`. *Open point:* the CC BY-SA photos sit inside a video that is not itself CC BY-SA; the channel already did this on earlier videos and treats the video as a collection, but this is **not legal advice**: if you want zero doubt, swap those photos for CC0 or public-domain ones.
 - **The AI line stays** (pillar "Honest about machines"): narration and schematics are AI-generated, photos are real.
 - **Hashtags last, five, all relevant.** YouTube shows up to three of the description's hashtags above the title (it picks which), ignores them all above 60, and removes videos for unrelated ones (YouTube Help).
 
@@ -91,7 +91,7 @@ Three candidates, 1080×1920 (9:16), JPEG under 300 KB each. The hero images wer
 | **B** | NOT RARE. STILL A FIGHT. | a silver pebble floating on still water at sunset | the best-looking; states the paradox; the pebble is a stand-in for lithium |
 | **C** | 60% IN ONE COUNTRY | white powder pouring from a bottle | the weakest: the "bottleneck" metaphor does not read; the number is the strongest part |
 
-**Can you upload it?** YouTube announced custom Shorts thumbnails on 24 July 2026, **for YouTube Partner Program channels first, desktop**; wider access "over time" (YouTube Blog; third-party reports give the details: 9:16 image, important content inside a 3:2 safe zone, no A/B testing for Shorts). **If the channel is not in the Partner Program yet, the option is not there:** use the fallback, choose a frame in Studio or the app (the opening frame, the jar of lithium, is the strongest). Also: **99.9 % of Shorts views start in the Shorts feed, where no thumbnail is shown** (ppc.land, a trade site: treat the number as indicative), so the thumbnail matters on the channel page, search and TV, not for the main feed. The vault's old rule "no thumbnail on Shorts" is updated accordingly ([[Playbook]] §5).
+**Can you upload it?** Custom Shorts thumbnails (announced 24 July 2026) were Partner Program only at first; otherwise choose a frame in Studio. 99.9 % of Shorts views start in the feed, where no thumbnail shows (trade press, indicative).
 
 **Disclosure:** a thumbnail made with AI is exempt from YouTube's synthetic-content label (YouTube Help lists "thumbnail, title, or infographic" among the productivity uses).
 
@@ -125,25 +125,13 @@ A question that is easy to answer in one line, and it invites corrections (the c
 | AI disclosure covers realistic altered content; thumbnails, scripts, titles and non-realistic content are exempt; AI narration depends on context | [YouTube Help, altered or synthetic content](https://support.google.com/youtube/answer/14328491) (read) | **official** |
 | Custom Shorts thumbnails announced 24 July 2026, Partner Program first | [YouTube Blog](https://blog.youtube/news-and-events/youtube-studio-custom-thumbnail-updates/) (read: it gives no sizes) | **official**, sizes not |
 | 3:2 safe zone, desktop upload, no A/B test, 99.9 % of views in the feed | [PPC Land](https://ppc.land/youtube-ends-2-year-wait-for-shorts-thumbnails-but-blocks-a-b-testing/) | trade press: indicative |
-| Title limit 100; about 40 to 50 characters visible; keyword first; 60 to 80 characters perform best | search results from [hashtagtools.io](https://hashtagtools.io/blog/youtube-shorts-character-limits-title-description-hashtags-2026), [miraflow.ai](https://miraflow.ai/blog/youtube-shorts-titles-descriptions-2026-templates) | **third-party blogs: hypotheses** |
-| Benchmarks: hold above 80 % through the first 3 seconds, above 70 % average viewed; below 30 % "viewed" the Short dies; most swipes happen in the first 2 seconds | search results from [prepublish.ai](https://prepublish.ai/blog/viewed-vs-swiped-away-youtube-shorts), [tubeanalytics.net](https://www.tubeanalytics.net/blog/youtube-shorts-retention-guide) | **third-party blogs: hypotheses** |
-| Engaged views (not raw views) drive promotion and monetization | [[Playbook]] §7 (YouTube Help, 4 Oct 2026) | official |
+| Engaged views (not raw views) drive promotion and monetization | [[Publish]] §Policy that can sink the channel | official |
 
-**What the video already does for the metrics** (from [[Playbook]]): a need-to-know claim in the first 8 words, speech from 0.15 s, the strongest real image from frame 1, a new image every ≈ 3 s, captions from the first word, a concrete ending, and **the last plate is the first plate** so the Short loops without a seam.
+**What the video already does for the metrics** (from [[Playbook]]): a plain need-to-know claim in the first seconds, speech from 0.15 s, the strongest real image from frame 1, a new image every ≈ 3 s, captions from the first word, a concrete ending, and **the last plate is the first plate** so the Short loops without a seam.
 
-## 9. After publishing: what to measure and what to change
+## 9. After publishing: what to measure
 
-**The numbers now live in `Analytics/snapshots.csv` ([[Publish]] §Analytics loop); this table is the reading guide, not the log.** Record them at 24 hours, 7 days and 28 days (Studio › Analytics › Content › the Short). **These are the first data points the channel has: the benchmarks above are hypotheses until they are replaced by your own numbers** ([[Publish]] §Analytics loop).
-
-| Metric | What it tells | 24 h | 7 days | If it is low, change |
-| --- | --- | --- | --- | --- |
-| **Viewed vs swiped away** | whether the hook works | | | the first sentence and the first image (hypothesis: hook of the next video) |
-| **Average percentage viewed** | whether the pace holds | | | the pace: Austin runs ≈ 187 words per minute, test `speed` 0.95 next |
-| Engaged views | what the algorithm rewards | | | the ending and the pinned comment |
-| Shares and comments | whether it is worth passing on | | | the stakes in scene 2 and the ending |
-| Subscribers gained | whether the brand converts | | | the channel page (banner, description) |
-
-One change at a time, written in the next Status note ([[Feedback loop]]).
+See [[Publish]] §Analytics loop (24 h, 7 d, 28 d pulls; one change per video).
 
 ## 10. Checklist before pressing publish
 

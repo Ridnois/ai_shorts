@@ -44,11 +44,6 @@ User request (5 Oct 2026): *"Create a new video about copper, where comes from, 
 | Candidate thread | Surprise | Scale | Depth | Evidence | Showable | Plain |
 | --- | --- | --- | --- | --- | --- | --- |
 | **A · AI is a small slice of copper demand, but copper's 17-year mine clock makes it a bottleneck** (chosen) | 4 | 4 | 5 | 4 | 4 | 4 |
-| B · Why a rack holds 2 miles of copper: a passive cable saves 20 kW (facts 1, 2) | 4 | 3 | 4 | 3 | 3 | 4 |
-| C · The ore is 0.6 %: almost everything a miner digs is waste (fact 13) | 4 | 3 | 4 | 4 | 5 | 5 |
-| D · China mines 8 % and refines 48 % (fact 8) | 4 | 4 | 4 | 5 | 3 | 4 |
-| E · Grasberg and record prices (facts 18, 20) | 3 | 3 | 3 | 3 | 3 | 4 |
-| F · How magma makes copper (fact 12) | 4 | 3 | 4 | 4 | 3 | 3 |
 
 **Chosen: A**, with B as the hook, C and F as the origin, and the shortfall as the stakes. Rejected, one line each: **D** repeats the chokepoint of the lithium video and is politics, not the brief (a swap candidate); **E** is headline and dates in weeks; the old street-lamp. **Coffee test:** *"AI is only a few percent of copper, but copper takes 17 years to open a mine, so AI can't just buy more."* A friend says "huh, I thought AI was the main driver": surprise 4, kept. **Street-lamp test: borderline.** "A copper shortage threatens AI" is a headline; it is rescued by the mechanisms around it (the rack's copper spine, magma and thin ore, the 17-year clock). **Expert test:** each scene carries a detail a generic explainer skips (passive cable draws no power, AI is only ≈ 4 % of demand, hot fluids from magma, "proving" a deposit).
 
@@ -105,9 +100,9 @@ Voice text spells "S and P". **Caption display spellings** (`plan.json` `caption
 
 **On-screen text** (specificity test; one number card per plate, two in the video because each sits on its own real photo): context card plate 1 **"NVIDIA GB200 NVL72 · Over 2 miles of copper cable · Per rack, about 5,000 cables, Nvidia"**; number card plate 6 **"83 kg of copper in an electric car (a petrol car: 23 kg, ICSG 2018)"**; number card plate 11 **"17 years from discovery to production (S&P Global, January 2026)"**; context card plate 14 **"S&P Global, January 2026 · A quarter short by 2040 · A gap of 10 million tons of 42 needed"**. Callouts name parts (native copper, copper busbars, power line, copper pipes, magma, copper veins, chalcopyrite, Chuquicamata).
 
-## 5. The generated plate (P4; `openai/gpt-image-2`, 2:3, high, no style, a specification)
+## 5. Generated plates
 
-*"A clean textbook cross-section schematic of the Earth's crust, side view, about ten kilometres deep. At the bottom, a rounded dark-red magma chamber. From its top a narrow column of igneous rock rises toward the surface. Around the top of that column, a roughly cylindrical zone of fractured grey rock filled with thin copper-coloured veins, widest near the top, forms the ore body. Several thin pale arrows rise from the magma chamber into the veined zone to show hot fluids moving upward. A gentle hill is the surface at the top. Layered grey rock surrounds everything. Nothing else. Plain light-grey background. No glow, no light rays, no decorative particles, no text. The image contains no letters, no numbers and no labels."* One attempt, no retry needed; checked element by element against the porphyry model (magma 5 to 15 km down, a narrow stock, veins fanning out above it): faithful and simplified.
+Prompts were content-first specifications (subject, structure, view, what must be readable, "no glow, no text"); they are kept in git history and the Status prediction log, not here.
 
 ## 6. Sources and what was not verified
 

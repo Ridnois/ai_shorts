@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-05
 updated: 2026-10-05
-status: v1 · assessment of the vault as knowledge source and process guide; proposals only, no rule changed yet
+status: v2 · proposals 1 to 12 applied on 5 Oct 2026 except: price confirmation (needs the user), media folder renames and Media/Legacy deletion (local, irreversible); proposal 3 replaced by the hook test (the user: word count is not the metric)
 tags: [analysis, vault, process, week-01]
 ---
 
