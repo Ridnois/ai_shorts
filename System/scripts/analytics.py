@@ -62,7 +62,7 @@ def report():
     n = len({k[0] for k in latest})
     out += [f"**{n} video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Analytics]] §5).", ""]
     for plat in sorted({k[1] for k in latest}):
-        for age in ("24h", "7d", "28d"):
+        for age in sorted({k[2] for k in latest if k[1] == plat}, key=lambda a: int(a[:-1] or 0) * (24 if a.endswith("d") else 1)):
             snaps = [r for k, r in latest.items() if k[1] == plat and k[2] == age]
             if not snaps:
                 continue
@@ -71,6 +71,9 @@ def report():
             for r in sorted(snaps, key=lambda r: r["date"]):
                 out.append(f"| [[{r['video']} - Status]] | " + " | ".join(fmt(num(r[c])) for c in NUM) + " |")
             out.append("| **median** | " + " | ".join(fmt(med_row[c]) for c in NUM) + " |")
+            small = [r["video"] for r in snaps if (num(r["views"]) or 0) < 100]
+            if small:
+                out += ["", "**Too few views to read percentages (< 100): " + ", ".join(small) + ".** Counts only; do not act on rates ([[Analytics]] §5)."]
             low = [f"{r['video']}: {c} {fmt(num(r[c]))} < median {fmt(med_row[c])}" for r in snaps if len(snaps) >= 3
                    for c in KEY if num(r[c]) is not None and med_row[c] is not None and num(r[c]) < med_row[c]]
             out += ["", "Below the median (needs 3+ videos): " + ("; ".join(low) if low else "none"), ""]

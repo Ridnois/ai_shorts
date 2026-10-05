@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-05
 updated: 2026-10-05
-status: decided (thumbnail B, title 1, the rest as recommended); the upload itself is blocked on how to send the 65 MB file (see §0)
+status: UPLOADED by the user and public (video id zwNmTGoXPu0, published 5 Oct 2026 17:31 UTC); first numbers in [[2026-10-05 First numbers]]
 tags: [youtube, upload, week-01, battery, lithium, shorts]
 ---
 

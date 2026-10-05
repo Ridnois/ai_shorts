@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-05
 updated: 2026-10-05
-status: v1 · metric catalogue from YouTube's API docs (read 5 Oct 2026); the Studio export format and "viewed vs swiped away" in the API are NOT verified; automatic collection deferred by the user
+status: v2 · YouTube collector built and run (5 Oct 2026); Analytics API lag, "viewed vs swiped away" in the API and the Studio export format NOT verified; TikTok collection and automatic uploads deferred by the user
 tags: [analytics, metrics, process, youtube, tiktok, feedback]
 ---
 
@@ -10,7 +10,7 @@ tags: [analytics, metrics, process, youtube, tiktok, feedback]
 
 ← [[YouTube Channel]] · [[Channel strategy]] §6 · [[Feedback loop]] · [[Shorts quality bar]] · [[Idea and hook quality]] · [[YouTube upload]] · [[TikTok upload]]
 
-**Principle:** a number that is not in the vault cannot change the next video. The user reads Studio; the agent keeps the **data in two CSVs**, regenerates **[[Report]]**, and the idea gate, the hook and the feedback loop **read the report**. Collection is manual for now (user decision, 5 Oct 2026: *"Lets keep automatic upload for later"*, and the numbers are read by the user in Studio); the CSV is the stable interface, so an API collector can fill it later without touching anything else.
+**Principle:** a number that is not in the vault cannot change the next video. The user reads Studio; the agent keeps the **data in two CSVs**, regenerates **[[Report]]**, and the idea gate, the hook and the feedback loop **read the report**. YouTube numbers are **pulled from the API** (user, 5 Oct 2026: *"You should get the data manually from the api"*): `python3 System/scripts/youtube_analytics.py pull`; TikTok and the Studio-only metrics are typed in by the user. The CSV is the stable interface for both. Dated analyses live in `Analytics/Reports/` (first: [[2026-10-05 First numbers]]).
 
 ## 1. What can be measured (catalogue)
 
@@ -50,8 +50,8 @@ tags: [analytics, metrics, process, youtube, tiktok, feedback]
 
 ## 3. How to record (the rhythm)
 
-1. **When:** **24 h**, **7 d** and **28 d** after publishing (the Status note says the date). With a daily cadence, do all videos of the day-batch in one Studio session; one snapshot per age per video is enough.
-2. **How:** the user pastes the numbers in chat (any format) or exports the Studio view; the agent runs
+1. **When:** `pull` takes a snapshot of **every channel video** at its current age (`2h`, `3d`, …; `--age 7d` to force a label). Run it **at about 24 h, 7 d and 28 d after publishing**; with a daily cadence, one run a day covers the whole channel, and the report compares videos **at the same age**. The Analytics API returned **no rows for videos 1 to 2 hours old** (5 Oct 2026), so early pulls hold only the Data API's public counts (views, likes, comments); the full set appears once the API answers (how soon: unknown, see [[2026-10-05 First numbers]] §5).
+2. **How:** the agent runs `youtube_analytics.py pull` then `analytics.py report`. For what the API does not give (viewed vs swiped away, TikTok), the user pastes the numbers in chat and the agent runs
    `python3 System/scripts/analytics.py add "<Video>" youtube 24h views=… engaged_views=… viewed_pct=… avg_pct_viewed=… shares=… subs_gained=…` (columns in §2) and then `python3 System/scripts/analytics.py report`.
 3. **The retention curve** (second by second) is a picture in Studio, not a column: the user describes where it drops, or saves a screenshot to `Videos/Week NN/<Topic>/`, and the agent writes one line under *Learnings* in the video's Status note (e.g. "drops at scene 6, the 4 s card").
 4. **Corrections:** a new row with the same key replaces the old one in the report (newest wins); never edit the Report by hand.
@@ -70,14 +70,16 @@ One change per video, written down ([[Feedback loop]]): otherwise the next snaps
 
 ## 5. Benchmarks (hypotheses until replaced)
 
+**Sample rule:** under ≈ 100 views a video's percentages are noise (the first views are mostly the user's own and friends'); read counts only and do not change anything on them (the report prints a warning). The 100 is a guess; replace it with what the channel sees.
+
 From third-party blogs ([[Upload - Battery and lithium]] §8): hold above ≈ 80 % through the first 3 s, ≈ 70 % average viewed; below ≈ 30 % "viewed" the Short dies. **Treat as guesses.** At 10 videos with data, the **channel's median** per metric becomes the bar (a video below it is a candidate for a fix), and this section is rewritten with the numbers. Kill criterion from [[Channel strategy]] §6.4 stands until then.
 
 ## 6. Later (deferred, not built)
 
-- **API collector:** add the `yt-analytics.readonly` scope to the OAuth app (re-run `auth`; the app is in Testing, [[YouTube upload]] §3), then a script that calls the Analytics API and appends rows to `snapshots.csv` (audience retention could be saved per video). Not worth it before the CSV rhythm is used for ≈ 10 videos.
+- ~~API collector~~ **built (5 Oct 2026):** `System/scripts/youtube_analytics.py`. One-time setup the user did: enable the **YouTube Analytics API** in the Cloud project (separate from the Data API), then `youtube_analytics.py auth` (read-only scopes `yt-analytics.readonly` and `youtube.readonly`; saves `YT_ANALYTICS_REFRESH_TOKEN` to `.env`, separate from the upload token; the app is in Testing, so it expires after 7 days: run `auth` again). Raw JSON goes to `Analytics/exports/<date>/`.
 - **Studio CSV importer:** write it from a real export; none has been seen.
 - **TikTok stats via API:** not researched.
 
 ## 7. Not verified
 
-The Studio export format; whether *viewed vs swiped away* is available in the API; the shares-per-view levels that count as good; every third-party benchmark. The script was tested only with a throwaway row (removed).
+The Studio export format; whether *viewed vs swiped away* is available in the API; the shares-per-view levels that count as good; every third-party benchmark. Verified live on 5 Oct 2026: the auth, the Data API counts and an empty Analytics response; **not yet seen:** a populated Analytics response (column names are from the docs), the retention and traffic-source calls.

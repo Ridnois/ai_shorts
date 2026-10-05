@@ -32,8 +32,8 @@ Each stage ends in a **gate 🚦**: the user reviews and approves before moving 
 | 5 | **Tests** | Fixed references and a single scene of each category | **P5** · the look and the voice |
 | 6 | **Generation** | The rest, by category (voice → image; sound only if the script requires it, taken from a free library), in small batches | **P6** · each category, separately |
 | 7 | **Editing** | Cut in Blender ([[Blender editing]]) | **P7** · the cut |
-| 8 | **Publishing** | Title, thumbnail, description with sources and AI disclosure; **a row in `Analytics/videos.csv`** (words, duration, hook type) | **P8** · before publishing |
-| 9 | **Measure and learn** | Snapshots at 24 h, 7 d, 28 d in `Analytics/snapshots.csv`, one line under *Learnings* in the Status note ([[Analytics]]) | no gate: the **next idea (P1) reads the [[Report]]**, and every 10 videos the [[Feedback loop]] runs on the data |
+| 8 | **Publishing** | Title, thumbnail, description with sources and AI disclosure; **a row in `Analytics/videos.csv`** (`youtube_id`, `published`, words, duration, hook type) | **P8** · before publishing |
+| 9 | **Measure and learn** | Run `youtube_analytics.py pull` at about 24 h, 7 d, 28 d (snapshots in `Analytics/snapshots.csv`; dated analyses in `Analytics/Reports/`), one line under *Learnings* in the Status note ([[Analytics]]) | no gate: the **next idea (P1) reads the [[Report]]**, and every 10 videos the [[Feedback loop]] runs on the data |
 
 ## When a new video is requested
 

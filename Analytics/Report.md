@@ -10,6 +10,27 @@ tags: [analytics, metrics, report]
 
 ← [[YouTube Channel]] · [[Analytics]] (rules) · data: `Analytics/snapshots.csv`, `Analytics/videos.csv`
 
-**0 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Analytics]] §5).
+**2 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Analytics]] §5).
 
-No snapshots yet. Add one with `analytics.py add` ([[Analytics]] §3).
+## youtube at 1h (1 videos)
+
+| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [[Copper and the AI race - Status]] | 9 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
+| **median** | 9 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
+
+**Too few views to read percentages (< 100): Copper and the AI race.** Counts only; do not act on rates ([[Analytics]] §5).
+
+Below the median (needs 3+ videos): none
+
+## youtube at 2h (1 videos)
+
+| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [[Battery and lithium - Status]] | 46 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
+| **median** | 46 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
+
+**Too few views to read percentages (< 100): Battery and lithium.** Counts only; do not act on rates ([[Analytics]] §5).
+
+Below the median (needs 3+ videos): none
+

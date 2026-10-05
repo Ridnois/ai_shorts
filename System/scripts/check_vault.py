@@ -75,6 +75,8 @@ INVARIANTS = [
     ("System/Content/Channel playbook.md", "Science at full speed", "Redtail slogan (user, 5 Oct 2026: banner B)"),
     ("System/Content/Channel strategy.md", "one Short a day", "cadence is daily (user, 5 Oct 2026)"),
     ("System/Guidelines for new scripts.md", "Copy-paste text", "pasteable text sits in a plain code block, ASCII only (user, 5 Oct 2026)"),
+    ("System/Process/Analytics.md", "Sample rule", "under ~100 views read counts only (first report, 5 Oct 2026)"),
+    ("System/Process/Analytics.md", "youtube_analytics.py", "YouTube numbers are pulled from the API (user, 5 Oct 2026)"),
     ("System/Process/Analytics.md", "snapshots.csv", "metrics live in CSVs the agent keeps (user, 5 Oct 2026)"),
     ("System/Process/Production process.md", "Measure and learn", "stage 9 closes the loop with the numbers"),
     ("System/Content/Idea and hook quality.md", "Analytics/Report.md", "the idea gate reads the channel data"),

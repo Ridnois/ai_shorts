@@ -1,0 +1,127 @@
+[
+ {
+  "kind": "youtube#video",
+  "etag": "vAoQ0sgKv75om7uB4htFoys3jQo",
+  "id": "YRX0VfpPMtU",
+  "snippet": {
+   "publishedAt": "2026-10-05T18:29:37Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Why Copper Could Limit the AI Race",
+   "description": "One AI server rack can hold over two miles of copper cable, yet AI is only a small slice of the world's copper. Why a new mine takes about 17 years, and why that could limit the AI race.\n\nNew Shorts every week.\n\nSOURCES\n\u2022 S&P Global, copper supply gap study, 8 January 2026 (17 years from discovery to production; a 25% shortfall by 2040 is a forecast): https://press.spglobal.com/2026-01-08-Substantial-Shortfall-in-Copper-Supply-Widens-as-the-Race-for-AI-and-Growing-Defense-Spending-Add-to-Accelerating-Demand,-New-S-P-Global-Study-Finds\n\u2022 USGS, Mineral Commodity Summaries 2026, Copper: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-copper.pdf\n\u2022 IEA, Global Critical Minerals Outlook 2025: https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals\n\u2022 Nvidia GB200 NVL72, about 5,000 copper cables and over 2 miles per rack (Nvidia's figures, as reported by LightCounting): https://www.lightcounting.com/research-note/april-2024-all-eyes-on-nvidia-352\n\u2022 Copper in electric cars, 83 kg against 23 kg (ICSG 2018, cited in this study): https://www.sciencedirect.com/science/article/abs/pii/S0921344920305152\n\u2022 How porphyry copper deposits form (Nature Reviews Earth & Environment, 2021): https://www.nature.com/articles/s43017-021-00182-8\nFigures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nServer rack cables: Derrick Coetzee from Berkeley, CA, USA, CC0 \u00b7 Native copper: Flipin,OG, CC0 \u00b7 Transformer busbars: Wtshymanski, CC BY-SA 3.0 \u00b7 Transmission line: Eduardo Sanchez, CC0 \u00b7 Electric car charging: Julian Herzog (Website), CC BY 4.0 \u00b7 Copper pipes: Achim Hering, CC BY 3.0 \u00b7 Chalcopyrite: Didier Descouens, CC BY-SA 3.0 \u00b7 Chuquicamata mine: Diego Delso, CC BY-SA 4.0 \u00b7 Bingham Canyon Mine: David Ratledge, CC BY 4.0, and Farragutful, CC BY-SA 4.0\n\nThe narration and the schematic are AI-generated; the photos are real.\n\n#copper #AI #datacenters #mining #science",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/YRX0VfpPMtU/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/YRX0VfpPMtU/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/YRX0VfpPMtU/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/YRX0VfpPMtU/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/YRX0VfpPMtU/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "REDTAIL",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Why Copper Could Limit the AI Race",
+    "description": "One AI server rack can hold over two miles of copper cable, yet AI is only a small slice of the world's copper. Why a new mine takes about 17 years, and why that could limit the AI race.\n\nNew Shorts every week.\n\nSOURCES\n\u2022 S&P Global, copper supply gap study, 8 January 2026 (17 years from discovery to production; a 25% shortfall by 2040 is a forecast): https://press.spglobal.com/2026-01-08-Substantial-Shortfall-in-Copper-Supply-Widens-as-the-Race-for-AI-and-Growing-Defense-Spending-Add-to-Accelerating-Demand,-New-S-P-Global-Study-Finds\n\u2022 USGS, Mineral Commodity Summaries 2026, Copper: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-copper.pdf\n\u2022 IEA, Global Critical Minerals Outlook 2025: https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals\n\u2022 Nvidia GB200 NVL72, about 5,000 copper cables and over 2 miles per rack (Nvidia's figures, as reported by LightCounting): https://www.lightcounting.com/research-note/april-2024-all-eyes-on-nvidia-352\n\u2022 Copper in electric cars, 83 kg against 23 kg (ICSG 2018, cited in this study): https://www.sciencedirect.com/science/article/abs/pii/S0921344920305152\n\u2022 How porphyry copper deposits form (Nature Reviews Earth & Environment, 2021): https://www.nature.com/articles/s43017-021-00182-8\nFigures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nServer rack cables: Derrick Coetzee from Berkeley, CA, USA, CC0 \u00b7 Native copper: Flipin,OG, CC0 \u00b7 Transformer busbars: Wtshymanski, CC BY-SA 3.0 \u00b7 Transmission line: Eduardo Sanchez, CC0 \u00b7 Electric car charging: Julian Herzog (Website), CC BY 4.0 \u00b7 Copper pipes: Achim Hering, CC BY 3.0 \u00b7 Chalcopyrite: Didier Descouens, CC BY-SA 3.0 \u00b7 Chuquicamata mine: Diego Delso, CC BY-SA 4.0 \u00b7 Bingham Canyon Mine: David Ratledge, CC BY 4.0, and Farragutful, CC BY-SA 4.0\n\nThe narration and the schematic are AI-generated; the photos are real.\n\n#copper #AI #datacenters #mining #science"
+   },
+   "defaultAudioLanguage": "en"
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "9",
+   "likeCount": "0",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "0"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "nxeHKJpexNLFpAyOXYVqFDBq5_g",
+  "id": "zwNmTGoXPu0",
+  "snippet": {
+   "publishedAt": "2026-10-05T17:31:47Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Lithium Isn't Rare, So Why Do Countries Fight Over It?",
+   "description": "Lithium isn't rare, but about 60% of it is refined in one country. How the lightest metal became a pressure point, and the battery that could walk away from it.\n\nNew Shorts every week.\n\nSOURCES\n\u2022 USGS, Mineral Commodity Summaries 2026, Lithium: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf\n\u2022 IEA, Global Critical Minerals Outlook 2025 (China's share of lithium refining): https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals\n\u2022 China's export licenses for high-end batteries, cathodes and graphite anodes (MOFCOM Decision 58, 9 Oct 2025) and their one-year suspension (Decision 70, 7 Nov 2025): https://www.ess-news.com/2025/10/13/china-imposes-new-export-controls-on-lithium-ion-battery-technology/ and https://www.cirs-group.com/en/chemicals/china-temporarily-suspends-export-controls-on-key-raw-materials-including-rare-earths-lithium-batteries-and-diamond\n\u2022 CATL's sodium-ion batteries (company claims): https://carnewschina.com/2025/12/28/catl-confirms-2026-large-scale-sodium-ion-battery-deployment-in-multiple-sectors/\n\u2022 Atacama evaporation ponds: sources give about 12 to 24 months; the video uses about 18, from Albemarle's description.\nFigures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nLithium in mineral oil: Sea Moon, CC BY 2.0 \u00b7 Lithium: W. Oelen, CC BY-SA 3.0 \u00b7 Lithium-ion cells: Sevenethics, CC0 \u00b7 Salar de Atacama: NASA Earth Observatory and NASA SVS (public domain), ESA (CC BY-SA 3.0 IGO) \u00b7 Greenbushes mine: Calistemon, CC BY-SA 4.0 \u00b7 CATL, Arnstadt: Giorno2, CC BY-SA 4.0 \u00b7 CATL, IAA 2024: Matti Blume, CC BY-SA 4.0 \u00b7 NYK Themis at the Port of Los Angeles: Downtowngal, CC BY-SA 4.0 \u00b7 Container cranes: George Robinson, CC BY-SA 2.0 \u00b7 Sodium-ion cell: Vladimir022009, CC BY-SA 4.0 \u00b7 Faradion sodium-ion cell, Science Museum: The wub, CC BY-SA 4.0\n\nThe narration and the schematics are AI-generated; the photos are real.\n\n#lithium #batteries #science #geopolitics #sodiumion",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/zwNmTGoXPu0/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/zwNmTGoXPu0/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/zwNmTGoXPu0/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/zwNmTGoXPu0/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/zwNmTGoXPu0/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "REDTAIL",
+   "categoryId": "22",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Lithium Isn't Rare, So Why Do Countries Fight Over It?",
+    "description": "Lithium isn't rare, but about 60% of it is refined in one country. How the lightest metal became a pressure point, and the battery that could walk away from it.\n\nNew Shorts every week.\n\nSOURCES\n\u2022 USGS, Mineral Commodity Summaries 2026, Lithium: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf\n\u2022 IEA, Global Critical Minerals Outlook 2025 (China's share of lithium refining): https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals\n\u2022 China's export licenses for high-end batteries, cathodes and graphite anodes (MOFCOM Decision 58, 9 Oct 2025) and their one-year suspension (Decision 70, 7 Nov 2025): https://www.ess-news.com/2025/10/13/china-imposes-new-export-controls-on-lithium-ion-battery-technology/ and https://www.cirs-group.com/en/chemicals/china-temporarily-suspends-export-controls-on-key-raw-materials-including-rare-earths-lithium-batteries-and-diamond\n\u2022 CATL's sodium-ion batteries (company claims): https://carnewschina.com/2025/12/28/catl-confirms-2026-large-scale-sodium-ion-battery-deployment-in-multiple-sectors/\n\u2022 Atacama evaporation ponds: sources give about 12 to 24 months; the video uses about 18, from Albemarle's description.\nFigures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nLithium in mineral oil: Sea Moon, CC BY 2.0 \u00b7 Lithium: W. Oelen, CC BY-SA 3.0 \u00b7 Lithium-ion cells: Sevenethics, CC0 \u00b7 Salar de Atacama: NASA Earth Observatory and NASA SVS (public domain), ESA (CC BY-SA 3.0 IGO) \u00b7 Greenbushes mine: Calistemon, CC BY-SA 4.0 \u00b7 CATL, Arnstadt: Giorno2, CC BY-SA 4.0 \u00b7 CATL, IAA 2024: Matti Blume, CC BY-SA 4.0 \u00b7 NYK Themis at the Port of Los Angeles: Downtowngal, CC BY-SA 4.0 \u00b7 Container cranes: George Robinson, CC BY-SA 2.0 \u00b7 Sodium-ion cell: Vladimir022009, CC BY-SA 4.0 \u00b7 Faradion sodium-ion cell, Science Museum: The wub, CC BY-SA 4.0\n\nThe narration and the schematics are AI-generated; the photos are real.\n\n#lithium #batteries #science #geopolitics #sodiumion"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "46",
+   "likeCount": "1",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "2"
+  }
+ }
+]

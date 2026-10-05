@@ -39,7 +39,7 @@ YouTube Channel.md
 │   ├── Brand/      Redtail logo and banner, brand register and archive: [[Brand options]] · [[Logo references]] · decision in [[Channel playbook]] §4 · voice candidates: [[Voice samples]]
 │   └── scripts/    build_video.py (the builder) · stock_photos.py · replicate_helper.py · check_vault.py · legacy build_*.py
 ├── Research/       general notes on models and styles, unrelated to a script
-├── Analytics/      videos.csv · snapshots.csv · Report.md (generated)
+├── Analytics/      videos.csv · snapshots.csv · Report.md (generated) · Reports/ (dated analyses) · exports/
 └── Videos/         Week 01 (current) and Legacy; one folder per video: Status, scripts, research, upload note
 ```
 
@@ -53,7 +53,7 @@ A new video = a folder in `Videos/Week NN/` (the current week) with its `<Topic>
 | Where media is stored | [[Media convention]] |
 | Uploading to YouTube (API setup, script, gotchas) | [[YouTube upload]] |
 | Uploading the same Short to TikTok (manual route, package, settings) | [[TikTok upload]] |
-| What we measure, how numbers are recorded and how they change the next video | [[Analytics]] · generated [[Report]] |
+| What we measure, how numbers are recorded and how they change the next video | [[Analytics]] · generated [[Report]] · [[2026-10-05 First numbers]] |
 | Is the idea worth it? | [[Idea and hook quality]] |
 | How to write | [[Narration guide]] · [[Channel voice]] · voice candidates: [[Voice samples]] |
 | What makes a Short top tier (hook, captions, rhythm, checklist) | [[Shorts quality bar]] |

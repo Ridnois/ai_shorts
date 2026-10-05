@@ -48,6 +48,11 @@ def report(tok, **q):
     return get("https://youtubeanalytics.googleapis.com/v2/reports", tok, ids="channel==MINE", **q)
 
 
+def hours_age(pub):
+    h = int((datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromisoformat(pub.replace("Z", "+00:00"))).total_seconds() // 3600)
+    return f"{h}h" if h < 48 else f"{h // 24}d"
+
+
 def pull(a):
     tok = post_form(TOKEN, dict(client_id=CID, client_secret=SEC, grant_type="refresh_token",
                                 refresh_token=os.environ["YT_ANALYTICS_REFRESH_TOKEN"]))["access_token"]
@@ -56,30 +61,35 @@ def pull(a):
     tbl = report(tok, startDate="2020-01-01", endDate=today, metrics=METRICS, dimensions="video", sort="-views", maxResults=200)
     json.dump(tbl, open(f"{out}/videos.json", "w"), indent=1)
     cols = [c["name"] for c in tbl["columnHeaders"]]
-    ids = [r[0] for r in tbl.get("rows", [])]
-    meta = get("https://www.googleapis.com/youtube/v3/videos", tok, part="snippet,status", id=",".join(ids))["items"] if ids else []
-    info = {m["id"]: m for m in meta}
+    rows = {r[0]: dict(zip(cols, r)) for r in tbl.get("rows", [])}  # empty for videos still inside Analytics' reporting lag
+    up = get("https://www.googleapis.com/youtube/v3/channels", tok, part="contentDetails", mine="true")["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+    ids = [i["snippet"]["resourceId"]["videoId"] for i in get("https://www.googleapis.com/youtube/v3/playlistItems", tok, part="snippet", playlistId=up, maxResults=50)["items"]]
+    meta = get("https://www.googleapis.com/youtube/v3/videos", tok, part="snippet,status,statistics", id=",".join(ids))["items"]
+    json.dump(meta, open(f"{out}/data-api.json", "w"), indent=1)
     names = {r["youtube_id"]: r["video"] for r in csv.DictReader(open(analytics.VID)) if r["youtube_id"]}
-    for row in tbl.get("rows", []):
-        d = dict(zip(cols, row)); vid = d["video"]; m = info.get(vid, {})
-        pub = m.get("snippet", {}).get("publishedAt", "")
-        days = (datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromisoformat(pub.replace("Z", "+00:00"))).days if pub else None
-        src = report(tok, startDate="2020-01-01", endDate=today, metrics="views", dimensions="insightTrafficSourceType", filters=f"video=={vid}")
-        views = sum(r[1] for r in src.get("rows", [])) or 1
-        feed = sum(r[1] for r in src.get("rows", []) if r[0] == "SHORTS") * 100 / views
-        try:  # retention curve: 100 points over the video's length; kept raw, summarised in the note
-            ret = report(tok, startDate="2020-01-01", endDate=today, metrics="audienceWatchRatio", dimensions="elapsedVideoTimeRatio", filters=f"video=={vid}")
-            json.dump(ret, open(f"{out}/retention-{vid}.json", "w"))
-        except urllib.error.HTTPError as e: print("retention not available:", vid, e.code)
-        json.dump(src, open(f"{out}/sources-{vid}.json", "w"))
-        name = names.get(vid, f"{m.get('snippet', {}).get('title', vid)} [{vid}]")
-        v = int(d["views"]) or 1
-        analytics.add([name, "youtube", a.age or (f"{days}d" if days is not None else "lifetime"),
-                       f"views={d['views']}", f"engaged_views={d['engagedViews']}", f"avg_view_s={d['averageViewDuration']}",
-                       f"avg_pct_viewed={d['averageViewPercentage']:.1f}", f"likes={d['likes']}", f"comments={d['comments']}",
-                       f"shares={d['shares']}", f"subs_gained={d['subscribersGained']}", f"feed_pct={feed:.0f}",
-                       f"notes=api pull {today}; privacy={m.get('status', {}).get('privacyStatus', '?')}; published={pub[:10]}; subs lost={d['subscribersLost']}"])
-    print(f"{len(ids)} video(s); raw JSON in {out}/. Next: python3 System/scripts/analytics.py report")
+    for m in meta:
+        vid, pub = m["id"], m["snippet"]["publishedAt"]
+        age = a.age or hours_age(pub)
+        name = names.get(vid, f"{m['snippet']['title']} [{vid}]")
+        note = f"published={pub[:16]}Z; privacy={m['status']['privacyStatus']}"
+        if vid in rows:  # full Analytics API row
+            d = rows[vid]
+            src = report(tok, startDate="2020-01-01", endDate=today, metrics="views", dimensions="insightTrafficSourceType", filters=f"video=={vid}")
+            json.dump(src, open(f"{out}/sources-{vid}.json", "w"))
+            total = sum(r[1] for r in src.get("rows", [])) or 1
+            feed = sum(r[1] for r in src.get("rows", []) if r[0] == "SHORTS") * 100 / total
+            try:  # retention curve: 100 points over the video's length, kept raw
+                json.dump(report(tok, startDate="2020-01-01", endDate=today, metrics="audienceWatchRatio", dimensions="elapsedVideoTimeRatio",
+                                 filters=f"video=={vid}"), open(f"{out}/retention-{vid}.json", "w"))
+            except urllib.error.HTTPError as e: print("retention not available:", vid, e.code)
+            analytics.add([name, "youtube", age, f"views={d['views']}", f"engaged_views={d['engagedViews']}", f"avg_view_s={d['averageViewDuration']}",
+                           f"avg_pct_viewed={d['averageViewPercentage']:.1f}", f"likes={d['likes']}", f"comments={d['comments']}", f"shares={d['shares']}",
+                           f"subs_gained={d['subscribersGained']}", f"feed_pct={feed:.0f}", f"notes=analytics api {today}; {note}; subs lost={d['subscribersLost']}"])
+        else:  # Data API public counts only (instant, no retention or shares)
+            st = m["statistics"]
+            analytics.add([name, "youtube", age, f"views={st.get('viewCount', 0)}", f"likes={st.get('likeCount', 0)}",
+                           f"comments={st.get('commentCount', 0)}", f"notes=data api counts {today} (analytics api had no row yet); {note}"])
+    print(f"{len(meta)} video(s), {len(rows)} with Analytics rows; raw JSON in {out}/. Next: python3 System/scripts/analytics.py report")
 
 
 p = argparse.ArgumentParser(); s = p.add_subparsers(dest="cmd", required=True)
