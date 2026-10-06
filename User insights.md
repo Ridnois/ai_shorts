@@ -24,3 +24,9 @@ Do not copy words or aesthetics, analyze why people wanted to click.
 "If they cannot recognize the problem and outcome quickly, they may never properly read the title"
 
 
+"A Thumbnail can look good and still give the right person no reason to click"
+
+"Judge the package beside the videos it will actually compete against"
+
+
+
