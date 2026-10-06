@@ -1,0 +1,1 @@
+This feedback is based on the last video [[Script - Transformer shortage]] b
