@@ -54,6 +54,7 @@ INVARIANTS = [
     ("System/Publish.md", "```text", "copy-paste blocks"),
     ("System/Publish.md", "Sample rule", "under 100 views read counts only"),
     ("System/Publish.md", "youtube_upload.py thumb", "thumbnails are re-set after processing and checked"),
+    ("System/Publish.md", "publish.py", "P8 is one command (token-cheap)"),
     ("System/Publish.md", "one change per video", "analytics attribution"),
     ("System/Feedback loop.md", "single source of knowledge", "feedback ends in the vault"),
     ("CLAUDE.md", "need-to-know", "agent guide carries the hook rule"),

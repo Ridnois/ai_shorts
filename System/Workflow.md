@@ -70,7 +70,7 @@ Every media file carries its video prefix (Obsidian resolves embeds by file name
 | Word timings       | `python3 System/scripts/word_timings.py "Media/Week NN/<Day>/<Video>"`                                                                                                                          |
 | Assemble and check | `VIDEO="Media/Week NN/<Day>/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`                                                               |
 | Render             | same without `SOLO_PROYECTO`, in the background (3 to 5 min)                                                                                                                              |
-| Upload / metrics   | [[Publish]]                                                                                                                                                                               |
+| Upload (P8) / metrics | `python3 System/scripts/publish.py "Media/Week NN/<Day>/<Video>/upload/publish.json"` ([[Publish]]) |
 | Coherence          | `python3 System/scripts/check_vault.py`                                                                                                                                                   |
 
 Never `pkill -f` a pattern that appears in your own command (match with `ps` and `awk`). Obsidian re-pads Markdown tables on save: parse tolerantly. **Pipeline runner** (`~/Documents/youtube-pipeline/pipeline.py`, user service): its prompts name `CLAUDE.md`, [[Playbook]], this note and [[Style]]; state machine in [[Pipeline]].

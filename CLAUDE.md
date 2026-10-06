@@ -15,7 +15,7 @@ On demand: `System/Style.md` (on-screen text, design tokens, brand, persona) whe
 - **Every plate passes the usefulness test;** a new image every 3 to 4 s (none over 5 s, 16 to 20 plates); stock photos first (free, credited), ≤ 3 generated plates with content-first prompts and no custom style; schematics are scientifically faithful; no card or callout on a bare gradient.
 - **Word-by-word captions on every video; no branding inside the video.** Text passes the specificity test.
 - **Sound:** synthesized by the builder by default; any recording or music is opt-in, licensed, credited, approved.
-- **Publish:** upload private by default and only after the user confirms title, description, thumbnail, visibility; pasteable text in plain ASCII ```` ```text ```` blocks; fill `Analytics/videos.csv` at P8; pull numbers at about 24 h, 7 d, 28 d; under about 100 views read counts only.
+- **Publish:** upload private by default and only after the user confirms title, description, thumbnail, visibility; **P8 is `python3 System/scripts/publish.py <publish.json>`** ([[Publish]]); pasteable text in plain ASCII ```` ```text ```` blocks; fill `Analytics/videos.csv` at P8; pull numbers at about 24 h, 7 d, 28 d; under about 100 views read counts only.
 - **Rigor and honesty:** every figure has source and date; say what you could not check (you cannot hear audio or watch a whole video); P7 is the user's.
 - **Notes live in the vault** (Markdown), never as artifacts or docs elsewhere; keep them short (size ceilings per note type in [[Workflow]], enforced by `check_vault.py`); delete obsolete notes instead of archiving; one Status note per video.
 - **Done = `python3 System/scripts/check_vault.py` passes.**
