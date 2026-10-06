@@ -16,6 +16,7 @@ THUMBS = {  # name: (hero file, lines, index of the orange line, where the text 
     "thumb-jk": ("hero-jk.jpg", ["BEFORE", "GUTENBERG"], 1, ("end", 1280)),          # Jikji and Gutenberg (free stock hero, no generation)
     "thumb-sp": ("hero-sp.jpg", ["CHIPS DEPEND", "ON ONE TOWN"], 1, ("end", 1280)),          # Spruce Pine quartz (free stock hero)
     "thumb-tf": ("hero-tf.jpg", ["NO MOVING PARTS", "2.5-YEAR WAIT"], 1, ("end", 1280)),     # Transformer shortage (free stock hero)
+    "thumb-dn": ("hero-dn.jpg", ["MINING THE", "DEEP SEABED"], 1, ("end", 1280)),          # Deep-sea nodules (free stock hero)
     "thumb-cu": ("hero-cu.png", ["17 YEARS TO", "OPEN A MINE"], 0, ("end", 1280)),   # Copper and the AI race
 }
 def cover(im):

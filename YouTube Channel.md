@@ -17,5 +17,6 @@ Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · target to imitate: [[Model scri
 | Jikji and Gutenberg | 143 · Austin 1.0 | r2 (62 s) rendered; 39 s short cut (91 words) uploaded private (a3faPJ87qsk) with thumbnail | [[Jikji and Gutenberg - Status]] · [[Script - Jikji and Gutenberg]] · [[Script - Jikji and Gutenberg (short)]] · [[Upload - Jikji and Gutenberg]] |
 | Spruce Pine quartz | 147 · Austin 1.0 | r3 (63 s) uploaded private (lQRLoZYWFwU) with thumbnail | [[Spruce Pine quartz - Status]] · [[Script - Spruce Pine quartz]] · [[Upload - Spruce Pine quartz]] |
 | Transformer shortage | 139 · Austin 1.0 | r1 (53 s) uploaded public (F2fC5degIP4) with thumbnail | [[Transformer shortage - Status]] · [[Script - Transformer shortage]] · [[Upload - Transformer shortage]] |
+| Deep-sea nodules | 148 · Austin 1.0 | r1 rendered (62 s), first with the pause plan and immersive plates; P7 is yours; not uploaded | [[Deep-sea nodules - Status]] · [[Script - Deep-sea nodules]] |
 
 Earlier videos (Magnets, Helium, Brazil, Lemon cake, Bike stems, Chips, Twisted carbon, Magnetar, Moon, Superconductors, Asteroid mining) were deleted from the vault on 5 Oct 2026; their lessons live in [[Playbook]]; git history keeps them.
