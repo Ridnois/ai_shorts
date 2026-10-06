@@ -1,3 +1,7 @@
+---
+type: research
+updated: 2026-10-06
+---
 "People could want the outcome without understanding the mechanism"
 
 "If you dont understand X (the mechanism), you dont undersand Y (the desired outcome)"

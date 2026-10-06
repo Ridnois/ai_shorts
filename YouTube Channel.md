@@ -5,7 +5,7 @@ updated: 2026-10-05
 
 # Redtail: video index
 
-Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · target to imitate: [[Model script]] · process and models: [[Workflow]] · look and brand: [[Style]] · upload and metrics: [[Publish]] · [[Feedback loop]]. Idea queue: [[Pipeline]]. Numbers: [[Report]].
+Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · niche, search and package: [[Audience]] · target to imitate: [[Model script]] · process and models: [[Workflow]] · look and brand: [[Style]] · upload and metrics: [[Publish]] · [[Feedback loop]]. Idea queue: [[Pipeline]]. Numbers: [[Report]].
 
 ## Videos (Week 01 = 5 to 11 Oct 2026; Monday 5 Oct in `Videos/Week 01/2026-10-05 Mon/`, Tuesday 6 Oct in `2026-10-06 Tue/`)
 
