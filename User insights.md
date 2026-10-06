@@ -10,4 +10,7 @@ We should keep ourselves on the technology niche, generate a set of search terms
 
 Explore and analyze the most successful AI content around
 ![[Pasted image 20261006190807.png]]
-This illustration explains how to do the deep search. look for videos that outperformed their own chanels. when a b
+This illustration explains how to do the deep search. look for videos that outperformed their own chanels. when a branch stops providing useful information, go back and explore a new one. Repeat until you understand a niche, not a competitor.
+
+Do not copy words or aesthetics, analyze why people wanted to click.
+
