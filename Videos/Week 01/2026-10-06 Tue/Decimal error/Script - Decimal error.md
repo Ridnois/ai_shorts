@@ -20,18 +20,13 @@ User choice (6 Oct 2026): *"I think we should go to the idea about decimals"*. *
 | 2   | Same idea as one third in decimal (0.33...): you must round                                                                                                                                                          | floating-point-gui.de (**read**)                          |
 | 3   | 0.1 + 0.2 gives 0.30000000000000004 in standard double precision; neither number is stored exactly before the sum                                                                                                    | floating-point-gui.de (**read**); Python 3 (**run**)      |
 | 4   | The double stored for 0.1 is 0.1000000000000000055511151231257827... and for 0.2 is 0.2000000000000000111022302462515654...; their sum differs from 0.3                                                              | Python `Decimal(0.1)` (**run**)                           |
-| 5   | IEEE 754, the floating-point standard, dates from 1985                                                                                                                                                               | Wikipedia (**read**)                                      |
 | 6   | 25 Feb 1991, Dhahran: a Patriot battery failed to track and intercept a Scud; the Scud hit a barracks, **killing 28 Americans**                                                                                      | US GAO IMTEC-92-26, 4 Feb 1992 (**read**)                 |
 | 7   | Cause: a software problem in the weapons control computer; the tracking error "became worse the longer the system operated"; the battery had run **over 100 hours**                                                  | GAO (**read**)                                            |
 | 8   | The clock counted **tenths of a second** as a whole number; converting it to a real number was only as precise as **24-bit registers** allow, so precision was lost                                                  | GAO (**read**)                                            |
 | 9   | After 100 hours the clock was off by **0.3433 s**, which shifted the range gate by **687 m** (1 h: 7 m; 8 h: 55 m; 20 h and the target is already outside)                                                           | GAO Appendix II (**read**)                                |
 | 10  | My check: chopping 0.1 to 23 binary places leaves an error of 9.5e-8 per tick; times 100 h at 10 ticks per second = 0.3433 s, GAO's number                                                                           | agent (**run**)                                           |
-| 11  | Scuds fly at about Mach 5 (3,750 mph); the Army learned the software limits only during the war                                                                                                                      | GAO (**read**)                                            |
 | 12  | Israeli data on 11 Feb 1991 showed a 20 % range-gate shift after 8 hours; the fixed software reached Dhahran on **26 Feb**, the day after; interim fix: reboot every few hours                                       | GAO (**read**)                                            |
-| 13  | Vancouver Stock Exchange index: started at 1000 in Jan 1982, truncated (not rounded) to 3 decimals about 3000 times a day; after 22 months it read 524.811 against a correct 1098.892 (fixed over 25 to 28 Nov 1983) | Wikipedia, Vancouver Stock Exchange (**read**; secondary) |
 | 14  | For money, store whole cents (integers) or use a decimal type                                                                                                                                                        | floating-point-gui.de (**read**)                          |
-| 15  | Summing 0.1 ten times in Python gives exactly 1.0 here, so errors do not always show; the visible ones come from specific sums                                                                                       | Python (**run**)                                          |
-| 16  | The Patriot's 24-bit registers: today's computers have registers of up to 64 bits                                                                                                                                    | GAO (**read**)                                            |
 
 ## 1. Idea gate
 
@@ -53,7 +48,7 @@ Rejected, one line each: **Ariane 5** (different bug, overflow, not decimals; no
 
 ## 3. Script (P2): 164 words, 845 characters, 7 scenes
 
-Bridges: 2 "That is because" · 3 "So add" · 4 "But" · 5 "And every tick" · 6 "so" inside · 7 "So the longer". **Facts (5):** one tenth is endless in binary; 0.1 + 0.2 shows the cut-off; the Patriot clock counted tenths; the drift grew to a third of a second in 100 hours; the search area was off by hundreds of metres (GAO). **Spoken figures (3):** twenty-eight, a hundred hours, a third of a second; every other number is on screen (0.3433 s, 687 m, 7 m to 687 m table). **Original synthesis:** the growth of the error with run time drawn from the GAO table, and the 3,600,000 ticks (10 per second × 360,000 s, agent's arithmetic). **Cut test:** removed the Vancouver index (fact 13), the 0.1 + 0.2 double values, Ariane, the reboot workaround. **Honesty:** "cut-off at every tick" simplifies a 24-bit fixed-point conversion; Status marks it *schematic*. **Close:** concrete payoff (a long run drifts; money in whole cents).
+Bridges: 2 "That is because" · 3 "So add" · 4 "But" · 5 "And every tick" · 6 "so" inside · 7 "So the longer". **Facts (5):** one tenth is endless in binary; 0.1 + 0.2 shows the cut-off; the Patriot clock counted tenths; the drift grew to a third of a second in 100 hours; the search area was off by hundreds of metres (GAO). **Spoken figures (3):** twenty-eight, a hundred hours, a third of a second; every other number is on screen (0.3433 s, 687 m, 7 m to 687 m table). **Original synthesis:** the growth of the error with run time drawn from the GAO table, and the 3,600,000 ticks (10 per second × 360,000 s, agent's arithmetic). **Cut test:** removed the Vancouver index, the 0.1 + 0.2 double values, Ariane, the reboot workaround. **Honesty:** "cut-off at every tick" simplifies a 24-bit fixed-point conversion; Status marks it *schematic*. **Close:** concrete payoff (a long run drifts; money in whole cents).
 
 | Scene | Voice text | Words | Delivery | Pause after (s); inner pauses |
 | --- | --- | --- | --- | --- |
@@ -66,7 +61,7 @@ Bridges: 2 "That is because" · 3 "So add" · 4 "But" · 5 "And every tick" · 6
 
 `gaps` = [0.60, 0.45, 0.25, 0.25, 0.80, 1.00]. **Voice:** `elevenlabs/turbo-v2.5`, Austin, one take per scene with `previous_text` and `next_text` ([[Playbook]] §5); scene 1 is the test take.
 
-## 4. Visual plan (P3): S stock photo · D drawn (Pillow, $0), 18 plates, prefix `de`, 0 generated
+## 4. Visual plan (P3): S stock photo · D drawn (Pillow, $0), 18 plates, prefix `de`, 3 generated
 
 Photo candidates (found with `stock_photos.py search`, **not downloaded**, no file in `Media/` before P4): `Patriot missile launch b.jpg` (public domain), `Scud downed by Patriot missiles.JPEG` (public domain), `AN MPQ 53.jpg` (public domain), `Scud missile on TEL vehicle, National Museum of Military History` (CC BY-SA 2.0, credit), `Disected Scud missile.jpg` (public domain). No photo of code or a clock was found: those are D plates.
 
@@ -75,7 +70,7 @@ Photo candidates (found with `stock_photos.py search`, **not downloaded**, no fi
 | 1 | 1 | S full + callout | Patriot launch | the real machine, so "a tiny cut-off cost lives" is about a missile system |
 | 2 | 1 | S contain blur + number card | Scud downed by Patriot | card **28 / Americans killed, Dhahran, 25 Feb 1991 / US GAO 1992**: the stake |
 | 3 | 2 | D split + inset | 1/3 = 0.333... above 1/10 = 0.000110011... (inset: Patriot launch) | that both fractions never end, one in decimal and one in binary |
-| 4 | 2 | D split + inset | the binary string with a "stored" part and a cut line (inset: radar) | where the cut falls |
+| 4 | 2 | **G** split + inset | schematic: a row of 23 cells (filled = 1) with a cut line, the rest fading past it (inset: radar) | where the cut falls |
 | 5 | 2 | D split | tick marks, a sliver cut off each | that the cut repeats |
 | 6 | 3 | D split + inset | 0.1 + 0.2 = 0.30000000000000004, last digit marked (inset: radar) | the speck |
 | 7 | 3 | D split | the stored values of 0.1 and 0.2 side by side (Python) | that neither is exact before the sum |
@@ -85,16 +80,18 @@ Photo candidates (found with `stock_photos.py search`, **not downloaded**, no fi
 | 11 | 5 | S contain blur + number card | Patriot launch, other crop | card **0.3433 s / clock error after 100 hours / US GAO 1992** |
 | 12 | 5 | D number plate on photo | Patriot launch | **3,600,000 ticks** in 100 hours (10 a second) |
 | 13 | 6 | S full + callout | Scud on TEL (CC BY-SA 2.0) | the target; callout "Scud, about Mach 5" |
-| 14 | 6 | D split + inset | range gate with the target at its centre, then off-centre (GAO figures 4 and 5) (inset: Scud) | what "looking in the wrong place" means |
+| 14 | 6 | **G** split + inset | two-panel schematic: radar gate centred on the Scud, then shifted off it (GAO figures 4 and 5 as references) (inset: Scud) | what "looking in the wrong place" means |
+| 15 | 6 | D split | bars: range-gate shift 7, 55, 137, 330, 687 m at 1, 8, 20, 48, 100 h (GAO Appendix II) | the distance of the miss |
+| 16 | 6 | **G** full + context card | top-down incident schematic: battery and radar, the Scud arc, the barracks, the radar gate short of the Scud; card **GAO · 1992 / Fixed software arrived 26 Feb / the day after** | the incident as a diagram: where the radar looked against where the Scud was |
 | 17 | 7 | D split + inset | 0.1 against **10 cents** stored as the whole number 10 (inset: radar) | the fix, a whole count |
 | 18 | 7 | S full | Patriot launch (hook image again) | the loop |
 
-**Mix:** 6 S, 12 D, 0 G (5 of the D plates are data figures from the GAO or Python; 164 words is above the 130 to 160 aim, inside 190). **Weak points known now:** no real photo of Dhahran or the barracks (not shown, and no identifiable people); the range-gate drawing is a schematic of GAO figures 4 and 5; Patriot photos are of later models, labelled as file photos; plate 15 skips the 72 h row (494 m) to keep five bars; the table rows are 1, 8, 20, 48, 72, 100 h. **On-screen text** limited to the cards above; symbols avoided (the font lacks them).
+**Mix (user, 6 Oct 2026: mix stock photos with generated illustrations, `gpt-image-2`):** 5 S, 10 D, **3 G** (plates 4, 14, 16; the cap) (5 of the D plates are data figures from the GAO or Python; 164 words is above the 130 to 160 aim, inside 190). **Weak points known now:** the generated plates are **schematics, not scenes**: no photoreal depiction of the real strike, no people, no fire (Style: no fakes of real events); image models miscount cells, so plate 4 is checked cell by cell and falls back to a drawn plate after one retry; no real photo of Dhahran or the barracks (not shown, and no identifiable people); the range-gate drawing is a schematic of GAO figures 4 and 5; Patriot photos are of later models, labelled as file photos; plate 15 skips the 72 h row (494 m) to keep five bars; the table rows are 1, 8, 20, 48, 72, 100 h. **On-screen text** limited to the cards above; symbols avoided (the font lacks them).
 
 ## 5. Next
 
-**P4 is the user's gate** (prompts, stock download, budget). Estimate: voice ≈ 845 characters ≈ $0.09 at the unconfirmed $0.10 per 1,000 characters, timings 7 × $0.01, stock $0, generated plates $0: **base about $0.16, cap about $0.19**. Before anything else: the voice test stage on scene 1 and 2 (≈ $0.02), ear decides, since turbo-v2.5 is untried.
+**P4 is the user's gate** (prompts in Status, stock download, budget). Estimate: voice about $0.09 (unconfirmed price), timings 7 × $0.01, **3 generated plates at about $0.25 each = $0.75** (price unconfirmed; `quality: medium` would cut it), stock $0: **base about $0.91, cap about $1.09**, about double a usual Short. Before anything else: the voice test of scenes 1 and 2 (about $0.02).
 
 ## 6. Not verified
 
-Vancouver figures are from one Wikipedia page. The Patriot error is a 24-bit fixed-point conversion of 0.1, not IEEE double arithmetic. I did not read the competitor videos' transcripts. The agent cannot hear or watch: P7 is the user's.
+The Patriot error is a 24-bit fixed-point conversion of 0.1, not IEEE double arithmetic. I did not read the competitor videos' transcripts. The agent cannot hear or watch: P7 is the user's.
