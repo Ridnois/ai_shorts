@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-05
 updated: 2026-10-05
-status: UPLOADED private (video id WhNq3ry6sBw); no thumbnail; pinned comment, visibility and TikTok are the user's
+status: UPLOADED private (video id WhNq3ry6sBw); thumbnail added 6 Oct 2026; pinned comment, visibility and TikTok are the user's
 tags: [youtube, upload, week-01, battery, ev, shorts]
 ---
 
@@ -59,3 +59,7 @@ Not prepared yet: caption = the first description line plus 3 hashtags (#EV #bat
 ## Not verified
 
 The agent did not watch or hear the video. AAA 39% is a secondary report; "most of that is the cabin heater" is the summaries' reading; Geotab 2.3% is an average; one photo is a motorcycle battery line; the Tesla name is visible in a charger photo. Metrics: `Analytics/` ([[Publish]]); pull at about 24 h, 7 d, 28 d.
+
+## Thumbnail (added 6 Oct 2026)
+
+User: *"Add a thumbnail for the EV battery video"*. Made with `make_thumbnail.py` (`thumb-ev`): text **BATTERY WEAR: / ABOUT 2% A YEAR** over a real Nissan Leaf battery pack photo (`ev-leafpack.jpg`, CC BY-SA 4.0, Gereon Meyer), no image generated ($0). First hero tried (the cut-away Leaf interior) hid the pack behind a seat and was dropped. Set with `youtube_upload.py thumb WhNq3ry6sBw` (HTTP 200); the public `maxresdefault.jpg` now shows the text (checked 6 Oct 2026). "About 2%" matches the title and the script's Geotab figure (2.3 % a year on average).
