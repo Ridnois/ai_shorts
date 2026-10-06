@@ -14,3 +14,13 @@ This illustration explains how to do the deep search. look for videos that outpe
 
 Do not copy words or aesthetics, analyze why people wanted to click.
 
+"A result they already want, faster than they expected, and it feels like unfair advantage."
+
+![[Pasted image 20261006191650.png]]A winner on his niche, there's space for AI too.
+
+![[Pasted image 20261006191738.png]]Extreme range and interesting.
+
+## **Thumbnails get processed first**
+"If they cannot recognize the problem and outcome quickly, they may never properly read the title"
+
+
