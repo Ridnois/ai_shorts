@@ -7,7 +7,7 @@ updated: 2026-10-05
 
 Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · target to imitate: [[Model script]] · process and models: [[Workflow]] · look and brand: [[Style]] · upload and metrics: [[Publish]] · [[Feedback loop]]. Idea queue: [[Pipeline]]. Numbers: [[Report]].
 
-## Videos (Week 01 = 5 to 11 Oct 2026; all made on Monday 5 Oct: folder `Videos/Week 01/2026-10-05 Mon/`)
+## Videos (Week 01 = 5 to 11 Oct 2026; Monday 5 Oct in `Videos/Week 01/2026-10-05 Mon/`, Tuesday 6 Oct in `2026-10-06 Tue/`)
 
 | Video | Words · voice | State | Notes |
 | --- | --- | --- | --- |
@@ -18,5 +18,6 @@ Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · target to imitate: [[Model scri
 | Spruce Pine quartz | 147 · Austin 1.0 | r3 (63 s) uploaded private (lQRLoZYWFwU) with thumbnail | [[Spruce Pine quartz - Status]] · [[Script - Spruce Pine quartz]] · [[Upload - Spruce Pine quartz]] |
 | Transformer shortage | 139 · Austin 1.0 | r1 (53 s) uploaded public (F2fC5degIP4) with thumbnail | [[Transformer shortage - Status]] · [[Script - Transformer shortage]] · [[Upload - Transformer shortage]] |
 | Deep-sea nodules | 148 · Austin 1.0 | r1 (62 s), first with the pause plan and immersive plates; uploaded private (WtKTVljJR7A) | [[Deep-sea nodules - Status]] · [[Script - Deep-sea nodules]] · [[Upload - Deep-sea nodules]] |
+| Grid chokepoint | 132 · Austin 1.0 | r1 rendered (56 s), Tuesday 6 Oct folder; thumbnail ready; P7 is yours; not uploaded | [[Grid chokepoint - Status]] · [[Script - Grid chokepoint]] |
 
 Earlier videos (Magnets, Helium, Brazil, Lemon cake, Bike stems, Chips, Twisted carbon, Magnetar, Moon, Superconductors, Asteroid mining) were deleted from the vault on 5 Oct 2026; their lessons live in [[Playbook]]; git history keeps them.
