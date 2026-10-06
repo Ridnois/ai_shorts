@@ -67,18 +67,83 @@ hexrgb = lambda h: tuple(int(h.lstrip("#")[i:i + 2], 16) / 255 for i in (0, 2, 4
 
 
 # ---------------------------------------------------------------- voices
-def pad_voice(src):
-    """Writes voice/_padded/<name>.wav = lead silence + 20 ms fade-in + voice + 50 ms fade-out + tail silence."""
+def norm(w):
+    return "".join(c for c in w.lower() if c.isalnum())
+
+
+def pause_cuts(src, pauses, env_of):
+    """Inner pauses (user, 5 Oct 2026: "pauses should be paired with the intention and emotion of the phrase").
+    `pauses` = [[word, seconds] or [word, seconds, nth]]: the silence after the nth heard `word` becomes exactly `seconds`
+    (shorter or longer than the voice made it). Returns [(gap_start, gap_end, seconds)] in the take's own seconds: the gap is the
+    quiet run of the take's envelope nearest the word boundary (a zero-length cut at its quietest point if there is none)."""
+    wp = f"{ROOT}/{os.path.splitext(src)[0]}.words.json"
+    if not pauses:
+        return []
+    if not os.path.exists(wp):
+        raise SystemExit(f"pauses need {wp} (run word_timings.py first)")
+    ws, (env, total) = json.load(open(wp)), env_of
+    thr, cuts = env.max() * 0.03, []
+    for spec in pauses:
+        word, secs, nth = spec[0], float(spec[1]), (spec[2] if len(spec) > 2 else 1)
+        hits = [i for i, w in enumerate(ws) if norm(w[0]) == norm(word)]
+        if len(hits) < nth or hits[nth - 1] + 1 >= len(ws):
+            raise SystemExit(f"pause anchor '{word}' (occurrence {nth}) not found before the last heard word in {src}: heard {' '.join(w[0] for w in ws)}")
+        i = hits[nth - 1]
+        mid = (ws[i][2] + ws[i + 1][1]) / 2
+        lo, hi = max(0, int((mid - 0.35) * 100)), min(len(env), int((mid + 0.35) * 100) + 1)
+        quiet = [k for k in range(lo, hi) if env[k] < thr]
+        if quiet:
+            runs, run = [], [quiet[0]]
+            for k in quiet[1:]:
+                if k == run[-1] + 1:
+                    run.append(k)
+                else:
+                    runs.append(run); run = [k]
+            runs.append(run)
+            best = min(runs, key=lambda r: abs((r[0] + r[-1]) / 200 - mid) - 0.01 * len(r))
+            gs, ge = best[0] / 100 + 0.01, (best[-1] + 1) / 100 - 0.01
+        else:
+            k = min(range(lo, hi), key=lambda k: env[k]); gs = ge = k / 100 + 0.005
+        cuts.append((gs, max(ge, gs), secs))
+    return sorted(cuts)
+
+
+def remap_time(t, cuts):
+    """Original take time -> time in the take after its inner pauses were reshaped."""
+    shift = 0.0
+    for gs, ge, secs in cuts:
+        if t >= ge:
+            shift += secs - (ge - gs)
+        elif t > gs:
+            return gs + shift + (t - gs) * secs / max(ge - gs, 1e-6)
+    return t + shift
+
+
+def pad_voice(src, pauses=None):
+    """Writes voice/_padded/<name>.wav = lead silence + 20 ms fade-in + voice + 50 ms fade-out + tail silence.
+    With `pauses` the inner pauses of the take are reshaped first (see pause_cuts). Returns (path, cuts)."""
     dst = f"{ROOT}/voice/_padded/{os.path.splitext(os.path.basename(src))[0]}.wav"
-    if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(src):
-        return dst
-    v = aud.Sound.file(src)
+    cuts = pause_cuts(src, pauses, envelope(f"{ROOT}/{src}")) if pauses else []
+    if not cuts and os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(f"{ROOT}/{src}"):
+        return dst, cuts
+    v = aud.Sound.file(f"{ROOT}/{src}")
     rate, ch = int(v.specs[0]), int(v.specs[1])
     n = len(np.asarray(v.data()))
+    if cuts:
+        pieces, prev = [], 0.0
+        for gs, ge, secs in cuts:
+            pieces.append(v.limit(prev, gs).fadein(0, 0.005).fadeout(max(0.0, gs - prev - 0.005), 0.005))
+            pieces.append(aud.Sound.silence(rate).limit(0, secs))
+            prev = ge
+        pieces.append(v.limit(prev, n / rate).fadein(0, 0.005))
+        v = pieces[0]
+        for pc in pieces[1:]:
+            v = v.join(pc)
+        n = int(round(sum(len(np.asarray(pc.data())) for pc in pieces)))
     body = v.fadein(0, FADE_IN).fadeout(max(0.0, n / rate - FADE_OUT), FADE_OUT)
     out = aud.Sound.silence(rate).limit(0, PAD_LEAD).join(body).join(aud.Sound.silence(rate).limit(0, PAD_TAIL))
     out.write(dst, rate, ch, aud.FORMAT_S16, aud.CONTAINER_WAV, aud.CODEC_PCM)
-    return dst
+    return dst, cuts
 
 
 def envelope(path):
@@ -100,10 +165,10 @@ def analyse(path):
 voices, t = [], START
 NV = len(PLAN["voices"])
 for n, src in enumerate(PLAN["voices"], start=1):
-    wav = pad_voice(f"{ROOT}/{src}")
+    wav, cuts = pad_voice(src, PLAN["scenes"][n - 1].get("pauses"))
     a, b, total = analyse(wav)
     ini, fin = max(0.0, a - LEAD_KEEP), min(total, b + TAIL_KEEP)
-    voices.append({"n": n, "f": wav, "a": a, "b": b, "ini": ini, "fin": fin, "abs": t, "dur": fin - ini})
+    voices.append({"n": n, "f": wav, "a": a, "b": b, "ini": ini, "fin": fin, "abs": t, "dur": fin - ini, "cuts": cuts})
     t += (fin - ini) + (GAPS[n - 1] if n < NV else 0)
 B = [0.0] + [v["abs"] + v["dur"] + GAPS[i] / 2 for i, v in enumerate(voices[:-1])] + [voices[-1]["abs"] + voices[-1]["dur"] + TAIL]
 T_END = B[-1]
@@ -182,6 +247,22 @@ def rounded_mask(w, h, rad):
 
 
 _bg_cache = {}
+
+
+def blur_bg(plate, idx):
+    """Immersive background for `contain` photos (user, 5 Oct 2026: "screen feels empty, only with a picture and a note"):
+    the same photo, cover-fitted, strongly blurred and darkened, so the frame is never an empty gradient."""
+    src = load_rgba(f"{ROOT}/{plate['file']}", 600)
+    h0, w0 = src.shape[:2]
+    s = max(W / 4 / w0, H / 4 / h0)
+    big = resize(src, max(W // 4, round(w0 * s)), max(H // 4, round(h0 * s)))
+    y0, x0 = (big.shape[0] - H // 4) // 2, (big.shape[1] - W // 4) // 2
+    small = big[y0:y0 + H // 4, x0:x0 + W // 4, :3]
+    small = np.stack([box_blur(small[..., c], 14) for c in range(3)], axis=2)
+    tint = np.array(hexrgb(plate.get("tint", "#10161c")), np.float32)
+    small = small * 0.38 + tint * 0.22
+    rgba = np.concatenate([small, np.ones(small.shape[:2] + (1,), np.float32)], axis=2)
+    return save_rgba(resize(rgba, W, H), f"blurbg{idx}")
 
 
 def gradient(c0, c1, angle):
@@ -367,8 +448,9 @@ for i, e, j, n, a, b, pl in flat:
             st.transform.keyframe_insert("scale_y", frame=fr(t_))
         strips = [st]
     else:
-        c0, c1 = pl.get("bg", ["#10243a", "#27507a"])
-        bgs = S.new_image(f"bg{i:02d}", gradient(c0, c1, pl.get("bg_angle", 70)), ch - 1, fr(ini))
+        c0, c1 = ("#10243a", "#27507a") if pl.get("bg") in (None, "blur") else pl["bg"]
+        bgpath = blur_bg(pl, i) if pl.get("bg") == "blur" else gradient(c0, c1, pl.get("bg_angle", 70))
+        bgs = S.new_image(f"bg{i:02d}", bgpath, ch - 1, fr(ini))
         bgs.frame_final_end = fr(fin)
         path, _ = compose_layer(pl, i)
         st = S.new_image(f"plate{i:02d}", path, ch, fr(ini))
@@ -394,6 +476,19 @@ for i, e, j, n, a, b, pl in flat:
 
     if j > 0 or e > 1:
         EVENTS.append((ini, "whoosh" if j == 0 else "tick2"))
+
+    # inset: a second picture on the plate (a locator, a detail, a comparison), so a plate is never one photo and one label
+    #   "inset": {"file": "stock/x.jpg", "pos": [0.5, 0.27], "width": 0.5}
+    ins = pl.get("inset")
+    if ins:
+        ipath, _ = compose_layer({"type": "contain", "radius": 22, **ins}, f"i{i}")
+        i0, i1 = a + 0.7, b - 0.15
+        if i1 - i0 > 0.8:
+            ist = S.new_image(f"inset{i:02d}", ipath, 12 + (i % 2), fr(i0))
+            ist.frame_final_end = fr(i1)
+            ist.blend_type = "ALPHA_OVER"
+            fade(ist, i0, i1)
+            EVENTS.append((i0, "tick"))
 
     # callouts (they appear after the card is in, one after another)
     for ci, co in enumerate(pl.get("callouts", [])):
@@ -496,7 +591,7 @@ def take_words(v, text):
     ws = text.split()
     path = os.path.splitext(v["f"])[0].replace("/_padded", "") + ".words.json"
     if os.path.exists(path):
-        raw = [[w, s + PAD_LEAD, e + PAD_LEAD] for w, s, e in json.load(open(path))]
+        raw = [[w, remap_time(s, v["cuts"]) + PAD_LEAD, remap_time(e, v["cuts"]) + PAD_LEAD] for w, s, e in json.load(open(path))]
         return align_words(ws, raw)
     return estimate_words(text, v["a"], v["b"], None)
 
