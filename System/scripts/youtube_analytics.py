@@ -92,11 +92,16 @@ def pull(a):
     print(f"{len(meta)} video(s), {len(rows)} with Analytics rows; raw JSON in {out}/. Next: python3 System/scripts/analytics.py report")
 
 
-p = argparse.ArgumentParser(); s = p.add_subparsers(dest="cmd", required=True)
-s.add_parser("auth"); q = s.add_parser("pull"); q.add_argument("--age")
-a = p.parse_args()
-if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env")
-try:
-    auth() if a.cmd == "auth" else pull(a)
-except urllib.error.HTTPError as e:
-    sys.exit(f"HTTP {e.code}: {e.read().decode()[:700]}")
+def main():
+    p = argparse.ArgumentParser(); s = p.add_subparsers(dest="cmd", required=True)
+    s.add_parser("auth"); q = s.add_parser("pull"); q.add_argument("--age")
+    a = p.parse_args()
+    if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env")
+    try:
+        auth() if a.cmd == "auth" else pull(a)
+    except urllib.error.HTTPError as e:
+        sys.exit(f"HTTP {e.code}: {e.read().decode()[:700]}")
+
+
+if __name__ == "__main__":
+    main()
