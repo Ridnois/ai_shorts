@@ -64,6 +64,11 @@ INVARIANTS = [
     ("System/Playbook.md", "Demand check", "ideas get outside evidence"),
     ("System/Playbook.md", "Topic spread", "no two videos in a row on one topic family"),
     ("System/Playbook.md", "[H]", "untested rules are marked as hypotheses"),
+    ("System/Playbook.md", "Pause plan", "pauses follow intention and emotion (user, 5 Oct 2026)"),
+    ("System/Playbook.md", "opening bell", "the opening bell is liked and kept"),
+    ("System/Playbook.md", "Immersive plates", "no empty screens (user, 5 Oct 2026)"),
+    ("System/Style.md", "Immersive plates", "blur background, inset, split layout"),
+    ("System/Workflow.md", "do the pauses feel human", "listening rubric asks about pauses"),
     ("System/Workflow.md", "Listening rubric", "the user's ear is the only audio evidence"),
     ("System/Workflow.md", "Note size ceilings", "per-video notes stay short"),
     ("System/Model script.md", "Hook rewrites", "a model to imitate"),
@@ -92,12 +97,14 @@ for r, d, f in os.walk(os.path.join(ROOT, "Media")):
         media.add(x)
         media.add(os.path.splitext(x)[0])
 
-LINK = re.compile(r"!?\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|[^\]]*)?\]\]")
+LINK = re.compile(r"!?\[\[([^\]|#]+)((?:#[^\]|]*)?)(?:\|[^\]]*)?\]\]")
 for rel, t in notes.items():
     body = re.sub(r"```.*?```", "", t, flags=re.S)           # ignore code blocks
     body = re.sub(r"`[^`]*`", "", body)                      # and inline code
     for m in LINK.finditer(body):
         tgt = m.group(1).strip()
+        if (m.group(1) + m.group(2)).strip() in names:      # a note whose own name contains "#" (e.g. "Youtube idea #2")
+            continue
         if tgt in names or os.path.basename(tgt) in names or tgt in media or os.path.basename(tgt) in media:
             continue
         problems.append(f"broken link in {rel}: [[{tgt}]]")
@@ -122,7 +129,7 @@ for rel in notes:
 _b = open(os.path.join(ROOT, "System", "scripts", "build_video.py"), encoding="utf-8").read()
 if "def add_brand" in _b:
     problems.append("build_video.py still has the brand layer the user asked to remove (feedback, 4 Oct 2026)")
-for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions"), ("write_srt(", "caption track export"), ("LONG PLATE", "long plates are reported"), ("add_sound()", "sound design"), ("plan.captions needs one string", "display captions"), ("CAP_CH = 40", "captions are the top layer, above cards and callouts")):
+for _needle, _why in (("bare backdrop refused", "no bare backdrops"), ("add_captions()", "word-by-word captions"), ("write_srt(", "caption track export"), ("LONG PLATE", "long plates are reported"), ("add_sound()", "sound design"), ("plan.captions needs one string", "display captions"), ("CAP_CH = 40", "captions are the top layer, above cards and callouts"), ("def pause_cuts", "inner pauses are set per word"), ("def blur_bg", "immersive blurred backgrounds"), ("EMPTY PLATE", "empty plates are reported")):
     if _needle not in _b:
         problems.append(f"build_video.py lost its guard: {_needle} ({_why})")
 

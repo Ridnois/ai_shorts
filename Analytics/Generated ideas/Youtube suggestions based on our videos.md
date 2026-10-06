@@ -30,3 +30,6 @@ Why One Single Quarry Controls The Entire Global AI Microchip Supply
 Dives into high-purity quartz mining in Spruce Pine and how a single material bottleneck impacts all advanced semiconductor fabrication
 
 _Likelihood of audience interest:_ Somewhat likely. It brings a fascinating geopolitical and single-point-of-failure angle to the raw materials powering the AI chip race.
+
+
+[[Youtube idea #2]]

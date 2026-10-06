@@ -1,7 +1,7 @@
 ---
 type: rules
 updated: 2026-10-05
-status: v2 · hook rule rewritten as a test (no word count); fail states; demand check; [H] marks untested rules
+status: v3 · pause plan (human rhythm); immersive plates (no empty screens); hook test; fail states; [H] marks untested rules
 ---
 
 # Playbook: every rule for a Short
@@ -29,9 +29,21 @@ Read it whole before writing anything. **[H] marks a hypothesis** (a number or h
 - **Structure:** 1 hook · 2 minimal context (16 to 26) · 3 to 5 causal chain (20 to 30 each) · 6 turn (20 to 30) · 7 close (15 to 25).
 - **Close = concrete payoff:** one plain sentence that answers the question and says what it means for something the viewer knows; repeatable to a friend. No aphorism, moral, summary or call to action. If it fits, the last plate is the first (loop).
 - **Cut test:** delete each sentence in turn; if the video still answers its question, it stays deleted.
-- **For the ear:** sentences of 6 to 16 words, active verbs, varied length, ≤ 1 rhetorical question, no exclamation marks, one deliberate silence (1.2 s before the central question). A **delivery note per scene** (calm, rising, amused, grave). Figures and dates go on screen, not in the voice. Numbers and acronyms are written as spoken if the model misreads them ("A S M L").
+- **For the ear:** sentences of 6 to 16 words, active verbs, varied length, ≤ 1 rhetorical question, no exclamation marks, **the voice should be calm and unhurried, human enough to fall asleep to** (user, 5 Oct 2026). **Pause plan:** every boundary and every inner pause is planned from the sentence's intention and emotion, never left to the model's defaults; see the table below. A **delivery note per scene** (calm, rising, amused, grave). Figures and dates go on screen, not in the voice. Numbers and acronyms are written as spoken if the model misreads them ("A S M L").
 - **Rigor:** every figure has source and date; weak facts attributed or cut ("could"); convicted ≠ accused ≠ investigated; if sources conflict, say "a base recipe from several sources"; respect the focus the user fixed; the research note says what was not verified.
-- **Script table columns:** scene · exact voice text · words · visual plan (plate type, source, usefulness sentence) · on-screen text · source.
+- **Pause plan [H]** (user, 5 Oct 2026: *"pauses should be paired with intention and emotionality of the phrase... the narrative rhythm so human that you could fall asleep listening"*). Each scene gets a **pause after** (the `gaps` entry; the audible silence is the gap plus about 0.42 s of kept lead and tail) and, where the thought needs it, **inner pauses** (`pauses` in `plan.json`):
+
+  | Where | Pause | Why |
+  | --- | --- | --- |
+  | The next scene continues the same thought (starts with "and", "so", "but") | 0.15 to 0.25 s | no gap that breaks a sentence in two |
+  | A new idea | 0.45 s | the default breath |
+  | After a turn or the catch, before the payoff, before the central question | 0.9 to 1.2 s | the listener's time to think |
+  | Inner: after a short setup ("Simple, but slow.") | 0.5 to 0.9 s | lets the claim land |
+  | Inner: after a list item or a clause end | 0.25 to 0.4 s | breath |
+  | **Never** | between subject and verb, after "the", "a", "of", "and", before a number's unit | the uncanny pause the user heard |
+
+  The agent cannot hear: it writes the pause plan in the **Pause after (s) and inner pauses** columns of the script table (intention in words: "gentle", "let it land", "breath"), builds with them, and the user's listening rubric at P7 decides ([[Workflow]]). Pauses the voice model made on its own (a long gap mid-clause) are shortened with an inner pause of 0.25 s on the word before it.
+- **Script table columns:** scene · exact voice text · words · delivery note · **pause after (s) and inner pauses (word, seconds)** · visual plan (plate type, source, usefulness sentence) · on-screen text · source.
 
 **Checklist before P3:** facts bank and scores · street-lamp (not borderline), expert and against-the-idea tests · demand check · five hooks of different types · words in range · scene 1 passes the hook test · theme line and bridges · facts ≤ 5 · cut test · concrete ending · understandable without the images · read aloud, no drag · every claim sourced.
 
@@ -43,7 +55,8 @@ Read it whole before writing anything. **[H] marks a hypothesis** (a number or h
 - **Find 2 to 3 candidate photos per scene** before the plan (Openverse, NASA, Commons; real diagrams as `contain` plates). Pick relevance first, then ≥ 1,080 px, sharp, no watermark or brand, then license. Credits go to `stock/_credits.jsonl` as downloaded; CC BY and CC BY-SA are credited in the description. No identifiable people unless they are the subject.
 - **Generated plates: ≤ 3 per Short, `openai/gpt-image-2`, content-first prompts, no custom style** (no clay, sketch, "cinematic", mood, props). Prompt order: subject (exact name) · structure (parts, count, arrangement, from the research note) · view (cutaway, exploded, top-down) · what must be readable (paraphrase, never the narration sentence) · what each reference supplies · output ("plain background, no letters, numbers or labels"; `background: transparent` for cutouts). Use 1 to 4 real references; do not paste narration into a prompt; check every reference for text and brands.
 - **Scientific fidelity beats creativity:** an explainer is a textbook schematic of the established model, only what the research note supports; prompt what must not appear ("no glow, no light rays, no decorative particles"); check every element against the note; mark "schematic" in Status when simplified. Unsourced element → regenerate once without it or use a photo. Image models restyle diagrams: use diagrams as references or `contain` plates, not as sources to redraw.
-- **No bare backdrops:** a number card, quote or callout sits on a real photo or faithful explainer, never an empty gradient (the builder refuses `blank` plates). A gradient is only the surface behind a cutout or `contain` photo; one palette family per topic.
+- **No bare backdrops:** a number card, quote or callout sits on a real photo or faithful explainer, never an empty gradient (the builder refuses `blank` plates).
+- **Immersive plates, no empty screens** (user, 5 Oct 2026: *"sometimes the screen feels empty, only with a picture and a note"*). **No plate is one picture and one label on a flat gradient.** Three layouts: (1) **full-bleed** photo with callouts and/or a card; (2) **framed photo** (`contain`) with `"bg": "blur"` (the same photo, blurred and darkened, fills the frame) and a card or an `inset`; (3) **split**: an explainer or diagram on top with `"bg": "blur"` + `"bg_photo"` (a related real photo) and an **inset** of the real thing below the captions. A flat gradient is allowed only behind a cutout. The build prints `EMPTY PLATE`: fix before rendering. Specs: [[Style]] (Immersive plates).
 - **Safe zone (9:16):** subject within 15 to 60 % of the height; caption zone (50 %), card (66 %) and callout labels never collide ([[Style]]).
 - **Plates must make sense without the voice.**
 
@@ -58,12 +71,12 @@ Read it whole before writing anything. **[H] marks a hypothesis** (a number or h
 ## 5. Voice and sound
 
 - **Voice:** `elevenlabs/v3`, `Austin`, `language_code: en`, `speed` 1.0, `previous_text` / `next_text`, one take per scene with the exact script text. Optional expressive variant (`stability` 0.35, `style` 0.35, one `[tag]` per scene in the voice prompt only, never in captions) is an A/B in a test run on scene 1; the user's ear decides. The agent cannot hear: declare it at P7.
-- **Sound:** the builder synthesizes the sound design by default (`sound` in `plan.json`: thump, scene whooshes, plate ticks, card pings, callout clicks, A-minor drone; levels voice ≈ −22, effects ≈ −31, bed ≈ −37 dBFS [H]; dials `sfx_gain`, `bed_gain`). Any recording or music is **opt-in**: a plan row with source, license and purpose, approved at P4a, from YouTube Audio Library → Sonniss → Pixabay (per track) → Incompetech (CC BY, credit); credits in `sound/_credits.jsonl`; volume under voice 0.18 to 0.22, bed ≤ 0.12. **Never:** BBC/RemArc (non-commercial), CC BY-NC, game rips, unread licenses (NCS, BenSound, FMA). **BigSoundBank and Freesound are deferred**; no ML-generated sound.
+- **Sound:** the builder synthesizes the sound design by default (`sound` in `plan.json`: **the opening bell/thump the user likes**, scene whooshes, plate ticks, card pings, callout clicks, A-minor drone; levels voice ≈ −22, effects ≈ −31, bed ≈ −37 dBFS [H]; dials `sfx_gain`, `bed_gain`). Any recording or music is **opt-in**: a plan row with source, license and purpose, approved at P4a, from YouTube Audio Library → Sonniss → Pixabay (per track) → Incompetech (CC BY, credit); credits in `sound/_credits.jsonl`; volume under voice 0.18 to 0.22, bed ≤ 0.12. **Never:** BBC/RemArc (non-commercial), CC BY-NC, game rips, unread licenses (NCS, BenSound, FMA). **BigSoundBank and Freesound are deferred**; no ML-generated sound.
 
 ## 6. Edit (Blender 5.2, `build_video.py` + `plan.json`)
 
 - A voice sentence is never cut or abrupt: the builder pads every take (0.30 s before, 0.40 s after, 20 ms fade-in, 50 ms fade-out) and `CHECK=1` verifies lead-in, tail and overlaps.
-- Speech starts at once (`start` ≤ 0.2 s), strongest real image and first caption word on frame 1; 0.45 s between scenes, 1.2 s tail; page turn between scenes, 0.2 s cross-fade within, 8 % push alternating in and out. The build prints `PLATES` and `LONG PLATE` (> 5 s): fix before rendering.
+- Speech starts at once (`start` ≤ 0.2 s), strongest real image and first caption word on frame 1 (**the opening bell and the voice-first start are liked by the user: keep them**); gaps between scenes follow the **pause plan** (§2; `gaps`, default 0.45 s), inner pauses are set with `pauses` (`[["word", seconds, nth]]` per scene: the silence after that heard word becomes exactly that long, captions follow), 1.2 s tail; page turn between scenes, 0.2 s cross-fade within, 8 % push alternating in and out. The build prints `PLATES` and `LONG PLATE` (> 5 s): fix before rendering.
 - `plan.json` fields and builder details: header of `System/scripts/build_video.py`. Captions timed by `word_timings.py` (whisper, ≈ $0.01 per take), estimated if skipped; `render/<prefix>.srt` is written for upload.
 - Blender 5.2 gotchas: `image_settings.media_type = "VIDEO"` before `FFMPEG`; `sequence_editor.strips`; `new_effect(length=...)`; `keyframe_new_interpolation_type = "LINEAR"`; `view_transform = "Standard"`; absolute paths in the `.blend`; TEXT default font is monospaced (load Noto Sans); system Python has no numpy (Blender's does); background mixdown is silent (the builder checks strips).
 

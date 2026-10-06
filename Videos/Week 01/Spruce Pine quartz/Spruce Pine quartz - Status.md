@@ -37,6 +37,8 @@ Short 9:16, English, **147 words** (about 53 s of speech), Austin at `speed` 1.0
 
 ## Feedback
 
+Post-render feedback, 5 Oct 2026: [[Post-render feedback - inmersive]] (applied to the vault; this render is not rebuilt).
+
 Layer order (5 Oct 2026, before this video): *"On the render phase, added text and pointers are covering the captions, that should be below the captions."* Fixed in the builder (`CAP_CH`), the Layers row of [[Style]] and `check_vault.py`; this video is the first built with it.
 
 ## Checks done by the agent

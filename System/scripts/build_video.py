@@ -82,7 +82,7 @@ def pause_cuts(src, pauses, env_of):
     if not os.path.exists(wp):
         raise SystemExit(f"pauses need {wp} (run word_timings.py first)")
     ws, (env, total) = json.load(open(wp)), env_of
-    thr, cuts = env.max() * 0.03, []
+    thr, cuts = env.max() * 0.10, []
     for spec in pauses:
         word, secs, nth = spec[0], float(spec[1]), (spec[2] if len(spec) > 2 else 1)
         hits = [i for i, w in enumerate(ws) if norm(w[0]) == norm(word)]
@@ -252,7 +252,7 @@ _bg_cache = {}
 def blur_bg(plate, idx):
     """Immersive background for `contain` photos (user, 5 Oct 2026: "screen feels empty, only with a picture and a note"):
     the same photo, cover-fitted, strongly blurred and darkened, so the frame is never an empty gradient."""
-    src = load_rgba(f"{ROOT}/{plate['file']}", 600)
+    src = load_rgba(f"{ROOT}/{plate.get('bg_photo', plate['file'])}", 600)    # `bg_photo`: blur another photo (for a diagram plate)
     h0, w0 = src.shape[:2]
     s = max(W / 4 / w0, H / 4 / h0)
     big = resize(src, max(W // 4, round(w0 * s)), max(H // 4, round(h0 * s)))
@@ -426,6 +426,8 @@ for e, scene in enumerate(PLAN["scenes"], start=1):
 LONG = [(i, round(float(b - a), 1)) for i, e, j, n, a, b, pl in flat if b - a > 5.0]
 print("PLATES", len(flat), "| durations", [round(float(b - a), 1) for i, e, j, n, a, b, pl in flat])
 print("LONG PLATE (> 5 s, add a reference image):", LONG if LONG else "none")
+EMPTY = [i for i, e, j, n, a, b, pl in flat if pl["type"] != "full" and pl.get("bg") != "blur" and not pl.get("inset")]
+print("EMPTY PLATE (contain or cutout on a flat gradient: use bg \"blur\" or an inset, user 5 Oct 2026):", EMPTY if EMPTY else "none")
 for i, e, j, n, a, b, pl in flat:
     ini = a - (XF / 2 if j > 0 else 0)
     fin = b + (XF / 2 if j < n - 1 else 0)

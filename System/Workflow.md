@@ -28,7 +28,7 @@ Read `CLAUDE.md`, [[Playbook]], this note, `Analytics/Report.md`, then only the 
 
 A **test stage** (voice of scene 1, one cutout and one stock photo composed, ≈ $0.10) is run only when a new technique, voice setting or model is tried; routine videos skip it. A change in an approved stage reopens the later ones. A new video request without delegation ends at P4 as text: Status note, research, script with visual plan, prompts, `plan.json`, budget.
 
-**Listening rubric at P7:** the agent cannot hear, so the user answers three short questions and the answers are written in Status under *Feedback*: (1) does the voice sound natural? (2) is the pace right (too fast, right, too slow)? (3) is the sound mix right (effects and bed against the voice)? These are the only audio evidence the vault has.
+**Listening rubric at P7:** the agent cannot hear, so the user answers five short questions and the answers are written in Status under *Feedback*: (1) does the voice sound natural? (2) is the pace right (too fast, right, too slow)? (3) **do the pauses feel human: any that comes where it should not, or is missing where it should be?** (write the scene and the word) (4) is the sound mix right (effects and bed against the voice)? (5) **does any screen feel empty?** (write the scene). These are the only evidence the vault has; each "no" becomes a change to the pause plan or the plate before the next video.
 
 ## Budget (show in dollars with cap = base × 1.2 before spending)
 

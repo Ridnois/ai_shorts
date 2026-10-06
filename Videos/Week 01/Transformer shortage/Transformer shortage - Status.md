@@ -45,4 +45,4 @@ Short 9:16, English, **139 words** (about 50 s of speech), Austin at `speed` 1.0
 
 ## Feedback
 
-(empty: your words verbatim, plus the three listening-rubric answers: voice natural? pace? sound mix?)
+Post-render feedback on this video and the quartz one, 5 Oct 2026: [[Post-render feedback - inmersive]] (the opening bell and the flow are liked; pauses should follow the intention of the phrase; screens feel empty with one picture and one note). Applied to the vault; this render is **not** rebuilt with the new pause plan or immersive plates.
