@@ -23,7 +23,7 @@ User: *"I really like [this video], i want you to redo this reel with all our ne
 | 0 Idea · 1 Research · 2 Script · 3 Visual plan | ✅ r2 text | agent | hook type **stakes**; street-lamp: stated mechanism, **needs the user's yes**; demand check done (crowded topic, earned by the turn and the 2043 sum); [[Script - Copper and the AI race]] |
 | 4 Prompts, stock, budget | ✅ | **user, 6 Oct 2026**: *"the ore's speed is good, the date is good too, continue"* (street-lamp yes; run to the render, **no upload**) | base $0.41, expected $0.16, cap $0.49 (below) |
 | 6 Generation | ✅ | delegation | 7 voice takes (832 characters), 1 generated plate (porphyry, no retry), 7 word-timing runs, 3 drawn plates (Pillow), 4 new stock photos |
-| 7 Edit | ✅ built · rendered r2 · ⏳ **P7 is yours** | | `Media/Week 01/2026-10-06 Tue/Copper-AI/render/cu-74s-9x16-r2.mp4` (73.9 s, 85 MB, 1080×1920, 24 fps, + `cu.srt`) |
+| 7 Edit | ✅ r3 rendering (voice redone) · ⏳ **P7 is yours** | | r2 (73.9 s) was rejected by the user for voice; r3: `Media/Week 01/2026-10-06 Tue/Copper-AI/render/cu-80s-9x16-r3.mp4` (79.8 s, + `cu.srt`) |
 | 8 Publish | r1 uploaded private (id YRX0VfpPMtU); r2 replaces it only if the user chooses | | [[Upload - Copper and the AI race]] |
 
 ## r2 prediction log
@@ -32,6 +32,14 @@ User: *"I really like [this video], i want you to redo this reel with all our ne
 - G1 porphyry · `openai/gpt-image-2` 4:3 high, USGS diagram as the only reference · ✅ `plates/cu-p09-porphyry-v2.png` · [ahgyz6dp…](https://replicate.com/p/ahgyz6dpsxrmw0d12cja2b02c8) · 79 s · used (the real USGS diagram was 600 px and unreadable, so the reserve was spent)
 - Word timings · 7 runs ✅. **Spent about $0.40 of the $0.49 cap** (voice about $0.08, timings about $0.07, image about $0.25 if `gpt-image-2` high is that price).
 - Schematic: one fluid path and a tree of veins stand for the stockwork; marked "schematic", not to scale.
+
+## r3: voice redone (6 Oct 2026)
+
+User on r2: *"Copper is terribly pronounced just at the start, redo the voice and captions, tone is very bad and unnatural"*; also asked for today's folder (done: notes and media moved to `2026-10-06 Tue`).
+
+**Cause found:** `previous_text` / `next_text` are now rejected, so scene-by-scene takes start cold and Austin drifts slow and flat (118 to 173 words per minute across takes; r1, with context, was 143 to 201). **Fix:** one continuous take of the whole script (`elevenlabs/v3`, Austin, `stability` 0.3, `style` 0.35, `speed` 1.1, scenes separated by blank lines), cut into the 7 scene files at the quietest point between scenes by `aud` (Blender), words re-timed by one whisper run on the full take, captions rebuilt from them. Four full-take variants were tried (default; speed 1.12 and stability 0.4; the expressive one used; single-space joined). **Variant choice rests on speed and gap measures only, I cannot hear them.** All four ran about 124 to 137 words per minute, so Austin is slow on this script whatever the settings: r3 is 80 s.
+- Extra spend (over the $0.49 cap, **needs the user's okay after the fact**): 4 full takes about $0.34 + 4 timing runs about $0.04. Total video spend about $0.78. The three unused full takes and the r2 per-scene takes are deleted.
+- Rule to add if it holds: voice = one continuous take sliced per scene, not one call per scene.
 
 ## r2 budget (dollars)
 
