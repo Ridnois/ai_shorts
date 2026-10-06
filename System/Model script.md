@@ -13,7 +13,7 @@ Rules say what is allowed ([[Playbook]]); this note shows the target. Source: [[
 | Scene | Voice | Why it works |
 | --- | --- | --- |
 | 2 | "Copper carries current better than any metal but silver, and a passive cable draws no power. So one Nvidia rack uses over two miles of it." | One mechanism (why copper), joined by **so**; a detail a generic explainer skips (passive cable) |
-| 3 | "But AI is only a small slice. Buildings, power grids and cars take the biggest shares of the copper." | Breaks the viewer's assumption: the **turn**, in plain words |
+| 3 | "But AI is not the only buyer. Buildings, power grids and cars take the biggest shares of the copper." | Breaks the viewer's assumption: the **turn**, in plain words |
 | 5 | "That is why a new mine is slow. Someone must find the deposit, drill it to prove the ore, win permits and build. It averages seventeen years." | **Bridge** ("That is why") back to the question; one figure, spoken once |
 | 7 | "So the limit on AI may be geology, not money or chips: copper must be found, dug and refined, and none of it can be rushed." | **Payoff**: answers the question, repeatable to a friend, hedged as inference, no moral |
 
