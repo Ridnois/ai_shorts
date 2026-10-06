@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-05
 updated: 2026-10-05
-status: rendered r1 (62 s) · delegated by the user · P7 is the user's · not uploaded
+status: rendered r1 (62 s) · uploaded private (WtKTVljJR7A) on the user's word
 tags: [research, youtube, status, deep-sea, mining, shorts, week-01]
 ---
 
@@ -24,7 +24,7 @@ Short 9:16, English, **148 words** (about 53 s of speech), Austin at `speed` 1.0
 | 5 Test | skipped | | no new voice technique; the pause tool is checked by numbers |
 | 6 Generation | ✅ | delegation | 7 voice takes, 0 generated plates, 7 word-timing runs, 4 drawn diagrams |
 | 7 Edit | ✅ rendered r1 · ⏳ **P7 is yours** | | `Media/Week 01/Deep-sea/render/dn-62s-9x16-r1.mp4` (+ `dn.srt`) |
-| 8 Publish | not started | | upload only on the user's word |
+| 8 Publish | ✅ uploaded private | **user, 5 Oct 2026**: *"Way better, upload the video"* | see [[Upload - Deep-sea nodules]]; `videos.csv` row added |
 
 ## P4 budget (dollars)
 
