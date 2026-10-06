@@ -2,6 +2,7 @@
 """YouTube Data API v3 uploader (stdlib only). Setup and gotchas: System/Publish.md
   python3 System/scripts/youtube_upload.py auth                      # once: browser consent, prints YT_REFRESH_TOKEN
   python3 System/scripts/youtube_upload.py upload VIDEO.mp4 --title T --desc-file D.txt [--thumb T.jpg] [--privacy private]
+  python3 System/scripts/youtube_upload.py thumb VIDEO_ID THUMB.jpg   # set or re-set a thumbnail later (one set right after upload can be overwritten while YouTube is still processing)
 Reads YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN from .env (vault root) or the environment."""
 import argparse, http.server, json, os, sys, urllib.parse, urllib.request, urllib.error, webbrowser
 
@@ -70,9 +71,17 @@ def upload(a):
         except urllib.error.HTTPError as e: print("thumbnail failed (Shorts thumbnails need Partner Program):", e.code)
 
 
+def thumb(a):
+    r = urllib.request.urlopen(urllib.request.Request(
+        f"https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={a.video_id}", open(a.file, "rb").read(),
+        {"Authorization": "Bearer " + access_token(), "Content-Type": "image/jpeg" if a.file.endswith("jpg") else "image/png"}))
+    print("thumbnail set", a.video_id, r.status)
+
+
 p = argparse.ArgumentParser()
 s = p.add_subparsers(dest="cmd", required=True)
 s.add_parser("auth")
+th = s.add_parser("thumb"); th.add_argument("video_id"); th.add_argument("file")
 u = s.add_parser("upload")
 u.add_argument("video"); u.add_argument("--title", required=True)
 u.add_argument("--desc", default=""); u.add_argument("--desc-file")
@@ -81,6 +90,6 @@ u.add_argument("--publish-at"); u.add_argument("--category", default="28")  # 28
 a = p.parse_args()
 if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env (System/Publish.md)")
 try:
-    auth() if a.cmd == "auth" else upload(a)
+    auth() if a.cmd == "auth" else thumb(a) if a.cmd == "thumb" else upload(a)
 except urllib.error.HTTPError as e:
     sys.exit(f"HTTP {e.code}: {e.read().decode()[:600]}")

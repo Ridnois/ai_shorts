@@ -14,7 +14,7 @@ User request (5 Oct 2026): *"Upload it, make it public"*. The user confirmed vis
 
 ## Upload result
 
-`System/scripts/youtube_upload.py` (public, Science & Technology, not made for kids, `containsSyntheticMedia: true`), first attempt: id **F2fC5degIP4**, https://studio.youtube.com/video/F2fC5degIP4/edit, https://youtu.be/F2fC5degIP4. File `Media/Week 01/Transformers/render/tf-53s-9x16-r1.mp4` (52.9 s). The Data API pull shows `privacy=public` (published 6 Oct 2026, 00:12 UTC), so this API project is not locked to private. **Thumbnail set** (`thumbnails.set`: "thumbnail set"): `upload/thumb-tf.jpg`, text **NO MOVING PARTS / 2.5-YEAR WAIT** over a real 750 kV transformer (CC0), no image generated ($0). Confirm in Studio that it shows.
+`System/scripts/youtube_upload.py` (public, Science & Technology, not made for kids, `containsSyntheticMedia: true`), first attempt: id **F2fC5degIP4**, https://studio.youtube.com/video/F2fC5degIP4/edit, https://youtu.be/F2fC5degIP4. File `Media/Week 01/Transformers/render/tf-53s-9x16-r1.mp4` (52.9 s). The Data API pull shows `privacy=public` (published 6 Oct 2026, 00:12 UTC), so this API project is not locked to private. **Thumbnail set** (`thumbnails.set`: "thumbnail set"): `upload/thumb-tf.jpg`, text **NO MOVING PARTS / 2.5-YEAR WAIT** over a real 750 kV transformer (CC0), no image generated ($0). The served `maxresdefault.jpg` shows the text (checked after the upload; re-run `youtube_upload.py thumb` if Studio disagrees).
 
 ## Title (62 characters)
 

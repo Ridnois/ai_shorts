@@ -14,7 +14,7 @@ User request (5 Oct 2026): *"choose a topic to create and upload a new video"*. 
 
 ## Upload result
 
-`System/scripts/youtube_upload.py`, first attempt: id **lQRLoZYWFwU**, https://studio.youtube.com/video/lQRLoZYWFwU/edit, https://youtu.be/lQRLoZYWFwU. File `Media/Week 01/Spruce-Pine/render/sp-63s-9x16-r3.mp4` (62.8 s), category Science & Technology, not made for kids, `containsSyntheticMedia: true`. **Thumbnail set** (`thumbnails.set` answered "thumbnail set"): `upload/thumb-sp.jpg`, text **CHIPS DEPEND ON ONE TOWN** over a real used-crucible photo (public domain), no image generated ($0). The first version of the text said "makes chips", which is false (Spruce Pine mines quartz), and was changed before upload. Confirm in Studio that it shows.
+`System/scripts/youtube_upload.py`, first attempt: id **lQRLoZYWFwU**, https://studio.youtube.com/video/lQRLoZYWFwU/edit, https://youtu.be/lQRLoZYWFwU. File `Media/Week 01/Spruce-Pine/render/sp-63s-9x16-r3.mp4` (62.8 s), category Science & Technology, not made for kids, `containsSyntheticMedia: true`. **Thumbnail set** (`thumbnails.set` answered "thumbnail set"): `upload/thumb-sp.jpg`, text **CHIPS DEPEND ON ONE TOWN** over a real used-crucible photo (public domain), no image generated ($0). The first version of the text said "makes chips", which is false (Spruce Pine mines quartz), and was changed before upload. **The user found no custom thumbnail in Studio** (set while the video was still processing); re-set with `youtube_upload.py thumb lQRLoZYWFwU` (HTTP 200) and the served `maxresdefault.jpg` now shows the text (checked 5 Oct 2026).
 
 ## Title (53 characters)
 
