@@ -16,6 +16,8 @@ tags: [youtube, pipeline, suggestion]
 
 # Why desert sand cannot build a city
 
+**Parked 6 Oct 2026** (user chose the decimals idea). P1 finding: the original angle fails the street-lamp test (a 2.9M-view video gives the headline) and is overstated: Al-Harthy et al. 2007 found full dune-sand replacement lost under 25 % strength. Reusable angle: *the world is short of the right sand in the right place* (USGS MCS 2026: resources plentiful, quality and geography limit; US price $10.52 to $14.50 per tonne, 2021 to 2025e). Read before use: fineness and paste demand, UNEP 2060 projection.
+
 ← [[Pipeline]] · [[YouTube Channel]] · [[Audience]]
 
 **Suggested draft, 6 Oct 2026, not researched.** Topic family: materials and resources. **Y:** building with sand that is free and everywhere. **X:** wind rounds desert grains so they do not lock inside concrete.
