@@ -69,11 +69,11 @@ YouTube test it with more people like them
 
 Para construir un canal de YouTube exitoso que genere leads y ventas, Jake Trinder comparte su metodología basada en datos. Aquí tienes los tips clave:
 
-- **Valida la demanda antes de grabar :** No hagas videos sobre lo que crees que tu audiencia necesita. Busca evidencia en YouTube sobre qué temas ya tienen alto interés y competencia, y usa esa información para crear un "mapa de demanda".
-- **Crea contenido para los niveles de conciencia de tu cliente :** Si tu solución es técnica (como hablar de insulina), posiciónala alrededor de un deseo o resultado que tu audiencia ya tenga (como perder grasa).
-- **Usa la técnica de "búsqueda en profundidad" :** Investiga tu nicho explorando sistemáticamente videos exitosos, canales de la competencia y recomendaciones. No te centres en un solo competidor, obtén una visión global de lo que funciona.
-- **Empaqueta tu video estratégicamente :** El título y la miniatura deben prometer un valor claro. No copies simplemente los títulos exitosos de otros; entiende _por qué_ funcionaron y aplica esa psicología a tu propio contenido.
-- **Maximiza la satisfacción del espectador, no la retención :** YouTube favorece los videos que satisfacen la promesa hecha en el clic. Asegúrate de que el video cumpla y supere las expectativas del espectador desde el inicio.
+- **Valida la demanda antes de grabar:** No hagas videos sobre lo que crees que tu audiencia necesita. Busca evidencia en YouTube sobre qué temas ya tienen alto interés y competencia, y usa esa información para crear un "mapa de demanda".
+- **Crea contenido para los niveles de conciencia de tu cliente:** Si tu solución es técnica (como hablar de insulina), posiciónala alrededor de un deseo o resultado que tu audiencia ya tenga (como perder grasa).
+- **Usa la técnica de "búsqueda en profundidad":** Investiga tu nicho explorando sistemáticamente videos exitosos, canales de la competencia y recomendaciones. No te centres en un solo competidor, obtén una visión global de lo que funciona.
+- **Empaqueta tu video estratégicamente:** El título y la miniatura deben prometer un valor claro. No copies simplemente los títulos exitosos de otros; entiende _por qué_ funcionaron y aplica esa psicología a tu propio contenido.
+- **Maximiza la satisfacción del espectador, no la retención:** YouTube favorece los videos que satisfacen la promesa hecha en el clic. Asegúrate de que el video cumpla y supere las expectativas del espectador desde el inicio.
 - **Diseña llamados a la acción (CTA) útiles:** El CTA no debe sentirse como una interrupción. Ofréceles algo de valor genuino, como un recurso gratuito o un "lead magnet", que sea el paso lógico para alguien interesado en el tema.
 - **Usa los datos para iterar:** Analiza el rendimiento de tus videos para decidir qué duplicar. Si un formato funciona, encuentra una forma nueva o mejor de aprovechar esa misma señal en el futuro.
-- **Sé específico incluso si reduce el alcance (32:05 - 32:45):** A veces, ser específico ayuda a que tu audiencia ideal se sienta más comprendida, lo cual es más valioso para tu negocio que simplemente conseguir visitas genéricas.
+- **Sé específico incluso si reduce el alcance:** A veces, ser específico ayuda a que tu audiencia ideal se sienta más comprendida, lo cual es más valioso para tu negocio que simplemente conseguir visitas genéricas.
