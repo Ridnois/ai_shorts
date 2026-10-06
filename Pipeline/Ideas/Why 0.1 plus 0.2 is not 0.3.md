@@ -39,7 +39,7 @@ tags: [youtube, pipeline, suggestion]
 
 ## Demand check
 
-pending (user pastes views): searched plain question 'why is 0.1 + 0.2 not 0.3'; expect many comparable videos, so the Patriot angle is the differentiator
+**medium** (`youtube_search.py`, 6 Oct 2026): best 200k views (wazpam), 8 others 9 to 17k; many tiny Shorts. Patriot angle is the differentiator ([[Niche map]])
 
 ## Facts to verify at P1
 

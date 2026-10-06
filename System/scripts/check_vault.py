@@ -66,6 +66,7 @@ INVARIANTS = [
     ("System/Playbook.md", "`previous_text`", "scene takes continue the prosody"),
     ("System/Playbook.md", "2b. Package", "title and thumbnail are written at the script phase (user, 6 Oct 2026)"),
     ("System/Audience.md", "Deep-first search", "niche research method (user insights, 6 Oct 2026)"),
+    ("System/Audience.md", "youtube_search.py", "deep-first search runs on the YouTube Data API (user, 6 Oct 2026)"),
     ("System/Audience.md", "promise, proof, plan", "opening reaffirms the click"),
     ("System/Workflow.md", "elevenlabs/turbo-v2.5", "voice model in the budget"),
     ("CLAUDE.md", "Package at the script phase", "agent guide carries the package rule"),

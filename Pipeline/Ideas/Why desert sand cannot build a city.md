@@ -39,7 +39,7 @@ tags: [youtube, pipeline, suggestion]
 
 ## Demand check
 
-pending: searched 'why can't we use desert sand for concrete'; the topic is popular in explainers, views to be pasted; fits human-progress niche
+**strong** (`youtube_search.py`, 6 Oct 2026): MLTW Facts 'Why Desert Sand Can't Build Houses' 2.9M views (103x its channel median); 8 other videos on the question, 5 under 3k. Saturated by small channels, so the angle must add the sand shortage numbers ([[Niche map]])
 
 ## Facts to verify at P1
 

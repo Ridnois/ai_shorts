@@ -28,7 +28,7 @@ Owns everything that happens **before the click and in the first seconds after i
 4. For each outlier record **why people wanted to click** (the result they already want, faster than expected, an unfair-advantage feeling), never its words or looks.
 5. Write it in `Pipeline/Niche map.md` (one line per outlier: link, views vs channel norm, Y, promise, format). Keep ≤ 40 lines; delete rows that were not useful.
 
-**Tooling limit (6 Oct 2026):** YouTube result pages return no text to the agent's browser tool, so view counts cannot be read automatically; the user pastes the numbers or a screenshot, or the agent marks the demand check *pending* in the idea note. Never invent a view count.
+**Tool:** `python3 System/scripts/youtube_search.py <query> [more queries] [--short] [--min-ratio 3]` (YouTube Data API, read-only token already in `.env`; 100 quota units per query plus about 2 per channel) prints outliers as Niche map rows: views against the median of the channel's last 10 uploads. Fill the Y, promise and why columns by hand. The browser tool cannot read YouTube pages. Never invent a view count.
 
 ## Package: title and thumbnail are one promise
 

@@ -39,7 +39,7 @@ tags: [youtube, pipeline, suggestion]
 
 ## Demand check
 
-pending: searched plain question 'why are there cracks in concrete roads'; sidewalk and highway joint videos exist, views to be pasted
+**weak** (`youtube_search.py`, 6 Oct 2026): best results 1 to 4k views; no outlier above 5k. Needs a stronger Y (potholes, cost) or a lower slot ([[Niche map]])
 
 ## Facts to verify at P1
 
