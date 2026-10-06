@@ -31,7 +31,7 @@ In `Media/Week 01/Spruce-Pine/upload/desc.txt`: claim and search words first, "N
 ## Pinned comment (post by hand)
 
 ```text
-Which surprised you more: that chips start in a bowl, or that most of the quartz comes from one valley? If I got a number wrong, tell me and I will pin the correction.
+Did you know most chips start in rock from one small town in North Carolina? Reply yes or no. If a number is off, tell me and I will pin the correction.
 ```
 
 ## Studio settings

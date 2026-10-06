@@ -31,7 +31,7 @@ In `Media/Week 01/Jikji-short/upload/desc.txt`: the claim and search words first
 ## Pinned comment (post by hand)
 
 ```text
-Which surprised you more: that a printer's mistake is the proof, or that you can read the book free online? If I got a date wrong, tell me and I will pin the correction.
+Jikji printed first. Gutenberg's press changed Europe. Who gets the title "inventor of printing"? Vote Jikji or Gutenberg below. If I got a date wrong, tell me and I will pin the correction.
 ```
 
 ## Studio settings
