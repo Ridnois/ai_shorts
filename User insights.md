@@ -44,5 +44,13 @@ Before the click, viewers think which video should i watch, after click they thi
 The opening of the video must make them feel they made the right choice.
 
 "Am i getting what i clicked for?"
+"Can this chanel actually deliver it?"
+"Is the rest worth my time?"
 
-"Can this chanel actually deliv"
+Promise -> Proof -> Plan 
+
+Reafirm exactly what they clicked for
+Give them a reason to trust you
+Show them where the video is going
+
+## Viewer satisfaction is the goal
