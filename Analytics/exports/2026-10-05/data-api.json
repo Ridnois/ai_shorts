@@ -1,7 +1,75 @@
 [
  {
   "kind": "youtube#video",
-  "etag": "7o2XPTBQF9DEoyB6Nn4DPPCEN50",
+  "etag": "oE7gb_gZZ9xBLOkoAB-yV8BazWg",
+  "id": "F2fC5degIP4",
+  "snippet": {
+   "publishedAt": "2026-10-06T00:12:49Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "AI Data Centers Wait Years for a Machine With No Moving Parts",
+   "description": "AI data centers are waiting in line for a machine with no moving parts: the power transformer. A steel ring wrapped in copper, about two and a half years to get, and only one US company makes the steel.\n\nNew Shorts every day.\n\nSOURCES\n- POWER magazine, Transformers in 2026: shortage, scramble or self-inflicted crisis (average lead times of 128 weeks for power transformers and 144 weeks for generator step-up units, Q2 2025, citing Wood Mackenzie; $1.8 billion of announced plants through 2028; a contractor who disputes the shortage): https://powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/\n- Wood Mackenzie, Power transformers and distribution transformers will face supply deficits of 30% and 10% in 2025 (imports about 80% of US power transformer supply): https://www.woodmac.com/press-releases/power-transformers-and-distribution-transformers-will-face-supply-deficits-of-30-and-10-in-2025/\n- pv magazine USA, Grid transformers face significant supply deficits (power transformer demand up 119% since 2019): https://pv-magazine-usa.com/2025/08/14/grid-transformers-face-significant-supply-deficits-says-wood-mackenzie/\n- Allegheny Front, DOE transformer efficiency rule and Cleveland-Cliffs (the only US maker of grain-oriented electrical steel, in Butler, Pennsylvania and Zanesville, Ohio): https://www.alleghenyfront.org/doe-distribution-transformers-grid-energy-efficiency-rule-butler-cleveland-cliffs/\nLead times are national averages for large units; some suppliers report shorter waits for standard substation transformers. Figures are for 2025 and were checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nData center roof, 750 kV transformer, 230 kV busbars and switchgear: Rsparks3 and Novoklimov, CC0 | Winding coils: National Photo Company, public domain | Transformer core workshop: Engindenizoglu, CC BY-SA 4.0 | Grain-oriented electrical steel: Zureks, CC BY-SA 3.0 | Substation power transformer: Yoshieslunchbox, CC BY-SA 4.0 | Transformer on a rail car: Feddacheenee, CC BY-SA 4.0\n\nThe narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n#transformers #powergrid #datacenters #AI #infrastructure",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/F2fC5degIP4/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/F2fC5degIP4/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/F2fC5degIP4/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/F2fC5degIP4/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/F2fC5degIP4/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    },
+    "qhd": {
+     "url": "https://i.ytimg.com/vi/F2fC5degIP4/qhddefault.jpg",
+     "width": 2560,
+     "height": 1440
+    }
+   },
+   "channelTitle": "REDTAIL",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "AI Data Centers Wait Years for a Machine With No Moving Parts",
+    "description": "AI data centers are waiting in line for a machine with no moving parts: the power transformer. A steel ring wrapped in copper, about two and a half years to get, and only one US company makes the steel.\n\nNew Shorts every day.\n\nSOURCES\n- POWER magazine, Transformers in 2026: shortage, scramble or self-inflicted crisis (average lead times of 128 weeks for power transformers and 144 weeks for generator step-up units, Q2 2025, citing Wood Mackenzie; $1.8 billion of announced plants through 2028; a contractor who disputes the shortage): https://powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/\n- Wood Mackenzie, Power transformers and distribution transformers will face supply deficits of 30% and 10% in 2025 (imports about 80% of US power transformer supply): https://www.woodmac.com/press-releases/power-transformers-and-distribution-transformers-will-face-supply-deficits-of-30-and-10-in-2025/\n- pv magazine USA, Grid transformers face significant supply deficits (power transformer demand up 119% since 2019): https://pv-magazine-usa.com/2025/08/14/grid-transformers-face-significant-supply-deficits-says-wood-mackenzie/\n- Allegheny Front, DOE transformer efficiency rule and Cleveland-Cliffs (the only US maker of grain-oriented electrical steel, in Butler, Pennsylvania and Zanesville, Ohio): https://www.alleghenyfront.org/doe-distribution-transformers-grid-energy-efficiency-rule-butler-cleveland-cliffs/\nLead times are national averages for large units; some suppliers report shorter waits for standard substation transformers. Figures are for 2025 and were checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nData center roof, 750 kV transformer, 230 kV busbars and switchgear: Rsparks3 and Novoklimov, CC0 | Winding coils: National Photo Company, public domain | Transformer core workshop: Engindenizoglu, CC BY-SA 4.0 | Grain-oriented electrical steel: Zureks, CC BY-SA 3.0 | Substation power transformer: Yoshieslunchbox, CC BY-SA 4.0 | Transformer on a rail car: Feddacheenee, CC BY-SA 4.0\n\nThe narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n#transformers #powergrid #datacenters #AI #infrastructure"
+   },
+   "defaultAudioLanguage": "en"
+  },
+  "status": {
+   "uploadStatus": "uploaded",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "0",
+   "likeCount": "0",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "0"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "iP6iid7eAcoU8au8dFh7UWlXWFM",
   "id": "lQRLoZYWFwU",
   "snippet": {
    "publishedAt": "2026-10-05T23:54:43Z",
@@ -63,12 +131,12 @@
    "likeCount": "0",
    "dislikeCount": "0",
    "favoriteCount": "0",
-   "commentCount": "0"
+   "commentCount": "1"
   }
  },
  {
   "kind": "youtube#video",
-  "etag": "7vhxZXOa1dgk7eXlgx7P-qaXrN8",
+  "etag": "FbJO3NGumpiGdlLaq684fEYBhVA",
   "id": "a3faPJ87qsk",
   "snippet": {
    "publishedAt": "2026-10-05T22:51:24Z",
@@ -126,16 +194,16 @@
    "selfDeclaredMadeForKids": false
   },
   "statistics": {
-   "viewCount": "1",
+   "viewCount": "4",
    "likeCount": "0",
    "dislikeCount": "0",
    "favoriteCount": "0",
-   "commentCount": "0"
+   "commentCount": "1"
   }
  },
  {
   "kind": "youtube#video",
-  "etag": "5PYiuYZF0O9rqOI6v3rf9JvPBNo",
+  "etag": "EILc1M8eeF333cjUdTuYMFRWxEQ",
   "id": "WhNq3ry6sBw",
   "snippet": {
    "publishedAt": "2026-10-05T20:19:59Z",
@@ -189,7 +257,7 @@
    "selfDeclaredMadeForKids": false
   },
   "statistics": {
-   "viewCount": "89",
+   "viewCount": "91",
    "likeCount": "2",
    "dislikeCount": "0",
    "favoriteCount": "0",

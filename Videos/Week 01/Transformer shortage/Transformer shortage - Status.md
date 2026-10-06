@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-05
 updated: 2026-10-05
-status: rendered r1 (53 s) · delegated by the user · P7 is the user's · not uploaded
+status: rendered r1 (53 s) and uploaded PUBLIC (F2fC5degIP4) with thumbnail, on the user's word
 tags: [research, youtube, status, grid, transformers, shorts, week-01]
 ---
 
@@ -24,7 +24,7 @@ Short 9:16, English, **139 words** (about 50 s of speech), Austin at `speed` 1.0
 | 5 Test | skipped | | no new technique |
 | 6 Generation | ✅ | delegation | 7 voice takes, 0 generated plates, 7 word-timing runs (network timeouts twice, finished takes kept), 3 drawn diagrams |
 | 7 Edit | ✅ rendered r1 · ⏳ **P7 is yours** | | `Media/Week 01/Transformers/render/tf-53s-9x16-r1.mp4` (+ `tf.srt`) |
-| 8 Publish | not started | | upload only on the user's word |
+| 8 Publish | ✅ uploaded public | **user, 5 Oct 2026**: *"Upload it, make it public"* | see [[Upload - Transformer shortage]]; `videos.csv` row added |
 
 ## P4 budget (dollars)
 

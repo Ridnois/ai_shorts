@@ -10,17 +10,18 @@ tags: [analytics, metrics, report]
 
 ← [[YouTube Channel]] · [[Publish]] (rules) · data: `Analytics/snapshots.csv`, `Analytics/videos.csv`
 
-**5 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Publish]] §Analytics loop).
+**6 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Publish]] §Analytics loop).
 
-## youtube at 0h (2 videos)
+## youtube at 0h (3 videos)
 
 | video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [[Jikji and Gutenberg - Status]] | 1 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
-| [[Spruce Pine quartz - Status]] | 0 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
-| **median** | 0.5 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
+| [[Spruce Pine quartz - Status]] | 0 |  |  |  |  |  | 0 | 1 |  |  |  |  |  |
+| [[Transformer shortage - Status]] | 0 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
+| **median** | 0 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
 
-**Too few views to read percentages (< 100): Jikji and Gutenberg, Spruce Pine quartz.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
+**Too few views to read percentages (< 100): Jikji and Gutenberg, Spruce Pine quartz, Transformer shortage.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
 
 Below the median (needs 3+ videos): none
 
@@ -29,8 +30,8 @@ Below the median (needs 3+ videos): none
 | video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [[Copper and the AI race - Status]] | 9 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
-| [[Jikji and Gutenberg - Status]] | 1 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
-| **median** | 5 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
+| [[Jikji and Gutenberg - Status]] | 4 |  |  |  |  |  | 0 | 1 |  |  |  |  |  |
+| **median** | 6.5 |  |  |  |  |  | 0 | 0.5 |  |  |  |  |  |
 
 **Too few views to read percentages (< 100): Copper and the AI race, Jikji and Gutenberg.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
 
@@ -52,8 +53,8 @@ Below the median (needs 3+ videos): none
 
 | video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[EV battery tech - Status]] | 89 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
-| **median** | 89 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
+| [[EV battery tech - Status]] | 91 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
+| **median** | 91 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
 
 **Too few views to read percentages (< 100): EV battery tech.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
 
