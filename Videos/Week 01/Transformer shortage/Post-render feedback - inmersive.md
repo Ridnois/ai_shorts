@@ -6,6 +6,12 @@ I like the bell sound at the start, and the flow of the images accompanied by th
 
 ## Parts that could improve
 
-Sometimes, the rythm voice is 
+Sometimes, the rythm voice is uncanny, no pauses where the voice makes you feel like it comes one, pauses where they should not go. voice spacing should be paired with  intention and emotionality of the phrase, i think maybe the audio cuts need a tweak, i want the narrative rythm to be so human that you could fall sleep listening. the result right now is good but pauses should be improved
+
+Sometimes, screen feels empty, only with a picture and a note, we could redesign the way we render that kind of section.
+
+## Parts that need to be changed
+
+
 
 
