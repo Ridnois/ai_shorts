@@ -14,7 +14,7 @@ User request (5 Oct 2026): *"Way better, upload the video"*. No visibility named
 
 ## Upload result
 
-`System/scripts/youtube_upload.py`, first attempt: id **WtKTVljJR7A**, https://studio.youtube.com/video/WtKTVljJR7A/edit, https://youtu.be/WtKTVljJR7A. File `Media/Week 01/Deep-sea/render/dn-62s-9x16-r1.mp4` (62.2 s), Science & Technology, not made for kids, `containsSyntheticMedia: true`. **Thumbnail** `upload/thumb-dn.jpg` (**MINING THE / DEEP SEABED** over a real Ifremer seafloor photo, CC BY 4.0, no image generated, $0): set with the upload, then **re-set after processing** (`youtube_upload.py thumb`, [[Publish]]) and the served `maxresdefault.jpg` checked (see below).
+`System/scripts/youtube_upload.py`, first attempt: id **WtKTVljJR7A**, https://studio.youtube.com/video/WtKTVljJR7A/edit, https://youtu.be/WtKTVljJR7A. File `Media/Week 01/Deep-sea/render/dn-62s-9x16-r1.mp4` (62.2 s), Science & Technology, not made for kids, `containsSyntheticMedia: true`. **Thumbnail** `upload/thumb-dn.jpg` (**MINING THE / DEEP SEABED** over a real Ifremer seafloor photo, CC BY 4.0, no image generated, $0): set with the upload, then **re-set after processing** (`youtube_upload.py thumb`, [[Publish]]) and the served image checked: the public `maxresdefault.jpg` URL returns 404 for a private video, but the signed `maxres` URL from the Data API shows **MINING THE / DEEP SEABED** (checked 6 Oct 2026, processing `processed`).
 
 ## Title (50 characters)
 

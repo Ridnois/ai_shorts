@@ -10,42 +10,46 @@ tags: [analytics, metrics, report]
 
 ← [[YouTube Channel]] · [[Publish]] (rules) · data: `Analytics/snapshots.csv`, `Analytics/videos.csv`
 
-**6 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Publish]] §Analytics loop).
+**7 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Publish]] §Analytics loop).
 
-## youtube at 0h (3 videos)
+## youtube at 0h (4 videos)
 
 | video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [[Jikji and Gutenberg - Status]] | 1 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
 | [[Spruce Pine quartz - Status]] | 0 |  |  |  |  |  | 0 | 1 |  |  |  |  |  |
 | [[Transformer shortage - Status]] | 0 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
+| [[Deep-sea nodules - Status]] | 0 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
 | **median** | 0 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
 
-**Too few views to read percentages (< 100): Jikji and Gutenberg, Spruce Pine quartz, Transformer shortage.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
+**Too few views to read percentages (< 100): Jikji and Gutenberg, Spruce Pine quartz, Transformer shortage, Deep-sea nodules.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
 
 Below the median (needs 3+ videos): none
 
-## youtube at 1h (2 videos)
+## youtube at 1h (4 videos)
 
 | video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [[Copper and the AI race - Status]] | 9 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
 | [[Jikji and Gutenberg - Status]] | 4 |  |  |  |  |  | 0 | 1 |  |  |  |  |  |
-| **median** | 6.5 |  |  |  |  |  | 0 | 0.5 |  |  |  |  |  |
+| [[Transformer shortage - Status]] | 1 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
+| [[Spruce Pine quartz - Status]] | 0 |  |  |  |  |  | 0 | 1 |  |  |  |  |  |
+| **median** | 2.5 |  |  |  |  |  | 0 | 0.5 |  |  |  |  |  |
 
-**Too few views to read percentages (< 100): Copper and the AI race, Jikji and Gutenberg.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
+**Too few views to read percentages (< 100): Copper and the AI race, Jikji and Gutenberg, Transformer shortage, Spruce Pine quartz.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
 
 Below the median (needs 3+ videos): none
 
-## youtube at 2h (2 videos)
+## youtube at 2h (3 videos)
 
 | video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [[Battery and lithium - Status]] | 46 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
 | [[EV battery tech - Status]] | 27 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
-| **median** | 36.5 |  |  |  |  |  | 1.5 | 1 |  |  |  |  |  |
+| [[Jikji and Gutenberg - Status]] | 4 |  |  |  |  |  | 0 | 1 |  |  |  |  |  |
+| **median** | 27 |  |  |  |  |  | 1 | 1 |  |  |  |  |  |
 
-**Too few views to read percentages (< 100): Battery and lithium, EV battery tech.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
+**Too few views to read percentages (< 100): Battery and lithium, EV battery tech, Jikji and Gutenberg.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
 
 Below the median (needs 3+ videos): none
 
@@ -69,15 +73,16 @@ Below the median (needs 3+ videos): none
 
 Below the median (needs 3+ videos): none
 
-## youtube at 5h (2 videos)
+## youtube at 5h (3 videos)
 
 | video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [[Battery and lithium - Status]] | 70 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
 | [[Copper and the AI race - Status]] | 152 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
-| **median** | 111 |  |  |  |  |  | 1.5 | 1 |  |  |  |  |  |
+| [[EV battery tech - Status]] | 91 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
+| **median** | 91 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
 
-**Too few views to read percentages (< 100): Battery and lithium.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
+**Too few views to read percentages (< 100): Battery and lithium, EV battery tech.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
 
 Below the median (needs 3+ videos): none
 
@@ -89,6 +94,24 @@ Below the median (needs 3+ videos): none
 | **median** | 86 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
 
 **Too few views to read percentages (< 100): Battery and lithium.** Counts only; do not act on rates ([[Publish]] §Analytics loop).
+
+Below the median (needs 3+ videos): none
+
+## youtube at 7h (1 videos)
+
+| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [[Copper and the AI race - Status]] | 172 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
+| **median** | 172 |  |  |  |  |  | 2 | 0 |  |  |  |  |  |
+
+Below the median (needs 3+ videos): none
+
+## youtube at 8h (1 videos)
+
+| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [[Battery and lithium - Status]] | 102 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
+| **median** | 102 |  |  |  |  |  | 1 | 2 |  |  |  |  |  |
 
 Below the median (needs 3+ videos): none
 
