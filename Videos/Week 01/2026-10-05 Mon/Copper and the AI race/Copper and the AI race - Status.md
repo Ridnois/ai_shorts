@@ -23,7 +23,7 @@ User: *"I really like [this video], i want you to redo this reel with all our ne
 | 0 Idea · 1 Research · 2 Script · 3 Visual plan | ✅ r2 text | agent | hook type **stakes**; street-lamp: stated mechanism, **needs the user's yes**; demand check done (crowded topic, earned by the turn and the 2043 sum); [[Script - Copper and the AI race]] |
 | 4 Prompts, stock, budget | ✅ | **user, 6 Oct 2026**: *"the ore's speed is good, the date is good too, continue"* (street-lamp yes; run to the render, **no upload**) | base $0.41, expected $0.16, cap $0.49 (below) |
 | 6 Generation | ✅ | delegation | 7 voice takes (832 characters), 1 generated plate (porphyry, no retry), 7 word-timing runs, 3 drawn plates (Pillow), 4 new stock photos |
-| 7 Edit | ✅ built · render r2 running · ⏳ **P7 is yours** | | `Media/Week 01/2026-10-05 Mon/Copper-AI/render/cu-74s-9x16-r2.mp4` (73.9 s, 1772 frames, + `cu.srt`) |
+| 7 Edit | ✅ built · rendered r2 · ⏳ **P7 is yours** | | `Media/Week 01/2026-10-05 Mon/Copper-AI/render/cu-74s-9x16-r2.mp4` (73.9 s, 85 MB, 1080×1920, 24 fps, + `cu.srt`) |
 | 8 Publish | r1 uploaded private (id YRX0VfpPMtU); r2 replaces it only if the user chooses | | [[Upload - Copper and the AI race]] |
 
 ## r2 prediction log
