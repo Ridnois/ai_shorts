@@ -1,8 +1,8 @@
 ---
 type: research
 created: 2026-10-05
-updated: 2026-10-05
-status: rendered r1 (61 s) · delegated by the user ("do it all for yourself", 5 Oct 2026) · P7 is the user's
+updated: 2026-10-06
+status: r1 rendered and uploaded (5 Oct) · REDO r2 written to Playbook v3, waiting at P4 for the user's yes (6 Oct 2026)
 tags: [research, youtube, status, copper, ai, shorts, week-01]
 ---
 
@@ -12,46 +12,33 @@ tags: [research, youtube, status, copper, ai, shorts, week-01]
 
 Short 9:16, English, **160 words**, Austin at `speed` 1.0, **Week 01** (the same calendar week as [[Battery and lithium - Status]]: both were made on Monday 5 Oct 2026; [[Workflow]]). Question: why can't the AI race just make more copper? Media in `Media/Week 01/2026-10-05 Mon/Copper-AI/` (prefix `cu-`). First video with **the new caption layout** (captions centred, cards below) and **the new image model** (`gpt-image-2`, one plate).
 
-## Stage log
+## Redo r2 (6 Oct 2026)
+
+User: *"I really like [this video], i want you to redo this reel with all our new guidelines"*. No spend delegation was given, so the run **stops at P4** ([[Workflow]]). Same Status note, same Media folder (`Media/Week 01/2026-10-05 Mon/Copper-AI/`, prefix `cu`, voice files `v2`, render `r2`; r1 stays on disk as `plan-r1.json` and its render).
+
+**Changed from r1:** hook (stakes: *"AI could run short of copper, and a new mine takes seventeen years."*); scene 3 is the turn (AI is about 4 %); scene 5 explains why a mine is slow; pause plan (`gaps` [0.55, 0.25, 0.45, 0.30, 0.90, 1.00] plus inner pauses); 20 plates, immersive layouts (blur, insets, three drawn plates, the real USGS porphyry diagram instead of a generated plate); a derived number (found 2026, open about 2043, after the 2040 gap).
 
 | Stage | Status | Approved | Note |
 | --- | --- | --- | --- |
-| 0 Idea | ✅ | agent, under delegation | 20-fact bank, scoring of six threads, five hooks in [[Script - Copper and the AI race]]; street-lamp test **borderline** (swap candidate: China mines 8 % and refines 48 %) |
-| 1 Research | ✅ | agent | USGS MCS 2026, S&P Global (8 Jan 2026) and the IEA overview read; the rest from search summaries |
-| 2 Script | ✅ | agent | 160 words, 7 scenes, 5 facts, 3 spoken figures |
-| 3 Direction | ✅ | agent | 18 plates, 17 stock and 1 generated |
-| 4 Prompts and budget | ✅ | **delegated by the user** (*"do it all for yourself"*), cap ≈ $0.49 | below |
-| 5 Test | ⏭ folded into 6 | delegation | |
-| 6 Generation | ✅ | delegation | 7 voice takes, 1 plate (no retry), 7 word-timing runs |
-| 7 Editing | ✅ rendered · ⏳ **P7 is yours** | | `Media/Week 01/2026-10-05 Mon/Copper-AI/render/cu-61s-9x16-r1.mp4` (81 MB, 60.8 s, 1080×1920, 24 fps; + `cu.srt`) |
-| 8 Publishing | ⏳ uploaded **private** (id YRX0VfpPMtU, 5 Oct 2026) | the user's delegation (*"Upload the last video to youtube"*) | [[Upload - Copper and the AI race]]; publishing, thumbnail and pinned comment pending |
+| 0 Idea · 1 Research · 2 Script · 3 Visual plan | ✅ r2 text | agent | hook type **stakes**; street-lamp: stated mechanism, **needs the user's yes**; demand check done (crowded topic, earned by the turn and the 2043 sum); [[Script - Copper and the AI race]] |
+| 4 Prompts, stock, budget | ⏳ **waiting for the user** | | base $0.41, expected $0.16, cap $0.49 (below) |
+| 6 Generation · 7 Edit | not started | | after P4 |
+| 8 Publish | r1 uploaded private (id YRX0VfpPMtU); r2 replaces it only if the user chooses | | [[Upload - Copper and the AI race]] |
 
-## P4 budget (dollars)
+## r2 budget (dollars)
 
-| Category | Model | Quantity | Unit price | Subtotal | Cap (×1.2) |
-| --- | --- | --- | --- | --- | --- |
-| Voice | `elevenlabs/v3`, `Austin`, `en`, `speed` 1.0 | 7 takes, 847 characters | ≈ $0.10 per 1,000 characters | ≈ $0.085 | ≈ $0.10 |
-| Image (generated) | **`openai/gpt-image-2`**, 2:3, **high** | 1 plate | **not shown by Replicate; assumed ≈ $0.25** (conservative) | ≈ $0.25 | ≈ $0.30 |
-| Image (stock) | free sources | 17 plates | $0 | $0 | n/a |
-| Word timings | `incredibly-fast-whisper` | 7 takes | ≈ $0.01 (unconfirmed) | ≈ $0.07 | ≈ $0.08 |
-| Sound | built by `build_video.py` | | $0 | $0 | n/a |
-| **Total and cap** | | | | **≈ $0.41** | **≈ $0.49** |
+Voice 7 takes about $0.09 · word timings about $0.07 · stock, drawn plates, sound $0 · reserve for one generated porphyry plate (`gpt-image-2` high, only if the USGS diagram is unreadable) about $0.25. **Base $0.41, expected $0.16, cap $0.49.**
 
-## Prediction log
+## r1 record (5 Oct 2026, kept short)
 
-- Voice · `elevenlabs/v3` Austin `en` 1.0 (`previous_text`/`next_text`), 7 takes, 847 characters · ✅ `voice/cu-s1…s7-voice-v1.mp3` · ids in `voice/_log.jsonl`
-- G1 porphyry · `openai/gpt-image-2` 2:3 **high** · ✅ `plates/cu-p04-porphyry-v1.png` · [6n6db2yp…](https://replicate.com/p/6n6db2yps1rmy0d11mrsdpqv94) · predict time 75 s
-- Word timings · `incredibly-fast-whisper` word, 7 runs · ✅ `voice/*.words.json`
+Rendered `render/cu-61s-9x16-r1.mp4` (60.8 s, 160 words, 18 plates, 17 stock and 1 generated), 15 predictions, about $0.41 of a $0.49 cap, delegated by the user (*"do it all for yourself"*). Uploaded private as YRX0VfpPMtU; the user later made it public. r1 faults against Playbook v3: hook was a number with no stake, flat 0.45 s gaps, several one-photo-one-label plates, only 10 photos (five reused), generated plate was a simplified schematic. `gpt-image-2` price still unmeasured: read the Replicate dashboard once.
 
-**Total: 15 predictions (7 voice, 1 image, 7 timings), no retries, ≈ $0.41 of the ≈ $0.49 cap if `gpt-image-2` high is ≈ $0.25.** Replicate's `metrics` carry no cost: the real charge is for you to read on the dashboard, and **it also settles the price of `gpt-image-2`** that the vault still lists as unmeasured.
+## Not verified by the agent
 
-## Checks done by the agent (stills and numbers)
+- **I did not hear audio or watch any video.** Voice, pace, pauses, sound mix and motion are for the user's P7 rubric ([[Workflow]]).
+- Facts to recheck are listed in [[Script - Copper and the AI race]] §6 (rack figure, 4 % share, generic mining steps, 2043 sum).
+- Not yet seen: the USGS diagram and the new photos (nothing is downloaded before P4).
 
-`PLATES 18`, durations 3.0 to 3.8 s, `LONG PLATE: none`; `CAPTIONS 156 words, timed by whisper`; all 7 voices complete (lead-in, tail, order ok); 60.8 s with the gaps (about 54 s of speech: ≈ 178 words per minute while speaking, ≈ 161 with the gaps). Stills looked at on 25 frames: captions sit in the middle of the frame, cards below them, callouts above. **Fixed during the build:** the first card's title ran off the card (shortened); the "Magma" label moved closer to its target.
+## Feedback
 
-## Not verified by the agent (said out loud, for your P7)
-
-- **I did not hear the audio or watch the whole video:** how Austin sounds on this script, the pace, the sound mix, the motion.
-- **Facts to recheck before publishing:** the rack's 2 miles and 20 kW (Nvidia's claims, secondary sources), the 83 kg per electric car, the data-center share of demand (my arithmetic), and that the 17 years is an average.
-- **Weak images:** only 10 photos, five reused with a new crop; the refining step has no photo; the generated plate is a simplified schematic.
-- **`gpt-image-2`:** one plate is not a comparison. Look at plate 8 against the earlier `gpt-image-1.5` schematics and tell me if the new model earned its price.
+(none yet for r2; r1 listening-rubric answers were not recorded)

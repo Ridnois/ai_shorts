@@ -1,8 +1,8 @@
 ---
 type: research
 created: 2026-10-05
-updated: 2026-10-05
-status: stages 0 to 4 done, generation done, rendering (delegated by the user: "do it all for yourself")
+updated: 2026-10-06
+status: REDO r2 (6 Oct 2026) · stages 0 to 3 written to the v3 Playbook, stops at P4 for the user's approval; r1 (5 Oct) is the uploaded version
 tags: [research, youtube, script, copper, ai, shorts, week-01]
 ---
 
@@ -10,9 +10,11 @@ tags: [research, youtube, script, copper, ai, shorts, week-01]
 
 ← [[Copper and the AI race - Status]] · [[YouTube Channel]] · [[Playbook]]
 
-User request (5 Oct 2026): *"Create a new video about copper, where comes from, what is used for and why is key on the AI race. do it all for yourself, given that we are using less generated images and more stock, you can use a very good model, update the vault and proceed to the video creation"*. **Full delegation:** stages 0 to 7 run by the agent within the cap; the render is the stop.
+User request (5 Oct 2026): a video on where copper comes from, what it is used for and why it matters to AI; full delegation then.
 
-**Theme line (plain words):** *AI runs on copper, and copper is slow: finding and opening a mine takes about 17 years.* **One question:** why can't the AI race just make more copper? Length: **160 words** (the vault's range, aim 130 to 160), **847 characters**.
+**Redo (6 Oct 2026):** *"I really like [this video], redo this reel with all our new guidelines"*. Same topic, rebuilt to the v3 Playbook: need-to-know hook (the r1 hook failed the hook test, [[Model script]]), pause plan, immersive plates, a derived number. Delegation covers the text only; **P4 (spend) needs the user's yes**.
+
+**Theme line (plain words):** *AI could run short of copper, because a new mine takes about 17 years.* **One question:** why can't the AI race just dig more copper? Length: **162 words**, about 835 characters.
 
 ## 0. Facts bank (≥ 15, sourced; fetched 5 Oct 2026)
 
@@ -39,71 +41,77 @@ User request (5 Oct 2026): *"Create a new video about copper, where comes from, 
 | 19 | The US added copper to its final 2025 critical-minerals list on 7 Nov 2025; net import reliance 57 % (2025e); 50 % tariffs on semi-finished copper products in 2025 | USGS MCS 2026 (read), tariff via search summaries |
 | 20 | COMEX copper averaged a record $4.80 a pound in 2025 | USGS MCS 2026 (**read**) |
 
-## 1. Scoring (1 to 5; the agent's guess)
+## 1. Scoring and tests (the agent's guess)
 
 | Candidate thread | Surprise | Scale | Depth | Evidence | Showable | Plain |
 | --- | --- | --- | --- | --- | --- | --- |
-| **A · AI is a small slice of copper demand, but copper's 17-year mine clock makes it a bottleneck** (chosen) | 4 | 4 | 5 | 4 | 4 | 4 |
+| **A · AI is only about 4 % of copper demand, but a mine takes 17 years: the clock, not AI, is the bottleneck** (chosen) | 4 | 4 | 5 | 4 | 4 | 4 |
 
-**Chosen: A**, with B as the hook, C and F as the origin, and the shortfall as the stakes. Rejected, one line each: **D** repeats the chokepoint of the lithium video and is politics, not the brief (a swap candidate); **E** is headline and dates in weeks; the old street-lamp. **Coffee test:** *"AI is only a few percent of copper, but copper takes 17 years to open a mine, so AI can't just buy more."* A friend says "huh, I thought AI was the main driver": surprise 4, kept. **Street-lamp test: borderline.** "A copper shortage threatens AI" is a headline; it is rescued by the mechanisms around it (the rack's copper spine, magma and thin ore, the 17-year clock). **Expert test:** each scene carries a detail a generic explainer skips (passive cable draws no power, AI is only ≈ 4 % of demand, hot fluids from magma, "proving" a deposit).
+Rejected: **D** China refines 48 % (now the Grid chokepoint video); **E** a price or mine-disaster headline (dates in weeks). **Coffee test:** *"AI is a small slice of copper, but copper takes 17 years to open a mine."* **Against the idea (reasons to scroll past):** (1) "copper shortage" is crowded news: answered by the turn (AI is small) and the derived date; (2) industrial and dry: answered by real photos and a stake in the first clause; (3) a forecast can be wrong: the voice hedges ("could", "may"). **Street-lamp test: borderline in r1, now a stated mechanism, pending the user's yes:** beyond the headline "copper shortage threatens AI" the video adds (a) AI is only about 4 % of demand, so the bottleneck is the mine clock, (b) why ore is slow (thin porphyry ore that must be proven), (c) **original synthesis: a deposit found today (2026) opens about 2043, after S&P's 2040 gap.** **Demand check (6 Oct 2026):** the topic is searched and shared (Tom's Hardware, Mining.com, Data Center Knowledge, S&P, BNEF all ran it), so it is crowded: the slot is earned by the turn and the 2043 comparison. **Topic spread:** Grid chokepoint (copper family) is the next day's video, not the neighbour in the table, but flag it.
 
-## 2. Five hooks
+## 2. Five hooks (different types)
 
-1. **"One AI rack holds over two miles of copper cable."** (one concrete, checkable image that joins copper and AI; the card names Nvidia's figure) **chosen**
-2. "Making more copper takes seventeen years." (a strong claim, but it does not yet tie to AI)
-3. "Almost everything a copper miner digs is thrown away." (plain and surprising, origin only)
-4. "AI has a metal problem, and it is not chips." (vague)
-5. "Copper is why AI cannot scale faster." (hype, unsupported)
+1. **Stakes (chosen):** "AI could run short of copper, and a new mine takes seventeen years." Hook test: plain; stake; opens "why can't they dig more?"; first clause is about 2 s; sound-off plate 1 (rack, "copper" callout) plus the first caption word raise it; honest, hedged ("could").
+2. Surprising number (r1): "One AI rack holds over two miles of copper cable." Fails reason-to-care.
+3. Contradiction: "AI is eating the world's copper, but it is only four percent of the demand." Strong, but the 4 % is the agent's arithmetic: keep for scene 3.
+4. Question: "Why can't we just dig more copper?" Banned opener.
+5. Surprising fact: "Almost everything a copper miner digs is thrown away." Plain, origin only, no AI.
 
-Test: *would I stop?* (1: "two miles in one rack?") *does it open a question the next scene answers?* (why copper, why so much).
+Hook type for `videos.csv`: **stakes**.
 
-## 3. Script (160 words; theme bridged in every scene)
+## 3. Script (162 words) and pause plan
 
-| Scene | Voice (exact text) | Words | Delivery note |
-| --- | --- | --- | --- |
-| 1 | One AI rack holds over two miles of copper cable. | 10 | flat, confident, a little amazed |
-| 2 | Copper carries electricity better than any metal except silver, and a passive cable draws no power. So AI hardware is packed with it. | 23 | explaining, even |
-| 3 | AI is a small slice. Buildings, electrical equipment and vehicles take the biggest shares, and an electric car holds far more copper than a petrol one. | 26 | factual, a small turn on "small slice" |
-| 4 | So where does it come from? Magma sent hot fluids up through the rock and left copper behind. But the ore is thin: most of what miners dig is waste. | 30 | curious, then a beat before "But" |
-| 5 | That is why supply is slow. Finding, proving and building a copper mine takes about seventeen years on average. | 19 | serious: this is the catch |
-| 6 | Meanwhile AI keeps asking for more. S and P Global expects the world to fall a quarter short of the copper it needs by twenty forty. | 26 | grave, measured |
-| 7 | So the limit on AI may be geology, not money or chips: copper must be found, dug and refined, and none of it can be rushed. | 26 | calm, closing; a beat before "geology" |
-
-Voice text spells "S and P". **Caption display spellings** (`plan.json` `captions`): "S&P Global", "17", "2040". Bridges: 2 *"So AI hardware is packed with it"*, 3 *"AI is a small slice"* (the paradox), 4 *"So where does it come from?"*, 5 *"That is why supply is slow"*, 6 *"Meanwhile AI keeps asking for more"*, 7 *"So the limit on AI…"*. **Facts:** five (why copper and the rack; where it is used and AI's small slice; magma and thin ore; 17 years; the shortfall). **Spoken figures:** three (two miles, seventeen years, a quarter by 2040). The close is a concrete payoff, hedged as an inference: *the limit on AI may be geology, not money or chips.* **Cut test:** the 27 t per MW, the 20 kW saving, the 0.6 % grade, China's refining share, Grasberg and the price record were cut from the voice; the 83 kg, the 17 years and the 25 % gap are on screen cards.
-
-## 4. Visual plan (S stock photo · G generated explainer), 18 plates
-
-**17 stock, 1 generated** (the vault now generates ≤ 3 plates and spends on a very good model: `gpt-image-2`). Photos in `Media/Week 01/2026-10-05 Mon/Copper-AI/stock/`, credits in `_credits.jsonl` and in [[Copper and the AI race - Status]].
-
-| # | Scene | Type | Source | This plate lets the viewer see ___ so they understand ___ |
+| Scene | Voice (exact text) | Words | Delivery note | Pause after (s) · inner pauses (word, s) |
 | --- | --- | --- | --- | --- |
-| 1 | 1 | S | `cu-rack.jpg` + card | the back of a real server rack, thick with cables, so "two miles in one rack" has a picture (the card cites Nvidia's NVL72 figure; the photo is not an NVL72) |
-| 2 | 2 | S | `cu-native.jpg` | native copper in a hand, so "copper" is a real metal |
-| 3 | 2 | S | `cu-bus.jpg` | copper busbars on a transformer, so "carries electricity" is heavy metal |
-| 4 | 2 | S | `cu-rack.jpg`, other crop | the cables again, so "AI hardware is packed with it" |
-| 5 | 3 | S | `cu-pylon.jpg` | a transmission line, so "power" is a use |
-| 6 | 3 | S | `cu-ev.jpg` + number card | an electric car, so 83 kg against 23 kg is a vehicle |
-| 7 | 3 | S | `cu-pipes.jpg` | copper pipes in a building, so "buildings" are a use |
-| 8 | 4 | G | `cu-p04-porphyry-v1.png` | magma, rising fluids and the veined ore body, so "hot fluids left copper behind" is a mechanism |
-| 9 | 4 | S | `cu-chalco.jpg` | chalcopyrite, so the ore is a real rock |
-| 10 | 4 | S | `cu-chuqui.jpg` | a huge pit, so "most of what miners dig is waste" has a scale |
-| 11 | 5 | S | `cu-bingham1.jpg` + number card | a real mine, so "17 years" is the age of this kind of hole |
-| 12 | 5 | S | `cu-bingham2.jpg` | the same mine from another side |
-| 13 | 6 | S | `cu-bus.jpg`, other crop | copper in the grid, so "keeps asking for more" |
-| 14 | 6 | S | `cu-rack.jpg` + context card | the AI side of demand, so the S&P gap lands on a rack |
-| 15 | 6 | S | `cu-pylon.jpg`, other crop | the grid |
-| 16 | 7 | S | `cu-native.jpg`, other crop | the metal itself |
-| 17 | 7 | S | `cu-chuqui.jpg`, other crop | the pit again, so "found, dug and refined" |
-| 18 | 7 | S | `cu-rack.jpg` | the hook image again, so the Short loops |
+| 1 | AI could run short of copper, and a new mine takes seventeen years. | 13 | flat, a little grave | 0.55 let the hook land · after "copper," 0.3 breath |
+| 2 | Copper carries current better than any metal but silver, and a passive cable draws no power. So one Nvidia rack uses over two miles of it. | 26 | explaining, even | 0.25 flowing: "But AI..." · after "silver," 0.3 · after "power." 0.5 |
+| 3 | But AI is only a small slice. Buildings, power grids and cars take the biggest shares of the copper. | 19 | factual, a small turn on "small slice" | 0.45 new idea · after "slice." 0.7 let it land |
+| 4 | So where does it come from? Hot fluids from magma left copper in the rock. But the ore is poor, so most of what miners dig is waste. | 28 | curious, then a beat before "But" | 0.30 flowing: "That is why..." · after "from?" 0.5 · after "rock." 0.4 |
+| 5 | That is why a new mine is slow. Someone must find the deposit, drill it to prove the ore, win permits and build. It averages seventeen years. | 26 | serious: the catch | 0.90 turn before "Meanwhile" · after "slow." 0.5 · after "ore," 0.25 |
+| 6 | Meanwhile demand keeps rising. S and P Global expects the world to fall a quarter short of the copper it needs by twenty forty. | 23 | grave, measured | 1.00 before the payoff · after "rising." 0.5 |
+| 7 | So the next limit on AI may be geology, not chips or money: copper must be found, proven and dug, and none of it can be rushed. | 26 | calm, closing; the last plate is the first | (tail) · after "money:" 0.4 |
 
-**Weak points:** only 10 photos, so five are reused with another crop (the planned cathode, haul-truck, drill-core, data-center and smelter photos were rate-limited by Wikimedia and never arrived: the refining step is not shown); the rack photo shows a "Rackable" label; the EV photo shows a Car2Go car; the generated plate is a simplified schematic of a porphyry system (no real diagram was used as a reference).
+`gaps` = [0.55, 0.25, 0.45, 0.30, 0.90, 1.00]. Caption spellings: "S&P Global", "17", "2040". Keywords: copper, AI, 17, geology. **Bridges:** 2 "So one Nvidia rack", 3 "But", 4 "So where", 5 "That is why", 6 "Meanwhile", 7 "So the next limit". **Facts (5):** why copper and the rack; AI is a small slice; magma and poor ore; the 17-year chain; the 2040 gap. **Spoken figures (3):** seventeen years (twice, one figure), two miles, a quarter by 2040. **Close:** concrete payoff, hedged. **Cut test:** removed from r1: the electric car clause (on a card instead), "Finding, proving and building" restated as steps, 27 t per MW, 20 kW, grades, China, Grasberg, prices.
 
-**On-screen text** (specificity test; one number card per plate, two in the video because each sits on its own real photo): context card plate 1 **"NVIDIA GB200 NVL72 · Over 2 miles of copper cable · Per rack, about 5,000 cables, Nvidia"**; number card plate 6 **"83 kg of copper in an electric car (a petrol car: 23 kg, ICSG 2018)"**; number card plate 11 **"17 years from discovery to production (S&P Global, January 2026)"**; context card plate 14 **"S&P Global, January 2026 · A quarter short by 2040 · A gap of 10 million tons of 42 needed"**. Callouts name parts (native copper, copper busbars, power line, copper pipes, magma, copper veins, chalcopyrite, Chuquicamata).
+## 4. Visual plan, 20 plates, immersive layouts (S stock · D drawn Pillow · R real diagram)
 
-## 5. Generated plates
+New $0 photos to download at P4 (Commons, searched 6 Oct): `Copper cathode UMMCII Uralelectromed` (CC BY-SA 4.0), `Exploration drill cores (Potter Mine)` (CC BY 2.0), `USGS PorphyryCu` (public domain, real diagram), `Data Center 3 (UNC)` (CC BY-SA 4.0) or `Data center roof` (CC0). Kept from r1: rack, native, bus, pylon, ev, pipes, chalco, chuqui, bingham1, bingham2.
 
-Prompts were content-first specifications (subject, structure, view, what must be readable, "no glow, no text"); they are kept in git history and the Status prediction log, not here.
+| # | Sc | Type · layout | Source | This plate lets the viewer see ___ so they understand ___ |
+| --- | --- | --- | --- | --- |
+| 1 | 1 | S full + callout | rack (cu-rack) | cables behind a server rack, so "AI" and "copper" meet in one image |
+| 2 | 1 | S full + number card | Bingham1 | a real mine; card "17 years from discovery to production" (S&P) |
+| 3 | 2 | S full + callout | native copper | the metal itself |
+| 4 | 2 | S contain blur + callout | copper busbars (cu-bus) | thick copper carrying power |
+| 5 | 2 | S full + context card | rack, other crop | the cable mass; card: Nvidia GB200 NVL72, about 2 miles, about 5,000 cables |
+| 6 | 3 | D split + inset | bar: data centers 1.1 of 28 Mt (about 4 %), 2025 (inset: data center) | AI is a thin slice of the whole |
+| 7 | 3 | S contain blur + callout | pipes (cu-pipes) | buildings, the biggest use |
+| 8 | 3 | S full + number card | EV (cu-ev) | cars; card 83 kg against 23 kg |
+| 9 | 4 | R split + inset | USGS porphyry diagram (inset: chalcopyrite) | magma, fluids, veined rock; fallback G1 `gpt-image-2` with it as the reference, only if unreadable |
+| 10 | 4 | S contain blur + callout | chalcopyrite | the ore as a rock |
+| 11 | 4 | S full + callout | Chuquicamata | a pit, so "most is waste" has a scale |
+| 12 | 5 | S full + callout | drill cores | proving the ore |
+| 13 | 5 | S full + callout | Bingham2 | building the pit |
+| 14 | 5 | S contain blur + callout | copper cathode | the finished metal at the end of the chain |
+| 15 | 6 | S full | pylon | the grid keeps asking |
+| 16 | 6 | D split + inset | bars: needed 42 Mt vs about 32 Mt supplied in 2040 (inset: rack) | a quarter short, to scale |
+| 17 | 6 | D split + inset | timeline: found 2026, producing about 2043, gap 2040 (inset: Bingham1) | the 17 years lands after the gap |
+| 18 | 7 | S contain blur | Chuquicamata, other crop | found and dug |
+| 19 | 7 | S full | cathode, other crop | refined |
+| 20 | 7 | S full | rack (hook image, loop) | back to the machine room |
+
+**Mix:** 15 S, 3 D, 1 R, 0 generated (1 reserve). Explainers are 4 of 20, below "a third": the sourced geometry is only those four, and a fifth would be unsourced. **On-screen text:** card plate 2 **17 years / from discovery to production / S&P Global, January 2026**; context card plate 5 **NVIDIA GB200 NVL72 / About 2 miles of copper cable / Per rack · about 5,000 cables · Nvidia**; number card plate 8 **83 kg / of copper in an electric car / A petrol car: 23 kg · ICSG, 2018**; plate 6 label **AI data centers: about 4 %** (1.1 of 28 Mt, S&P; share is the agent's arithmetic); plate 16 **S&P Global, January 2026 / A quarter short by 2040 / 42 Mt needed, a gap of 10 Mt**; plate 17 **Found today: open about 2043 / the agent's sum: 2026 + 17 years**.
+
+## 5. Budget (P4, dollars; no spend until the user says yes)
+
+| Item | Qty | Subtotal |
+| --- | --- | --- |
+| Voice `elevenlabs/v3` Austin, 7 takes, about 835 characters | | about $0.09 |
+| Word timings (7 runs) | | about $0.07 |
+| Stock photos, drawn plates, sound | | $0 |
+| Reserve: G1 `gpt-image-2` high (only if the USGS diagram is unreadable) | 1 | about $0.25 |
+| **Base $0.41 · expected $0.16 · cap (base × 1.2) $0.49** | | |
 
 ## 6. Sources and what was not verified
 
-**Read in full or at the source:** USGS MCS 2026 (copper chapter), S&P Global's press release of 8 Jan 2026, the IEA GCMO 2025 overview. **Search summaries only:** the rack's copper spine and the 20 kW saving (Nvidia's claims through LightCounting and SemiAnalysis), the 27 t per MW, the 83 kg per car, the 0.6 % grade and the 40 % decline, the 14-against-225 discoveries, the porphyry model, the Grasberg figures. **Not verified:** that every AI rack uses this much copper (the claim is for the GB200 NVL72); the data-center share of demand (about 4 %) is the agent's arithmetic from S&P figures; the 17 years is an average, not a floor; the S&P deficit is a forecast. **The script avoids prices and the 2026 mine disasters** so it does not date itself. The agent cannot hear or watch the result: P7 is the user's.
+**Read:** USGS MCS 2026 (copper), S&P Global press release of 8 Jan 2026, IEA GCMO 2025 overview. **Search summaries only:** the rack's 2 miles and 20 kW (Nvidia's claim via SemiAnalysis and trade press, rechecked 6 Oct), 27 t per MW, 83 kg per car, the porphyry model. **Not verified:** the rack figure is for the GB200 NVL72, not every AI rack; the 4 % share is the agent's arithmetic (1.1 of 28 Mt); the 17 years is an average, and the steps in scene 5 (find, drill, permit, build) are a generic mining sequence, not S&P's breakdown; the 2043 date is the agent's sum; the 2040 gap is a forecast; about 32 Mt supplied is 42 minus the 10 Mt gap. The agent cannot hear or watch the result: P7 is the user's.
