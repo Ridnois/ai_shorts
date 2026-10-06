@@ -49,7 +49,7 @@ Not used: `qwen-image-edit-plus` to generate, `flux-2-pro`, `stable-audio-2.5` (
 
 ## Thumbnail
 
-Custom thumbnails work on this channel (API `thumbnails.set` or Studio). Hero image from `gpt-image-1.5` (≈ $0.05, no text in the prompt) plus text from `System/scripts/make_thumbnail.py` (1080×1920, content in the centre 3:2 band); three candidates, budgeted as a plate. The feed shows none: polish, not the lever.
+Custom thumbnails work on this channel (API `thumbnails.set` or Studio; `publish.py` sets them after processing). The default hero is a **real stock photo from the video's own plan ($0)**; a generated hero (`gpt-image-1.5`, about $0.05, no text in the prompt) only when no photo shows the subject. Composed by `System/scripts/make_thumbnail.py` (1080×1920, everything inside the centre 3:2 band, y 600 to 1320). **Structure the user likes (keep): hero photo, big two-line title with the orange second line, Redtail mark below the band.** **Info layer (user, 6 Oct 2026: *"add a little bit more info so the thumbnail creates a good impression of what the content is about"*): a `kicker` (topic tag in an orange pill above the title) and up to three `chips` under it (each a sourced figure or a key term of the video, at most 26 characters, uppercase, no symbol the font lacks)**, set in `publish.json` under `thumb`. Chips say what the video proves ("45 countries want a pause"), not a teaser. The feed shows no thumbnail: polish, not the lever.
 
 ## Files
 

@@ -1,3 +1,8 @@
+---
+type: research
+updated: 2026-10-06
+status: user's idea note (grid chokepoint and the AI race); video made 6 Oct 2026
+---
 Here is an in-depth breakdown of **"How The Grid Chokepoint Determines Which Nations Win The Global Artificial Intelligence Race"**, tailored to **REDTAIL**'s mission of highlighting the physical substances and geopolitical frictions shaping modern progress.
 
 ---
