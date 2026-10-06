@@ -75,7 +75,7 @@ Voice text uses "C A T L" (the acronym spelled for the model). **Caption display
 
 ## 4. Visual plan (S stock photo · G generated explainer), about 21 plates
 
-Voice length is not known until the voice exists; at ≈ 3 s per plate the plan has 21 plates, none over 5 s. Photos are in `Media/Week 01/Battery-lithium/stock/` with credits in `_credits.jsonl`.
+Voice length is not known until the voice exists; at ≈ 3 s per plate the plan has 21 plates, none over 5 s. Photos are in `Media/Week 01/2026-10-05 Mon/Battery-lithium/stock/` with credits in `_credits.jsonl`.
 
 | #   | Scene | Type | Source                                                                          | This plate lets the viewer see ___ so they understand ___                                                                                        |
 | --- | ----- | ---- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |

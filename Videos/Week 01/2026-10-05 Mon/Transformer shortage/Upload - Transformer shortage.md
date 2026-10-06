@@ -14,7 +14,7 @@ User request (5 Oct 2026): *"Upload it, make it public"*. The user confirmed vis
 
 ## Upload result
 
-`System/scripts/youtube_upload.py` (public, Science & Technology, not made for kids, `containsSyntheticMedia: true`), first attempt: id **F2fC5degIP4**, https://studio.youtube.com/video/F2fC5degIP4/edit, https://youtu.be/F2fC5degIP4. File `Media/Week 01/Transformers/render/tf-53s-9x16-r1.mp4` (52.9 s). The Data API pull shows `privacy=public` (published 6 Oct 2026, 00:12 UTC), so this API project is not locked to private. **Thumbnail set** (`thumbnails.set`: "thumbnail set"): `upload/thumb-tf.jpg`, text **NO MOVING PARTS / 2.5-YEAR WAIT** over a real 750 kV transformer (CC0), no image generated ($0). The served `maxresdefault.jpg` shows the text (checked after the upload; re-run `youtube_upload.py thumb` if Studio disagrees).
+`System/scripts/youtube_upload.py` (public, Science & Technology, not made for kids, `containsSyntheticMedia: true`), first attempt: id **F2fC5degIP4**, https://studio.youtube.com/video/F2fC5degIP4/edit, https://youtu.be/F2fC5degIP4. File `Media/Week 01/2026-10-05 Mon/Transformers/render/tf-53s-9x16-r1.mp4` (52.9 s). The Data API pull shows `privacy=public` (published 6 Oct 2026, 00:12 UTC), so this API project is not locked to private. **Thumbnail set** (`thumbnails.set`: "thumbnail set"): `upload/thumb-tf.jpg`, text **NO MOVING PARTS / 2.5-YEAR WAIT** over a real 750 kV transformer (CC0), no image generated ($0). The served `maxresdefault.jpg` shows the text (checked after the upload; re-run `youtube_upload.py thumb` if Studio disagrees).
 
 ## Title (62 characters)
 
@@ -26,7 +26,7 @@ Alternatives: "The Steel Ring Holding Up the AI Boom" (37, vaguer); "A 2.5-Year 
 
 ## Description (2,200 characters, plain ASCII)
 
-In `Media/Week 01/Transformers/upload/desc.txt`: claim and search words first, "New Shorts every day.", four sources (POWER magazine, Wood Mackenzie, pv magazine, Allegheny Front), a line saying the lead times are national averages for large units and that some suppliers report shorter waits, PHOTO CREDITS (CC BY-SA 3.0 and 4.0 photos credited), the AI line, `#transformers #powergrid #datacenters #AI #infrastructure`.
+In `Media/Week 01/2026-10-05 Mon/Transformers/upload/desc.txt`: claim and search words first, "New Shorts every day.", four sources (POWER magazine, Wood Mackenzie, pv magazine, Allegheny Front), a line saying the lead times are national averages for large units and that some suppliers report shorter waits, PHOTO CREDITS (CC BY-SA 3.0 and 4.0 photos credited), the AI line, `#transformers #powergrid #datacenters #AI #infrastructure`.
 
 ## Pinned comment (post by hand)
 
@@ -36,7 +36,7 @@ Which surprised you more: that a machine with no moving parts takes about two an
 
 ## Studio settings
 
-Not made for kids. Altered or synthetic content: the script sent "yes"; you decide. Captions track: `Media/Week 01/Transformers/render/tf.srt` (upload by hand if wanted). TikTok: not prepared.
+Not made for kids. Altered or synthetic content: the script sent "yes"; you decide. Captions track: `Media/Week 01/2026-10-05 Mon/Transformers/render/tf.srt` (upload by hand if wanted). TikTok: not prepared.
 
 ## Claims to recheck (now that it is public)
 

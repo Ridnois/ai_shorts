@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Composes Shorts thumbnails (1080x1920, 9:16) from a generated hero image and local text, so the spelling is exact.
-    python3 System/scripts/make_thumbnail.py "Media/Week NN/<Video>/upload" [thumb-name ...]   (edit THUMBS below)
+    python3 System/scripts/make_thumbnail.py "Media/Week NN/<Day>/<Video>/upload" [thumb-name ...]   (edit THUMBS below)
 Important content stays inside the centre 3:2 band (y 600 to 1320): thumbnails render near 3:2 on channel pages, search and TV
 (ppc.land, Shorts thumbnails, July 2026; YouTube's own post gives no sizes). The Redtail mark sits below the band."""
 import os, sys

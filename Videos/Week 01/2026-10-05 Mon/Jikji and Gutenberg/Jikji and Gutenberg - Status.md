@@ -10,7 +10,7 @@ tags: [research, youtube, status, jikji, printing, shorts, week-01]
 
 ← [[YouTube Channel]] · [[Script - Jikji and Gutenberg]] · [[Workflow]] · [[Playbook]]
 
-Short 9:16, English, **146 words** (about 52 s of speech), Austin at `speed` 1.0, **Week 01**. Question: how can anyone prove, 650 years later, that a page was printed with loose metal type? Source article: Open Culture, Sept 2026. Media will go in `Media/Week 01/Jikji/` (prefix `jk-`), created only after P4. Hook type: **contradiction**.
+Short 9:16, English, **146 words** (about 52 s of speech), Austin at `speed` 1.0, **Week 01**. Question: how can anyone prove, 650 years later, that a page was printed with loose metal type? Source article: Open Culture, Sept 2026. Media will go in `Media/Week 01/2026-10-05 Mon/Jikji/` (prefix `jk-`), created only after P4. Hook type: **contradiction**.
 
 ## Stage log
 
@@ -23,7 +23,7 @@ Short 9:16, English, **146 words** (about 52 s of speech), Austin at `speed` 1.0
 | 4 Prompts and budget | ✅ | **user, 5 Oct 2026**: *"Aprove budger, use hook #2 and go ahead"* | below; delegation: continue within the cap (about $0.18), **stop at the render (P7)** |
 | 5 Test | skipped | | no new technique |
 | 6 Generation | ✅ | delegation | 7 voice takes, 0 generated plates, 7 word-timing runs, 3 drawn diagrams |
-| 7 Edit | ✅ rendered r2 · ⏳ **P7 is yours** | | `Media/Week 01/Jikji/render/jk-62s-9x16-r2.mp4` (+ `jk.srt`) |
+| 7 Edit | ✅ rendered r2 · ⏳ **P7 is yours** | | `Media/Week 01/2026-10-05 Mon/Jikji/render/jk-62s-9x16-r2.mp4` (+ `jk.srt`) |
 | 8 Publish | ✅ uploaded private, short cut | **user, 5 Oct 2026**: *"Upload the last video to youtube, make sure you upload the thumbnail too"* | see [[Upload - Jikji and Gutenberg]]; `videos.csv` row added |
 
 ## P4 budget (dollars)
@@ -67,9 +67,9 @@ No thumbnail image is budgeted. If you want a hero image for the upload: one `gp
 
 ## Short version (user, 5 Oct 2026: *"try a shorter version, 90 words"*)
 
-[[Script - Jikji and Gutenberg (short)]]: 91 words, 5 scenes, 12 plates, same images. Media in `Media/Week 01/Jikji-short/` (prefix `jks`). Scene 1 and 3 voice takes are **reused** from the long cut (same text; their `previous_text` / `next_text` context differed, so prosody may differ slightly); 3 new takes (scenes 2, 4, 5, about 330 characters) and 3 timing runs, about **$0.06** more (running total about $0.21 against the long cut's $0.18 cap; the request counted as approval for the variant).
+[[Script - Jikji and Gutenberg (short)]]: 91 words, 5 scenes, 12 plates, same images. Media in `Media/Week 01/2026-10-05 Mon/Jikji-short/` (prefix `jks`). Scene 1 and 3 voice takes are **reused** from the long cut (same text; their `previous_text` / `next_text` context differed, so prosody may differ slightly); 3 new takes (scenes 2, 4, 5, about 330 characters) and 3 timing runs, about **$0.06** more (running total about $0.21 against the long cut's $0.18 cap; the request counted as approval for the variant).
 
-**Short version result:** rendered `Media/Week 01/Jikji-short/render/jks-39s-9x16-r1.mp4` (38.7 s, 12 plates of 2.6 to 4.0 s, `CAPTIONS 90 words, timed by whisper`, all 5 voices complete); stills looked at on 10 frames (cards below captions, no overlaps, diagrams clear of captions). Not heard or watched: the reused takes (scenes 1 and 3) may sit slightly differently next to the new ones; whisper heard "Jikji" correctly in scene 2. Which cut to publish is yours.
+**Short version result:** rendered `Media/Week 01/2026-10-05 Mon/Jikji-short/render/jks-39s-9x16-r1.mp4` (38.7 s, 12 plates of 2.6 to 4.0 s, `CAPTIONS 90 words, timed by whisper`, all 5 voices complete); stills looked at on 10 frames (cards below captions, no overlaps, diagrams clear of captions). Not heard or watched: the reused takes (scenes 1 and 3) may sit slightly differently next to the new ones; whisper heard "Jikji" correctly in scene 2. Which cut to publish is yours.
 
 ## Decisions and open points
 

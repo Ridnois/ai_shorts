@@ -45,6 +45,7 @@ INVARIANTS = [
     ("System/Workflow.md", "gpt-image-2", "generated plate model"),
     ("System/Workflow.md", "cap = base", "budget cap"),
     ("System/Workflow.md", "Week NN", "week folders"),
+    ("System/Workflow.md", "Day folder", "videos are grouped by the day they were made (user, 6 Oct 2026)"),
     ("System/Style.md", "50 % of the height", "captions centred"),
     ("System/Style.md", "Redtail", "brand"),
     ("System/Playbook.md", "`Austin`", "channel voice"),

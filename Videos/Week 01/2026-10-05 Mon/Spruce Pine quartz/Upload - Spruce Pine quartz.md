@@ -14,7 +14,7 @@ User request (5 Oct 2026): *"choose a topic to create and upload a new video"*. 
 
 ## Upload result
 
-`System/scripts/youtube_upload.py`, first attempt: id **lQRLoZYWFwU**, https://studio.youtube.com/video/lQRLoZYWFwU/edit, https://youtu.be/lQRLoZYWFwU. File `Media/Week 01/Spruce-Pine/render/sp-63s-9x16-r3.mp4` (62.8 s), category Science & Technology, not made for kids, `containsSyntheticMedia: true`. **Thumbnail set** (`thumbnails.set` answered "thumbnail set"): `upload/thumb-sp.jpg`, text **CHIPS DEPEND ON ONE TOWN** over a real used-crucible photo (public domain), no image generated ($0). The first version of the text said "makes chips", which is false (Spruce Pine mines quartz), and was changed before upload. **The user found no custom thumbnail in Studio** (set while the video was still processing); re-set with `youtube_upload.py thumb lQRLoZYWFwU` (HTTP 200) and the served `maxresdefault.jpg` now shows the text (checked 5 Oct 2026).
+`System/scripts/youtube_upload.py`, first attempt: id **lQRLoZYWFwU**, https://studio.youtube.com/video/lQRLoZYWFwU/edit, https://youtu.be/lQRLoZYWFwU. File `Media/Week 01/2026-10-05 Mon/Spruce-Pine/render/sp-63s-9x16-r3.mp4` (62.8 s), category Science & Technology, not made for kids, `containsSyntheticMedia: true`. **Thumbnail set** (`thumbnails.set` answered "thumbnail set"): `upload/thumb-sp.jpg`, text **CHIPS DEPEND ON ONE TOWN** over a real used-crucible photo (public domain), no image generated ($0). The first version of the text said "makes chips", which is false (Spruce Pine mines quartz), and was changed before upload. **The user found no custom thumbnail in Studio** (set while the video was still processing); re-set with `youtube_upload.py thumb lQRLoZYWFwU` (HTTP 200) and the served `maxresdefault.jpg` now shows the text (checked 5 Oct 2026).
 
 ## Title (53 characters)
 
@@ -26,7 +26,7 @@ Most Computer Chips Start in Rock From One Small Town
 
 ## Description (1,817 characters, plain ASCII)
 
-In `Media/Week 01/Spruce-Pine/upload/desc.txt`: claim and search words first, "New Shorts every day.", four sources (Wikipedia, Quartz Corp twice, Sibelco), a note that 16 million chips per crucible is a rough calculation and that the supply share differs by source, PHOTO CREDITS (CC BY-SA 3.0 wafer, CC BY-SA 4.0 crystal, CC BY 2.0 pegmatite and Helene photos; the pegmatite is from New Hampshire and the Helene photo from Buncombe County, both said in the credits), the AI line, `#semiconductors #quartz #chips #SprucePine #supplychain`.
+In `Media/Week 01/2026-10-05 Mon/Spruce-Pine/upload/desc.txt`: claim and search words first, "New Shorts every day.", four sources (Wikipedia, Quartz Corp twice, Sibelco), a note that 16 million chips per crucible is a rough calculation and that the supply share differs by source, PHOTO CREDITS (CC BY-SA 3.0 wafer, CC BY-SA 4.0 crystal, CC BY 2.0 pegmatite and Helene photos; the pegmatite is from New Hampshire and the Helene photo from Buncombe County, both said in the credits), the AI line, `#semiconductors #quartz #chips #SprucePine #supplychain`.
 
 ## Pinned comment (post by hand)
 
@@ -36,7 +36,7 @@ Did you know most chips start in rock from one small town in North Carolina? Rep
 
 ## Studio settings
 
-Not made for kids. Altered or synthetic content: the script sent "yes"; you decide. Captions track: `Media/Week 01/Spruce-Pine/render/sp.srt` (upload by hand if wanted). TikTok: not prepared.
+Not made for kids. Altered or synthetic content: the script sent "yes"; you decide. Captions track: `Media/Week 01/2026-10-05 Mon/Spruce-Pine/render/sp.srt` (upload by hand if wanted). TikTok: not prepared.
 
 ## Claims to recheck before making it public
 

@@ -71,7 +71,7 @@ Test: *would I stop?* (1: "only two percent? I was told they die in five years")
 
 ## 4. Visual plan (S stock photo · G generated), 18 plates
 
-17 stock, 1 generated (`gpt-image-2`). Photos in `Media/Week 01/EV-battery/stock/`, credits in `_credits.jsonl` and in [[EV battery tech - Status]].
+17 stock, 1 generated (`gpt-image-2`). Photos in `Media/Week 01/2026-10-05 Mon/EV-battery/stock/`, credits in `_credits.jsonl` and in [[EV battery tech - Status]].
 
 | # | Scene | Type | Source | This plate lets the viewer see ___ so they understand ___ |
 | --- | --- | --- | --- | --- |

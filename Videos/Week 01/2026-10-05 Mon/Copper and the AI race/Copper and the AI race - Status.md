@@ -10,7 +10,7 @@ tags: [research, youtube, status, copper, ai, shorts, week-01]
 
 ← [[YouTube Channel]] · [[Script - Copper and the AI race]] · [[Workflow]] · [[Playbook]]
 
-Short 9:16, English, **160 words**, Austin at `speed` 1.0, **Week 01** (the same calendar week as [[Battery and lithium - Status]]: both were made on Monday 5 Oct 2026; [[Workflow]]). Question: why can't the AI race just make more copper? Media in `Media/Week 01/Copper-AI/` (prefix `cu-`). First video with **the new caption layout** (captions centred, cards below) and **the new image model** (`gpt-image-2`, one plate).
+Short 9:16, English, **160 words**, Austin at `speed` 1.0, **Week 01** (the same calendar week as [[Battery and lithium - Status]]: both were made on Monday 5 Oct 2026; [[Workflow]]). Question: why can't the AI race just make more copper? Media in `Media/Week 01/2026-10-05 Mon/Copper-AI/` (prefix `cu-`). First video with **the new caption layout** (captions centred, cards below) and **the new image model** (`gpt-image-2`, one plate).
 
 ## Stage log
 
@@ -23,7 +23,7 @@ Short 9:16, English, **160 words**, Austin at `speed` 1.0, **Week 01** (the same
 | 4 Prompts and budget | ✅ | **delegated by the user** (*"do it all for yourself"*), cap ≈ $0.49 | below |
 | 5 Test | ⏭ folded into 6 | delegation | |
 | 6 Generation | ✅ | delegation | 7 voice takes, 1 plate (no retry), 7 word-timing runs |
-| 7 Editing | ✅ rendered · ⏳ **P7 is yours** | | `Media/Week 01/Copper-AI/render/cu-61s-9x16-r1.mp4` (81 MB, 60.8 s, 1080×1920, 24 fps; + `cu.srt`) |
+| 7 Editing | ✅ rendered · ⏳ **P7 is yours** | | `Media/Week 01/2026-10-05 Mon/Copper-AI/render/cu-61s-9x16-r1.mp4` (81 MB, 60.8 s, 1080×1920, 24 fps; + `cu.srt`) |
 | 8 Publishing | ⏳ uploaded **private** (id YRX0VfpPMtU, 5 Oct 2026) | the user's delegation (*"Upload the last video to youtube"*) | [[Upload - Copper and the AI race]]; publishing, thumbnail and pinned comment pending |
 
 ## P4 budget (dollars)

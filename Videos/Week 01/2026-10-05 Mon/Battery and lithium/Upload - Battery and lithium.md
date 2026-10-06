@@ -18,7 +18,7 @@ User: *"Thmbnail b is the winner, tittle recomendation is good, follow your reco
 
 | Item                                                   | Decision                                                                                                                                                                 |
 | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Thumbnail                                              | **B** ("NOT RARE. STILL A FIGHT.", `Media/Week 01/Battery-lithium/upload/thumb-b.jpg`); A and C are archived as ideas (their files stay in `upload/` and can be deleted) |
+| Thumbnail                                              | **B** ("NOT RARE. STILL A FIGHT.", `Media/Week 01/2026-10-05 Mon/Battery-lithium/upload/thumb-b.jpg`); A and C are archived as ideas (their files stay in `upload/` and can be deleted) |
 | Title                                                  | **Lithium Isn't Rare, So Why Do Countries Fight Over It?** (54 characters)                                                                                               |
 | Description, hashtags, pinned comment, Studio settings | as in §3, §4, §6, §7                                                                                                                                                     |
 
@@ -30,7 +30,7 @@ User: *"Thmbnail b is the winner, tittle recomendation is good, follow your reco
 
 ![[bt-72s-9x16-r2.mp4|320]]
 
-`Media/Week 01/Battery-lithium/render/bt-72s-9x16-r2.mp4` · 71.9 s · 1080×1920 · 200 words · Austin, speed 1.0 · captions burned in. Subtitle file for Studio: `render/bt.srt` (the narration with timings; the burned-in captions are for sound-off viewers, the SRT is for accessibility and search).
+`Media/Week 01/2026-10-05 Mon/Battery-lithium/render/bt-72s-9x16-r2.mp4` · 71.9 s · 1080×1920 · 200 words · Austin, speed 1.0 · captions burned in. Subtitle file for Studio: `render/bt.srt` (the narration with timings; the burned-in captions are for sound-off viewers, the SRT is for accessibility and search).
 
 ## 2. Title (pick one; the first ≈ 40 characters are what the feed shows)
 
@@ -147,7 +147,7 @@ User request (5 Oct 2026): *"Start the uploading process of the battery video to
 
 | Field | Value |
 | --- | --- |
-| File | `Media/Week 01/Battery-lithium/render/bt-72s-9x16-r2.mp4` (65 MB, 72 s, 1080×1920). **Upload from the web** ([TikTok Studio](https://www.tiktok.com/tiktokstudio/upload)): the phone limit may be lower than 65 MB on Android. At 72 s it is also over the 1 minute Creator Rewards asks for |
+| File | `Media/Week 01/2026-10-05 Mon/Battery-lithium/render/bt-72s-9x16-r2.mp4` (65 MB, 72 s, 1080×1920). **Upload from the web** ([TikTok Studio](https://www.tiktok.com/tiktokstudio/upload)): the phone limit may be lower than 65 MB on Android. At 72 s it is also over the 1 minute Creator Rewards asks for |
 | Cover | Edit cover: pick the frame of the first 3 seconds (the lithium floating), or upload `upload/thumb-b.jpg` if the picker allows it |
 | Visibility | **Only me** for the safe-zone check, then Everyone |
 | AI-generated content | **ON** (AI voice and generated plates) |

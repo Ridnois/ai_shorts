@@ -10,7 +10,7 @@ tags: [research, youtube, status, deep-sea, mining, shorts, week-01]
 
 ← [[YouTube Channel]] · [[Script - Deep-sea nodules]] · [[Workflow]] · [[Playbook]] · [[Youtube idea #2]]
 
-Short 9:16, English, **148 words** (about 53 s of speech), Austin at `speed` 1.0, **Week 01**. Question: who decides whether the deep-sea rocks get mined? Media in `Media/Week 01/Deep-sea/` (prefix `dn`). Hook type: **stakes**. Built with the 5 Oct 2026 vault changes: a **pause plan** (`gaps` and per-scene `pauses`) and **immersive plates** (`bg: blur`, `inset`, split layouts, no `EMPTY PLATE`).
+Short 9:16, English, **148 words** (about 53 s of speech), Austin at `speed` 1.0, **Week 01**. Question: who decides whether the deep-sea rocks get mined? Media in `Media/Week 01/2026-10-05 Mon/Deep-sea/` (prefix `dn`). Hook type: **stakes**. Built with the 5 Oct 2026 vault changes: a **pause plan** (`gaps` and per-scene `pauses`) and **immersive plates** (`bg: blur`, `inset`, split layouts, no `EMPTY PLATE`).
 
 ## Stage log
 
@@ -23,7 +23,7 @@ Short 9:16, English, **148 words** (about 53 s of speech), Austin at `speed` 1.0
 | 4 Prompts and budget | ✅ | **user, 5 Oct 2026**: *"make a video based on the idea described on Youtube idea #2"*; cap about $0.19 | below. Delegation: run to the render, **no upload** |
 | 5 Test | skipped | | no new voice technique; the pause tool is checked by numbers |
 | 6 Generation | ✅ | delegation | 7 voice takes, 0 generated plates, 7 word-timing runs, 4 drawn diagrams |
-| 7 Edit | ✅ rendered r1 · ⏳ **P7 is yours** | | `Media/Week 01/Deep-sea/render/dn-62s-9x16-r1.mp4` (+ `dn.srt`) |
+| 7 Edit | ✅ rendered r1 · ⏳ **P7 is yours** | | `Media/Week 01/2026-10-05 Mon/Deep-sea/render/dn-62s-9x16-r1.mp4` (+ `dn.srt`) |
 | 8 Publish | ✅ uploaded private | **user, 5 Oct 2026**: *"Way better, upload the video"* | see [[Upload - Deep-sea nodules]]; `videos.csv` row added |
 
 ## P4 budget (dollars)

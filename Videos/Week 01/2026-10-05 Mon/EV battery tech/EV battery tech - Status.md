@@ -10,7 +10,7 @@ tags: [research, youtube, status, battery, ev, shorts, week-01]
 
 ← [[YouTube Channel]] · [[Script - EV battery tech]] · [[Workflow]] · [[Playbook]]
 
-Short 9:16, English, **155 words**, Austin at `speed` 1.0, **Week 01**. Question: how long does an EV battery really last, and what does it cost? Media in `Media/Week 01/EV-battery/` (prefix `ev-`). Different angle from [[Battery and lithium - Status]] (that one: lithium, processing, politics).
+Short 9:16, English, **155 words**, Austin at `speed` 1.0, **Week 01**. Question: how long does an EV battery really last, and what does it cost? Media in `Media/Week 01/2026-10-05 Mon/EV-battery/` (prefix `ev-`). Different angle from [[Battery and lithium - Status]] (that one: lithium, processing, politics).
 
 ## Stage log
 
@@ -23,7 +23,7 @@ Short 9:16, English, **155 words**, Austin at `speed` 1.0, **Week 01**. Question
 | 4 Prompts and budget | ✅ | **delegated by the user** (*"upload it to youtube"*), cap ≈ $0.49 | below |
 | 5 Test | ⏭ folded into 6 | delegation | |
 | 6 Generation | ✅ | delegation | 7 voice takes, 1 plate (no retry), 7 word-timing runs |
-| 7 Editing | ✅ rendered r2 · ⏳ **P7 is yours** | | `Media/Week 01/EV-battery/render/ev-61s-9x16-r2.mp4` (+ `ev.srt`) |
+| 7 Editing | ✅ rendered r2 · ⏳ **P7 is yours** | | `Media/Week 01/2026-10-05 Mon/EV-battery/render/ev-61s-9x16-r2.mp4` (+ `ev.srt`) |
 | 8 Publishing | see [[Upload - EV battery tech]] | the user's delegation | |
 
 ## P4 budget (dollars)

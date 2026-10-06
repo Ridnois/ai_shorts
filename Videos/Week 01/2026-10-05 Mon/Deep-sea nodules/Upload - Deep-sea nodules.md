@@ -14,7 +14,7 @@ User request (5 Oct 2026): *"Way better, upload the video"*. No visibility named
 
 ## Upload result
 
-`System/scripts/youtube_upload.py`, first attempt: id **WtKTVljJR7A**, https://studio.youtube.com/video/WtKTVljJR7A/edit, https://youtu.be/WtKTVljJR7A. File `Media/Week 01/Deep-sea/render/dn-62s-9x16-r1.mp4` (62.2 s), Science & Technology, not made for kids, `containsSyntheticMedia: true`. **Thumbnail** `upload/thumb-dn.jpg` (**MINING THE / DEEP SEABED** over a real Ifremer seafloor photo, CC BY 4.0, no image generated, $0): set with the upload, then **re-set after processing** (`youtube_upload.py thumb`, [[Publish]]) and the served image checked: the public `maxresdefault.jpg` URL returns 404 for a private video, but the signed `maxres` URL from the Data API shows **MINING THE / DEEP SEABED** (checked 6 Oct 2026, processing `processed`).
+`System/scripts/youtube_upload.py`, first attempt: id **WtKTVljJR7A**, https://studio.youtube.com/video/WtKTVljJR7A/edit, https://youtu.be/WtKTVljJR7A. File `Media/Week 01/2026-10-05 Mon/Deep-sea/render/dn-62s-9x16-r1.mp4` (62.2 s), Science & Technology, not made for kids, `containsSyntheticMedia: true`. **Thumbnail** `upload/thumb-dn.jpg` (**MINING THE / DEEP SEABED** over a real Ifremer seafloor photo, CC BY 4.0, no image generated, $0): set with the upload, then **re-set after processing** (`youtube_upload.py thumb`, [[Publish]]) and the served image checked: the public `maxresdefault.jpg` URL returns 404 for a private video, but the signed `maxres` URL from the Data API shows **MINING THE / DEEP SEABED** (checked 6 Oct 2026, processing `processed`).
 
 ## Title (50 characters)
 
@@ -26,7 +26,7 @@ Alternatives: "Rocks 50 Million Years Old Are About to Be Mined" (overclaims: no
 
 ## Description (1,996 characters, plain ASCII)
 
-In `Media/Week 01/Deep-sea/upload/desc.txt`: claim and search words first, "New Shorts every day.", three sources (Wikipedia, Mongabay July 2026, NOAA), the caveats (the 3 to 50 million years is rough arithmetic and assumes radial growth; the cobalt line is one USGS estimate), PHOTO CREDITS (Ifremer and Florian Besson CC BY 4.0, GEOMAR CC BY 4.0, Hannes Grobe CC BY-SA 4.0, James A.R. McFarlane CC BY-SA 3.0, NOAA public domain; the claim map is dated about 1991), the AI line, `#deepseamining #oceans #criticalminerals #geopolitics #science`.
+In `Media/Week 01/2026-10-05 Mon/Deep-sea/upload/desc.txt`: claim and search words first, "New Shorts every day.", three sources (Wikipedia, Mongabay July 2026, NOAA), the caveats (the 3 to 50 million years is rough arithmetic and assumes radial growth; the cobalt line is one USGS estimate), PHOTO CREDITS (Ifremer and Florian Besson CC BY 4.0, GEOMAR CC BY 4.0, Hannes Grobe CC BY-SA 4.0, James A.R. McFarlane CC BY-SA 3.0, NOAA public domain; the claim map is dated about 1991), the AI line, `#deepseamining #oceans #criticalminerals #geopolitics #science`.
 
 ## Pinned comment (post by hand)
 
@@ -36,7 +36,7 @@ Which surprised you more: that a nodule takes millions of years to grow, or that
 
 ## Studio settings
 
-Not made for kids. Altered or synthetic content: the script sent "yes"; you decide. Captions track: `Media/Week 01/Deep-sea/render/dn.srt` (upload by hand if wanted). TikTok: not prepared. **The video is time-sensitive:** NOAA's public comment closes 19 October 2026 and its virtual hearing is 13 October 2026; the description and a pinned comment can carry an update.
+Not made for kids. Altered or synthetic content: the script sent "yes"; you decide. Captions track: `Media/Week 01/2026-10-05 Mon/Deep-sea/render/dn.srt` (upload by hand if wanted). TikTok: not prepared. **The video is time-sensitive:** NOAA's public comment closes 19 October 2026 and its virtual hearing is 13 October 2026; the description and a pinned comment can carry an update.
 
 ## Claims to recheck before making it public
 

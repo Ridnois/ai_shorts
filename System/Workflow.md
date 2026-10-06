@@ -54,12 +54,12 @@ Custom thumbnails work on this channel (API `thumbnails.set` or Studio). Hero im
 ## Files
 
 ```
-Videos/Week NN/<Topic>/   Status · Script · Upload (+ Research if long)   (Week = calendar week Mon to Sun, Week 01 = 5 to 11 Oct 2026)
-Media/Week NN/<Video>/    local, gitignored: voice/ plates/ (+_refs, _descartes) stock/ (+_credits.jsonl) sound/ upload/ plan.json render/
+Videos/Week NN/<Day>/<Topic>/   Status · Script · Upload (+ Research if long)   (Week = calendar week Mon to Sun, Week 01 = 5 to 11 Oct 2026; **Day folder** = the day the video was made, named `YYYY-MM-DD Day`, e.g. `2026-10-05 Mon`; user, 6 Oct 2026)
+Media/Week NN/<Day>/<Video>/    local, gitignored (same Day folder as the video's note): voice/ plates/ (+_refs, _descartes) stock/ (+_credits.jsonl) sound/ upload/ plan.json render/
 Media/_canal/             shared (brand drafts, tests)
 ```
 
-Every media file carries its video prefix (Obsidian resolves embeds by file name): `<v>-p<nn>-v<n>.png`, `<v>-s<nn>-<slug>.jpg`, `<v>-e<scene>-voice-v<n>.mp3`; render `<v>-<duration>s-9x16-r<n>.mp4` (the builder names it). New week = new `Week NN` in both trees. A `.blend` keeps absolute paths.
+Every media file carries its video prefix (Obsidian resolves embeds by file name): `<v>-p<nn>-v<n>.png`, `<v>-s<nn>-<slug>.jpg`, `<v>-e<scene>-voice-v<n>.mp3`; render `<v>-<duration>s-9x16-r<n>.mp4` (the builder names it). New week = new `Week NN`, new day = new `<Day>` folder, in both trees. A `.blend` keeps absolute paths.
 
 ## Commands
 
@@ -67,8 +67,8 @@ Every media file carries its video prefix (Obsidian resolves embeds by file name
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Stock photos       | `python3 System/scripts/stock_photos.py search "<q>" --source openverse\|nasa\|commons`, then `get …` (Commons: fetch originals from `upload.wikimedia.org`, the thumbnail API throttles) |
 | Replicate          | `System/scripts/replicate_helper.py` (`run`, `download`, `recover`), token in `.env`                                                                                                      |
-| Word timings       | `python3 System/scripts/word_timings.py "Media/Week NN/<Video>"`                                                                                                                          |
-| Assemble and check | `VIDEO="Media/Week NN/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`                                                               |
+| Word timings       | `python3 System/scripts/word_timings.py "Media/Week NN/<Day>/<Video>"`                                                                                                                          |
+| Assemble and check | `VIDEO="Media/Week NN/<Day>/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`                                                               |
 | Render             | same without `SOLO_PROYECTO`, in the background (3 to 5 min)                                                                                                                              |
 | Upload / metrics   | [[Publish]]                                                                                                                                                                               |
 | Coherence          | `python3 System/scripts/check_vault.py`                                                                                                                                                   |

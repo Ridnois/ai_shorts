@@ -20,7 +20,7 @@ Uploaded with `System/scripts/youtube_upload.py` (the first real run): video id 
 
 ![[cu-61s-9x16-r1.mp4|320]]
 
-`Media/Week 01/Copper-AI/render/cu-61s-9x16-r1.mp4` · 60.8 s · 1080×1920 · 160 words · Austin · captions centred (new layout). Subtitles: `render/cu.srt`.
+`Media/Week 01/2026-10-05 Mon/Copper-AI/render/cu-61s-9x16-r1.mp4` · 60.8 s · 1080×1920 · 160 words · Austin · captions centred (new layout). Subtitles: `render/cu.srt`.
 
 ## Title (34 characters)
 
@@ -58,7 +58,7 @@ The narration and the schematic are AI-generated; the photos are real.
 
 ## Thumbnail (added 5 Oct 2026)
 
-User: *"I uploaded the lithium video manually and added the thmbnail with no problem, check if you can generate and add one for the las video (copper)"*. Made: hero image with `openai/gpt-image-2` (high, one prediction, [47tndpt7…](https://replicate.com/p/47tndpt73srmy0d11n9r6cd6a4), ≈ $0.25 unconfirmed, a terraced open pit in copper-orange light) plus the text **"17 YEARS TO OPEN A MINE"** composed by `System/scripts/make_thumbnail.py` (entry `thumb-cu`), 1080×1920, 378 KB, text inside the 3:2 band: `Media/Week 01/Copper-AI/upload/thumb-cu.jpg`.
+User: *"I uploaded the lithium video manually and added the thmbnail with no problem, check if you can generate and add one for the las video (copper)"*. Made: hero image with `openai/gpt-image-2` (high, one prediction, [47tndpt7…](https://replicate.com/p/47tndpt73srmy0d11n9r6cd6a4), ≈ $0.25 unconfirmed, a terraced open pit in copper-orange light) plus the text **"17 YEARS TO OPEN A MINE"** composed by `System/scripts/make_thumbnail.py` (entry `thumb-cu`), 1080×1920, 378 KB, text inside the 3:2 band: `Media/Week 01/2026-10-05 Mon/Copper-AI/upload/thumb-cu.jpg`.
 
 ![[thumb-cu.jpg|230]]
 

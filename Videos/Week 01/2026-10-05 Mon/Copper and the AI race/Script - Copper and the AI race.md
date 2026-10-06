@@ -73,7 +73,7 @@ Voice text spells "S and P". **Caption display spellings** (`plan.json` `caption
 
 ## 4. Visual plan (S stock photo · G generated explainer), 18 plates
 
-**17 stock, 1 generated** (the vault now generates ≤ 3 plates and spends on a very good model: `gpt-image-2`). Photos in `Media/Week 01/Copper-AI/stock/`, credits in `_credits.jsonl` and in [[Copper and the AI race - Status]].
+**17 stock, 1 generated** (the vault now generates ≤ 3 plates and spends on a very good model: `gpt-image-2`). Photos in `Media/Week 01/2026-10-05 Mon/Copper-AI/stock/`, credits in `_credits.jsonl` and in [[Copper and the AI race - Status]].
 
 | # | Scene | Type | Source | This plate lets the viewer see ___ so they understand ___ |
 | --- | --- | --- | --- | --- |

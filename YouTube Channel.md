@@ -7,7 +7,7 @@ updated: 2026-10-05
 
 Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · target to imitate: [[Model script]] · process and models: [[Workflow]] · look and brand: [[Style]] · upload and metrics: [[Publish]] · [[Feedback loop]]. Idea queue: [[Pipeline]]. Numbers: [[Report]].
 
-## Videos (Week 01 = 5 to 11 Oct 2026)
+## Videos (Week 01 = 5 to 11 Oct 2026; all made on Monday 5 Oct: folder `Videos/Week 01/2026-10-05 Mon/`)
 
 | Video | Words · voice | State | Notes |
 | --- | --- | --- | --- |

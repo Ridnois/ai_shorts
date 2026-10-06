@@ -14,7 +14,7 @@ User request (5 Oct 2026): *"…upload it to youtube"*. Uploaded with `youtube_u
 
 ![[ev-61s-9x16-r2.mp4|320]]
 
-`Media/Week 01/EV-battery/render/ev-61s-9x16-r2.mp4` · 61.4 s · 1080x1920 · 155 words · Austin. Subtitles: `render/ev.srt`.
+`Media/Week 01/2026-10-05 Mon/EV-battery/render/ev-61s-9x16-r2.mp4` · 61.4 s · 1080x1920 · 155 words · Austin. Subtitles: `render/ev.srt`.
 
 ## Titles
 

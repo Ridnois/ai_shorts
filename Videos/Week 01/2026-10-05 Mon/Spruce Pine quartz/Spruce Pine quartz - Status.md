@@ -10,7 +10,7 @@ tags: [research, youtube, status, quartz, semiconductors, shorts, week-01]
 
 ← [[YouTube Channel]] · [[Script - Spruce Pine quartz]] · [[Workflow]] · [[Playbook]] · [[Youtube suggestions based on our videos]]
 
-Short 9:16, English, **147 words** (about 53 s of speech), Austin at `speed` 1.0, **Week 01**. Question: why does the chip industry depend on one small town? Media in `Media/Week 01/Spruce-Pine/` (prefix `sp`). Hook type: **surprising fact**. Topic chosen from the user's YouTube suggestions note (third idea, reframed from the mechanism); [[Script - Spruce Pine quartz]] §1 says why not the other two.
+Short 9:16, English, **147 words** (about 53 s of speech), Austin at `speed` 1.0, **Week 01**. Question: why does the chip industry depend on one small town? Media in `Media/Week 01/2026-10-05 Mon/Spruce-Pine/` (prefix `sp`). Hook type: **surprising fact**. Topic chosen from the user's YouTube suggestions note (third idea, reframed from the mechanism); [[Script - Spruce Pine quartz]] §1 says why not the other two.
 
 ## Stage log
 
@@ -23,7 +23,7 @@ Short 9:16, English, **147 words** (about 53 s of speech), Austin at `speed` 1.0
 | 4 Prompts and budget | ✅ | **user, 5 Oct 2026**: *"choose a topic to create and upload a new video"*; cap about $0.19 | below. Delegation: run to the upload, **private** (no visibility named) |
 | 5 Test | skipped | | no new technique |
 | 6 Generation | ✅ | delegation | 7 voice takes, 0 generated plates, 7 word-timing runs (twice a network timeout, finished takes kept), 2 drawn diagrams |
-| 7 Edit | ✅ rendered r3 | | `Media/Week 01/Spruce-Pine/render/sp-63s-9x16-r3.mp4`; r1 and r2 superseded |
+| 7 Edit | ✅ rendered r3 | | `Media/Week 01/2026-10-05 Mon/Spruce-Pine/render/sp-63s-9x16-r3.mp4`; r1 and r2 superseded |
 | 8 Publish | ✅ uploaded private | delegation | see [[Upload - Spruce Pine quartz]]; `videos.csv` row added |
 
 ## P4 budget (dollars)

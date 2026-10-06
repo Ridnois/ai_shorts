@@ -10,7 +10,7 @@ tags: [research, youtube, status, grid, transformers, shorts, week-01]
 
 ← [[YouTube Channel]] · [[Script - Transformer shortage]] · [[Workflow]] · [[Playbook]] · [[Youtube suggestions based on our videos]]
 
-Short 9:16, English, **139 words** (about 50 s of speech), Austin at `speed` 1.0, **Week 01**. Question: why can't the AI boom just buy more transformers? Media in `Media/Week 01/Transformers/` (prefix `tf`). Hook type: **contradiction**. Idea: the second suggestion in the user's YouTube note, reframed around one object ([[Script - Transformer shortage]] §1).
+Short 9:16, English, **139 words** (about 50 s of speech), Austin at `speed` 1.0, **Week 01**. Question: why can't the AI boom just buy more transformers? Media in `Media/Week 01/2026-10-05 Mon/Transformers/` (prefix `tf`). Hook type: **contradiction**. Idea: the second suggestion in the user's YouTube note, reframed around one object ([[Script - Transformer shortage]] §1).
 
 ## Stage log
 
@@ -23,7 +23,7 @@ Short 9:16, English, **139 words** (about 50 s of speech), Austin at `speed` 1.0
 | 4 Prompts and budget | ✅ | **user, 5 Oct 2026**: *"now make a video of the second place idea, be creative"*; cap about $0.19 | below. Delegation: run to the render, **no upload** (none requested) |
 | 5 Test | skipped | | no new technique |
 | 6 Generation | ✅ | delegation | 7 voice takes, 0 generated plates, 7 word-timing runs (network timeouts twice, finished takes kept), 3 drawn diagrams |
-| 7 Edit | ✅ rendered r1 · ⏳ **P7 is yours** | | `Media/Week 01/Transformers/render/tf-53s-9x16-r1.mp4` (+ `tf.srt`) |
+| 7 Edit | ✅ rendered r1 · ⏳ **P7 is yours** | | `Media/Week 01/2026-10-05 Mon/Transformers/render/tf-53s-9x16-r1.mp4` (+ `tf.srt`) |
 | 8 Publish | ✅ uploaded public | **user, 5 Oct 2026**: *"Upload it, make it public"* | see [[Upload - Transformer shortage]]; `videos.csv` row added |
 
 ## P4 budget (dollars)

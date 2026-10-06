@@ -30,5 +30,5 @@ Replicate 429 under bursts (the helper retries, nothing is charged); Wikimedia t
 CLAUDE.md · YouTube Channel.md (index, video table)
 System/  Playbook · Workflow · Style · Publish · Feedback loop · Brand/Redtail (logo, banner) · scripts/ (build_video, stock_photos, replicate_helper, word_timings, youtube_upload, youtube_analytics, analytics, make_thumbnail, check_vault)
 Pipeline/ idea queue (runner: ~/Documents/youtube-pipeline/pipeline.py)    Analytics/ csvs · Report.md (generated) · Reports/
-Videos/Week NN/<Topic>/ Status · Script · Upload      Media/Week NN/<Video>/ local media
+Videos/Week NN/<YYYY-MM-DD Day>/<Topic>/ Status · Script · Upload      Media/Week NN/<YYYY-MM-DD Day>/<Video>/ local media
 ```
