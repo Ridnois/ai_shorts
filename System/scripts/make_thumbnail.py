@@ -63,7 +63,10 @@ def compose(folder, name, hero, lines, hot, where, kicker=None, chips=None):
             d.rounded_rectangle([(W - cw) / 2, y, (W + cw) / 2, y + chip_h], 12, fill=(14, 14, 22, 225))
             d.rounded_rectangle([(W - cw) / 2, y, (W - cw) / 2 + 10, y + chip_h], 5, fill=ORANGE)
             d.text(((W - cw) / 2 + 34, y + 9), c, font=cf, fill=CREAM); y += chip_h + chip_gap
-    lg = Image.open(LOGO).convert("RGBA"); lg.thumbnail((250, 250)); im.alpha_composite(lg, ((W - lg.width) // 2, 1560))
+    lg = Image.open(LOGO).convert("RGBA"); lg.thumbnail((250, 250)); lx, ly, pad = (W - lg.width) // 2, 1560, 26
+    badge = Image.new("RGBA", (W, H), (0, 0, 0, 0))                # dark badge behind the logo (user, 7 Oct 2026)
+    ImageDraw.Draw(badge).rounded_rectangle([lx - pad, ly - pad, lx + lg.width + pad, ly + lg.height + pad], 34, fill=(16, 24, 36, 255))
+    im.alpha_composite(badge); im.alpha_composite(lg, (lx, ly))
     out = f"{folder}/{name}.jpg"; im.convert("RGB").save(out, quality=90, optimize=True); return out, os.path.getsize(out)
 if __name__ == "__main__":
     for n, (h, l, k, w) in THUMBS.items():
