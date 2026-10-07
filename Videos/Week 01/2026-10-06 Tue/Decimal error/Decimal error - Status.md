@@ -2,7 +2,7 @@
 type: process
 created: 2026-10-06
 updated: 2026-10-06
-status: P1 to P3 done; waiting for the user's P4 (budget and voice test)
+status: PARKED 6 Oct 2026 (user: the video does not make the cut for YouTube); r1 built, not uploaded
 tags: [status, week-01]
 ---
 
@@ -42,3 +42,5 @@ Checks after generation: count the cells and compare the pattern (plate 1), miss
 ## Feedback (user, 6 Oct 2026, on render r1)
 
 *"Voice has some inconcistencies, please redo voice and rerender. 0:26 harmless is mispronunciated. 0:34, one hundred loses entonation, 0:45, target word not not pronunciated or cut."* **Action:** scenes 4, 5 and 6 retaken on turbo-v2.5 (v2) with rewrites that avoid the failing words: "harmless" became "does no harm"; the number now sits mid-sentence after a colon ("And those cuts add up: after a hundred hours, ..."); "target" no longer ends its sentence ("... from the target, so the Patriot looked in the wrong place."). Whisper check: every word is present in the new takes ("target" 0.5 s clear); intonation not verifiable by the agent. v1 takes moved to `voice/_descartes/`. Predictions in `voice/_log.jsonl`. Rule: when a word fails in a take, reword around it before re-rolling ([[Playbook]] §5).
+
+**Parked (user, 6 Oct 2026):** *"Good, for not enough. this video doesnt make the cut into yt."* Reason recorded for [[Audience]]: the topic had a medium demand ceiling (best comparable 200k) and the package sold a cut-off error, not an outcome. Not uploaded.
