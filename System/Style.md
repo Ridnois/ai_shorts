@@ -10,7 +10,7 @@ Captions are always the top layer (see Layers below). Approved by the user ("goo
 
 ## Brand
 
-- **Redtail**, science entertainment. Slogan **"Science at full speed."** (second line "Strange, fast and true."). Logo: NFL-style snarling orange fox head; banner B; assets in `System/Brand/Redtail/`. TikTok **@redtail_media**; YouTube channel `UCCZX7-YPNPntwPKI1hdv2hQ`.
+- **Redtail**, science entertainment. Slogan **"Science at full speed."** (second line "Strange, fast and true."). Logo: NFL-style snarling orange fox head; banner B; assets in `System/Brand/Redtail/` (`redtail-logo.png` transparent, **`redtail-logo-dark.png` and `-dark-small.png` on a dark navy `#101824` rounded square**, for thumbnails and dark surfaces; user, 7 Oct 2026). TikTok **@redtail_media**; YouTube channel `UCCZX7-YPNPntwPKI1hdv2hQ`.
 - Niche: technology and the systems under it (see [[Audience]]). Mission: make how the world is built and run entertaining, the strange machinery behind it in a minute you will want to watch again. Pillars: precise (figures sourced), surprising (≥ 4 on surprise and scale), calm (no hype), honest about machines (AI voice and schematics disclosed), real over decorative.
 - The sign-off is an idea, never "like and subscribe". Brand lives on the channel page, **never inside the video**.
 - Does not do: clickbait, fake experts, photoreal fakes of real events or people, copied scripts, template videos where only the topic word changes.
