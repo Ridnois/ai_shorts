@@ -19,6 +19,6 @@ Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · niche, search and package: [[Au
 | Transformer shortage | 139 · Austin 1.0 | r1 (53 s) uploaded public (F2fC5degIP4) with thumbnail | [[Transformer shortage - Status]] · [[Script - Transformer shortage]] · [[Upload - Transformer shortage]] |
 | Deep-sea nodules | 148 · Austin 1.0 | r1 (62 s), first with the pause plan and immersive plates; uploaded private (WtKTVljJR7A) | [[Deep-sea nodules - Status]] · [[Script - Deep-sea nodules]] · [[Upload - Deep-sea nodules]] |
 | Grid chokepoint | 132 · Austin 1.0 | r1 rendered (56 s), Tuesday 6 Oct folder; thumbnail ready; P7 is yours; not uploaded | [[Grid chokepoint - Status]] · [[Script - Grid chokepoint]] |
-| Decimal error | planned · P1 done | script and package next | [[Decimal error - Status]] · [[Script - Decimal error]] |
+| Decimal error | 164 · Austin on turbo-v2.5 | r1 rendered (60 s), P7 is yours; thumbnail not built, not uploaded | [[Decimal error - Status]] · [[Script - Decimal error]] |
 
 Earlier videos (Magnets, Helium, Brazil, Lemon cake, Bike stems, Chips, Twisted carbon, Magnetar, Moon, Superconductors, Asteroid mining) were deleted from the vault on 5 Oct 2026; their lessons live in [[Playbook]]; git history keeps them.
