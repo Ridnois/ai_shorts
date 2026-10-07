@@ -26,3 +26,7 @@ tags: [status, week-01]
 ## P7 listening rubric (answer in chat; words go under Feedback)
 
 1. Voice natural? 2. Pace right? 3. Pauses misplaced or missing (scene, word)? 4. Sound mix right? 5. Any screen empty (scene)? 6. Is the closing question the one you want? 7. Build the thumbnail and package for upload?
+
+## Feedback (user, 6 Oct 2026, P7 on r1)
+
+*"Voice goes natural, your best work till the date. Harness that. The pace is good, the best till date too. sound mix and pacing. closing question on point. build the thumbnail and title and show it to me before we upload"* **Rubric:** voice natural yes; pace right yes; sound mix right; no empty screen reported; closing question approved. **Actions:** this script is now the model in [[Model script]]; the voice recipe is recorded in [[Playbook]] §5; thumbnail variants A and B and a draft `upload/publish.json` built; **nothing is uploaded; title, thumbnail, description and visibility wait for the user.**

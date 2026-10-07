@@ -6,7 +6,7 @@ status: v1 · one annotated script and hook rewrites to imitate; replace with th
 
 # Model script: what "good" looks like
 
-Rules say what is allowed ([[Playbook]]); this note shows the target. Source: [[Script - Copper and the AI race]] (r2, 6 Oct 2026: its hook is the stronger rewrite below; the r1 hook is the weak row). Replace this model with the video that holds viewers best once [[Publish]] §Analytics loop has numbers.
+Rules say what is allowed ([[Playbook]]); this note shows the target. **Best result so far (user, 6 Oct 2026: voice "your best work till the date", pace "the best till date", closing question "on point"): [[Script - Netflix screenshot]]** (interesting-fact explainer: one fact per scene, three systems side by side, a social question at the end, voice recipe in [[Playbook]] §5). Older source: [[Script - Copper and the AI race]] (r2, 6 Oct 2026: its hook is the stronger rewrite below; the r1 hook is the weak row). Replace this model with the video that holds viewers best once [[Publish]] §Analytics loop has numbers.
 
 ## Annotated scenes
 
