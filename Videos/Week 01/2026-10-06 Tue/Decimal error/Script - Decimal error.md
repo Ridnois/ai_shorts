@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-06
 updated: 2026-10-06
-status: P1 to P3 done (idea, script, package, visual plan); waiting for P4 (budget, voice test)
+status: P1 to P6 done; r1 built and rendering; P7 is the user's
 tags: [research, youtube, script, programming, floating-point, week-01]
 ---
 
@@ -86,7 +86,7 @@ Photo candidates (found with `stock_photos.py search`, **not downloaded**, no fi
 | 17 | 7 | D split + inset | 0.1 against **10 cents** stored as the whole number 10 (inset: radar) | the fix, a whole count |
 | 18 | 7 | S full | Patriot launch (hook image again) | the loop |
 
-**Mix (user, 6 Oct 2026: mix stock photos with generated illustrations, `gpt-image-2`):** 5 S, 10 D, **3 G** (plates 4, 14, 16; the cap) (5 of the D plates are data figures from the GAO or Python; 164 words is above the 130 to 160 aim, inside 190). **Weak points known now:** the generated plates are **schematics, not scenes**: no photoreal depiction of the real strike, no people, no fire (Style: no fakes of real events); image models miscount cells, so plate 4 is checked cell by cell and falls back to a drawn plate after one retry; no real photo of Dhahran or the barracks (not shown, and no identifiable people); the range-gate drawing is a schematic of GAO figures 4 and 5; Patriot photos are of later models, labelled as file photos; plate 15 skips the 72 h row (494 m) to keep five bars; the table rows are 1, 8, 20, 48, 72, 100 h. **On-screen text** limited to the cards above; symbols avoided (the font lacks them).
+**Mix (user, 6 Oct 2026: mix stock photos with generated illustrations, `gpt-image-2`):** 6 S, 8 D, **3 G** (plates 4, 14, 16; the cap); 17 plates after plate 12 was merged into plate 10 (5 of the D plates are data figures from the GAO or Python; 164 words is above the 130 to 160 aim, inside 190). **Weak points known now:** the generated plates are **schematics, not scenes**: no photoreal depiction of the real strike, no people, no fire (Style: no fakes of real events); image models miscount cells, so plate 4 is checked cell by cell and falls back to a drawn plate after one retry; no real photo of Dhahran or the barracks (not shown, and no identifiable people); the range-gate drawing is a schematic of GAO figures 4 and 5; Patriot photos are of later models, labelled as file photos; plate 15 skips the 72 h row (494 m) to keep five bars; the table rows are 1, 8, 20, 48, 72, 100 h. **On-screen text** limited to the cards above; symbols avoided (the font lacks them).
 
 ## 5. Next
 
