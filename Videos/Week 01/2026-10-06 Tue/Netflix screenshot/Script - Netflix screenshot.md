@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-06
 updated: 2026-10-06
-status: P1 (idea and research) done; waiting for the user's yes on the angle (it is a street-lamp and scale decision); no script yet
+status: P1 to P3 done (delegated run after the user's rewrite request); r1 render next; P7 is the user's
 tags: [research, youtube, script, drm, streaming, week-01]
 ---
 
@@ -44,9 +44,53 @@ Rejected, one line each: **"how to bypass it"** (not explained, not taught); **N
 **Demand check:** one proven outlier (5.8M, 47x), the rest of the question 400 to 8.7k ([[Niche map]]); quality-fix videos around the resolution bridge 20k to 143k from tiny channels. **Risk:** one outlier can be luck, so the resolution bridge is what makes demand robust. **Topic family:** software and networks; previous video Decimal error (software, parked): spread ok because that video was not published.
 **Five hooks (different types, voice-take check pending):** contradiction (leading) "Netflix does not know you took a screenshot, and it does not need to." · surprising fact "A screenshot of Netflix is black because the film never enters the picture your phone copies." · stakes "The same trick that blacks out your screenshot also decides how sharp your picture is." · question-as-claim "The black screen is not a bug: it is the protection working." · consequence "Your laptop may stream a softer picture than your TV because of a security rule." (verify before use; facts 9 and 11 support the direction, not the claim for every device).
 
-## 2. Next (not done)
+## 2. Rewrite after the user's feedback (6 Oct 2026, P2 and P3, delegated)
 
-P2 script (130 to 190 words) with the Package first (titles and thumbnail from the idea note, revised for the split and the bridge); P3 visual plan (three OS diagrams, a secure path drawing, the real photos of devices); read before scripting: the Widevine L1 secure decode path in a primary source, the Android 14 callback page in full, one Netflix statement on device quality.
+*"make it more like an interesting fact, keep the information about os blocking the screen recording on netflix. and end on a way to fidelize the user, make him think, ask him something, make it social."* The street-lamp and scale worries of §1 were set aside by the user: the video is an **interesting-fact explainer** that keeps the OS blocking (facts 1 to 8) and closes on a **question to the viewer**; no resolution bridge, Widevine, HDCP or Android 14 callback in the voice (cut test).
+
+**Package.** Y: copy a frame of what I pay for. X: the operating system refuses to copy protected video. **Promise:** a Netflix screenshot is black because your own device refuses to copy it. **Titles:** *Why Your Phone Won't Screenshot Netflix* (recommended) · *The Black Screenshot: What Your Phone Is Really Doing* · *Netflix Doesn't Block Your Screenshot. Your Phone Does.* (check wording: Netflix's app may set the flag; use only if a source says so). **Thumbnail:** hero `ns-phone-hand.jpg` (CC0) with the black-screen contrast; kicker **STREAMING**; lines **SCREENSHOT** / **COMES OUT BLACK** (second line orange); chips **3 SYSTEMS · 1 RULE** · **SOUND STILL GETS THROUGH** · **A CAMERA STILL WORKS**. Beats its neighbours (search 6 Oct 2026: face-on thumbnails and "Real Reason" text) by naming the surprise in two plain lines plus facts. **Opening map:** scene 1 promise; scene 2 proof (apps mark video protected, three systems) and plan.
+
+## 3. Script (P2): 168 words, 924 characters, 7 scenes
+
+Bridges: 2 "and the operating system obeys" · 3 "On Android" · 4 "An iPhone" · 5 "Windows" · 6 "The app can be told" · 7 "So". **Facts (5):** the OS leaves protected video out (all three); Android's secure setting; iPhone blacks out video but not sound; Windows marks a window empty and Microsoft says no guarantee; notifications come after. **Spoken figures:** none; everything is on screen as words. **Original synthesis:** one rule shown across three vendors side by side. **Cut test:** Widevine levels, HDCP, resolution, Android 14 callback, Netflix's own implementation (fact 16). **Honesty:** "apps can mark their video as protected" (generic, not "Netflix uses ..."); Microsoft's caveat is voiced. **Close:** payoff ("your own device following a rule the app set") then the question and the invitation ([[Playbook]] §2).
+
+| Scene | Voice text | Words | Delivery | Pause after (s) |
+| --- | --- | --- | --- | --- |
+| 1 | A screenshot of a Netflix movie comes out black, and Netflix does not have to notice a thing. | 18 | curious, matter-of-fact | 0.60 |
+| 2 | Apps can mark their video as protected, and the operating system obeys. Android, iPhone and Windows each do it their own way. | 22 | clear, explaining | 0.40 |
+| 3 | On Android, one setting called secure makes the screenshot blank, and keeps the window off non-secure screens, like a projector. | 20 | light, one fact at a time | 0.30 |
+| 4 | An iPhone blacks out protected video in screen recordings, mirroring and AirPlay. The sound still gets through, so the app has to pause it. | 24 | steady, a little surprised at the sound | 0.30 |
+| 5 | Windows can mark a window so it looks empty everywhere except the monitor. Microsoft says it is no guarantee: a camera pointed at the screen still copies it. | 28 | dry, amused at the camera | 0.40 |
+| 6 | The app can be told about a screenshot, but only afterwards. It is a notification, not a lock. | 18 | calm, short | 0.80 (before the close) |
+| 7 | So the black square is not Netflix watching you. It is your own device following a rule the app set. Should a device be allowed to refuse to copy what it shows you? Tell me what you think. | 38 | warm, open: speaking to the viewer | (tail) |
+
+`gaps` = [0.60, 0.40, 0.30, 0.30, 0.40, 0.80]; inner pauses after "black," "obeys." "blank" "monitor." "you." "set.". **Voice:** `elevenlabs/turbo-v2.5`, Austin, per scene with previous and next text. Scene 6 was retaken (v2) because speech-to-text heard "after it has taken"; it now reads "only afterwards".
+
+## 4. Visual plan (P3): 17 plates, prefix `ns`, folder `Media/Week 01/2026-10-06 Tue/Netflix-screenshot/`
+
+Photos (credits in `stock/_credits.jsonl`): `ns-phone-hand` (CC0, NeONBRAND), `ns-phone-use` (CC0), `ns-android` (CC BY-SA 4.0), `ns-laptop` (CC BY-SA 4.0, Ajsm712), `ns-projector` (public domain). Generated (`gpt-image-2`, `high`): layers (plate 4) and camera against screenshot (plate 13). Drawn (Pillow): 6.
+
+| # | Sc | Type · layout | This plate lets the viewer see ___ so they understand ___ |
+| --- | --- | --- | --- |
+| 1 | 1 | S full + callout | a phone playing video, so the hook is about an everyday action |
+| 2 | 1 | D split | the same moment as a picture and as a black screenshot |
+| 3 | 2 | S full + callout | a laptop, so "the operating system" is a real thing |
+| 4 | 2 | G split | the screen built from layers, with the video layer left out of the copy |
+| 5 | 2 | D split | three systems, one rule |
+| 6 | 3 | S full + callout | an Android phone and its secure setting |
+| 7 | 3 | D split + inset | a secure window: shown on the phone, blank in a screenshot, not shown on a projector (inset: projector) |
+| 8 | 4 | S full + callout | a phone and the blacked-out video |
+| 9 | 4 | D split | recording, mirroring and AirPlay: video out, sound passes |
+| 10 | 5 | S full + callout | a laptop and a window marked monitor-only |
+| 11 | 5 | D split | on the monitor against everywhere else (Microsoft) |
+| 12 | 5 | G split | a screenshot tool gets black, a camera still gets the picture |
+| 13 | 6 | D split | the notification arrives after the screenshot |
+| 14 | 6 | S full + callout | the phone, told afterwards |
+| 15 | 7 | S full | an Android phone, the question coming |
+| 16 | 7 | S contain blur + margin note | the closing question on screen |
+| 17 | 7 | S full | the first phone again (loop) |
+
+**Mix:** 8 S, 6 D, 2 G (17 plates; scene durations decide the rest). **Weak points known now:** the "film" in plate 2 is a drawn gradient, not a real frame; the schematic plates simplify layers; no photo shows a Netflix screen (not used: copyright and brand); generic phone photos stand for iPhone, Android and Windows. **On-screen text:** callouts and one margin note only.
 
 ## 3. Not verified
 
