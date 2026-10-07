@@ -20,5 +20,6 @@ Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · niche, search and package: [[Au
 | Deep-sea nodules | 148 · Austin 1.0 | r1 (62 s), first with the pause plan and immersive plates; uploaded private (WtKTVljJR7A) | [[Deep-sea nodules - Status]] · [[Script - Deep-sea nodules]] · [[Upload - Deep-sea nodules]] |
 | Grid chokepoint | 132 · Austin 1.0 | r1 rendered (56 s), Tuesday 6 Oct folder; thumbnail ready; P7 is yours; not uploaded | [[Grid chokepoint - Status]] · [[Script - Grid chokepoint]] |
 | Decimal error | 164 · Austin on turbo-v2.5 | r1 rendered (58 s, voice retaken), P7 is yours; thumbnail not built, not uploaded | [[Decimal error - Status]] · [[Script - Decimal error]] |
+| Netflix screenshot | planned · P1 done | waiting for the user's yes on the angle | [[Netflix screenshot - Status]] · [[Script - Netflix screenshot]] |
 
 Earlier videos (Magnets, Helium, Brazil, Lemon cake, Bike stems, Chips, Twisted carbon, Magnetar, Moon, Superconductors, Asteroid mining) were deleted from the vault on 5 Oct 2026; their lessons live in [[Playbook]]; git history keeps them.
