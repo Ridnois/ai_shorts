@@ -65,6 +65,49 @@ def compose(folder, name, hero, lines, hot, where, kicker=None, chips=None):
             d.text(((W - cw) / 2 + 34, y + 9), c, font=cf, fill=CREAM); y += chip_h + chip_gap
     lg = Image.open(LOGO).convert("RGBA"); lg.thumbnail((302, 302)); im.alpha_composite(lg, ((W - lg.width) // 2, 1534))
     out = f"{folder}/{name}.jpg"; im.convert("RGB").save(out, quality=90, optimize=True); return out, os.path.getsize(out)
+def drawn(folder, spec, name="thumb"):
+    """Thumbnail v2 (research 9 Oct 2026, Workflow §Thumbnail): ONE focal image drawn with motion.py elements as a still (every
+    element in its final state), at most 3 to 4 words, text 110 px or more (a phone tile is about 168 px wide), everything that
+    matters inside the safe band x 40 to 1040, y 600 to 1320 (Shorts thumbnails render near 3:2). No kicker, chips or logo.
+    spec = {"bg": "navy", "els": [...]} as in a motion plate; warnings are printed, the file is written anyway."""
+    import io, cairo
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import motion
+    end = 10.0
+    cues = lambda c: end if str(c).startswith("end") else 0.0
+    sf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
+    ctx = cairo.Context(sf)
+    motion.Background(spec, folder, end).paint(ctx, end)
+    issues, words = [], 0
+
+    def warn(box, size, s):
+        x0, y0, w, h = box
+        if size < 110:
+            issues.append(f"'{s}' at {size} px is unreadable on a phone tile (use 110 px or more)")
+        if x0 < 40 or x0 + w > 1040 or y0 < 600 or y0 + h > 1320:
+            issues.append(f"'{s}' leaves the safe band (x 40 to 1040, y 600 to 1320)")
+    for el in spec["els"]:
+        a, _ = motion.visibility(el, end, cues)
+        ctx.save()
+        ctx.push_group()
+        motion.draw_el(ctx, el, end, cues, warn)
+        ctx.pop_group_to_source()
+        ctx.paint_with_alpha(a)
+        ctx.restore()
+        if el.get("kind") in ("text", "label"):
+            words += len(str(el.get("text", "0")).split())
+    if words > 4:
+        issues.append(f"{words} words: keep it to 3 or 4")
+    for i in issues:
+        print("  WARN thumbnail:", i)
+    buf = io.BytesIO()
+    sf.write_to_png(buf)
+    buf.seek(0)
+    out = f"{folder}/{name}.jpg"
+    Image.open(buf).convert("RGB").save(out, quality=92, optimize=True)
+    return out, os.path.getsize(out)
+
+
 if __name__ == "__main__":
     for n, (h, l, k, w) in THUMBS.items():
         if len(sys.argv) < 3 or n in sys.argv[2:]: print(compose(sys.argv[1], n, h, l, k, w))

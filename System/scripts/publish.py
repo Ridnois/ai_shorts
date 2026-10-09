@@ -15,8 +15,8 @@ publish.json (all keys required unless marked):
   claim      the first two lines of the description (claim and search words)
   sources    [["what it supports", "https://..."], ...]       caveats  "one or two sentences" (optional)
   hashtags   "#a #b #c"            privacy  "private"|"public"|"unlisted" (optional, default private)
-  thumb      {"hero": "stock/x.jpg", "lines": ["TOP", "BOTTOM"], "hot": 1, "kicker": "TOPIC TAG", "chips": ["FACT ONE", "FACT TWO", "FACT THREE"]}
-             (kicker and up to 3 chips are the "more info" layer, 6 Oct 2026: each chip a sourced figure or the video's three key terms, <= 26 characters)
+  thumb      {"bg": "navy", "els": [...]}: v2 (9 Oct 2026, System/Workflow.md §Thumbnail), one focal image drawn with motion.py
+             elements, at most 3 to 4 words, rendered by make_thumbnail.drawn. Legacy (videos before 9 Oct): {"hero", "lines", "hot", "kicker", "chips"}
   hook_type  "stakes"             pinned  "pinned comment text"           approval  "the user's words"
   claims     [["claim", "source", "strength"], ...] (optional)            alt_titles ["...", "..."] (optional)
 """
@@ -132,11 +132,15 @@ def main():
     plan = json.load(open(f"{media}/plan.json", encoding="utf-8")); up = f"{media}/upload"; os.makedirs(up, exist_ok=True)
     privacy = cfg.get("privacy", "private"); out = []
     # 1 thumbnail
-    from make_thumbnail import compose
-    th = cfg["thumb"]; shutil_hero = f"{up}/hero-pub.jpg"
-    from PIL import Image
-    Image.open(f"{media}/{th['hero']}").convert("RGB").save(shutil_hero, quality=95)
-    compose(up, "thumb", "hero-pub.jpg", th["lines"], th.get("hot", 1), ("end", 1280), th.get("kicker"), th.get("chips")); thumb = f"{up}/thumb.jpg"
+    from make_thumbnail import compose, drawn
+    th = cfg["thumb"]
+    if th.get("els"):                                  # v2 (9 Oct 2026): one drawn focal image, at most 3 to 4 words
+        drawn(up, th)
+    else:                                              # legacy: hero photo + title lines + kicker and chips + logo
+        from PIL import Image
+        Image.open(f"{media}/{th['hero']}").convert("RGB").save(f"{up}/hero-pub.jpg", quality=95)
+        compose(up, "thumb", "hero-pub.jpg", th["lines"], th.get("hot", 1), ("end", 1280), th.get("kicker"), th.get("chips"))
+    thumb = f"{up}/thumb.jpg"
     # 2 description
     desc = description(cfg, plan); open(f"{up}/desc.txt", "w", encoding="utf-8").write(desc)
     out.append(f"thumbnail {thumb} · description {len(desc)} chars · pack {write_pack(cfg, plan, up, desc)}")

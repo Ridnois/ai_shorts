@@ -14,7 +14,7 @@ Render: `Media/Week 01/2026-10-09 Fri/Decimal-error/render/de-57s-9x16-r1.mp4` (
 
 ## Thumbnail
 
-`upload/de-thumb-a.jpg`: hero drawn in the render's style (`upload/hero-de.png`: Friday's board at 524.811 against Monday's at 1,098.892, bars to scale), kicker ROUNDING ERROR, lines IT DOUBLED. / NOTHING TRADED. (orange), chips ONE DIGIT DROPPED | 3,000 TIMES A DAY | VANCOUVER, 1982 TO 1983. The package's first draft said "doubled overnight": changed, because it happened over a weekend.
+`upload/de-thumb-a.jpg` (v2, 9 Oct 2026, after the user asked for a research-led redesign): one focal image drawn in the video's look (`make_thumbnail.drawn`, [[Workflow]] §Thumbnail v2): the index line sliding for two years, then jumping straight up in orange, a CLOSED sign beside the jump and a big x2; 2 words, inside the safe band, checked at 168 px wide and in the 3:2 crop. No kicker, chips or logo. The chart is schematic (the decline's wobble is illustrative; the levels 1,000, 524.811 and 1,098.892 are to scale). Title recommended with it: *The Rounding Error That Halved a Stock Index*.
 
 ## Studio settings
 

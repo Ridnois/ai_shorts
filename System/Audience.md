@@ -33,6 +33,7 @@ Owns everything that happens **before the click and in the first seconds after i
 ## Package: title and thumbnail are one promise
 
 - **The thumbnail is read first.** If the viewer cannot see problem and outcome in a glance, the title is never read. One idea per thumbnail, readable at phone size.
+- **Picture and words split the job** (9 Oct 2026): the thumbnail shows the surprise as one image with at most 3 to 4 words; the title gives the cause and the search words. Never the same sentence in both ([[Workflow]] §Thumbnail).
 - **Judge beside the competition:** compare the package with 3 videos it will sit next to in search; the question is *does this give the right viewer a clearer reason to choose this one?*
 - The promise must be **plain, specific, honest** ("China refines 48 % of copper and mines 8 %"), never a teaser the video cannot pay.
 - Do not copy a winner's title; keep the psychology (Y, speed, surprise), change the subject.

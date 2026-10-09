@@ -28,6 +28,8 @@ tags: [status, week-01]
 
 User, 9 Oct 2026, on the r1 summary: *"Perfect"*. The listening rubric below is not answered yet.
 
+User, 9 Oct 2026, on the first pack: *"rethink how do you do the thumbnail, forget about what i told you and make a fast and efficient research about youtube thumbnails, and the redo it"*. **Action:** thumbnail v2 (one drawn focal image, 2 words, no chips or logo), rules rewritten in [[Workflow]] §Thumbnail, [[Playbook]] §2b and [[Audience]]; recommended title changed to the cause (*The Rounding Error That Halved a Stock Index*) so it complements the picture.
+
 ## P7 listening rubric (answer in chat; words go under Feedback)
 
 1. Voice natural? 2. Pace right? 3. Pauses misplaced or missing (scene, word)? 4. Sound mix right (opening hit and whooshes against the voice)? 5. Any screen empty (scene)? 6. Did any picture fail to show what was said, or arrive late (scene, word)? 7. Is the story more engaging than v1 (the Patriot version)? 8. Music: none, or a Pixabay track you pick? 9. Build the thumbnail and publish pack?
