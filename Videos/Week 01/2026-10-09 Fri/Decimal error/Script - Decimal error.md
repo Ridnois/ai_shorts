@@ -12,7 +12,7 @@ tags: [research, youtube, script, programming, rounding, week-01]
 
 User (9 Oct 2026): *"Redo the decimal error video entirely, from idea to render. you're free to rethink how to make it engaging, viral-like"*. v1 (a computer cannot hold one tenth; the 1991 Patriot clock) was parked: *"this video doesnt make the cut into yt"* (6 Oct); recorded reason: a medium demand ceiling and a package that sold a cut-off error, not an outcome. **v2 keeps the subject (a decimal error that grows by repetition) and changes the story to one with a money stake and a twist ending:** the Vancouver Stock Exchange index.
 
-**Y:** numbers you can trust (money and markets computed right). **X:** dropping a digit instead of rounding pushes every tiny error the same way, so millions of them add up. **Theme line:** *a tiny cut, always in the same direction, can halve a number.* **One question:** how can a stock index double over a weekend when nothing is traded?
+**Y:** numbers you can trust (money and markets computed right). **X:** dropping a digit instead of rounding pushes every tiny error the same way, so millions of them add up. **Theme line:** *a tiny cut, always in the same direction, can cut a number in half.* **One question:** how can a stock index double over a weekend when nothing is traded?
 
 ## 0. Facts bank (**read** = page opened 9 Oct 2026; **run** = agent's arithmetic)
 
@@ -50,10 +50,10 @@ User (9 Oct 2026): *"Redo the decimal error video entirely, from idea to render.
 
 - **Promise:** a stock index doubled over a weekend with the market closed, because for almost two years a computer had dropped a digit after every trade.
 - **Titles:** *A Stock Index Doubled Over a Weekend. Nothing Was Traded.* (recommended, 57 characters) · *The Missing Digit That Halved a Stock Index* · *Why Computers Round Instead of Cutting Off Decimals*.
-- **Thumbnail:** hero = `Old vancouver stock exchange.jpg` (Commons, CC BY-SA 3.0, mafue; the 475 Howe Street building); kicker **ROUNDING ERROR**; lines **DOUBLED OVERNIGHT** / **NOTHING TRADED** (orange); chips **524.811 TO 1,098.892** · **3,000 CUTS A DAY** · **VANCOUVER, NOV 1983**. Beats its neighbours (rounding tutorials and 0.1 + 0.2 code screens) by showing a market number and a weekend, with the figures as proof.
+- **Thumbnail:** hero = a frame of plate 1 (the board at 1,098.892 on MON, $0): no free photo shows the exchange in 1982 (Commons has only its 1929 to 1946 building, 475 Howe Street; in 1982 it was in the Stock Exchange Tower, 609 Granville, Wikipedia); kicker **ROUNDING ERROR**; lines **DOUBLED OVERNIGHT** / **NOTHING TRADED** (orange); chips **524.811 TO 1,098.892** · **3,000 CUTS A DAY** · **VANCOUVER, NOV 1983**. Beats its neighbours (rounding tutorials and 0.1 + 0.2 code screens) by showing a market number and a weekend, with the figures as proof.
 - **Opening map:** scene 1 promise (the doubling) · scene 2 proof (the exchange, the index at 1,000, updated every trade) · scene 3 plan (the cut, and why it only goes down).
 
-## 3. Script (P2): 161 words, 7 scenes
+## 3. Script (P2): 163 words, 7 scenes (take v2: 55.7 s, 176 wpm)
 
 Bridges: 2 "It was" (answers who) · 3 "But" · 4 "And" · 5 "So" · 6 "Then" · 7 "So here is the point". **Facts (5):** the index started at 1,000 and was updated every trade; four decimals were cut to three, never rounded; each cut was under a thousandth, about 3,000 a day; the index sank to almost half while the market rose; recalculated with rounding over one weekend, it more than doubled. **Spoken figures:** one thousand, a thousandth, three thousand (four and three decimals are counts in the mechanism). **Original synthesis:** about 1.4 million cuts of about 0.0004 points each (fact 13), on screen. **Cut test:** removed the newspapers, 22 months as a number, Virgin Media, the 0.35-point estimate. **Low-attention:** first sentence 12 words, no jargon; the point is spoken as a point and shown on a card before the question.
 
@@ -65,7 +65,7 @@ Bridges: 2 "It was" (answers who) · 3 "But" · 4 "And" · 5 "So" · 6 "Then" ·
 | 4 | And each cut was less than a thousandth of a point. But it happened about three thousand times a day. | 20 | steady, building | continues scene 3 (no mark) |
 | 5 | So the index sank to almost half, while the market was actually rising. | 13 | quiet, let it land | `beat` 0.3 after the scene: before the turn |
 | 6 | Then, one weekend, they redid the math with proper rounding. By Monday, the index had more than doubled. | 18 | rising, a small smile on "doubled" | natural |
-| 7 | So here is the point: a tiny cut, always in the same direction, can halve a number. If a bank kept every dropped fraction of a cent, would that be theft? Tell me what you think. | 37 | warm, slower on the point, open on the question | break 0.2 after "number." (before the question) |
+| 7 | So here is the point: a tiny cut, always in the same direction, can cut a number in half. If a bank kept every dropped fraction of a cent, would that be theft? Tell me what you think. | 39 | warm, slower on the point, open on the question | break 0.2 after "half." (before the question) |
 
 Captions spell "one thousand" as 1,000 and "three thousand" as 3,000. Sources per line: 1 facts 7, 11, 10 · 2 facts 1, 5 · 3 facts 2 to 4 · 4 facts 5, 14 · 5 facts 9, 12 · 6 facts 7, 8 · 7 facts 13, 4. **Honesty:** "they redid the math" (who did it is not in the sources read); "while the market was closed" = a weekend (fact 11); "the market was actually rising" rests on facts 9 and 12.
 
@@ -74,17 +74,17 @@ Captions spell "one thousand" as 1,000 and "three thousand" as 3,000. Sources pe
 | # | Sc · `at` | Medium | The viewer sees ___ happen, so they understand ___ | Events on words | Text on screen |
 | --- | --- | --- | --- | --- | --- |
 | 1 | 1 · start | motion `de-m-board` | the board counting 524.811 to 1,098.892 as the day marker slides FRI to MON past SAT and SUN marked CLOSED, so the doubling happened with no trading | "doubled" count · "closed" CLOSED stamps · "richer" wallet bar flat · "cuts" the last digit sliced | VSE INDEX · FRI SAT SUN MON |
-| 2 | 2 · start | motion `de-m-map` | a globe turning to Canada and zooming to Vancouver, then the real 1929 exchange building, so it is a real market | "Vancouver" pin · "Exchange" photo | Vancouver |
+| 2 | 2 · start | motion `de-m-map` | a globe turning to Canada and zooming to Vancouver, so it is a real market in a real city | "Vancouver" pin · "Exchange" label | Vancouver · Vancouver Stock Exchange |
 | 3 | 2 · "index" | motion `de-m-start` (anchor, state 2) | the board at 1000.000 and trades flying in, each one nudging the number | "thousand" pulse · "trade" particles, number moves | JAN 1982 · trades counter |
 | 4 | 3 · start | motion `de-m-cut` | one update: 1000.4567, three decimals boxed, the 7 falls off into a bin | "four" digits light · "three" bracket · "dropped" the digit falls | KEPT · DROPPED |
 | 5 | 3 · "Rounding" | motion `de-m-round` | two rows of errors: rounding bars go up and down and the sum stays flat; dropping bars all go down and the sum sinks | "Rounding" up-down bars · "Dropping" down bars, sum line sinks | ROUNDING · DROPPING |
 | 6 | 4 · start | motion `de-m-pile` | one cut is a hairline on a one-point ruler; then a counter races to 3,000 while slivers pile up | "thousandth" hairline · "three" counter · "day" pile | 1 POINT · 3,000 CUTS A DAY · about 25 points a month |
 | 7 | 5 · start | motion `de-m-chart` | the shown index line falls from 1,000 to 524.811 while the market line rises, so the gap is the error | "sank" copper line draws · "half" mark · "rising" dashed line | JAN 1982 · NOV 1983 · Shown · Recalculated |
 | 8 | 6 · start | motion `de-m-fix` (anchor, state 3) | the board recomputed: a progress bar fills, Monday flips, the number jumps to 1,098.892 | "redid" bar · "rounding" · "Monday" jump and pulse | Toronto Star, 29 Nov 1983 |
-| 9 | 7 · start | motion `de-m-point` (anchor, final) + context card | the board halving in a ghost, the dropped digits piled under it; conclusion card | "point" card | card: Vancouver, 1982 to 1983 · One-way cuts halve it · About 1.4 million cuts, 0.0004 each |
+| 9 | 7 · start | motion `de-m-point` (anchor, final) + context card | the board replaying two years: 1,000.000 sinks to 524.811 while slivers fall from its last digit; conclusion card | "point" card · "always" count down · "direction" arrow · "half" pulse | card: Vancouver, 1982 to 1983 · One-way cuts halved it · About 1.4 million cuts, 0.0004 each |
 | 10 | 7 · "If" | motion `de-m-cent` + margin note | a cent coin losing a sliver to a bank, again and again | "fraction" sliver · "theft" pulse | note: Dropped fractions of a cent: theft? |
 
-One real photo (the exchange building, plate 2); everything else is a faithful drawing. **Schematic, marked in Status:** the chart draws straight lines between the sourced endpoints (the real paths are not in the sources); the trades, digits and errors in plates 3 to 6 are illustrative values (1000.4567 is an example, not a logged update). No generated media, no footage (Pixabay results were generic market screens: swap-test fails).
+No real photo or footage: the only free photo of the exchange shows a building it left in 1946, and Pixabay's market clips were generic screens (swap test). Everything is a faithful drawing. **Schematic, marked in Status:** the chart draws straight lines between the sourced endpoints (the real paths are not in the sources); the trades, digits and errors in plates 3 to 6 are illustrative values (1000.4567 is an example, not a logged update).
 
 ## 5. Not verified
 
