@@ -2,7 +2,7 @@
 type: process
 created: 2026-10-09
 updated: 2026-10-09
-status: r1 and r2 (visual redesign test) rendered; waiting for the user (P7)
+status: r3 (new voice and master) rendered; waiting for the user (P7)
 tags: [status, week-01]
 ---
 
@@ -19,6 +19,8 @@ tags: [status, week-01]
 
 **r2, visual redesign test (9 Oct 2026, $0):** same voice, words and pauses; visuals rebuilt with the new [[Playbook]] §3 (research: [[2026-10-09 Visual research]]): 8 motion plates cut on the word (hook counter and speed bar, current into the phone, zoom into the cell, graphite filling then lithium plating, the two-stage charge curve, overnight charging, the phone again with the conclusion card, the speed-or-battery switch with the question). `MOTION SHARE` 100 %, no `REPEAT`, no `motion.py` warnings, `CHECK` all voices complete. Render `Media/Week 01/2026-10-09 Fri/Phone-charging-slows/render/pc-42s-9x16-r2.mp4` (r1 kept for comparison; r1 plan in `plan-r1.json`). No footage: Commons has none for phone charging and Pexels/Pixabay need the user's free keys. The only Commons clip found (USB chargers) failed the swap test (shaky, Samsung logo, shows chargers not current) and was deleted. **Not verified:** motion in real time (only 6-frame sheets and 2 s stills seen), whether the calm lower third reads as empty, the Apple overnight curve (shape from a search summary, schematic).
 
+**r3, audio redesign test (9 Oct 2026):** same script and pictures (motion plates re-timed to the new take); voice = one Inworld TTS-2 take (`Dennis`, rate 0.95, one 0.3 s break before the conclusion; `voice/pc-take-v2.wav`, prediction `244kpkqsp5rmr0d13yrs3a72r4`; take v1 discarded: its 0.7 and 0.6 s breaks became 1.2 s silences). 37.9 s of speech, 112 of 112 words heard, silences 0.34 to 0.64 s and one 0.86 s beat. Captions snapped to the speech onsets. Sound: opening hit and scene whooshes only, no drone, no music (Pixabay music needs a manual pick). Mix: −14.0 LUFS, true peak −2.8 dBTP, mix-to-picture lag 20 ms. Render `Media/Week 01/2026-10-09 Fri/Phone-charging-slows/render/pc-39s-9x16-r3.mp4` (39.5 s); r2 plan in `plan-r2.json`. Spend for r3 about $0.05 (two takes about $0.04, one timing call about $0.01): video total about $0.17 against the cap of about $0.18 (prices from model pages, unconfirmed by a bill). **Not verified:** how the new voice sounds, whether Dennis suits the persona, the voice chain's EQ on a phone.
+
 *Not verified:* see the Script note §5.
 
 ## Feedback (user, 9 Oct 2026, on r2)
@@ -27,4 +29,4 @@ tags: [status, week-01]
 
 ## P7 listening rubric (answer in chat; words go under Feedback)
 
-1. Voice natural? 2. Pace right? 3. Pauses misplaced or missing (scene, word)? 4. Sound mix right? 5. Any screen empty (scene)? 6. Did any picture fail to show what was being said, or arrive late (scene, word)? 7. r1 or r2: which explains better, and which holds you? 8. Build the thumbnail and package?
+1. Voice natural? 2. Pace right? 3. Pauses misplaced or missing (scene, word)? 4. Sound mix right? 5. Any screen empty (scene)? 6. Did any picture fail to show what was being said, or arrive late (scene, word)? 7. r2 against r3: does the new voice sound continuous and calm, and is the loudness right on a phone? 8. Music: none, or a Pixabay track you pick? 9. Build the thumbnail and package?
