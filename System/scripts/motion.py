@@ -20,10 +20,12 @@ Elements (coordinates in pixels of the 1080x1920 frame; colours are palette name
   label    target [x,y] at [x,y] text: a callout (copper dot, leader, paper box), like the builder's callouts
   image    file x y w (centre; height from the photo) r (corners) — a real photo inside the drawing
   stream   from [x,y] or [[x,y],...] · to [[x,y],...] (one slot per particle) or grid [x0,y0,dx,dy,cols,rows] · via [x,y]
-           start every travel r color: particles leave `from` one by one and settle in their slots (ions, molecules, parcels)
+           start every travel r color stop: particles leave `from` one by one and settle in their slots (ions, molecules,
+           parcels); vanish: true makes them disappear on arrival (a flow, a current); glow: a soft halo; x y: pulse centre
   bar      x y w h segs [{"v", "color", "label", "show"}] total: a stacked bar whose segments grow when shown
   dots     x y cols rows gap r color n (keyable: dots shown) hi hi_color: a unit chart (1 dot = 1 unit)
-  chart    x y w h xr [x0,x1] yr [y0,y1] series [{"pts", "color", "lw", "label", "draw"}] bands [{"x0","x1","label","show"}]
+  chart    x y w h xr [x0,x1] yr [y0,y1] series [{"pts", "color", "lw", "smooth", "label", "label_at", "label_show",
+           "draw" (fraction of length) or "to_x" (data x; keyable, so stages line up)}] bands [{"x0","x1","label","show"}]
            marks [{"x", "label", "show"}] x_label y_label head readout {"series", "fmt", "scale"}
   map      cx cy (screen centre) center [lon,lat] R (globe radius px; keyable: 380 = whole globe, 6000+ = a region)
            highlight [country names] pins [{"lon","lat","label","show"}] arcs [{"from","to","show"}] states (US states etc.)
@@ -85,9 +87,9 @@ class Cues:
             return self.dur + off
         word, nth = (s.split("#") + ["1"])[:2]
         norm = lambda w: "".join(ch for ch in w.lower() if ch.isalnum())
-        hits = [w for w in self.words if norm(w[0]) == norm(word) and self.ini - 0.4 <= w[1] < self.ini + self.dur]
+        hits = [w for w in self.words if norm(w[0]) == norm(word) and self.ini - 0.1 <= w[1] < self.ini + self.dur]
         if len(hits) < int(nth):
-            heard = " ".join(w[0] for w in self.words if self.ini - 0.4 <= w[1] < self.ini + self.dur)
+            heard = " ".join(w[0] for w in self.words if self.ini - 0.1 <= w[1] < self.ini + self.dur)
             raise SystemExit(f"{self.label}: cue '{c}' not heard inside the plate (heard: {heard})")
         return max(0.0, hits[int(nth) - 1][1] - self.ini) + off
 
@@ -389,7 +391,7 @@ def draw_el(ctx, el, t, cues, warn):
         ctx.set_source_rgba(*rgb(el.get("color", "copper")))
         for i, dst in enumerate(slots[: el.get("count", len(slots))]):
             born = t0 + i * every
-            if t < born or (stop is not None and born > stop):
+            if t < born or (stop is not None and born > stop) or (el.get("vanish") and t > born + travel):
                 continue
             u = ease((t - born) / travel)
             a = srcs[i % len(srcs)]
@@ -398,6 +400,11 @@ def draw_el(ctx, el, t, cues, warn):
                 p = [(1 - u) ** 2 * a[j] + 2 * (1 - u) * u * v[j] + u * u * dst[j] for j in (0, 1)]
             else:
                 p = lerp(a, dst, u)
+            if el.get("glow"):                                      # a soft halo: energy, current, heat
+                ctx.set_source_rgba(*rgb(el.get("color", "copper"), 0.22))
+                ctx.arc(p[0], p[1], el.get("r", 12) * 2.3, 0, 2 * math.pi)
+                ctx.fill()
+                ctx.set_source_rgba(*rgb(el.get("color", "copper")))
             ctx.arc(p[0], p[1], el.get("r", 12), 0, 2 * math.pi)
             ctx.fill()
     elif k == "bar":
@@ -494,7 +501,18 @@ def draw_chart(ctx, el, t, cues, warn):
             continue
         pts = [px(p) for p in s["pts"]]
         pts = smooth(pts) if s.get("smooth") else pts
-        part = polyline_part(pts, keyed(s, "draw", t, cues, 1.0))
+        if "to_x" in s or "to_x" in s.get("keys", {}):              # drawn up to a data x (stages line up across series)
+            xe = px([keyed(s, "to_x", t, cues, x1), y0])[0]
+            part = [p for p in pts if p[0] <= xe]
+            nxt = next((p for p in pts if p[0] > xe), None)
+            if part and nxt:
+                a_, b_ = part[-1], nxt
+                u = (xe - a_[0]) / max(b_[0] - a_[0], 1e-6)
+                part.append([xe, a_[1] + (b_[1] - a_[1]) * u])
+            if len(part) < 2:
+                continue
+        else:
+            part = polyline_part(pts, keyed(s, "draw", t, cues, 1.0))
         ctx.set_source_rgba(*rgb(s.get("color", "copper"), a))
         ctx.set_line_width(s.get("lw", 10))
         ctx.set_line_cap(cairo.LINE_CAP_ROUND)
@@ -507,7 +525,7 @@ def draw_chart(ctx, el, t, cues, warn):
             ctx.arc(part[-1][0], part[-1][1], s.get("lw", 10) * 1.5, 0, 2 * math.pi)
             ctx.fill()
         heads.append((s, part[-1], a))
-        if s.get("label") and len(part) > 1:
+        if s.get("label") and len(part) > 1 and t >= cues(s.get("label_show", 0)):
             lx, ly = s.get("label_at", [part[-1][0] + 20, part[-1][1] - 50])
             ctx.push_group()
             warn(draw_text(ctx, s["label"], lx, ly, s.get("size", 44), rgb(s.get("color", "copper")), True,
@@ -732,14 +750,14 @@ def events(spec, cues):
     return sorted(t for t in ts if t is not None)
 
 
-def render(spec, out, dur, cues, root, label, sheet=False):
+def render(spec, out, dur, cues, root, label, sheet=False, extra=()):
     els = spec["els"]
     for el in els:
         for key in ("file",):
             if el.get(key) and not os.path.isabs(el[key]):
                 el[key] = os.path.join(root, el[key])
     bg = Background(spec, root, dur)
-    ev = events(spec, cues)
+    ev = sorted(min(max(x, 0.0), dur) for x in events(spec, cues) + [cues(c) for c in extra])
     gaps = [(round(a_, 1), round(b_, 1)) for a_, b_ in zip(ev, ev[1:]) if b_ - a_ > 3.5]
     if gaps:
         print(f"  WARN {label}: nothing changes on screen for over 3.5 s in {gaps}: add an event (a label, a pulse, a camera move)")
@@ -803,8 +821,10 @@ def render(spec, out, dur, cues, root, label, sheet=False):
     print(f"MOTION {os.path.relpath(out, root)}: {dur:.2f} s, {n} frames")
     if sheet:
         png = os.path.splitext(out)[0] + ".sheet.png"
+        font = "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf"
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", out, "-vf",
-                        f"fps={6 / max(dur, 0.1):.4f},scale=270:480,tile=6x1", "-frames:v", "1", png])
+                        f"fps={6 / max(dur, 0.1):.4f},scale=270:480,drawtext=fontfile={font}:text='%{{pts\\:flt\\:2}} s':"
+                        "x=8:y=8:fontsize=20:fontcolor=white:box=1:boxcolor=black@0.6,tile=6x1", "-frames:v", "1", png])
         print("  sheet", os.path.relpath(png, root))
 
 
@@ -830,8 +850,9 @@ def main():
             if not p:
                 raise SystemExit(f"{pl['file']} is not in render/_timeline.json: rebuild with SOLO_PROYECTO=1")
             cues = Cues(tl["words"], p["ini"], p["fin"], pl["file"])
+            extra = [c["at"] for c in [pl.get("card") if isinstance(pl.get("card"), dict) else {}] + pl.get("callouts", []) if c.get("at")]
             render(json.loads(json.dumps(pl["motion"])), os.path.join(root, pl["file"]), p["fin"] - p["ini"], cues, root,
-                   pl["file"], a.sheet)
+                   pl["file"], a.sheet, extra)
             done += 1
     print("MOTION PLATES rendered:", done)
 
