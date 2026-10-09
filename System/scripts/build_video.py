@@ -7,10 +7,16 @@
 What it does (see System/Playbook.md §3 and §6):
   * Voices: each take is padded (0.30 s of silence before, 0.40 s after, 20 ms fade-in) into voice/_padded/*.wav and
     placed so the whole clip is audible. The TTS files often start abruptly; the padding and fades remove the "cut" at the start.
-  * Plates of three types, over a gradient background made here:
-      full     a photo or generated image that fills the frame (cover, with a focus point and a slow push)
+  * Plates of five types:
+      video    real footage (clips/*.mp4 cut to 9:16 by stock_videos.py, muted), cover-fitted, `in` = seconds into the clip
+      motion   an animated explainer rendered by System/scripts/motion.py from the plate's `motion` spec (1080x1920)
+      full     a photo or generated image that fills the frame (cover, with a focus point and a slow push, or a
+               `move` {"from": [fx, fy, zoom], "to": [fx, fy, zoom]}: a pan from one detail to the one the voice names)
       contain  a photo or diagram fitted inside the frame on a gradient, with rounded corners and a soft shadow
       cutout   a PNG with a transparent background (generated or cut out) over the gradient, with a soft shadow
+  * Cuts on the word: a plate with `"at": "graphite"` ("graphite#2", "graphite+0.2") starts just before that word is heard
+    in its scene; plates without `at` share the time left evenly. Callouts and cards take `at` too (they appear on the word).
+  * render/_timeline.json: every plate's start and end and every heard word (absolute seconds), read by motion.py.
   * Callouts: a dot on a part of the image, a leader line and a short label (explains machines and processes).
   * One card per plate: context (label, title, detail), number (big figure, caption, source) or margin note; vignette and grain.
   * Word-by-word captions (plan `texts`, one narration string per voice, plus optional `captions`: the same takes spelled for the eye, an empty string falls back to `texts`; timings from voice/<take>.words.json made by
@@ -172,6 +178,7 @@ for n, src in enumerate(PLAN["voices"], start=1):
     t += (fin - ini) + (GAPS[n - 1] if n < NV else 0)
 B = [0.0] + [v["abs"] + v["dur"] + GAPS[i] / 2 for i, v in enumerate(voices[:-1])] + [voices[-1]["abs"] + voices[-1]["dur"] + TAIL]
 T_END = B[-1]
+CUE_LEAD = 0.15                     # a plate anchored on a word lands this much before the word (the picture arrives with it)
 
 for v in voices:
     # the strip is created `ini` earlier: frame_offset_start also advances the visible start
@@ -404,50 +411,189 @@ def add_text(name, txt, font, size, col, ch, t0, t1, xpx, ypx, rise=True):
     return tx
 
 
+# ---------------------------------------------------------------- heard words (captions, cuts on the word, motion cues)
+def estimate_words(text, a, b, env):
+    """Fallback: split [a, b] (the speech) among the words by characters, adding weight after commas and full stops."""
+    ws = text.split()
+    wt = [len(w.strip(".,;:!?")) + 1 + (4 if w[-1] in ".!?" else 2 if w[-1] in ",;:" else 0) for w in ws]
+    k, t_ = (b - a) / sum(wt), a
+    out = []
+    for w, x in zip(ws, wt):
+        out.append([w, t_, t_ + x * k])
+        t_ += x * k
+    return out
+
+
+def align_words(ws, heard):
+    """Maps the script words `ws` onto the heard words [[w, s, e], ...]: identical words (letters and digits only) anchor, and the script
+    words between two anchors share the heard span between them by characters ("1911." heard for "nineteen eleven" still lands right)."""
+    import difflib
+    norm = lambda w: "".join(c for c in w.lower() if c.isalnum())
+    sm = difflib.SequenceMatcher(None, [norm(w) for w in ws], [norm(h[0]) for h in heard], autojunk=False)
+    out, i0, j0 = [], 0, 0
+    for i, j, n in sm.get_matching_blocks() + [difflib.Match(len(ws), len(heard), 0)]:
+        gap_w, gap_h = ws[i0:i], heard[j0:j]
+        if gap_w:
+            if gap_h:
+                a_, b_ = gap_h[0][1], gap_h[-1][2]
+            else:                                             # words nobody heard: borrow a sliver after the previous word
+                a_ = out[-1][2] if out else (heard[0][1] if heard else 0.0)
+                b_ = a_ + 0.18 * len(gap_w)
+            wt = [len(w.strip(".,;:!?")) + 1 for w in gap_w]
+            k, t_ = (b_ - a_) / sum(wt), a_
+            for w, x in zip(gap_w, wt):
+                out.append([w, t_, t_ + x * k])
+                t_ += x * k
+        for q in range(n):
+            out.append([ws[i + q], heard[j + q][1], heard[j + q][2]])
+        i0, j0 = i + n, j + n
+    return out
+
+
+def take_words(v, text):
+    """[[word, start, end]] in seconds of the padded file (original time + PAD_LEAD), using the script's own spelling."""
+    ws = text.split()
+    path = os.path.splitext(v["f"])[0].replace("/_padded", "") + ".words.json"
+    if os.path.exists(path):
+        raw = [[w, remap_time(s, v["cuts"]) + PAD_LEAD, remap_time(e, v["cuts"]) + PAD_LEAD] for w, s, e in json.load(open(path))]
+        return align_words(ws, raw)
+    return estimate_words(text, v["a"], v["b"], None)
+
+
+KEYWORDS = {"".join(c for c in k.lower() if c.isalnum()) for k in PLAN.get("keywords", [])}   # up to ~6 key terms per video, shown in copper
+
+
+def heard_words():
+    """[(word, start, end, scene)] in absolute seconds, in the caption spelling (plan `captions` over `texts`)."""
+    texts = PLAN.get("texts")
+    if not texts:
+        return []
+    assert len(texts) == len(voices), "plan.texts needs one narration string per voice"
+    caps = PLAN.get("captions") or [""] * len(texts)
+    assert len(caps) == len(texts), "plan.captions needs one string per voice (\"\" keeps the voiced text)"
+    out = []
+    for v, c, t in zip(voices, caps, texts):   # display spelling ("250 K") over voiced spelling; align_words maps it onto the heard words
+        for w, s_, e_ in take_words(v, c or t):
+            out.append((w, v["abs"] + s_ - v["ini"], v["abs"] + e_ - v["ini"], v["n"]))
+    return out
+
+
+PLACED = heard_words()
+
+
+def cue_time(spec, scene, label):
+    """Absolute time of a word cue inside a scene: \"graphite\", \"graphite#2\" (its second time), \"graphite+0.3\"."""
+    s, off = str(spec), 0.0
+    for sign in "+-":
+        if sign in s[1:]:
+            k = s.rfind(sign)
+            s, off = s[:k], float(s[k:])
+            break
+    word, nth = (s.split("#") + ["1"])[:2]
+    hits = [w for w in PLACED if w[3] == scene and norm(w[0]) == norm(word)]
+    if len(hits) < int(nth):
+        raise SystemExit(f"{label}: cue '{spec}' not heard in scene {scene} (heard: {' '.join(w[0] for w in PLACED if w[3] == scene)})")
+    return hits[int(nth) - 1][1] + off
+
+
 # ---------------------------------------------------------------- plates
 for _sc in PLAN["scenes"]:
     for _pl in _sc["plates"]:
         if "blank" in os.path.basename(_pl["file"]).lower() and not PLAN.get("allow_bare"):
             raise SystemExit(f"bare backdrop refused: {_pl['file']} (feedback 4 Oct 2026: put the figure on a photo or explainer; "
                              "set allow_bare only if the user asked for it)")
-        if not os.path.exists(f"{ROOT}/{_pl['file']}"):
+        if not os.path.exists(f"{ROOT}/{_pl['file']}") and _pl["type"] != "motion":
             raise SystemExit(f"missing plate file: {_pl['file']}")
+PENDING = [pl["file"] for sc_ in PLAN["scenes"] for pl in sc_["plates"] if pl["type"] == "motion" and not os.path.exists(f"{ROOT}/{pl['file']}")]
+if PENDING and os.environ.get("SOLO_PROYECTO") != "1":
+    raise SystemExit(f"motion plates not rendered yet: {PENDING} (run System/scripts/motion.py on this folder first)")
 EVENTS = [(0.0, "thump")]                       # (time, kind) for the sound design
 idx = 0
 flat = []
 for e, scene in enumerate(PLAN["scenes"], start=1):
     n = len(scene["plates"])
     t0, t1 = B[e - 1], B[e]
-    seg = (t1 - t0) / n
+    starts = [t0] + [cue_time(pl["at"], e, pl["file"]) - CUE_LEAD if pl.get("at") else None for pl in scene["plates"][1:]] + [t1]
+    k0 = 0                                               # plates without `at` share the time between their anchored neighbours
+    for k1 in range(1, n + 1):
+        if starts[k1] is not None:
+            for q in range(k0 + 1, k1):
+                starts[q] = starts[k0] + (starts[k1] - starts[k0]) * (q - k0) / (k1 - k0)
+            k0 = k1
+    if any(b_ - a_ < 0.8 for a_, b_ in zip(starts, starts[1:])):
+        raise SystemExit(f"scene {e}: plate cues out of order or under 0.8 s apart: {[round(x, 2) for x in starts]}")
     for j, pl in enumerate(scene["plates"]):
         idx += 1
-        flat.append((idx, e, j, n, t0 + j * seg, t0 + (j + 1) * seg, pl))
+        flat.append((idx, e, j, n, starts[j], starts[j + 1], pl))
 
 LONG = [(i, round(float(b - a), 1)) for i, e, j, n, a, b, pl in flat if b - a > 5.0]
 print("PLATES", len(flat), "| durations", [round(float(b - a), 1) for i, e, j, n, a, b, pl in flat])
 print("LONG PLATE (> 5 s, add a reference image):", LONG if LONG else "none")
-EMPTY = [i for i, e, j, n, a, b, pl in flat if pl["type"] != "full" and pl.get("bg") != "blur" and not pl.get("inset")]
+EMPTY = [i for i, e, j, n, a, b, pl in flat if pl["type"] in ("contain", "cutout") and pl.get("bg") != "blur" and not pl.get("inset")]
 print("EMPTY PLATE (contain or cutout on a flat gradient: use bg \"blur\" or an inset, user 5 Oct 2026):", EMPTY if EMPTY else "none")
+_uses = {}
+for i, e, j, n, a, b, pl in flat:
+    _uses.setdefault(pl["file"], []).append(i)
+REPEAT = {f_: v_ for f_, v_ in _uses.items() if len(v_) > 2}
+print("REPEAT (one source on more than 2 plates; a recurring anchor must change state each time):", REPEAT if REPEAT else "none")
+MOVING = sum(b - a for i, e, j, n, a, b, pl in flat if pl["type"] in ("video", "motion") or pl.get("move"))
+print(f"MOTION SHARE {MOVING / T_END:.0%} of the runtime is footage, animation or a purposeful camera move")
+if PENDING:
+    print("MOTION PENDING (placeholder only; run motion.py, then build again):", PENDING)
+TIMELINE = {"fps": FPS, "duration": T_END, "plates": [], "words": [list(w) for w in PLACED]}
+
+
+def cover(w, h, fx, fy, k):
+    """Offsets that put the focus point (fractions of the picture) at the frame centre, clamped to the picture."""
+    ox = max(-(w * k - W) / 2, min((w * k - W) / 2, (0.5 - fx) * w * k))
+    oy = max(-(h * k - H) / 2, min((h * k - H) / 2, (fy - 0.5) * h * k + 60))
+    return ox, oy
+
+
+def camera(st, pl, i, ini, fin, w, h, k, push):
+    """Cover-fit with either a `move` (pan and zoom from one detail to another) or a gentle push in or out."""
+    mv = pl.get("move")
+    for t_ in (ini, fin):
+        u_ = (t_ - ini) / (fin - ini)
+        if mv:
+            fx, fy, z = [a_ + (b_ - a_) * u_ for a_, b_ in zip(mv["from"], mv["to"])]
+        else:
+            fx, fy = pl.get("focus", [0.5, 0.5])
+            z = 1.0 + pl.get("zoom", push) * (u_ if i % 2 else 1.0 - u_)
+        st.transform.offset_x, st.transform.offset_y = cover(w, h, fx, fy, k * z)
+        st.transform.scale_x = st.transform.scale_y = k * z
+        for prop in ("scale_x", "scale_y", "offset_x", "offset_y"):
+            st.transform.keyframe_insert(prop, frame=fr(t_))
+
+
 for i, e, j, n, a, b, pl in flat:
     ini = a - (XF / 2 if j > 0 else 0)
     fin = b + (XF / 2 if j < n - 1 else 0)
+    TIMELINE["plates"].append({"i": i, "scene": e, "file": pl["file"], "type": pl["type"], "a": a, "b": b, "ini": ini, "fin": fin})
     ch = 3 + 2 * (j % 2)                                 # plate channel: 3 or 5; its gradient sits right below it (2 or 4)
     strips = []
-    if pl["type"] == "full":
+    if pl["type"] in ("video", "motion") and pl["file"] not in PENDING:
+        cin = pl.get("in", 0.0)                          # seconds into the clip
+        st = S.new_movie(f"plate{i:02d}", f"{ROOT}/{pl['file']}", ch, fr(ini) - fr(cin))
+        st.frame_offset_start = fr(cin)
+        st.frame_final_end = fr(fin)                     # past the clip's end Blender holds its last frame
+        if abs(st.fps - FPS) > 0.01:
+            print(f"CLIP FPS {pl['file']}: {st.fps} fps, plan is {FPS} (recut it with stock_videos.py cut)")
+        if st.frame_duration - fr(cin) < fr(fin - ini) - 1:
+            print(f"SHORT CLIP {pl['file']}: {(st.frame_duration - fr(cin)) / FPS:.1f} s for a {fin - ini:.1f} s plate (last frame held)")
+        w, h = st.elements[0].orig_width, st.elements[0].orig_height
+        k = max(W / w, H / h) * (1.0 if pl["type"] == "motion" else 1.02)
+        camera(st, pl, i, ini, fin, w, h, k, 0.0 if pl["type"] == "motion" else 0.04)
+        strips = [st]
+    elif pl["type"] == "motion":                         # not rendered yet: a dark stand-in keeps the timing
+        st = S.new_image(f"plate{i:02d}", gradient("#101824", "#1a2638", 90), ch, fr(ini))
+        st.frame_final_end = fr(fin)
+        strips = [st]
+    elif pl["type"] == "full":
         st = S.new_image(f"plate{i:02d}", f"{ROOT}/{pl['file']}", ch, fr(ini))
         st.frame_final_end = fr(fin)
         w, h = st.elements[0].orig_width, st.elements[0].orig_height
-        k = max(W / w, H / h) * 1.07
-        fx, fy = pl.get("focus", [0.5, 0.5])
-        ox = max(-(w * k - W) / 2, min((w * k - W) / 2, (0.5 - fx) * w * k))
-        oy = max(-(h * k - H) / 2, min((h * k - H) / 2, (fy - 0.5) * h * k + 60))
-        st.transform.offset_x, st.transform.offset_y = ox, oy
-        for t_ in (ini, fin):
-            u_ = (t_ - ini) / (fin - ini)
-            z = 1.0 + pl.get("zoom", ZOOM) * (u_ if i % 2 else 1.0 - u_)
-            st.transform.scale_x = st.transform.scale_y = k * z
-            st.transform.keyframe_insert("scale_x", frame=fr(t_))
-            st.transform.keyframe_insert("scale_y", frame=fr(t_))
+        camera(st, pl, i, ini, fin, w, h, max(W / w, H / h) * 1.07, ZOOM)
         strips = [st]
     else:
         c0, c1 = ("#10243a", "#27507a") if pl.get("bg") in (None, "blur") else pl["bg"]
@@ -501,7 +647,7 @@ for i, e, j, n, a, b, pl in flat:
         bh = 64
         lxy = (co["label"][0] * W - bw / 2, co["label"][1] * H - bh / 2)
         lxy = (min(max(lxy[0], 24), W - bw - 24), min(max(lxy[1], 24), round(H * CAP_Y) - 90 - bh))      # never in the caption zone (the card sits below the captions, so labels above them never meet it)
-        c0t = a + 1.0 + 0.6 * ci
+        c0t = cue_time(co["at"], e, pl["file"]) if co.get("at") else a + 1.0 + 0.6 * ci   # `at`: on the word that names the part
         c1t = b - 0.15
         if c1t - c0t < 1.0:
             continue
@@ -519,7 +665,7 @@ for i, e, j, n, a, b, pl in flat:
     card = pl.get("card")
     if card:
         kind = card.get("kind", "context") if isinstance(card, dict) else "context"
-        t0, t1 = a + 0.45, b - 0.15
+        t0, t1 = (cue_time(card["at"], e, pl["file"]) if isinstance(card, dict) and card.get("at") else a + 0.45), b - 0.15
         EVENTS.append((t0, "ping"))
         cd = S.new_image(f"card{i:02d}", CARD_PNG, 7, fr(t0))
         cd.frame_final_end = fr(t1)
@@ -550,57 +696,6 @@ for i, e, j, n, a, b, pl in flat:
 
 
 # ---------------------------------------------------------------- word-by-word captions
-def estimate_words(text, a, b, env):
-    """Fallback: split [a, b] (the speech) among the words by characters, adding weight after commas and full stops."""
-    ws = text.split()
-    wt = [len(w.strip(".,;:!?")) + 1 + (4 if w[-1] in ".!?" else 2 if w[-1] in ",;:" else 0) for w in ws]
-    k, t_ = (b - a) / sum(wt), a
-    out = []
-    for w, x in zip(ws, wt):
-        out.append([w, t_, t_ + x * k])
-        t_ += x * k
-    return out
-
-
-def align_words(ws, heard):
-    """Maps the script words `ws` onto the heard words [[w, s, e], ...]: identical words (letters and digits only) anchor, and the script
-    words between two anchors share the heard span between them by characters ("1911." heard for "nineteen eleven" still lands right)."""
-    import difflib
-    norm = lambda w: "".join(c for c in w.lower() if c.isalnum())
-    sm = difflib.SequenceMatcher(None, [norm(w) for w in ws], [norm(h[0]) for h in heard], autojunk=False)
-    out, i0, j0 = [], 0, 0
-    for i, j, n in sm.get_matching_blocks() + [difflib.Match(len(ws), len(heard), 0)]:
-        gap_w, gap_h = ws[i0:i], heard[j0:j]
-        if gap_w:
-            if gap_h:
-                a_, b_ = gap_h[0][1], gap_h[-1][2]
-            else:                                             # words nobody heard: borrow a sliver after the previous word
-                a_ = out[-1][2] if out else (heard[0][1] if heard else 0.0)
-                b_ = a_ + 0.18 * len(gap_w)
-            wt = [len(w.strip(".,;:!?")) + 1 for w in gap_w]
-            k, t_ = (b_ - a_) / sum(wt), a_
-            for w, x in zip(gap_w, wt):
-                out.append([w, t_, t_ + x * k])
-                t_ += x * k
-        for q in range(n):
-            out.append([ws[i + q], heard[j + q][1], heard[j + q][2]])
-        i0, j0 = i + n, j + n
-    return out
-
-
-def take_words(v, text):
-    """[[word, start, end]] in seconds of the padded file (original time + PAD_LEAD), using the script's own spelling."""
-    ws = text.split()
-    path = os.path.splitext(v["f"])[0].replace("/_padded", "") + ".words.json"
-    if os.path.exists(path):
-        raw = [[w, remap_time(s, v["cuts"]) + PAD_LEAD, remap_time(e, v["cuts"]) + PAD_LEAD] for w, s, e in json.load(open(path))]
-        return align_words(ws, raw)
-    return estimate_words(text, v["a"], v["b"], None)
-
-
-KEYWORDS = {"".join(c for c in k.lower() if c.isalnum()) for k in PLAN.get("keywords", [])}   # up to ~6 key terms per video, shown in copper
-
-
 def write_srt(placed, per_cue=5):
     """render/<prefix>.srt: the same words in cues of `per_cue` words, to upload as a caption track (search, translation, accessibility)."""
     ts = lambda t: f"{int(t // 3600):02d}:{int(t % 3600 // 60):02d}:{int(t % 60):02d},{int(t % 1 * 1000):03d}"
@@ -613,17 +708,9 @@ def write_srt(placed, per_cue=5):
 
 
 def add_captions():
-    texts = PLAN.get("texts")
-    if not texts:
+    if not PLACED:
         return
-    assert len(texts) == len(voices), "plan.texts needs one narration string per voice"
-    caps = PLAN.get("captions") or [""] * len(texts)
-    assert len(caps) == len(texts), "plan.captions needs one string per voice (\"\" keeps the voiced text)"
-    texts = [c or t for c, t in zip(caps, texts)]   # display spelling ("250 K") over voiced spelling ("two hundred fifty kelvin"); align_words maps it onto the heard words
-    placed = []
-    for v, text in zip(voices, texts):
-        for w, s, e in take_words(v, text):
-            placed.append((w, v["abs"] + s - v["ini"], v["abs"] + e - v["ini"]))
+    placed = [w[:3] for w in PLACED]
     write_srt(placed)
     n = 0
     for i_, (w, s, e) in enumerate(placed):
@@ -747,6 +834,7 @@ rd.ffmpeg.audio_codec, rd.ffmpeg.audio_bitrate, rd.ffmpeg.audio_channels = "AAC"
 name = f"{PLAN['prefix']}-{round(T_END)}s-9x16-r{PLAN.get('render', 1)}"
 rd.filepath = f"{OUT}/{name}.mp4"
 bpy.ops.wm.save_as_mainfile(filepath=f"{OUT}/{PLAN['prefix']}-{round(T_END)}s.blend")
+json.dump(TIMELINE, open(f"{OUT}/_timeline.json", "w", encoding="utf-8"), indent=1)   # read by motion.py
 print("DURATION", round(T_END, 2), "s;", dur, "frames;", name)
 for v in voices:
     print("voice", v["n"], f"timeline {v['abs']:.2f} -> {v['abs'] + v['dur']:.2f}",
