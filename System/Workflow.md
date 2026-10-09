@@ -1,7 +1,7 @@
 ---
 type: process
-updated: 2026-10-05
-status: v2 · delegated flow is the default; listening rubric; note size ceilings
+updated: 2026-10-09
+status: v3 · footage and motion plates (9 Oct 2026); delegated flow is the default; listening rubric; note size ceilings
 ---
 
 # Workflow: stages, budget, models, files
@@ -22,13 +22,13 @@ Read `CLAUDE.md`, [[Playbook]], this note, `Analytics/Report.md`, then only the 
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | **A · Text**                | idea (deep-first search, Y and X, facts bank, scores, against-the-idea pass, demand check, five hooks) → research (claims with source and date) → script in words **with its Package (title, thumbnail, promise)** → visual plan (one row per plate) | P1 to P3 + P4a; the street-lamp test cannot be "borderline"                                                                                |
 | **B · Budget**              | stock photos downloaded (free, credits), content-first prompts, voice prompts, `plan.json`, dollar budget with cap                                                      | **P4: spending allowed from here; no Replicate call and no file in `Media/` before it** (delegation counts as approval, written in Status) |
-| **C · Generation**          | voice → word timings → images (in series)                                                                                                                               | within the cap                                                                                                                             |
-| **D · Edit**                | `build_video.py`, `CHECK=1`, render in the background                                                                                                                   | **P7 (the user)**, with the listening rubric below                                                                                         |
+| **C · Generation** | voice → word timings → build with `SOLO_PROYECTO=1` (writes `render/_timeline.json`) → motion plates (`motion.py --sheet`, look at every sheet) → footage cut (`stock_videos.py cut`) → generated images or clips (in series) | within the cap |
+| **D · Edit** | `build_video.py`, `CHECK=1`, render in the background | **P7 (the user)**, with the listening rubric below |
 | **E · Publish and measure** | Upload note, `Analytics/videos.csv` row, pulls ([[Publish]])                                                                                                            | P8                                                                                                                                         |
 
 A **test stage** (voice of scene 1, one cutout and one stock photo composed, ≈ $0.10) is run only when a new technique, voice setting or model is tried; routine videos skip it. A change in an approved stage reopens the later ones. A new video request without delegation ends at P4 as text: Status note, research, script with visual plan, prompts, `plan.json`, budget.
 
-**Listening rubric at P7:** the agent cannot hear, so the user answers five short questions and the answers are written in Status under *Feedback*: (1) does the voice sound natural? (2) is the pace right (too fast, right, too slow)? (3) **do the pauses feel human: any that comes where it should not, or is missing where it should be?** (write the scene and the word) (4) is the sound mix right (effects and bed against the voice)? (5) **does any screen feel empty?** (write the scene). These are the only evidence the vault has; each "no" becomes a change to the pause plan or the plate before the next video.
+**Listening rubric at P7:** the agent cannot hear, so the user answers six short questions and the answers are written in Status under *Feedback*: (1) does the voice sound natural? (2) is the pace right (too fast, right, too slow)? (3) **do the pauses feel human: any that comes where it should not, or is missing where it should be?** (write the scene and the word) (4) is the sound mix right (effects and bed against the voice)? (5) **does any screen feel empty?** (write the scene) (6) **did any picture fail to show what was being said, or arrive late?** (write the scene and the word). These are the only evidence the vault has; each "no" becomes a change to the pause plan or the plate before the next video.
 
 ## Budget (show in dollars with cap = base × 1.2 before spending)
 
@@ -36,7 +36,9 @@ A **test stage** (voice of scene 1, one cutout and one stock photo composed, ≈
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Voice | `elevenlabs/turbo-v2.5` (per scene, with `previous_text` and `next_text`) | **unconfirmed**: budget ≈ $0.10 per 1,000 characters (the v3 figure) until the dashboard shows the real one |
 | Generated plates (≤ 3) | `openai/gpt-image-2` (`quality` medium/high, `aspect_ratio` 2:3 or 9:16, `output_format: png`, `input_images`; no `input_fidelity`) | **unconfirmed**: the API shows no price; budget ≈ $0.25 at `high` (Copper and EV notes) until the user reads the Replicate dashboard once and the real figure replaces this line (fallback `gpt-image-1.5` ≈ $0.05) |
-| Stock photos           | `System/scripts/stock_photos.py`                                                                                                    | $0                                                                                                                                                                                                                  |
+| Stock photos and footage | `stock_photos.py`, `stock_videos.py` (Commons keyless; Pexels and Pixabay need the user's free `PEXELS_API_KEY`, `PIXABAY_API_KEY` in `.env`) | $0 |
+| Motion plates | `motion.py` (cairo, local) | $0 |
+| AI image-to-video (opt-in, ≤ 3 generated media per Short in all) | `lightricks/ltx-2.5-fast` (`image` start frame cropped to 720×1280, `resolution` 720p, `aspect_ratio` 9:16, `duration` 4, `generate_audio` false); fallback `bytedance/seedance-1.5-pro` (`camera_fixed`, `generate_audio` false) | **unconfirmed**: ≈ $0.12 and ≈ $0.10 per 4 s clip (model pages, 9 Oct 2026); a test of 2 photos on 3 models (≈ $0.70, the user's approval) comes before any clip enters a Short |
 | Background removal     | `bria/remove-background`                                                                                                            | **unconfirmed**: test one and write the price                                                                                                                                                                       |
 | Photo edit             | `black-forest-labs/flux-kontext-pro` (edits a real photo, never restyles)                                                           | ≈ $0.04                                                                                                                                                                                                             |
 | Hard edit              | `google/nano-banana-2`                                                                                                              | ≈ $0.067                                                                                                                                                                                                            |
@@ -55,7 +57,7 @@ Not used: `qwen-image-edit-plus` to generate, `flux-2-pro`, `stable-audio-2.5` (
 
 ```
 Videos/Week NN/<Day>/<Topic>/   Status · Script · Upload (+ Research if long)   (Week = calendar week Mon to Sun, Week 01 = 5 to 11 Oct 2026; **Day folder** = the day the video was made, named `YYYY-MM-DD Day`, e.g. `2026-10-05 Mon`; user, 6 Oct 2026)
-Media/Week NN/<Day>/<Video>/    local, gitignored (same Day folder as the video's note): voice/ plates/ (+_refs, _descartes) stock/ (+_credits.jsonl) sound/ upload/ (+ `<prefix>-publish-pack.md`: thumbnail, title, description, pinned comment, TikTok caption to copy, [[Publish]] §Publish pack) plan.json render/
+Media/Week NN/<Day>/<Video>/    local, gitignored (same Day folder as the video's note): voice/ plates/ (+_refs, _descartes) stock/ (+_credits.jsonl) clips/ (+_src/ sources, _credits.jsonl) motion/ (clips and `.sheet.png` from `motion.py`) sound/ upload/ (+ `<prefix>-publish-pack.md`: thumbnail, title, description, pinned comment, TikTok caption to copy, [[Publish]] §Publish pack) plan.json render/
 Media/_canal/             shared (brand drafts, tests)
 ```
 
@@ -68,6 +70,8 @@ Every media file carries its video prefix (Obsidian resolves embeds by file name
 | Stock photos       | `python3 System/scripts/stock_photos.py search "<q>" --source openverse\|nasa\|commons`, then `get …` (Commons: fetch originals from `upload.wikimedia.org`, the thumbnail API throttles) |
 | Replicate          | `System/scripts/replicate_helper.py` (`run`, `download`, `recover`), token in `.env`                                                                                                      |
 | Word timings       | `python3 System/scripts/word_timings.py "Media/Week NN/<Day>/<Video>"`                                                                                                                          |
+| Footage | `python3 System/scripts/stock_videos.py search "<q>" --source commons\|pexels\|pixabay\|nasa\|archive [--vertical]`, then `get …`, `look <src>` (frames with timestamps), `cut <src> <clips/…mp4> --start s --dur s --focus x` |
+| Motion plates | `python3 System/scripts/motion.py "Media/Week NN/<Day>/<Video>" --sheet` (after a `SOLO_PROYECTO=1` build; `--only <name>` for one plate) |
 | Assemble and check | `VIDEO="Media/Week NN/<Day>/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`                                                               |
 | Render             | same without `SOLO_PROYECTO`, in the background (3 to 5 min)                                                                                                                              |
 | Upload (P8) / metrics | `python3 System/scripts/publish.py "Media/Week NN/<Day>/<Video>/upload/publish.json"` ([[Publish]]) |

@@ -1,12 +1,12 @@
 ---
 type: rules
-updated: 2026-10-05
-status: v1 · channel identity, on-screen design system and brand in one note
+updated: 2026-10-09
+status: v2 · motion plates (navy ground, lanes, word cues) added 9 Oct 2026; channel identity, design system and brand in one note
 ---
 
 # Style: voice persona, on-screen design, brand
 
-Captions are always the top layer (see Layers below). Approved by the user ("good and appealing, keep improving"): **keep the layout exactly**; improve specificity, placement over real images and captions, not the design. Rules for what text says: [[Playbook]] §4.
+Captions are always the top layer (see Layers below). Approved by the user ("good and appealing, keep improving"): **keep the caption and card layout exactly**; improve specificity and placement. What fills the frame behind them was redesigned on 9 Oct 2026 at the user's request ([[Playbook]] §3, Motion plates below). Rules for what text says: [[Playbook]] §4.
 
 ## Brand
 
@@ -28,7 +28,9 @@ Spent years next to the machines and papers behind the news; precise, quietly co
 | **Copper** | `#C76B38`: callout dots and lines, card bar, big figures, copper words in captions. One emphasis colour; never highlight more than one word in three |
 | Caption | white `#FFFFFF`, outline `#0A0907` |
 | Fonts | Noto Sans Display Bold (titles, numbers, captions), Noto Sans Regular (labels, details, callouts) |
-| Gradients | one family per topic (cold blue cryogenics, warm copper energy, deep green materials), dark enough for paper boxes; behind `contain` photos and cutouts only |
+| **Navy ground** | `#101824` to `#1A2638` (the brand's dark navy) with a faint 60 px drafting grid: the ground of every motion plate, so drawn plates and footage cut together without a white flash |
+| Grey, dim, copper light | `#8C96A5` structure and secondary lines · `#3A4658` inactive parts and tracks · `#E8A06F` moving particles and glow (current, heat). A second accent `#7FB3D5` only for a two-way contrast |
+| Gradients | one family per topic, behind legacy `contain` photos and cutouts only |
 
 | Component | Spec |
 | --- | --- |
@@ -36,21 +38,23 @@ Spent years next to the machines and papers behind the news; precise, quietly co
 | **Context card** | 894 × 280 px, 16 px corners, 1 px graphite border at 25 %, 8 px copper bar left, centred at **66 % from the top** (x 56 to 950); label 32 px spaced capitals copper, title 56 px bold, detail 34 px |
 | **Number card** | same box; figure 124 px bold copper, caption 44 px bold, source 30 px |
 | **Margin note** | same box, label "Margin note", two lines ≤ 30 characters, 46 px bold |
-| **Callout** | copper dot 13 px with ring, 2 px leader, paper label with copper bar, 34 px; enters 1 s after the plate, 0.6 s apart; labels clamped above the caption zone |
+| **Callout** | copper dot 13 px with ring, leader, paper label with copper bar, 40 px; enters on the word that names the part (`at`), else 1 s after the plate; labels clamped above the caption zone. Motion plates draw the same callout (`label`) and chip (`chip`) |
+| **Motion plate** | 1080×1920 clip from `motion.py`: navy ground, subject in the upper lane, one supporting element in the lower lane, events on word cues, fades 0.25 s with an 18 px rise for text; specs below |
 | **Layers** | **Captions are the top layer**: cards, callouts and their text always sit under the captions (user, 5 Oct 2026: *"added text and pointers are covering the captions, that should be below the captions"*; builder `CAP_CH`) |
-| **Immersive plates** | no empty screens (user, 5 Oct 2026). `"bg": "blur"`: the plate's own photo (or `"bg_photo"`) cover-fitted, blurred and darkened to 38 % plus a dark tint, behind a `contain` plate. `"inset": {"file", "pos", "width"}`: a second picture, rounded 22 px with the soft shadow, enters 0.7 s after the plate, leaves 0.15 s before it; **split layout**: diagram on top (pos y about 0.27, width 0.78), inset of the real object under the captions (pos [0.5, 0.67], width ≤ 0.62), never in the last 25 % of the frame |
+| **Immersive plates** | legacy stills; no empty screens (user, 5 Oct 2026). `"bg": "blur"`: the plate's own photo (or `"bg_photo"`) cover-fitted, blurred and darkened to 38 % plus a dark tint, behind a `contain` plate. `"inset": {"file", "pos", "width"}`: a second picture, rounded 22 px with the soft shadow, enters 0.7 s after the plate, leaves 0.15 s before it; **split layout**: diagram on top (pos y about 0.27, width 0.78), inset of the real object under the captions (pos [0.5, 0.67], width ≤ 0.62), never in the last 25 % of the frame |
 | **Motion** | cards fade in 0.25 s with a 24 px rise, out 0.2 s, card enters 0.45 s after its plate; no shakes, flashes or zoom punches |
 
-## Engagement rules for plates (9 Oct 2026, from the Neon render and the user's "make more engaging videos")
+## Motion plates and engagement rules (9 Oct 2026)
 
-Seen on the Neon render: drawn diagrams carried 26 to 30 px footnotes nobody can read on a phone, every diagram arrived complete, and the first frame held a photo and a tiny label. Rules, each [H] until the 10-video review in [[Publish]]:
+From the user's *"make more engaging videos"* and the 9 Oct redesign ([[2026-10-09 Visual research]]); each rule is [H] until the comparison in [[Publish]] §Analytics loop.
 
-1. **First frame carries the claim.** Plate 1 has a context card (label, plain claim of ≤ 26 characters, detail) in the first 0.5 s, the strongest real image, and a stronger push (`"zoom": 0.14`). A viewer with the sound off reads the promise before the first caption word ends.
-2. **Diagrams build, they do not appear.** A drawn explainer is split into two or three **states of the same drawing** (`x-a.png`, `x-b.png`, `x-c.png`), one per plate in consecutive order: first the part the sentence names, then what it adds. The eye follows the new element, which is the movement the builder cannot animate.
-3. **Legible at phone size.** Text inside a drawn plate: title ≥ 56 px, labels ≥ 40 px, footnote ≥ 34 px on a 1200 px wide canvas; ≤ 25 words per diagram; one accent colour (copper `#C76B38`) marks the thing the voice is saying. A footnote nobody can read is cut, not shrunk.
-4. **Alternate scale.** No two consecutive plates at the same distance: wide scene, then close detail, then diagram. A full-bleed photo follows every diagram plate.
-5. **One idea per plate, 2.5 to 3.5 s.** Plates over 3.5 s get a second state or a different crop (`focus`, `zoom`); a long scene gets more plates, not longer ones.
-6. **Conclusion card.** The last scene's first plate shows the conclusion in ≤ 26 characters; the closing question has its own plate ([[Playbook]] §2).
-7. **Contrast of colour on diagrams:** paper background, ink text, copper for the subject, grey for everything else; never more than three colours in one drawing.
+1. **First frame carries the claim.** The hook plate shows the anchor already doing the surprising thing (the counter racing, the bar dropping) from frame 1, with at most one key-term label; the voice and captions carry the sentence.
+2. **Things build, they do not appear.** Parts enter on the word that names them; lines draw themselves (`draw`, `to_x`); particles travel (`stream`); numbers count (`value`). Nothing labelled is on screen before it is spoken.
+3. **Legible at phone size.** Text ≥ 40 px (labels 40, figures 56 to 112), ≤ 25 words per plate, one copper subject. `motion.py` warns below 40 px and in the caption band (y 880 to 1040), the bottom interface (y > 1440) and the right action strip (x > 950).
+4. **Scale changes inside a world:** a zoom from the object to its inside (the battery grows into the graphite layers), a camera move to the detail named; a new world only for a new step.
+5. **An event every 2 to 3 s.** `motion.py` warns when nothing changes for over 3.5 s.
+6. **Conclusion card and question.** The last scene returns to the anchor with the conclusion card (≤ 26 characters); the closing question has its own plate with the margin note ([[Playbook]] §2).
+7. **Colour:** navy ground, paper for structure and text, grey for everything not being said, copper for the subject; never more than three colours plus grey.
+8. **Footage under a drawing:** a motion plate may use a clip or photo as its ground (`bg` `video` or `photo`, dimmed) so labels and arrows land on the real thing.
 
-Layout from the top: top 10 % free (Shorts title bar) · callout labels · captions at 50 % · cards at 66 % · last ≈ 25 % and the right edge ≈ 12 % belong to the platform interface. TikTok covers more of the bottom 15 to 20 %: unverified, test once with a private upload and, if needed, raise `CAP_Y` for a TikTok export (`plan.json`) without touching the YouTube master.
+**Lanes, from the top:** top 10 % free (Shorts title bar) · **upper lane** y 10 to 45 %: the subject · captions at 50 % (band y 880 to 1040, captions only) · **lower lane** y 56 to 74 %: one supporting element (a figure, a gauge, a label, or the card at 66 %) · last ≈ 25 % and the right edge ≈ 12 % belong to the platform interface. TikTok covers more of the bottom 15 to 20 %: unverified, test once with a private upload and, if needed, raise `CAP_Y` for a TikTok export (`plan.json`) without touching the YouTube master.

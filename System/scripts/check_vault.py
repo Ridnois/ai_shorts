@@ -78,7 +78,17 @@ INVARIANTS = [
     ("System/Playbook.md", "Topic spread", "no two videos in a row on one topic family"),
     ("System/Publish.md", "publish-pack.md", "every video has a copy-ready publish pack in upload/ (user, 9 Oct 2026)"),
     ("CLAUDE.md", "publish-pack.md", "agent guide carries the publish pack rule"),
-    ("System/Style.md", "Engagement rules for plates", "plates are built to engage (user, 9 Oct 2026)"),
+    ("System/Style.md", "Motion plates and engagement rules", "plates are built to engage (user, 9 Oct 2026)"),
+    ("System/Playbook.md", "Show the verb, not the noun", "visuals show what happens, not the thing named (user, 9 Oct 2026)"),
+    ("System/Playbook.md", "Swap test", "decorative pictures are cut (user, 9 Oct 2026)"),
+    ("System/Playbook.md", "on the word", "cuts and labels land on the word they illustrate (temporal contiguity)"),
+    ("System/Playbook.md", "MOTION SHARE", "most of the runtime moves: no slideshows (user, 9 Oct 2026; YPP policy)"),
+    ("System/Playbook.md", "one anchor", "a few visual worlds and an anchor that returns"),
+    ("System/Style.md", "Navy ground", "motion plates share one ground"),
+    ("System/Workflow.md", "stock_videos.py", "footage has a tool and a license filter"),
+    ("System/Workflow.md", "ltx-2.5-fast", "AI video is opt-in and priced"),
+    ("System/Workflow.md", "did any picture fail to show what was being said", "listening rubric asks about visual sync"),
+    ("CLAUDE.md", "verb, not the noun", "agent guide carries the visual rule"),
     ("System/Playbook.md", "Compact test", "every third video is compact (YouTube diagnostic, 9 Oct 2026)"),
     ("System/Playbook.md", "mini-series", "strong families become series (YouTube diagnostic, 9 Oct 2026)"),
     ("System/Playbook.md", "never two on one day", "steady cadence (YouTube diagnostic, 9 Oct 2026)"),
@@ -96,6 +106,8 @@ FORBIDDEN = [
     # (file, phrase, why): rules the user removed; must not come back
     ("System/Playbook.md", "≤ 10 words", "hook quality is not measured in words (feedback, 5 Oct 2026)"),
     ("CLAUDE.md", "≤ 10 words", "hook quality is not measured in words (feedback, 5 Oct 2026)"),
+    ("CLAUDE.md", "16 to 20 plates", "a plate count produced filler pictures (user, 9 Oct 2026)"),
+    ("System/Playbook.md", "16 to 20 plates", "a plate count produced filler pictures (user, 9 Oct 2026)"),
 ]
 CEILING = {"Script - ": 2700, "Upload - ": 2300, " - Status": 1500}
 

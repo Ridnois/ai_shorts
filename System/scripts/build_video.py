@@ -526,9 +526,10 @@ for e, scene in enumerate(PLAN["scenes"], start=1):
         idx += 1
         flat.append((idx, e, j, n, starts[j], starts[j + 1], pl))
 
-LONG = [(i, round(float(b - a), 1)) for i, e, j, n, a, b, pl in flat if b - a > 5.0]
+LONG = [(i, round(float(b - a), 1)) for i, e, j, n, a, b, pl in flat
+        if b - a > {"motion": 1e9, "video": 6.0}.get(pl["type"], 4.0 if not pl.get("move") else 5.0)]
 print("PLATES", len(flat), "| durations", [round(float(b - a), 1) for i, e, j, n, a, b, pl in flat])
-print("LONG PLATE (> 5 s, add a reference image):", LONG if LONG else "none")
+print("LONG PLATE (a still over 4 s, footage over 6 s: add an event or a plate; motion plates are checked by motion.py):", LONG if LONG else "none")
 EMPTY = [i for i, e, j, n, a, b, pl in flat if pl["type"] in ("contain", "cutout") and pl.get("bg") != "blur" and not pl.get("inset")]
 print("EMPTY PLATE (contain or cutout on a flat gradient: use bg \"blur\" or an inset, user 5 Oct 2026):", EMPTY if EMPTY else "none")
 _uses = {}
@@ -642,9 +643,9 @@ for i, e, j, n, a, b, pl in flat:
     for ci, co in enumerate(pl.get("callouts", [])):
         tgt = (co["target"][0] * W, co["target"][1] * H)
         txt = co["text"]
-        size = 34
+        size = 40                                        # legible on a phone (Style: text >= 40 px)
         bw = int(len(txt) * size * 0.56 + 44)
-        bh = 64
+        bh = 72
         lxy = (co["label"][0] * W - bw / 2, co["label"][1] * H - bh / 2)
         lxy = (min(max(lxy[0], 24), W - bw - 24), min(max(lxy[1], 24), round(H * CAP_Y) - 90 - bh))      # never in the caption zone (the card sits below the captions, so labels above them never meet it)
         c0t = cue_time(co["at"], e, pl["file"]) if co.get("at") else a + 1.0 + 0.6 * ci   # `at`: on the word that names the part
