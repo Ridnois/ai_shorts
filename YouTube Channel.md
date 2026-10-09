@@ -22,5 +22,6 @@ Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · niche, search and package: [[Au
 | Decimal error | 164 · Austin on turbo-v2.5 | r1 rendered (58 s, voice retaken), P7 is yours; thumbnail not built, not uploaded | [[Decimal error - Status]] · [[Script - Decimal error]] |
 | Netflix screenshot | 169 · Austin on turbo-v2.5 | r1 rendered (63 s), P7 is yours; thumbnail not built, not uploaded | [[Netflix screenshot - Status]] · [[Script - Netflix screenshot]] |
 | Neon for chips | 114 · compact test · Austin turbo-v2.5 | r3 rendered (45 s), package drafted (title, thumbnail A and B, description), not uploaded | [[Neon for chips - Status]] · [[Script - Neon for chips]] |
+| Phone charging slows | 114 · compact · Austin turbo-v2.5 | script text done, no media | [[Phone charging slows - Status]] · [[Script - Phone charging slows]] |
 
 Earlier videos (Magnets, Helium, Brazil, Lemon cake, Bike stems, Chips, Twisted carbon, Magnetar, Moon, Superconductors, Asteroid mining) were deleted from the vault on 5 Oct 2026; their lessons live in [[Playbook]]; git history keeps them.

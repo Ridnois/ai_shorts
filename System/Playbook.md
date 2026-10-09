@@ -65,6 +65,7 @@ The Script note has a **Package** section before the scene table (user, 6 Oct 20
 - **Immersive plates, no empty screens** (user, 5 Oct 2026: *"sometimes the screen feels empty, only with a picture and a note"*). **No plate is one picture and one label on a flat gradient.** Three layouts: (1) **full-bleed** photo with callouts and/or a card; (2) **framed photo** (`contain`) with `"bg": "blur"` (the same photo, blurred and darkened, fills the frame) and a card or an `inset`; (3) **split**: an explainer or diagram on top with `"bg": "blur"` + `"bg_photo"` (a related real photo) and an **inset** of the real thing below the captions. A flat gradient is allowed only behind a cutout. The build prints `EMPTY PLATE`: fix before rendering. Specs: [[Style]] (Immersive plates).
 - **Safe zone (9:16):** subject within 15 to 60 % of the height; caption zone (50 %), card (66 %) and callout labels never collide ([[Style]]).
 - **Plates must make sense without the voice.**
+- **Engagement rules** (user, 9 Oct 2026, "make more engaging videos"): first frame carries the claim, diagrams build in two or three states, text legible at phone size, alternating scale, 2.5 to 3.5 s per plate, a conclusion card: specs in [[Style]] (Engagement rules for plates).
 
 ## 4. On-screen text (specificity test)
 

@@ -76,6 +76,7 @@ INVARIANTS = [
     ("System/Playbook.md", "\"Borderline\" is a fail", "street-lamp test has a fail state"),
     ("System/Playbook.md", "Demand check", "ideas get outside evidence"),
     ("System/Playbook.md", "Topic spread", "no two videos in a row on one topic family"),
+    ("System/Style.md", "Engagement rules for plates", "plates are built to engage (user, 9 Oct 2026)"),
     ("System/Playbook.md", "Compact test", "every third video is compact (YouTube diagnostic, 9 Oct 2026)"),
     ("System/Playbook.md", "mini-series", "strong families become series (YouTube diagnostic, 9 Oct 2026)"),
     ("System/Playbook.md", "never two on one day", "steady cadence (YouTube diagnostic, 9 Oct 2026)"),

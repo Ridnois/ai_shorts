@@ -41,4 +41,16 @@ Spent years next to the machines and papers behind the news; precise, quietly co
 | **Immersive plates** | no empty screens (user, 5 Oct 2026). `"bg": "blur"`: the plate's own photo (or `"bg_photo"`) cover-fitted, blurred and darkened to 38 % plus a dark tint, behind a `contain` plate. `"inset": {"file", "pos", "width"}`: a second picture, rounded 22 px with the soft shadow, enters 0.7 s after the plate, leaves 0.15 s before it; **split layout**: diagram on top (pos y about 0.27, width 0.78), inset of the real object under the captions (pos [0.5, 0.67], width ≤ 0.62), never in the last 25 % of the frame |
 | **Motion** | cards fade in 0.25 s with a 24 px rise, out 0.2 s, card enters 0.45 s after its plate; no shakes, flashes or zoom punches |
 
+## Engagement rules for plates (9 Oct 2026, from the Neon render and the user's "make more engaging videos")
+
+Seen on the Neon render: drawn diagrams carried 26 to 30 px footnotes nobody can read on a phone, every diagram arrived complete, and the first frame held a photo and a tiny label. Rules, each [H] until the 10-video review in [[Publish]]:
+
+1. **First frame carries the claim.** Plate 1 has a context card (label, plain claim of ≤ 26 characters, detail) in the first 0.5 s, the strongest real image, and a stronger push (`"zoom": 0.14`). A viewer with the sound off reads the promise before the first caption word ends.
+2. **Diagrams build, they do not appear.** A drawn explainer is split into two or three **states of the same drawing** (`x-a.png`, `x-b.png`, `x-c.png`), one per plate in consecutive order: first the part the sentence names, then what it adds. The eye follows the new element, which is the movement the builder cannot animate.
+3. **Legible at phone size.** Text inside a drawn plate: title ≥ 56 px, labels ≥ 40 px, footnote ≥ 34 px on a 1200 px wide canvas; ≤ 25 words per diagram; one accent colour (copper `#C76B38`) marks the thing the voice is saying. A footnote nobody can read is cut, not shrunk.
+4. **Alternate scale.** No two consecutive plates at the same distance: wide scene, then close detail, then diagram. A full-bleed photo follows every diagram plate.
+5. **One idea per plate, 2.5 to 3.5 s.** Plates over 3.5 s get a second state or a different crop (`focus`, `zoom`); a long scene gets more plates, not longer ones.
+6. **Conclusion card.** The last scene's first plate shows the conclusion in ≤ 26 characters; the closing question has its own plate ([[Playbook]] §2).
+7. **Contrast of colour on diagrams:** paper background, ink text, copper for the subject, grey for everything else; never more than three colours in one drawing.
+
 Layout from the top: top 10 % free (Shorts title bar) · callout labels · captions at 50 % · cards at 66 % · last ≈ 25 % and the right edge ≈ 12 % belong to the platform interface. TikTok covers more of the bottom 15 to 20 %: unverified, test once with a private upload and, if needed, raise `CAP_Y` for a TikTok export (`plan.json`) without touching the YouTube master.
