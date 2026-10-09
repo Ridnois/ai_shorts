@@ -46,7 +46,7 @@ os.makedirs(FX, exist_ok=True)
 os.makedirs(f"{ROOT}/voice/_padded", exist_ok=True)
 W, H = PLAN.get("size", [1080, 1920])
 FPS = PLAN.get("fps", 24)
-GAPS = PLAN["gaps"]
+GAPS = PLAN.get("gaps", [])
 START, TAIL = PLAN.get("start", 0.5), PLAN.get("tail", 1.2)
 PAD_LEAD, PAD_TAIL, FADE_IN, FADE_OUT = 0.30, 0.40, 0.02, 0.05      # voice padding and fades (s)
 LEAD_KEEP, TAIL_KEEP = 0.12, 0.30                                    # silence kept around the speech in the timeline (s)
@@ -168,15 +168,22 @@ def analyse(path):
     return v[0] * 0.01, (v[-1] + 1) * 0.01, total
 
 
+# One take (Playbook §5, 9 Oct 2026): a single voice file reads every scene; its pauses were written into the text by
+# voice.py, so nothing is cut or padded inside it and the scene boundaries come from the heard words (set after PLACED).
+# Legacy plans (one take per scene) keep the stitched path with `gaps` and `pauses`.
+TAKE = len(PLAN["voices"]) == 1 and len(PLAN.get("texts", [])) > 1
 voices, t = [], START
 NV = len(PLAN["voices"])
 for n, src in enumerate(PLAN["voices"], start=1):
-    wav, cuts = pad_voice(src, PLAN["scenes"][n - 1].get("pauses"))
+    wav, cuts = pad_voice(src, None if TAKE else PLAN["scenes"][n - 1].get("pauses"))
     a, b, total = analyse(wav)
     ini, fin = max(0.0, a - LEAD_KEEP), min(total, b + TAIL_KEEP)
     voices.append({"n": n, "f": wav, "a": a, "b": b, "ini": ini, "fin": fin, "abs": t, "dur": fin - ini, "cuts": cuts})
-    t += (fin - ini) + (GAPS[n - 1] if n < NV else 0)
-B = [0.0] + [v["abs"] + v["dur"] + GAPS[i] / 2 for i, v in enumerate(voices[:-1])] + [voices[-1]["abs"] + voices[-1]["dur"] + TAIL]
+    t += (fin - ini) + (0 if TAKE else GAPS[n - 1] if n < NV else 0)
+if TAKE:
+    B = [0.0] + [None] * (len(PLAN["scenes"]) - 1) + [voices[0]["abs"] + voices[0]["dur"] + TAIL]
+else:
+    B = [0.0] + [v["abs"] + v["dur"] + GAPS[i] / 2 for i, v in enumerate(voices[:-1])] + [voices[-1]["abs"] + voices[-1]["dur"] + TAIL]
 T_END = B[-1]
 CUE_LEAD = 0.15                     # a plate anchored on a word lands this much before the word (the picture arrives with it)
 
@@ -496,9 +503,15 @@ def heard_words():
     texts = PLAN.get("texts")
     if not texts:
         return []
-    assert len(texts) == len(voices), "plan.texts needs one narration string per voice"
     caps = PLAN.get("captions") or [""] * len(texts)
-    assert len(caps) == len(texts), "plan.captions needs one string per voice (\"\" keeps the voiced text)"
+    assert len(caps) == len(texts), "plan.captions needs one string per scene (\"\" keeps the voiced text)"
+    if TAKE:                                             # one take: align the whole script, then tag each word with its scene
+        shown = [c or t for c, t in zip(caps, texts)]
+        v = voices[0]
+        scene_of = [k + 1 for k, t in enumerate(shown) for _ in t.split()]
+        return [(w, v["abs"] + s_ - v["ini"], v["abs"] + e_ - v["ini"], n)
+                for (w, s_, e_), n in zip(take_words(v, " ".join(shown)), scene_of)]
+    assert len(texts) == len(voices), "plan.texts needs one narration string per voice"
     out = []
     for v, c, t in zip(voices, caps, texts):   # display spelling ("250 K") over voiced spelling; align_words maps it onto the heard words
         for w, s_, e_ in take_words(v, c or t):
@@ -507,6 +520,9 @@ def heard_words():
 
 
 PLACED = heard_words()
+if TAKE:                                                 # scene k ends halfway through the silence before scene k + 1
+    for k in range(1, len(PLAN["scenes"])):
+        B[k] = (max(w[2] for w in PLACED if w[3] == k) + min(w[1] for w in PLACED if w[3] == k + 1)) / 2
 
 
 def cue_time(spec, scene, label):
@@ -536,6 +552,7 @@ PENDING = [pl["file"] for sc_ in PLAN["scenes"] for pl in sc_["plates"] if pl["t
 if PENDING and os.environ.get("SOLO_PROYECTO") != "1":
     raise SystemExit(f"motion plates not rendered yet: {PENDING} (run System/scripts/motion.py on this folder first)")
 EVENTS = [(0.0, "thump")]                       # (time, kind) for the sound design
+SFX_FULL = PLAN.get("sound", {}).get("events") == "full"   # default: the opening hit and scene whooshes only (sounds under speech compete with it; audio research 9 Oct 2026)
 idx = 0
 flat = []
 for e, scene in enumerate(PLAN["scenes"], start=1):
@@ -652,7 +669,8 @@ for i, e, j, n, a, b, pl in flat:
             alpha(s_, pa)
 
     if j > 0 or e > 1:
-        EVENTS.append((ini, "whoosh" if j == 0 else "tick2"))
+        if j == 0 or SFX_FULL:
+            EVENTS.append((ini, "whoosh" if j == 0 else "tick2"))
 
     # inset: a second picture on the plate (a locator, a detail, a comparison), so a plate is never one photo and one label
     #   "inset": {"file": "stock/x.jpg", "pos": [0.5, 0.27], "width": 0.5}
@@ -665,7 +683,8 @@ for i, e, j, n, a, b, pl in flat:
             ist.frame_final_end = fr(i1)
             ist.blend_type = "ALPHA_OVER"
             fade(ist, i0, i1)
-            EVENTS.append((i0, "tick"))
+            if SFX_FULL:
+                EVENTS.append((i0, "tick"))
 
     # callouts (they appear after the card is in, one after another)
     for ci, co in enumerate(pl.get("callouts", [])):
@@ -682,7 +701,8 @@ for i, e, j, n, a, b, pl in flat:
             continue
         cs = S.new_image(f"callout{i:02d}-{ci}", callout_image(tgt, lxy, bw, bh, f"{i}_{ci}"), 20 + ci, fr(c0t))   # own channel: overlapping strips on one channel get bumped into the card's channels
         cs.frame_final_end = fr(c1t)
-        EVENTS.append((c0t, "tick"))
+        if SFX_FULL:
+            EVENTS.append((c0t, "tick"))
         cs.blend_type = "ALPHA_OVER"
         fade(cs, c0t, c1t)
         add_text(f"co{i}-{ci}", txt, F_BODY, size, INK, 24 + ci, c0t, c1t, lxy[0] + 22, lxy[1] + bh / 2, rise=False)
@@ -695,7 +715,8 @@ for i, e, j, n, a, b, pl in flat:
     if card:
         kind = card.get("kind", "context") if isinstance(card, dict) else "context"
         t0, t1 = (cue_time(card["at"], e, pl["file"]) if isinstance(card, dict) and card.get("at") else a + 0.45), b - 0.15
-        EVENTS.append((t0, "ping"))
+        if SFX_FULL:
+            EVENTS.append((t0, "ping"))
         cd = S.new_image(f"card{i:02d}", CARD_PNG, 7, fr(t0))
         cd.frame_final_end = fr(t1)
         cd.blend_type = "ALPHA_OVER"
@@ -811,7 +832,7 @@ def synth_sound(sr=48000):
             L = int(0.06 * sr); t = np.arange(L) / sr
             x = np.sin(2 * np.pi * 2600 * t) * np.exp(-t / 0.007) + 0.3 * rng.standard_normal(L) * np.exp(-t / 0.002)
             put(t_, (x * 0.05).astype(np.float32))
-    if sn.get("bed", True):                                       # drone bed: A minor, very low, slow swells
+    if sn.get("bed", False):                                      # legacy drone bed (A minor sine; phones barely play it): opt-in only
         t = np.arange(n) / sr
         for f_, a_, ph in ((110.0, 1.0, 0.0), (164.81, 0.6, 1.3), (220.0, 0.5, 2.1), (329.63, 0.25, 0.7)):
             lfo = 0.75 + 0.25 * np.sin(2 * np.pi * (0.07 + 0.013 * f_ / 110) * t + ph)
