@@ -456,8 +456,36 @@ def take_words(v, text):
     path = os.path.splitext(v["f"])[0].replace("/_padded", "") + ".words.json"
     if os.path.exists(path):
         raw = [[w, remap_time(s, v["cuts"]) + PAD_LEAD, remap_time(e, v["cuts"]) + PAD_LEAD] for w, s, e in json.load(open(path))]
-        return align_words(ws, raw)
+        return snap_onsets(align_words(ws, raw), v["f"])
     return estimate_words(text, v["a"], v["b"], None)
+
+
+def snap_onsets(words, wav):
+    """Whisper often starts a word at the beginning of the silence before it, so its caption (and any cut anchored on it) came
+    up to 1 s early (measured 9 Oct 2026: "Tell" shown 0.94 s before it was heard). A start inside a silent run moves to where
+    the speech resumes; an end that runs into a silence moves back. Silent = 40 dB under the take's peak (soft consonants stay)."""
+    env, _ = envelope(wav)
+    quiet = env < env.max() * 0.01
+    n = len(quiet)
+    out = []
+    for w, s, e in words:
+        i0, i1 = int(s * 100), min(int(e * 100), n)
+        start, k = None, i0
+        while k < i1:                                    # silent runs inside the word's span
+            if quiet[k]:
+                r = k
+                while r < i1 and quiet[r]:
+                    r += 1
+                if r < i1 and (k == i0 or r - k >= 20):  # leading quiet, or a pause of 0.2 s or more: the word starts after it
+                    start = r
+                k = r
+            else:
+                k += 1
+        j = i1 - 1
+        while j > (start or i0) and quiet[j]:
+            j -= 1
+        out.append([w, start / 100 if start is not None else s, (j + 1) / 100 + 0.02 if j > (start or i0) else e])
+    return out
 
 
 KEYWORDS = {"".join(c for c in k.lower() if c.isalnum()) for k in PLAN.get("keywords", [])}   # up to ~6 key terms per video, shown in copper
@@ -713,6 +741,14 @@ def add_captions():
         return
     placed = [w[:3] for w in PLACED]
     write_srt(placed)
+    shown = []                                           # a word on screen for under 0.09 s (2 frames) shares its caption with the next ("IT IS")
+    for i_, (w, s, e) in enumerate(placed):
+        short = i_ + 1 < len(placed) and placed[i_ + 1][1] - s < 0.09
+        if shown and shown[-1][3] and len(shown[-1][0]) + len(w) <= 14:
+            shown[-1] = [shown[-1][0] + " " + w, shown[-1][1], e, short]
+        else:
+            shown.append([w, s, e, short])
+    placed = [x[:3] for x in shown]
     n = 0
     for i_, (w, s, e) in enumerate(placed):
         nxt = placed[i_ + 1][1] if i_ + 1 < len(placed) else T_END
@@ -792,10 +828,12 @@ def add_sound():
     import wave
     sfx, bed = synth_sound()
     for name, arr, ch in (("sfx", sfx, 31), ("bed", bed, 32)):
+        path = f"{FX}/sound_{name}.wav"
         if not np.any(arr) or (name == "sfx" and not sn.get("sfx", True)):
+            if os.path.exists(path):
+                os.remove(path)                              # a stale stem must not reach mix_audio.py
             continue
         a = np.clip(arr, -0.9, 0.9)
-        path = f"{FX}/sound_{name}.wav"
         with wave.open(path, "wb") as w:
             w.setnchannels(1); w.setsampwidth(2); w.setframerate(48000)
             w.writeframes((a * 32767).astype("<i2").tobytes())
@@ -835,7 +873,11 @@ rd.ffmpeg.audio_codec, rd.ffmpeg.audio_bitrate, rd.ffmpeg.audio_channels = "AAC"
 name = f"{PLAN['prefix']}-{round(T_END)}s-9x16-r{PLAN.get('render', 1)}"
 rd.filepath = f"{OUT}/{name}.mp4"
 bpy.ops.wm.save_as_mainfile(filepath=f"{OUT}/{PLAN['prefix']}-{round(T_END)}s.blend")
-json.dump(TIMELINE, open(f"{OUT}/_timeline.json", "w", encoding="utf-8"), indent=1)   # read by motion.py
+TIMELINE["voices"] = [{"file": v["f"], "in": v["ini"], "at": v["abs"], "dur": v["dur"]} for v in voices]   # read by mix_audio.py
+TIMELINE["events"] = sorted([round(float(t_), 3), k_] for t_, k_ in EVENTS)
+TIMELINE["stems"] = {n_: f"{FX}/sound_{n_}.wav" for n_ in ("sfx", "bed") if os.path.exists(f"{FX}/sound_{n_}.wav") and PLAN.get("sound")}
+TIMELINE["render"] = rd.filepath
+json.dump(TIMELINE, open(f"{OUT}/_timeline.json", "w", encoding="utf-8"), indent=1)   # read by motion.py and mix_audio.py
 print("DURATION", round(T_END, 2), "s;", dur, "frames;", name)
 for v in voices:
     print("voice", v["n"], f"timeline {v['abs']:.2f} -> {v['abs'] + v['dur']:.2f}",

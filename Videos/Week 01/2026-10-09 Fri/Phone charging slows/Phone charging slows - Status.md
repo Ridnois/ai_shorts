@@ -19,7 +19,11 @@ tags: [status, week-01]
 
 **r2, visual redesign test (9 Oct 2026, $0):** same voice, words and pauses; visuals rebuilt with the new [[Playbook]] §3 (research: [[2026-10-09 Visual research]]): 8 motion plates cut on the word (hook counter and speed bar, current into the phone, zoom into the cell, graphite filling then lithium plating, the two-stage charge curve, overnight charging, the phone again with the conclusion card, the speed-or-battery switch with the question). `MOTION SHARE` 100 %, no `REPEAT`, no `motion.py` warnings, `CHECK` all voices complete. Render `Media/Week 01/2026-10-09 Fri/Phone-charging-slows/render/pc-42s-9x16-r2.mp4` (r1 kept for comparison; r1 plan in `plan-r1.json`). No footage: Commons has none for phone charging and Pexels/Pixabay need the user's free keys. The only Commons clip found (USB chargers) failed the swap test (shaky, Samsung logo, shows chargers not current) and was deleted. **Not verified:** motion in real time (only 6-frame sheets and 2 s stills seen), whether the calm lower third reads as empty, the Apple overnight curve (shape from a search summary, schematic).
 
-*Not verified:* see the Script note §5. *Feedback:* none yet on r1 or r2. Visual redesign requested by the user on 9 Oct 2026 (words in [[Playbook]] §3).
+*Not verified:* see the Script note §5.
+
+## Feedback (user, 9 Oct 2026, on r2)
+
+*"I see a significant visual improvement, content is way appealing this way. voice and audio feels broken now, i want you to redesign that segment of the process, also lets use pixabay"*; on a listening test: *"lets skip the test and go for a higher tier model"*. **Rubric:** visuals better (r2 over r1); voice and audio broken. **Measured on r2** (the voice track is identical in r1 and r2): master −20.8 LUFS (YouTube's reference is −14); take levels drift 1.6 LU (scene 1 −19.7, scene 5 −21.3); whisper word starts sit at the start of the preceding silence, so captions and cuts run up to 1 s early ("Tell" shows 0.94 s before it is heard); the pause cutter made a 0.35 s gap inside "Should … phones" that is not in the raw take (its quiet threshold, 10 % of the peak, catches soft consonants); the takes' own pauses are digital silence (−90 dBFS) under a 110 Hz sine bed phones barely play. **Actions:** audio segment redesigned ([[Playbook]] §5, [[2026-10-09 Audio research]]); Pixabay key stored in `.env`.
 
 ## P7 listening rubric (answer in chat; words go under Feedback)
 
