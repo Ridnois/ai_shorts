@@ -46,23 +46,33 @@ def credits(media, plan):
         for pl in sc["plates"]:
             for f in (pl["file"], pl.get("bg_photo"), (pl.get("inset") or {}).get("file")):
                 if f: used.add(os.path.basename(f))
-    cc, pd = {}, set()
-    for l in open(f"{media}/stock/_credits.jsonl", encoding="utf-8"):
-        d = json.loads(l); f = os.path.basename(d.get("file") or d.get("dest") or "")
-        if f not in used: continue
-        if re.search(r"CC BY", d["license"]): cc.setdefault((d["author"], d["license"]), 0)
-        else: pd.add(d["author"])
+            mo = pl.get("motion") or {}                          # photos and footage drawn inside motion plates
+            bg = mo.get("bg") if isinstance(mo.get("bg"), dict) else {}
+            for f in [bg.get("photo"), bg.get("video")] + [e.get("file") for e in mo.get("els", []) if e.get("kind") == "image"]:
+                if f: used.add(os.path.basename(f))
+    cc, pd, pages = {}, set(), []
+    for cf in (f"{media}/stock/_credits.jsonl", f"{media}/clips/_credits.jsonl"):
+        for l in open(cf, encoding="utf-8") if os.path.exists(cf) else []:
+            d = json.loads(l); f = os.path.basename(d.get("file") or d.get("dest") or "")
+            if f not in used: continue
+            pages.append(d.get("page", ""))
+            if re.search(r"CC BY", d["license"]): cc.setdefault((d["author"], d["license"]), 0)
+            else: pd.add(d["author"])
     parts = [f"{a}, {lic}" for a, lic in cc]
-    if pd: parts.append("Public domain and CC0 photos: " + ", ".join(sorted(pd)))
-    return " | ".join(parts)
+    if pd: parts.append("Public domain and CC0 media: " + ", ".join(sorted(pd)))
+    return " | ".join(parts), all("wikimedia.org" in p for p in pages)
 
 
 def description(cfg, plan):
     src = "\n".join(f"- {a}: {u}" for a, u in cfg["sources"])
+    cred, commons = credits(cfg["media"], plan)
+    # a video with no photo or footage gets no credits block and never says "the photos are real" (9 Oct 2026: the pc pack did)
+    tail = (f"\nPHOTO CREDITS{' (Wikimedia Commons)' if commons else ''}\n{cred}\n\n"
+            "The narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n") if cred else \
+           "\nThe narration is AI-generated and every animation was drawn for this video.\n\n"
     d = (f"{cfg['claim']}\n\nNew Shorts every day.\n\nSOURCES\n{src}\n"
          + (f"{cfg['caveats']} Figures checked on {datetime.now():%-d %B %Y}.\n" if cfg.get("caveats") else "")
-         + f"\nPHOTO CREDITS (Wikimedia Commons)\n{credits(cfg['media'], plan)}\n\n"
-         "The narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n" + cfg["hashtags"] + "\n")
+         + tail + cfg["hashtags"] + "\n")
     d = ascii_(d)
     assert len(d) < 5000, f"description is {len(d)} characters (limit 5,000)"
     return d
@@ -152,7 +162,7 @@ def main():
     dur = int(re.search(r"-(\d+)s-", cfg["render"]).group(1)); rno = re.search(r"-r(\d+)\.", cfg["render"]).group(1)
     plates = sum(len(s["plates"]) for s in plan["scenes"])
     rows = list(csv.reader(open("Analytics/videos.csv", encoding="utf-8")))
-    row = [name, datetime.now(timezone.utc).strftime("%Y-%m-%d"), vid, "", str(words), str(dur), cfg["hook_type"], texts[0].replace("thirteen seventy-seven", "1377"), "", str(plates), "Austin"]
+    row = [name, datetime.now(timezone.utc).strftime("%Y-%m-%d"), vid, "", str(words), str(dur), cfg["hook_type"], texts[0].replace("thirteen seventy-seven", "1377"), "", str(plates), plan.get("voice", {}).get("voice_id", "Austin")]
     hook = None
     sc = glob.glob(f"Videos/**/Script - {name}.md", recursive=True)
     if sc:

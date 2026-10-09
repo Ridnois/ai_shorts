@@ -28,6 +28,8 @@ Why Your Phone Charges Slower After 80%
 
 Note: the title says 80% because that is what people search; the video says "near full" because the point where it slows differs by phone (70, 80 or 85 %).
 
+Copy-ready pack (regenerated 9 Oct 2026 for r3): `Media/Week 01/2026-10-09 Fri/Phone-charging-slows/upload/pc-publish-pack.md`. r3 has no photos (all motion plates), so the photo credits and "the photos are real" were removed.
+
 ## YouTube description (paste as is)
 
 ```text
@@ -42,10 +44,7 @@ SOURCES
 - iPhone Optimized Battery Charging pauses at 80 percent and finishes before you usually unplug: https://support.apple.com/en-us/108055
 Where the slow stage starts differs by phone and by battery. Only the Battery University page was read in full; the other sources were checked from search summaries. Cut-off 9 October 2026. Figures checked on 9 October 2026.
 
-PHOTO CREDITS (Wikimedia Commons)
-Seawhelan, CC BY-SA 4.0 | Robert M. Lavinsky, CC BY-SA 3.0 | SD hehua, CC BY 4.0 | 10kdollz, CC BY-SA 4.0 | Public domain and CC0 photos: Sevenethics
-
-The narration is AI-generated and the diagrams were drawn for this video; the photos are real.
+The narration is AI-generated and every animation was drawn for this video.
 
 #phonebattery #lithiumion #charging #howitworks #tech
 ```
