@@ -55,7 +55,7 @@ Not used: `qwen-image-edit-plus` to generate, `flux-2-pro`, `stable-audio-2.5` (
 
 ```
 Videos/Week NN/<Day>/<Topic>/   Status · Script · Upload (+ Research if long)   (Week = calendar week Mon to Sun, Week 01 = 5 to 11 Oct 2026; **Day folder** = the day the video was made, named `YYYY-MM-DD Day`, e.g. `2026-10-05 Mon`; user, 6 Oct 2026)
-Media/Week NN/<Day>/<Video>/    local, gitignored (same Day folder as the video's note): voice/ plates/ (+_refs, _descartes) stock/ (+_credits.jsonl) sound/ upload/ plan.json render/
+Media/Week NN/<Day>/<Video>/    local, gitignored (same Day folder as the video's note): voice/ plates/ (+_refs, _descartes) stock/ (+_credits.jsonl) sound/ upload/ (+ `<prefix>-publish-pack.md`: thumbnail, title, description, pinned comment, TikTok caption to copy, [[Publish]] §Publish pack) plan.json render/
 Media/_canal/             shared (brand drafts, tests)
 ```
 

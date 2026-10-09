@@ -1,3 +1,11 @@
+---
+type: research
+created: 2026-10-09
+updated: 2026-10-09
+status: used for [[Phone charging slows - Status]]
+tags: [youtube, analytics]
+---
+
 ### Key Takeaways
 
 1. **Reach & Broad Appeal (Advantage: Materials Science & Physical Resources)**
