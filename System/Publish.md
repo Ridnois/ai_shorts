@@ -6,7 +6,7 @@ status: v1 · platform policy, upload notes, YouTube and TikTok routes, analytic
 
 # Publish and measure (P8 and after)
 
-One Short a day; "New Shorts every day." in every description. Confirm title, description, thumbnail and visibility with the user before any upload.
+Five Shorts a week (Mon to Fri) at one fixed time of day, never two on one day, so the audience has a regular touchpoint; "New Shorts every day." in every description. Confirm title, description, thumbnail and visibility with the user before any upload.
 
 ## Policy that can sink the channel (YouTube Help, read 4 Oct 2026; re-read quarterly)
 
@@ -40,4 +40,5 @@ Same 9:16 master, uploaded natively from TikTok Studio on the web (phone limits 
 - **Pull** at about 24 h, 7 d, 28 d: `python3 System/scripts/youtube_analytics.py pull`, then `python3 System/scripts/analytics.py report`. Typed numbers (TikTok, Studio-only like viewed vs swiped away): `python3 System/scripts/analytics.py add "<Video>" youtube 24h views=… viewed_pct=…`. Analytics auth is separate from upload auth (`youtube_analytics.py auth`, weekly in Testing). The API returned no rows for videos 1 to 2 hours old.
 - **The five decision metrics and what to change first when low:** `viewed_pct` → first sentence and image · `avg_pct_viewed` → length, pace, middle scenes · `engaged_views` → ending and loop seam · `shares` → payoff and stakes · `subs_gained` → channel page, consistency. **Sample rule:** under ≈ 100 views read counts only, change nothing.
 - **Loop:** P1 reads the report; after each pull write one *Learnings* line in the Status note; **one change per video** so the next snapshot can attribute it; every 10 videos run the [[Feedback loop]] on the data and replace third-party benchmarks (≈ 80 % held through 3 s, ≈ 70 % average viewed, < 30 % viewed is dead: guesses) with the channel's medians. Kill criterion: if 20 Shorts average under about a third viewed, change the idea gate and hook before the visuals.
+- **Baseline (YouTube's own diagnostic, 9 Oct 2026, 8 Shorts, first 4 days):** 983 views, 307 unique viewers, **39.7 % viewed vs swiped away** (top uploads 48 to 52 %: Netflix screenshot 52.6 %, lithium 44.1 %), about 3.5 h watch time; best by views: EV battery (280), lithium (206). Reading: the first 1 to 2 s lose 6 in 10 viewers, so `viewed_pct` is the first lever ([[Playbook]] §2); topics that led are materials and device mechanisms. Third-party figures; replace with the channel's medians at 10 videos.
 - Not verified: Studio export format, whether viewed vs swiped away is in the API, populated retention and traffic-source responses.

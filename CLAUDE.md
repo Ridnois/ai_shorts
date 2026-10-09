@@ -1,6 +1,6 @@
 # Agent guide: Redtail Shorts vault (`~/Documents/youtube`)
 
-English-language, AI-assisted technology-explainer channel (IT, engineering, human progress, resources, programming, civil engineering): vertical Shorts for YouTube and TikTok, one a day. The vault is the single source of knowledge: you do not rely on past chats, you read the notes and follow them; **feedback becomes an edit of the owning note** ([[Feedback loop]]). Everything is written in English.
+English-language, AI-assisted technology-explainer channel (IT, engineering, human progress, resources, programming, civil engineering): vertical Shorts for YouTube and TikTok, five a week at a fixed time, never two on one day. The vault is the single source of knowledge: you do not rely on past chats, you read the notes and follow them; **feedback becomes an edit of the owning note** ([[Feedback loop]]). Everything is written in English.
 
 ## Read order (every task)
 
@@ -10,8 +10,8 @@ On demand: `System/Audience.md` (niche, deep-first search, package, opening) whe
 ## Hard rules
 
 - **No media before P4** (prompts and budget approved, in dollars). If the user delegates, record it in Status and continue within the cap (base × 1.2); **stop at the render (P7)**. Replicate calls in series, one retry per image, prediction id logged at once.
-- **The idea is a gate** (Y outcome and X mechanism named, deep-first search done, [[Audience]]): facts bank ≥ 15, scores, street-lamp and expert tests ("borderline" = fail), a demand check, five hooks of different types. **Length is planned in words** (130 to 190, aim 130 to 160).
-- **First 3 seconds = a need-to-know claim a stranger understands at once (plain, a reason to care, opens a question the next scene answers; judged by the hook test, never by word count; no story opener);** one theme line every scene bridges back to, ≤ 5 facts, concrete ending; explain, do not narrate.
+- **The idea is a gate** (Y outcome and X mechanism named, deep-first search done, [[Audience]]): facts bank ≥ 15, scores, street-lamp and expert tests ("borderline" = fail), a demand check, five hooks of different types. **Length is planned in words** (130 to 190, aim 130 to 160; every third video a compact 80 to 115).
+- **First 2 seconds = a need-to-know claim (the twist is the first words, no preamble) a stranger understands at once (plain, a reason to care, opens a question the next scene answers; judged by the hook test, never by word count; no story opener);** one theme line every scene bridges back to, ≤ 5 facts, concrete ending; explain, do not narrate.
 - **Every plate passes the usefulness test;** a new image every 3 to 4 s (none over 5 s, 16 to 20 plates); stock photos first (free, credited), ≤ 3 generated plates with content-first prompts and no custom style; schematics are scientifically faithful; no card or callout on a bare gradient.
 - **Word-by-word captions on every video; no branding inside the video.** Text passes the specificity test.
 - **Package at the script phase:** title, thumbnail and promise are written in the Script note and scene 1 pays the promise (promise, proof, plan).

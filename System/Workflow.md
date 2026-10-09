@@ -6,7 +6,7 @@ status: v2 · delegated flow is the default; listening rubric; note size ceiling
 
 # Workflow: stages, budget, models, files
 
-Rules for the content: [[Playbook]]. One run per video, one Short a day; **Sonnet-class model, no subagents** (the work is sequential).
+Rules for the content: [[Playbook]]. One run per video, five Shorts a week at a fixed time; **Sonnet-class model, no subagents** (the work is sequential).
 
 **Note size ceilings** (words, enforced by `check_vault.py`): Script 2,700 · Upload 2,300 · Status 1,500 (ceilings set from today's notes; lower them as notes shrink). Leave out: scoring rows of rejected threads (one line each), prompts once generated (the prediction log keeps the id), attribution tables (credits live in `stock/_credits.jsonl` and the Upload description), research prose that repeats the facts bank.
 
