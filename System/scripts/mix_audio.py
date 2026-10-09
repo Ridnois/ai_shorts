@@ -7,13 +7,13 @@ Why outside Blender: Blender's background mixdown is silent and its mix has no l
 and replaces the sound. Reads render/_timeline.json (voice placement, sound events, stems, render path, written by
 build_video.py) and plan.json `sound`:
 
-  "sound": {"music": {"file": "music/pc-music.mp3", "start": 12.0, "lu": -20, "duck": 0.04},   # optional bed
+  "sound": {"music": {"file": "music/pc-music.mp3", "start": 12.0, "lu": -15, "duck": 0.063},  # optional bed
             "sfx_db": 0, "bed": false, "lufs": -14, "tp": -1.0}
 
   * voice stem: the takes as placed by the builder, through a speech chain for phone speakers (high-pass 80 Hz, a small cut
     at 250 Hz, presence +2.5 dB at 3.2 kHz, de-esser, 2.5:1 compression), then levelled to `lufs` + 1 LU.
-  * music: looped or trimmed to the video, faded in and out, levelled `lu` under the voice (default −20 LU), ducked by the
-    voice through a sidechain compressor (threshold `duck`), so it breathes up in the pauses.
+  * music: looped or trimmed to the video, levelled `lu` under the voice (default −15 LU), ducked about 8 dB while the voice
+    speaks (sidechain 3:1, threshold `duck`; measured 9 Oct 2026), so it sits about 23 LU under speech and fills the pauses.
   * sfx: the builder's synthesized events stem (render/_fx/sound_sfx.wav), at its designed level relative to the voice
     plus `sfx_db`; the old sine bed only if "bed": true and there is no music.
   * master: two-pass loudnorm to `lufs` (−14 LUFS integrated, YouTube's reference) and `tp` (−1 dBTP), 48 kHz stereo AAC.
@@ -70,7 +70,7 @@ def main():
         ins += ["-i", v["file"]]
         ms = round(v["at"] * 1000)
         chains.append(f"[{k}:a]aresample={SR},aformat=channel_layouts=mono,atrim=start={v['in']:.3f}:duration={v['dur']:.3f},"
-                      f"asetpts=PTS-STARTPTS,adelay={ms}|{ms}[v{k}]")
+                      f"asetpts=PTS-STARTPTS,adelay={ms}|{ms},aresample=async=1:first_pts=0[v{k}]")   # adelay alone only shifts timestamps (measured: voice 0.44 s early); this writes the silence
     n = len(tl["voices"])
     mix = "".join(f"[v{k}]" for k in range(n)) + f"amix=inputs={n}:normalize=0,apad,atrim=0:{dur:.3f},{VOICE_CHAIN}[vo]"
     raw_voice = f"{work}/voice_raw.wav"
@@ -85,14 +85,14 @@ def main():
         src = os.path.join(root, mu["file"])
         cut = f"{work}/music_cut.wav"
         ff(["-stream_loop", "-1", "-ss", str(mu.get("start", 0)), "-i", src, "-t", f"{dur:.3f}", "-af",
-            f"aresample={SR},aformat=channel_layouts=stereo,afade=t=in:d={mu.get('fade_in', 0.8)},"
+            f"aresample={SR},aformat=channel_layouts=stereo,afade=t=in:d={mu.get('fade_in', 0.3)},"
             f"afade=t=out:st={max(0, dur - mu.get('fade_out', 1.6)):.3f}:d={mu.get('fade_out', 1.6)}", cut])
         lev = f"{work}/music_lev.wav"
-        gain_to(cut, lev, lufs + 1.0 + mu.get("lu", -20))
+        gain_to(cut, lev, lufs + 1.0 + mu.get("lu", -15))
         duck = f"{work}/music.wav"
         ff(["-i", lev, "-i", voice, "-filter_complex",
-            f"[1:a]aformat=channel_layouts=stereo[key];[0:a][key]sidechaincompress=threshold={mu.get('duck', 0.04)}:"
-            f"ratio=5:attack=40:release=450:knee=3[m]", "-map", "[m]", duck])
+            f"[1:a]aformat=channel_layouts=stereo[key];[0:a][key]sidechaincompress=threshold={mu.get('duck', 0.063)}:"
+            f"ratio=3:attack=40:release=450:knee=3[m]", "-map", "[m]", duck])
         stems.append(duck)
     # synthesized sound design from the builder, kept at its designed level relative to the voice
     for name in ("sfx", "bed"):

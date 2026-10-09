@@ -9,6 +9,7 @@ Without these files the builder still captions the video from an estimate (chara
 """
 import json
 import os
+import subprocess
 import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
@@ -29,7 +30,12 @@ def main(root):
         dst = f"{root}/{os.path.splitext(src)[0]}.words.json"
         if os.path.exists(dst):
             continue
-        p = run(MODEL, {"audio": datauri(f"{root}/{src}", "audio/mpeg"), "timestamp": "word", "language": "english", "task": "transcribe"})
+        audio, mime = f"{root}/{src}", "audio/mpeg"
+        if not src.endswith(".mp3"):                     # a 48 kHz WAV take is too big to send inline: a 32 kbps Opus copy (same timing)
+            audio, mime = f"{root}/voice/_padded/{os.path.splitext(os.path.basename(src))[0]}.ogg", "audio/ogg"
+            os.makedirs(os.path.dirname(audio), exist_ok=True)
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", f"{root}/{src}", "-ac", "1", "-c:a", "libopus", "-b:a", "32k", audio], check=True)
+        p = run(MODEL, {"audio": datauri(audio, mime), "timestamp": "word", "language": "english", "task": "transcribe"})
         log(p)
         w = words_of(p["output"])
         json.dump(w, open(dst, "w"), ensure_ascii=False)
