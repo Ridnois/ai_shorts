@@ -10,15 +10,11 @@ tags: [upload, youtube, week-01]
 
 ← [[Phone charging slows - Status]] · [[Script - Phone charging slows]] · [[Publish]]
 
-Render: `Media/Week 01/2026-10-09 Fri/Phone-charging-slows/render/pc-42s-9x16-r1.mp4` (42.4 s, 112 words). Visibility proposed: **private first**. Approval: **pending** (title, thumbnail, description, visibility). Draft `upload/publish.json` is ready; after your yes: `python3 System/scripts/publish.py "Media/Week 01/2026-10-09 Fri/Phone-charging-slows/upload/publish.json"`.
+Render: `Media/Week 01/2026-10-09 Fri/Phone-charging-slows/render/pc-39s-9x16-r3.mp4` (39.5 s, 112 words). Visibility proposed: **private first**. Approval: **pending** (title, thumbnail, description, visibility). Draft `upload/publish.json` is ready; after your yes: `python3 System/scripts/publish.py "Media/Week 01/2026-10-09 Fri/Phone-charging-slows/upload/publish.json"`.
 
 ## Thumbnails
 
-Variant A (recommended: the phone with a half-full battery and "SLOWS ON PURPOSE" restates the hook): `Media/Week 01/2026-10-09 Fri/Phone-charging-slows/upload/thumb.jpg`
-
-Variant B (battery cells, "THE LAST 20% IS ON PURPOSE"; stronger colour, but "20%" is a rounder claim than the video makes and a cell label is readable): `Media/Week 01/2026-10-09 Fri/Phone-charging-slows/upload/thumb-b.jpg`
-
-Both: kicker PHONE BATTERY, chips FAST TO ABOUT 70% | LITHIUM PLATES ON GRAPHITE | LAST 10% ADDS STRESS (Battery University). To use B, change `thumb` in `publish.json` to hero `stock/pc-s02-cell.jpg`, lines `THE LAST 20%` / `IS ON PURPOSE`.
+Drawn in the r3 render style (navy grid ground, copper battery card, speed bar; hero `upload/hero-r3.png`, 9 Oct 2026): `upload/pc-thumb-a.jpg`. Kicker PHONE BATTERY, chips FAST TO ABOUT 70% | LITHIUM PLATES ON GRAPHITE | LAST 10% ADDS STRESS (Battery University).
 
 ## Title (pick one)
 
