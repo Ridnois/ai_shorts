@@ -614,44 +614,122 @@ def draw_map(ctx, el, t, cues, warn):
 
 
 # ---------------------------------------------------------------- background and frame
-def background(spec, root):
-    sf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
-    ctx = cairo.Context(sf)
-    bg = spec.get("bg", "navy")
-    if isinstance(bg, dict) and bg.get("photo"):
-        from PIL import Image, ImageFilter, ImageEnhance
-        im = Image.open(os.path.join(root, bg["photo"])).convert("RGB")
-        k = max(W / im.width, H / im.height)
-        im = im.resize((round(im.width * k), round(im.height * k)), Image.LANCZOS)
-        im = im.crop(((im.width - W) // 2, (im.height - H) // 2, (im.width - W) // 2 + W, (im.height - H) // 2 + H))
-        im = ImageEnhance.Brightness(im.filter(ImageFilter.GaussianBlur(bg.get("blur", 22)))).enhance(bg.get("dim", 0.32))
-        buf = io.BytesIO()
-        im.convert("RGBA").save(buf, "PNG")
-        buf.seek(0)
-        ctx.set_source_surface(cairo.ImageSurface.create_from_png(buf), 0, 0)
-        ctx.paint()
-    else:
-        grad = cairo.LinearGradient(0, 0, 0, H)
-        grad.add_color_stop_rgba(0, *rgb("navy"))
-        grad.add_color_stop_rgba(1, *rgb("navy2"))
-        ctx.set_source(grad)
-        ctx.paint()
-        if spec.get("grid", True):                                 # faint drafting grid: designed, never empty
-            ctx.set_source_rgba(1, 1, 1, 0.035)
-            ctx.set_line_width(1.5)
-            for gx in range(0, W + 1, 60):
-                ctx.move_to(gx, 0)
-                ctx.line_to(gx, H)
-            for gy in range(0, H + 1, 60):
-                ctx.move_to(0, gy)
-                ctx.line_to(W, gy)
-            ctx.stroke()
-    rad = cairo.RadialGradient(W / 2, H * 0.45, H * 0.25, W / 2, H * 0.45, H * 0.75)
-    rad.add_color_stop_rgba(0, 0, 0, 0, 0)
-    rad.add_color_stop_rgba(1, 0, 0, 0, 0.45)
-    ctx.set_source(rad)
+def _photo(path, blur=0, dim=1.0):
+    from PIL import Image, ImageFilter, ImageEnhance
+    im = Image.open(path).convert("RGB")
+    if max(im.size) > 2600:
+        im.thumbnail((2600, 2600), Image.LANCZOS)
+    if blur:
+        im = im.filter(ImageFilter.GaussianBlur(blur))
+    if dim != 1.0:
+        im = ImageEnhance.Brightness(im).enhance(dim)
+    buf = io.BytesIO()
+    im.convert("RGBA").save(buf, "PNG")
+    buf.seek(0)
+    return cairo.ImageSurface.create_from_png(buf)
+
+
+def paint_cover(ctx, sf, fx, fy, z):
+    """Paints a surface cover-fitted, with the focus point (fractions) as near the centre as the picture allows."""
+    w, h = sf.get_width(), sf.get_height()
+    k = max(W / w, H / h) * z
+    ox = max(W - w * k, min(0.0, W / 2 - fx * w * k))
+    oy = max(H - h * k, min(0.0, H / 2 - fy * h * k))
+    ctx.save()
+    ctx.translate(ox, oy)
+    ctx.scale(k, k)
+    ctx.set_source_surface(sf, 0, 0)
+    ctx.get_source().set_filter(cairo.FILTER_GOOD)
     ctx.paint()
-    return sf
+    ctx.restore()
+
+
+class Background:
+    """navy (gradient and faint drafting grid), {"photo": file, "blur", "dim", "move": {"from": [fx, fy, z], "to": [...]}}
+    or {"video": clips/x.mp4, "in": s, "dim"}: real footage under the animation (labels and arrows drawn on the real thing)."""
+
+    def __init__(self, spec, root, dur):
+        self.spec, self.dur, self.ff, self.last = spec.get("bg", "navy"), dur, None, None
+        bg = self.spec
+        if isinstance(bg, dict) and bg.get("video"):
+            src = os.path.join(root, bg["video"])
+            self.ff = subprocess.Popen(["ffmpeg", "-loglevel", "error", "-ss", str(bg.get("in", 0)), "-i", src, "-an", "-vf",
+                                        f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS}",
+                                        "-f", "rawvideo", "-pix_fmt", "bgra", "-"], stdout=subprocess.PIPE)
+        elif isinstance(bg, dict) and bg.get("photo"):
+            self.photo = _photo(os.path.join(root, bg["photo"]), bg.get("blur", 0), bg.get("dim", 0.55))
+        else:
+            self.flat = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
+            ctx = cairo.Context(self.flat)
+            grad = cairo.LinearGradient(0, 0, 0, H)
+            grad.add_color_stop_rgba(0, *rgb("navy"))
+            grad.add_color_stop_rgba(1, *rgb("navy2"))
+            ctx.set_source(grad)
+            ctx.paint()
+            if spec.get("grid", True):                             # faint drafting grid: designed, never empty
+                ctx.set_source_rgba(1, 1, 1, 0.035)
+                ctx.set_line_width(1.5)
+                for gx in range(0, W + 1, 60):
+                    ctx.move_to(gx, 0)
+                    ctx.line_to(gx, H)
+                for gy in range(0, H + 1, 60):
+                    ctx.move_to(0, gy)
+                    ctx.line_to(W, gy)
+                ctx.stroke()
+        self.vig = cairo.RadialGradient(W / 2, H * 0.45, H * 0.25, W / 2, H * 0.45, H * 0.75)
+        self.vig.add_color_stop_rgba(0, 0, 0, 0, 0)
+        self.vig.add_color_stop_rgba(1, 0, 0, 0, 0.45)
+
+    def paint(self, ctx, t):
+        bg = self.spec
+        if self.ff:
+            raw = self.ff.stdout.read(W * H * 4)
+            if len(raw) == W * H * 4:
+                self.last = cairo.ImageSurface.create_for_data(bytearray(raw), cairo.FORMAT_ARGB32, W, H, W * 4)
+            if self.last:
+                ctx.set_source_surface(self.last, 0, 0)
+                ctx.paint()
+            if bg.get("dim", 1.0) < 1.0:
+                ctx.set_source_rgba(0, 0, 0, 1 - bg["dim"])
+                ctx.paint()
+        elif isinstance(bg, dict) and bg.get("photo"):
+            mv = bg.get("move")
+            u = ease(t / max(self.dur, 1e-6))
+            fx, fy, z = [a + (b - a) * u for a, b in zip(mv["from"], mv["to"])] if mv else bg.get("focus", [0.5, 0.5]) + [1.02]
+            paint_cover(ctx, self.photo, fx, fy, z)
+        else:
+            ctx.set_source_surface(self.flat, 0, 0)
+            ctx.paint()
+        ctx.set_source(self.vig)
+        ctx.paint()
+
+    def close(self):
+        if self.ff:
+            self.ff.stdout.close()
+            self.ff.wait()
+
+
+def events(spec, cues):
+    """Times at which something on screen changes (entries, exits, key frames, pulses, particles, bar segments)."""
+    ts = [0.0, cues("end")]
+
+    def walk(el):
+        if "show" in el:
+            ts.extend(cues(c) for c in el["show"][:2])
+        for ks in el.get("keys", {}).values():
+            ts.extend(cues(k[0]) for k in ks)
+        ts.extend(cues(c) for c in el.get("pulse", []))
+        if el.get("kind") == "stream":
+            ts.append(cues(el.get("start", 0)))
+            if "stop" in el:
+                ts.append(cues(el["stop"]))
+        for sub in ("segs", "series", "bands", "marks", "pins", "arcs"):
+            for x in el.get(sub, []):
+                walk(x)
+    for el in spec["els"]:
+        walk(el)
+    walk(spec.get("camera", {}))
+    return sorted(t for t in ts if t is not None)
 
 
 def render(spec, out, dur, cues, root, label, sheet=False):
@@ -660,7 +738,11 @@ def render(spec, out, dur, cues, root, label, sheet=False):
         for key in ("file",):
             if el.get(key) and not os.path.isabs(el[key]):
                 el[key] = os.path.join(root, el[key])
-    bg = background(spec, root)
+    bg = Background(spec, root, dur)
+    ev = events(spec, cues)
+    gaps = [(round(a_, 1), round(b_, 1)) for a_, b_ in zip(ev, ev[1:]) if b_ - a_ > 3.5]
+    if gaps:
+        print(f"  WARN {label}: nothing changes on screen for over 3.5 s in {gaps}: add an event (a label, a pulse, a camera move)")
     warned = set()
 
     def warn(box, size, s):
@@ -689,8 +771,7 @@ def render(spec, out, dur, cues, root, label, sheet=False):
         t = f / FPS
         sf = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
         ctx = cairo.Context(sf)
-        ctx.set_source_surface(bg, 0, 0)
-        ctx.paint()
+        bg.paint(ctx, t)
         z, (ccx, ccy) = keyed(cam, "zoom", t, cues, 1.0), keyed(cam, "center", t, cues, [W / 2, H / 2])
         ctx.translate(W / 2, H / 2)
         ctx.scale(z, z)
@@ -718,6 +799,7 @@ def render(spec, out, dur, cues, root, label, sheet=False):
         ff.stdin.write(bytes(sf.get_data()))
     ff.stdin.close()
     ff.wait()
+    bg.close()
     print(f"MOTION {os.path.relpath(out, root)}: {dur:.2f} s, {n} frames")
     if sheet:
         png = os.path.splitext(out)[0] + ".sheet.png"
