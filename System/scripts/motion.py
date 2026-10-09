@@ -823,7 +823,7 @@ def render(spec, out, dur, cues, root, label, sheet=False, extra=()):
         png = os.path.splitext(out)[0] + ".sheet.png"
         font = "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf"
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", out, "-vf",
-                        f"fps={6 / max(dur, 0.1):.4f},scale=270:480,drawtext=fontfile={font}:text='%{{pts\\:flt\\:2}} s':"
+                        f"setpts=PTS-STARTPTS,fps={6 / max(dur, 0.1):.4f},scale=270:480,drawtext=fontfile={font}:text='%{{pts\\:flt\\:2}} s':"
                         "x=8:y=8:fontsize=20:fontcolor=white:box=1:boxcolor=black@0.6,tile=6x1", "-frames:v", "1", png])
         print("  sheet", os.path.relpath(png, root))
 

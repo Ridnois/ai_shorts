@@ -183,7 +183,7 @@ def cmd_look(a):
     dur = info["duration"] or 1
     font = "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf"
     dst = os.path.splitext(a.src)[0] + ".look.png"
-    vf = (f"fps={a.n / dur:.5f},scale=480:-2,drawtext=fontfile={font}:text='%{{pts\\:hms}}':x=10:y=10:fontsize=26:"
+    vf = (f"setpts=PTS-STARTPTS,fps={a.n / dur:.5f},scale=480:-2,drawtext=fontfile={font}:text='%{{pts\\:hms}}':x=10:y=10:fontsize=26:"
           f"fontcolor=white:box=1:boxcolor=black@0.6,tile={min(a.n, 4)}x{-(-a.n // 4)}")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", a.src, "-vf", vf, "-frames:v", "1", dst], check=True)
     print("frames", dst, info)
