@@ -57,19 +57,21 @@ Source idea: `Analytics/Generated ideas/Youtube idea #4.md` (YouTube's suggestio
 
 **Y/X:** above. **Promise:** chips depend on a gas that steel mills leave over. **Titles:** *Why Chips Depend on a Steel Plant Leftover* (recommended) · *Half the Neon for Chips Came From Two Companies* (2022 date in description) · *The Gas Every Chip Laser Needs*. **Thumbnail:** hero = chip-lithography machine or wafer photo (stock, $0, to find); kicker **SEMICONDUCTORS**; lines **A STEEL MILL'S** / **LEFTOVER GAS** (second orange); chips **ABOUT HALF FROM 2 FIRMS** · **1 LITRE IN 55,000** · **2022 DATA**. Beats neighbours (to check at search) by naming the odd link, steel to chips. **Opening map:** scene 1 promise; scene 2 proof (lasers, neon in the mix) and plan.
 
-## 3. Script (P2): compact test video, 114 words, 5 scenes
+## 3. Script (P2), rewritten 9 Oct 2026 after P7 feedback: compact test video, 117 words, 5 scenes
 
-Bridges: 2 "The gas is neon" · 3 "So why steel?" · 4 "That is why" · 5 "So". **Facts (5):** neon is in the laser mix; it is 1 in 55,000 of air; steel mills split air so it is a by-product; two Ukrainian firms shut in 2022; they supplied about half. **Spoken figures:** 3 (half, fifty-five thousand, 2022). **Original synthesis:** the 1-in-55,000 ratio set against a steel plant's air. **Cut test:** firm names, China price, ASML, 540 t, stocks lasting months (screen or cut). **Close:** payoff plus social question.
+User feedback: *"i feel the hook weak, i got lost before 5 seconds. and i saw no conclussion. content should be low attention proof"*. **Changes:** hook is one plain sentence a stranger gets with half an ear ("Every chip is made with a gas from steel mills") followed by the stake; argon, fluorine and "ultraviolet" removed from the voice (jargon lost the viewer in scene 2); every sentence ≤ 12 words with one idea; the conclusion is spoken ("So here is the point...") and shown on a card before the question.
+
+Bridges: 2 "The gas is neon" · 3 "So why steel mills?" · 4 "So very few places make it" · 5 "So here is the point". **Facts (4):** neon is used in chip lasers; steel-mill air plants leave it over; only very large plants recover it; two Ukrainian firms supplied about half in 2021 and shut in 2022. **Spoken figures:** 1 (half) plus the year. **Cut test:** laser gases, 55,000 (screen only), firm names, China price, ASML.
 
 | Scene | Voice text | Words | Delivery | Pause after (s) |
 | --- | --- | --- | --- | --- |
-| 1 | Chip factories lean on a leftover gas from steel plants, and about half of it came from two Ukrainian companies. | 19 | curious, matter-of-fact | 0.60 |
-| 2 | The gas is neon. In chip lasers, argon and fluorine make the ultraviolet light, and neon is the gas they are mixed in. | 23 | clear, explaining | 0.45 |
-| 3 | So why steel? Neon is one litre in every fifty-five thousand of air, and steel mills already split air for oxygen, so it comes out as a by-product. | 30 | light, one fact at a time | 0.45 |
-| 4 | That is why supply sat in so few places. In twenty twenty-two, both Ukrainian plants shut down. | 17 | steady, grave on "shut down" | 0.90 (before the close) |
-| 5 | So the newest chips lean on old steel plants. Should everything we run depend on a gas nobody sets out to make? Tell me what you think. | 27 | warm, open: speaking to the viewer | (tail) |
+| 1 | Every chip is made with a gas from steel mills. And about half of it came from two companies in Ukraine. | 21 | plain, direct, a little surprised | 0.60 |
+| 2 | The gas is neon. Many chip machines use it inside their lasers. Without neon, those machines stop. | 17 | clear, simple | 0.45 |
+| 3 | So why steel mills? They split air to make oxygen. Neon is a tiny leftover in that air. Only very large plants can catch it. | 25 | light, one fact at a time | 0.45 |
+| 4 | So very few places make it. In twenty twenty-two, those two companies shut down. Chipmakers had to live off their stock. | 21 | steady, grave on "shut down" | 0.90 (before the conclusion) |
+| 5 | So here is the point. The most advanced chips depend on a leftover from old steel mills. Should the chips that run everything depend on a leftover gas? Tell me what you think. | 33 | warm, slower on the point, open on the question | (tail) |
 
-Word counts are the agent's count of the voice text (115 ceiling for compact: met). `gaps` = [0.60, 0.45, 0.45, 0.90]. Digits spelled for the ear; the year is also on screen. "Both plants" is from company statements to Reuters, March 2022 (fact 7, snippet): open it before P4.
+Inner pauses after "mills" (scene 1, 0.6), "neon" (2, 0.4), "mills" and "oxygen" (3), "it" (4), "point", "mills", "gas" (5). On screen: scene 5 plate 10 carries the conclusion card ("Chips rely on steel mills"), plate 11 the question. "About half" is the Reuters and Techcet 45 to 54 % estimate (fact 4); "those two companies" are Ingas and Cryoin; "had to live off their stock" is Techcet's "two months or more" for the largest fabs (fact 8, snippet): open before any upload.
 
 ## 4. Visual plan (P3): 12 plates, prefix `ne`, folder `Media/Week 01/2026-10-09 Fri/Neon-for-chips/` (nothing downloaded: P4 not passed)
 
