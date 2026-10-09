@@ -48,7 +48,7 @@ Source: `Analytics/Generated ideas/Takeaways - youtube.md` (YouTube's channel re
 
 **Y/X:** above. **Promise:** your phone slows its charging near full on purpose, to protect the battery. **Titles:** *Why Your Phone Charges Slower After 80%* (recommended, 39 characters; the plain question people search) · *Your Phone Slows Its Own Charging on Purpose* (43) · *Why the Last 20% of Charging Takes So Long* (41). **Thumbnail:** hero = stock photo of a phone on a charger ($0, to find); kicker **PHONE BATTERY**; lines **SLOWS ON** / **PURPOSE** (second orange); chips **FAST TO ABOUT 70%** (Battery University) · **LITHIUM PLATES ON GRAPHITE** (26) · **THE LAST 10% ADDS STRESS** (23). Beats neighbours (to check in search) by saying "on purpose" instead of "tips". **Opening map:** scene 1 promise; scene 2 proof (the strong current fills most of it fast) and plan; scene 3 the catch.
 
-## 3. Script (P2): compact test video, 114 words, 5 scenes
+## 3. Script (P2): compact test video, 112 words, 5 scenes
 
 Written to the low-attention rule ([[Playbook]] §2): first sentence one plain claim, no jargon in the voice, sentences ≤ 12 words, spoken conclusion before the question. Bridges: 2 "At first" · 3 "But" · 4 "So" · 5 "So here is the point". **Facts (4):** strong current fills most of the battery fast; lithium goes into graphite; nearly full graphite can end up with lithium as metal; the charger holds the voltage and lets the current fade. **Spoken figures:** none (70 %, 4.20 V and 10 % are on screen). **Original synthesis:** none beyond the plain chain; the on-screen curve shows current falling while voltage holds. **Cut test:** 4.20 V, 85 %, CID, heat, Samsung's 85 % (screen only if at all).
 
@@ -60,7 +60,7 @@ Written to the low-attention rule ([[Playbook]] §2): first sentence one plain c
 | 4 | So the charger holds the voltage and lets the current fade. The last stretch is slow, and some phones even wait until you need them. | 26 | steady, calm | 0.90 (before the conclusion) |
 | 5 | So here is the point. The slow end of charging is your phone protecting its battery. Should phones let you choose speed over battery life? Tell me what you think. | 30 | warm, slower on the point, open on the question | (tail) |
 
-114 words by count. Inner pauses: after "purpose" (1), "current" and "fast" (2), "graphite" and "surface" (3), "voltage" (4), "point" and "battery" (5). Digits: none spoken. **Honesty:** "some phones even wait until you need them" is Apple's Optimized Battery Charging (fact 12, snippet): put the name on screen and open the Apple page before P4; "can leave lithium as metal" is hedged ("can") and rests on facts 8 to 11.
+112 words by count (rendered). Inner pauses: after "purpose" (1), "current" and "fast" (2), "graphite" and "surface" (3), "voltage" (4), "point" and "battery" (5). Digits: none spoken. **Honesty:** "some phones even wait until you need them" is Apple's Optimized Battery Charging (fact 12, snippet): put the name on screen and open the Apple page before P4; "can leave lithium as metal" is hedged ("can") and rests on facts 8 to 11.
 
 ## 4. Visual plan (P3): 12 plates, prefix `pc`, folder `Media/Week 01/2026-10-09 Fri/Phone-charging-slows/` (nothing downloaded: P4 not passed)
 
@@ -86,3 +86,7 @@ Candidates to find (Commons, Openverse, NASA): a phone on a charger (CC0), a lit
 ## 5. Not verified
 
 Facts 9 to 14 are snippets; one page (BU-409) was read; the exact taper onset per phone (fact 16); whether Apple's feature is as the summary says; whether "too much current can leave lithium as metal" is stated by a primary page for phones (BU-409 states it for overvoltage); the demand check; voice, pace and everything the agent cannot hear. P7 is the user's.
+
+## 6. As rendered (9 Oct 2026)
+
+14 plates (not the 12 planned): scene 2 has 2 plates, scene 3 has 3, scene 4 has 3, scene 5 has 4 so every plate stays between 2.7 and 3.4 s ([[Style]] Engagement rules). Drawn plates are built in two states (charge curve, graphite), a stage bar replaced the plan's number card, and four diagram plates carry a small photo inset under the captions. Photos: wireless charging phone (CC BY-SA 4.0, Seawhelan), 21700 cells (CC0), graphite specimen (CC BY-SA 3.0, Lavinsky), USB charger set (CC BY 4.0), phone charging crowd (CC BY-SA 4.0, 10kdollz). The Apple line on screen (plate 11) still rests on a search summary.
