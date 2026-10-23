@@ -11,7 +11,7 @@ look at) -> Analytics/videos.csv row -> Upload note -> Status stage 8 + index ro
 
 publish.json (all keys required unless marked):
   media      "Media/Week 01/2026-10-05 Mon/Deep-sea"        render  "render/dn-62s-9x16-r1.mp4"
-  video_name "Deep-sea nodules"  (the notes folder, Status and Script names)      title  "..."
+  video_name "AI invented sources"  (the notes folder, Status and Script names)      title  "..."
   claim      the first two lines of the description (claim and search words)
   sources    [["what it supports", "https://..."], ...]       caveats  "one or two sentences" (optional)
   hashtags   "#a #b #c"            privacy  "private"|"public"|"unlisted" (optional, default private)

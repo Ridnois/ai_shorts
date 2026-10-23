@@ -2,6 +2,7 @@
 type: video-idea
 status: idea
 format: {{format}}
+series: 
 publish: 
 estimated_budget_usd: 
 approved_budget_usd: 
@@ -28,7 +29,7 @@ The remarkable thing you want the video built on, if you already have one. If em
 
 ## Demand check
 
-One line: is the subject searched or shared (autocomplete, 3 comparable videos and their views)? Topic family: ____ (not the same as the previous video).
+One line: is the subject searched or shared (autocomplete, 3 comparable videos and their views)? Series: How it works, Agent at work or What's coming (not the same as the previous video).
 
 ## Script notes
 

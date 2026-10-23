@@ -106,6 +106,14 @@ INVARIANTS = [
     ("System/Workflow.md", "Listening rubric", "the user's ear is the only audio evidence"),
     ("System/Workflow.md", "Note size ceilings", "per-video notes stay short"),
     ("System/Model script.md", "Hook rewrites", "a model to imitate"),
+    ("CLAUDE.md", "teaches AI", "the channel teaches AI (user, 23 Oct 2026)"),
+    ("System/Audience.md", "Agent at work", "three AI series: How it works, Agent at work, What's coming"),
+    ("System/Playbook.md", "AI rigor", "capability claims carry model, version and date; forecasts labelled"),
+    ("System/Playbook.md", "AI clichés are banned", "no glowing brains, robots at keyboards or binary rain"),
+    ("System/Playbook.md", "Recorded runs", "agent demos are real runs, not mock-ups"),
+    ("System/Playbook.md", "scene3d.py", "3D plates for mechanisms with depth (user, 23 Oct 2026)"),
+    ("System/Style.md", "3D plates", "3D look shares the motion plates' world"),
+    ("System/Workflow.md", "scene3d.py", "3D plates have a tool, a cost and a command"),
 ]
 FORBIDDEN = [
     # (file, phrase, why): rules the user removed; must not come back
@@ -114,6 +122,8 @@ FORBIDDEN = [
     ("CLAUDE.md", "16 to 20 plates", "a plate count produced filler pictures (user, 9 Oct 2026)"),
     ("CLAUDE.md", "previous_text", "per-scene takes with text context were retired (user, 9 Oct 2026)"),
     ("System/Playbook.md", "16 to 20 plates", "a plate count produced filler pictures (user, 9 Oct 2026)"),
+    ("System/Audience.md", "civil engineering", "the old technology niche was replaced by AI (user, 23 Oct 2026)"),
+    ("CLAUDE.md", "civil engineering", "the old technology niche was replaced by AI (user, 23 Oct 2026)"),
 ]
 CEILING = {"Script - ": 2700, "Upload - ": 2300, " - Status": 1500}
 

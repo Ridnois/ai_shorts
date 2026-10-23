@@ -1,6 +1,6 @@
 ---
 type: research
-updated: 2026-10-06
+updated: 2026-10-23
 ---
 "People could want the outcome without understanding the mechanism"
 
@@ -13,7 +13,7 @@ Choose X and Y is just part of the decision. If direct demand exists, build arou
 
 ## Deep first search
 
-We should keep ourselves on the technology niche, generate a set of search terms based on the IT, Engineering, human progress, global resource management, programming and civil engineering.
+We keep ourselves on the AI niche (since 23 Oct 2026: how it works, agents at work, what's coming): generate a set of search terms for each series.
 
 Explore and analyze the most successful AI content around
 ![[Pasted image 20261006190807.png]]

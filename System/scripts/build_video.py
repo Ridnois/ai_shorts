@@ -14,7 +14,7 @@ What it does (see System/Playbook.md §3 and §6):
                `move` {"from": [fx, fy, zoom], "to": [fx, fy, zoom]}: a pan from one detail to the one the voice names)
       contain  a photo or diagram fitted inside the frame on a gradient, with rounded corners and a soft shadow
       cutout   a PNG with a transparent background (generated or cut out) over the gradient, with a soft shadow
-  * Cuts on the word: a plate with `"at": "graphite"` ("graphite#2", "graphite+0.2") starts just before that word is heard
+  * Cuts on the word: a plate with `"at": "token"` ("token#2", "token+0.2") starts just before that word is heard
     in its scene; plates without `at` share the time left evenly. Callouts and cards take `at` too (they appear on the word).
   * render/_timeline.json: every plate's start and end and every heard word (absolute seconds), read by motion.py.
   * Callouts: a dot on a part of the image, a leader line and a short label (explains machines and processes).
@@ -526,7 +526,7 @@ if TAKE:                                                 # scene k ends halfway 
 
 
 def cue_time(spec, scene, label):
-    """Absolute time of a word cue inside a scene: \"graphite\", \"graphite#2\" (its second time), \"graphite+0.3\"."""
+    """Absolute time of a word cue inside a scene: \"token\", \"token#2\" (its second time), \"token+0.3\"."""
     s, off = str(spec), 0.0
     for sign in "+-":
         if sign in s[1:]:

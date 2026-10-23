@@ -1,8 +1,8 @@
 ---
 type: research
 created: 2026-10-03
-updated: 2026-10-04
-status: v2 · English states and properties; the runner follows the idea-quality and illustration rules
+updated: 2026-10-23
+status: v3 · AI channel; English states and properties; the runner follows the idea-quality and illustration rules
 tags: [research, youtube, pipeline, hub]
 ---
 
@@ -10,7 +10,7 @@ tags: [research, youtube, pipeline, hub]
 
 ← [[YouTube Channel]] · [[Workflow]]
 
-**State, 5 Oct 2026:** the three Week 01 videos were built interactively under delegation, not by the runner; both ideas below are still `idea`. The runner is optional. If it is used, its prompts must follow [[Playbook]] (hook test, no "borderline" street-lamp, demand check, topic spread) and the delegated flow in [[Workflow]]. Delete this note and the runner if it stays unused after the first 10 videos.
+**State, 23 Oct 2026:** the channel moved to AI; the queue holds AI ideas only, each tagged with its series ([[Audience]]). Videos are built interactively under delegation; the runner is optional and its prompts must follow [[Playbook]] and [[Workflow]]. Search branches and outliers: [[Niche map]].
 
 One **note per idea** in `Pipeline/Ideas/`; its `status` property is the table column. Changing `status` in the table is the command; the runner does the work and leaves the next status.
 

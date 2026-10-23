@@ -1,7 +1,7 @@
 ---
 type: process
-updated: 2026-10-09
-status: v4 · one-take voice and mix-and-master stage (9 Oct 2026); footage and motion plates; delegated flow is the default; listening rubric; note size ceilings
+updated: 2026-10-23
+status: v5 · 3D plates (`scene3d.py`) and recorded runs for the AI channel (23 Oct 2026); v4 · one-take voice and mix-and-master stage (9 Oct 2026); footage and motion plates; delegated flow is the default; listening rubric; note size ceilings
 ---
 
 # Workflow: stages, budget, models, files
@@ -16,13 +16,13 @@ Read `CLAUDE.md`, [[Playbook]], this note, `Analytics/Report.md`, then only the 
 
 ## Stages and gates
 
-**The normal run is delegated** (every Week 01 video was): the user asks for a video, the agent records the delegation and the cap in Status and runs A to E without stopping; **the render (P7) is where it stops.** Without delegation the user approves each gate and the agent never approves for them.
+**The normal run is delegated:** the user asks for a video, the agent records the delegation and the cap in Status and runs A to E without stopping; **the render (P7) is where it stops.** Without delegation the user approves each gate and the agent never approves for them.
 
 | Package                     | Stages                                                                                                                                                                  | Gate                                                                                                                                       |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | **A · Text**                | idea (deep-first search, Y and X, facts bank, scores, against-the-idea pass, demand check, five hooks) → research (claims with source and date) → script in words **with its Package (title, thumbnail, promise)** → visual plan (one row per plate) | P1 to P3 + P4a; the street-lamp test cannot be "borderline"                                                                                |
 | **B · Budget**              | stock photos downloaded (free, credits), content-first prompts, voice prompts, `plan.json`, dollar budget with cap                                                      | **P4: spending allowed from here; no Replicate call and no file in `Media/` before it** (delegation counts as approval, written in Status) |
-| **C · Generation** | voice (`voice.py`: one take, check its words and silences) → word timings → build with `SOLO_PROYECTO=1` (writes `render/_timeline.json`) → motion plates (`motion.py --sheet`, look at every sheet) → footage cut (`stock_videos.py cut`) → generated images or clips (in series) | within the cap |
+| **C · Generation** | voice (`voice.py`: one take, check its words and silences) → word timings → build with `SOLO_PROYECTO=1` (writes `render/_timeline.json`) → motion plates (`motion.py --sheet`) and 3D plates (`scene3d.py --preview --sheet`, then without `--preview`; look at every sheet) → recorded runs and footage cut (`stock_videos.py cut`) → generated images or clips (in series) | within the cap |
 | **D · Edit** | `build_video.py`, `CHECK=1`, render in the background, then `mix_audio.py` (mix and master to −14 LUFS) | **P7 (the user)**, with the listening rubric below |
 | **E · Publish and measure** | Upload note, `Analytics/videos.csv` row, pulls ([[Publish]])                                                                                                            | P8                                                                                                                                         |
 
@@ -35,9 +35,11 @@ A **test stage** (voice of scene 1, one cutout and one stock photo composed, ≈
 | Category               | Model                                                                                                                               | Unit price                                                                                                                                                                                                          |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Voice | `inworld/realtime-tts-2`, voice `Dennis`, one take per video (`voice.py`; ≤ 2,000 characters, `<break>` tags, bracketed direction, WAV 48 kHz; no timestamps) | $0.025 per 1,000 characters (model page, 9 Oct 2026): a 750-character script ≈ $0.02 a take |
-| Generated plates (≤ 3) | `openai/gpt-image-2` (`quality` medium/high, `aspect_ratio` 2:3 or 9:16, `output_format: png`, `input_images`; no `input_fidelity`) | **unconfirmed**: the API shows no price; budget ≈ $0.25 at `high` (Copper and EV notes) until the user reads the Replicate dashboard once and the real figure replaces this line (fallback `gpt-image-1.5` ≈ $0.05) |
+| Generated plates (≤ 3) | `openai/gpt-image-2` (`quality` medium/high, `aspect_ratio` 2:3 or 9:16, `output_format: png`, `input_images`; no `input_fidelity`) | **unconfirmed**: the API shows no price; budget ≈ $0.25 at `high` until the user reads the Replicate dashboard once and the real figure replaces this line (fallback `gpt-image-1.5` ≈ $0.05) |
 | Stock photos and footage | `stock_photos.py`, `stock_videos.py` (Commons keyless; Pexels and Pixabay need the user's free `PEXELS_API_KEY`, `PIXABAY_API_KEY` in `.env`) | $0 |
 | Motion plates | `motion.py` (cairo, local) | $0 |
+| 3D plates | `scene3d.py` (Blender 5.2 EEVEE, local; measured 23 Oct 2026 on this laptop: about 0.75 s a frame at 1080×1920, 0.25 s with `--preview`, so a 5 s plate takes about 90 s) | $0 |
+| Recorded runs | the real AI tool, screen-recorded by hand (GNOME recorder `Ctrl+Shift+Alt+R` or OBS) or by the agent in the terminal | the run's own API or subscription cost, logged in Status as a line like any prediction |
 | AI image-to-video (opt-in, ≤ 3 generated media per Short in all) | `lightricks/ltx-2.5-fast` (`image` start frame cropped to 720×1280, `resolution` 720p, `aspect_ratio` 9:16, `duration` 4, `generate_audio` false); fallback `bytedance/seedance-1.5-pro` (`camera_fixed`, `generate_audio` false) | **unconfirmed**: ≈ $0.12 and ≈ $0.10 per 4 s clip (model pages, 9 Oct 2026); a test of 2 photos on 3 models (≈ $0.70, the user's approval) comes before any clip enters a Short |
 | Background removal     | `bria/remove-background`                                                                                                            | **unconfirmed**: test one and write the price                                                                                                                                                                       |
 | Photo edit             | `black-forest-labs/flux-kontext-pro` (edits a real photo, never restyles)                                                           | ≈ $0.04                                                                                                                                                                                                             |
@@ -45,9 +47,9 @@ A **test stage** (voice of scene 1, one cutout and one stock photo composed, ≈
 | Word timings | `vaibhavs10/incredibly-fast-whisper` via `word_timings.py` (a WAV take is sent as a 32 kbps Opus copy) | ≈ $0.01 per take (one per video) |
 | Sound design and master | the builder's opening hit and scene whooshes; `mix_audio.py` (ffmpeg) mixes and masters; music opt-in, Pixabay by hand (shield-free) | $0 |
 
-Typical Short since 9 Oct 2026: ≈ $0.05 without generated media (one voice take + one timing call; a retake ≈ $0.02), ≈ $0.30 with one generated plate. Older references (7 takes + 7 timings + 1 plate): Copper ≈ $0.41, Battery ≈ $0.35. Retries are what cost: fix the prompt first, **one retry per image**, calls **in series** (the helper waits on HTTP 429, nothing is charged), batches ≤ 10. Over the cap needs approval; model research is not video cost. Discards go to `_descartes/`. Log one line per prediction: `scene · category · model · seed · used/discarded · URL`; the prediction id is logged at once; a hung download is `recover(id, dest)`, never regenerate. Read a model's schema free with `GET /v1/models/<owner>/<name>`; urllib needs a `User-Agent`.
+Typical Short since 9 Oct 2026: ≈ $0.05 without generated media (one voice take + one timing call; a retake ≈ $0.02), ≈ $0.30 with one generated plate. Retries are what cost: fix the prompt first, **one retry per image**, calls **in series** (the helper waits on HTTP 429, nothing is charged), batches ≤ 10. Over the cap needs approval; model research is not video cost. Discards go to `_descartes/`. Log one line per prediction: `scene · category · model · seed · used/discarded · URL`; the prediction id is logged at once; a hung download is `recover(id, dest)`, never regenerate. Read a model's schema free with `GET /v1/models/<owner>/<name>`; urllib needs a `User-Agent`.
 
-Not used: `qwen-image-edit-plus` to generate, `flux-2-pro`, `stable-audio-2.5` ($0.20 per file), `qwen3-tts` (no speed control), ElevenLabs turbo-v2.5 per-scene takes (retired 9 Oct 2026: stitched takes sounded broken); Eleven v4 needs an ElevenLabs key ($6 a month, not chosen).
+Not used: `qwen-image-edit-plus` to generate, `flux-2-pro`, `stable-audio-2.5` ($0.20 per file), `qwen3-tts` (no speed control), ElevenLabs turbo-v2.5 per-scene takes (retired 9 Oct 2026: stitched takes sounded broken); Eleven v4 needs an ElevenLabs key ($6 a month, not chosen); **Manim** (tried 23 Oct 2026: needs `libcairo2-dev` and `libpango1.0-dev`, which need sudo on this machine; ask the user to install them only if a video needs equations or 3Blue1Brown-style math, `scene3d.py` and `motion.py` cover the rest).
 
 ## Thumbnail
 
@@ -64,7 +66,7 @@ Not used: `qwen-image-edit-plus` to generate, `flux-2-pro`, `stable-audio-2.5` (
 
 ```
 Videos/Week NN/<Day>/<Topic>/   Status · Script · Upload (+ Research if long)   (Week = calendar week Mon to Sun, Week 01 = 5 to 11 Oct 2026; **Day folder** = the day the video was made, named `YYYY-MM-DD Day`, e.g. `2026-10-05 Mon`; user, 6 Oct 2026)
-Media/Week NN/<Day>/<Video>/    local, gitignored (same Day folder as the video's note): voice/ plates/ (+_refs, _descartes) stock/ (+_credits.jsonl) clips/ (+_src/ sources, _credits.jsonl) motion/ (clips and `.sheet.png` from `motion.py`) sound/ upload/ (+ `<prefix>-publish-pack.md`: thumbnail, title, description, pinned comment, TikTok caption to copy, [[Publish]] §Publish pack) plan.json render/
+Media/Week NN/<Day>/<Video>/    local, gitignored (same Day folder as the video's note): voice/ plates/ (+_refs, _descartes) stock/ (+_credits.jsonl) clips/ (+_src/ sources, _credits.jsonl) motion/ (clips and `.sheet.png` from `motion.py` and `scene3d.py`) sound/ upload/ (+ `<prefix>-publish-pack.md`: thumbnail, title, description, pinned comment, TikTok caption to copy, [[Publish]] §Publish pack) plan.json render/
 Media/_canal/             shared (brand drafts, tests)
 ```
 
@@ -79,6 +81,8 @@ Every media file carries its video prefix (Obsidian resolves embeds by file name
 | Voice | `python3 System/scripts/voice.py "Media/Week NN/<Day>/<Video>" --dry` (prints the request, $0), then without `--dry` |
 | Word timings       | `python3 System/scripts/word_timings.py "Media/Week NN/<Day>/<Video>"` |
 | Footage | `python3 System/scripts/stock_videos.py search "<q>" --source commons\|pexels\|pixabay\|nasa\|archive [--vertical]`, then `get …`, `look <src>` (frames with timestamps), `cut <src> <clips/…mp4> --start s --dur s --focus x` |
+| 3D plates | `python3 System/scripts/scene3d.py "Media/Week NN/<Day>/<Video>" --preview --sheet` (after a `SOLO_PROYECTO=1` build; drafts at half size), then without `--preview` for the final clips; `--only <name>` for one plate |
+| Recorded run | record the real tool in a tall window at a large font into `clips/_src/<v>-run-<slug>.mp4`, then `stock_videos.py look` and `cut … --focus` like footage; mark speed-ups with a `card` or callout |
 | Motion plates | `python3 System/scripts/motion.py "Media/Week NN/<Day>/<Video>" --sheet` (after a `SOLO_PROYECTO=1` build; `--only <name>` for one plate) |
 | Assemble and check | `VIDEO="Media/Week NN/<Day>/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`                                                               |
 | Render             | same without `SOLO_PROYECTO`, in the background (1.5 to 5 min) |

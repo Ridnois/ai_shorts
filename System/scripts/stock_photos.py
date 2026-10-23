@@ -6,7 +6,7 @@ Sources that work without an API key (checked 4 Oct 2026):
   - Wikimedia Commons: originals fetched directly from upload.wikimedia.org (the thumbnail API throttles).
 Sources that need a free API key (ask the user before using): Pexels, Pixabay, Unsplash API.
 
-    python3 System/scripts/stock_photos.py search "superconducting magnet" [--source openverse|nasa|commons] [--n 8]
+    python3 System/scripts/stock_photos.py search "data center server racks" [--source openverse|nasa|commons] [--n 8]
     python3 System/scripts/stock_photos.py get <url> <dest.jpg> --title "..." --author "..." --license "CC BY 4.0" --page <url>
 
 Every downloaded photo is appended to <dest folder>/_credits.jsonl (title, author, license, page): the video's
