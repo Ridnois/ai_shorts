@@ -224,6 +224,8 @@ def inside(jp):
             bmesh.ops.create_uvsphere(bm, u_segments=24, v_segments=16, radius=kw["r"])
         else:
             bmesh.ops.create_cube(bm, size=1.0)
+            if "size" in kw:                                  # size baked into the mesh: bevels stay round, not stretched
+                bmesh.ops.scale(bm, vec=kw["size"], verts=bm.verts)
         me = bpy.data.meshes.new(kind)
         bm.to_mesh(me)
         bm.free()
@@ -371,12 +373,13 @@ def inside(jp):
         own = bool(el.get("pulse") or "emit" in el.get("keys", {}) or el.get("fire"))
         m = material(color, emit, own)
         if kind in ("box", "sphere"):
-            me = mesh("sphere", r=el.get("r", 0.5)) if kind == "sphere" else mesh("box")
+            me = mesh("sphere", r=el.get("r", 0.5)) if kind == "sphere" else mesh("box", size=tuple(el.get("size", [1, 1, 1])))
             o = add(me, kind, pos, m)
-            base = el.get("size", [1, 1, 1]) if kind == "box" else [1, 1, 1]
+            base = [1, 1, 1]
             if kind == "box" and el.get("bevel", 0.06):
                 bv = o.modifiers.new("b", "BEVEL")
-                bv.width, bv.segments = el.get("bevel", 0.06) / max(min(base), 1e-3), 3
+                bv.width = min(el.get("bevel", 0.06), min(el.get("size", [1, 1, 1])) * 0.45)
+                bv.segments = 3
             show(o, t_in, t_out, base)
             keys(o, el, m)
             pulse(m, el.get("pulse", []), emit)
