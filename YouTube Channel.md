@@ -14,4 +14,4 @@ Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · niche, search and package: [[Au
 | Video | Series · words · voice | State | Notes |
 | --- | --- | --- | --- |
 | AI invented sources | How it works · 153 · Dennis on Inworld TTS-2 (one take) | r1 rendered (53.6 s), P7 is yours; not uploaded | [[AI invented sources - Status]] · [[Script - AI invented sources]] |
-| Gradient descent | How it works · 165 · Dennis on Inworld TTS-2 (one take) | rendering (first video with 3D plates) | [[Gradient descent - Status]] · [[Script - Gradient descent]] |
+| Gradient descent | How it works · 165 · Dennis on Inworld TTS-2 (one take) | r1 rendered (59.6 s), first with 3D plates; P7 is yours; not uploaded | [[Gradient descent - Status]] · [[Script - Gradient descent]] |
