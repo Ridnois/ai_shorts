@@ -148,14 +148,14 @@ def inside(jp):
 
     mats = {}
 
-    def material(color, emit, own=False):
-        key = (color, emit)
+    def material(color, emit, own=False, rough=0.35):
+        key = (color, emit, rough)
         if key in mats and not own:
             return mats[key]
         m = bpy.data.materials.new("m")
         bsdf = m.node_tree.nodes["Principled BSDF"]
         bsdf.inputs["Base Color"].default_value = rgb(color)
-        bsdf.inputs["Roughness"].default_value = 0.35
+        bsdf.inputs["Roughness"].default_value = rough
         bsdf.inputs["Emission Color"].default_value = rgb(color)
         bsdf.inputs["Emission Strength"].default_value = emit
         mats[key] = m
@@ -268,7 +268,7 @@ def inside(jp):
 
         sx, sy = el.get("size", [10, 10])
         objs = []
-        for res, mat, wire in ((el.get("res", 72), m, False), (el.get("res", 72) // 3, material(el.get("wire", "dim"), el.get("wire_emit", 0.8)), True)):
+        for res, mat, wire in ((el.get("res", 72), material(el.get("color", "navy2"), el.get("emit", 0.2), rough=0.9), False), (el.get("res", 72) // 3, material(el.get("wire", "dim"), el.get("wire_emit", 0.8)), True)):
             n = res + 1
             verts = [(-sx / 2 + sx * i / res, -sy / 2 + sy * j / res, 0) for j in range(n) for i in range(n)]
             verts = [(x, y, h(x, y)) for x, y, _ in verts]
