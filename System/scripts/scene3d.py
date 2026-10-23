@@ -22,6 +22,10 @@ Elements (`els`), colours are motion.py palette names or hex:
   cloud    clusters [[x,y,z, spread, n, color], ...] r seed: an embedding space (points near each other mean similar)
   net      layers [4,6,6,3] gap spread r · fire [cue, ...]: a forward pass lights each layer in turn (0.12 s apart)
   link     from [x,y,z] to [x,y,z] r · draw [cue, cue]: a tube that grows from `from` to `to` (attention, a call, data)
+  surface  size [w,d] res base bowl tilt [tx,ty] wells [[x,y,depth,width], ...] wire (grid colour) · rise [cue, cue]: a
+           loss landscape z = base + tilt·xy + bowl·r² - Σ depth·exp(-d²/width²), drawn as a solid with a grid on it
+           balls [{start [x,y], lr, steps, run [cue, cue], r, color, emit, trail, arrow cue}]: real gradient descent on
+           that function (x -= lr·gradient), one keyed hop per step; `arrow` shows the downhill direction at the start
 
 Text warnings match motion.py: text entering the caption band (y 880 to 1040), the bottom interface zone (y > 1440)
 or the right action strip (x > 950) is reported at sampled frames. Look at the --sheet frames before the build.
@@ -44,9 +48,13 @@ def resolve(spec, cues):
     for el in spec.get("els", []):
         el["show"] = [cues(c) for c in el.get("show", [0, "end"])]
         el["keys"] = keys(el.get("keys", {}))
-        for f in ("pulse", "fire", "draw"):
+        for f in ("pulse", "fire", "draw", "rise"):
             if f in el:
                 el[f] = [cues(c) for c in el[f]]
+        for b in el.get("balls", []):
+            b["run"] = [cues(c) for c in b["run"]]
+            if "arrow" in b:
+                b["arrow"] = cues(b["arrow"])
     return spec
 
 
@@ -241,6 +249,85 @@ def inside(jp):
         o.rotation_euler = (math.radians(90), 0, 0)                 # faces the default camera (looking along +y)
         return o
 
+    def surface(el, pos, m, t_in, t_out):
+        wells, base, bowl = el.get("wells", []), el.get("base", 0.0), el.get("bowl", 0.0)
+        tx, ty = el.get("tilt", [0, 0])
+
+        def h(x, y):
+            z = base + tx * x + ty * y + bowl * (x * x + y * y)
+            for wx, wy, d, w in wells:
+                z -= d * math.exp(-((x - wx) ** 2 + (y - wy) ** 2) / w ** 2)
+            return z
+
+        def grad(x, y):
+            gx, gy = tx + 2 * bowl * x, ty + 2 * bowl * y
+            for wx, wy, d, w in wells:
+                e = d * math.exp(-((x - wx) ** 2 + (y - wy) ** 2) / w ** 2)
+                gx, gy = gx + e * 2 * (x - wx) / w ** 2, gy + e * 2 * (y - wy) / w ** 2
+            return gx, gy
+
+        sx, sy = el.get("size", [10, 10])
+        objs = []
+        for res, mat, wire in ((el.get("res", 72), m, False), (el.get("res", 72) // 3, material(el.get("wire", "dim"), el.get("wire_emit", 0.8)), True)):
+            n = res + 1
+            verts = [(-sx / 2 + sx * i / res, -sy / 2 + sy * j / res, 0) for j in range(n) for i in range(n)]
+            verts = [(x, y, h(x, y)) for x, y, _ in verts]
+            faces = [(j * n + i, j * n + i + 1, (j + 1) * n + i + 1, (j + 1) * n + i) for j in range(res) for i in range(res)]
+            me = bpy.data.meshes.new("surface")
+            me.from_pydata(verts, [], faces)
+            for f in me.polygons:
+                f.use_smooth = True
+            o = add(me, "surface", pos, mat)
+            if wire:
+                wm = o.modifiers.new("w", "WIREFRAME")
+                wm.thickness, wm.use_replace = 0.018, True
+                o.location.z += 0.01
+            objs.append(o)
+        a, b = el.get("rise") or [t_in, t_in + 0.6]
+        for o in objs:                                    # rises from flat: the error appears as height
+            if a > 0.01 or el.get("rise"):
+                o.scale = (1, 1, 0.001)
+                o.keyframe_insert("scale", frame=fr(a))
+            o.scale = (1, 1, 1)
+            o.keyframe_insert("scale", frame=fr(b))
+        p0 = Vector(pos)
+        for bspec in el.get("balls", []):
+            r = bspec.get("r", 0.2)
+            bm = material(bspec.get("color", "copper"), bspec.get("emit", 3.0))
+            x, y = bspec["start"]
+            pts = []
+            for _ in range(bspec.get("steps", 20) + 1):
+                pts.append((x, y))
+                gx, gy = grad(x, y)
+                x, y = x - bspec["lr"] * gx, y - bspec["lr"] * gy
+            r0, r1 = bspec["run"]
+            ball = add(mesh("sphere", r=r), "ball", p0 + Vector((pts[0][0], pts[0][1], h(*pts[0]) + r)), bm)
+            show(ball, max(t_in, b if el.get("rise") else t_in), t_out)
+            dt = (r1 - r0) / max(len(pts) - 1, 1)
+            for i, (x, y) in enumerate(pts):
+                ball.location = p0 + Vector((x, y, h(x, y) + r))
+                ball.keyframe_insert("location", frame=fr(r0 + i * dt))
+                if bspec.get("trail", True) and i:
+                    dot = add(mesh("sphere", r=r * 0.35), "trail", p0 + Vector((x, y, h(x, y) + r * 0.35)), bm)
+                    show(dot, r0 + i * dt, t_out)
+            if "arrow" in bspec:
+                gx, gy = grad(*pts[0])
+                d = Vector((-gx, -gy, -(gx * gx + gy * gy))).normalized() * bspec.get("arrow_len", 1.6)
+                start = p0 + Vector((pts[0][0], pts[0][1], h(*pts[0]) + r))
+                ar = add(mesh("box"), "arrow", start, material(bspec.get("arrow_color", "copper2"), 4.0))
+                ar.data = ar.data.copy()
+                for v in ar.data.vertices:
+                    v.co.x += 0.5
+                ar.rotation_mode = "QUATERNION"
+                ar.rotation_quaternion = Vector((1, 0, 0)).rotation_difference(d)
+                ar.scale = (0.001, 0.05, 0.05)
+                ar.keyframe_insert("scale", frame=fr(bspec["arrow"]))
+                ar.scale = (d.length, 0.05, 0.05)
+                ar.keyframe_insert("scale", frame=fr(bspec["arrow"] + 0.4))
+                ar.keyframe_insert("scale", frame=fr(max(r0, bspec["arrow"] + 0.5)))
+                ar.scale = (0.001, 0.05, 0.05)
+                ar.keyframe_insert("scale", frame=fr(max(r0, bspec["arrow"] + 0.5) + 0.3))
+
     texts = []
     for el in spec.get("els", []):
         kind, pos = el["kind"], el.get("pos", [0, 0, 0])
@@ -329,6 +416,8 @@ def inside(jp):
                 o.scale = (0.001, r, r)
                 o.keyframe_insert("scale", frame=fr(t_out))
             pulse(m, el.get("pulse", []), emit)
+        elif kind == "surface":
+            surface(el, pos, m, t_in, t_out)
         else:
             raise SystemExit(f"{job['label']}: unknown element kind {kind}")
 
