@@ -114,12 +114,15 @@ def main():
         f"aresample={SR}", "-ar", str(SR), master])
 
     keep = os.path.join(root, "render", "_fx", os.path.basename(render).replace(".mp4", "-blender.mp4"))
-    if not os.path.exists(keep):
-        shutil.copy2(render, keep)
+    stamp = keep + ".mixed"                              # mtime of the last mixed output: anything else is a new Blender render
+    mixed = open(stamp).read().strip() if os.path.exists(stamp) else ""
+    if not os.path.exists(keep) or str(os.path.getmtime(render)) != mixed:
+        shutil.copy2(render, keep)                       # a re-render under the same name replaces the kept picture
     tmp = render.replace(".mp4", ".mixing.mp4")
     ff(["-i", keep, "-i", master, "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
         "-ar", str(SR), "-ac", "2", "-shortest", "-movflags", "+faststart", tmp])
     os.replace(tmp, render)
+    open(stamp, "w").write(str(os.path.getmtime(render)))
     f = loudness(render)
     vm = (loudness(voice)["input_i"] - loudness(stems[1])["input_i"]) if mu else None
     print(f"MIX {os.path.basename(render)}: {f['input_i']:.1f} LUFS, true peak {f['input_tp']:.1f} dBTP, range {f['input_lra']:.1f} LU"
