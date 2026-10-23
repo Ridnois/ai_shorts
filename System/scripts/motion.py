@@ -47,7 +47,7 @@ W, H, FPS = 1080, 1920, 24
 # (lightness band, chroma, CVD and normal-vision separation, contrast), plus neutrals. The old names are aliases.
 PAL = {"ink": "#0B0D17", "ink2": "#151A2B", "ember": "#E36927", "ember2": "#FF9A5C", "signal": "#418AD1",
        "signal2": "#8EC2F2", "mint": "#00AE7B", "rose": "#B83255", "slate": "#6B7590", "haze": "#262D42",
-       "cream": "#F3EDE2", "white": "#FFFFFF",
+       "cream": "#F3EDE2", "white": "#FFFFFF", "mint2": "#5FD6A8", "rose2": "#E8708F",
        "navy": "#0B0D17", "navy2": "#151A2B", "paper": "#F3EDE2", "copper": "#E36927", "copper2": "#FF9A5C",
        "grey": "#6B7590", "dim": "#262D42", "cool": "#418AD1",
        "land": "#2B3A50", "ocean": "#132033", "border": "#53647C"}

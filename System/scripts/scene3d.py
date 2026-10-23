@@ -13,7 +13,7 @@ Cues are motion.py's (seconds, a heard word "token", "token#2", "token+0.3", "en
 them with the plate's timeline, then runs itself inside Blender. Units are metres; the camera looks along +y by default.
 
 Spec (top level):  camera {"lens": 50, "keys": {"pos": [[cue, [x,y,z]], ...], "target": [[cue, [x,y,z]], ...]}}
-                   ground "navy" (world colour) · bloom 0.6 (glare strength; 0 = off) · dof [target distance m, f-stop]
+                   ground "ink" (the motion plates' ink ground composited behind; another colour = flat world) · bloom 0.6 (glare strength; 0 = off) · dof [target distance m, f-stop]
 Elements (`els`), colours are motion.py palette names or hex:
   common   pos [x,y,z] · color · emit (emission strength; keyable) · show [in, out] (pops in and out by scale)
            · keys {"pos"|"rot"|"scale"|"emit": [[cue, value], ...]} (rot in degrees) · pulse [cue, ...] (emission swell)
@@ -22,7 +22,8 @@ Elements (`els`), colours are motion.py palette names or hex:
   cloud    clusters [[x,y,z, spread, n, color], ...] r seed: an embedding space (points near each other mean similar)
   net      layers [4,6,6,3] gap spread r · fire [cue, ...]: a forward pass lights each layer in turn (0.12 s apart)
   link     from [x,y,z] to [x,y,z] r · draw [cue, cue]: a tube that grows from `from` to `to` (attention, a call, data)
-  surface  size [w,d] res base bowl tilt [tx,ty] wells [[x,y,depth,width], ...] wire (grid colour) · rise [cue, cue]: a
+  surface  size [w,d] res base bowl tilt [tx,ty] wells [[x,y,depth,width], ...] wire (grid colour) ramp (height colours,
+           low to high; default ink, haze, signal) · rise [cue, cue]: a
            loss landscape z = base + tilt·xy + bowl·r² - Σ depth·exp(-d²/width²), drawn as a solid with a grid on it
            balls [{start [x,y], lr, steps, run [cue, cue], r, color, emit, trail, arrow cue}]: real gradient descent on
            that function (x -= lr·gradient), one keyed hop per step; `arrow` shows the downhill direction at the start
@@ -61,7 +62,7 @@ def resolve(spec, cues):
 def outside():
     import argparse
     sys.path.insert(0, HERE)
-    from motion import PAL, Cues
+    from motion import PAL, Cues, ground
     ap = argparse.ArgumentParser()
     ap.add_argument("video")
     ap.add_argument("--only", default="")
@@ -76,6 +77,12 @@ def outside():
     tl = json.load(open(tl_path, encoding="utf-8"))
     slots = {p["file"]: p for p in tl["plates"]}
     done = 0
+    gp = f"{root}/motion/_ground{'-preview' if a.preview else ''}.png"   # the same ink ground as the motion plates
+    os.makedirs(os.path.dirname(gp), exist_ok=True)
+    ground().write_to_png(gp)
+    if a.preview:
+        from PIL import Image
+        Image.open(gp).resize((W // 2, H // 2)).save(gp)
     for sc in plan["scenes"]:
         for pl in sc["plates"]:
             if "scene3d" not in pl or a.only not in pl["file"]:
@@ -86,7 +93,7 @@ def outside():
             out = os.path.join(root, pl["file"])
             os.makedirs(os.path.dirname(out), exist_ok=True)
             job = {"spec": resolve(json.loads(json.dumps(pl["scene3d"])), Cues(tl["words"], p["ini"], p["fin"], pl["file"])),
-                   "dur": p["fin"] - p["ini"], "out": out, "pal": PAL, "preview": a.preview, "label": pl["file"]}
+                   "dur": p["fin"] - p["ini"], "out": out, "pal": PAL, "preview": a.preview, "label": pl["file"], "ground": gp}
             jp = os.path.splitext(out)[0] + ".job.json"
             json.dump(job, open(jp, "w"), indent=1)
             r = subprocess.run(["blender", "-b", "--factory-startup", "--python", __file__, "--", jp],
@@ -137,9 +144,9 @@ def inside(jp):
     world = bpy.data.worlds.new("w")
     sc.world = world
     world.use_nodes = True
-    world.node_tree.nodes["Background"].inputs[0].default_value = rgb(spec.get("ground", "navy"))
+    world.node_tree.nodes["Background"].inputs[0].default_value = rgb(spec.get("ground", "ink"))
     world.node_tree.nodes["Background"].inputs[1].default_value = 1.0
-    for rot, e in (((50, 0, 30), 3.0), ((60, 0, -140), 1.2)):                         # key and rim light
+    for rot, e in (((50, 0, 30), 2.0), ((60, 0, -140), 1.0)):                         # key and rim light
         ld = bpy.data.lights.new("l", "SUN")
         ld.energy = e
         lo = bpy.data.objects.new("l", ld)
@@ -159,6 +166,31 @@ def inside(jp):
         bsdf.inputs["Emission Color"].default_value = rgb(color)
         bsdf.inputs["Emission Strength"].default_value = emit
         mats[key] = m
+        return m
+
+    def height_material(z0, z1, ramp, emit):
+        """Colour by height (low dark, high light, one hue): the error reads twice, as height and as brightness."""
+        m = bpy.data.materials.new("height")
+        nt = m.node_tree
+        bsdf = nt.nodes["Principled BSDF"]
+        bsdf.inputs["Roughness"].default_value = 0.85
+        geo = nt.nodes.new("ShaderNodeNewGeometry")
+        sep = nt.nodes.new("ShaderNodeSeparateXYZ")
+        mr = nt.nodes.new("ShaderNodeMapRange")
+        mr.inputs["From Min"].default_value, mr.inputs["From Max"].default_value = z0, z1
+        cr = nt.nodes.new("ShaderNodeValToRGB")
+        els = cr.color_ramp.elements
+        pos = [0.0, 0.8, 1.0] if len(ramp) == 3 else [i / (len(ramp) - 1) for i in range(len(ramp))]   # plateaus stay dark
+        while len(els) < len(ramp):
+            els.new(0.5)                                      # add stops first: Blender re-sorts them by position
+        for e, p_, c in zip(els, pos, ramp):
+            e.position, e.color = p_, rgb(c)
+        nt.links.new(geo.outputs["Position"], sep.inputs["Vector"])
+        nt.links.new(sep.outputs["Z"], mr.inputs["Value"])
+        nt.links.new(mr.outputs["Result"], cr.inputs["Factor"])
+        nt.links.new(cr.outputs["Color"], bsdf.inputs["Base Color"])
+        nt.links.new(cr.outputs["Color"], bsdf.inputs["Emission Color"])
+        bsdf.inputs["Emission Strength"].default_value = emit
         return m
 
     def emit_socket(m):
@@ -269,8 +301,8 @@ def inside(jp):
         sx, sy = el.get("size", [10, 10])
         objs = []
         zs = [h(-sx / 2 + sx * i / 40, -sy / 2 + sy * j / 40) for i in range(41) for j in range(41)]
-        for res, mat, wire in ((el.get("res", 72), height_material(min(zs), max(zs), el.get("ramp", ["ink2", "signal", "signal2"]),
-                                                                   el.get("emit", 0.35)), False),
+        for res, mat, wire in ((el.get("res", 72), height_material(min(zs), max(zs), el.get("ramp", ["ink", "haze", "signal"]),
+                                                                   el.get("emit", 0.12)), False),
                                (el.get("res", 72) // 3, material(el.get("wire", "slate"), el.get("wire_emit", 0.5)), True)):
             n = res + 1
             verts = [(-sx / 2 + sx * i / res, -sy / 2 + sy * j / res, 0) for j in range(n) for i in range(n)]
@@ -283,7 +315,7 @@ def inside(jp):
             o = add(me, "surface", pos, mat)
             if wire:
                 wm = o.modifiers.new("w", "WIREFRAME")
-                wm.thickness, wm.use_replace = 0.018, True
+                wm.thickness, wm.use_replace = 0.012, True
                 o.location.z += 0.01
             objs.append(o)
         a, b = el.get("rise") or [t_in, t_in + 0.6]
@@ -442,18 +474,28 @@ def inside(jp):
         cd.dof.focus_distance, cd.dof.aperture_fstop = spec["dof"]
 
     bloom = spec.get("bloom", 0.6)
+    tree = bpy.data.node_groups.new("comp", "CompositorNodeTree")        # bloom, then the ink ground behind the scene
+    tree.interface.new_socket("Image", in_out="OUTPUT", socket_type="NodeSocketColor")
+    rl = tree.nodes.new("CompositorNodeRLayers")
+    img = rl.outputs["Image"]
     if bloom:
-        tree = bpy.data.node_groups.new("comp", "CompositorNodeTree")
-        tree.interface.new_socket("Image", in_out="OUTPUT", socket_type="NodeSocketColor")
-        rl = tree.nodes.new("CompositorNodeRLayers")
         gl = tree.nodes.new("CompositorNodeGlare")
         gl.inputs["Type"].default_value = "Bloom"
         gl.inputs["Strength"].default_value = bloom
         gl.inputs["Threshold"].default_value = 0.8
-        out = tree.nodes.new("NodeGroupOutput")
-        tree.links.new(rl.outputs["Image"], gl.inputs["Image"])
-        tree.links.new(gl.outputs["Image"], out.inputs[0])
-        sc.compositing_node_group = tree
+        tree.links.new(img, gl.inputs["Image"])
+        img = gl.outputs["Image"]
+    if job.get("ground") and spec.get("ground", "ink") == "ink":
+        sc.render.film_transparent = True
+        gn = tree.nodes.new("CompositorNodeImage")
+        gn.image = bpy.data.images.load(job["ground"])
+        ao = tree.nodes.new("CompositorNodeAlphaOver")
+        tree.links.new(gn.outputs["Image"], ao.inputs["Background"])
+        tree.links.new(img, ao.inputs["Foreground"])
+        img = ao.outputs["Image"]
+    out = tree.nodes.new("NodeGroupOutput")
+    tree.links.new(img, out.inputs[0])
+    sc.compositing_node_group = tree
 
     # text safety, sampled every 0.5 s (projected bounding boxes against the caption band and interface zones)
     warned = set()
