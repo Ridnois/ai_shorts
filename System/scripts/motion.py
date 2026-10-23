@@ -23,7 +23,7 @@ Elements (coordinates in pixels of the 1080x1920 frame; colours are palette name
            start every travel r color stop: particles leave `from` one by one and settle in their slots (ions, molecules,
            parcels); vanish: true makes them disappear on arrival (a flow, a current); glow: a soft halo; x y: pulse centre
   bar      x y w h segs [{"v", "color", "label", "show"}] total: a stacked bar whose segments grow when shown
-  dots     x y cols rows gap r color n (keyable: dots shown) hi hi_color: a unit chart (1 dot = 1 unit)
+  dots     x y cols rows gap r color n (keyable: dots shown) hi (keyable) hi_color: a unit chart (1 dot = 1 unit)
   chart    x y w h xr [x0,x1] yr [y0,y1] series [{"pts", "color", "lw", "smooth", "label", "label_at", "label_show",
            "draw" (fraction of length) or "to_x" (data x; keyable, so stages line up)}] bands [{"x0","x1","label","show"}]
            marks [{"x", "label", "show"}] x_label y_label head readout {"series", "fmt", "scale"}
@@ -438,7 +438,7 @@ def draw_el(ctx, el, t, cues, warn):
             cx += sw
     elif k == "dots":
         n_show = round(g("n", el["cols"] * el["rows"]))
-        hi = el.get("hi", 0)
+        hi = round(g("hi", 0))                                    # keyable: units light up on a cue
         for i in range(el["cols"] * el["rows"]):
             if i >= n_show:
                 break
