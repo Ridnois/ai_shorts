@@ -89,7 +89,7 @@ INVARIANTS = [
     ("System/Playbook.md", "on the word", "cuts and labels land on the word they illustrate (temporal contiguity)"),
     ("System/Playbook.md", "MOTION SHARE", "most of the runtime moves: no slideshows (user, 9 Oct 2026; YPP policy)"),
     ("System/Playbook.md", "one anchor", "a few visual worlds and an anchor that returns"),
-    ("System/Style.md", "Navy ground", "motion plates share one ground"),
+    ("System/Style.md", "Ink ground", "motion and 3D plates share one ground (look v2, 23 Oct 2026)"),
     ("System/Workflow.md", "stock_videos.py", "footage has a tool and a license filter"),
     ("System/Workflow.md", "ltx-2.5-fast", "AI video is opt-in and priced"),
     ("System/Workflow.md", "did any picture fail to show what was being said", "listening rubric asks about visual sync"),
@@ -114,6 +114,17 @@ INVARIANTS = [
     ("System/Playbook.md", "scene3d.py", "3D plates for mechanisms with depth (user, 23 Oct 2026)"),
     ("System/Style.md", "3D plates", "3D look shares the motion plates' world"),
     ("System/Workflow.md", "scene3d.py", "3D plates have a tool, a cost and a command"),
+    ("System/Playbook.md", "**Named:**", "the hook names the subject, never 'the idea' (user, 23 Oct 2026)"),
+    ("System/Playbook.md", "Curiosity before explanation", "the hook promises the how before explaining (user, 23 Oct 2026)"),
+    ("System/Playbook.md", "definition** (one plain sentence", "How it works arc: definition, origin, explanation (user, 23 Oct 2026)"),
+    ("System/Playbook.md", "Connection test", "each sentence answers the previous one's question (user, 23 Oct 2026)"),
+    ("System/Playbook.md", "One running example", "the mechanism stays on one concrete example (user, 23 Oct 2026)"),
+    ("System/Playbook.md", "Bridge visuals", "abstractions are mapped from the example on screen (user, 23 Oct 2026)"),
+    ("System/Style.md", "Semantic colours", "one meaning per colour, validated (user, 23 Oct 2026)"),
+    ("System/Style.md", "Line style", "line style is designed, not default (user, 23 Oct 2026)"),
+    ("System/Style.md", "Composition (every plate)", "one dominant element, layout rules (user, 23 Oct 2026)"),
+    ("System/Workflow.md", "validate_palette.js", "new colours are validated, not eyeballed"),
+    ("System/Workflow.md", "did you know what the video is about", "rubric asks about hook clarity"),
 ]
 FORBIDDEN = [
     # (file, phrase, why): rules the user removed; must not come back
@@ -124,6 +135,7 @@ FORBIDDEN = [
     ("System/Playbook.md", "16 to 20 plates", "a plate count produced filler pictures (user, 9 Oct 2026)"),
     ("System/Audience.md", "civil engineering", "the old technology niche was replaced by AI (user, 23 Oct 2026)"),
     ("CLAUDE.md", "civil engineering", "the old technology niche was replaced by AI (user, 23 Oct 2026)"),
+    ("System/Style.md", "drafting grid: designed", "the drafting grid read as generic (user, 23 Oct 2026)"),
 ]
 CEILING = {"Script - ": 2700, "Upload - ": 2300, " - Status": 1500}
 

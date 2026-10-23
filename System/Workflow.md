@@ -28,7 +28,7 @@ Read `CLAUDE.md`, [[Playbook]], this note, `Analytics/Report.md`, then only the 
 
 A **test stage** (voice of scene 1, one cutout and one stock photo composed, ≈ $0.10) is run only when a new technique, voice setting or model is tried; routine videos skip it. A change in an approved stage reopens the later ones. A new video request without delegation ends at P4 as text: Status note, research, script with visual plan, prompts, `plan.json`, budget.
 
-**Listening rubric at P7:** the agent cannot hear, so the user answers six short questions and the answers are written in Status under *Feedback*: (1) does the voice sound natural? (2) is the pace right (too fast, right, too slow)? (3) **do the pauses feel human: any that comes where it should not, or is missing where it should be?** (write the scene and the word) (4) is the sound mix right (effects and bed against the voice)? (5) **does any screen feel empty?** (write the scene) (6) **did any picture fail to show what was being said, or arrive late?** (write the scene and the word). These are the only evidence the vault has; each "no" becomes a change to the pause plan or the plate before the next video.
+**Listening rubric at P7:** the agent cannot hear, so the user answers eight short questions and the answers are written in Status under *Feedback*: (1) does the voice sound natural? (2) is the pace right (too fast, right, too slow)? (3) **do the pauses feel human: any that comes where it should not, or is missing where it should be?** (write the scene and the word) (4) is the sound mix right (effects and bed against the voice)? (5) **does any screen feel empty?** (write the scene) (6) **did any picture fail to show what was being said, or arrive late?** (write the scene and the word) (7) **after the first sentence, did you know what the video is about and want the explanation?** (8) **could you follow each sentence from the one before?** These are the only evidence the vault has; each "no" becomes a change to the pause plan or the plate before the next video.
 
 ## Budget (show in dollars with cap = base × 1.2 before spending)
 
@@ -60,7 +60,7 @@ Not used: `qwen-image-edit-plus` to generate, `flux-2-pro`, `stable-audio-2.5` (
 - **Safe band:** everything that matters inside x 40 to 1040, y 600 to 1320; the rest is ground (mobile shelves lay the title over the bottom of the tile).
 - **No kicker, chips, logo or brand mark** (the channel avatar sits beside it; small text is unreadable at tile size). Retired 9 Oct 2026: hero photo + two-line title + kicker + three chips + Redtail mark.
 - **Look at it at 168 px wide and in the 3:2 crop** before the pack is made; `make_thumbnail.drawn` warns on words, size and band.
-- Built by `publish.py` from `publish.json` `thumb: {"bg": "navy", "els": [...]}` (`--dry-run` makes it and the pack); custom thumbnails are set through the API after processing. No A/B test exists for Shorts: compare impressions click-through between videos in the analytics loop ([[Publish]]).
+- Built by `publish.py` from `publish.json` `thumb: {"bg": "ink", "els": [...]}` (`--dry-run` makes it and the pack); custom thumbnails are set through the API after processing. No A/B test exists for Shorts: compare impressions click-through between videos in the analytics loop ([[Publish]]).
 
 ## Files
 
@@ -88,6 +88,7 @@ Every media file carries its video prefix (Obsidian resolves embeds by file name
 | Render             | same without `SOLO_PROYECTO`, in the background (1.5 to 5 min) |
 | Mix and master     | `python3 System/scripts/mix_audio.py "Media/Week NN/<Day>/<Video>"` (replaces the render's sound; `--report` measures only) |
 | Upload (P8) / metrics | `python3 System/scripts/publish.py "Media/Week NN/<Day>/<Video>/upload/publish.json"` ([[Publish]]) |
+| New colour         | `node <dataviz skill>/scripts/validate_palette.js "#hex,..." --mode dark --surface "#0B0D17" --pairs all` (the dataviz skill; every check must pass before a colour enters [[Style]]) |
 | Coherence          | `python3 System/scripts/check_vault.py`                                                                                                                                                   |
 
 Never `pkill -f` a pattern that appears in your own command (match with `ps` and `awk`). Obsidian re-pads Markdown tables on save: parse tolerantly. **Pipeline runner** (`~/Documents/youtube-pipeline/pipeline.py`, user service): its prompts name `CLAUDE.md`, [[Playbook]], this note and [[Style]]; state machine in [[Pipeline]].

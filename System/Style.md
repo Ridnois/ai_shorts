@@ -1,7 +1,7 @@
 ---
 type: rules
 updated: 2026-10-23
-status: v3 · AI channel identity and 3D plates (23 Oct 2026); v2 · motion plates (navy ground, lanes, word cues) added 9 Oct 2026; channel identity, design system and brand in one note
+status: v4 · Redtail look v2 (ink ground, four validated semantic colours, line style, type, composition), user feedback 23 Oct 2026; v3 · AI channel identity and 3D plates (23 Oct 2026); v2 · motion plates (navy ground, lanes, word cues) added 9 Oct 2026; channel identity, design system and brand in one note
 ---
 
 # Style: voice persona, on-screen design, brand
@@ -21,25 +21,30 @@ Builds with models and agents daily and reads the papers behind the headlines; p
 
 ## Design system (1080×1920, from `build_video.py`)
 
+Redtail look v2 (23 Oct 2026; user: *"color, background and line style feel too generic, you could research more for the style of the videos too"*). Sources read 23 Oct 2026: fan guides to the 3Blue1Brown style (a few semantic colours, each tied to one role, on a dark ground), GitLab motion guidelines and motion-design notes (layered soft radial gradients plus grain instead of flat fills), vertical-composition research (Nakhon Phanom Univ. journal: a centred subject and negative space read best in 9:16) and explainer-hierarchy notes (one dominant element at a time; motion only where the viewer needs it). The palette passed the dataviz skill's validator on the ink ground (lightness band, chroma, colour-blind and normal-vision separation, 3:1 contrast). [H] until the analytics loop compares it.
+
 | Token | Value |
 | --- | --- |
-| Paper | `#F9F6EE` at 94 % (cards, callout boxes) |
-| Ink | `#1C1A17`, soft `#4D4741` |
-| **Copper** | `#C76B38`: callout dots and lines, card bar, big figures, copper words in captions. One emphasis colour; never highlight more than one word in three |
+| **Ink ground** | `ink` `#0B0D17` to `ink2` `#151A2B`, two soft light pools (ember low left at 10 %, signal high right at 9 %), vignette and fixed fine grain; no drafting grid (it read as generic). `motion.py` `ground()` draws it; `scene3d.py` composites the same image behind every 3D plate, so 2D and 3D cut together |
+| **Semantic colours** (one meaning each, the same in every video) | **ember** `#E36927` the hero, the one thing the voice is explaining (light `ember2` `#FF9A5C` for glow cores) · **signal** `#418AD1` data and inputs: numbers, tokens fed in, the landscape (light `signal2` `#8EC2F2`) · **mint** `#00AE7B` right, better, the target · **rose** `#B83255` wrong, error, loss. Text in mint or rose uses `mint2` `#5FD6A8` and `rose2` `#E8708F` |
+| Neutrals | `cream` `#F3EDE2` text and labels · `slate` `#6B7590` structure, axes, secondary lines · `haze` `#262D42` inactive parts, tracks, boxes |
+| Rules of colour | the hero is the only ember thing on screen; colour never decorates (a blue box is data, a rose word is wrong); never highlight more than one word in three; any new colour runs the dataviz validator first ([[Workflow]] §Commands) |
+| **Line style** | rounded caps and joins, two weights: structure 4 to 6 px slate, the hero 8 to 12 px ember with `glow`; dashed only for something predicted, hypothetical or removed; arrows only where direction is the point |
+| **Type** | Inter Display Bold (titles, numbers, figures), Inter (labels), **JetBrains Mono for anything a model reads or writes** (tokens, prompts, outputs, code: `mono`); captions and cards keep the approved builder fonts |
 | Caption | white `#FFFFFF`, outline `#0A0907` |
-| Fonts | Noto Sans Display Bold (titles, numbers, captions), Noto Sans Regular (labels, details, callouts) |
-| **Navy ground** | `#101824` to `#1A2638` (the brand's dark navy) with a faint 60 px drafting grid: the ground of every motion plate, so drawn plates and footage cut together without a white flash |
-| Grey, dim, copper light | `#8C96A5` structure and secondary lines · `#3A4658` inactive parts and tracks · `#E8A06F` moving particles and glow (current, heat). A second accent `#7FB3D5` only for a two-way contrast |
-| Gradients | one family per topic, behind legacy `contain` photos and cutouts only |
+| Paper | `#F9F6EE` at 94 % (cards, callout boxes) |
+| Gradients | only the ink ground; legacy `contain` photos and cutouts keep their blur backgrounds |
+
+**Composition (every plate):** one dominant element at a time, centred horizontally in the upper lane at 60 to 80 % of the frame width; supporting elements at least 3 times smaller and in the lower lane; at most 3 things on screen besides the caption; 72 px side margins; breathing room around the hero, but never a bare ground ([[Playbook]] §3 Immersive plates). Depth by layers: ground, structure (slate), hero (ember), labels (cream), captions on top. Motion where the viewer needs it (an entry on the word, the hero changing state), stillness elsewhere: no idle wobble.
 
 | Component | Spec |
 | --- | --- |
-| **Caption** | one word at a time, centred at **the middle of the frame (50 % of the height, `CAP_Y`)**, 88 px bold capitals, white, dark outline and soft shadow; words with a digit and up to 6 `keywords` in copper; word holds until the next, never across a pause > 0.55 s; long words shrink |
-| **Context card** | 894 × 280 px, 16 px corners, 1 px graphite border at 25 %, 8 px copper bar left, centred at **66 % from the top** (x 56 to 950); label 32 px spaced capitals copper, title 56 px bold, detail 34 px |
-| **Number card** | same box; figure 124 px bold copper, caption 44 px bold, source 30 px |
+| **Caption** | one word at a time, centred at **the middle of the frame (50 % of the height, `CAP_Y`)**, 88 px bold capitals, white, dark outline and soft shadow; words with a digit and up to 6 `keywords` in ember; word holds until the next, never across a pause > 0.55 s; long words shrink |
+| **Context card** | 894 × 280 px, 16 px corners, 1 px graphite border at 25 %, 8 px ember bar left, centred at **66 % from the top** (x 56 to 950); label 32 px spaced capitals ember, title 56 px bold, detail 34 px |
+| **Number card** | same box; figure 124 px bold ember, caption 44 px bold, source 30 px |
 | **Margin note** | same box, label "Margin note", two lines ≤ 30 characters, 46 px bold |
-| **Callout** | copper dot 13 px with ring, leader, paper label with copper bar, 40 px; enters on the word that names the part (`at`), else 1 s after the plate; labels clamped above the caption zone. Motion plates draw the same callout (`label`) and chip (`chip`) |
-| **Motion plate** | 1080×1920 clip from `motion.py`: navy ground, subject in the upper lane, one supporting element in the lower lane, events on word cues, fades 0.25 s with an 18 px rise for text; specs below |
+| **Callout** | ember dot 13 px with ring, leader, paper label with ember bar, 40 px; enters on the word that names the part (`at`), else 1 s after the plate; labels clamped above the caption zone. Motion plates draw the same callout (`label`) and chip (`chip`) |
+| **Motion plate** | 1080×1920 clip from `motion.py`: ink ground, subject in the upper lane, one supporting element in the lower lane, events on word cues, fades 0.25 s with an 18 px rise for text; specs below |
 | **Layers** | **Captions are the top layer**: cards, callouts and their text always sit under the captions (user, 5 Oct 2026: *"added text and pointers are covering the captions, that should be below the captions"*; builder `CAP_CH`) |
 | **Immersive plates** | legacy stills; no empty screens (user, 5 Oct 2026). `"bg": "blur"`: the plate's own photo (or `"bg_photo"`) cover-fitted, blurred and darkened to 38 % plus a dark tint, behind a `contain` plate. `"inset": {"file", "pos", "width"}`: a second picture, rounded 22 px with the soft shadow, enters 0.7 s after the plate, leaves 0.15 s before it; **split layout**: diagram on top (pos y about 0.27, width 0.78), inset of the real object under the captions (pos [0.5, 0.67], width ≤ 0.62), never in the last 25 % of the frame |
 | **Motion** | cards fade in 0.25 s with a 24 px rise, out 0.2 s, card enters 0.45 s after its plate; no shakes, flashes or zoom punches |
@@ -50,19 +55,19 @@ From the user's *"make more engaging videos"* and the 9 Oct redesign; each rule 
 
 1. **First frame carries the claim.** The hook plate shows the anchor already doing the surprising thing (the counter racing, the bar dropping) from frame 1, with at most one key-term label; the voice and captions carry the sentence.
 2. **Things build, they do not appear.** Parts enter on the word that names them; lines draw themselves (`draw`, `to_x`); particles travel (`stream`); numbers count (`value`). Nothing labelled is on screen before it is spoken.
-3. **Legible at phone size.** Text ≥ 40 px (labels 40, figures 56 to 112), ≤ 25 words per plate, one copper subject. `motion.py` warns below 40 px and in the caption band (y 880 to 1040), the bottom interface (y > 1440) and the right action strip (x > 950).
+3. **Legible at phone size.** Text ≥ 40 px (labels 40, figures 56 to 112), ≤ 25 words per plate, one ember subject. `motion.py` warns below 40 px and in the caption band (y 880 to 1040), the bottom interface (y > 1440) and the right action strip (x > 950).
 4. **Scale changes inside a world:** a zoom from the object to its inside (the chat window opens into the row of tokens), a camera move to the detail named; a new world only for a new step.
 5. **An event every 2 to 3 s.** `motion.py` warns when nothing changes for over 3.5 s.
 6. **Conclusion card and question.** The last scene returns to the anchor with the conclusion card (≤ 26 characters); the closing question has its own plate with the margin note ([[Playbook]] §2).
-7. **Colour:** navy ground, paper for structure and text, grey for everything not being said, copper for the subject; never more than three colours plus grey.
+7. **Colour:** the semantic colours above, never more than three of them on one plate plus the neutrals.
 8. **Footage under a drawing:** a motion plate may use a clip or photo as its ground (`bg` `video` or `photo`, dimmed) so labels and arrows land on the real thing.
 
 ## 3D plates (23 Oct 2026)
 
 Rendered by `scene3d.py` (Blender EEVEE) for mechanisms with depth: tokens flowing through layers, an embedding space, attention links, a rack of GPUs as a model. Same world as the motion plates so they cut together without a jump.
 
-- **Ground and light:** the navy ground (`ground`), one key and one rim light, gentle bloom on emissive parts (`bloom` 0.4 to 0.8). No fog, no lens flares, no chrome.
-- **Palette in 3D:** structure in `navy2` and `dim` with low emission; **the subject glows copper** (`emit` 2 to 4), a second accent `cool` only for a two-way contrast, `paper` for words on tiles. The thing the voice names pulses (`pulse`, `fire`) on its word.
+- **Ground and light:** the ink ground composited behind the scene (transparent film), one soft key and one rim light, gentle bloom on emissive parts (`bloom` 0.4 to 0.8). No fog, no lens flares, no chrome.
+- **Palette in 3D:** the semantic colours above. Surfaces are shaded by height in one hue (`ramp` ink, haze, signal: valleys dark, only rims lit), so a landscape reads as data and the hero pops; **the hero glows ember** (`emit` 2 to 4); `cream` for words on tiles; a thin slate grid at low emission. The thing the voice names pulses (`pulse`, `fire`) on its word.
 - **Camera:** one slow move per plate (a dolly in or a quarter orbit, lens 35 to 50), always toward the part being named; never a spin for its own sake, never a cut inside a plate.
 - **Words in 3D** only on token tiles and short labels (1 to 2 words, tile text about 0.3 m at 10 m reads at about 40 px); everything longer is a builder callout or card. `scene3d.py` warns for text in the caption band and interface zones.
 - **Faithful:** a 3D network or embedding cloud is marked "schematic" in Status; counts are illustrative unless the research note gives them (a real model has billions of weights, the plate shows a dozen nodes).

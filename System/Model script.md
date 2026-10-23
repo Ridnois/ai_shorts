@@ -17,7 +17,7 @@ Rules say what is allowed ([[Playbook]]); this note shows the target. **Current 
 | 4 | "Here is the five second check. Copy the exact title, put it in quotes, and search it." | Pays the promise with something the viewer can **do** today (the Agent at work habit inside a How it works video) |
 | 5 | "So here is the point: no match means do not trust it, however real it sounds." | **Payoff** spoken as a conclusion, repeatable to a friend, then one social question |
 
-Every scene opens by pointing at the previous one (so, but, that is why, here is). Nothing is narrated ("and then"); each sentence is a cause, an effect or a step.
+Every scene answers the question the previous one raised ([[Playbook]] §2 Connection test). Nothing is narrated ("and then"); each sentence is a cause, an effect or a step. How it works videos run hook, definition, origin, explanation on one running example, turn, close.
 
 ## Hook rewrites (weak to strong)
 
@@ -25,6 +25,7 @@ Judged by the five-part hook test in [[Playbook]] §2, not by length. Shapes to 
 
 | Weak | Why weak | Stronger | Why |
 | --- | --- | --- | --- |
+| "The idea that trains every AI chatbot dates from 1847." (Gradient descent r1) | An abstract subject ("the idea"), no stake, and it starts the history before the viewer wants it (user, 23 Oct 2026) | "Every AI model learns with one old idea: gradient descent. Here is how it works." | Subject named, a stake (every model), the promise of the how; then definition, origin (Cauchy, 1847), explanation on one running example |
 | "Large language models use attention." | A term, no stake, no question a stranger would ask | "ChatGPT reads your whole message before every single word it writes." | A broken expectation in plain words; opens "why would it do that?", which the video answers (attention) |
 | "AI agents are the next big thing." | Hype, no claim, fails the specificity test | "An AI agent can finish your task and still break the rule you gave it." | A stake for anyone who uses agents; opens "how?"; the video shows a real run |
 | "AI uses a lot of electricity." | Vague, already known | "One AI data center can draw as much power as a city." | Scale plus surprise; needs the named facility, figure and date before it is used |
