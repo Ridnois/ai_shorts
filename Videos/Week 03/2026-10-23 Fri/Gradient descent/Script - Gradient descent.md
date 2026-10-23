@@ -16,23 +16,23 @@ User (23 Oct 2026): *"Make a new video about gradient descend"*. Series: **How i
 
 ## 0. Facts bank (**read** = opened or quoted from the primary source, 23 Oct 2026)
 
-| # | Fact | Source |
-| --- | --- | --- |
-| 1 | Cauchy proposed the gradient method in a note of 18 Oct 1847, *Comptes Rendus* 25, pp. 536 to 538 | Lemaréchal, "Cauchy and the gradient method", Documenta Math. 2012 (search summary); RHUL scan of the note |
-| 2 | Cauchy's motive was astronomy: computing the orbit of a celestial body from equations | Lemaréchal 2012 (search summary) |
-| 3 | The update moves the parameters a step length times the negative gradient | de Klerk lecture slides 2026; any optimization text |
-| 4 | Llama 3 405B was pre-trained with AdamW, peak learning rate 8e-5, linear warm-up over 8,000 steps, cosine decay to 8e-7 over 1,200,000 steps | Meta, *The Llama 3 Herd of Models*, arXiv 2407.21783, July 2024 (**read**, quoted) |
-| 5 | Its batch grew from 4M to 8M (after about 252M tokens) to 16M tokens (after 2.87T) for stability, then efficiency | same (**read**) |
-| 6 | Pre-training corpus about 15.6T tokens; about 3.8e25 FLOPs | secondary summaries of the same paper (**not checked in the paper**) |
-| 7 | GPT-3 175B: batch 3.2M tokens, learning rate 0.6e-4, 300B tokens | Brown et al., arXiv 2005.14165, Table 2.1 (via a wiki reproduction; not used) |
-| 8 | In high dimensions saddle points, not bad local minima, are the main obstacle for gradient methods | Dauphin et al., NeurIPS 2014, arXiv 1406.2572 (abstract **read**; not used) |
-| 9 | Stochastic approximation (the root of "stochastic" gradient descent): Robbins and Monro, 1951 | textbook reference (**not opened**; not used) |
-| 10 | Backpropagation computes all the gradients in one backward pass: Rumelhart, Hinton, Williams, *Nature* 1986 | textbook reference (**not opened**; not used) |
-| 11 | Adam optimizer: Kingma and Ba, 2014; AdamW (decoupled weight decay): Loshchilov and Hutter, 2017 | textbook reference (**not opened**; not used) |
-| 12 | A language model's error is cross-entropy on the next token: the less probability it gave the right word, the higher the score | standard; not cited on screen |
-| 13 | Learning rate too large: the iterates overshoot and can diverge; too small: progress is slow. On f(x) = x², x ← x(1 − 2·lr), so lr above 1 diverges | derived (the plate draws this exact map) |
-| 14 | A model starts from random weights | standard practice |
-| 15 | **Derived:** Llama 3 405B's steps from fact 5 and fact 6: about 63 thousand at 4M + 330 thousand at 8M + 800 thousand at 16M = about 1.2 million, matching the schedule in fact 4 | own synthesis (rests on fact 6) |
+| #   | Fact                                                                                                                                                                              | Source                                                                                                     |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 1   | Cauchy proposed the gradient method in a note of 18 Oct 1847, *Comptes Rendus* 25, pp. 536 to 538                                                                                 | Lemaréchal, "Cauchy and the gradient method", Documenta Math. 2012 (search summary); RHUL scan of the note |
+| 2   | Cauchy's motive was astronomy: computing the orbit of a celestial body from equations                                                                                             | Lemaréchal 2012 (search summary)                                                                           |
+| 3   | The update moves the parameters a step length times the negative gradient                                                                                                         | de Klerk lecture slides 2026; any optimization text                                                        |
+| 4   | Llama 3 405B was pre-trained with AdamW, peak learning rate 8e-5, linear warm-up over 8,000 steps, cosine decay to 8e-7 over 1,200,000 steps                                      | Meta, *The Llama 3 Herd of Models*, arXiv 2407.21783, July 2024 (**read**, quoted)                         |
+| 5   | Its batch grew from 4M to 8M (after about 252M tokens) to 16M tokens (after 2.87T) for stability, then efficiency                                                                 | same (**read**)                                                                                            |
+| 6   | Pre-training corpus about 15.6T tokens; about 3.8e25 FLOPs                                                                                                                        | secondary summaries of the same paper (**not checked in the paper**)                                       |
+| 7   | GPT-3 175B: batch 3.2M tokens, learning rate 0.6e-4, 300B tokens                                                                                                                  | Brown et al., arXiv 2005.14165, Table 2.1 (via a wiki reproduction; not used)                              |
+| 8   | In high dimensions saddle points, not bad local minima, are the main obstacle for gradient methods                                                                                | Dauphin et al., NeurIPS 2014, arXiv 1406.2572 (abstract **read**; not used)                                |
+| 9   | Stochastic approximation (the root of "stochastic" gradient descent): Robbins and Monro, 1951                                                                                     | textbook reference (**not opened**; not used)                                                              |
+| 10  | Backpropagation computes all the gradients in one backward pass: Rumelhart, Hinton, Williams, *Nature* 1986                                                                       | textbook reference (**not opened**; not used)                                                              |
+| 11  | Adam optimizer: Kingma and Ba, 2014; AdamW (decoupled weight decay): Loshchilov and Hutter, 2017                                                                                  | textbook reference (**not opened**; not used)                                                              |
+| 12  | A language model's error is cross-entropy on the next token: the less probability it gave the right word, the higher the score                                                    | standard; not cited on screen                                                                              |
+| 13  | Learning rate too large: the iterates overshoot and can diverge; too small: progress is slow. On f(x) = x², x ← x(1 − 2·lr), so lr above 1 diverges                               | derived (the plate draws this exact map)                                                                   |
+| 14  | A model starts from random weights                                                                                                                                                | standard practice                                                                                          |
+| 15  | **Derived:** Llama 3 405B's steps from fact 5 and fact 6: about 63 thousand at 4M + 330 thousand at 8M + 800 thousand at 16M = about 1.2 million, matching the schedule in fact 4 | own synthesis (rests on fact 6)                                                                            |
 
 ## 1. Idea gate
 
