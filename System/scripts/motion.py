@@ -844,7 +844,7 @@ def main():
     done = 0
     for sc in plan["scenes"]:
         for pl in sc["plates"]:
-            if pl["type"] != "motion" or a.only not in pl["file"]:
+            if "motion" not in pl or a.only not in pl["file"]:          # scene3d plates are rendered by scene3d.py
                 continue
             p = slots.get(pl["file"])
             if not p:
