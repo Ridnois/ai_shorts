@@ -6,16 +6,19 @@
     python3 System/scripts/motion.py "Media/<folder>" --only m-curve   # plates whose file contains this text
     python3 System/scripts/motion.py "Media/<folder>" --sheet          # also writes <file>.sheet.png (6 frames) to look at
 
-A motion plate in plan.json:  {"type": "motion", "file": "motion/pc-m-curve.mp4", "motion": {"bg": "navy", "els": [...]}}
+A motion plate in plan.json:  {"type": "motion", "file": "motion/pc-m-curve.mp4", "motion": {"bg": "ink", "els": [...]}}
+Palette (System/Style.md): ember (hero) · signal (data) · mint (right) · rose (wrong) · slate, haze (structure) · cream (text).
 Each clip lasts exactly as long as its plate (from render/_timeline.json). Every time in a spec is a **cue**: seconds from
 the plate start (1.2), a word heard inside the plate ("fade", "fade#2" for its second time, "fade+0.3"), or "end" / "end-0.5".
 
 Elements (coordinates in pixels of the 1080x1920 frame; colours are palette names or hex):
   common   show [in, out] · fade 0.25 · rise px · opacity · keys {"prop": [[cue, value], ...]} (eased; "prop~" = linear)
            · pulse [cue, ...] (a short swell that marks the thing the voice names)
-  rect     x y w h r fill stroke lw                     circle  x y r fill stroke lw
+  rect     x y w h r fill stroke lw                     circle  x y r fill stroke lw glow
   line     pts [[x,y],...] stroke lw dash arrow ("end"|"start"|"both") draw (0..1, keyable: draws on along the path)
-  text     x y text size bold align ("left"|"center"|"right") color spaced chip ("paper": a label box behind it)
+           glow (a soft halo: the hero line only)
+  text     x y text size bold align ("left"|"center"|"right") color spaced mono (JetBrains Mono: tokens, code, model
+           output) chip ("paper": a label box behind it)
            value + fmt ("{:.0f} %"): a counting number, keyable through keys {"value": ...}
   label    target [x,y] at [x,y] text: a callout (copper dot, leader, paper box), like the builder's callouts
   image    file x y w (centre; height from the photo) r (corners) — a real photo inside the drawing
@@ -40,11 +43,16 @@ import argparse, io, json, math, os, subprocess, sys, urllib.request
 import cairo
 
 W, H, FPS = 1080, 1920, 24
-PAL = {"navy": "#101824", "navy2": "#1A2638", "paper": "#F9F6EE", "ink": "#1C1A17", "copper": "#C76B38",
-       "copper2": "#E8A06F", "grey": "#8C96A5", "dim": "#3A4658", "white": "#FFFFFF", "cool": "#7FB3D5",
+# Redtail look v2 (System/Style.md, 23 Oct 2026): four semantic hues validated with the dataviz validator on the ink ground
+# (lightness band, chroma, CVD and normal-vision separation, contrast), plus neutrals. The old names are aliases.
+PAL = {"ink": "#0B0D17", "ink2": "#151A2B", "ember": "#E36927", "ember2": "#FF9A5C", "signal": "#418AD1",
+       "signal2": "#8EC2F2", "mint": "#00AE7B", "rose": "#B83255", "slate": "#6B7590", "haze": "#262D42",
+       "cream": "#F3EDE2", "white": "#FFFFFF",
+       "navy": "#0B0D17", "navy2": "#151A2B", "paper": "#F3EDE2", "copper": "#E36927", "copper2": "#FF9A5C",
+       "grey": "#6B7590", "dim": "#262D42", "cool": "#418AD1",
        "land": "#2B3A50", "ocean": "#132033", "border": "#53647C"}
 CAP_BAND, UI_BOTTOM, UI_RIGHT, MIN_TEXT = (880, 1040), 1440, 950, 40
-F_BOLD, F_REG = "Noto Sans Display", "Noto Sans"
+F_BOLD, F_REG, F_MONO = "Inter Display", "Inter", "JetBrains Mono"
 GEO = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "Media", "_canal", "geo")
 NE = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/"
 
@@ -122,8 +130,8 @@ def visibility(el, t, cues):
 
 
 # ---------------------------------------------------------------- drawing helpers
-def set_font(ctx, size, bold=True):
-    ctx.select_font_face(F_BOLD if bold else F_REG, cairo.FONT_SLANT_NORMAL,
+def set_font(ctx, size, bold=True, mono=False):
+    ctx.select_font_face(F_MONO if mono else F_BOLD if bold else F_REG, cairo.FONT_SLANT_NORMAL,
                          cairo.FONT_WEIGHT_BOLD if bold else cairo.FONT_WEIGHT_NORMAL)
     ctx.set_font_size(size)
 
@@ -134,9 +142,9 @@ def text_width(ctx, s, spaced=False):
     return ctx.text_extents(s).x_advance
 
 
-def draw_text(ctx, s, x, y, size, color, bold=True, align="left", spaced=False):
-    """y is the vertical centre of the text line. Returns the box (x0, y0, w, h)."""
-    set_font(ctx, size, bold)
+def draw_text(ctx, s, x, y, size, color, bold=True, align="left", spaced=False, mono=False):
+    """y is the vertical centre of the text line. Returns the box (x0, y0, w, h). mono: JetBrains Mono (tokens, code)."""
+    set_font(ctx, size, bold, mono)
     if spaced:
         s = s.upper()
     w = text_width(ctx, s, spaced)
@@ -308,6 +316,11 @@ def draw_el(ctx, el, t, cues, warn):
             ctx.stroke_preserve()
         ctx.new_path()
     elif k == "circle":
+        if el.get("glow"):                                                    # halo behind a hero dot
+            for k_r, a_ in ((2.6, 0.08), (1.7, 0.16)):
+                ctx.arc(g("x"), g("y"), max(g("r", 10), 0) * k_r, 0, 2 * math.pi)
+                ctx.set_source_rgba(*rgb(el.get("fill", "copper"), a_))
+                ctx.fill()
         ctx.arc(g("x"), g("y"), max(g("r", 10), 0), 0, 2 * math.pi)
         if el.get("fill", "copper"):
             ctx.set_source_rgba(*rgb(el.get("fill", "copper")))
@@ -322,16 +335,18 @@ def draw_el(ctx, el, t, cues, warn):
         part = polyline_part(pts, g("draw", 1.0))
         if len(part) < 2:
             return
-        ctx.set_source_rgba(*rgb(el.get("stroke", "paper")))
-        ctx.set_line_width(g("lw", 6))
         ctx.set_line_cap(cairo.LINE_CAP_ROUND)
         ctx.set_line_join(cairo.LINE_JOIN_ROUND)
         if el.get("dash"):
             ctx.set_dash(el["dash"])
-        ctx.move_to(*part[0])
-        for p in part[1:]:
-            ctx.line_to(*p)
-        ctx.stroke()
+        passes = [(3.2, 0.10), (2.0, 0.18)] if el.get("glow") else []          # soft halo on the hero line only
+        for k_w, a_ in passes + [(1.0, 1.0)]:
+            ctx.set_source_rgba(*rgb(el.get("stroke", "paper"), a_))
+            ctx.set_line_width(g("lw", 6) * k_w)
+            ctx.move_to(*part[0])
+            for p in part[1:]:
+                ctx.line_to(*p)
+            ctx.stroke()
         ctx.set_dash([])
         hs = g("lw", 6) * 3.2
         if el.get("arrow") in ("end", "both") and math.dist(part[-2], part[-1]) > 0.5:
@@ -345,7 +360,7 @@ def draw_el(ctx, el, t, cues, warn):
             box = chip(ctx, g("x"), g("y"), s, size, el.get("bold", True), el.get("align", "left"))
         else:
             box = draw_text(ctx, s, g("x"), g("y"), size, rgb(el.get("color", "paper")), el.get("bold", True),
-                            el.get("align", "left"), el.get("spaced", False))
+                            el.get("align", "left"), el.get("spaced", False), el.get("mono", False))
         warn(box, size, s)
     elif k == "label":
         tx, ty = g("target")
@@ -662,6 +677,42 @@ def paint_cover(ctx, sf, fx, fy, z):
     ctx.restore()
 
 
+def ground(grid=False):
+    """The ink ground shared by motion and 3D plates: deep ink, two soft light pools (ember low left, signal high right),
+    a vignette and fine grain against banding; a drafting grid only on request (it read as generic, user 23 Oct 2026)."""
+    import random
+    s = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
+    ctx = cairo.Context(s)
+    lin = cairo.LinearGradient(0, 0, 0, H)
+    lin.add_color_stop_rgba(0, *rgb("ink2"))
+    lin.add_color_stop_rgba(1, *rgb("ink"))
+    ctx.set_source(lin)
+    ctx.paint()
+    for cx, cy, r, c, a in ((W * 0.12, H * 0.82, H * 0.55, "ember", 0.10), (W * 0.92, H * 0.12, H * 0.5, "signal", 0.09)):
+        rg = cairo.RadialGradient(cx, cy, 0, cx, cy, r)
+        rg.add_color_stop_rgba(0, *rgb(c, a))
+        rg.add_color_stop_rgba(1, *rgb(c, 0))
+        ctx.set_source(rg)
+        ctx.paint()
+    if grid:
+        ctx.set_source_rgba(1, 1, 1, 0.03)
+        ctx.set_line_width(1.5)
+        for gx in range(0, W + 1, 60):
+            ctx.move_to(gx, 0)
+            ctx.line_to(gx, H)
+        for gy in range(0, H + 1, 60):
+            ctx.move_to(0, gy)
+            ctx.line_to(W, gy)
+        ctx.stroke()
+    rnd = random.Random(7)                                          # fixed grain: no flicker between frames
+    for _ in range(26000):
+        v = rnd.random()
+        ctx.set_source_rgba(v, v, v, 0.035)
+        ctx.rectangle(rnd.random() * W, rnd.random() * H, 2, 2)
+        ctx.fill()
+    return s
+
+
 class Background:
     """navy (gradient and faint drafting grid), {"photo": file, "blur", "dim", "move": {"from": [fx, fy, z], "to": [...]}}
     or {"video": clips/x.mp4, "in": s, "dim"}: real footage under the animation (labels and arrows drawn on the real thing)."""
@@ -677,23 +728,7 @@ class Background:
         elif isinstance(bg, dict) and bg.get("photo"):
             self.photo = _photo(os.path.join(root, bg["photo"]), bg.get("blur", 0), bg.get("dim", 0.55))
         else:
-            self.flat = cairo.ImageSurface(cairo.FORMAT_ARGB32, W, H)
-            ctx = cairo.Context(self.flat)
-            grad = cairo.LinearGradient(0, 0, 0, H)
-            grad.add_color_stop_rgba(0, *rgb("navy"))
-            grad.add_color_stop_rgba(1, *rgb("navy2"))
-            ctx.set_source(grad)
-            ctx.paint()
-            if spec.get("grid", True):                             # faint drafting grid: designed, never empty
-                ctx.set_source_rgba(1, 1, 1, 0.035)
-                ctx.set_line_width(1.5)
-                for gx in range(0, W + 1, 60):
-                    ctx.move_to(gx, 0)
-                    ctx.line_to(gx, H)
-                for gy in range(0, H + 1, 60):
-                    ctx.move_to(0, gy)
-                    ctx.line_to(W, gy)
-                ctx.stroke()
+            self.flat = ground(spec.get("grid", False))
         self.vig = cairo.RadialGradient(W / 2, H * 0.45, H * 0.25, W / 2, H * 0.45, H * 0.75)
         self.vig.add_color_stop_rgba(0, 0, 0, 0, 0)
         self.vig.add_color_stop_rgba(1, 0, 0, 0, 0.45)

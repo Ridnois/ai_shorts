@@ -268,7 +268,10 @@ def inside(jp):
 
         sx, sy = el.get("size", [10, 10])
         objs = []
-        for res, mat, wire in ((el.get("res", 72), material(el.get("color", "navy2"), el.get("emit", 0.2), rough=0.9), False), (el.get("res", 72) // 3, material(el.get("wire", "dim"), el.get("wire_emit", 0.8)), True)):
+        zs = [h(-sx / 2 + sx * i / 40, -sy / 2 + sy * j / 40) for i in range(41) for j in range(41)]
+        for res, mat, wire in ((el.get("res", 72), height_material(min(zs), max(zs), el.get("ramp", ["ink2", "signal", "signal2"]),
+                                                                   el.get("emit", 0.35)), False),
+                               (el.get("res", 72) // 3, material(el.get("wire", "slate"), el.get("wire_emit", 0.5)), True)):
             n = res + 1
             verts = [(-sx / 2 + sx * i / res, -sy / 2 + sy * j / res, 0) for j in range(n) for i in range(n)]
             verts = [(x, y, h(x, y)) for x, y, _ in verts]

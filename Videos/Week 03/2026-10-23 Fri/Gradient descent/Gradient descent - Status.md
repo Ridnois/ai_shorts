@@ -27,3 +27,10 @@ tags: [status, week-03]
 ## P7 listening rubric (answer in chat; words go under Feedback)
 
 1. Voice natural? 2. Pace right? 3. Pauses misplaced or missing (scene, word)? 4. Sound mix right? 5. Any screen empty (scene)? 6. Did any picture fail to show what was said, or arrive late (scene, word)? 7. Do the 3D plates look better than the flat ones? 8. Build the thumbnail and publish pack?
+
+## Feedback (user, 23 Oct 2026, after r1; to improve the vault, not to redo this video)
+
+- Hook: *"'The idea that trains every ai chatbot...' confusing. An idea trains ai models? why should i care? what are we talking about? the video starts explaining something before it builds the curiosity. weak hook. maybe 'This old idea allow ai models to train, and this is how it works' and proceed to the rest."*
+- Structure: *"I like to pass from definition to origin to explanation. with a better hook and a more connected strategy between each phrase it could work perfectly."*
+- Explanation: *"'Here is how' is a strong phrase to start an explanation. but the following explanation and graphics are weak. i dont understand on a surface level the relation between a random number matrix and the gradient descend. effectively ai guesses the next word and checks its score."*
+- Animation: *"Animation is quite good, but it can improve. i suggest you to research more about styling and distribution of elements. use skills if required. color, background and line style feel too generic, you could research more for the style of the videos too"*
