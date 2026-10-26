@@ -82,6 +82,13 @@ def report():
                 h = vids.get(r["video"], {}).get("hook_type", "")
                 if h and num(r["viewed_pct"]) is not None:
                     groups.setdefault(h, []).append(num(r["viewed_pct"]))
+            by_len = {}
+            for r in snaps:                              # short test block (Playbook §2): 45 s and under against longer cuts
+                d = num(vids.get(r["video"], {}).get("duration_s", ""))
+                if d is not None and num(r["avg_pct_viewed"]) is not None:
+                    by_len.setdefault("45 s or less" if d <= 45 else "over 45 s", []).append(num(r["avg_pct_viewed"]))
+            if len(by_len) > 1:
+                out += ["By length (median avg_pct_viewed): " + "; ".join(f"{h} {fmt(med(v))} (n={len(v)})" for h, v in sorted(by_len.items())), ""]
             if len(groups) > 1:
                 out += ["By hook type (median viewed_pct): " + "; ".join(f"{h} {fmt(med(v))} (n={len(v)})" for h, v in sorted(groups.items())), ""]
     if not latest:

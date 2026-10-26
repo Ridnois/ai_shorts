@@ -40,7 +40,7 @@ Redtail look v2 (23 Oct 2026; user: *"color, background and line style feel too 
 
 | Component | Spec |
 | --- | --- |
-| **Caption** | one word at a time, centred at **the middle of the frame (50 % of the height, `CAP_Y`)**, 88 px bold capitals, white, dark outline and soft shadow; words with a digit and up to 6 `keywords` in ember; word holds until the next, never across a pause > 0.55 s; long words shrink |
+| **Caption** | **a phrase of 1 to 3 words, ≤ 16 characters** (test since 26 Oct 2026, [[Playbook]] §4; `captions.py` groups them; in HyperFrames the spoken word is lit and the others at 45 % opacity, in Blender the phrase is one strip), centred at **the middle of the frame (50 % of the height, `CAP_Y`)**, 88 px bold capitals, white, dark outline and soft shadow; words with a digit and up to 6 `keywords` in ember; a caption holds until the next, never across a pause > 0.55 s; long phrases shrink to stay inside x 140 to 940 |
 | **Context card** | 894 × 280 px, 16 px corners, 1 px graphite border at 25 %, 8 px ember bar left, centred at **66 % from the top** (x 56 to 950); label 32 px spaced capitals ember, title 56 px bold, detail 34 px |
 | **Number card** | same box; figure 124 px bold ember, caption 44 px bold, source 30 px |
 | **Margin note** | same box, label "Margin note", two lines ≤ 30 characters, 46 px bold |

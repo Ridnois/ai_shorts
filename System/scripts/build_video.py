@@ -19,7 +19,7 @@ What it does (see System/Playbook.md §3 and §6):
   * render/_timeline.json: every plate's start and end and every heard word (absolute seconds), read by motion.py.
   * Callouts: a dot on a part of the image, a leader line and a short label (explains machines and processes).
   * One card per plate: context (label, title, detail), number (big figure, caption, source) or margin note; vignette and grain.
-  * Word-by-word captions (plan `texts`, one narration string per voice, plus optional `captions`: the same takes spelled for the eye, an empty string falls back to `texts`; timings from voice/<take>.words.json made by
+  * Phrase captions of 1 to 3 words (System/scripts/captions.py; plan `"caption_words": 1` restores word-by-word) (plan `texts`, one narration string per voice, plus optional `captions`: the same takes spelled for the eye, an empty string falls back to `texts`; timings from voice/<take>.words.json made by
     System/scripts/word_timings.py, else estimated): one big word at a time in the lower caption zone, so the video follows with the sound off.
   * Sound design (plan `sound`): synthesized here with numpy (no model, no cost): scene whooshes, plate ticks, card pings,
     callout ticks, an opening thump and a very quiet drone bed, as one WAV mixed under the voice.
@@ -34,6 +34,9 @@ import os
 import aud
 import bpy
 import numpy as np
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from captions import groups as caption_groups   # phrase captions, Playbook §4
 
 ROOT = os.path.abspath(os.environ.get("VIDEO") or sorted(glob.glob("Media/*"))[-1])
 PLAN = json.load(open(f"{ROOT}/plan.json", encoding="utf-8"))
@@ -770,6 +773,8 @@ def add_captions():
         else:
             shown.append([w, s, e, short])
     placed = [x[:3] for x in shown]
+    if PLAN.get("caption_words", 3) > 1:                 # one strip per phrase: Blender text strips cannot dim single words
+        placed = [(" ".join(placed[k][0] for k in g), placed[g[0]][1], placed[g[-1]][2]) for g in caption_groups(placed)]
     n = 0
     for i_, (w, s, e) in enumerate(placed):
         nxt = placed[i_ + 1][1] if i_ + 1 < len(placed) else T_END
@@ -778,15 +783,15 @@ def add_captions():
             continue
         tx = S.new_effect(f"cap{n:03d}", "TEXT", CAP_CH, fr(s), length=fr(end) - fr(s))
         tx.text = w.upper()
-        tx.font, tx.font_size = F_TITLE, min(CAP_SIZE, int(1300 / max(len(w), 1)))   # long words shrink to fit the frame
-        key = any(c.isdigit() for c in w) or "".join(c for c in w.lower() if c.isalnum()) in KEYWORDS   # figures and plan.keywords are copper
+        tx.font, tx.font_size = F_TITLE, min(CAP_SIZE, int(1150 / max(len(w), 1)))   # long words and phrases shrink to stay clear of the action strip
+        key = any(any(c.isdigit() for c in x) or "".join(c for c in x.lower() if c.isalnum()) in KEYWORDS for x in w.split())   # figures and plan.keywords are copper
         tx.color = COPPER + (1.0,) if key else (1.0, 1.0, 1.0, 1.0)
         tx.anchor_x, tx.anchor_y = "CENTER", "CENTER"
         tx.location = (0.5, 1 - CAP_Y)
         tx.use_outline, tx.outline_color, tx.outline_width = True, (0.04, 0.035, 0.03, 1.0), 0.14
         tx.use_shadow, tx.shadow_color, tx.shadow_offset, tx.shadow_blur = True, (0, 0, 0, 0.55), 0.04, 0.03
         n += 1
-    print("CAPTIONS", n, "words,", "timed by whisper" if any(os.path.exists(os.path.splitext(v["f"])[0].replace("/_padded", "") + ".words.json") for v in voices) else "estimated")
+    print("CAPTIONS", n, "captions,", "timed by whisper" if any(os.path.exists(os.path.splitext(v["f"])[0].replace("/_padded", "") + ".words.json") for v in voices) else "estimated")
 
 add_captions()
 
