@@ -2,7 +2,7 @@
 type: process
 created: 2026-10-26
 updated: 2026-10-26
-status: v2 · rendered r2 (chatbot vs advanced), r1 kept; waiting for the user (P7)
+status: superseded by Chatbot vs agent (user, 26 Oct 2026: "Horrible, unnecesary 3d models ... go simpler"); r1 and r2 kept
 tags: [status, week-04]
 ---
 
