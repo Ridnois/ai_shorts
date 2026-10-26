@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-26
 updated: 2026-10-26
-status: v1 · simplest version at the user's request (replaces Free or paid); 2D only, one difference
+status: v2 · slower (rate 1.1, more full stops), 217 words, layout inside the safe stage (r1 kept)
 tags: [research, youtube, script, ai, agents, week-04]
 ---
 
@@ -37,7 +37,21 @@ Facts 6 onward live in [[Script - Free or paid]] (plans, context, RAG, API price
 - **Titles:** *AI Chatbot vs AI Agent: The One Difference* (recommended) · *You Are the Loop: Chatbots vs Agents Explained* · *Why an AI Agent Does What a Chatbot Can't*.
 - **Thumbnail (at P8):** the two rings side by side, "you" in one, "agent" in the other; words "WHO DOES IT?".
 
-## 3. Script: 197 words, 7 scenes (take v1, rate 1.25: 51.0 s)
+## 3. Script r2: 217 words, 7 scenes (take v2, rate 1.1: 70.0 s)
+
+User on r1 (26 Oct 2026): *"Timing is a little too fast, not enough spaces between phrases, longer it a little bit. also position of the elements is not quite right, improve that"*. Same scenes and visuals, more full stops, a 0.3 s beat after each "loop" line.
+
+| Sc | Voice (exact text) |
+| --- | --- |
+| 1 | A chatbot answers you. An agent does the work for you. They run on the same AI models, but the results are completely different. Here is the difference. |
+| 2 | Say you want a contact form on your website. You ask a chatbot, like ChatGPT, Claude or DeepSeek. It writes the code. Then you copy it, paste it, and run it. When it breaks, you paste the error back. You are the loop. |
+| 3 | Now give the same goal to an agent, like Claude Code or OpenAI's Codex. It opens your files and writes the form. It runs the site and reads the error. Then it fixes it, and runs the tests again. It is the loop. |
+| 4 | The difference is tools. An agent can read and change files, run commands, and check its own work. So one goal becomes dozens of steps, without you. |
+| 5 | That is why agents sit in paid plans. Claude Code needs Pro. Codex comes with ChatGPT Plus. The chat stays free. |
+| 6 | There is a catch. An agent acts on your real files. So give it a copy or a branch, and always read what it changed. |
+| 7 | So here is the point. Ask a chatbot when you want an answer. Use an agent when you want it done. Which would you trust with your files? Tell me. |
+
+## 3b. Script r1 (kept, `render/ca-52s-9x16-r1.mp4`)
 
 | Sc | Question it answers | Voice (exact text) |
 | --- | --- | --- |
