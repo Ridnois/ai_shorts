@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-26
 updated: 2026-10-26
-status: v1 · P1 to P4a done by delegation; What's coming; HyperFrames + three.js with the overlap check
+status: v2 · holistic rewrite (plans, plan economics, choices) at the user's request; What's coming; HyperFrames + three.js with the overlap check
 tags: [research, youtube, script, ai, economics, week-04]
 ---
 
@@ -36,6 +36,10 @@ User (26 Oct 2026): *"Using all the tools you got now for 3d animation and make 
 | 16 | A later leaked deck: negative free cash flow of $278B over 2026 to 2030 | FT via secondary (not used) |
 | 17 | OpenAI GPT-5.5 about $5 / $30 per MTok | third-party price pages (not used, conflicting) |
 | 18 | Anthropic 2025: operating loss about $8.1B on $4.6B revenue (excluding a charge) | Reuters via search excerpt (not used) |
+| 20 | Plans (claude.com/pricing, **read** 26 Oct 2026): Free $0 (Sonnet, Haiku; chat, search, files); Pro $20/mo or $17 annual (adds Opus, Claude Code, Chrome, Research); Max from $100/mo (5x or 20x Pro per 5-hour session, Fable at 50 % of weekly limits); Team $20 to $25/seat standard, $100 to $125 premium (SSO, admin); Enterprise $20/seat plus usage at API rates (SCIM, audit logs, compliance) | claude.com/pricing (**read**) |
+| 21 | Anthropic, 28 Jul 2025: weekly limits from 28 Aug 2025 for Pro and Max; "One user consumed tens of thousands in model usage on a $200 plan"; some ran Claude Code "continuously in the background, 24/7"; under 5 % of subscribers affected | TechCrunch, 28 Jul 2025 (search excerpts of Anthropic's statement) |
+| 22 | Estimate: subscriptions about 10 % of revenue but over 40 % of inference compute; API gross margin above 80 %, blended mid-60s | TokenPost, 10 Oct 2026 (**read**; unattributed "analytical estimates", labelled unconfirmed on screen) |
+| 23 | About 80 % of revenue from enterprises and the API (Amodei on CNBC, per aggregators) | search excerpts (not used) |
 | 19 | Distillation origin: Hinton, Vinyals, Dean, "Distilling the Knowledge in a Neural Network", 2015 | arXiv 1503.02531 (known; not opened; not used) |
 
 ## 1. Idea gate
@@ -46,11 +50,30 @@ User (26 Oct 2026): *"Using all the tools you got now for 3d animation and make 
 ## 2. Package
 
 - **Promise:** what each Claude tier costs and buys, how cheap tiers are made, and why neither lab is profitable yet.
-- **Titles:** *One Question to Claude: Under a Cent or 60 Cents. Here's Why* (recommended) · *Claude's Model Tiers and the Money Behind AI* · *Why Neither Anthropic Nor OpenAI Makes a Profit Yet*.
+- **Titles r2:** *A $200 Claude Plan Used $10,000s of Compute. Here's the Math* (recommended) · *Claude Plans and Models Explained: Who Makes Money?* · *Free, Pro, Max or API: Which Claude Should You Pay For?*
+- **Titles r1:** *One Question to Claude: Under a Cent or 60 Cents. Here's Why* · *Claude's Model Tiers and the Money Behind AI* · *Why Neither Anthropic Nor OpenAI Makes a Profit Yet*.
 - **Thumbnail (at P8):** the four 3D price pillars, Fable towering, Haiku a sliver; words "100x PRICE GAP".
 - **Opening map:** scene 1 promise · scene 2 proof (the price list) and plan.
 
-## 3. Script: 223 words, 9 scenes (take v1, rate 1.25: 62.8 s)
+## 3. Script r2: 230 words, 9 scenes (take v3, rate 1.25: 65.1 s)
+
+User on r1 (26 Oct 2026): *"Make it more holistic, like explaining plan tipes and it capabilities too, how profitable are the actual plans for anthropic and suggestions"*. The theft scene and the per-quarter detail gave way to plans, plan economics and choices.
+
+| Sc | Question it answers | Voice (exact text) | Delivery · pause |
+| --- | --- | --- | --- |
+| 1 | (hook) | One two-hundred-dollar Claude plan once used tens of thousands of dollars of computing. So how do Claude's plans make money, and which should you pick? | curious |
+| 2 | what is sold? | Start with the models: Haiku, Sonnet, Opus and Fable, sold per token, a piece of a word, and writing costs five times reading. | steady |
+| 3 | does price buy intelligence? | Bigger is pricier, not proportionally smarter: Opus beats Sonnet by two points, at twice the price. Cheap tiers come from distilling big models. | wry |
+| 4 | what do the plans give? | Then the plans. Free covers chat. Pro, twenty dollars, adds Opus, Claude Code and research. Max raises limits five or twenty times. Team and Enterprise add admin and security. | brisk |
+| 5 | how does a plan pay? | A plan is a flat fee, like a buffet. Most people eat little, but agents eat all day, so Anthropic added weekly limits. | amused |
+| 6 | where is the money? | The steady money is the API, where every token is paid for. One estimate says plans bring a tenth of revenue but use far more of the computing. | even |
+| 7 | is anyone profitable? | Overall, neither Anthropic nor OpenAI reports a profit yet: revenue is soaring, and so are the computing bills. | even |
+| 8 | so what should I pick? (solution) | So choose like a lab. Light chat: Free or Pro. Agents all day: Max. Building an app: the API, the smallest model that works, and caching, which makes repeated input twenty times cheaper. | brighter; break 0.2 after "lab" |
+| 9 | so what? | So here is the point: you pay by the word or by the month, and heavy users get the best deal. Which plan are you on? Tell me. | slower; break 0.2 after "deal" |
+
+**Honesty r2:** "tens of thousands": Anthropic's own 2025 example, dated on screen. "a tenth of revenue ... far more of the computing": an unattributed estimate, on screen as "unconfirmed estimate". "heavy users get the best deal": follows from flat fees and the 2025 example; an opinion framed as the point, not a figure. Plan contents from claude.com/pricing (Oct 2026).
+
+## 3b. Script r1 (superseded)
 
 | Sc | Question it answers | Voice (exact text) | Delivery · pause |
 | --- | --- | --- | --- |
