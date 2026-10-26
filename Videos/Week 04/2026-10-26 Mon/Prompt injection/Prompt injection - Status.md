@@ -29,3 +29,5 @@ P7 on r3 (user, 26 Oct 2026): *"No overlap, balance work, solution could be more
 *Schematics:* the token stream, the model box, the glass box and the trifecta plate are drawn models, not any product's interface; the refund bot, the email and order 4471 are illustrative.
 
 *Not verified:* how 232 wpm sounds and whether it is too fast (P7 question 2); caption timing against speech; pace in motion. Seen risks: first caption word at 0.15 s, not frame 1; the stream tiles enter the model in reverse reading order (a moving row, read left to right when still); the lower lane is empty in the first seconds of the stream scene.
+
+*Before upload (26 Oct 2026):* the shared `System/scripts/check3d.mjs` finds r3 cards, the approve button and the email in the right interface strip (x > 950) from 31.25 to 56.5 s, under the app's like and comment buttons; r3 predates that check. Fix the card CSS to x 56 to 950 as on *Chatbot vs agent* and re-render (no spend) before P8.

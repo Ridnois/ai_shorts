@@ -56,7 +56,7 @@ From the user's *"make more engaging videos"* and the 9 Oct redesign; each rule 
 
 1. **First frame carries the claim.** The hook plate shows the anchor already doing the surprising thing (the counter racing, the bar dropping) from frame 1, with at most one key-term label; the voice and captions carry the sentence.
 2. **Things build, they do not appear.** Parts enter on the word that names them; lines draw themselves (`draw`, `to_x`); particles travel (`stream`); numbers count (`value`). Nothing labelled is on screen before it is spoken.
-3. **Legible at phone size.** Text ≥ 40 px (labels 40, figures 56 to 112), ≤ 25 words per plate, one ember subject. `motion.py` warns below 40 px and in the caption band (y 880 to 1040), the bottom interface (y > 1440) and the right action strip (x > 950).
+3. **Legible at phone size.** Text ≥ 40 px (captions and cards keep their approved sizes above) (labels 40, figures 56 to 112), ≤ 25 words per plate, one ember subject. `motion.py` warns below 40 px and in the caption band (y 880 to 1040), the bottom interface (y > 1440) and the right action strip (x > 950).
 4. **Scale changes inside a world:** a zoom from the object to its inside (the chat window opens into the row of tokens), a camera move to the detail named; a new world only for a new step.
 5. **An event every 2 to 3 s.** `motion.py` warns when nothing changes for over 3.5 s.
 6. **Conclusion card and question.** The last scene returns to the anchor with the conclusion card (≤ 26 characters); the closing question has its own plate with the margin note ([[Playbook]] §2).
