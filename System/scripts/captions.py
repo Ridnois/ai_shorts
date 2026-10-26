@@ -31,7 +31,7 @@ def html_caps(words, colour=lambda t, s: "#FFFFFF", end=None):
     end = end if end is not None else words[-1][2] + 0.25
     divs = []
     for g in groups(words):
-        texts = [words[k][0].upper() for k in g]
+        texts = [words[k][0].strip(".,?!:;").upper() for k in g]   # punctuation breaks phrases, never shows
         for n, k in enumerate(g):
             s = words[k][1]
             nxt = words[k + 1][1] if k + 1 < len(words) else end
