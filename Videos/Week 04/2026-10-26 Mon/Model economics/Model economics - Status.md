@@ -2,7 +2,7 @@
 type: process
 created: 2026-10-26
 updated: 2026-10-26
-status: v2 · rendered r2 (holistic), waiting for the user (P7)
+status: superseded by Which AI (user, 26 Oct 2026: "The goal got diluted ... remake it from scratch")
 tags: [status, week-04]
 ---
 
