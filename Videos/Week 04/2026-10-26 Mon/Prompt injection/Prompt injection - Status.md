@@ -2,7 +2,7 @@
 type: process
 created: 2026-10-26
 updated: 2026-10-26
-status: v1 · rendered r1, waiting for the user (P7)
+status: v2 · rendered r2 (three.js), waiting for the user (P7)
 tags: [status, week-04]
 ---
 
@@ -18,6 +18,7 @@ tags: [status, week-04]
 | 4 Prompts, stock, budget | approved by delegation | 26 Oct 2026 | base about $0.05 (one take of about 1,370 characters, one timing call), cap $0.25; 0 generated media, 0 photos |
 | 6 Generation | done | within the cap | Three takes (ids in `voice/_log.txt`): **v1** rate 1.15, 62.7 s, whisper heard "Remove anyone" for "Remove any one" (reworded) and a hitch after "is"; **v2** reworded, 67.7 s at the same rate (too long for the user's timeframe); **v3 used**: rate 1.25, **58.3 s, 226 words, about 232 wpm**, whisper heard the script, silences 0.26 to 0.56 s. Two retakes: one for the misheard word, one for the duration. Spend about 3 × $0.034 + 3 × $0.01 = **about $0.13** |
 | 7 Edit | done, **waiting for the user (P7)** | | `Media/Week 04/2026-10-26 Mon/Prompt injection/render/pi-60s-9x16-r1.mp4` (59.7 s, 1080×1920, 30 fps; HyperFrames 0.8.200, render 2 m 50 s). CSS 3D: 7 worlds, each a perspective camera with a slow drift and a dolly hand-off; 100 BPM grid for the token stream steps, model pulses and packet hops; 142 tweens. `hyperframes check`: 0 errors. Mix **−14.0 LUFS, true peak −3.0 dBTP**, no music. `pi.srt` written. Final mp4 frames looked at |
+| 7b Edit r2 (three.js) | done, **waiting for the user (P7)** | | User on r1 (26 Oct 2026): *"Theres no point on using the tiles that way, no 3d movement on text element. lets test remaking it with threejs"* (rule now in [[Style]] 3D plates). `render/pi-60s-9x16-r2.mp4` (59.7 s, same take v3 and captions): one three.js canvas (three 0.181.2, one `render(t)` from GSAP `onUpdate` and `hf-seek`); word capsules from three sources fold into one lane into a layered model on the 100 BPM beat clock, ember capsules glow on "ignore", all turn grey on "same"; glass box with a blocked rose ray and a mint draft; trifecta spheres on a disc with a hopping packet and a sinking node. All text is flat HTML; labels follow objects by 2D projection only. Render 3 m 12 s; `check` 0 errors; mix −14.0 LUFS, true peak −3.0 dBTP. r1 (CSS 3D) kept for comparison |
 | 8 Publish · 9 Measure | not started | | |
 
 *Schematics:* the token stream, the model box, the glass box and the trifecta plate are drawn models, not any product's interface; the refund bot, the email and order 4471 are illustrative.
