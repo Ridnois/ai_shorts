@@ -2,7 +2,7 @@
 type: process
 created: 2026-10-26
 updated: 2026-10-26
-status: v1 · rendered r1, waiting for the user (P7)
+status: superseded by Free or paid (user, 26 Oct 2026: "Goal not sharp enough, you just spit information")
 tags: [status, week-04]
 ---
 
