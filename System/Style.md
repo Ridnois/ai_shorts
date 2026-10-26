@@ -65,6 +65,8 @@ From the user's *"make more engaging videos"* and the 9 Oct redesign; each rule 
 
 ## 3D plates (23 Oct 2026)
 
+**3D is the exception, not the look** (user, 26 Oct 2026, on *Free or paid* r2: *"Horrible, unnecesary 3d models. unclear diferentiation. go simpler"*): default to clean, large 2D diagrams; use 3D only when depth itself is the point a 2D drawing cannot show, and never to decorate a comparison. One difference per video, drawn as simply as possible beats many vivid scenes [H].
+
 Rendered by `scene3d.py` (Blender EEVEE) for mechanisms with depth: tokens flowing through layers, an embedding space, attention links, a rack of GPUs as a model. Same world as the motion plates so they cut together without a jump.
 
 - **Ground and light:** the ink ground composited behind the scene (transparent film), one soft key and one rim light, gentle bloom on emissive parts (`bloom` 0.4 to 0.8). No fog, no lens flares, no chrome.

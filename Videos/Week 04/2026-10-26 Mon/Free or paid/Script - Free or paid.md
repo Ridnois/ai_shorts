@@ -2,7 +2,7 @@
 type: research
 created: 2026-10-26
 updated: 2026-10-26
-status: v1 · from scratch at the user's request (replaces Which AI); a viewer's question answered on one comparison board
+status: v2 · deeper: the gap between chatbot use and advanced use, four paired use cases (r1 kept)
 tags: [research, youtube, script, ai, week-04]
 ---
 
@@ -40,7 +40,25 @@ User (26 Oct 2026, P7 on [[Which AI - Status]]): *"Goal not sharp enough, you ju
 - **Titles:** *Every Top AI Chatbot Is Free. So Why Pay $20?* (recommended) · *Free vs Paid AI: What You Actually Get (ChatGPT, Claude, DeepSeek)* · *You Don't Need an AI Subscription. Unless You Need These 5 Things*.
 - **Thumbnail (at P8):** the three logos on $0 pedestals, one turning into the workshop ring; words "FREE vs $20".
 
-## 3. Script: 209 words, 8 scenes (take v1, rate 1.25: 63.9 s)
+## 3. Script r2: 216 words, 7 scenes (take v3, rate 1.25: 61.0 s)
+
+User on r1 (26 Oct 2026): *"go deeper on advanced usage vs common chatbot and rerender. make it more dynamic, with example usecases for example reading a simple document vs designing a knowledge base and generating complex content (software, knowledge bases, coding). the goal of this video is to explain the breach between types of use of ai. keep mention different companies. make a new render and keep the old one"*. **New theme line:** *chatbots answer questions; agents do the work; the gap is the tools around the model.*
+
+| Sc | Pair (chatbot vs advanced) | Voice (exact text) |
+| --- | --- | --- |
+| 1 | hook: search box vs building | Most people use AI like a search box. Others build software and whole knowledge bases with it, using the same models. Here is the gap between them. |
+| 2 | one PDF vs a knowledge base | Take reading. Asking about one PDF works free on ChatGPT, Claude and DeepSeek. But turning hundreds of documents into a knowledge base needs retrieval, called RAG, and Claude keeps that for paid plans. |
+| 3 | a few pages vs a codebase in view | Then memory. A chat holds a few pages at a time. Advanced work keeps a whole codebase or book in view: the models take a million tokens, but free chats get only a slice. |
+| 4 | an email vs a coding agent | Then building. A free chat writes you an email. A coding agent, like Claude Code or OpenAI's Codex, reads your project, edits the files and runs the tests, and Claude Code needs at least Pro. |
+| 5 | typing vs AI inside your tools | And connection. Chat is you typing. Advanced use puts AI inside your own tools through the API, paid per word, with DeepSeek the cheapest and Claude Opus the priciest. |
+| 6 | which to pick (solution) | So match the tool to the job. Questions and one-off documents: stay free. Files, research and code every day: a single twenty-dollar plan. AI inside your product: the API. |
+| 7 | conclusion | Here is the point: chatbots answer questions, agents do the work, and the gap is not the model, it's the tools around it. Which side are you on? Tell me. |
+
+**Beat sheet r2:** a "chatbot | advanced" split stays on screen from scene 1 to 5 (one frame of reference). Left: a search box typing, one PDF with three free logos, a few pages in a rose window, a free-chat email, you typing. Right (3D clipped to the advanced half): modules stacking into software, about 100 documents flying into a knowledge base and three retrieved by beams into an answer, a mint window sliding over a 34-page codebase ribbon with a rose free slice inside it, the API pipes from your app to DeepSeek, OpenAI and Claude with logo price tags; scene 4 is a schematic agent loop (read, edit, test, fix) with a packet circling on the beat, "tests pass" and the agents' plans, not a drawn product UI. Colourful lanes, then the model core gaining its workshop.
+
+**Honesty r2:** "Claude Code needs at least Pro": claude.com/pricing (Free has no Claude Code). Codex in Plus: Oct 2026 guides. Agent loop is a schematic. "hundreds of documents": the help article's RAG capacity claim (up to 10x), not a fixed count.
+
+## 3b. Script r1 (kept, `render/fp-65s-9x16-r1.mp4`)
 
 | Sc | Question it answers | Voice (exact text) | Delivery |
 | --- | --- | --- | --- |
