@@ -1,6 +1,6 @@
 ---
 type: index
-updated: 2026-10-23
+updated: 2026-10-26
 ---
 
 # Redtail: video index
@@ -16,3 +16,4 @@ Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · niche, search and package: [[Au
 | AI invented sources | How it works · 153 · Dennis on Inworld TTS-2 (one take) | r1 rendered (53.6 s), P7 is yours; not uploaded | [[AI invented sources - Status]] · [[Script - AI invented sources]] |
 | Gradient descent | How it works · 165 · Dennis on Inworld TTS-2 (one take) | r1 rendered (59.6 s), first with 3D plates; P7 is yours; not uploaded | [[Gradient descent - Status]] · [[Script - Gradient descent]] |
 | AI removes TV ads | Agent at work · compact · 114 · Dennis on Inworld TTS-2 (one take) | r1 rendered (44.3 s), first with look v2 and the named-subject hook; P7 is yours; not uploaded | [[AI removes TV ads - Status]] · [[Script - AI removes TV ads]] |
+| ThinkPad TrackPoint | off-niche one-off (How it works structure) · 170 · Dennis on Inworld TTS-2 (one take) | r1 rendered (62.3 s), first built with HyperFrames; P7 is yours; not uploaded | [[ThinkPad TrackPoint - Status]] · [[Script - ThinkPad TrackPoint]] |

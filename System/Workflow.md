@@ -1,6 +1,6 @@
 ---
 type: process
-updated: 2026-10-23
+updated: 2026-10-26
 status: v5 · 3D plates (`scene3d.py`) and recorded runs for the AI channel (23 Oct 2026); v4 · one-take voice and mix-and-master stage (9 Oct 2026); footage and motion plates; delegated flow is the default; listening rubric; note size ceilings
 ---
 
@@ -86,6 +86,7 @@ Every media file carries its video prefix (Obsidian resolves embeds by file name
 | Motion plates | `python3 System/scripts/motion.py "Media/Week NN/<Day>/<Video>" --sheet` (after a `SOLO_PROYECTO=1` build; `--only <name>` for one plate) |
 | Assemble and check | `VIDEO="Media/Week NN/<Day>/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`                                                               |
 | Render             | same without `SOLO_PROYECTO`, in the background (1.5 to 5 min) |
+| HyperFrames (trial since 26 Oct 2026, instead of Blender) | HTML + GSAP rendered by headless Chrome (`npx hyperframes`, Node 22+, Apache 2.0); first used on [[ThinkPad TrackPoint - Status]]. `hf/build.py` writes `index.html` from the take's words; `HYPERFRAMES_NO_TELEMETRY=1 npx hyperframes check`, `snapshot --at …`, `render hf -o render/<v>-<s>s-9x16-r<n>.mp4 -q delivery` (about 3 min for 62 s here); `render/_timeline.json` is written by hand so `mix_audio.py` works unchanged. Its defaults ban dark grounds and glow; [[Style]] wins |
 | Mix and master     | `python3 System/scripts/mix_audio.py "Media/Week NN/<Day>/<Video>"` (replaces the render's sound; `--report` measures only) |
 | Upload (P8) / metrics | `python3 System/scripts/publish.py "Media/Week NN/<Day>/<Video>/upload/publish.json"` ([[Publish]]) |
 | New colour         | `node <dataviz skill>/scripts/validate_palette.js "#hex,..." --mode dark --surface "#0B0D17" --pairs all` (the dataviz skill; every check must pass before a colour enters [[Style]]) |
