@@ -43,7 +43,7 @@ def ascii_(s):
 def credits(media, plan):
     used = set()
     for sc in plan["scenes"]:
-        for pl in sc["plates"]:
+        for pl in sc.get("plates", []):                     # HyperFrames plans have no plates
             for f in (pl["file"], pl.get("bg_photo"), (pl.get("inset") or {}).get("file")):
                 if f: used.add(os.path.basename(f))
             mo = pl.get("motion") or {}                          # photos and footage drawn inside motion plates
@@ -164,7 +164,7 @@ def main():
     # 5 videos.csv
     texts = plan["texts"]; words = sum(len(t.split()) for t in texts)
     dur = int(re.search(r"-(\d+)s-", cfg["render"]).group(1)); rno = re.search(r"-r(\d+)\.", cfg["render"]).group(1)
-    plates = sum(len(s["plates"]) for s in plan["scenes"])
+    plates = sum(len(s.get("plates", [])) for s in plan["scenes"])
     rows = list(csv.reader(open("Analytics/videos.csv", encoding="utf-8")))
     row = [name, datetime.now(timezone.utc).strftime("%Y-%m-%d"), vid, "", str(words), str(dur), cfg["hook_type"], texts[0].replace("thirteen seventy-seven", "1377"), "", str(plates), plan.get("voice", {}).get("voice_id", "Austin")]
     hook = None
@@ -195,7 +195,7 @@ User request: *"{cfg['approval']}"*. Visibility **{privacy}** (default private u
 
 ## Upload result
 
-`System/scripts/publish.py`: id **{vid}**, https://studio.youtube.com/video/{vid}/edit, https://youtu.be/{vid}. File `{media}/{cfg['render']}` ({dur} s), `containsSyntheticMedia: true`. Thumbnail `{up}/thumb.jpg` (text **{' / '.join(th['lines'])}**), set after processing; served image {'confirmed' if ok else 'NOT confirmed'}.
+`System/scripts/publish.py`: id **{vid}**, https://studio.youtube.com/video/{vid}/edit, https://youtu.be/{vid}. File `{media}/{cfg['render']}` ({dur} s), `containsSyntheticMedia: true`. Thumbnail `{up}/thumb.jpg` (text **{' / '.join(th.get('lines') or [e['text'] for e in th.get('els', []) if e.get('kind') == 'text'])}**), set after processing; served image {'confirmed' if ok else 'NOT confirmed'}.
 
 ## Title ({len(cfg['title'])} characters)
 
