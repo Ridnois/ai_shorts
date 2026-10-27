@@ -295,7 +295,8 @@ function render(t) {
   const boxes = []; let cam = null, op = 0;
   for (const m of M) {
     const on = m.root && t >= m.start && t < m.start + m.dur; if (m.root) m.root.visible = on; if (!on) continue;
-    m.mixer.setTime(Math.min(t - m.start, m.dur - 0.001)); m.root.updateMatrixWorld(true); cam = m.cam;
+    for (const a of m.acts) a.time = Math.min(Math.max(t - m.start, 0), a.getClip().duration - 1e-4);   // each clip holds its first and last key: Blender trims every action to its own keys, so looping or mixer time would wrap
+    m.mixer.update(0); m.root.updateMatrixWorld(true); cam = m.cam;
     op = Math.min(1, (t - m.start) / 0.25, (m.start + m.dur - t) / 0.2);
     m.root.traverse(o => { if (o.isMesh && o.getWorldScale(V).x > 0.02) { const b = screenBox(o, cam); if (b) boxes.push(b); } });
   }
@@ -309,7 +310,7 @@ window.__hf.buildReady["glb"] = (async () => {
   for (const m of M) {
     const g = await loader.loadAsync(m.src);
     m.root = g.scene; scene.add(m.root); m.mixer = new THREE.AnimationMixer(m.root);
-    for (const c of g.animations) m.mixer.clipAction(c).play();
+    m.acts = g.animations.map(c => { const a = m.mixer.clipAction(c); a.setLoop(THREE.LoopOnce); a.play(); return a; });
     m.cam = g.cameras[0] || new THREE.PerspectiveCamera(40, W / H, 0.1, 100);
     m.cam.aspect = W / H; m.cam.updateProjectionMatrix();
   }

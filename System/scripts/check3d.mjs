@@ -10,17 +10,24 @@
 import { createRequire } from "module";
 import { execSync } from "child_process";
 import path from "path";
+import http from "http";
+import fs from "fs";
 
 const npx = execSync("ls -d $HOME/.npm/_npx/*/node_modules/puppeteer-core | head -1").toString().trim();
 const chrome = execSync("ls $HOME/.cache/hyperframes/chrome/chrome-headless-shell/*/chrome-headless-shell-linux64/chrome-headless-shell | head -1").toString().trim();
 const puppeteer = createRequire(import.meta.url)(npx);
 const file = path.resolve(process.argv[2] || "index.html");
 
-const browser = await puppeteer.launch({ executablePath: chrome, headless: true, args: ["--no-sandbox", "--allow-file-access-from-files", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"] });
+const MIME = { ".html": "text/html", ".js": "text/javascript", ".png": "image/png", ".jpg": "image/jpeg", ".glb": "model/gltf-binary", ".webm": "video/webm", ".wav": "audio/wav", ".mp4": "video/mp4" };
+const server = http.createServer((q, r) => {                // served, not file://: fetch() (three.js loading a .glb) refuses file URLs
+  const f = path.join(path.dirname(file), decodeURIComponent(q.url.split("?")[0]));
+  fs.readFile(f, (e, d) => { if (e) { r.writeHead(404); r.end(); } else { r.writeHead(200, { "Content-Type": MIME[path.extname(f)] || "application/octet-stream" }); r.end(d); } });
+}).listen(0);
+const browser = await puppeteer.launch({ executablePath: chrome, headless: true, args: ["--no-sandbox", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"] });
 const page = await browser.newPage();
 await page.setViewport({ width: 1080, height: 1920 });
 page.on("pageerror", e => console.log("PAGE ERROR", e.message));
-await page.goto("file://" + file, { waitUntil: "networkidle0" });
+await page.goto(`http://127.0.0.1:${server.address().port}/${path.basename(file)}`, { waitUntil: "load" });
 for (let k = 0; ; k++) {                              // waitForFunction stalls here; a plain evaluate loop does not
   if (await page.evaluate(() => !!(window.__ready3d && window.__timelines && window.__timelines.main))) break;
   if (k > 120) throw new Error("page never became ready (window.__ready3d)");
@@ -67,7 +74,7 @@ const res = await page.evaluate(() => {
   }
   return { found, warn };
 });
-await browser.close();
+await browser.close(); server.close();
 const { found, warn } = res, keys = Object.keys(found);
 for (const k of keys) console.log(`OVERLAP ${k}: ${found[k].length} samples, ${found[k][0]} to ${found[k][found[k].length - 1]} s`);
 const longest = ts => { let best = [0, ts[0], ts[0]], a = ts[0];            // longest unbroken run of 0.25 s samples
