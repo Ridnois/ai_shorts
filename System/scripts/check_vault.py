@@ -16,7 +16,7 @@ import re
 import sys
 
 ROOT = os.getcwd()
-SKIP = (".git", ".obsidian", "Media", "__pycache__")
+SKIP = (".git", ".obsidian", ".claude", "Media", "__pycache__")       # .claude: agent skills, not notes
 
 INVARIANTS = [
     # (file, phrase, rule it protects)
