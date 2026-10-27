@@ -79,7 +79,7 @@ Content is centred on x 503 (the middle of 56 to 950), not on the frame's 540: t
 | Number card | `card` with the figure as title | same box; one number with its source | `pop` |
 | Comment prompt | `ask` | the closing question as a reply box (DECK top 1110, `ink2` 94 %, 4 px `mint2` border, 40 px corners): balloon 96 px and question 56 px (≤ 26 characters), two or three answer chips 40 px (≤ 14 characters, `signal2` outline), "reply in the comments" 40 px slate | `rise` on the question; `chips` on "Tell me" |
 | Solution flood | `write(flood=n)` | mint and signal light pools fade in over 0.6 s from scene n ([[Style]] Solution scenes) | automatic |
-| Hairline figure | `hairline(id, x, y, w)` + `v.hairline(id, fn)` | an isometric line figure from `vendor/hairline` (MIT, 0.5.1), 5:4 at `w` (800 wide = 640 tall fills the STAGE); colours from [[Style]] *Hairline figures*; it acts only through `point` | `pop`, then `point` |
+| Hairline figure | `hairline(id, x, y, w)` + `v.hairline(id, fn)` | an isometric line figure from `vendor/hairline` (MIT, 0.5.1), 5:4 at `w` (800 wide = 640 tall fills the STAGE); colours from [[Style]] *Hairline figures*; it acts only through `point`; a lit colour fades in over about 2 s after the pointer arrives, so point 1 s or more before the word that needs the colour | `pop`, then `point` |
 | 3D model | `model3d` | a Blender scene as glb, played by three.js on the page clock | world window |
 | 3D plate | `plate3d` | an EEVEE render with alpha (webm) under the text | world window |
 
