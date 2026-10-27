@@ -488,7 +488,9 @@ def inside(jp):
         gl.inputs["Threshold"].default_value = 0.8
         tree.links.new(img, gl.inputs["Image"])
         img = gl.outputs["Image"]
-    if job.get("ground") and spec.get("ground", "ink") == "ink":
+    fmt = job.get("format", "mp4")                    # webm and glb are for HyperFrames pages (hfkit.blender3d): no ground, the page has it
+    sc.render.film_transparent = fmt == "webm"
+    if fmt == "mp4" and job.get("ground") and spec.get("ground", "ink") == "ink":
         sc.render.film_transparent = True
         gn = tree.nodes.new("CompositorNodeImage")
         gn.image = bpy.data.images.load(job["ground"])
@@ -520,15 +522,30 @@ def inside(jp):
                 continue
             warned.add(o.name)
 
+    import time
+    t0 = time.time()
+    if fmt == "glb":                                  # the built scene and its keys, sampled per frame (constraints baked) for three.js
+        bpy.ops.export_scene.gltf(filepath=job["out"], export_format="GLB", export_animations=True, export_force_sampling=True,
+                                  export_cameras=True, export_lights=False, export_apply=True, export_frame_range=True)
+        print(f"  3D {job['label']}: glb in {time.time() - t0:.0f} s")
+        return
     rd = sc.render
     rd.filepath = job["out"]
+    if fmt == "webm":                                 # RGBA PNG frames, then VP9 with alpha (HyperFrames reads its alpha)
+        seq = os.path.splitext(job["out"])[0] + "_seq/"
+        rd.filepath, rd.image_settings.file_format, rd.image_settings.color_mode = seq + "f", "PNG", "RGBA"
+        bpy.ops.render.render(animation=True)
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-start_number", "1", "-i", seq + "f%04d.png",
+                        "-c:v", "libvpx-vp9", "-pix_fmt", "yuva420p", "-b:v", "0", "-crf", "30", "-auto-alt-ref", "0", job["out"]], check=True)
+        import shutil
+        shutil.rmtree(seq)
+        print(f"  3D {job['label']}: {n_frames} frames (webm, alpha) in {time.time() - t0:.0f} s")
+        return
     rd.image_settings.media_type = "VIDEO"
     rd.image_settings.file_format = "FFMPEG"
     rd.ffmpeg.format, rd.ffmpeg.codec = "MPEG4", "H264"
     rd.ffmpeg.constant_rate_factor, rd.ffmpeg.ffmpeg_preset = "HIGH", "GOOD"
     rd.use_file_extension = False
-    import time
-    t0 = time.time()
     bpy.ops.render.render(animation=True)
     print(f"  3D {job['label']}: {n_frames} frames in {time.time() - t0:.0f} s")
 
