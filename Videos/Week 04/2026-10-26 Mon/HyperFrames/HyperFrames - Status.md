@@ -1,7 +1,7 @@
 ---
 type: process
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-27
 status: v2 · rendered r2 (comment prompt, spacing; r1 kept); waiting for the user (P7)
 tags: [status, week-04]
 ---
@@ -20,6 +20,6 @@ tags: [status, week-04]
 | 7 Edit | done, **waiting for the user (P7)** | | `Media/Week 04/2026-10-26 Mon/HyperFrames/render/hy-45s-9x16-r1.mp4` (44.7 s, HyperFrames 0.8.200, 2D). Real proof: 7 frames and 4 code lines of *RAG explained* r2; Fluent Emoji 3D (MIT) for page parts, hidden browser, camera, encoder, outputs. `check3d.mjs` OVERLAPS 0, no WARN (fixed before render: labels past x 950, a label overlapping the film strip, sparse openings of scenes 3 and 5). Re-rendered once: the crossed-out editor landed on the scene's last word (0.4 s on screen), now on "no". Mix −14.1 LUFS, true peak −2.0 dBTP; final mp4 frames looked at. **Slideshow-risk score 1:** weak motion 1 (the code panel holds about 5 s), all else 0 |
 | 7b Edit r2 (comment prompt, spacing) | done, **waiting for the user (P7)** | | User on r1 (27 Oct 2026): *"Redesign margin notes and rerender, the rest is good, also improve spacing"*. The closing card became the **comment prompt** ([[Style]]): speech balloon, the question, three answer chips popping on "Tell me" (an explainer, an ad, a story), "reply in the comments". Spacing: every three-item row on one grid (centres x 210, 503, 796), labels 20 px under their pictures, the close moved down to the middle of the stage, encoder row symmetric. `check3d.mjs` OVERLAPS 0, no WARN. `render/hy-45s-9x16-r2.mp4` (44.7 s); mix −14.1 LUFS, true peak −2.0 dBTP; final mp4 frames looked at. Spend unchanged (**$0.03**) |
 | 7c Builder on hfkit (27 Oct 2026) | done | | `hf/build.py` now imports `System/scripts/hfkit.py` ([[Design system]]); 314 to 117 lines; snapshots at 15 moments identical to r2 pixel for pixel, same `_timeline.json`, `check3d.mjs` OVERLAPS 0. The r2 mp4 is unchanged |
-| 8 Publish · 9 Measure | not now (user) | | |
+| 8 Publish · 9 Measure | upload pack built (dry run), **waiting for the user** | | User (27 Oct 2026): *"Build the upload pack of the last video"*. `upload/publish.json` (r2, private), `publish.py --dry-run`: `upload/hy-publish-pack.md`, thumbnail "THIS IS HTML" (real RAG frame in a phone, code lines; looked at full size and as a 168 px 3:2 tile). Upload waits for the user's approval of title, description, thumbnail, visibility |
 
 *Not verified:* the voice (how "HyperFrames" and "HTML" sound); phrase-caption timing in motion; the open-source date (third-party). Seen risks: scene 1's real frame is small inside the phone at phone size; each cut has a 0.4 s near-empty cross-fade.
