@@ -50,6 +50,7 @@ The voice uses the left column; the term goes on screen once, glossed. The illus
 | RAG | it looks it up first | magnifier on a page |
 | agent | AI that takes the steps itself | hammer and wrench |
 | MCP · tool use | a plug that lets AI use an app | electric plug |
+| skill (Agent Skills) | know-how it reads when needed | scroll |
 | prompt injection | hidden orders in what it reads | envelope with a warning |
 | compute · inference | the chips' work · answering | high voltage, factory |
 
