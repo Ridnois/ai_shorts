@@ -28,6 +28,9 @@ Elements (`els`), colours are motion.py palette names or hex:
            balls [{start [x,y], lr, steps, run [cue, cue], r, color, emit, trail, arrow cue}]: real gradient descent on
            that function (x -= lr·gradient), one keyed hop per step; `arrow` shows the downhill direction at the start
 
+For HyperFrames pages, hfkit.blender3d() runs the same spec with job "format": "glb" (scene, show pops and camera path for
+three.js; emission keys are not exported) or "webm" (EEVEE with alpha, no ground: the page has it). System/Design system.md.
+
 Text warnings match motion.py: text entering the caption band (y 880 to 1040), the bottom interface zone (y > 1440)
 or the right action strip (x > 950) is reported at sampled frames. Look at the --sheet frames before the build.
 """

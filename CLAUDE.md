@@ -5,7 +5,7 @@ English-language, AI-assisted channel that **teaches AI** in three series, **How
 ## Read order (every task)
 
 1. This file. 2. `System/Playbook.md` (every content rule; read it whole before writing). 3. `System/Workflow.md` (stages, gates, budget, models, files, commands). 4. `Analytics/Report.md` before choosing an idea, hook or length. 5. The video's `<Topic> - Status` and script (`Videos/Week NN/<Topic>/`).
-On demand: `System/Audience.md` (niche, AI case sources, plain-words map, deep-first search, package, opening) when choosing an idea and writing the script's Package; `System/Style.md` (on-screen text, design tokens, brand, persona) when writing text or cards; `System/Publish.md` at P8 and for metrics; `Pipeline/Pipeline.md` for the idea queue.
+On demand: `System/Audience.md` (niche, AI case sources, plain-words map, deep-first search, package, opening) when choosing an idea and writing the script's Package; `System/Style.md` (on-screen text, colour tokens, brand, persona) when writing text or cards; `System/Design system.md` (layout zones and grid, components, motion verbs, Blender to HyperFrames) before building any page; `System/Publish.md` at P8 and for metrics; `Pipeline/Pipeline.md` for the idea queue.
 
 ## Hard rules
 
@@ -31,7 +31,7 @@ Replicate 429 under bursts (the helper retries, nothing is charged); Wikimedia t
 
 ```
 CLAUDE.md · YouTube Channel.md (index, video table)
-System/  Playbook · Workflow · Style · Publish · Feedback loop · Model script · Audience · Brand/Redtail (logo, banner) · scripts/ (youtube_search, build_video, motion, scene3d, voice, mix_audio, stock_photos, stock_videos, replicate_helper, word_timings, youtube_upload, youtube_analytics, analytics, make_thumbnail, captions, check3d, check_vault)
+System/  Playbook · Workflow · Style · Design system · Publish · Feedback loop · Model script · Audience · Brand/Redtail (logo, banner) · scripts/ (youtube_search, build_video, motion, scene3d, voice, mix_audio, stock_photos, stock_videos, replicate_helper, word_timings, youtube_upload, youtube_analytics, analytics, make_thumbnail, captions, hfkit, check3d, check_vault)
 Pipeline/ idea queue, Niche map (runner: ~/Documents/youtube-pipeline/pipeline.py)    Analytics/ csvs · Report.md (generated) · Reports/
 Videos/Week NN/<YYYY-MM-DD Day>/<Topic>/ Status · Script · Upload      Media/Week NN/<YYYY-MM-DD Day>/<Video>/ local media
 ```

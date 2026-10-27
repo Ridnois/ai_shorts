@@ -44,7 +44,7 @@ The frame is 1080 × 1920. Zones (`hfkit` names):
 
 Content is centred on x 503 (the middle of 56 to 950), not on the frame's 540: the right strip belongs to the buttons.
 
-- **Columns:** `colx(k, n)` is the centre of column k of n across the stage (n = 2: 280, 727; n = 3: 205, 503, 801). Everything in a row sits on one column set.
+- **Columns:** `colx(k, n)` is the centre of column k of n across the stage (n = 2: 280, 726; n = 3: 205, 503, 801). Everything in a row sits on one column set.
 - **Rows:** `ROW1` (top 220) and `ROW2` (top 560); a figure on ROW2 ends above the band. `rowy(k, n)` divides the stage evenly when a row is not a picture row.
 - **Figure:** `fig(id, emoji, k, n, y, label=…)` is the unit: an illustration of size `sz(n)` (n = 1, 2: 280; 3: 215; 4: 161) centred on its column with its label 14 px under it (`id-l`).
 - **Density:** at most one row of figures and one deck element at once, plus the captions; one dominant element per moment (the newest word's picture). A world holds up to six pictures over its life, never more than four at the same time [H].

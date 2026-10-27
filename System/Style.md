@@ -1,12 +1,12 @@
 ---
 type: rules
-updated: 2026-10-23
-status: v4 · Redtail look v2 (ink ground, four validated semantic colours, line style, type, composition), user feedback 23 Oct 2026; v3 · AI channel identity and 3D plates (23 Oct 2026); v2 · motion plates (navy ground, lanes, word cues) added 9 Oct 2026; channel identity, design system and brand in one note
+updated: 2026-10-27
+status: v5 · layout, components and motion moved to Design system (27 Oct 2026); v4 · Redtail look v2 (ink ground, four validated semantic colours, line style, type, composition), user feedback 23 Oct 2026; v3 · AI channel identity and 3D plates (23 Oct 2026); v2 · motion plates (navy ground, lanes, word cues) added 9 Oct 2026; channel identity, design system and brand in one note
 ---
 
 # Style: voice persona, on-screen design, brand
 
-Captions are always the top layer (see Layers below). Approved by the user ("good and appealing, keep improving"): **keep the caption and card layout exactly**; improve specificity and placement. What fills the frame behind them was redesigned on 9 Oct 2026 at the user's request ([[Playbook]] §3, Motion plates below). Rules for what text says: [[Playbook]] §4.
+Captions are always the top layer ([[Design system]] Layers). Approved by the user ("good and appealing, keep improving"): **keep the caption and card layout exactly**; improve specificity and placement. What fills the frame behind them was redesigned on 9 Oct 2026 at the user's request ([[Playbook]] §3, Motion plates below). Rules for what text says: [[Playbook]] §4.
 
 ## Brand
 
@@ -19,7 +19,7 @@ Captions are always the top layer (see Layers below). Approved by the user ("goo
 
 Builds with models and agents daily and reads the papers behind the headlines; precise, quietly confident, dry, neither a booster nor a doomer. Specific beats general ("Vaswani and colleagues at Google, 2017", not "researchers"; "Claude Opus 5.5 in October 2026", not "AI"). **Banned words** in narration, cards and descriptions: *did you know, game-changing, revolutionary, incredible, mind-blowing, insane, unlock, supercharge, journey, the takeaway, fun fact, key point, in this video, this changes everything, AGI is here*, plus memes and exclamation marks. Recurring devices: the copper accent, one number, the comment prompt, part-name callouts, source tags, the last line.
 
-## Design system (1080×1920, from `build_video.py`)
+## Look tokens (1080×1920)
 
 Redtail look v2 (23 Oct 2026; user: *"color, background and line style feel too generic, you could research more for the style of the videos too"*). Sources read 23 Oct 2026: fan guides to the 3Blue1Brown style (a few semantic colours, each tied to one role, on a dark ground), GitLab motion guidelines and motion-design notes (layered soft radial gradients plus grain instead of flat fills), vertical-composition research (Nakhon Phanom Univ. journal: a centred subject and negative space read best in 9:16) and explainer-hierarchy notes (one dominant element at a time; motion only where the viewer needs it). The palette passed the dataviz skill's validator on the ink ground (lightness band, chroma, colour-blind and normal-vision separation, 3:1 contrast). [H] until the analytics loop compares it.
 
@@ -36,20 +36,14 @@ Redtail look v2 (23 Oct 2026; user: *"color, background and line style feel too 
 | Paper | `#F9F6EE` at 94 % (cards, callout boxes) |
 | Gradients | only the ink ground; legacy `contain` photos and cutouts keep their blur backgrounds |
 
-**Composition (every plate):** one dominant element at a time, centred horizontally in the upper lane at 60 to 80 % of the frame width; supporting elements at least 3 times smaller and in the lower lane; at most 3 things on screen besides the caption; 72 px side margins; breathing room around the hero, but never a bare ground ([[Playbook]] §3 Immersive plates). Depth by layers: ground, structure (slate), hero (ember), labels (cream), captions on top. Motion where the viewer needs it (an entry on the word, the hero changing state), stillness elsewhere: no idle wobble.
+**Layout, components and motion** (zones, column grid, arrangements, every component's spec, motion verbs, 3D routes) live in [[Design system]] and its code `System/scripts/hfkit.py`; this note keeps the look they are drawn in.
 
-| Component | Spec |
+| Legacy Blender builder (`build_video.py`, `motion.py`) and the library | Spec |
 | --- | --- |
-| **Caption** | **a phrase of 1 to 3 words, ≤ 16 characters** (test since 26 Oct 2026, [[Playbook]] §4; `captions.py` groups them; in HyperFrames the spoken word is lit and the others at 45 % opacity, in Blender the phrase is one strip), centred at **the middle of the frame (50 % of the height, `CAP_Y`)**, 88 px bold capitals, white, dark outline and soft shadow; words with a digit and up to 6 `keywords` in ember; a caption holds until the next, never across a pause > 0.55 s; long phrases shrink to stay inside x 140 to 940 |
-| **Context card** | 894 × 280 px, 16 px corners, 1 px graphite border at 25 %, 8 px ember bar left, centred at **66 % from the top** (x 56 to 950); label 32 px spaced capitals ember, title 56 px bold, detail 34 px |
-| **Number card** | same box; figure 124 px bold ember, caption 44 px bold, source 30 px |
-| **Comment prompt** (replaces the margin note, user, 27 Oct 2026: *"Redesign margin notes"*) | the closing question as a reply box, not a card: 894 px wide at x 56, top 1110, dark panel `ink2` at 94 %, 4 px `mint2` border, 40 px corners, soft mint glow; row 1 the speech-balloon illustration (96 px) and the question (56 px, ≤ 26 characters); row 2 two or three answer chips (40 px, `signal2` outline, the viewer's likely replies, ≤ 14 characters each); row 3 "reply in the comments" (40 px slate). The panel rises on the question's first word; the chips pop one by one on "Tell me" |
 | **Illustrations** (since 26 Oct 2026, [[Playbook]] §3 *Illustrate, do not typeset*) | **Fluent Emoji 3D** (Microsoft, MIT, `github.com/microsoft/fluentui-emoji`, 256 px PNG): everyday objects that carry a step, shown at ≤ 280 px (they blur above that), soft drop shadow, class `art`; enter on their word with a small grow and turn (`back.out`), no idle wobble; never the robot, brain or chip emoji (AI clichés). Real things are photos ([[Playbook]] §3 footage rules); interfaces are drawn devices (a phone frame around the chat). Credit line in `stock/_credits.jsonl`. **Concept pictures are fixed** (the Picture column of [[Audience]] *Plain-words map*): the same object stands for the same AI idea in every video |
 | **Callout** | ember dot 13 px with ring, leader, paper label with ember bar, 40 px; enters on the word that names the part (`at`), else 1 s after the plate; labels clamped above the caption zone. Motion plates draw the same callout (`label`) and chip (`chip`) |
 | **Motion plate** | 1080×1920 clip from `motion.py`: ink ground, subject in the upper lane, one supporting element in the lower lane, events on word cues, fades 0.25 s with an 18 px rise for text; specs below |
-| **Layers** | **Captions are the top layer**: cards, callouts and their text always sit under the captions (user, 5 Oct 2026: *"added text and pointers are covering the captions, that should be below the captions"*; builder `CAP_CH`) |
 | **Immersive plates** | legacy stills; no empty screens (user, 5 Oct 2026). `"bg": "blur"`: the plate's own photo (or `"bg_photo"`) cover-fitted, blurred and darkened to 38 % plus a dark tint, behind a `contain` plate. `"inset": {"file", "pos", "width"}`: a second picture, rounded 22 px with the soft shadow, enters 0.7 s after the plate, leaves 0.15 s before it; **split layout**: diagram on top (pos y about 0.27, width 0.78), inset of the real object under the captions (pos [0.5, 0.67], width ≤ 0.62), never in the last 25 % of the frame |
-| **Motion** | cards fade in 0.25 s with a 24 px rise, out 0.2 s, card enters 0.45 s after its plate; no shakes, flashes or zoom punches |
 
 ## Motion plates and engagement rules (9 Oct 2026)
 
@@ -76,4 +70,4 @@ Rendered by `scene3d.py` (Blender EEVEE) for mechanisms with depth: tokens flowi
 - **Text never moves in 3D** (user, 26 Oct 2026, on the CSS-3D prompt-injection cut: *"Theres no point on using the tiles that way, no 3d movement on text element"*): captions, cards, labels, emails and buttons stay flat and face the camera; a label may follow a 3D object only by sliding in 2D (projected position). Words are not shown as tiles flowing in depth: a word in a 3D world is an object (a capsule) whose meaning comes from its colour and a flat label. The depth, orbit and rhythm belong to objects (three.js in HyperFrames, or `scene3d.py`). `scene3d.py` warns for text in the caption band and interface zones.
 - **Faithful:** a 3D network or embedding cloud is marked "schematic" in Status; counts are illustrative unless the research note gives them (a real model has billions of weights, the plate shows a dozen nodes).
 
-**Lanes, from the top:** top 10 % free (Shorts title bar) · **upper lane** y 10 to 45 %: the subject · captions at 50 % (band y 880 to 1040, captions only) · **lower lane** y 56 to 74 %: one supporting element (a figure, a gauge, a label, or the card at 66 %) · last ≈ 25 % and the right edge ≈ 12 % belong to the platform interface. TikTok covers more of the bottom 15 to 20 %: unverified, test once with a private upload and, if needed, raise `CAP_Y` for a TikTok export (`plan.json`) without touching the YouTube master.
+**Lanes** are the [[Design system]] zones (STAGE, BAND, DECK, interface). TikTok covers more of the bottom 15 to 20 %: unverified, test once with a private upload and, if needed, raise `CAP_Y` for a TikTok export (`plan.json`) without touching the YouTube master.

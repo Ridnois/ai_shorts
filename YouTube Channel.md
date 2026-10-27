@@ -1,11 +1,11 @@
 ---
 type: index
-updated: 2026-10-26
+updated: 2026-10-27
 ---
 
 # Redtail: video index
 
-Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · niche, search and package: [[Audience]] · target to imitate: [[Model script]] · process and models: [[Workflow]] · look and brand: [[Style]] · upload and metrics: [[Publish]] · [[Feedback loop]]. Idea queue: [[Pipeline]]. Numbers: [[Report]].
+Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · niche, search and package: [[Audience]] · target to imitate: [[Model script]] · process and models: [[Workflow]] · look and brand: [[Style]] · layout, components and motion: [[Design system]] · upload and metrics: [[Publish]] · [[Feedback loop]]. Idea queue: [[Pipeline]]. Numbers: [[Report]].
 
 **The channel teaches AI** (since 23 Oct 2026): how it works, agents at work, what's coming ([[Audience]]). Earlier technology-niche videos stay on YouTube but left the vault and `Analytics/` on 23 Oct 2026; git history keeps them.
 
