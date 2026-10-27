@@ -36,6 +36,8 @@ Redtail look v2 (23 Oct 2026; user: *"color, background and line style feel too 
 | Paper | `#F9F6EE` at 94 % (cards, callout boxes) |
 | Gradients | only the ink ground; legacy `contain` photos and cutouts keep their blur backgrounds |
 
+**Hairline figures** (since 27 Oct 2026) take the look through their custom properties, set in `hfkit` `.hl`: plate `ink2`, lit `ember2` (one hero), edges cream, strokes slate, receding `haze`, stroke 3.2 px; a scene overrides `--hairline-hi` with its semantic colour (rose for the wrong pick, mint for the right one).
+
 **Layout, components and motion** (zones, column grid, arrangements, every component's spec, motion verbs, 3D routes) live in [[Design system]] and its code `System/scripts/hfkit.py`; this note keeps the look they are drawn in.
 
 | Legacy Blender builder (`build_video.py`, `motion.py`) and the library | Spec |

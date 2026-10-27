@@ -79,6 +79,7 @@ Content is centred on x 503 (the middle of 56 to 950), not on the frame's 540: t
 | Number card | `card` with the figure as title | same box; one number with its source | `pop` |
 | Comment prompt | `ask` | the closing question as a reply box (DECK top 1110, `ink2` 94 %, 4 px `mint2` border, 40 px corners): balloon 96 px and question 56 px (≤ 26 characters), two or three answer chips 40 px (≤ 14 characters, `signal2` outline), "reply in the comments" 40 px slate | `rise` on the question; `chips` on "Tell me" |
 | Solution flood | `write(flood=n)` | mint and signal light pools fade in over 0.6 s from scene n ([[Style]] Solution scenes) | automatic |
+| Hairline figure | `hairline(id, x, y, w)` + `v.hairline(id, fn)` | an isometric line figure from `vendor/hairline` (MIT, 0.5.1), 5:4 at `w` (800 wide = 640 tall fills the STAGE); colours from [[Style]] *Hairline figures*; it acts only through `point` | `pop`, then `point` |
 | 3D model | `model3d` | a Blender scene as glb, played by three.js on the page clock | world window |
 | 3D plate | `plate3d` | an EEVEE render with alpha (webm) under the text | world window |
 
@@ -102,9 +103,12 @@ Every motion is a verb on `Short`; each fires on a word with `v.cue(scene, "word
 | `strike` | bar draws from the left in 0.3 s | "no", "without", "wrong" |
 | `settle` | 1.06 → 1 over 1.2 s | frame 1: the hook picture is never static |
 | `slide` | linear move | strips, time passing |
+| `point` | moves a Hairline figure's unseen pointer to a viewBox point (optionally gliding); the figure answers on its own springs (a card stands up, pillars rise, layers lift) | the verb of a mechanism step, on its word |
 | world cut | out: blur 8 px and fade 0.2 s; in: blur and fade 0.25 s | automatic, 0.2 s before the scene's first word |
 
 **Timing laws:** a picture lands on the first syllable of its word; its label follows 0.1 s later; items in a list are 0.1 to 0.18 s apart; anything replaced leaves 0.25 s before its successor arrives; an event every 1.5 to 2 s and one scale change per world, nothing unchanged over 3.5 s ([[Playbook]] §3).
+
+**Hairline under the hood:** Hairline animates on `performance.now`, rAF, timers and an IntersectionObserver, which HyperFrames does not seek. `Short._hairline()` copies the vendored build into `hf/assets/hairline.js` with those calls rewritten to `__HL`, a clock moved only by the page's seek (`window.__seek`, shared with three.js); a backward seek remounts and replays from 0, so every frame is the same on every render (first used on [[How RAG works - Status]]).
 
 ## 3D: three routes into HyperFrames
 

@@ -90,7 +90,7 @@ A **Package** section before the scene table: **Y** and **X** · **promise** (on
   | shows an AI or agent doing a task | a **recorded run** of the real tool (`video`, cut to 9:16 on the action) |
   | shows a real thing, place or scale | **footage** of it doing the verb; a photo with a `move` only when no footage exists |
   | explains a process inside a model with depth or many parts | **3D plate** (`scene3d.py`, or in HyperFrames three.js or a Blender glb or webm, [[Design system]] 3D routes): the exception, only where depth explains ([[Style]]) |
-  | explains a flat hidden process (a loop, a pipeline) | **motion** plate (`motion.py` or HyperFrames): a faithful moving schematic |
+  | explains a flat hidden process (a loop, a pipeline) | **motion** plate (`motion.py` or HyperFrames): a faithful moving schematic; in HyperFrames a **Hairline** figure acting on the word ([[Design system]]) when one maps to the step (cards = passages, pillars = a map, layers = a prompt) [H] |
   | gives a number | a **comparison that builds** (a bar grows, a counter runs), never a figure alone on a card |
   | change over time · a place · a trade-off | a chart that draws itself · an animated map · both in one frame |
 
