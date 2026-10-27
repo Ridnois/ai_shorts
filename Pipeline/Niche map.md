@@ -12,8 +12,8 @@ Branches to open first, in the viewer's words (3 per series; replace a branch wh
 
 | Series | Searches to run (`youtube_search.py ... --short --min-ratio 3`) |
 | --- | --- |
-| How it works | "how does chatgpt actually work" · "why does ai make things up" · "what is a token in ai" |
-| Agent at work | "claude code workflow" · "ai agent automate my job" · "best way to prompt ai for coding" |
+| How it works | "how does chatgpt actually work" · "why does ai make things up" · "what is a token in ai" · "rag explained" · "why is chatgpt so agreeable" |
+| Agent at work | "claude code workflow" · "ai agent automate my job" · "best way to prompt ai for coding" · "what is mcp ai" · "ai agent deleted database" |
 | What's coming | "will ai take my job" · "how much power does ai use" · "what happens when ai is smarter than us" |
 
 ## Reference formats (outside research, 26 Oct 2026; replace with tool rows as they arrive)

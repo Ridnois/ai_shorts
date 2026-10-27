@@ -9,6 +9,7 @@ approved_budget_usd:
 actual_cost_usd: 
 video: 
 hook_type: 
+case: 
 error: 
 created: {{date}}
 updated: {{date}}
@@ -22,6 +23,10 @@ tags: [youtube, pipeline]
 ## Idea
 
 Topic, central question, for whom and why now. What you write here is the input to the *build script* step. Write it in English.
+
+## Y · X · case
+
+**Y** (the result the viewer wants) · **X** (the mechanism in the way) · **case** (the real, dated, named case that carries it, with the source to verify; [[Audience]] *Case sources*) · **plain words** for the term ([[Audience]] *Plain-words map*).
 
 ## Angle (optional)
 

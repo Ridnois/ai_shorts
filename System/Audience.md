@@ -1,7 +1,7 @@
 ---
 type: rules
-updated: 2026-10-23
-status: v2 · AI niche (23 Oct 2026): three series (How it works, Agent at work, What's coming); deep-first search, outcome and mechanism, package and opening from [[User insights]] (6 Oct 2026)
+updated: 2026-10-26
+status: v3 · AI niche machinery (26 Oct 2026, user: "optimize this vault for ai related niche"): case sources, news as the case, plain-words map, AI keywords; v2 · AI niche (23 Oct 2026): three series (How it works, Agent at work, What's coming); deep-first search, outcome and mechanism, package and opening from [[User insights]] (6 Oct 2026)
 ---
 
 # Audience: niche, search, package, opening
@@ -18,9 +18,40 @@ Owns everything that happens **before the click and in the first seconds after i
 | **Agent at work** | agentic usage: tools, prompts, workflows, coding agents, MCP, automations, shown as **real recorded runs** | to get more done with AI this week | "The one line that makes an agent check its own work" |
 | **What's coming** | the future with AI, from evidence: compute, energy, jobs, science, safety, policy | to see the change before it lands on them | "Why AI needs a power plant per data center" |
 
-Not AI news or product launches (they age in days and fail the street-lamp test), not hype, not doom. A topic outside the three needs one line saying which pillar it serves. Topic families for the spread rule: models inside, data and training, agents and tools, work and money, compute and energy, safety and society.
+**News is the case, never the video** (26 Oct 2026): a launch or incident enters only as the real case (§1 item 9 of [[Playbook]]) that opens an evergreen mechanism (Air Canada's chatbot → RAG); the mechanism must still be true in a year. At least 4 of 5 videos have no date-bound claim in the voice. Not hype, not doom. A topic outside the three needs one line saying which pillar it serves. Topic families for the spread rule: models inside, data and training, agents and tools, work and money, compute and energy, safety and society.
 
 **Audience:** curious adults who use ChatGPT, Claude or Gemini a few times a week and feel they are missing how it works or how others use it so well; developers and knowledge workers who want agents to do real work. Plain words first; the expert gets one detail per scene they did not know.
+
+## Case sources (where the real case of [[Playbook]] §1 item 9 comes from)
+
+Look here first, in this order; every case is verified at its primary source and dated.
+
+| Kind | Source | Good for |
+| --- | --- | --- |
+| Incidents | AI Incident Database (incidentdatabase.ai), court and tribunal decisions (CanLII, CourtListener), regulator actions (FTC, EU AI Office) | How it works (the failure the mechanism explains) |
+| Lab disclosures | model and system cards, lab postmortems and rollbacks (OpenAI, Anthropic, Google DeepMind blogs), status pages | How it works, What's coming |
+| Measurements | Stanford AI Index, Epoch AI data, METR evaluations, LMArena, arXiv papers with a public benchmark | What's coming (numbers that build) |
+| Real runs | our own recorded run of Claude Code, Codex, ChatGPT or Gemini on a task a viewer has | Agent at work |
+
+A case is ≤ 3 years old or iconic; a famous case already covered by 3 outlier Shorts needs a new mechanism angle.
+
+## Plain-words map (the hook's **Plain** test, [[Playbook]] §2)
+
+The voice uses the left column; the term goes on screen once, glossed. The illustration column is the concept's fixed picture ([[Style]] Illustrations), so a returning viewer recognises it.
+
+| Term | Say | Picture |
+| --- | --- | --- |
+| token | word piece | puzzle piece |
+| embedding | a word's position on a map of meaning | world map |
+| context window | what it can see at once | open window |
+| training · fine-tuning | practice · extra practice on one job | flexed biceps |
+| RLHF | people's thumbs up and down | thumbs up |
+| hallucination | it makes up a plausible answer | performing arts masks |
+| RAG | it looks it up first | magnifier on a page |
+| agent | AI that takes the steps itself | hammer and wrench |
+| MCP · tool use | a plug that lets AI use an app | electric plug |
+| prompt injection | hidden orders in what it reads | envelope with a warning |
+| compute · inference | the chips' work · answering | high voltage, factory |
 
 ## Outcome and mechanism (the idea frame)
 

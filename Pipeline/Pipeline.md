@@ -10,7 +10,7 @@ tags: [research, youtube, pipeline, hub]
 
 ← [[YouTube Channel]] · [[Workflow]]
 
-**State, 23 Oct 2026:** the channel moved to AI; the queue holds AI ideas only, each tagged with its series ([[Audience]]). Videos are built interactively under delegation; the runner is optional and its prompts must follow [[Playbook]] and [[Workflow]]. Search branches and outliers: [[Niche map]].
+**State, 26 Oct 2026:** the queue holds AI ideas only, each with its series, Y, X and a real case to verify at P1 ([[Audience]] *Case sources*); nine were seeded on 26 Oct 2026, three per series. Videos are built interactively under delegation; the runner is optional and its prompts must follow [[Playbook]] and [[Workflow]]. Search branches and outliers: [[Niche map]].
 
 One **note per idea** in `Pipeline/Ideas/`; its `status` property is the table column. Changing `status` in the table is the command; the runner does the work and leaves the next status.
 
