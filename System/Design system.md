@@ -104,7 +104,7 @@ Every motion is a verb on `Short`; each fires on a word with `v.cue(scene, "word
 | `slide` | linear move | strips, time passing |
 | world cut | out: blur 8 px and fade 0.2 s; in: blur and fade 0.25 s | automatic, 0.2 s before the scene's first word |
 
-**Timing laws:** a picture lands on the first syllable of its word; its label follows 0.1 s later; items in a list are 0.1 to 0.18 s apart; anything replaced leaves 0.25 s before its successor arrives; an event every 2 to 3 s, nothing unchanged over 3.5 s ([[Playbook]] §3).
+**Timing laws:** a picture lands on the first syllable of its word; its label follows 0.1 s later; items in a list are 0.1 to 0.18 s apart; anything replaced leaves 0.25 s before its successor arrives; an event every 1.5 to 2 s and one scale change per world, nothing unchanged over 3.5 s ([[Playbook]] §3).
 
 ## 3D: three routes into HyperFrames
 
