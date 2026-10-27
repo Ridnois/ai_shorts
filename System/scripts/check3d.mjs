@@ -4,7 +4,7 @@
 //   text vs text (visible .ov elements that are not nested in each other)
 // and warns (exit code unchanged) for Style.md rules the eye misses on a sheet:
 //   SMALL TEXT   visible text under 40 px outside captions and cards (Style: legible at phone size)
-//   SPARSE       everything but the captions (text, 3D and .art illustrations) covers under a quarter of the stage (y 192 to 1440) for over 3 s in a row
+//   SPARSE       everything but the captions (text, 3D, .art illustrations and .hl Hairline figures) covers under a quarter of the stage (y 192 to 1440) for over 3 s in a row
 // Usage: node check3d.mjs [index.html]     exit code 1 when anything overlaps. Shared copy: System/scripts/check3d.mjs
 // ponytail: puppeteer-core and Chrome are borrowed from the hyperframes npx cache; pin them if this becomes a tool.
 import { createRequire } from "module";
@@ -61,7 +61,7 @@ const res = await page.evaluate(() => {
     for (const e of els) for (const n of [e.el, ...e.el.querySelectorAll("*")])
       if ([...n.childNodes].some(c => c.nodeType === 3 && c.textContent.trim()) && !n.closest("#caps, [id*=card]")   // cards keep the approved Style sizes
           && parseFloat(getComputedStyle(n).fontSize) < 40) warnAt(t, `SMALL TEXT ${parseFloat(getComputedStyle(n).fontSize)} px in ${e.id}`);
-    const art = [...document.querySelectorAll(".art")].filter(e => clipOn(e, t) && alpha(e) > 0.05)    // illustrations fill the frame too
+    const art = [...document.querySelectorAll(".art, .hl")].filter(e => clipOn(e, t) && alpha(e) > 0.05)    // illustrations fill the frame too
       .map(e => { const r = e.getBoundingClientRect(); return [r.left, r.top, r.right, r.bottom]; });
     const boxes = [...els.filter(e => !e.el.closest("#caps")).map(e => e.r), ...b3, ...art];
     if (boxes.length) {                                // bounding box of the picture, not its ink: generous on purpose

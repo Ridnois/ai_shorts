@@ -91,6 +91,12 @@ def strip(id_, inner, x=70, y=520, w=870, h=310):
     return f'<div class="strip ov box" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px"><div class="track" id="{id_}-t">{inner}</div></div>'
 
 
+def hairline(id_, x=103, y=205, w=800):
+    """A Hairline isometric line figure (vendor/hairline, MIT): a host box at 5:4; Short.hairline() names the figure and
+    Short.point() moves its unseen pointer on words. 800 wide = 640 tall, inside the STAGE."""
+    return f'<div class="hl" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{round(w * 0.8)}px"></div>'
+
+
 def card(id_, label, title, detail, good=False):
     """Context card in the DECK: source label, one title, one detail line. good = the solution's mint card."""
     return (f'<div id="{id_}" class="card ov{" good" if good else ""}"><div class="lab">{label}</div><div class="tit">{html.escape(title)}</div>'
@@ -149,10 +155,13 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:{INK}; }}
 .chips {{ display:flex; gap:18px; margin-top:22px; }}
 .chip {{ padding:10px 26px; border-radius:40px; border:4px solid {SIGNAL2}; color:{SIGNAL2}; font-size:40px; font-weight:800; white-space:nowrap; }}
 .askf {{ margin-top:18px; font-size:40px; font-weight:700; color:{SLATE}; }}
+.hl {{ position:absolute; --hairline-plate:{INK2}; --hairline-hi:{EMBER2}; --hairline-edge:{CREAM}; --hairline-mid:{SLATE};
+  --hairline-lo:{HAZE}; --hairline-stroke:3.2; }}
+.hl [aria-live], .hl .sr-only {{ display:none; }}
 .cap {{ position:absolute; left:0; width:1080px; top:905px; text-align:center; font-family:Inter; font-weight:900; color:#fff;
   line-height:110px; height:110px; -webkit-text-stroke:10px #0A0907; paint-order:stroke fill; text-shadow:0 6px 18px rgba(0,0,0,0.55); z-index:50; white-space:nowrap; }}
 '''
-HIDE0 = [".ask", ".card", ".art", ".lbl", ".code", ".cl", ".count", ".strip", ".frm:not(.track .frm)", ".arr", ".xx", ".flash"]
+HIDE0 = [".ask", ".hl", ".card", ".art", ".lbl", ".code", ".cl", ".count", ".strip", ".frm:not(.track .frm)", ".arr", ".xx", ".flash"]
 norm = lambda s: re.sub(r"[^a-z0-9]", "", s.lower())
 sel = lambda s: json.dumps(s) if isinstance(s, list) else (s if s.startswith("[") else json.dumps(s))
 
@@ -210,7 +219,7 @@ class Short:
         timed = [(w[0], self.T(k), round(off + w[2], 3)) for k, w in enumerate(words)]
         keys = keys or {}
         self.caps = html_caps(timed, lambda t, s: keys.get(t, "#FFFFFF"), end=off + self.take_dur)
-        self.J, self.extra, self.models = [], [], []
+        self.J, self.extra, self.models, self.figs = [], [], [], {}
 
     T = lambda self, i: round(self.off + self.words[i][1], 3)
 
@@ -271,6 +280,65 @@ class Short:
         """A Blender scene (blender3d fmt glb) played by three.js: its keys and camera follow the timeline."""
         self.models.append({"src": src, "start": t0, "dur": dur})
 
+    # ---- Hairline figures driven on the page clock
+    def hairline(self, id_, fn, intensity=0.6):
+        """Mount Hairline's `fn` (drawer, riffle, terrain, sieve, hub, relay, stack, ...) into the hairline() box id_."""
+        self.figs[id_] = {"fn": fn, "opts": {"intensity": intensity, "theme": "dark"}, "moves": []}
+
+    def point(self, id_, t, x=None, y=None, glide=0):
+        """The unseen pointer: at t it moves to (x, y) in the figure's 400 x 320 viewBox (gliding over `glide` s);
+        x None = it leaves. Hairline answers the pointer, so this is how a figure acts on a word."""
+        self.figs[id_]["moves"].append([round(t, 3), x, y, glide])
+
+    def _hairline(self):
+        """Hairline reads performance.now, rAF, timers and IntersectionObserver; the vendored copy is rewritten to read __HL,
+        a clock that only moves when the timeline seeks, so every frame is the same on every render (as its parity tests do)."""
+        src = open(f"{HERE}/vendor/hairline/hairline-0.5.1.js").read()
+        for a, b in ((r"performance\.now\(", "__HL.now("), (r"requestAnimationFrame\(", "__HL.raf("), (r"cancelAnimationFrame\(", "__HL.caf("),
+                     (r"new IntersectionObserver\(", "new __HL.IO("), (r"(window\.)?setTimeout\(", "__HL.st("), (r"clearTimeout\(", "__HL.ct(")):
+            src = re.sub(a, b, src)
+        src = re.sub(r"//# sourceMappingURL=.*", "", src)
+        assert "performance.now(" not in src and "requestAnimationFrame(" not in src
+        os.makedirs(f"{self.here}/assets", exist_ok=True)
+        open(f"{self.here}/assets/hairline.js", "w").write(src)
+        return r'''
+window.__HL = (() => {
+  let now = 0, q = [], tm = [], seq = 0;
+  return { now: () => now, raf: cb => (q.push([++seq, cb]), seq), caf: id => { q = q.filter(e => e[0] !== id); },
+    st: (cb, ms = 0) => (tm.push([++seq, now + ms, cb]), seq), ct: id => { tm = tm.filter(e => e[0] !== id); },
+    IO: class { constructor(cb) { this.cb = cb; } observe(el) { this.cb([{target: el, isIntersecting: true}]); } unobserve() {} disconnect() {} },
+    reset() { now = 0; q = []; tm = []; },
+    step(to) { while (now < to - 1e-6) { now = Math.min(to, now + 1000 / 60);
+      for (const t of tm.filter(t => t[1] <= now)) { tm = tm.filter(x => x !== t); t[2](); }
+      const run = q; q = []; for (const [, cb] of run) cb(now); } } };
+})();
+</script>
+<script type="module">
+import * as HL from "./assets/hairline.js";
+const F = __FIGS__;
+let figs = [], ev = [], at = 0;
+for (const [id, f] of Object.entries(F)) for (const [t, x, y, g] of f.moves) {       // glides become a move every 1/30 s
+  const n = g > 0 ? Math.max(1, Math.round(g * 30)) : 0, k0 = ev.filter(e => e.id === id).pop();
+  if (n && k0 && k0.x != null && x != null) for (let i = 1; i <= n; i++) ev.push({id, t: t + g * i / n, x: k0.x + (x - k0.x) * i / n, y: k0.y + (y - k0.y) * i / n});
+  else ev.push({id, t, x, y});
+}
+ev.sort((a, b) => a.t - b.t);
+function mount() { __HL.reset(); figs.forEach(f => f.destroy()); at = -1;
+  figs = Object.entries(F).map(([id, f]) => HL[f.fn](document.getElementById(id), f.opts)); }
+function send(e) {
+  const host = document.getElementById(e.id), el = host.querySelector("svg") || host, r = host.getBoundingClientRect();
+  if (e.x == null) el.dispatchEvent(new PointerEvent("pointerleave", {pointerType: "mouse", bubbles: true}));
+  else el.dispatchEvent(new PointerEvent("pointermove", {pointerType: "mouse", bubbles: true,
+    clientX: r.left + e.x / 400 * r.width, clientY: r.top + e.y / 320 * r.height}));
+}
+function seek(t) {                                   // backwards: remount and replay from 0, so a seek never depends on history
+  if (t < at - 1e-6) mount();
+  for (const e of ev) if (e.t > at && e.t <= t) { __HL.step(e.t * 1000); send(e); }
+  __HL.step(t * 1000); at = t;
+}
+mount(); window.__seek.push(seek); seek(window.__timelines.main.time());
+'''.replace("__FIGS__", json.dumps(self.figs))
+
     def _three(self):
         return r'''
 import * as THREE from "three";
@@ -316,8 +384,7 @@ window.__hf.buildReady["glb"] = (async () => {
   }
   const tlm = window.__timelines && window.__timelines["main"];
   render(tlm ? tlm.time() : 0); renderer.getContext().finish();
-  if (tlm) tlm.eventCallback("onUpdate", () => render(tlm.time()));
-  window.addEventListener("hf-seek", e => { if (e && e.detail && typeof e.detail.time === "number") render(e.detail.time); });
+  window.__seek.push(render);
   window.__render3d = render; window.__ready3d = true;
 })();
 '''.replace("__MODELS__", json.dumps(self.models))
@@ -346,6 +413,7 @@ window.__hf.buildReady["glb"] = (async () => {
         J = ["tl." + h for h in head] + self.J
         three = (f'<script type="module">{self._three()}</script>' if self.models else
                  '<script>window.__render3d = () => {}; window.__boxes3d = []; window.__ready3d = true;</script>')   # 2D only; the overlap check still runs
+        hl = f'<script>{self._hairline()}</script>' if self.figs else ""
         page = f'''<!doctype html>
 <html lang="en" data-resolution="portrait">
 <head>
@@ -364,8 +432,11 @@ window.__timelines = window.__timelines || {{}};
 const tl = gsap.timeline({{ paused: true }});
 {chr(10).join(J)}
 window.__timelines["main"] = tl;
+window.__seek = [];                                     // 3D and Hairline follow every seek of the page clock
+tl.eventCallback("onUpdate", () => window.__seek.forEach(f => f(tl.time())));
+window.addEventListener("hf-seek", e => {{ if (e && e.detail && typeof e.detail.time === "number") window.__seek.forEach(f => f(e.detail.time)); }});
 </script>
-{three}
+{three}{hl}
 </body>
 </html>
 '''
