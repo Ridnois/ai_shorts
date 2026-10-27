@@ -101,6 +101,7 @@ INVARIANTS = [
     ("System/Audience.md", "Plain-words map", "AI jargon has fixed plain words and pictures (user, 26 Oct 2026)"),
     ("System/Audience.md", "News is the case, never the video", "evergreen mechanism, timely case (user, 26 Oct 2026)"),
     ("System/Publish.md", "AI shelf life", "AI claims are re-checked before upload (user, 26 Oct 2026)"),
+    ("System/Style.md", "Comment prompt", "the closing question is a reply box with answer chips (user, 27 Oct 2026)"),
     ("System/Playbook.md", "Short test block", "shorter videos are tested, 90 to 140 words (user, 26 Oct 2026)"),
     ("System/Playbook.md", "Comparisons live on one board", "a comparison stays on one table (user, 26 Oct 2026)"),
     ("System/Playbook.md", "mini-series", "strong families become series (YouTube diagnostic, 9 Oct 2026)"),
