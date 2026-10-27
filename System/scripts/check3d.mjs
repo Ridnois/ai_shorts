@@ -16,7 +16,7 @@ const chrome = execSync("ls $HOME/.cache/hyperframes/chrome/chrome-headless-shel
 const puppeteer = createRequire(import.meta.url)(npx);
 const file = path.resolve(process.argv[2] || "index.html");
 
-const browser = await puppeteer.launch({ executablePath: chrome, headless: true, args: ["--no-sandbox", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"] });
+const browser = await puppeteer.launch({ executablePath: chrome, headless: true, args: ["--no-sandbox", "--allow-file-access-from-files", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"] });
 const page = await browser.newPage();
 await page.setViewport({ width: 1080, height: 1920 });
 page.on("pageerror", e => console.log("PAGE ERROR", e.message));
