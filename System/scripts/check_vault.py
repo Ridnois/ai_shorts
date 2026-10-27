@@ -95,6 +95,8 @@ INVARIANTS = [
     ("System/Workflow.md", "did any picture fail to show what was being said", "listening rubric asks about visual sync"),
     ("CLAUDE.md", "verb, not the noun", "agent guide carries the visual rule"),
     ("System/Playbook.md", "Compact test", "every third video is compact (YouTube diagnostic, 9 Oct 2026)"),
+    ("System/Playbook.md", "Illustrate, do not typeset", "every step has a picture, not a text box (user, 26 Oct 2026)"),
+    ("System/Style.md", "Fluent Emoji 3D", "illustration library for everyday objects (user, 26 Oct 2026)"),
     ("System/Playbook.md", "Short test block", "shorter videos are tested, 90 to 140 words (user, 26 Oct 2026)"),
     ("System/Playbook.md", "Comparisons live on one board", "a comparison stays on one table (user, 26 Oct 2026)"),
     ("System/Playbook.md", "mini-series", "strong families become series (YouTube diagnostic, 9 Oct 2026)"),
