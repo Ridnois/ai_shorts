@@ -884,7 +884,7 @@ var HL = (() => {
  * The pattern: a field along one axis. The pointer is read on the ground plane, which never moves (rule 01); one spring
  * for the frame and one per block, so the blocks follow the frame as it glides.
  */
-const { Cam, clamp, facing, fit, proj, prism, rings, unproj, spring, stepS, disposer, mk, put, solid, pointer, reflect, register } = HL;
+const { Cam, clamp, facing, fit, proj, prism, rings, seg, unproj, spring, stepS, disposer, mk, put, solid, pointer, reflect, register } = HL;
 
 const N = 16, BW = 9, GAP = 3, BD = 14, STEP = BW + GAP, L = N * STEP - GAP;
 const LOW = [3, 5, 2, 4, 6, 3, 2, 5, 4, 3, 6, 2, 4, 5, 3, 2];   // word lengths: rest is uneven, never a flat row (rule 05)
@@ -895,7 +895,7 @@ function mount({ stage, svg, read }, value) {
   const bag = disposer();
   let span = value;
 
-  const C = Cam(45, 0.5, 1.52);
+  const C = Cam(45, 0.5, 1.78);
   fit(C, [[-6, -6, -4], [L + 6, BD + 6, -4], [-6, BD + 6, -4], [L + 6, -6, ZF + RAIL], [-6, -6, ZF + RAIL]], 200, 170);
   const P = proj(C), front = facing(C);
 
@@ -907,7 +907,8 @@ function mount({ stage, svg, read }, value) {
   const blocks = [];
   for (let i = 0; i < N; i++) {
     const [r, inn] = rings(i * STEP, 0, i * STEP + BW, BD, 2.2, 1);
-    blocks.push({ r, inn, s: solid(g), h: spring(LOW[i]), last: -1 });
+    const s = solid(g);
+    blocks.push({ r, inn, s, line: mk("path", { class: "nf lo" }, s.g), x: i * STEP, h: spring(LOW[i]), last: -1 });
   }
   // the frame: back rail, the two ends, front rail, painted back to front above every block
   const rails = [0, 1, 2, 3].map(() => solid(g));
@@ -935,7 +936,11 @@ function mount({ stage, svg, read }, value) {
     blocks.forEach((b, i) => {
       b.h.t = LOW[i] + (inside(i, frame.t) ? RISE : 0);            // targets come from the frame's target, not its pose (rule 01)
       if (stepS(b.h, dt)) moving = true;
-      if (Math.abs(b.h.x - b.last) > 0.01) { put(b.s, prism(P, front, b.r, b.inn, 0, b.h.x)); b.last = b.h.x; }
+      if (Math.abs(b.h.x - b.last) > 0.01) {
+        put(b.s, prism(P, front, b.r, b.inn, 0, b.h.x));
+        b.line.setAttribute("d", seg(P(b.x + 2.5, BD / 2, b.h.x), P(b.x + BW - 2.5, BD / 2, b.h.x)));   // the tile's printed run, its one mark
+        b.last = b.h.x;
+      }
     });
     if (Math.abs(c - lastC) > 0.01) { drawFrame(c); lastC = c; }
     return moving;
