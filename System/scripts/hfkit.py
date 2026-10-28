@@ -222,6 +222,7 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:{INK}; }}
 .card .det {{ font-size:40px; color:#A9B0C4; margin-top:12px; line-height:1.2; }}
 .tag {{ position:absolute; padding:14px 30px; border:{LINE}px solid; border-radius:44px; background:rgba(21,26,43,0.94); font-size:46px; font-weight:800; white-space:nowrap; }}
 #rail {{ z-index:40; }}
+#rail::before {{ content:""; position:absolute; left:-56px; top:-16px; width:1080px; height:130px; background:linear-gradient(180deg, rgba(11,13,23,0.98) 78%, rgba(11,13,23,0)); }}
 .rl {{ position:absolute; top:17px; height:{LINE}px; background:{SLATE}; }}
 .rn {{ position:absolute; top:0; width:220px; text-align:center; }}
 .rn i {{ display:block; margin:0 auto; width:38px; height:38px; border-radius:50%; border:{LINE}px solid {SLATE}; background:{INK}; }}
@@ -348,39 +349,40 @@ class Short:
         return self.T(hits[nth - 1])
 
     # ---- motion verbs (Design system: Motion). Arrivals land on a long tail; exits are shorter and accelerate.
+    # immediateRender:false: a verb never hides its target before its own time (things shown from frame 0 stay shown).
     def at(self, t, js):
         self.J.append("tl." + js.replace("@", str(round(t, 3))))
 
     def pop(self, s, t, spring=False):                # labels, frames, cards, figures: rise 24 px
-        self.at(t, f'fromTo({sel(s)}, {{opacity:0, y:24, scale:{0.9 if spring else 1}}}, {{opacity:1, y:0, scale:1, duration:{0.5 if spring else 0.4}, ease:"{"back.out(1.4)" if spring else "expo.out"}"}}, @);')
+        self.at(t, f'fromTo({sel(s)}, {{opacity:0, y:24, scale:{0.9 if spring else 1}}}, {{immediateRender:false, opacity:1, y:0, scale:1, duration:{0.5 if spring else 0.4}, ease:"{"back.out(1.4)" if spring else "expo.out"}"}}, @);')
 
     def grow(self, s, t):                             # a picture arrives on its noun: scale up from the middle
-        self.at(t, f'fromTo({sel(s)}, {{opacity:0, scale:0.6}}, {{opacity:1, scale:1, duration:0.55, ease:"expo.out"}}, @);')
+        self.at(t, f'fromTo({sel(s)}, {{opacity:0, scale:0.6}}, {{immediateRender:false, opacity:1, scale:1, duration:0.55, ease:"expo.out"}}, @);')
 
     def blurin(self, s, t, d=0.18):                   # a whole line blurs in: 8 px to 0
-        self.at(t, f'fromTo({sel(s)}, {{opacity:0, filter:"blur(8px)"}}, {{opacity:1, filter:"blur(0px)", duration:{d}, ease:"power2.out"}}, @);')
+        self.at(t, f'fromTo({sel(s)}, {{opacity:0, filter:"blur(8px)"}}, {{immediateRender:false, opacity:1, filter:"blur(0px)", duration:{d}, ease:"power2.out"}}, @);')
 
     def reveal(self, id_, t, n, step=0.067):          # a big() line of n words, word by word: blur 6 px to 0, no translate
         self.at(t, f'set("#{id_}", {{opacity:1}}, @);')
         for k in range(n):
-            self.at(t + step * k, f'fromTo("#{id_}-w{k}", {{opacity:0, filter:"blur(6px)"}}, {{opacity:1, filter:"blur(0px)", duration:0.13, ease:"power2.out"}}, @);')
+            self.at(t + step * k, f'fromTo("#{id_}-w{k}", {{opacity:0, filter:"blur(6px)"}}, {{immediateRender:false, opacity:1, filter:"blur(0px)", duration:0.13, ease:"power2.out"}}, @);')
 
     def hide(self, s, t, d=0.2):
         self.at(t, f'to({sel(s)}, {{opacity:0, filter:"blur(6px)", duration:{d}, ease:"power3.in"}}, @);')
 
     def rise(self, s, t):                             # panels from the deck: the comment prompt
-        self.at(t, f'fromTo({sel(s)}, {{opacity:0, y:60}}, {{opacity:1, y:0, duration:0.5, ease:"expo.out"}}, @);')
+        self.at(t, f'fromTo({sel(s)}, {{opacity:0, y:60}}, {{immediateRender:false, opacity:1, y:0, duration:0.5, ease:"expo.out"}}, @);')
 
     def chips(self, id_, n, t, step=0.12):
         for k in range(n):
-            self.at(t + step * k, f'fromTo("#{id_}-c{k}", {{opacity:0, scale:0.7}}, {{opacity:1, scale:1, duration:0.4, ease:"back.out(1.4)"}}, @);')
+            self.at(t + step * k, f'fromTo("#{id_}-c{k}", {{opacity:0, scale:0.7}}, {{immediateRender:false, opacity:1, scale:1, duration:0.4, ease:"back.out(1.4)"}}, @);')
             self.sfx(t + step * k, "pop", -30)
 
     def count(self, s, to, t, d=0.9):
         self.at(t, f'to({sel(s)}, {{textContent:{to}, duration:{d}, snap:{{textContent:1}}, ease:"power2.out"}}, @);')
 
     def flash(self, s, t):
-        self.at(t, f'fromTo({sel(s)}, {{opacity:0.9}}, {{opacity:0, duration:0.35, ease:"power2.out"}}, @);')
+        self.at(t, f'fromTo({sel(s)}, {{opacity:0.9}}, {{immediateRender:false, opacity:0, duration:0.35, ease:"power2.out"}}, @);')
 
     def strike(self, s, t):
         self.at(t, f'to({sel(s)}, {{opacity:1, scaleX:1, duration:0.3, ease:"power3.out"}}, @);')
@@ -417,8 +419,8 @@ class Short:
         self.cam(w, t, d=d, to=FOCUS, **kw)
 
     def callout(self, id_, t):                        # the leader draws from the part, then the label lands
-        self.at(t, f'fromTo("#{id_}-d", {{opacity:0, scale:0.3, transformOrigin:"50% 50%"}}, {{opacity:1, scale:1, duration:0.25, ease:"back.out(1.4)"}}, @);')
-        self.at(t + 0.05, f'fromTo("#{id_}-p", {{attr:{{"stroke-dashoffset":1}}}}, {{attr:{{"stroke-dashoffset":0}}, duration:0.4, ease:"power3.out"}}, @);')
+        self.at(t, f'fromTo("#{id_}-d", {{opacity:0, scale:0.3, transformOrigin:"50% 50%"}}, {{immediateRender:false, opacity:1, scale:1, duration:0.25, ease:"back.out(1.4)"}}, @);')
+        self.at(t + 0.05, f'fromTo("#{id_}-p", {{attr:{{"stroke-dashoffset":1}}}}, {{immediateRender:false, attr:{{"stroke-dashoffset":0}}, duration:0.4, ease:"power3.out"}}, @);')
         self.blurin(f"#{id_}", t + 0.3)
         self.sfx(t, "click", -32)
 
@@ -430,7 +432,7 @@ class Short:
         self.extra.append(f'<div id="railc" class="clip" data-start="0" data-duration="{self.DUR}" data-track-index="40">{rail(steps)}</div>')
         self.at(t, 'set("#rail", {opacity:1}, @);')
         for k in range(len(steps)):
-            self.at(t + 0.06 * k, f'fromTo("#rail-n{k}", {{opacity:0, y:16}}, {{opacity:1, y:0, duration:0.35, ease:"expo.out"}}, @);')
+            self.at(t + 0.06 * k, f'fromTo("#rail-n{k}", {{opacity:0, y:16}}, {{immediateRender:false, opacity:1, y:0, duration:0.35, ease:"expo.out"}}, @);')
 
     def step(self, k, t, state="on"):
         """Rail node k becomes on (ember, the step on screen), done (cream), bad (rose: where it fails) or good (mint)."""

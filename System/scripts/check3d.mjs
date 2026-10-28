@@ -52,8 +52,12 @@ const res = await page.evaluate(() => {
     const gl = document.getElementById("gl"), glOn = gl && clipOn(gl, t) && alpha(gl) > 0.05;
     const b3 = glOn ? (window.__boxes3d || []) : [];
     for (const b of b3) { if (hit(b, band)) note(t, "3D in caption band"); for (const e of els) if (hit(b, e.r)) note(t, `3D vs ${e.id}`); }
+    const crop = el => { for (let c = el.closest(".cam, .in"); c; c = c.parentElement && c.parentElement.closest(".cam, .in")) {
+        const m = getComputedStyle(c).transform;                                   // a close-up or a push crops on purpose
+        if (m !== "none" && Math.abs(new DOMMatrix(m).a) > 1.02) return true; } return false; };
     for (let i = 0; i < els.length; i++) for (let j = i + 1; j < els.length; j++) {
       const a = els[i], b = els[j]; if (a.el.contains(b.el) || b.el.contains(a.el)) continue;
+      if ((a.id === "rail" && crop(b.el)) || (b.id === "rail" && crop(a.el))) continue;   // the rail has its own backing band
       const inside = (x, y) => x.r[0] >= y.r[0] && x.r[1] >= y.r[1] && x.r[2] <= y.r[2] && x.r[3] <= y.r[3];
       if ((b.el.classList.contains("box") && inside(a, b)) || (a.el.classList.contains("box") && inside(b, a))) continue;   // held fully by a frame
       if ((a.el.classList.contains("box") && b.el.classList.contains("mover")) || (b.el.classList.contains("box") && a.el.classList.contains("mover"))) continue;   // a mover crosses frames by design
@@ -70,8 +74,6 @@ const res = await page.evaluate(() => {
       const x1 = Math.max(...boxes.map(b => b[2])), y1 = Math.min(1440, Math.max(...boxes.map(b => b[3])));
       if ((x1 - x0) * Math.max(0, y1 - y0) < stage / 4) warnAt(t, "SPARSE frame");
     } else warnAt(t, "SPARSE frame");
-    const crop = el => { const c = el.closest(".cam"); if (!c) return false;                  // a camera close-up crops on purpose
-      const m = getComputedStyle(c).transform; return m !== "none" && Math.abs(new DOMMatrix(m).a) > 1.02; };
     for (const e of els) { if (crop(e.el)) continue;
                            if (e.r[2] > 952) note(t, `${e.id} in the right interface strip (x > 950)`);      // the app's buttons
                            if (e.r[3] > 1442) note(t, `${e.id} in the bottom interface zone (y > 1440)`); }
