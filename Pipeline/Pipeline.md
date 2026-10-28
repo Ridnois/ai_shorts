@@ -1,8 +1,8 @@
 ---
 type: research
 created: 2026-10-03
-updated: 2026-10-23
-status: v3 · AI channel; English states and properties; the runner follows the idea-quality and illustration rules
+updated: 2026-10-28
+status: v4 · 27 Oct 2026: the runner is optional and text-only in practice; videos are built interactively with HyperFrames; ten ideas queued
 tags: [research, youtube, pipeline, hub]
 ---
 
@@ -10,7 +10,7 @@ tags: [research, youtube, pipeline, hub]
 
 ← [[YouTube Channel]] · [[Workflow]]
 
-**State, 26 Oct 2026:** the queue holds AI ideas only, each with its series, Y, X and a real case to verify at P1 ([[Audience]] *Case sources*); nine were seeded on 26 Oct 2026, three per series. Videos are built interactively under delegation; the runner is optional and its prompts must follow [[Playbook]] and [[Workflow]]. Search branches and outliers: [[Niche map]].
+**State, 27 Oct 2026:** the queue holds ten AI ideas, each with its series, Y, X and a real case to verify at P1 ([[Audience]] *Case sources*). Videos are built interactively under delegation (HyperFrames, [[Workflow]]); the runner below is optional, useful for the text stages only, and its prompts must name `CLAUDE.md`, [[Playbook]] and [[Workflow]]. Search branches and outliers: [[Niche map]].
 
 One **note per idea** in `Pipeline/Ideas/`; its `status` property is the table column. Changing `status` in the table is the command; the runner does the work and leaves the next status.
 
@@ -36,7 +36,7 @@ render-ready ◀── (editing, by hand) ◀── illustrations-ready ◀─�
 | `generate-assets` | **you** (trigger) | Asks for voice and images. Only runs if `approved_budget_usd` > 0 |
 | `generating-assets` | runner | Spending on Replicate |
 | `illustrations-ready` | runner | Voice and images in `Media/`. **You review P6 here** |
-| `render-ready` | you | Editing in Blender done ([[Playbook]]); P7 approved |
+| `render-ready` | you | Built and rendered with HyperFrames ([[Workflow]]); P7 approved |
 | `error` | runner | Something failed; the reason is in the *Error* column. Fix it and set the trigger again |
 
 ## How to use it (all from Obsidian)

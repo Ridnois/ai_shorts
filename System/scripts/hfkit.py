@@ -308,6 +308,11 @@ class Short:
                     w[1] = b
         for k in range(1, len(words)):
             words[k][1] = max(words[k][1], words[k - 1][1] + 0.067)
+        said = " ".join(plan["texts"]).split()
+        if len(said) == len(words):                   # whisper's homophones ("queues" for cues) take the script's spelling
+            for w, s in zip(words, said):
+                if norm(w[0]) != norm(s) and not re.search(r"\d|%", w[0]):
+                    w[0] = s
         self.off, self.words = off, words
         self.DUR = round(off + self.take_dur + tail, 2)
         self.Hw = Hw = [norm(w[0]) for w in words]
