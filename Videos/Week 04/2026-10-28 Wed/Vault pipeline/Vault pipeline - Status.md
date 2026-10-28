@@ -13,9 +13,9 @@ updated: 2026-10-28
 | --- | --- | --- | --- |
 | 0 Idea · 1 Research · 2 Script · 3 Beat sheet | done | 28 Oct 2026 (delegation) | Agent at work; real case: this channel; hook type contradiction; theme line "fix the note, not the video"; demand check not run (token expired); street-lamp pass; figure set `slow`, `format` |
 | 4 Captures, budget | done | 28 Oct 2026 (delegation) | real captures only (listing, frames of earlier renders, code, check output); budget $0.04, cap $0.10 |
-| 5 Generation | | | |
-| 6 Build | | | |
-| 7 Verdict · 8 Publish · 9 Measure | | | |
+| 5 Generation | done | 28 Oct 2026 | take v1 `4b9snthh31rmt0d1g1wax7j3d0` (762 characters, about $0.02); timings `n7qzzzwqb1rmy0d1g1wacq5zx0` (about $0.01); total about $0.03 of the $0.10 cap. Whisper heard all 125 words (homophones "queues" and "and" took the script's spelling); silences 0.25 to 0.93 s, the 0.93 s one at the hook-to-scene-2 boundary |
+| 6 Build | done | 28 Oct 2026 | hfkit v2; `hyperframes check` ok (accepted: nested structure, dense track; one warning at 32.1 s: the terminal close-up passes under the rail's backing band); `check3d` OVERLAPS 0, no WARN; transitions cut, dip, whip, whip, push, blur (1 hard cut of 6); shot sizes wide, medium, close (W1, W3, W5, W6 camera); slideshow-risk score 2 (text doing the picture's job 1: the terminal world; decoration 1: small frames in the strips); render `vp-43s-9x16-r1.mp4` at CRF 14, about 2.9 Mbps; `MIX` −14.1 LUFS, true peak −1.2 dBTP; thumbnail and publish pack built (dry run) |
+| 7 Verdict · 8 Publish · 9 Measure | waiting for the user | | ship, fix or drop |
 
 ## Not verified
 
