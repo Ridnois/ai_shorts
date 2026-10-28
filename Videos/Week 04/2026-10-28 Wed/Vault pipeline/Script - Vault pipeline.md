@@ -1,7 +1,7 @@
 ---
 type: script
 updated: 2026-10-28
-series: Agent at work
+series: How it works
 words: 134
 ---
 
@@ -9,37 +9,28 @@ words: 134
 
 Status: [[Vault pipeline - Status]] · rules: [[Playbook]] · build: [[Design system]]
 
-## Idea (P1)
+## Idea (P1, r3)
 
-- **Y:** make videos (or any repeated work) with an AI agent without re-explaining your taste every time. **X:** the agent reads rules kept as notes before every run, and a correction edits the note, not the output.
-- **Series:** Agent at work (the previous video, How RAG works, was How it works). **Figure set:** `slow`, `format` + real captures (variety guard: none used by How RAG works).
-- **Real case:** this channel, as of 27 Oct 2026: 14 videos rendered (24 renders), 0 uploaded; 111 KB of rules rewritten to 66 KB (−40 %) and the look moved into `hfkit.py`.
-- **Score:** surprise 4 · scale 3 · depth 4 · evidence 5 (all first-party) · showable 5 · plain 4. **Against it:** "a channel about itself" (answered: the habit transfers to any agent work) · "no numbers anyone cares about" (answered: 14 made, 0 shipped is a stake every maker knows) · "inside baseball tools" (answered: tools named on screen only, the voice says what they do).
-- **Street-lamp:** no headline says how an agent keeps a style across videos: pass. **Expert test:** "feedback edits the rule, not the render" is the interesting part. **Coffee test:** "My agent makes videos from a folder of rules; when it gets something wrong I fix the rule."
-- **Demand check:** not run: `youtube_search.py` needs the expired token (HTTP 400). The bridge: Y ("AI agent makes YouTube Shorts") is a common search; to be verified at P8.
-- **Hooks:** (contradiction) "An AI agent made this Short from a folder of notes. No long prompt." ← chosen · (number) "Fourteen videos made, zero uploaded. Then the agent fixed its own rules." · (stakes) "Your agent forgets your taste every time. Mine reads it first." · (question, rejected as opener) "What if your agent kept your notes?" · (fact) "Every frame of this video was a web page first."
-
-## Facts bank (first-party unless named; checked 27 to 28 Oct 2026)
-
-1. 14 videos rendered in 24 renders, 0 uploaded (`Media/`, [[YouTube Channel]]). 2. How RAG works took 5 renders. 3. Rules were 111,038 bytes in 9 notes; now 66,196 (−40.4 %). 4. 26 verbatim user corrections became rules (Status notes). 5. The vault has 285 git commits since 3 Oct 2026 (Obsidian auto-commit). 6. Voice: Inworld TTS-2, voice Dennis, one take, $0.025 per 1,000 characters ([[Workflow]]). 7. Word timings: whisper on Replicate, about $0.01. 8. A typical Short costs about $0.05. 9. HyperFrames renders HTML by seeking a paused timeline frame by frame (HyperFrames skill, 0.8.209). 10. `check3d.mjs` samples the page every 0.25 s for overlaps. 11. Mix to −14 LUFS: How RAG works r5 measured −14.04 LUFS, true peak −2.35 dBTP. 12. That render was 1.66 Mbps; v3 renders at CRF 14. 13. 33 packaged Hairline figures (MIT). 14. Baseline: 39.7 % viewed vs swiped away on the old niche (YouTube, 9 Oct 2026). 15. Shorts views count any start since 31 Mar 2025.
+- **Y:** know how an AI agent turns text into a finished video. **X:** the video is a web page whose timeline is keyed to the voice's word timestamps, filmed by a browser frame by frame. **Series:** How it works (mechanism only: no channel history, [[Playbook]] §2 *Mechanism, not history*).
+- **Running example:** the word "page", followed from the take (whisper 18.86 s) to its cue (19.342 s), its tween and its frame.
+- **Facts (first-party, 28 Oct 2026):** HyperFrames renders HTML by seeking a paused GSAP timeline frame by frame at 30 fps; this render is 1,399 frames; one Inworld TTS-2 take; whisper word timings; `check3d.mjs` samples every 0.25 s for overlaps; `mix_audio.py` masters to −14 LUFS (YouTube's reference loudness).
 
 ## Package
 
-- **Promise:** you see the whole path an AI agent takes from notes to a finished Short, and the one habit that keeps it on style.
-- **Titles:** **How an AI Agent Makes YouTube Shorts From Notes** ← · I Let an AI Agent Run My Shorts Channel · The Agent Workflow That Fixed My AI Videos
-- **Thumbnail:** the `format` figure with its lines snapped square in mint; words **FIX THE NOTE** (3). Beats neighbours (screen recordings of prompts) by naming the habit, not the tool.
-- **Opening map:** scene 1 = promise (an agent, notes, no long prompt); scene 2 = proof (14 made, 0 uploaded) and plan (the rail).
+- **Promise:** see how one spoken word becomes a frame of an AI-made Short.
+- **Titles:** **How an AI Agent Turns Text Into a Video, Frame by Frame** ← · This Short Was a Web Page First · How AI Video Pipelines Actually Work
+- **Thumbnail:** the `format` file snapped square; words **THE VIDEO IS CODE** (4).
 
-## Scenes (r2: tightened; one hero per beat, media mixed by beat)
+## Scenes (r3)
 
-| # | Question it answers | Voice (exact text) | Words | Hero (one at a time) | Camera | Source |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 | (hook) | An AI agent made this Short from a folder of notes, not a long prompt. Here is how. | 17 | the real `System/` listing and "Notes in, Short out" on frame 0; then "one long prompt" struck | close on Playbook.md, cut wide | `ls -l System` |
-| 2 | what do the notes hold? | The notes hold its rules for writing, look and sound. But they piled up: fourteen videos made, zero uploaded. | 19 | writing · look · sound (lit on their words); a strip of real frames; "14 made / 0 uploaded" | | Media, index |
-| 3 | so what changed? | So the agent rewrote them forty percent shorter, and turned the look into code. | 14 | two bars (111 KB to 66 KB); then the real `hfkit.py` lines | close on `HERO` | `wc -c` |
-| 4 | what is the path now? | Now every video takes one path: a script in words, then one voice take, never cut. | 16 | the `slow` belt; then this take's real waveform, "one take, never cut" | | plan.json, take |
-| 5 | how do words become frames? | Each word gets a timestamp, and each timestamp fires a moment on a web page, filmed frame by frame. | 19 | this take's real `words.json`; then real frames sliding | close on "timestamp", wide | words.json |
-| 6 | is it checked? | Then checks run: nothing overlaps, no screen sits empty, the sound is level. | 13 | the real terminal output of r1 of this video | close on each check | check3d, mix_audio |
-| 7 | what do I copy? | Here is the habit to copy. When the agent gets it wrong, do not fix the video. Fix the note, and every next video improves. Would you let an agent run your channel? Tell me. | 36 | "fix the video" struck, "fix the note" as the `format` file snaps square (riser and hit); the comment prompt | | |
+| # | Question it answers | Voice (exact text) | Words | Hero | Source |
+| --- | --- | --- | --- | --- | --- |
+| 1 | (hook) | Every frame of this Short was a web page first. An AI agent built it, and a browser filmed it. | 20 | real `index.html` lines and "1 page, 1399 frames"; then real frames sliding | index.html |
+| 2 | where does the agent start? | The agent starts from notes, plain text rules for script, look and sound, and writes the script in words. | 19 | the real notes listing; then `plan.json` | System/, plan.json |
+| 3 | how do the words get a voice and a time? | A voice model reads it in one take. Then Whisper stamps every word with the moment it is spoken. | 19 | this take's waveform; then raw whisper timings | words.json |
+| 4 | how does a time become a picture? | Follow one word: page. Its timestamp becomes a cue, and a timeline on the web page draws its picture right then. | 21 | "page" lands at 19.342 s; then the 3 real lines that put it there | words.json, build.py, index.html |
+| 5 | how does the page become a video? | A headless browser steps through that timeline thirty times a second, and saves every step as a frame. | 18 | real consecutive frames; the count to 1,399 | render |
+| 6 | is it checked? | Before anyone watches, scripts check that nothing overlaps and the sound hits YouTube's loudness. | 14 | real terminal output (r2) | check3d, mix_audio |
+| 7 | so what? | So the whole video is code. Change one note, and every next video changes. Would you build videos this way? Tell me. | 22 | the `format` file snaps square; the comment prompt | |
 
-Theme line: **fix the note, not the video.** Words: 134 (short test block). Not verified: demand for the search phrase; how the take sounds.
+Words: 133. Not verified: how the take sounds.

@@ -415,7 +415,7 @@ class Short:
         if sound or (sound is None and 0 < d <= 0.5):  # a fast move is heard
             self.sfx(t + d * 0.5, sound or self._whoosh(), -26, align="peak")
 
-    def focus(self, w, t, box, fill=0.85, d=0.8, area=STAGE, **kw):
+    def focus(self, w, t, box, fill=0.85, d=0.8, area=HERO, **kw):
         """Frame box (x, y, w, h) of world w's canvas: centred in `area`, filling `fill` of it."""
         z = fit(box, fill, area)
         to = ((area[0] + area[2]) / 2, (area[1] + area[3]) / 2)

@@ -16,7 +16,8 @@ updated: 2026-10-28
 | 5 Generation | done | 28 Oct 2026 | take v1 `4b9snthh31rmt0d1g1wax7j3d0` (762 characters, about $0.02); timings `n7qzzzwqb1rmy0d1g1wacq5zx0` (about $0.01); total about $0.03 of the $0.10 cap. Whisper heard all 125 words (homophones "queues" and "and" took the script's spelling); silences 0.25 to 0.93 s, the 0.93 s one at the hook-to-scene-2 boundary |
 | 6 Build | done | 28 Oct 2026 | hfkit v2; `hyperframes check` ok (accepted: nested structure, dense track; one warning at 32.1 s: the terminal close-up passes under the rail's backing band); `check3d` OVERLAPS 0, no WARN; transitions cut, dip, whip, whip, push, blur (1 hard cut of 6); shot sizes wide, medium, close (W1, W3, W5, W6 camera); slideshow-risk score 2 (text doing the picture's job 1: the terminal world; decoration 1: small frames in the strips); render `vp-43s-9x16-r1.mp4` at CRF 14, about 2.9 Mbps; `MIX` −14.1 LUFS, true peak −1.2 dBTP; thumbnail and publish pack built (dry run) |
 | 7 Verdict | fix (r1) | 28 Oct 2026 | r2: caption word gaps, one hero per beat, tightened script; take v2 `fws3ag1ke1rmt0d1g2ea0vbrbc` (820 characters, about $0.02) and timings (about $0.01): total about $0.06 of the $0.10 cap |
-| 8 Publish · 9 Measure | waiting for the user's verdict on r2 | | |
+| 7 Verdict (r2) | fix | 28 Oct 2026 | r3: technical script, one running word; take v3 `vfj1kcqf8hrmw0d1g2tbp4cnf0` (841 characters) and timings: total about $0.09 of the $0.10 cap |
+| 8 Publish · 9 Measure | waiting for the user's verdict on r3 | | |
 
 ## Not verified
 
