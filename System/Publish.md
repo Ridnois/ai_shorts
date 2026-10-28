@@ -56,3 +56,7 @@ Rules marked [H] in the notes, judged here at 10 uploads; each is kept, changed 
 | Phrase captions (1 to 3 words) | [[Playbook]] §4 | `viewed_pct` vs the earlier word-by-word cuts |
 | Camera and transitions (look v3, 27 Oct 2026) | [[Design system]] | `avg_pct_viewed` vs the v2 renders |
 | Thumbnail: one focal image, 3 to 4 words | [[Workflow]] §Thumbnail | impressions click-through between videos |
+
+## Narrative sources (28 Oct 2026)
+
+Basis of [[Playbook]] §2a. Most are creator-tool blogs with unverified numbers: treated as hypotheses [H] until the channel's own curves say otherwise. YouTube publishes no viewed-versus-swiped threshold. Vendor claims: the hook decides in 1 to 3 s; 30 to 50 % leave in seconds 1 to 3 on a weak open; change the picture every 1.5 to 2 s; payoff in the first half; end on a frame that matches the opening for rewatches (aibrify.com, opus.pro, vidiq.com, 2026). Academic: a 2020 study of 306 popular YouTube science videos found popularity tied to emotional arousal, a dramatic question, moments of change and story (*Frontiers in Communication*, 2020, doi 10.3389/fcomm.2020.581349). Theory: the curiosity gap (Loewenstein).

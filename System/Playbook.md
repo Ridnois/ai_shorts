@@ -1,7 +1,7 @@
 ---
 type: rules
 updated: 2026-10-27
-status: v11 · rewritten 27 Oct 2026 for professional-level Shorts: one owner per rule, each a principle plus its test (the dated user quotes behind them live in git); craft standard (camera, transitions with a cause, designed sound), ship discipline, variety guard
+status: v12 · 28 Oct 2026: §2a narrative layer (tension arc, loop ledger, re-hooks, loop-back close) from the Shorts research; v11 rewritten 27 Oct 2026 for professional-level Shorts: one owner per rule, each a principle plus its test (the dated user quotes behind them live in git); craft standard (camera, transitions with a cause, designed sound), ship discipline, variety guard
 ---
 
 # Playbook: every rule for a Short
@@ -38,7 +38,7 @@ A Short competes in one swipe with the best of the feed, not with our last video
 
 - **Length in words, never seconds. Short test block [H]:** the next 10 videos are 90 to 140 words (aim 110 to 130, about 35 to 45 s at rate 1.1), 4 to 6 scenes, 3 facts or fewer; every third is a compact 60 to 85 words, 3 to 4 scenes. Never pad. After 10 uploads `analytics.py report` compares them with the old 180 to 235-word cuts.
 - **Scene 1 is the hook: a need-to-know claim a stranger understands at once.** The first words are the twist itself, spoken inside 2 s. **Hook test**, all must hold: (1) plain, no term a later scene defines; (2) a reason to care: a consequence, a broken expectation or a stake; (3) an open question the next scene answers; (4) sound-off: the first caption and image raise it; (5) honest; (6) it restates the package's promise; (7) named: the subject in words the viewer knows, never "the idea"; (8) curiosity before explanation: no mechanism or history before the promise. No date opener, "Imagine", "did you know", question opener or story opener.
-- **Structure by series [H]:** **How it works:** hook · definition (one plain sentence) · origin (only when it is part of the twist) · "here is how", on one running example (2 to 3 scenes) · the catch · close. **Agent at work:** hook (the result) · the task · the run, step by step · what to copy · close. **What's coming:** hook (the change) · the evidence · the mechanism · the counter-view · close.
+- **Structure by series [H]** (each maps onto the arc of §2a): **How it works:** hook · definition (one plain sentence) · origin (only when it is part of the twist) · "here is how", on one running example (2 to 3 scenes) · the catch · close. **Agent at work:** hook (the result) · the task · the run, step by step · what to copy · close. **What's coming:** hook (the change) · the evidence · the mechanism · the counter-view · close.
 - **One running example carries the mechanism:** the real case of §1, worked through start to finish; an abstraction enters only as a mapping from it, said and shown, and the loop closes on it.
 - **Mechanism, not history:** every scene explains how the thing works; the story of our own channel (videos made, uploads, rule rewrites) is never a scene, and a number earns its place only if it is part of the mechanism (30 frames a second, not 14 videos made).
 - **Theme line:** one plain line stated in scene 1 or 2; scenes bridge back to it only where the logic turns; the close answers it.
@@ -46,11 +46,24 @@ A Short competes in one swipe with the best of the feed, not with our last video
 - **A comparison is a story, never a table:** one learner's task fails; each thing compared fixes one failure of that task, in order; the close hands the viewer a question to diagnose their own case.
 - **Explain, do not narrate:** cause and effect joined by "because", "so", "but", never "and then".
 - **Low-attention-proof and for the ear:** first sentence 12 words or fewer; sentences of 6 to 16 words, one idea each, active verbs, one rhetorical question at most, no exclamation marks; jargon, version strings and figures go on screen; numbers and acronyms written as spoken ("G P U"). Calm and unhurried.
-- **Close = concrete payoff:** one plain sentence that answers the question for something the viewer knows, shown as a card, then **one social question** the viewer can answer, on screen as the comment prompt with two or three answer chips. Never "like and subscribe".
+- **Close = concrete payoff:** one plain sentence that answers the question for something the viewer knows, shown as a card, then **one social question** the viewer can answer, on screen as the comment prompt with two or three answer chips. Never "like and subscribe". The last line is also the loop-back of §2a.
 - **Cut test:** delete each sentence in turn; if the video still answers its question, it stays deleted.
 - **Rigor:** every figure has source and date; every AI capability claim names model, version and date; forecasts name who made them; models are described by mechanism ("it predicts the likely next word"), never by wants; no hype or doom; the research note lists what was not verified.
 - **Pause plan:** pauses follow the sentence's intention and are written into the one take: a new paragraph for a continuing scene (about 0.35 s), a full stop for a new idea (0.35 to 0.6 s), a `beat` or `pauses` of 0.2 to 0.3 s before the payoff (1 or 2 per video, never over 0.9 s in all); never between subject and verb or after "the", "a", "of", "and".
-- **Script table columns:** scene · question it answers · voice text · words · delivery · pause · visual beat (what the viewer sees happen) · camera · on-screen text · source.
+- **Script table columns:** scene · question it answers · question it raises · voice text · words · delivery · pause · visual beat (what the viewer sees happen) · camera · on-screen text · source.
+
+## 2a. Narrative: the tension arc (gate P3; v12, 28 Oct 2026)
+
+A script is a chain of questions the viewer needs answered, not a lecture with a hook on top. Basis: viewers decide to stay in 1 to 2 s; a single open loop holds for seconds, stacked loops hold to the end; a 2020 study of 306 popular YouTube science videos tied popularity to a dramatic question, emotional arousal, moments of change and a story ([[Publish]] lists the sources). The mechanism of §2 is delivered *as the cause of a turn*, never as a block.
+
+1. **The arc, on the real case:** **want** (the case's person or product wants Y) → **obstacle** (the hidden X blocks it, with a cost: money, a fine, a recall, a lost day) → **turn** (a "but" that contradicts what the viewer just assumed, at 40 to 60 % of the words) → **use** (what the viewer does with it) → **loop-back**. The running example changes state at least 3 times on screen (broken, explained, tested).
+2. **Loop ledger:** the Script note lists every open question: opened at scene, closed at scene. Two loops are open by the end of scene 2 (the hook's, and a sharper one: *how*, *so is yours too?*). The **answer lands at 40 to 60 % of the words in one plain sentence**; later scenes use it (turn, test, payoff), they do not add a second explanation. Close loops in reverse order; no loop is left open at the end except the loop-back.
+3. **Re-hook every 8 to 12 s:** a new question, a reversal or a number that raises the stakes, spoken on a turn word and met by a picture event (a camera move, a transition with a cause, a state change). A stretch of 12 s with no new question or reversal is rewritten or cut.
+4. **Stake in 15 words:** by the end of scene 2 a named cost to a named party, in plain words (arousal test: would a stranger feel something, even surprise?). Hype and doom stay banned ([[Style]]).
+5. **A test the viewer can run:** from the turn on, the script hands over a check or a habit, ideally run live on screen (§3 recorded runs). An honest result is shown as it came out, even when it is the boring one.
+6. **Loop-back close:** the last line re-asks the hook's question in a new light (the same words, a new meaning), and the last frame is frame 0 in a changed state (the anchor returns). Read the last sentence aloud into the first: if it plays as a repeat, it passes. The closing social question rides the loop-back line or the comment prompt.
+7. **Ledger test before P4:** per scene, write *question raised → question answered*; every scene both answers one and raises one (the close raises only the loop-back); cut a scene that does neither.
+8. **[H] Measure by curve, not by average:** read each Short's retention curve against its ledger: a cliff before 3 s is the hook, a dip is the scene whose question was already answered, a spike above 100 % at 0 s is the loop-back working ([[Publish]] §Analytics loop). Target: viewed (not swiped) 70 % or more, average view 80 % or more.
 
 ## 2b. Package (inside the Script note, gate P3)
 
@@ -112,7 +125,7 @@ A **Package** section before the scene table: Y and X · **promise** (one senten
 - [ ] Every beat shows its verb; named tool shown running; real captures where real things exist; no AI cliché; no personal data
 - [ ] **Slideshow-risk score** on the contact sheet, 0 to 2 each: repetition (the same layout on 4 tiles in a row) · decoration · weak motion · text doing the picture's job · no real thing on screen · a world that never changes state · **one shot size throughout**. Any 2, or a total of 4 or more, means rework before P7; the score goes in Status
 - [ ] 3 to 5 transition kinds, at most a third hard cuts; 3 or more shot sizes; no `WARN` left unexplained
-- [ ] Theme line, 3 facts or fewer, concrete ending; every figure sourced; every AI claim with model, version and date
+- [ ] Loop ledger: two loops open by scene 2, answer at 40 to 60 %, a turn, a re-hook every 12 s or less, a loop-back close; Theme line, 3 facts or fewer, concrete ending; every figure sourced; every AI claim with model, version and date
 - [ ] Audio: one take; whisper heard the script; `MIX` at −14 LUFS (±1), true peak −1 dBTP or lower; effects stem under −1 dBFS
 - [ ] Render at CRF 14 or better (`--crf 14`); bitrate printed
 - [ ] `listen.py` passes (no silence over 0.9 s, no dead air over 1.2 s, no clipping); its line is in Status

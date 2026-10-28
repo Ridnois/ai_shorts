@@ -28,7 +28,7 @@ Rules for the content: [[Playbook]]. One run per video; the work is sequential.
 
 A **test stage** (one scene's voice and one composed beat, about $0.10) runs only for a new technique, voice setting or model.
 
-**Listening rubric at P7** (the agent cannot hear; answers go in Status under *Feedback*): (1) does the voice sound natural? (2) is the pace right? (3) do the pauses feel human: any wrong or missing? (scene and word) (4) are the effects and their levels right? (5) does any screen feel empty or static? (scene) (6) did any picture fail to show what was said, or arrive late? (scene and word) (7) after the first sentence, did you know what the video is about and want the explanation? (8) could you follow each sentence from the one before? Each "no" becomes one change to the owning rule.
+**Listening rubric at P7** (the agent cannot hear; answers go in Status under *Feedback*): (1) does the voice sound natural? (2) is the pace right? (3) do the pauses feel human: any wrong or missing? (scene and word) (4) are the effects and their levels right? (5) does any screen feel empty or static? (scene) (6) did any picture fail to show what was said, or arrive late? (scene and word) (7) after the first sentence, did you know what the video is about and want the explanation? (8) could you follow each sentence from the one before? (9) did the last line make you want to watch again, and did any stretch lose you (scene)? Each "no" becomes one change to the owning rule.
 
 ## Budget (in dollars, cap = base × 1.2, shown before spending)
 
