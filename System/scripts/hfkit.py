@@ -379,7 +379,12 @@ class Short:
             k = open(f"{HERE}/vendor/hairline/kernel.js").read()
             for a, b in CLOCK:
                 k = re.sub(a, b, k)
-            figs = "".join(f"(() => {{\n{open(f'{HERE}/vendor/hairline/custom/{n}.js').read()}\n}})();\n" for n in custom)
+            figs = ""
+            for n in custom:                            # figures may read performance.now too: same clock
+                f = open(f"{HERE}/vendor/hairline/custom/{n}.js").read()
+                for a, b in CLOCK:
+                    f = re.sub(a, b, f)
+                figs += f"(() => {{\n{f}\n}})();\n"
             open(f"{self.here}/assets/hairline-custom.js", "w").write(
                 k + "\nwindow.HLK = HL; window.__HLC = {};\nconst hairline = (spec) => { window.__HLC[spec.name] = spec; };\n" + figs)
         return r'''
