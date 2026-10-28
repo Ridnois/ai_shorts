@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Phrase captions (Playbook §4, test since 26 Oct 2026): group timed words into captions of 1 to 3 words.
+"""Phrase captions (Playbook §4): group timed words into captions of 1 to 3 words.
   from captions import groups, html_caps
   groups(words)  words = [(text, start, end), ...] in seconds -> [[i, j, ...], ...] word indices per caption
   html_caps(words, colour=lambda text, start: "#FFFFFF")  -> HyperFrames divs: one per spoken word, showing its
-      whole phrase with that word lit and the others dimmed, so timing stays word-exact (class "cap", id c<k>).
+      whole phrase with that word lit and the others dimmed, so timing stays word-exact (class "cap", id c<k>; the
+      phrase sits in span c<k>i, which hfkit animates, and the lit word has class "on").
 A caption breaks after MAX_WORDS, before passing MAX_CHARS, after . , ? ! : ; and across a silence over GAP s.
 Run it to self-check:  python3 System/scripts/captions.py"""
 import html
@@ -23,8 +24,8 @@ def groups(words):
     return out
 
 
-def size(text):                                       # 88 px, shrunk so a centred phrase stays inside x 140 to 940 (clear of the action strip)
-    return min(88, int(1150 / max(len(text), 1)))
+def size(text):                                       # 84 px, fitted so a phrase in Inter Black capitals stays inside 860 px
+    return max(56, min(84, int(860 / (0.72 * max(len(text), 1)))))
 
 
 def html_caps(words, colour=lambda t, s: "#FFFFFF", end=None):
@@ -36,10 +37,10 @@ def html_caps(words, colour=lambda t, s: "#FFFFFF", end=None):
             s = words[k][1]
             nxt = words[k + 1][1] if k + 1 < len(words) else end
             e = round(min(nxt, words[k][2] + HOLD), 3)
-            body = " ".join(f'<span style="color:{colour(t, s)};opacity:{1 if m == n else 0.45}">{html.escape(t)}</span>'
-                            for m, t in enumerate(texts))
+            body = " ".join(f'<span{" class=\"on\"" if m == n else ""} style="color:{colour(t, s)};opacity:{1 if m == n else 0.45}">'
+                            f'{html.escape(t)}</span>' for m, t in enumerate(texts))
             divs.append(f'<div id="c{k}" class="clip cap" data-start="{round(s, 3)}" data-duration="{round(e - s, 3)}" '
-                        f'data-track-index="20" style="font-size:{size(" ".join(texts))}px">{body}</div>')
+                        f'data-track-index="20" style="font-size:{size(" ".join(texts))}px"><span class="ci" id="c{k}i">{body}</span></div>')
     return "\n".join(divs)
 
 
@@ -49,6 +50,7 @@ if __name__ == "__main__":
     g = groups(w)
     assert g == [[0, 1, 2], [3, 4, 5], [6, 7], [8]], g
     h = html_caps(w)
-    assert h.count('class="clip cap"') == len(w) and "opacity:1" in h and 'id="c8"' in h
+    assert h.count('class="clip cap"') == len(w) and h.count('class="on"') == len(w) and 'id="c8i"' in h
+    assert size("SUPERCALIFRAGILISTIC") == 59 and size("IT") == 84
     assert all(len(" ".join(w[k][0] for k in x)) <= MAX_CHARS or len(x) == 1 for x in g)
     print("captions.py ok:", [" ".join(w[k][0] for k in x) for x in g])

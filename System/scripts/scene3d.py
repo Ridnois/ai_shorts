@@ -1,43 +1,34 @@
-"""3D plates: tokens, embedding spaces, layered networks, links and solids, lit and rendered by Blender EEVEE as
-1080x1920 H.264 clips that build_video.py places like any motion plate (System/Playbook.md §3, System/Style.md 3D plates).
+"""3D for HyperFrames pages: a spec of tokens, embedding clouds, layered networks, links and surfaces, built and lit in
+Blender and exported for hfkit (System/Design system.md, 3D routes). Called by hfkit.blender3d(spec, out, dur, fmt):
 
-    VIDEO="Media/<folder>" SOLO_PROYECTO=1 blender -b --factory-startup --python System/scripts/build_video.py   # writes render/_timeline.json
-    python3 System/scripts/scene3d.py "Media/<folder>"                  # renders every `scene3d` plate of plan.json
-    python3 System/scripts/scene3d.py "Media/<folder>" --only 3d-net    # plates whose file contains this text
-    python3 System/scripts/scene3d.py "Media/<folder>" --sheet          # also writes <file>.sheet.png (6 frames) to look at
-    python3 System/scripts/scene3d.py "Media/<folder>" --preview        # half size, 4 samples: fast drafts while staging
+    fmt "glb"   the scene, show pops and camera path, played by three.js on the page clock (emission keys not exported)
+    fmt "webm"  an EEVEE render with alpha (bloom, depth of field, glow pulses), placed full frame under the page text
 
-A 3D plate in plan.json is a motion plate with a `scene3d` spec instead of a `motion` one (motion.py skips it):
-    {"type": "motion", "file": "motion/ai-3d-net.mp4", "scene3d": {"camera": {...}, "els": [...]}}
-Cues are motion.py's (seconds, a heard word "token", "token#2", "token+0.3", "end", "end-0.5"); this script resolves
-them with the plate's timeline, then runs itself inside Blender. Units are metres; the camera looks along +y by default.
+Cues in the spec are seconds from the clip start (hfkit resolves heard words first). Units are metres; the camera
+looks along +y by default.
 
-Spec (top level):  camera {"lens": 50, "keys": {"pos": [[cue, [x,y,z]], ...], "target": [[cue, [x,y,z]], ...]}}
-                   ground "ink" (the motion plates' ink ground composited behind; another colour = flat world) · bloom 0.6 (glare strength; 0 = off) · dof [target distance m, f-stop]
-Elements (`els`), colours are motion.py palette names or hex:
+Spec (top level):  camera {"lens": 50, "keys": {"pos": [[t, [x,y,z]], ...], "target": [[t, [x,y,z]], ...]}}
+                   bloom 0.6 (glare strength; 0 = off) · dof [target distance m, f-stop]
+Elements (`els`), colours are hfkit.PAL names or hex:
   common   pos [x,y,z] · color · emit (emission strength; keyable) · show [in, out] (pops in and out by scale)
-           · keys {"pos"|"rot"|"scale"|"emit": [[cue, value], ...]} (rot in degrees) · pulse [cue, ...] (emission swell)
+           · keys {"pos"|"rot"|"scale"|"emit": [[t, value], ...]} (rot in degrees) · pulse [t, ...] (emission swell)
   box      size [x,y,z] bevel             sphere  r              text  text size (height m) extrude
   tokens   words [...] gap stagger (s between pops) size: a row of rounded tiles, one word on each (what a model reads)
   cloud    clusters [[x,y,z, spread, n, color], ...] r seed: an embedding space (points near each other mean similar)
-  net      layers [4,6,6,3] gap spread r · fire [cue, ...]: a forward pass lights each layer in turn (0.12 s apart)
-  link     from [x,y,z] to [x,y,z] r · draw [cue, cue]: a tube that grows from `from` to `to` (attention, a call, data)
-  surface  size [w,d] res base bowl tilt [tx,ty] wells [[x,y,depth,width], ...] wire (grid colour) ramp (height colours,
-           low to high; default ink, haze, signal) · rise [cue, cue]: a
-           loss landscape z = base + tilt·xy + bowl·r² - Σ depth·exp(-d²/width²), drawn as a solid with a grid on it
-           balls [{start [x,y], lr, steps, run [cue, cue], r, color, emit, trail, arrow cue}]: real gradient descent on
+  net      layers [4,6,6,3] gap spread r · fire [t, ...]: a forward pass lights each layer in turn (0.12 s apart)
+  link     from [x,y,z] to [x,y,z] r · draw [t, t]: a tube that grows from `from` to `to` (attention, a call, data)
+  surface  size [w,d] res base bowl tilt [tx,ty] wells [[x,y,depth,width], ...] wire ramp · rise [t, t]: a loss
+           landscape z = base + tilt·xy + bowl·r² - Σ depth·exp(-d²/width²), drawn as a solid with a grid on it
+           balls [{start [x,y], lr, steps, run [t, t], r, color, emit, trail, arrow t}]: real gradient descent on
            that function (x -= lr·gradient), one keyed hop per step; `arrow` shows the downhill direction at the start
 
-For HyperFrames pages, hfkit.blender3d() runs the same spec with job "format": "glb" (scene, show pops and camera path for
-three.js; emission keys are not exported) or "webm" (EEVEE with alpha, no ground: the page has it). System/Design system.md.
-
-Text warnings match motion.py: text entering the caption band (y 880 to 1040), the bottom interface zone (y > 1440)
-or the right action strip (x > 950) is reported at sampled frames. Look at the --sheet frames before the build.
+Text warnings: text entering the caption band, the bottom interface zone or the right action strip (hfkit zones) is
+reported at sampled frames. EEVEE runs headless here: 0.75 to 1.7 s a frame at full size; stage with preview=True.
 """
 import json, math, os, subprocess, sys
 
 W, H, FPS = 1080, 1920, 24
-CAP_BAND, UI_BOTTOM, UI_RIGHT = (880, 1040), 1440, 950
+CAP_BAND, UI_BOTTOM, UI_RIGHT = (1180, 1320), 1440, 950     # hfkit BAND, interface zones
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONT = "/usr/share/fonts/truetype/noto/NotoSansDisplay-Bold.ttf"
 
@@ -60,62 +51,6 @@ def resolve(spec, cues):
             if "arrow" in b:
                 b["arrow"] = cues(b["arrow"])
     return spec
-
-
-def outside():
-    import argparse
-    sys.path.insert(0, HERE)
-    from motion import PAL, Cues, ground
-    ap = argparse.ArgumentParser()
-    ap.add_argument("video")
-    ap.add_argument("--only", default="")
-    ap.add_argument("--sheet", action="store_true")
-    ap.add_argument("--preview", action="store_true")
-    a = ap.parse_args()
-    root = os.path.abspath(a.video)
-    plan = json.load(open(f"{root}/plan.json", encoding="utf-8"))
-    tl_path = f"{root}/render/_timeline.json"
-    if not os.path.exists(tl_path):
-        raise SystemExit("render/_timeline.json missing: run build_video.py with SOLO_PROYECTO=1 first")
-    tl = json.load(open(tl_path, encoding="utf-8"))
-    slots = {p["file"]: p for p in tl["plates"]}
-    done = 0
-    gp = f"{root}/motion/_ground{'-preview' if a.preview else ''}.png"   # the same ink ground as the motion plates
-    os.makedirs(os.path.dirname(gp), exist_ok=True)
-    ground().write_to_png(gp)
-    if a.preview:
-        from PIL import Image
-        Image.open(gp).resize((W // 2, H // 2)).save(gp)
-    for sc in plan["scenes"]:
-        for pl in sc["plates"]:
-            if "scene3d" not in pl or a.only not in pl["file"]:
-                continue
-            p = slots.get(pl["file"])
-            if not p:
-                raise SystemExit(f"{pl['file']} is not in render/_timeline.json: rebuild with SOLO_PROYECTO=1")
-            out = os.path.join(root, pl["file"])
-            os.makedirs(os.path.dirname(out), exist_ok=True)
-            job = {"spec": resolve(json.loads(json.dumps(pl["scene3d"])), Cues(tl["words"], p["ini"], p["fin"], pl["file"])),
-                   "dur": p["fin"] - p["ini"], "out": out, "pal": PAL, "preview": a.preview, "label": pl["file"], "ground": gp}
-            jp = os.path.splitext(out)[0] + ".job.json"
-            json.dump(job, open(jp, "w"), indent=1)
-            r = subprocess.run(["blender", "-b", "--factory-startup", "--python", __file__, "--", jp],
-                               capture_output=True, text=True)
-            for line in r.stdout.splitlines():
-                if line.startswith(("WARN", "  3D")):
-                    print(line)
-            if r.returncode or not os.path.exists(out):
-                sys.stderr.write(r.stdout[-2000:] + r.stderr[-2000:])
-                raise SystemExit(f"{pl['file']}: Blender failed")
-            os.remove(jp)
-            if a.sheet:                                   # same contact sheet as motion.py: 6 frames in a row
-                png = os.path.splitext(out)[0] + ".sheet.png"
-                step = max(job["dur"] / 6, 0.1)
-                subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", out, "-vf",
-                                f"fps=1/{step:.3f},scale=270:-1,tile=6x1", "-frames:v", "1", png], check=True)
-                print("  sheet", os.path.relpath(png, root))
-            done += 1
-    print("3D PLATES rendered:", done)
 
 
 # ---------------------------------------------------------------- inside Blender
@@ -480,7 +415,7 @@ def inside(jp):
         cd.dof.focus_distance, cd.dof.aperture_fstop = spec["dof"]
 
     bloom = spec.get("bloom", 0.6)
-    tree = bpy.data.node_groups.new("comp", "CompositorNodeTree")        # bloom, then the ink ground behind the scene
+    tree = bpy.data.node_groups.new("comp", "CompositorNodeTree")        # bloom
     tree.interface.new_socket("Image", in_out="OUTPUT", socket_type="NodeSocketColor")
     rl = tree.nodes.new("CompositorNodeRLayers")
     img = rl.outputs["Image"]
@@ -491,16 +426,8 @@ def inside(jp):
         gl.inputs["Threshold"].default_value = 0.8
         tree.links.new(img, gl.inputs["Image"])
         img = gl.outputs["Image"]
-    fmt = job.get("format", "mp4")                    # webm and glb are for HyperFrames pages (hfkit.blender3d): no ground, the page has it
+    fmt = job["format"]                               # glb or webm: no ground, the page has it
     sc.render.film_transparent = fmt == "webm"
-    if fmt == "mp4" and job.get("ground") and spec.get("ground", "ink") == "ink":
-        sc.render.film_transparent = True
-        gn = tree.nodes.new("CompositorNodeImage")
-        gn.image = bpy.data.images.load(job["ground"])
-        ao = tree.nodes.new("CompositorNodeAlphaOver")
-        tree.links.new(gn.outputs["Image"], ao.inputs["Background"])
-        tree.links.new(img, ao.inputs["Foreground"])
-        img = ao.outputs["Image"]
     out = tree.nodes.new("NodeGroupOutput")
     tree.links.new(img, out.inputs[0])
     sc.compositing_node_group = tree
@@ -544,17 +471,7 @@ def inside(jp):
         shutil.rmtree(seq)
         print(f"  3D {job['label']}: {n_frames} frames (webm, alpha) in {time.time() - t0:.0f} s")
         return
-    rd.image_settings.media_type = "VIDEO"
-    rd.image_settings.file_format = "FFMPEG"
-    rd.ffmpeg.format, rd.ffmpeg.codec = "MPEG4", "H264"
-    rd.ffmpeg.constant_rate_factor, rd.ffmpeg.ffmpeg_preset = "HIGH", "GOOD"
-    rd.use_file_extension = False
-    bpy.ops.render.render(animation=True)
-    print(f"  3D {job['label']}: {n_frames} frames in {time.time() - t0:.0f} s")
-
+    raise SystemExit(f"unknown format {fmt}: glb or webm")
 
 if __name__ == "__main__":
-    if "--" in sys.argv:
-        inside(sys.argv[sys.argv.index("--") + 1])
-    else:
-        outside()
+    inside(sys.argv[sys.argv.index("--") + 1])
