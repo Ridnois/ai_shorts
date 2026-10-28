@@ -122,6 +122,8 @@ def tag(id_, text, x, y, col=SIGNAL2):
 
 
 RAIL_Y = 200
+CLOCK = ((r"performance\.now\(", "__HL.now("), (r"requestAnimationFrame\(", "__HL.raf("), (r"cancelAnimationFrame\(", "__HL.caf("),
+         (r"new IntersectionObserver\(", "new __HL.IO("), (r"(window\.)?setTimeout\(", "__HL.st("), (r"clearTimeout\(", "__HL.ct("))
 
 
 def rail(steps):
@@ -350,9 +352,12 @@ class Short:
         self.models.append({"src": src, "start": t0, "dur": dur})
 
     # ---- Hairline figures driven on the page clock
-    def hairline(self, id_, fn, intensity=0.6):
-        """Mount Hairline's `fn` (drawer, riffle, terrain, sieve, hub, relay, stack, ...) into the hairline() box id_."""
-        self.figs[id_] = {"fn": fn, "opts": {"intensity": intensity, "theme": "dark"}, "moves": []}
+    def hairline(self, id_, fn, intensity=0.6, value=None):
+        """Mount Hairline's `fn` (drawer, riffle, terrain, sieve, hub, relay, stack, ...) into the hairline() box id_.
+        A name in vendor/hairline/custom/ (figures made with /hairline-create, e.g. window) mounts that figure on the
+        skill's kernel instead; `value` is its own number (its `range`), default the middle one."""
+        custom = os.path.exists(f"{HERE}/vendor/hairline/custom/{fn}.js")
+        self.figs[id_] = {"fn": fn, "custom": custom, "value": value, "opts": {"intensity": intensity, "theme": "dark"}, "moves": []}
 
     def point(self, id_, t, x=None, y=None, glide=0):
         """The unseen pointer: at t it moves to (x, y) in the figure's 400 x 320 viewBox (gliding over `glide` s);
@@ -363,13 +368,20 @@ class Short:
         """Hairline reads performance.now, rAF, timers and IntersectionObserver; the vendored copy is rewritten to read __HL,
         a clock that only moves when the timeline seeks, so every frame is the same on every render (as its parity tests do)."""
         src = open(f"{HERE}/vendor/hairline/hairline-0.5.1.js").read()
-        for a, b in ((r"performance\.now\(", "__HL.now("), (r"requestAnimationFrame\(", "__HL.raf("), (r"cancelAnimationFrame\(", "__HL.caf("),
-                     (r"new IntersectionObserver\(", "new __HL.IO("), (r"(window\.)?setTimeout\(", "__HL.st("), (r"clearTimeout\(", "__HL.ct(")):
+        for a, b in CLOCK:
             src = re.sub(a, b, src)
         src = re.sub(r"//# sourceMappingURL=.*", "", src)
         assert "performance.now(" not in src and "requestAnimationFrame(" not in src
         os.makedirs(f"{self.here}/assets", exist_ok=True)
         open(f"{self.here}/assets/hairline.js", "w").write(src)
+        custom = sorted({f["fn"] for f in self.figs.values() if f["custom"]})
+        if custom:                                      # the skill's kernel, on the same clock, plus each custom figure in its own scope
+            k = open(f"{HERE}/vendor/hairline/kernel.js").read()
+            for a, b in CLOCK:
+                k = re.sub(a, b, k)
+            figs = "".join(f"(() => {{\n{open(f'{HERE}/vendor/hairline/custom/{n}.js').read()}\n}})();\n" for n in custom)
+            open(f"{self.here}/assets/hairline-custom.js", "w").write(
+                k + "\nwindow.HLK = HL; window.__HLC = {};\nconst hairline = (spec) => { window.__HLC[spec.name] = spec; };\n" + figs)
         return r'''
 window.__HL = (() => {
   let now = 0, q = [], tm = [], seq = 0;
@@ -381,7 +393,7 @@ window.__HL = (() => {
       for (const t of tm.filter(t => t[1] <= now)) { tm = tm.filter(x => x !== t); t[2](); }
       const run = q; q = []; for (const [, cb] of run) cb(now); } } };
 })();
-</script>
+</script>__CUSTOM__
 <script type="module">
 import * as HL from "./assets/hairline.js";
 const F = __FIGS__;
@@ -393,7 +405,14 @@ for (const [id, f] of Object.entries(F)) for (const [t, x, y, g] of f.moves) {  
 }
 ev.sort((a, b) => a.t - b.t);
 function mount() { __HL.reset(); figs.forEach(f => f.destroy()); at = -1;
-  figs = Object.entries(F).map(([id, f]) => HL[f.fn](document.getElementById(id), f.opts)); }
+  figs = Object.entries(F).map(([id, f]) => f.custom ? custom(document.getElementById(id), f) : HL[f.fn](document.getElementById(id), f.opts)); }
+function custom(host, f) {                            // a /hairline-create figure, mounted the way its bench does
+  const spec = window.__HLC[f.fn], K = window.HLK;
+  K.inject(document); host.setAttribute("data-hairline", spec.name); host.setAttribute("data-hairline-theme", "dark");
+  const svg = K.mk("svg", {viewBox: "0 0 400 320", "aria-hidden": "true"}, host), read = {textContent: ""};
+  const h = spec.mount({stage: host, svg, read}, f.value ?? spec.range[1]);
+  return {destroy: () => { h.destroy(); svg.remove(); }};
+}
 function send(e) {
   const host = document.getElementById(e.id), el = host.querySelector("svg") || host, r = host.getBoundingClientRect();
   if (e.x == null) el.dispatchEvent(new PointerEvent("pointerleave", {pointerType: "mouse", bubbles: true}));
@@ -406,7 +425,7 @@ function seek(t) {                                   // backwards: remount and r
   __HL.step(t * 1000); at = t;
 }
 mount(); window.__seek.push(seek); seek(window.__timelines.main.time());
-'''.replace("__FIGS__", json.dumps(self.figs))
+'''.replace("__FIGS__", json.dumps(self.figs)).replace("__CUSTOM__", '\n<script src="./assets/hairline-custom.js"></script>' if custom else "")
 
     def _three(self):
         return r'''
