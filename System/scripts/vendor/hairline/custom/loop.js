@@ -10,7 +10,7 @@
  */
 const { Cam, facing, fit, flatDot, place, prism, proj, rrect, rings, tween, tset, tval, tdone, disposer, mk, put, solid, pointer, reflect, register } = HL;
 
-const RX = 58, RY = 28, HALF = 9, CW = 11, CD = 7, CH = 6, SW = 13, OFF = 22, REST_S = 0.92;
+const RX = 58, RY = 28, HALF = 9, CW = 15, CD = 9, CH = 8, SW = 13, OFF = 22, REST_S = 0.92;
 const STATIONS = [{ s: 0.1, h: 10, name: "plan" }, { s: 0.43, h: 17, name: "act" }, { s: 0.76, h: 13, name: "check" }];
 
 /** The rail's centre line: an even ring of points with outward normals, and a lookup by place s in [0, 1). */
@@ -53,17 +53,17 @@ function mount({ stage, svg, read }, value) {
   const layer = mk("g", {}, g);
   const stations = STATIONS.map((st, k) => {
     const p = at(st.s), cx = p.x + p.nx * OFF, cy = p.y + p.ny * OFF;
-    const grp = mk("g", {}, layer), s = solid(grp);
+    const grp = mk("g", {}, layer), body = solid(grp);
     const dots = [];
     for (let i = 0; i <= k; i++) dots.push(flatDot(grp, C, 1.3, "dot m"));
-    return { ...st, cx, cy, grp, s, dots, z: tween(0), last: NaN, key: cx + cy };
+    return { ...st, cx, cy, grp, body, dots, z: tween(0), last: NaN, key: cx + cy };
   });
   const car = { grp: mk("g", {}, layer), s: tween(REST_S), last: NaN };
   car.solid = solid(car.grp);
 
   function drawStation(st, z) {
     const [r, inn] = rings(st.cx - SW / 2, st.cy - SW / 2, st.cx + SW / 2, st.cy + SW / 2, 3, 1);
-    put(st.s, prism(P, front, r, inn, z, z + st.h));
+    put(st.body, prism(P, front, r, inn, z, z + st.h));
     st.dots.forEach((d, i) => place(d, P(st.cx + (i - (st.dots.length - 1) / 2) * 3.4, st.cy, z + st.h)));
   }
   function drawCar(s) {
@@ -105,9 +105,9 @@ function mount({ stage, svg, read }, value) {
     act = k;
     const now = performance.now(), cur = tval(car.s, now), want = k < 0 ? REST_S : stations[k].s;
     let to = Math.floor(cur) + want;
-    if (to < cur + 0.001) to += 1;                                         // always forwards round the loop
+    if (to < cur - 0.001) to += 1;                                         // always forwards round the loop
     tset(car.s, to, now, 0);
-    stations.forEach((st, i) => { tset(st.z, i === k ? lift : 0, now, 0); st.s.sil.classList.toggle("hi", i === k); });
+    stations.forEach((st, i) => { tset(st.z, i === k ? lift : 0, now, 0); st.body.sil.classList.toggle("hi", i === k); });
     car.solid.sil.classList.toggle("hi", k < 0);
     read.textContent = k < 0 ? "rest" : stations[k].name;
     B.wake();
@@ -123,7 +123,7 @@ hairline({
   name: "loop",
   means: "An agent's loop as a track: point at plan, act or check and the carriage rides round to it.",
   rules: [1, 4, 6, 8],
-  range: [5, 9, 14],
-  tour: [[218, 214], [43, 101], [231, 69], null],
+  range: [10, 16, 22],
+  tour: [[220, 214], [30, 94], [305, 88], null],
   mount,
 });

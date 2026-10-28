@@ -75,6 +75,23 @@ Four layers of text, each with one job, so nothing floats unexplained:
 
 Captions stay the voice's layer (band). A world shows at most: rail, one figure, two callouts or one tag, one panel, captions.
 
+## Figure library (Hairline, reusable)
+
+Every figure mounts by name: `K.hairline("id", x, y, w)` in a world, `v.hairline("id", "<name>")`, then `v.point("id", t, vx, vy, glide=s)`. Points are viewBox units (400 × 320) on the figure as drawn; a host's drawing fills about 60 % of the box. The **33 packaged figures** are listed in `vendor/hairline/README.upstream`; tile `point` positions over a 20-unit grid once to map one. **Custom figures** live in `System/scripts/vendor/hairline/custom/<name>.js` (made with `/hairline-create`, each passed its `look.mjs`); `hfkit` loads them on the skill's kernel (`vendor/hairline/kernel.js`) on the same page clock. `value=` sets a custom figure's own number (its `range`, the middle one by default).
+
+| Figure | Concept ([[Audience]] *Plain-words map*) | The pointer | Key points (viewBox) | `value` (range) | First used |
+| --- | --- | --- | --- | --- | --- |
+| `riffle` (package) | passages, the library, a pick | a card stands up | y 120, x 140 to 320 pulls a card | intensity | [[How RAG works - Status]] |
+| `terrain` (package) | embedding, a map of meaning | pillars rise round it | (200, 165) centre | intensity | [[How RAG works - Status]] |
+| `drawer` (package) | looking up, a skill opened on demand | height picks a drawer | (200, 60) top, (200, 250) bottom | intensity | [[How RAG works - Status]] |
+| `window` | context window, what the model reads | slides the frame along the tape | tape from block 1 (87, 134) to block 16 (313, 247); centre (192, 186) | frame length in blocks: 4, 6, 9 | [[How RAG works - Status]] r3 |
+| `balance` | RLHF, people choosing the better answer | left of the post: A rises; right: B | A (120, 150), B (330, 120), level (200, 120) | tip in degrees: 8, 14, 22 | |
+| `temperature` | sampling temperature, why answers vary | height: top hot, bottom cold | any x; y 60 hot to 260 cold | hottest temperature: 1.2, 2, 3 | |
+| `splitter` | tokens, word pieces | nearest seam: a blade drops in, pieces part | seams (141, 185), (211, 194), (244, 198) | gap: 3, 6, 10 | |
+| `loop` | an agent's loop: plan, act, check | picks a station; the carriage rides forward to it | plan (220, 214), act (30, 94), check (305, 88) | station lift: 10, 16, 22 | |
+
+A new custom figure: `/hairline-create <idea>` writes `<name>.js`; move it into `custom/`, pass `look.mjs` there (Playwright's Chromium is installed in `~/.cache/ms-playwright`), then add its row here and its concept to the plain-words map. Never edit `kernel.js` or a packaged figure.
+
 ## Components (`hfkit.py`)
 
 | Component | Function | Spec | Enters with |
@@ -93,7 +110,7 @@ Captions stay the voice's layer (band). A world shows at most: rail, one figure,
 | Number card | `card` with the figure as title | same box; one number with its source | `pop` |
 | Comment prompt | `ask` | the closing question as a reply box (DECK top 1110, `ink2` 94 %, 4 px `mint2` border, 40 px corners): line-drawn reply bubble 88 px and question 56 px (≤ 26 characters), two or three answer chips 40 px (≤ 14 characters, `signal2` outline), "reply in the comments" 40 px slate | `rise` on the question; `chips` on "Tell me" |
 | Solution flood | `write(flood=n)` | mint and signal light pools fade in over 0.6 s from scene n ([[Style]] Solution scenes) | automatic |
-| Hairline figure | `hairline(id, x, y, w)` + `v.hairline(id, fn)` | an isometric line figure from `vendor/hairline` (MIT, 0.5.1), 5:4 at `w` (800 wide = 640 tall fills the STAGE); colours from [[Style]] *Hairline figures*; it acts only through `point`; a lit colour fades in over about 2 s after the pointer arrives, so point 1 s or more before the word that needs the colour | `pop`, then `point` |
+| Hairline figure | `hairline(id, x, y, w)` + `v.hairline(id, fn)` | an isometric line figure from `vendor/hairline` (MIT, 0.5.1), 5:4 at `w` (800 wide = 640 tall fills the STAGE); colours from [[Style]] *Hairline figures*; it acts only through `point`; colours switch on the frame the pointer arrives (`hfkit` turns Hairline's real-time stroke fades off, 27 Oct 2026: they lagged behind the captured frames) | `pop`, then `point` |
 | 3D model | `model3d` | a Blender scene as glb, played by three.js on the page clock | world window |
 | 3D plate | `plate3d` | an EEVEE render with alpha (webm) under the text | world window |
 

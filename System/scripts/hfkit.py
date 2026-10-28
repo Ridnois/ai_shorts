@@ -206,6 +206,7 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:{INK}; }}
 .hl {{ position:absolute; --hairline-plate:{INK2}; --hairline-hi:{EMBER2}; --hairline-edge:{CREAM}; --hairline-mid:{SLATE};
   --hairline-lo:{HAZE}; --hairline-stroke:3.2; }}
 .hl [aria-live], .hl .sr-only {{ display:none; }}
+.hl * {{ transition:none !important; }}            /* Hairline fades strokes in real time; frames must follow the timeline only */
 .cap {{ position:absolute; left:0; width:1080px; top:905px; text-align:center; font-family:Inter; font-weight:900; color:#fff;
   line-height:110px; height:110px; -webkit-text-stroke:10px #0A0907; paint-order:stroke fill; text-shadow:0 6px 18px rgba(0,0,0,0.55); z-index:50; white-space:nowrap; }}
 '''

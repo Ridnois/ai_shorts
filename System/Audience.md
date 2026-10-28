@@ -41,14 +41,15 @@ The voice uses the left column; the term goes on screen once, glossed. The pictu
 
 | Term | Say | Picture |
 | --- | --- | --- |
-| token | word piece | `keyboard` (keys) |
+| token | word piece | `splitter` (a word scored into pieces) |
 | embedding | a word's position on a map of meaning | `terrain` (pillars rise round a point) |
-| context window | what it can see at once | `stack` (the layers in the prompt) |
+| context window | what it can see at once | `window` (a frame over a tape of word blocks) |
 | training · fine-tuning | practice · extra practice on one job | `plot` (tabs lift) |
-| RLHF | people's thumbs up and down | draw |
+| RLHF | people's thumbs up and down | `balance` (the chosen answer's pan rises) |
+| temperature · sampling | how random its pick is | `temperature` (bars level as it heats) |
 | hallucination | it makes up a plausible answer | `riffle` with a rose card |
 | RAG | it looks it up first | `riffle` (cards) and `drawer`; the pipeline rail cut · map · fetch · paste |
-| agent | AI that takes the steps itself | `terminal` |
+| agent | AI that takes the steps itself | `loop` (plan, act, check) or `terminal` |
 | MCP · tool use | a plug that lets AI use an app | `plug`, `patch` |
 | skill (Agent Skills) | know-how it reads when needed | `drawer` (opens on demand) |
 | prompt injection | hidden orders in what it reads | `exploded` (a hidden layer) |
