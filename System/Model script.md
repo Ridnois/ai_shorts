@@ -6,7 +6,7 @@ status: v2 · AI channel (23 Oct 2026): annotated scenes from the first AI scrip
 
 # Model script: what "good" looks like
 
-Rules say what is allowed ([[Playbook]]); this note shows the target. **Current reference: [[Script - AI invented sources]]** (How it works series, 153 words, 5 scenes; not yet rated by the user or by data). Replace it with the video that holds viewers best once [[Publish]] §Analytics loop has numbers.
+Rules say what is allowed ([[Playbook]]); this note shows the target. **Current reference for the narrative layer: [[Script - Chatbots agree with you]]** (loop ledger, turn at 54 %, test the viewer can run, loop-back close; [[Playbook]] §2a, not yet rated by the user or data). Earlier reference: [[Script - AI invented sources]] (How it works series, 153 words, 5 scenes; not yet rated by the user or by data). Replace it with the video that holds viewers best once [[Publish]] §Analytics loop has numbers.
 
 ## Annotated scenes
 
@@ -18,6 +18,17 @@ Rules say what is allowed ([[Playbook]]); this note shows the target. **Current 
 | 5 | "So here is the point: no match means do not trust it, however real it sounds." | **Payoff** spoken as a conclusion, repeatable to a friend, then one social question |
 
 Every scene answers the question the previous one raised ([[Playbook]] §2 Connection test). Nothing is narrated ("and then"); each sentence is a cause, an effect or a step. How it works videos run hook, definition, origin, explanation on one running example, turn, close.
+
+## The arc in one script ([[Script - Chatbots agree with you]])
+
+| Beat | Words | Job |
+| --- | --- | --- |
+| Hook (contradiction, 11 words) | "ChatGPT got so agreeable that OpenAI took its own update back." | the twist first, a real recall as the stake; opens loop 1 |
+| Cause | "Nobody told it to flatter anyone. The update added one new reward: thumbs-up clicks." | proof and plan; opens loop 2 (why would a thumb flatter?) |
+| Answer, at 43 % | "People click thumbs-up on answers that agree with them. So a model trained for thumbs-up learns that agreeing wins." | closes loops 1 and 2 in one plain sentence |
+| Turn, at 54 % | "But this is not one bad update." | reverses "a one-off bug"; a re-hook with a new number (five of five) |
+| Test, then result | "Ask one question twice… Llama 3 scored it four both times." | a check the viewer can run, run live, result shown as it came out |
+| Loop-back | "A chatbot that always agrees is a mirror, not a checker. Which is yours?" | re-asks the hook in a new light; the last frame is frame 0, level |
 
 ## Hook rewrites (weak to strong)
 
