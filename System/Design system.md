@@ -18,6 +18,7 @@ Audience numbers cannot rank anything yet: 7 old-niche Shorts (5 to 6 Oct 2026) 
 
 | Render | User verdict | What it keeps or bans |
 | --- | --- | --- |
+| How RAG works r1 (27 Oct) | *"Way better, i think those icon-like illustrations can be removed, use hairlines. redesign the way info is showed on the screen"* | Hairline figures replace emoji; callouts, the pipeline rail and line panels (below) |
 | HyperFrames r2 (27 Oct) | *"the rest is good"* (after the comment prompt and spacing fix) | **the reference:** illustrations on a column grid, real frames as proof, one deck element, cuts on the word, comment prompt |
 | Look v1 (5 Oct) | *"good and appealing, keep improving"* | caption and card layout |
 | RAG explained r1 | *"100% text"* | every step is a picture; text only labels it |
@@ -46,7 +47,7 @@ Content is centred on x 503 (the middle of 56 to 950), not on the frame's 540: t
 
 - **Columns:** `colx(k, n)` is the centre of column k of n across the stage (n = 2: 280, 726; n = 3: 205, 503, 801). Everything in a row sits on one column set.
 - **Rows:** `ROW1` (top 220) and `ROW2` (top 560); a figure on ROW2 ends above the band. `rowy(k, n)` divides the stage evenly when a row is not a picture row.
-- **Figure:** `fig(id, emoji, k, n, y, label=…)` is the unit: an illustration of size `sz(n)` (n = 1, 2: 280; 3: 215; 4: 161) centred on its column with its label 14 px under it (`id-l`).
+- **Figure:** a Hairline host `hairline(id, x, y, w)` is the unit. The drawing fills about 60 % of its 5:4 box, so hosts are 780 to 900 wide and may overhang the STAGE edges; place them so the **drawing** spans 60 to 65 % of the width and ends above the band (riffle: `(53, 187, 900)` under the rail). `hlxy(x, y, w, vx, vy)` turns a viewBox point into page px for callout anchors; find a figure's parts by tiling it over a 20-unit grid once. (`fig` with Fluent Emoji is retired.)
 - **Density:** at most one row of figures and one deck element at once, plus the captions; one dominant element per moment (the newest word's picture). A world holds up to six pictures over its life, never more than four at the same time [H].
 - **Fill:** the stage is never three-quarters empty for over 3 s (`WARN SPARSE`).
 
@@ -61,12 +62,25 @@ Content is centred on x 503 (the middle of 56 to 950), not on the frame's 540: t
 | board | compares | two rows of frames or figures on the same columns ([[Playbook]] §3 *Comparisons live on one board*) |
 | strip | shows time passing | `strip` of real frames sliding (`slide`) |
 
+## Information on screen (since 27 Oct 2026)
+
+Four layers of text, each with one job, so nothing floats unexplained:
+
+| Layer | Component | Job | Place |
+| --- | --- | --- | --- |
+| Where we are | **pipeline rail** `rail(steps)` via `v.rail(steps, t)`, `v.step(k, t, state)` | the mechanism's steps as nodes on a line (mono 40 px); `on` ember = the step on screen, `done` cream, `bad` rose = where it fails, `good` mint = where the fix acts. Shown from the hook's "here is how" to the end; one per video with a process | top of the STAGE, y 200 to 292, above the worlds |
+| What this part is | **callout** `callout(id, text, ax, ay, lx, ly, col, side, w)` via `v.callout(id, t)` | a dot on the part, a hairline leader, the label on a rule (46 px heavy); the dot lands on the word, the leader draws in 0.35 s, the label follows; ≤ 2 at once; label in empty space, leader never across the drawing's middle | beside or under the figure, inside x 56 to 950 |
+| What moves | **tag** `tag(id, text, x, y, col)` | the query or name that travels between figures (a line-drawn pill, 44 px) | moves in 2D only |
+| What it means | **line panel** `card(...)` and the comment prompt | source, one claim, one detail: ink panel, 3.2 px cream line, ember tick, mono label | DECK |
+
+Captions stay the voice's layer (band). A world shows at most: rail, one figure, two callouts or one tag, one panel, captions.
+
 ## Components (`hfkit.py`)
 
 | Component | Function | Spec | Enters with |
 | --- | --- | --- | --- |
 | Caption | `Short(keys=…)` (`captions.py`) | phrase of 1 to 3 words, ≤ 16 characters, centred at 50 % of the height, 88 px bold capitals, white with dark outline; spoken word lit, the others 45 %; `keys` colours up to 6 key words | its word |
-| Illustration | `art`, `fig` | Fluent Emoji 3D ([[Style]] Illustrations), ≤ 280 px, soft shadow; the concept picture is fixed per idea ([[Audience]] *Plain-words map*) | `grow` |
+| Illustration (retired 27 Oct 2026) | `art`, `fig` | Fluent Emoji 3D, kept for old builders only; new videos use Hairline figures | `grow` |
 | Label | `lbl` | 46 px heavy, centred, one line (`nowrap`), cream or one semantic colour | `pop` 0.1 s after its picture |
 | Real frame | `frame` | 9:16 screenshot or video still, 14 px corners, slate border | `pop` |
 | Device | `phone`, `code` | phone 370 × 660 around a real screen; code panel 870 wide, JetBrains Mono 42 px, strings mint, numbers ember | `settle` (hook) or `pop` |
@@ -75,9 +89,9 @@ Content is centred on x 503 (the middle of 56 to 950), not on the frame's 540: t
 | Strike | `strike` | 16 px `rose2` bar at −30° across a picture | `strike` on the word that negates |
 | Flash | `flash` | white radial light over the stage | `flash` on the shot |
 | Strip | `strip` | dark film strip holding real frames | `pop`, then `slide` |
-| Context card | `card` | 894 × 280 in the DECK (top 1127), paper 94 %, 8 px ember bar; label 32 px spaced capitals, title 56 px, detail 34 px; `good=True` is the solution's mint card | `pop` |
+| Context card (line panel) | `card` | 894 × 280 in the DECK (top 1127), `ink2` 94 %, 3.2 px cream line, 120 px ember tick on the top edge; label JetBrains Mono 30 px ember, title 56 px cream, detail 34 px; `good=True`: mint line and tick | `pop` |
 | Number card | `card` with the figure as title | same box; one number with its source | `pop` |
-| Comment prompt | `ask` | the closing question as a reply box (DECK top 1110, `ink2` 94 %, 4 px `mint2` border, 40 px corners): balloon 96 px and question 56 px (≤ 26 characters), two or three answer chips 40 px (≤ 14 characters, `signal2` outline), "reply in the comments" 40 px slate | `rise` on the question; `chips` on "Tell me" |
+| Comment prompt | `ask` | the closing question as a reply box (DECK top 1110, `ink2` 94 %, 4 px `mint2` border, 40 px corners): line-drawn reply bubble 88 px and question 56 px (≤ 26 characters), two or three answer chips 40 px (≤ 14 characters, `signal2` outline), "reply in the comments" 40 px slate | `rise` on the question; `chips` on "Tell me" |
 | Solution flood | `write(flood=n)` | mint and signal light pools fade in over 0.6 s from scene n ([[Style]] Solution scenes) | automatic |
 | Hairline figure | `hairline(id, x, y, w)` + `v.hairline(id, fn)` | an isometric line figure from `vendor/hairline` (MIT, 0.5.1), 5:4 at `w` (800 wide = 640 tall fills the STAGE); colours from [[Style]] *Hairline figures*; it acts only through `point`; a lit colour fades in over about 2 s after the pointer arrives, so point 1 s or more before the word that needs the colour | `pop`, then `point` |
 | 3D model | `model3d` | a Blender scene as glb, played by three.js on the page clock | world window |

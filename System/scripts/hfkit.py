@@ -105,12 +105,13 @@ def hlxy(x, y, w, vx, vy):
 def callout(id_, text, ax, ay, lx, ly, col=CREAM, side="right", w=440):
     """A technical callout: a dot on the part (ax, ay), a hairline leader to (lx, ly), a rule under the label.
     side = which way the rule and label run from (lx, ly). Enters with Short.callout()."""
-    ex = lx + w if side == "right" else lx - w
+    ex = min(lx + w, X1) if side == "right" else max(lx - w, X0)       # the rule and label stay inside the content edges
+    w = abs(ex - lx) - 8
     svg = (f'<svg class="co" id="{id_}-s" width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;left:0;top:0;overflow:visible">'
            f'<polyline id="{id_}-p" points="{ax},{ay} {lx},{ly} {ex},{ly}" pathLength="1" fill="none" stroke="{col}" stroke-width="3.2" '
            f'stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1"/>'
            f'<circle id="{id_}-d" cx="{ax}" cy="{ay}" r="9" fill="{INK}" stroke="{col}" stroke-width="3.2" opacity="0"/></svg>')
-    left = min(lx, ex) + (8 if side == "right" else -8)
+    left = lx + 8 if side == "right" else ex
     return svg + (f'<div class="lbl ov col" id="{id_}" style="left:{left}px;top:{ly - 64}px;width:{w}px;color:{col};'
                   f'text-align:{"left" if side == "right" else "right"}">{text}</div>')
 

@@ -87,7 +87,6 @@ Every media file carries its video prefix (Obsidian resolves embeds by file name
 | Footage | `python3 System/scripts/stock_videos.py search "<q>" --source commons\|pexels\|pixabay\|nasa\|archive [--vertical]`, then `get …`, `look <src>` (frames with timestamps), `cut <src> <clips/…mp4> --start s --dur s --focus x` |
 | 3D plates | `python3 System/scripts/scene3d.py "Media/Week NN/<Day>/<Video>" --preview --sheet` (after a `SOLO_PROYECTO=1` build; drafts at half size), then without `--preview` for the final clips; `--only <name>` for one plate |
 | Recorded run | record the real tool in a tall window at a large font into `clips/_src/<v>-run-<slug>.mp4`, then `stock_videos.py look` and `cut … --focus` like footage; mark speed-ups with a `card` or callout |
-| Illustrations (Fluent Emoji 3D, MIT) | `curl -sfL -o hf/assets/fe-<name>_3d.png "https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/<Name%20With%20Spaces>/3D/<name_with_underscores>_3d.png"` (e.g. `Magnifying glass tilted left`); tile them to look before use; `check3d.mjs` counts `.art` toward frame fill |
 | Motion plates | `python3 System/scripts/motion.py "Media/Week NN/<Day>/<Video>" --sheet` (after a `SOLO_PROYECTO=1` build; `--only <name>` for one plate) |
 | Assemble and check | `VIDEO="Media/Week NN/<Day>/<Video>" SOLO_PROYECTO=1 CHECK=1 blender -b --factory-startup --python System/scripts/build_video.py`                                                               |
 | Render             | same without `SOLO_PROYECTO`, in the background (1.5 to 5 min) |

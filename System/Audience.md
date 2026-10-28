@@ -37,22 +37,22 @@ A case is ≤ 3 years old or iconic; a famous case already covered by 3 outlier 
 
 ## Plain-words map (the hook's **Plain** test, [[Playbook]] §2)
 
-The voice uses the left column; the term goes on screen once, glossed. The illustration column is the concept's fixed picture ([[Style]] Illustrations), so a returning viewer recognises it.
+The voice uses the left column; the term goes on screen once, glossed. The picture column is the concept's fixed **Hairline figure** ([[Style]] Illustrations; *draw* = not in the 33, make it with `/hairline-create` when a video needs it), so a returning viewer recognises it.
 
 | Term | Say | Picture |
 | --- | --- | --- |
-| token | word piece | puzzle piece |
-| embedding | a word's position on a map of meaning | world map |
-| context window | what it can see at once | open window |
-| training · fine-tuning | practice · extra practice on one job | flexed biceps |
-| RLHF | people's thumbs up and down | thumbs up |
-| hallucination | it makes up a plausible answer | performing arts masks |
-| RAG | it looks it up first | magnifier on a page |
-| agent | AI that takes the steps itself | hammer and wrench |
-| MCP · tool use | a plug that lets AI use an app | electric plug |
-| skill (Agent Skills) | know-how it reads when needed | scroll |
-| prompt injection | hidden orders in what it reads | envelope with a warning |
-| compute · inference | the chips' work · answering | high voltage, factory |
+| token | word piece | `keyboard` (keys) |
+| embedding | a word's position on a map of meaning | `terrain` (pillars rise round a point) |
+| context window | what it can see at once | `stack` (the layers in the prompt) |
+| training · fine-tuning | practice · extra practice on one job | `plot` (tabs lift) |
+| RLHF | people's thumbs up and down | draw |
+| hallucination | it makes up a plausible answer | `riffle` with a rose card |
+| RAG | it looks it up first | `riffle` (cards) and `drawer`; the pipeline rail cut · map · fetch · paste |
+| agent | AI that takes the steps itself | `terminal` |
+| MCP · tool use | a plug that lets AI use an app | `plug`, `patch` |
+| skill (Agent Skills) | know-how it reads when needed | `drawer` (opens on demand) |
+| prompt injection | hidden orders in what it reads | `exploded` (a hidden layer) |
+| compute · inference | the chips' work · answering | `cabinet` (server blades) |
 
 ## Outcome and mechanism (the idea frame)
 
