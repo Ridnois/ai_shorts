@@ -38,11 +38,11 @@ One picture per spoken noun, entering on its word, on a grid, with a real thing 
 | **BAND** | y 1180 to 1320 | captions only |
 | Interface | y > 1440, x > 950 | nothing (platform buttons, title) |
 
-Content centres on x 503, not 540: the right strip belongs to the buttons. `colx(k, n)` gives column centres (n = 3: 205, 503, 801); `ROW1` 220 and `ROW2` 560 are picture rows. A Hairline host draws in about 60 % of its 5:4 box: a 900 to 1000 px host spans the stage; bigger hosts may overhang the edges. **Density:** one dominant element per moment; a world shows at most the rail, one figure, two callouts or one tag, one deck element, captions.
+Content centres on x 503, not 540: the right strip belongs to the buttons. **While the pipeline rail shows (y 196 to 296), world content starts below y 310.** `colx(k, n)` gives column centres (n = 3: 205, 503, 801); `ROW1` 220 and `ROW2` 560 are picture rows. A Hairline host draws in about 60 % of its 5:4 box: a 900 to 1000 px host spans the stage; bigger hosts may overhang the edges. **Density:** one dominant element per moment; a world shows at most the rail, one figure, two callouts or one tag, one deck element, captions.
 
 ## Camera and transitions
 
-- **Every world is a canvas** behind a camera (`#wN-cam`). `v.cam(w, t, cx, cy, z, d)` puts canvas point (cx, cy) at the focus (503, 520), z times larger, easing `power2.inOut`; `v.focus(w, t, (x, y, w, h), fill)` frames a box; `v.wide(w, t)` returns. A move of 0.5 s or less is heard (a whoosh). Use the camera for scale changes: **wide** (the whole figure), **medium** (one part), **close** (the detail the voice names). Captions and the rail sit outside the camera.
+- **Every world is a canvas** behind a camera (`#wN-cam`). `v.cam(w, t, cx, cy, z, d)` zooms z times about canvas point (cx, cy) (or moves it to `to=`), easing `power2.inOut`; `v.focus(w, t, (x, y, w, h), fill)` frames a box; `v.wide(w, t)` returns. A move of 0.5 s or less is heard (a whoosh). Use the camera for scale changes: **wide** (the whole figure), **medium** (one part), **close** (the detail the voice names). Captions and the rail sit outside the camera. A close-up may crop text past the frame edges on purpose: `check3d.mjs` exempts content under a camera scale over 1.02 from the interface-zone check.
 - **Transitions** (`v.write(..., trans={"w2": "whip"})`), each with a cause:
 
   | Kind | Built | Use when |

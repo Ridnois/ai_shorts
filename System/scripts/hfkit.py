@@ -8,7 +8,8 @@
     v.write(W, rev=1, trans={"w2": "whip", "w3": "push"})   # index.html, render/_fx/sound_sfx.wav, render/_timeline.json
     v.thumb(K.hairline(...) + K.big("t", "WRONG CARD", 120, 1100, 840))    # hf/thumb.html -> upload/thumb.jpg
 
-Frame (1080x1920): STAGE x 56..950, y 180..860 holds pictures (to y 1150 when the DECK is empty); DECK y 880..1150
+Frame (1080x1920): STAGE x 56..950, y 180..860 holds pictures (to y 1150 when the DECK is empty; below y 310 while the
+pipeline rail shows); DECK y 880..1150
 holds one card or the comment prompt; captions own the BAND y 1180..1320; nothing below 1440 or right of 950.
 Every world is a canvas behind a camera: cam()/focus() move it on a word (wide, medium, close). Worlds change by a
 transition with a cause: cut (default; the new world lands slightly large and settles), whip, push, dip or blur.
@@ -134,6 +135,7 @@ def tag(id_, text, x, y, col=SIGNAL2):
 
 
 RAIL_Y = 196
+RAIL_BOTTOM = 310                      # with a rail on screen, world content starts below this line
 CLOCK = ((r"performance\.now\(", "__HL.now("), (r"requestAnimationFrame\(", "__HL.raf("), (r"cancelAnimationFrame\(", "__HL.caf("),
          (r"new IntersectionObserver\(", "new __HL.IO("), (r"(window\.)?setTimeout\(", "__HL.st("), (r"clearTimeout\(", "__HL.ct("))
 
@@ -393,8 +395,10 @@ class Short:
         self.at(t, f'to({sel(s)}, {{rotation:{rot}, duration:0.25, ease:"power2.out", yoyo:true, repeat:1}}, @);')
 
     # ---- the camera: every world is a canvas; moving it is the scale change (wide, medium, close)
-    def cam(self, w, t, cx=FOCUS[0], cy=FOCUS[1], z=1.0, d=0.8, ease="power2.inOut", to=FOCUS, sound=None):
-        """At t the camera of world w moves so canvas point (cx, cy) sits at `to`, z times larger (d=0: a cut)."""
+    def cam(self, w, t, cx=FOCUS[0], cy=FOCUS[1], z=1.0, d=0.8, ease="power2.inOut", to=None, sound=None):
+        """At t the camera of world w moves so canvas point (cx, cy) sits at `to` (default: where it is, a zoom in place),
+        z times larger (d=0: a cut)."""
+        to = to or (cx, cy)
         x, y = cam_to(cx, cy, z, to)
         if d:
             self.at(t, f'to("#{w}-cam", {{x:{x}, y:{y}, scale:{z}, duration:{d}, ease:"{ease}"}}, @);')
@@ -410,7 +414,7 @@ class Short:
         self.cam(w, t, box[0] + box[2] / 2, box[1] + box[3] / 2, z, d, to=to, **kw)
 
     def wide(self, w, t, d=0.8, **kw):                # back to the whole canvas
-        self.cam(w, t, d=d, **kw)
+        self.cam(w, t, d=d, to=FOCUS, **kw)
 
     def callout(self, id_, t):                        # the leader draws from the part, then the label lands
         self.at(t, f'fromTo("#{id_}-d", {{opacity:0, scale:0.3, transformOrigin:"50% 50%"}}, {{opacity:1, scale:1, duration:0.25, ease:"back.out(1.4)"}}, @);')
@@ -630,9 +634,10 @@ window.__hf.buildReady["glb"] = (async () => {
         return [f'fromTo("#c{g[0]}i", {{y:16, opacity:0}}, {{y:0, opacity:1, duration:0.15, ease:"expo.out"}}, {self.timed[g[0]][1]});'
                 for g in groups(self.timed)]
 
-    def write(self, W, rev, css="", flood=None, trans=None, blur=False, opening=True):
+    def write(self, W, rev, css="", flood=None, trans=None, blur=False, opening=True, first=()):
         """W: {"w1": html, ...}. trans: {"w2": "whip", ...} (default cut; use 3 to 5 kinds, at most a third hard cuts).
-        flood: the scene number where the solution's colour flood starts. blur: HyperFrames' render-time motion blur."""
+        flood: the scene number where the solution's colour flood starts. blur: HyperFrames' render-time motion blur.
+        first: selectors on screen from frame 0 (the hook's claim; frame 0 is the thumbnail on social players)."""
         DUR, win, trans = self.DUR, self.win, trans or {}
         world = lambda wid, z: (f'<div id="{wid}" class="clip world" data-start="{win[wid][0]}" data-duration="{round(win[wid][1] - win[wid][0], 3)}" '
                                 f'data-track-index="{z}"><div class="cam" id="{wid}-cam"><div class="in" id="{wid}-in">{W[wid]}</div></div></div>')
@@ -674,6 +679,7 @@ const q = s => document.querySelectorAll(s);           // initial states outside
 gsap.set(q("#flood, {", ".join(HIDE0)}"), {{opacity:0}});
 if (q(".xx").length) gsap.set(q(".xx"), {{scaleX:0, transformOrigin:"0% 50%"}});
 gsap.set(q(".world .cam"), {{transformOrigin:"0% 0%"}});
+{f'gsap.set(q({json.dumps(", ".join(first))}), {{opacity:1}});' if first else ''}
 const tl = gsap.timeline({{ paused: true }});
 {chr(10).join(J)}
 window.__timelines["main"] = tl;

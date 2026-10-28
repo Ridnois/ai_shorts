@@ -4,6 +4,7 @@
 //   text vs text (visible .ov elements that are not nested in each other)
 // and warns (exit code unchanged) for Design system rules the eye misses on a sheet (zones as in hfkit.py):
 //   SMALL TEXT   visible text under 40 px outside captions and cards (legible at phone size)
+//   (text inside a camera close-up, scale over 1.02, may cross the interface zones: the crop is intended)
 //   SPARSE       everything but the captions (text, 3D, .art illustrations and .hl Hairline figures) covers under a quarter of the stage (y 180 to 1440) for over 3 s in a row
 // Usage: node check3d.mjs [index.html]     exit code 1 when anything overlaps. Shared copy: System/scripts/check3d.mjs
 // ponytail: puppeteer-core and Chrome are borrowed from the hyperframes npx cache; pin them if this becomes a tool.
@@ -69,7 +70,10 @@ const res = await page.evaluate(() => {
       const x1 = Math.max(...boxes.map(b => b[2])), y1 = Math.min(1440, Math.max(...boxes.map(b => b[3])));
       if ((x1 - x0) * Math.max(0, y1 - y0) < stage / 4) warnAt(t, "SPARSE frame");
     } else warnAt(t, "SPARSE frame");
-    for (const e of els) { if (e.r[2] > 952) note(t, `${e.id} in the right interface strip (x > 950)`);      // the app's buttons
+    const crop = el => { const c = el.closest(".cam"); if (!c) return false;                  // a camera close-up crops on purpose
+      const m = getComputedStyle(c).transform; return m !== "none" && Math.abs(new DOMMatrix(m).a) > 1.02; };
+    for (const e of els) { if (crop(e.el)) continue;
+                           if (e.r[2] > 952) note(t, `${e.id} in the right interface strip (x > 950)`);      // the app's buttons
                            if (e.r[3] > 1442) note(t, `${e.id} in the bottom interface zone (y > 1440)`); }
   }
   return { found, warn };
