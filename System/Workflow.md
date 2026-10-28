@@ -79,6 +79,8 @@ Week = calendar week Mon to Sun (Week 01 = 5 to 11 Oct 2026); the Day folder is 
 | Look | `npx --yes hyperframes@0.8.209 snapshot --at <t,…>` (in `hf/`): contact sheet under `.hyperframes/artifacts/snapshots/` |
 | Render | `npx --yes hyperframes@0.8.209 render . -o ../render/<v>-<s>s-9x16-r<n>.mp4 -q delivery --crf 14` (in `hf/`, in the background; about 3 to 5 min for 40 s) |
 | Mix and master | `python3 System/scripts/mix_audio.py "Media/…/<Video>"` (`--report` measures only) |
+| Listen (numbers for the sound) | `python3 System/scripts/listen.py "Media/…/render/<v>.mp4"`: LUFS, true peak, silences, clipping; exit 1 on a failed target |
+| Deeper listening (optional) | `earshot` (github.com/Leonxlnx/earshot, MIT, CPU, about 1.1 GB of models): `earshot describe <wav>`, `earshot critique <mp4>`. The user runs its README install; the agent never installs it unattended |
 | Contact sheet | `ffmpeg -i render/<v>.mp4 -vf "fps=1/3,scale=270:-1,tile=8x3" -frames:v 1 render/_sheet.jpg` |
 | Bitrate | `ffprobe -v error -select_streams v -show_entries stream=bit_rate -of csv=p=0 render/<v>.mp4` |
 | Design system self-check | `python3 System/scripts/hfkit.py`; demo page: `python3 System/scripts/hfkit.py --demo <scratch dir>` |

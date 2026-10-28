@@ -98,6 +98,7 @@ A **Package** section before the scene table: Y and X · **promise** (one senten
 - **Effects with a cause** (kit in [[Design system]] *Sound*): a whoosh on a whip, push or fast camera move (rotated takes), a soft click on a callout, a pop on chips, an opening hit, and once per video a riser into the payoff word with a hit on it. Effects sit well under the voice; nothing loud lands on a word.
 - **Music is opt-in:** instrumental, calm, licensed (Pixabay by hand, shield-free), credited, approved at P4a; ducked under speech.
 - **Mix and master:** `mix_audio.py` after every render: phone-speaker voice chain, **−14 LUFS integrated, true peak −1 dBTP or lower**.
+- **Ears:** `listen.py` on the mastered mp4 gives numbers for what the agent cannot hear (loudness, true peak, every silence and its length, dead air, clipping); its `LISTEN` line goes in Status. It does not judge voice or effect fit: that stays with the user. A deeper listener (`earshot`: tags, scorecard against launch films) is optional once installed by the user ([[Workflow]] §Commands).
 
 ## 6. Build (HyperFrames + `hfkit.py`)
 
@@ -114,6 +115,7 @@ A **Package** section before the scene table: Y and X · **promise** (one senten
 - [ ] Theme line, 3 facts or fewer, concrete ending; every figure sourced; every AI claim with model, version and date
 - [ ] Audio: one take; whisper heard the script; `MIX` at −14 LUFS (±1), true peak −1 dBTP or lower; effects stem under −1 dBFS
 - [ ] Render at CRF 14 or better (`--crf 14`); bitrate printed
+- [ ] `listen.py` passes (no silence over 0.9 s, no dead air over 1.2 s, no clipping); its line is in Status
 - [ ] **Not verified, said out loud:** how the voice and effects sound, caption timing against speech, pace in motion. P7 belongs to the user.
 
 ## 8. Ship discipline (P7 and after)

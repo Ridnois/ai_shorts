@@ -42,6 +42,7 @@ INVARIANTS = [
     ("System/Design system.md", "Blender", "Blender scenes reach HyperFrames as glb or alpha webm"),
     ("System/Workflow.md", "validate_palette.js", "new colours are validated, not eyeballed"),
     ("System/Workflow.md", "did you know what the video is about", "rubric asks about hook clarity"),
+    ("System/Workflow.md", "listen.py", "the agent measures the sound instead of leaving it unverified (28 Oct 2026)"),
     ("System/Workflow.md", "--crf 14", "renders keep their gradients and fine lines (27 Oct 2026)"),
     ("System/Workflow.md", "Clarify first", "interactive questions before a new video"),
     ("System/Style.md", "never inside the video", "no branding inside the video"),
