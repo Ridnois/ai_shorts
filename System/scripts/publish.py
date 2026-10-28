@@ -46,10 +46,6 @@ def credits(media, plan):
         for pl in sc.get("plates", []):                     # HyperFrames plans have no plates
             for f in (pl["file"], pl.get("bg_photo"), (pl.get("inset") or {}).get("file")):
                 if f: used.add(os.path.basename(f))
-            mo = pl.get("motion") or {}                          # photos and footage drawn inside motion plates
-            bg = mo.get("bg") if isinstance(mo.get("bg"), dict) else {}
-            for f in [bg.get("photo"), bg.get("video")] + [e.get("file") for e in mo.get("els", []) if e.get("kind") == "image"]:
-                if f: used.add(os.path.basename(f))
     cc, pd, pages = {}, set(), []
     for cf in (f"{media}/stock/_credits.jsonl", f"{media}/clips/_credits.jsonl"):
         for l in open(cf, encoding="utf-8") if os.path.exists(cf) else []:
