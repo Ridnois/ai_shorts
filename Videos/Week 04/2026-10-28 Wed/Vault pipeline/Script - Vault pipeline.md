@@ -2,7 +2,7 @@
 type: script
 updated: 2026-10-28
 series: Agent at work
-words: 126
+words: 134
 ---
 
 # Script: Vault pipeline (how this vault makes Shorts)
@@ -30,16 +30,16 @@ Status: [[Vault pipeline - Status]] · rules: [[Playbook]] · build: [[Design sy
 - **Thumbnail:** the `format` figure with its lines snapped square in mint; words **FIX THE NOTE** (3). Beats neighbours (screen recordings of prompts) by naming the habit, not the tool.
 - **Opening map:** scene 1 = promise (an agent, notes, no long prompt); scene 2 = proof (14 made, 0 uploaded) and plan (the rail).
 
-## Scenes
+## Scenes (r2: tightened; one hero per beat, media mixed by beat)
 
-| # | Question it answers | Voice (exact text) | Words | Delivery · pause | Visual beat | Camera | Text on screen | Source |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | (hook) | An AI agent made this Short from a folder of notes. No long prompt. Here is how it works. | 19 | calm, a small smile | the real `System/` listing (notes and sizes) beside a phone holding a real frame; a "long prompt" tag struck on "No" | close on the listing, pull back to wide on "Short" | rail: notes · script · voice · page · checks | `ls -l System` |
-| 2 | what notes? | The notes are its rules for writing, look and sound. But they grew into a mess. Fourteen videos made, zero uploaded. | 21 | a dry turn on "But" | three note tags light on their words; counters run to 14 and stay at 0 (rose); a strip of real frames slides | medium on the counters | card: AS OF 27 OCT 2026 | Media, index |
-| 3 | so what changed? | So the agent rewrote them, forty percent shorter, and turned the look into code. | 14 | brisk | two bars: 111 KB shrinks to 66 KB (mint); the real `hfkit.py` lines | push to the code | 111 KB to 66 KB | `wc -c` |
-| 4 | how does a video run? | Each video runs one path: a script in words, then one voice take, no cuts. | 15 | even | crates on a belt pass a gate (`slow`): script, then the real waveform of this take | medium on the belt | callouts: script, one take | plan.json, take |
-| 5 | how do words become frames? | Every word gets a time. Each one cues a web page, filmed frame by frame. | 14 | even | the real `words.json` lines; a strip of real rendered frames | close on one word's time, then wide | callout: cue | words.json |
-| 6 | is it checked? | Before a human sees it, checks run: overlaps, empty screens, loudness. | 11 | precise | real terminal output: `OVERLAPS 0`, `MIX … -14.0 LUFS` | close on each line | | check3d, mix_audio |
-| 7 | what do I copy? | Here is the part to copy. When your agent gets it wrong, do not fix the video. Fix the note. Would you let an agent run your channel? Tell me. | 32 | beat 0.2 before "Fix the note" | the `format` file snaps square in mint (payoff riser and hit on "note"); comment prompt | wide | ask: Agent run your channel? · yes · with checks · never | |
+| # | Question it answers | Voice (exact text) | Words | Hero (one at a time) | Camera | Source |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | (hook) | An AI agent made this Short from a folder of notes, not a long prompt. Here is how. | 17 | the real `System/` listing and "Notes in, Short out" on frame 0; then "one long prompt" struck | close on Playbook.md, cut wide | `ls -l System` |
+| 2 | what do the notes hold? | The notes hold its rules for writing, look and sound. But they piled up: fourteen videos made, zero uploaded. | 19 | writing · look · sound (lit on their words); a strip of real frames; "14 made / 0 uploaded" | | Media, index |
+| 3 | so what changed? | So the agent rewrote them forty percent shorter, and turned the look into code. | 14 | two bars (111 KB to 66 KB); then the real `hfkit.py` lines | close on `HERO` | `wc -c` |
+| 4 | what is the path now? | Now every video takes one path: a script in words, then one voice take, never cut. | 16 | the `slow` belt; then this take's real waveform, "one take, never cut" | | plan.json, take |
+| 5 | how do words become frames? | Each word gets a timestamp, and each timestamp fires a moment on a web page, filmed frame by frame. | 19 | this take's real `words.json`; then real frames sliding | close on "timestamp", wide | words.json |
+| 6 | is it checked? | Then checks run: nothing overlaps, no screen sits empty, the sound is level. | 13 | the real terminal output of r1 of this video | close on each check | check3d, mix_audio |
+| 7 | what do I copy? | Here is the habit to copy. When the agent gets it wrong, do not fix the video. Fix the note, and every next video improves. Would you let an agent run your channel? Tell me. | 36 | "fix the video" struck, "fix the note" as the `format` file snaps square (riser and hit); the comment prompt | | |
 
-Theme line: **fix the note, not the video.** Words: 126 (short test block). Not verified: demand for the search phrase; how the take sounds.
+Theme line: **fix the note, not the video.** Words: 134 (short test block). Not verified: demand for the search phrase; how the take sounds.
