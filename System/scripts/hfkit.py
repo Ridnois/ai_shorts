@@ -97,6 +97,42 @@ def hairline(id_, x=103, y=205, w=800):
     return f'<div class="hl" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{round(w * 0.8)}px"></div>'
 
 
+def hlxy(x, y, w, vx, vy):
+    """A point of a hairline(x, y, w) figure, from its 400 x 320 viewBox to page px: where a callout anchors."""
+    return round(x + vx / 400 * w), round(y + vy / 320 * w * 0.8)
+
+
+def callout(id_, text, ax, ay, lx, ly, col=CREAM, side="right", w=440):
+    """A technical callout: a dot on the part (ax, ay), a hairline leader to (lx, ly), a rule under the label.
+    side = which way the rule and label run from (lx, ly). Enters with Short.callout()."""
+    ex = lx + w if side == "right" else lx - w
+    svg = (f'<svg class="co" id="{id_}-s" width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;left:0;top:0;overflow:visible">'
+           f'<polyline id="{id_}-p" points="{ax},{ay} {lx},{ly} {ex},{ly}" pathLength="1" fill="none" stroke="{col}" stroke-width="3.2" '
+           f'stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1"/>'
+           f'<circle id="{id_}-d" cx="{ax}" cy="{ay}" r="9" fill="{INK}" stroke="{col}" stroke-width="3.2" opacity="0"/></svg>')
+    left = min(lx, ex) + (8 if side == "right" else -8)
+    return svg + (f'<div class="lbl ov col" id="{id_}" style="left:{left}px;top:{ly - 64}px;width:{w}px;color:{col};'
+                  f'text-align:{"left" if side == "right" else "right"}">{text}</div>')
+
+
+def tag(id_, text, x, y, col=SIGNAL2):
+    """A line-drawn tag holding a query or a name: the thing that moves between figures."""
+    return f'<div class="tag ov" id="{id_}" style="left:{x}px;top:{y}px;color:{col};border-color:{col}">{html.escape(text)}</div>'
+
+
+RAIL_Y = 200
+
+
+def rail(steps):
+    """The pipeline rail: one node per step of the mechanism across the top of the STAGE (y 200 to 290); Short.step() lights it."""
+    n, nodes = len(steps), ""
+    for k, t in enumerate(steps):
+        nodes += (f'<div class="rn" id="rail-n{k}" style="left:{colx(k, n) - X0 - 110}px"><i id="rail-d{k}"></i>'
+                  f'<span id="rail-t{k}">{html.escape(t)}</span></div>')
+    return (f'<div id="rail" class="ov" style="position:absolute;left:{X0}px;top:{RAIL_Y}px;width:{X1 - X0}px;height:92px">'
+            f'<div class="rl" style="left:{colx(0, n) - X0}px;width:{colx(n - 1, n) - colx(0, n)}px"></div>{nodes}</div>')
+
+
 def card(id_, label, title, detail, good=False):
     """Context card in the DECK: source label, one title, one detail line. good = the solution's mint card."""
     return (f'<div id="{id_}" class="card ov{" good" if good else ""}"><div class="lab">{label}</div><div class="tit">{html.escape(title)}</div>'
@@ -106,7 +142,7 @@ def card(id_, label, title, detail, good=False):
 def ask(id_, question, answers):
     """Comment prompt (the closing question): a reply box with answer chips, in the DECK."""
     chips = "".join(f'<span class="chip" id="{id_}-c{k}">{html.escape(a)}</span>' for k, a in enumerate(answers))
-    return (f'<div class="ask ov" id="{id_}"><div class="askq"><img src="assets/fe-speech_balloon_3d.png"/>{html.escape(question)}</div>'
+    return (f'<div class="ask ov" id="{id_}"><div class="askq"><svg viewBox="0 0 48 48" width="88" height="88"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="none" stroke="{MINT2}" stroke-width="2.6" stroke-linejoin="round"/></svg>{html.escape(question)}</div>'
             f'<div class="chips">{chips}</div><div class="askf">reply in the comments</div></div>')
 
 
@@ -141,17 +177,26 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:{INK}; }}
 .track {{ position:absolute; left:0; top:8px; }}
 .arr {{ position:absolute; text-align:center; font-size:46px; font-weight:900; color:{SLATE}; border-bottom:8px solid {SLATE}; padding-bottom:10px; }}
 .xx {{ position:absolute; height:16px; border-radius:8px; background:{ROSE2}; transform:rotate(-30deg); }}
-.card {{ position:absolute; left:56px; top:1127px; width:894px; height:280px; border-radius:16px; background:rgba(249,246,238,0.94);
-  border:1px solid rgba(40,40,40,0.25); border-left:8px solid {EMBER}; padding:30px 40px; }}
-.card.good {{ border-left:12px solid {MINT}; box-shadow:0 0 0 3px rgba(95,214,168,0.55), 0 24px 60px rgba(0,174,123,0.30); }}
-.card .lab {{ font-size:32px; letter-spacing:0.12em; color:{EMBER}; font-weight:700; }}
-.card.good .lab {{ color:#007A57; }}
-.card .tit {{ font-size:56px; font-weight:700; color:{INK}; margin-top:10px; white-space:nowrap; }}
-.card .det {{ font-size:34px; color:#3A3F4E; margin-top:12px; }}
+.card {{ position:absolute; left:56px; top:1127px; width:894px; height:280px; border-radius:22px; background:rgba(21,26,43,0.94);
+  border:3.2px solid rgba(243,237,226,0.85); padding:30px 40px; }}
+.card::before {{ content:""; position:absolute; left:40px; top:-3px; width:120px; height:6px; background:{EMBER2}; }}
+.card.good {{ border-color:{MINT2}; box-shadow:0 0 50px rgba(95,214,168,0.25); }}
+.card.good::before {{ background:{MINT2}; }}
+.card .lab {{ font-family:"JetBrains Mono", monospace; font-size:30px; letter-spacing:0.08em; color:{EMBER2}; font-weight:700; }}
+.card.good .lab {{ color:{MINT2}; }}
+.card .tit {{ font-size:56px; font-weight:800; color:{CREAM}; margin-top:10px; white-space:nowrap; }}
+.card .det {{ font-size:34px; color:#A9B0C4; margin-top:12px; }}
+.col {{ white-space:nowrap; }}
+.tag {{ position:absolute; padding:14px 30px; border:3.2px solid; border-radius:44px; background:rgba(21,26,43,0.94); font-size:44px; font-weight:800; white-space:nowrap; }}
+#rail {{ z-index:40; }}
+.rl {{ position:absolute; top:16px; height:3.2px; background:{SLATE}; }}
+.rn {{ position:absolute; top:0; width:220px; text-align:center; }}
+.rn i {{ display:block; margin:0 auto; width:34px; height:34px; border-radius:50%; border:3.2px solid {SLATE}; background:{INK}; }}
+.rn span {{ display:block; margin-top:6px; font-family:"JetBrains Mono", monospace; font-size:40px; font-weight:700; color:{SLATE}; letter-spacing:0.04em; }}
 .ask {{ position:absolute; left:56px; top:1110px; width:894px; padding:26px 32px 22px; border-radius:40px; background:rgba(21,26,43,0.94);
   border:4px solid {MINT2}; box-shadow:0 0 50px rgba(95,214,168,0.30); }}
 .askq {{ display:flex; align-items:center; gap:20px; font-size:56px; font-weight:900; color:{CREAM}; }}
-.askq img {{ width:96px; height:96px; flex:none; }}
+.askq svg {{ flex:none; }}
 .chips {{ display:flex; gap:18px; margin-top:22px; }}
 .chip {{ padding:10px 26px; border-radius:40px; border:4px solid {SIGNAL2}; color:{SIGNAL2}; font-size:40px; font-weight:800; white-space:nowrap; }}
 .askf {{ margin-top:18px; font-size:40px; font-weight:700; color:{SLATE}; }}
@@ -161,7 +206,7 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:{INK}; }}
 .cap {{ position:absolute; left:0; width:1080px; top:905px; text-align:center; font-family:Inter; font-weight:900; color:#fff;
   line-height:110px; height:110px; -webkit-text-stroke:10px #0A0907; paint-order:stroke fill; text-shadow:0 6px 18px rgba(0,0,0,0.55); z-index:50; white-space:nowrap; }}
 '''
-HIDE0 = [".ask", ".hl", ".card", ".art", ".lbl", ".code", ".cl", ".count", ".strip", ".frm:not(.track .frm)", ".arr", ".xx", ".flash"]
+HIDE0 = [".ask", ".hl", ".tag", "#rail", ".card", ".art", ".lbl", ".code", ".cl", ".count", ".strip", ".frm:not(.track .frm)", ".arr", ".xx", ".flash"]
 norm = lambda s: re.sub(r"[^a-z0-9]", "", s.lower())
 sel = lambda s: json.dumps(s) if isinstance(s, list) else (s if s.startswith("[") else json.dumps(s))
 
@@ -270,6 +315,29 @@ class Short:
 
     def nudge(self, s, t, rot=20):
         self.at(t, f'to({sel(s)}, {{rotation:{rot}, duration:0.3, yoyo:true, repeat:1}}, @);')
+
+    def callout(self, id_, t):                        # the leader draws from the part, then the label lands
+        self.at(t, f'fromTo("#{id_}-d", {{opacity:0, scale:0.3, transformOrigin:"50% 50%"}}, {{opacity:1, scale:1, duration:0.2, ease:"back.out(2)"}}, @);')
+        self.at(t + 0.05, f'fromTo("#{id_}-p", {{attr:{{"stroke-dashoffset":1}}}}, {{attr:{{"stroke-dashoffset":0}}, duration:0.35, ease:"power2.out"}}, @);')
+        self.pop(f"#{id_}", t + 0.3)
+
+    def uncallout(self, id_, t):
+        self.hide([f"#{id_}", f"#{id_}-s"], t)
+
+    def rail(self, steps, t):
+        """The persistent pipeline rail (above the worlds) appears at t, node by node."""
+        self.extra.append(f'<div id="railc" class="clip" data-start="0" data-duration="{self.DUR}" data-track-index="40">{rail(steps)}</div>')
+        self.at(t, 'set("#rail", {opacity:1}, @);')
+        for k in range(len(steps)):
+            self.at(t + 0.12 * k, f'fromTo("#rail-n{k}", {{opacity:0, y:16}}, {{opacity:1, y:0, duration:0.3, ease:"back.out(2)"}}, @);')
+
+    def step(self, k, t, state="on"):
+        """Rail node k becomes on (ember, the step on screen), done (cream), bad (rose: where it fails) or good (mint)."""
+        col = {"on": EMBER2, "done": CREAM, "bad": ROSE2, "good": MINT2}[state]
+        fill = {"on": EMBER2, "done": INK, "bad": ROSE2, "good": MINT2}[state]
+        self.at(t, f'to("#rail-d{k}", {{borderColor:"{col}", backgroundColor:"{fill}", scale:1.25, duration:0.25, ease:"back.out(2)"}}, @);')
+        self.at(t + 0.25, f'to("#rail-d{k}", {{scale:1, duration:0.2}}, @);')
+        self.at(t, f'to("#rail-t{k}", {{color:"{col}", duration:0.25}}, @);')
 
     # ---- 3D placed on the page
     def plate3d(self, id_, src, t0, dur):
