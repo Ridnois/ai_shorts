@@ -1,11 +1,10 @@
 """Mix and master the audio of a rendered Short with ffmpeg, then put it back into the mp4 (System/Playbook.md §5).
 
-    python3 System/scripts/mix_audio.py "Media/Week NN/<Day>/<Video>"          # after the Blender render
+    python3 System/scripts/mix_audio.py "Media/Week NN/<Day>/<Video>"          # after the HyperFrames render
     python3 System/scripts/mix_audio.py "Media/..." --report                   # measure only
 
-Why outside Blender: Blender's background mixdown is silent and its mix has no loudness control; this keeps the picture
-and replaces the sound. Reads render/_timeline.json (voice placement, sound events, stems, render path, written by
-build_video.py) and plan.json `sound`:
+Keeps the picture and replaces the sound. Reads render/_timeline.json (voice placement, stems, render path, written by
+hfkit.Short.write) and plan.json `sound`:
 
   "sound": {"music": {"file": "music/pc-music.mp3", "start": 12.0, "lu": -15, "duck": 0.063},  # optional bed
             "sfx_db": 0, "bed": false, "lufs": -14, "tp": -1.0}
@@ -14,10 +13,10 @@ build_video.py) and plan.json `sound`:
     at 250 Hz, presence +2.5 dB at 3.2 kHz, de-esser, 2.5:1 compression), then levelled to `lufs` + 1 LU.
   * music: looped or trimmed to the video, levelled `lu` under the voice (default −15 LU), ducked about 8 dB while the voice
     speaks (sidechain 3:1, threshold `duck`; measured 9 Oct 2026), so it sits about 23 LU under speech and fills the pauses.
-  * sfx: the builder's synthesized events stem (render/_fx/sound_sfx.wav), at its designed level relative to the voice
+  * sfx: the effects stem hfkit lays from System/assets/sfx (render/_fx/sound_sfx.wav), at its designed level relative to the voice
     plus `sfx_db`; the old sine bed only if "bed": true and there is no music.
   * master: two-pass loudnorm to `lufs` (−14 LUFS integrated, YouTube's reference) and `tp` (−1 dBTP), 48 kHz stereo AAC.
-The Blender render is kept as render/_fx/<name>-blender.mp4. The script prints the final loudness: P7 belongs to the user.
+The silent render is kept as render/_fx/<name>-picture.mp4. The script prints the final loudness: P7 belongs to the user.
 """
 import argparse, json, os, re, shutil, subprocess, sys
 
@@ -94,7 +93,7 @@ def main():
             f"[1:a]aformat=channel_layouts=stereo[key];[0:a][key]sidechaincompress=threshold={mu.get('duck', 0.063)}:"
             f"ratio=3:attack=40:release=450:knee=3[m]", "-map", "[m]", duck])
         stems.append(duck)
-    # synthesized sound design from the builder, kept at its designed level relative to the voice
+    # the effects stem from the builder, kept at its designed level relative to the voice
     for name in ("sfx", "bed"):
         p = tl.get("stems", {}).get(name)
         if not p or not os.path.exists(p) or (name == "bed" and (mu or not sn.get("bed", False))):
@@ -113,8 +112,8 @@ def main():
         f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true,"
         f"aresample={SR}", "-ar", str(SR), master])
 
-    keep = os.path.join(root, "render", "_fx", os.path.basename(render).replace(".mp4", "-blender.mp4"))
-    stamp = keep + ".mixed"                              # mtime of the last mixed output: anything else is a new Blender render
+    keep = os.path.join(root, "render", "_fx", os.path.basename(render).replace(".mp4", "-picture.mp4"))
+    stamp = keep + ".mixed"                              # mtime of the last mixed output: anything else is a new render
     mixed = open(stamp).read().strip() if os.path.exists(stamp) else ""
     if not os.path.exists(keep) or str(os.path.getmtime(render)) != mixed:
         shutil.copy2(render, keep)                       # a re-render under the same name replaces the kept picture

@@ -1,7 +1,7 @@
 ---
 type: rules
-updated: 2026-10-26
-status: v3 · AI niche machinery (26 Oct 2026, user: "optimize this vault for ai related niche"): case sources, news as the case, plain-words map, AI keywords; v2 · AI niche (23 Oct 2026): three series (How it works, Agent at work, What's coming); deep-first search, outcome and mechanism, package and opening from [[User insights]] (6 Oct 2026)
+updated: 2026-10-28
+status: v4 · 27 Oct 2026: references follow the Playbook v11 numbering and the Design system figure library; v3 · AI niche machinery (case sources, news as the case, plain-words map); v2 · three series, deep-first search, outcome and mechanism, package and opening
 ---
 
 # Audience: niche, search, package, opening
@@ -18,11 +18,11 @@ Owns everything that happens **before the click and in the first seconds after i
 | **Agent at work** | agentic usage: tools, prompts, workflows, coding agents, MCP, automations, shown as **real recorded runs** | to get more done with AI this week | "The one line that makes an agent check its own work" |
 | **What's coming** | the future with AI, from evidence: compute, energy, jobs, science, safety, policy | to see the change before it lands on them | "Why AI needs a power plant per data center" |
 
-**News is the case, never the video** (26 Oct 2026): a launch or incident enters only as the real case (§1 item 9 of [[Playbook]]) that opens an evergreen mechanism (Air Canada's chatbot → RAG); the mechanism must still be true in a year. At least 4 of 5 videos have no date-bound claim in the voice. Not hype, not doom. A topic outside the three needs one line saying which pillar it serves. Topic families for the spread rule: models inside, data and training, agents and tools, work and money, compute and energy, safety and society.
+**News is the case, never the video:** a launch or incident enters only as the real case ([[Playbook]] §1 item 2) that opens an evergreen mechanism (Air Canada's chatbot → RAG); the mechanism must still be true in a year. At least 4 of 5 videos have no date-bound claim in the voice. Not hype, not doom. A topic outside the three needs one line saying which pillar it serves. Topic families for the spread rule: models inside, data and training, agents and tools, work and money, compute and energy, safety and society.
 
 **Audience:** curious adults who use ChatGPT, Claude or Gemini a few times a week and feel they are missing how it works or how others use it so well; developers and knowledge workers who want agents to do real work. Plain words first; the expert gets one detail per scene they did not know.
 
-## Case sources (where the real case of [[Playbook]] §1 item 9 comes from)
+## Case sources (where the real case of [[Playbook]] §1 item 2 comes from)
 
 Look here first, in this order; every case is verified at its primary source and dated.
 
@@ -37,7 +37,7 @@ A case is ≤ 3 years old or iconic; a famous case already covered by 3 outlier 
 
 ## Plain-words map (the hook's **Plain** test, [[Playbook]] §2)
 
-The voice uses the left column; the term goes on screen once, glossed. The picture column is the concept's fixed **Hairline figure** ([[Style]] Illustrations; *draw* = not in the 33, make it with `/hairline-create` when a video needs it), so a returning viewer recognises it.
+The voice uses the left column; the term goes on screen once, glossed. The picture column is the concept's fixed **Hairline figure** ([[Design system]] *Hairline figure library*; *draw* = not in the 33, make it with `/hairline-create` when a video needs it), so a returning viewer recognises it.
 
 | Term | Say | Picture |
 | --- | --- | --- |
@@ -76,7 +76,7 @@ The voice uses the left column; the term goes on screen once, glossed. The pictu
 ## Package: title and thumbnail are one promise
 
 - **The thumbnail is read first.** If the viewer cannot see problem and outcome in a glance, the title is never read. One idea per thumbnail, readable at phone size.
-- **Picture and words split the job** (9 Oct 2026): the thumbnail shows the surprise as one image with at most 3 to 4 words; the title gives the cause and the search words. Never the same sentence in both ([[Workflow]] §Thumbnail).
+- **Picture and words split the job:** the thumbnail shows the surprise as one image with at most 3 to 4 words; the title gives the cause and the search words. Never the same sentence in both ([[Workflow]] §Thumbnail).
 - **Judge beside the competition:** compare the package with 3 videos it will sit next to in search; the question is *does this give the right viewer a clearer reason to choose this one?*
 - The promise must be **plain, specific, honest** ("A chatbot scores every word it knows before it writes one"), never a teaser the video cannot pay.
 - Do not copy a winner's title; keep the psychology (Y, speed, surprise), change the subject.

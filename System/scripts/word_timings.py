@@ -5,7 +5,7 @@
 
 Writes voice/<take>.words.json = [[word, start_s, end_s], ...] (seconds in the ORIGINAL mp3; the builder adds the padding).
 Model: vaibhavs10/incredibly-fast-whisper with timestamp=word (≈ $0.01 per take; the price is logged, not assumed).
-Without these files the builder still captions the video from an estimate (characters and pauses), see build_video.py.
+hfkit.Short needs this file: it times captions, scene starts and every cue from it.
 """
 import json
 import os

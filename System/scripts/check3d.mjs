@@ -2,9 +2,9 @@
 //   3D vs text   (projected object boxes, window.__boxes3d, against every visible .ov element)
 //   3D vs band   (objects inside the caption band)
 //   text vs text (visible .ov elements that are not nested in each other)
-// and warns (exit code unchanged) for Style.md rules the eye misses on a sheet:
-//   SMALL TEXT   visible text under 40 px outside captions and cards (Style: legible at phone size)
-//   SPARSE       everything but the captions (text, 3D, .art illustrations and .hl Hairline figures) covers under a quarter of the stage (y 192 to 1440) for over 3 s in a row
+// and warns (exit code unchanged) for Design system rules the eye misses on a sheet (zones as in hfkit.py):
+//   SMALL TEXT   visible text under 40 px outside captions and cards (legible at phone size)
+//   SPARSE       everything but the captions (text, 3D, .art illustrations and .hl Hairline figures) covers under a quarter of the stage (y 180 to 1440) for over 3 s in a row
 // Usage: node check3d.mjs [index.html]     exit code 1 when anything overlaps. Shared copy: System/scripts/check3d.mjs
 // ponytail: puppeteer-core and Chrome are borrowed from the hyperframes npx cache; pin them if this becomes a tool.
 import { createRequire } from "module";
@@ -36,12 +36,12 @@ for (let k = 0; ; k++) {                              // waitForFunction stalls 
 await page.evaluate(() => document.fonts.ready);
 
 const res = await page.evaluate(() => {
-  const tl = window.__timelines.main, dur = tl.duration(), band = [0, 880, 1080, 1040];
+  const tl = window.__timelines.main, dur = tl.duration(), band = [0, 1180, 1080, 1320];
   const hit = (a, b, m = 4) => a[0] < b[2] - m && a[2] > b[0] + m && a[1] < b[3] - m && a[3] > b[1] + m;
   const clipOn = (el, t) => { for (let e = el; e && e.dataset; e = e.parentElement) if (e.classList.contains("clip")) {
       const s = +e.dataset.start, d = +e.dataset.duration; if (t < s || t >= s + d) return false; } return true; };
   const alpha = el => { let a = 1; for (let e = el; e && e !== document.body; e = e.parentElement) a *= +getComputedStyle(e).opacity; return a; };
-  const found = {}, warn = {}, stage = 1080 * (1440 - 192);
+  const found = {}, warn = {}, stage = 1080 * (1440 - 180);
   const warnAt = (t, k) => { (warn[k] = warn[k] || []).push(+t.toFixed(2)); };
   const note = (t, k) => { (found[k] = found[k] || []).push(+t.toFixed(2)); };
   for (let t = 0; t < dur; t += 0.25) {
@@ -59,17 +59,17 @@ const res = await page.evaluate(() => {
       if (hit(a.r, b.r)) note(t, `${a.id} vs ${b.id}`); }
     for (const e of els) if (hit(e.r, band, 0) && !e.el.closest("#caps")) note(t, `${e.id} in caption band`);
     for (const e of els) for (const n of [e.el, ...e.el.querySelectorAll("*")])
-      if ([...n.childNodes].some(c => c.nodeType === 3 && c.textContent.trim()) && !n.closest("#caps, [id*=card]")   // cards keep the approved Style sizes
+      if ([...n.childNodes].some(c => c.nodeType === 3 && c.textContent.trim()) && !n.closest("#caps, .card, .bar")   // card labels and terminal bars are 32 px by design
           && parseFloat(getComputedStyle(n).fontSize) < 40) warnAt(t, `SMALL TEXT ${parseFloat(getComputedStyle(n).fontSize)} px in ${e.id}`);
-    const art = [...document.querySelectorAll(".art, .hl")].filter(e => clipOn(e, t) && alpha(e) > 0.05)    // illustrations fill the frame too
+    const art = [...document.querySelectorAll(".art, .hl, .big")].filter(e => clipOn(e, t) && alpha(e) > 0.05)    // illustrations fill the frame too
       .map(e => { const r = e.getBoundingClientRect(); return [r.left, r.top, r.right, r.bottom]; });
     const boxes = [...els.filter(e => !e.el.closest("#caps")).map(e => e.r), ...b3, ...art];
     if (boxes.length) {                                // bounding box of the picture, not its ink: generous on purpose
-      const x0 = Math.min(...boxes.map(b => b[0])), y0 = Math.max(192, Math.min(...boxes.map(b => b[1])));
+      const x0 = Math.min(...boxes.map(b => b[0])), y0 = Math.max(180, Math.min(...boxes.map(b => b[1])));
       const x1 = Math.max(...boxes.map(b => b[2])), y1 = Math.min(1440, Math.max(...boxes.map(b => b[3])));
       if ((x1 - x0) * Math.max(0, y1 - y0) < stage / 4) warnAt(t, "SPARSE frame");
     } else warnAt(t, "SPARSE frame");
-    for (const e of els) { if (e.r[2] > 952) note(t, `${e.id} in the right interface strip (x > 950)`);      // Style.md lanes: the app's buttons
+    for (const e of els) { if (e.r[2] > 952) note(t, `${e.id} in the right interface strip (x > 950)`);      // the app's buttons
                            if (e.r[3] > 1442) note(t, `${e.id} in the bottom interface zone (y > 1440)`); }
   }
   return { found, warn };

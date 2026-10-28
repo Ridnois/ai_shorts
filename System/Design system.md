@@ -2,159 +2,127 @@
 type: rules
 created: 2026-10-27
 updated: 2026-10-27
-status: v1 · layout grid, components, motion verbs, 3D routes (Blender to HyperFrames); code in System/scripts/hfkit.py
-tags: [rules, design, motion, hyperframes, blender]
+status: v2 · 27 Oct 2026: look tokens moved in from Style; camera on a canvas, transitions with a cause, type scale, vendored fonts and libraries, grain, the sound kit, captions in the low band; code in System/scripts/hfkit.py
+tags: [rules, design, motion, hyperframes]
 ---
 
-# Design system: layout, components, motion
+# Design system: look, layout, camera, motion, sound
 
-← [[Style]] (brand, persona, colour tokens) · [[Playbook]] §3 (what a visual must do) · [[Workflow]] (commands)
+← [[Playbook]] §3 (what a visual must do) · [[Style]] (brand, persona, words) · [[Workflow]] (commands)
 
-User (27 Oct 2026): *"build a design system for components and animation styles. combine all the techniques you used before … analyze the strong results. maybe you could use blender better, export it and uploaded it on hyperframes. and design a way to distribute elements on the viewport."* The system is code first: **`System/scripts/hfkit.py`** holds every token, zone, component and motion verb below, and a HyperFrames `hf/build.py` only places and times them (HyperFrames r2 dropped from 314 to 117 lines and rebuilt pixel for pixel, checked at 15 moments). Change a component here and in `hfkit.py` together; never fork it inside a video's builder.
+The system is code first: **`System/scripts/hfkit.py`** holds every token, zone, component, verb and sound below, and a video's `hf/build.py` only places and times them. Change a rule here and in `hfkit.py` together; never fork it inside a video's builder. The HyperFrames skills in `.claude/skills/` (`hyperframes`, `hyperframes-cli`, `hyperframes-registry`, `media-use`) are the craft reference: read `hyperframes/references/motion.md` and `types/explainer.md` before a new kind of scene, and search the registry (`npx hyperframes catalog --tag <camera|transition|caption-style>`) before hand-writing an effect.
 
-## What the results say (27 Oct 2026)
+## What the renders taught (user verdicts, 5 to 27 Oct 2026)
 
-Audience numbers cannot rank anything yet: 7 old-niche Shorts (5 to 6 Oct 2026) with 0 to 172 views at ≤ 9 h, counts only, and no AI-niche video published. So the evidence is the user's verdict on each render (git history of the Status notes); every rule below is [H] until [[Publish]] §Analytics loop has 10 videos.
+One picture per spoken noun, entering on its word, on a grid, with a real thing as proof, was approved; ideas typeset as text, decorative 3D, emoji art and elements placed by eye were rejected. The r5 contact sheet of *How RAG works* (27 Oct) still read as slides: a small figure in the top third, an empty lower half, the same figure on most tiles and the same blur crossfade at every cut. v2 answers each: the camera, transitions with a cause, bigger subjects, captions low.
 
-| Render | User verdict | What it keeps or bans |
-| --- | --- | --- |
-| How RAG works r1 (27 Oct) | *"Way better, i think those icon-like illustrations can be removed, use hairlines. redesign the way info is showed on the screen"* | Hairline figures replace emoji; callouts, the pipeline rail and line panels (below) |
-| HyperFrames r2 (27 Oct) | *"the rest is good"* (after the comment prompt and spacing fix) | **the reference:** illustrations on a column grid, real frames as proof, one deck element, cuts on the word, comment prompt |
-| Look v1 (5 Oct) | *"good and appealing, keep improving"* | caption and card layout |
-| RAG explained r1 | *"100% text"* | every step is a picture; text only labels it |
-| Prompt injection r1 | *"no 3d movement on text element"* | text stays flat; depth belongs to objects |
-| Prompt injection r2 | *"Content overlaps"* | `check3d.mjs` before every render |
-| Free or paid r2 | *"Horrible, unnecesary 3d models … go simpler"* | 3D is the exception |
-| Chatbot vs agent r1 | *"Timing is a little too fast … position of the elements is not quite right"* | the grid below; room between phrases |
-| Look v1 (23 Oct) | *"color, background and line style feel too generic"* | look v2 tokens ([[Style]]) |
-| Prompt injection r3 | *"solution could be more colorful and meaingful"* | the solution flood and mint hero |
+## Look
 
-The common thread of the approved work: **one picture per spoken noun, entering on its word, on a fixed grid, with a real thing (frame, screenshot, photo) as proof**. The rejected work typeset ideas, decorated with 3D, or placed by eye.
+| Token | Value |
+| --- | --- |
+| **Ground** | `ink` `#0B0D17` with three radial pools (ember low left 16 %, signal high right 15 %, ink2 centre), a vignette and a fixed grain overlay (7 %, against banding; no full-screen linear gradient: it bands under H.264) |
+| **Semantic colours** (one meaning each, in every video) | **ember** `#E36927` / `ember2` `#FF9A5C`: the hero, the one thing being explained · **signal** `#418AD1` / `#8EC2F2`: data and inputs · **mint** `#00AE7B` / `#5FD6A8`: right, the fix · **rose** `#B83255` / `#E8708F`: wrong, error |
+| Neutrals | `cream` `#F3EDE2` text · `slate` `#6B7590` structure · `haze` `#262D42` inactive |
+| Colour rules | the hero is the only ember thing on screen; colour never decorates; three semantic colours on one frame at most; a new colour passes the dataviz validator first ([[Workflow]] §Commands) |
+| **Solution scenes** | from the fix to the close: the mint and signal flood (`flood=n`), mint becomes the hero, entrances may spring; the picture shows *why* the fix works, never only a green end state |
+| **Lines** | `LINE` 4.4 px everywhere (under 4 px smears after YouTube's encode), rounded caps; dashed only for predicted or removed |
+| **Type** (vendored in `vendor/fonts`, loaded by `@font-face`) | **Inter Display** 800 to 900 for display lines, numbers and titles · **Inter** 700 to 900 for labels and captions · **JetBrains Mono** for anything a model reads or writes. Scale `T`: 40 · 56 · 80 · 120 · 180 px; nothing read under 40 px; display tracking −0.025 em |
 
-## Layout: zones and grid
-
-The frame is 1080 × 1920. Zones (`hfkit` names):
+## Layout: zones (1080 × 1920)
 
 | Zone | Area (px) | Holds |
 | --- | --- | --- |
-| Title bar | y < 192 | nothing (platform) |
-| **STAGE** | x 56 to 950, y 192 to 860 | pictures: illustrations, frames, devices, 3D |
-| **BAND** | y 880 to 1040 | captions only (top layer, 50 % of the height) |
-| **DECK** | x 56 to 950, y 1080 to 1420 | one card or the comment prompt, never both at once |
-| Interface | y > 1440, x > 950 | nothing (platform buttons and title) |
+| Title bar | y < 180 | nothing (platform) |
+| **STAGE** | x 56 to 950, y 180 to 860 | pictures; extends to y 1150 (**FULL**) when the deck is empty |
+| **DECK** | x 56 to 950, y 880 to 1150 | one card or the comment prompt |
+| **BAND** | y 1180 to 1320 | captions only |
+| Interface | y > 1440, x > 950 | nothing (platform buttons, title) |
 
-Content is centred on x 503 (the middle of 56 to 950), not on the frame's 540: the right strip belongs to the buttons.
+Content centres on x 503, not 540: the right strip belongs to the buttons. `colx(k, n)` gives column centres (n = 3: 205, 503, 801); `ROW1` 220 and `ROW2` 560 are picture rows. A Hairline host draws in about 60 % of its 5:4 box: a 900 to 1000 px host spans the stage; bigger hosts may overhang the edges. **Density:** one dominant element per moment; a world shows at most the rail, one figure, two callouts or one tag, one deck element, captions.
 
-- **Columns:** `colx(k, n)` is the centre of column k of n across the stage (n = 2: 280, 726; n = 3: 205, 503, 801). Everything in a row sits on one column set.
-- **Rows:** `ROW1` (top 220) and `ROW2` (top 560); a figure on ROW2 ends above the band. `rowy(k, n)` divides the stage evenly when a row is not a picture row.
-- **Figure:** a Hairline host `hairline(id, x, y, w)` is the unit. The drawing fills about 60 % of its 5:4 box, so hosts are 780 to 900 wide and may overhang the STAGE edges; place them so the **drawing** spans 60 to 65 % of the width and ends above the band (riffle: `(53, 187, 900)` under the rail). `hlxy(x, y, w, vx, vy)` turns a viewBox point into page px for callout anchors; find a figure's parts by tiling it over a 20-unit grid once. (`fig` with Fluent Emoji is retired.)
-- **Density:** at most one row of figures and one deck element at once, plus the captions; one dominant element per moment (the newest word's picture). A world holds up to six pictures over its life, never more than four at the same time [H].
-- **Fill:** the stage is never three-quarters empty for over 3 s (`WARN SPARSE`).
+## Camera and transitions
 
-**Arrangements** (choose one per world; the voice's sentence decides):
+- **Every world is a canvas** behind a camera (`#wN-cam`). `v.cam(w, t, cx, cy, z, d)` puts canvas point (cx, cy) at the focus (503, 520), z times larger, easing `power2.inOut`; `v.focus(w, t, (x, y, w, h), fill)` frames a box; `v.wide(w, t)` returns. A move of 0.5 s or less is heard (a whoosh). Use the camera for scale changes: **wide** (the whole figure), **medium** (one part), **close** (the detail the voice names). Captions and the rail sit outside the camera.
+- **Transitions** (`v.write(..., trans={"w2": "whip"})`), each with a cause:
 
-| Arrangement | When the sentence… | Placement |
-| --- | --- | --- |
-| hero | names one thing | one `fig` n = 1 (280 px) on ROW1, or a phone or code panel filling the stage |
-| sequence | lists steps or parts | `fig` k = 0, 1, 2 of 3 on ROW2, popping in order |
-| pair | turns A into B | `fig` columns 0 and 2 of 3 plus an `arrow` on column 1 |
-| device + parts | shows an interface and what is in it | `phone` at x 90 (370 × 660) and figures on column 2 of 3 |
-| board | compares | two rows of frames or figures on the same columns ([[Playbook]] §3 *Comparisons live on one board*) |
-| strip | shows time passing | `strip` of real frames sliding (`slide`) |
+  | Kind | Built | Use when |
+  | --- | --- | --- |
+  | `cut` (default) | the new world lands 4 % large and settles in 0.5 s | a new step of the same idea |
+  | `whip` | out 0.18 s left with 14 px blur, in 0.26 s from the right; whoosh | moving along a pipeline or to the next thing |
+  | `push` | out scales 1.5 with blur, in from 0.86; whoosh | going inside something (zoom through) |
+  | `dip` | the old world darkens 40 % for 0.1 s, then a cut | a turn: "but", the catch |
+  | `blur` | blur swap 0.15 to 0.2 s | a quiet change on the same ground |
 
-## Information on screen (since 27 Oct 2026)
-
-Four layers of text, each with one job, so nothing floats unexplained:
-
-| Layer | Component | Job | Place |
-| --- | --- | --- | --- |
-| Where we are | **pipeline rail** `rail(steps)` via `v.rail(steps, t)`, `v.step(k, t, state)` | the mechanism's steps as nodes on a line (mono 40 px); `on` ember = the step on screen, `done` cream, `bad` rose = where it fails, `good` mint = where the fix acts. Shown from the hook's "here is how" to the end; one per video with a process | top of the STAGE, y 200 to 292, above the worlds |
-| What this part is | **callout** `callout(id, text, ax, ay, lx, ly, col, side, w)` via `v.callout(id, t)` | a dot on the part, a hairline leader, the label on a rule (46 px heavy); the dot lands on the word, the leader draws in 0.35 s, the label follows; ≤ 2 at once; label in empty space, leader never across the drawing's middle | beside or under the figure, inside x 56 to 950 |
-| What moves | **tag** `tag(id, text, x, y, col)` | the query or name that travels between figures (a line-drawn pill, 44 px) | moves in 2D only |
-| What it means | **line panel** `card(...)` and the comment prompt | source, one claim, one detail: ink panel, 3.2 px cream line, ember tick, mono label | DECK |
-
-Captions stay the voice's layer (band). A world shows at most: rail, one figure, two callouts or one tag, one panel, captions.
-
-## Figure library (Hairline, reusable)
-
-Every figure mounts by name: `K.hairline("id", x, y, w)` in a world, `v.hairline("id", "<name>")`, then `v.point("id", t, vx, vy, glide=s)`. Points are viewBox units (400 × 320) on the figure as drawn; a host's drawing fills about 60 % of the box. The **33 packaged figures** are listed in `vendor/hairline/README.upstream`; tile `point` positions over a 20-unit grid once to map one. **Custom figures** live in `System/scripts/vendor/hairline/custom/<name>.js` (made with `/hairline-create`, each passed its `look.mjs`); `hfkit` loads them on the skill's kernel (`vendor/hairline/kernel.js`) on the same page clock. `value=` sets a custom figure's own number (its `range`, the middle one by default).
-
-| Figure | Concept ([[Audience]] *Plain-words map*) | The pointer | Key points (viewBox) | `value` (range) | First used |
-| --- | --- | --- | --- | --- | --- |
-| `riffle` (package) | passages, the library, a pick | a card stands up | y 120, x 140 to 320 pulls a card | intensity | [[How RAG works - Status]] |
-| `terrain` (package) | embedding, a map of meaning | pillars rise round it | (200, 165) centre | intensity | [[How RAG works - Status]] |
-| `drawer` (package) | looking up, a skill opened on demand | height picks a drawer | (200, 60) top, (200, 250) bottom | intensity | [[How RAG works - Status]] |
-| `window` | context window, what the model reads | slides the frame along the tape | tape from block 1 (87, 134) to block 16 (313, 247); centre (192, 186) | frame length in blocks: 4, 6, 9 | [[How RAG works - Status]] r3 |
-| `balance` | RLHF, people choosing the better answer | left of the post: A rises; right: B | A (120, 150), B (330, 120), level (200, 120) | tip in degrees: 8, 14, 22 | |
-| `temperature` | sampling temperature, why answers vary | height: top hot, bottom cold | any x; y 60 hot to 260 cold | hottest temperature: 1.2, 2, 3 | |
-| `splitter` | tokens, word pieces | nearest seam: a blade drops in, pieces part | seams (141, 185), (211, 194), (244, 198) | gap: 3, 6, 10 | |
-| `loop` | an agent's loop: plan, act, check | picks a station; the carriage rides forward to it | plan (220, 214), act (30, 94), check (305, 88) | station lift: 10, 16, 22 | |
-
-A new custom figure: `/hairline-create <idea>` writes `<name>.js`; move it into `custom/`, pass `look.mjs` there (Playwright's Chromium is installed in `~/.cache/ms-playwright`), then add its row here and its concept to the plain-words map. Never edit `kernel.js` or a packaged figure.
+  3 to 5 kinds per video, at most a third hard cuts (`hfkit` warns). `write(blur=True)` turns on HyperFrames' render-time motion blur for fast movers.
 
 ## Components (`hfkit.py`)
 
-| Component | Function | Spec | Enters with |
-| --- | --- | --- | --- |
-| Caption | `Short(keys=…)` (`captions.py`) | phrase of 1 to 3 words, ≤ 16 characters, centred at 50 % of the height, 88 px bold capitals, white with dark outline; spoken word lit, the others 45 %; `keys` colours up to 6 key words | its word |
-| Illustration (retired 27 Oct 2026) | `art`, `fig` | Fluent Emoji 3D, kept for old builders only; new videos use Hairline figures | `grow` |
-| Label | `lbl` | 46 px heavy, centred, one line (`nowrap`), cream or one semantic colour | `pop` 0.1 s after its picture |
-| Real frame | `frame` | 9:16 screenshot or video still, 14 px corners, slate border | `pop` |
-| Device | `phone`, `code` | phone 370 × 660 around a real screen; code panel 870 wide, JetBrains Mono 42 px, strings mint, numbers ember | `settle` (hook) or `pop` |
-| Counter | `counter` | 76 px word and a 96 px ember number | `count` |
-| Arrow | `arrow` | slate word on an 8 px rule: the step between two pictures | `pop` |
-| Strike | `strike` | 16 px `rose2` bar at −30° across a picture | `strike` on the word that negates |
-| Flash | `flash` | white radial light over the stage | `flash` on the shot |
-| Strip | `strip` | dark film strip holding real frames | `pop`, then `slide` |
-| Context card (line panel) | `card` | 894 × 280 in the DECK (top 1127), `ink2` 94 %, 3.2 px cream line, 120 px ember tick on the top edge; label JetBrains Mono 30 px ember, title 56 px cream, detail 34 px; `good=True`: mint line and tick | `pop` |
-| Number card | `card` with the figure as title | same box; one number with its source | `pop` |
-| Comment prompt | `ask` | the closing question as a reply box (DECK top 1110, `ink2` 94 %, 4 px `mint2` border, 40 px corners): line-drawn reply bubble 88 px and question 56 px (≤ 26 characters), two or three answer chips 40 px (≤ 14 characters, `signal2` outline), "reply in the comments" 40 px slate | `rise` on the question; `chips` on "Tell me" |
-| Solution flood | `write(flood=n)` | mint and signal light pools fade in over 0.6 s from scene n ([[Style]] Solution scenes) | automatic |
-| Hairline figure | `hairline(id, x, y, w)` + `v.hairline(id, fn)` | an isometric line figure from `vendor/hairline` (MIT, 0.5.1), 5:4 at `w` (800 wide = 640 tall fills the STAGE); colours from [[Style]] *Hairline figures*; it acts only through `point`; colours switch on the frame the pointer arrives (`hfkit` turns Hairline's real-time stroke fades off, 27 Oct 2026: they lagged behind the captured frames) | `pop`, then `point` |
-| 3D model | `model3d` | a Blender scene as glb, played by three.js on the page clock | world window |
-| 3D plate | `plate3d` | an EEVEE render with alpha (webm) under the text | world window |
+| Component | Function | Spec |
+| --- | --- | --- |
+| Caption | automatic | phrase of 1 to 3 words, 84 px Inter Black capitals fitted to 860 px, white with a 6 px ink stroke and drop shadow, spoken word lit and 6 % larger, the others 45 %; each phrase rises 16 px in 0.15 s; band y 1186 |
+| Display line | `big(id, text, x, y, w, size, hot=k)` | Inter Display Black, tracking −0.025 em, one hot word in ember; enters with `reveal` |
+| Real frame | `frame(id, src, x, y, w, h)` | screenshot or still, 18 px corners, 4 px slate border, deep shadow |
+| Terminal / code | `code(id, lines, x, y, w, title=)` | JetBrains Mono 40 px, a title bar ("terminal · real output"); `<s>` strings mint, `<b>` numbers ember, `<u>` prompt slate |
+| Device | `phone` | 370 × 660 around a real screen |
+| Counter | `counter` | label and an ember Inter Display number that counts |
+| Hairline figure | `hairline(id, x, y, w)` + `v.hairline(id, fn)` | isometric line figure (MIT); acts only through `v.point` |
+| Callout | `callout(id, text, ax, ay, lx, ly, col, side, w)` | dot on the part, leader, label 48 px; dot on the word, leader draws 0.4 s, label blurs in |
+| Tag | `tag` | the query or name that travels between figures (46 px pill) |
+| Pipeline rail | `v.rail(steps, t)`, `v.step(k, t, state)` | the mechanism's steps (mono 40 px) at the top of the stage: `on` ember, `done` cream, `bad` rose, `good` mint |
+| Card | `card(id, label, title, detail, good=)` | DECK, ink2 94 %, 4.4 px cream line with an ember tick; label mono 32 px, title Inter Display 60 px, detail 40 px |
+| Comment prompt | `ask(id, question, answers)` | DECK, mint border, question 58 px, 2 or 3 answer chips that pop with a sound |
+| Arrow, strike, flash, strip | `arrow`, `strike`, `flash`, `strip` | the step between two pictures · a rose bar on "no" · a capture flash · real frames sliding |
+| 3D | `model3d`, `plate3d` | below |
+| Thumbnail | `v.thumb(inner)` | a still page in the video's look → `upload/thumb.jpg` ([[Workflow]] §Thumbnail) |
 
-**Layers, bottom to top:** ground and flood, 3D plate, 3D canvas, worlds (pictures, labels, cards), captions. Cards and labels never cover captions (user, 5 Oct 2026).
+**Layers, bottom to top:** ground and flood, 3D plate, 3D canvas, worlds, rail, grain, captions. Cards and labels never cover captions.
 
-## Motion vocabulary
+## Motion verbs
 
-Every motion is a verb on `Short`; each fires on a word with `v.cue(scene, "word")`. No idle wobble, no shakes, no zoom punches.
+Every verb fires on a word (`v.cue(scene, "word")`). Arrivals land on long tails; exits are 40 to 50 % shorter and accelerate; landed things hold still.
 
 | Verb | Motion | Use |
 | --- | --- | --- |
-| `grow` | scale 0.4 → 1, turn −12° → 0°, 0.5 s `back.out(1.9)` | a picture arrives on its noun |
-| `pop` | rise 24 px and fade, 0.35 s `expo.out`; `spring=True`: 0.5 s `back.out(1.7)` (solution scenes) | labels, frames, cards, panels |
-| `hide` | fade 0.2 s `power2.in` | clear room 0.25 s before the next picture lands |
-| `rise` | rise 60 px, 0.45 s `expo.out` | panels from the deck (comment prompt) |
-| `chips` | scale 0.6 → 1, 0.35 s `back.out(2)`, 0.18 s apart | answer chips, list items |
-| `count` | number counts to its value, 0.9 s `power1.in` | a number that builds |
-| `light` | text recolours in 0.3 s | the word that names a part |
-| `nudge` | 20° turn and back, 0.6 s | a picture reacting to its verb ("moves") |
-| `flash` | white light 0.9 → 0 in 0.35 s | a capture, a shot |
-| `strike` | bar draws from the left in 0.3 s | "no", "without", "wrong" |
-| `settle` | 1.06 → 1 over 1.2 s | frame 1: the hook picture is never static |
-| `slide` | linear move | strips, time passing |
-| `point` | moves a Hairline figure's unseen pointer to a viewBox point (optionally gliding); the figure answers on its own springs (a card stands up, pillars rise, layers lift) | the verb of a mechanism step, on its word |
-| world cut | out: blur 8 px and fade 0.2 s; in: blur and fade 0.25 s | automatic, 0.2 s before the scene's first word |
+| `pop` | rise 24 px, 0.4 s `expo.out` (`spring=True`: `back.out(1.4)`, solution scenes) | labels, frames, cards, figures |
+| `grow` | scale 0.6 → 1, 0.55 s `expo.out` | a picture arriving on its noun |
+| `reveal` | a `big` line word by word: blur 6 → 0 px, 0.13 s each, 67 ms apart | display lines, numbers |
+| `blurin` | a line blurs in, 8 → 0 px | callout labels, quiet text |
+| `hide` | fade and 6 px blur, 0.2 s `power3.in` | clearing room 0.25 s before the next picture |
+| `rise` | rise 60 px, 0.5 s | the comment prompt |
+| `chips` | scale 0.7 → 1, 120 ms apart, a pop each | answer chips, list items |
+| `count` | a number counts to its value, 0.9 s | a number that builds |
+| `light`, `strike`, `flash`, `slide`, `nudge` | recolour · a bar draws · light flash · linear move · a 12° turn and back | a part named · "no" · a capture · time passing · a picture reacting |
+| `point` | moves a Hairline figure's pointer (optionally gliding) | the verb of a mechanism step |
+| `cam`, `focus`, `wide` | the camera | scale change inside a world |
 
-**Timing laws:** a picture lands on the first syllable of its word; its label follows 0.1 s later; items in a list are 0.1 to 0.18 s apart; anything replaced leaves 0.25 s before its successor arrives; an event every 1.5 to 2 s and one scale change per world, nothing unchanged over 3.5 s ([[Playbook]] §3).
+## Sound kit (`System/assets/sfx/`, credits in its `CREDITS.md`)
 
-**Hairline under the hood:** Hairline animates on `performance.now`, rAF, timers and an IntersectionObserver, which HyperFrames does not seek. `Short._hairline()` copies the vendored build into `hf/assets/hairline.js` with those calls rewritten to `__HL`, a clock moved only by the page's seek (`window.__seek`, shared with three.js); a backward seek remounts and replays from 0, so every frame is the same on every render (first used on [[How RAG works - Status]]).
+`whoosh-air`, `whoosh-swipe`, `whoosh-stick`, `whoosh` (rotated on whips, pushes and fast camera moves) · `click` (callouts, −32 dB) · `pop` (chips, −30 dB) · `impact-bass-2` (the opening hit and the payoff hit, aligned on its peak) · `riser` (the last 4 s crest on the payoff word) · `ping`, `key-press`, `typing` (on demand with `v.sfx(t, name, db)`). `v.payoff(t)` lays the riser and hit once per video. `hfkit` writes them into `render/_fx/sound_sfx.wav`; `mix_audio.py` keeps them at their designed level under the voice. New sounds: CC0 or Pixabay only, credited in `CREDITS.md`.
 
-## 3D: three routes into HyperFrames
+## Hairline figure library
 
-3D only where depth explains ([[Style]] 3D plates); text is never 3D. Pick the cheapest route that shows the point:
+Mount by name: `K.hairline("id", x, y, w)` in a world, `v.hairline("id", "<name>")`, then `v.point("id", t, vx, vy, glide=s)` (viewBox 400 × 320). The 33 packaged figures are listed in `vendor/hairline/README.upstream`; tile `point` positions over a 20-unit grid once to map one. Custom figures (made with `/hairline-create`) live in `vendor/hairline/custom/`.
 
-| Route | How | Gives | Costs |
-| --- | --- | --- | --- |
-| three.js primitives | a module in the page (as in [[Prompt injection - Status]]) | full control, labels pinned to projected boxes | hand-written JS per scene |
-| **Blender glb → `model3d`** | `hfkit.blender3d(spec, "assets/x.glb", dur, "glb")`, then `v.model3d("assets/x.glb", t0, dur)` | `scene3d.py` vocabulary (net, cloud, link, surface, tokens) with its bevels, colours, show pops and camera path; seeks exactly; boxes reach `check3d.mjs` | about 2 s to export; three.js light (no bloom); emission keys (`pulse`, `fire`) are not exported |
-| **Blender webm → `plate3d`** | `hfkit.blender3d(spec, "assets/x.webm", dur, "webm")`, then `v.plate3d("p", "assets/x.webm", t0, dur)` | the full EEVEE look (bloom, depth of field, glow pulses) with alpha over the page ground | about 0.85 s a frame at half size (82 s for 4 s), more at full size; invisible to the overlap check (frame its camera inside the STAGE by spec) |
+| Figure | Concept ([[Audience]] *Plain-words map*) | Pointer | Key points (viewBox) | `value` |
+| --- | --- | --- | --- | --- |
+| `riffle` | passages, the library, a pick | a card stands up | y 120, x 140 to 320 | intensity |
+| `terrain` | embedding, a map of meaning | pillars rise round it | (200, 165) centre | intensity |
+| `drawer` | looking up, a skill opened on demand | height picks a drawer | (200, 60) top, (200, 250) bottom | intensity |
+| `window` | context window | slides the frame along the tape | block 1 (87, 134) to block 16 (313, 247) | 4, 6, 9 |
+| `balance` | RLHF, choosing the better answer | left raises A, right B | A (120, 150), B (330, 120) | 8, 14, 22 |
+| `temperature` | sampling temperature | top hot, bottom cold | y 60 hot to 260 cold | 1.2, 2, 3 |
+| `splitter` | tokens, word pieces | nearest seam splits | (141, 185), (211, 194), (244, 198) | 3, 6, 10 |
+| `loop` | an agent's plan, act, check | picks a station | plan (220, 214), act (30, 94), check (305, 88) | 10, 16, 22 |
 
-Spec cues for `blender3d` are seconds from the 3D clip's start (or pass `cue=` a resolver). Blender trims each object's action to its own keys; `model3d` clamps every clip at its first and last key instead of looping (fixed 27 Oct 2026, the cause of nodes vanishing mid-shot). Frame the subject inside the STAGE with the spec's camera and look at a snapshot before building on it.
+Hairline animates on its own clock; `hfkit` rewrites the vendored build so it follows the page's seek (deterministic frames), and a page mounts only the figures it holds.
+
+## 3D routes
+
+3D only where depth itself explains; text never moves in 3D. `hfkit.blender3d(spec, "assets/x.glb", dur, "glb")` then `v.model3d(...)` (three.js on the page clock, boxes reach `check3d.mjs`), or `"webm"` then `v.plate3d(...)` (full EEVEE look with alpha, invisible to the overlap check). Spec vocabulary: `scene3d.py` header. Frame the subject inside the STAGE and look at a snapshot before building on it.
 
 ## Build and check
 
-1. `hf/build.py`: `v = K.Short(__file__, keys=…)`; a dict of worlds `W["w1"] … W["wN"]` built from components; verbs on cues; `v.write(W, rev=n, flood=<solution scene>)` writes `index.html`, `render/_fx/sound_sfx.wav` and `render/_timeline.json`.
-2. `node System/scripts/check3d.mjs hf/index.html` (serves the folder over local HTTP, so glb pages load): `OVERLAPS 0`, every WARN fixed or explained in Status.
-3. `npx hyperframes snapshot` at the cue moments, look at the sheet, then render and mix ([[Workflow]]).
+1. `hf/build.py`: `v = K.Short(__file__, keys=…)`; worlds `W["w1"] … W["wN"]`; verbs on cues; `v.write(W, rev=n, trans=…, flood=…)` writes `index.html` (libraries and fonts copied into `hf/assets`), the effects stem and `render/_timeline.json`; `v.thumb(...)` writes the thumbnail.
+2. `npx hyperframes check --json`: no errors. Accepted warnings: `nested_structure_needs_subcomposition` and `timeline_track_too_dense` (the vault does not edit in Studio). Read every `craft` warning.
+3. `node System/scripts/check3d.mjs hf/index.html`: `OVERLAPS 0`; every `WARN SPARSE` or `WARN SMALL TEXT` fixed or explained in Status.
+4. `npx hyperframes snapshot --at <cue moments>`: look at the contact sheet, then render and mix ([[Workflow]]).

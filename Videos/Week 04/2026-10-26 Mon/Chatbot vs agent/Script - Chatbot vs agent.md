@@ -10,7 +10,7 @@ tags: [research, youtube, script, ai, agents, week-04]
 
 ← [[Chatbot vs agent - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Audience]]
 
-User (26 Oct 2026, P7 on [[Free or paid - Status]] r2): *"Horrible, unnecesary 3d models. unclear diferentiation. go simpler, ai chatbot vs ai agent"*. Series: **How it works** (what makes an agent an agent). One difference: **who runs the loop.**
+User (26 Oct 2026, P7 on *Free or paid* r2): *"Horrible, unnecesary 3d models. unclear diferentiation. go simpler, ai chatbot vs ai agent"*. Series: **How it works** (what makes an agent an agent). One difference: **who runs the loop.**
 
 **Y:** know when a chatbot is enough and when you need an agent. **X:** a chatbot answers and you run every step; an agent is a model with tools in a loop, so it runs the steps itself. **Theme line:** *you are the loop; it is the loop.* **Running example:** add a contact form to your website.
 
@@ -24,7 +24,7 @@ User (26 Oct 2026, P7 on [[Free or paid - Status]] r2): *"Horrible, unnecesary 3
 | 4 | Coding agents read and edit files, run commands and tests in a loop | Claude Code and Codex product descriptions (general knowledge of the tools; no figure claimed) |
 | 5 | Logos: Anthropic, OpenAI, ChatGPT (public domain), Claude symbol (CC0), DeepSeek (MIT) | Wikimedia Commons (**read**; `stock/_credits.jsonl`) |
 
-Facts 6 onward live in [[Script - Free or paid]] (plans, context, RAG, API prices); this video uses only the five above.
+Facts 6 onward lived in *Script - Free or paid* (deleted 27 Oct 2026, in git history); this video uses only the five above.
 
 ## 1. Idea gate
 

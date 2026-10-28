@@ -10,7 +10,7 @@ tags: [status, week-04]
 
 ← [[Script - Chatbot vs agent]] · [[YouTube Channel]] · [[Workflow]]
 
-**Delegation (user, 26 Oct 2026):** *"Horrible, unnecesary 3d models. unclear diferentiation. go simpler, ai chatbot vs ai agent"*. Replaces [[Free or paid - Status]] (its r1 and r2 renders kept); P1 to P7, cap $0.25. The verdict on 3D became a [[Style]] rule (3D is the exception).
+**Delegation (user, 26 Oct 2026):** *"Horrible, unnecesary 3d models. unclear diferentiation. go simpler, ai chatbot vs ai agent"*. Replaces the superseded *Free or paid* (notes deleted 27 Oct 2026, in git history); P1 to P7, cap $0.25. The verdict on 3D became a [[Style]] rule (3D is the exception).
 
 | Stage | Status | Approved (date) | Note |
 | --- | --- | --- | --- |
