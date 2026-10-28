@@ -1,73 +1,85 @@
 #!/usr/bin/env python3
-"""The Redtail design system as code: one module every HyperFrames builder imports (System/Design system.md).
+"""The Inside the Model design system as code: every HyperFrames builder imports it (System/Design system.md).
 
     import sys; sys.path.insert(0, "<vault>/System/scripts"); import hfkit as K
     v = K.Short(__file__, keys={"RAG": K.EMBER2})        # plan.json, the take, heard words, scene starts, captions
-    W = {"w1": K.fig("h-doc", "page_facing_up", 0, 3, K.ROW1, label="the page") + K.card(...), ...}
-    v.grow("#h-doc", v.cue(1, "page")); v.pop("#h-doc-l", v.cue(1, "page") + 0.1)
-    v.write(W, rev=1, css="...")                       # index.html, render/_fx/sound_sfx.wav, render/_timeline.json
+    W = {"w1": K.hairline("h-cards", 53, 230, 980) + K.card(...), ...}
+    v.hairline("h-cards", "riffle"); v.pop("#h-cards", v.S[1]); v.focus("w1", v.cue(1, "card"), (300, 300, 400, 300))
+    v.write(W, rev=1, trans={"w2": "whip", "w3": "push"})   # index.html, render/_fx/sound_sfx.wav, render/_timeline.json
+    v.thumb(K.hairline(...) + K.big("t", "WRONG CARD", 120, 1100, 840))    # hf/thumb.html -> upload/thumb.jpg
 
-Layout (px on the 1080x1920 frame): STAGE x 56..950, y 192..860 is where pictures live; the caption band y 880..1040
-belongs to captions; DECK y 1080..1420 holds one card or the comment prompt; nothing below 1440 or right of 950.
-Columns: colx(k, n) is the centre of column k of n across the stage (n = 3: 205, 503, 801); fig() centres an
-illustration and its label on a column, sized by sz(n). Motion verbs are methods (pop, grow, hide, rise, chips, count,
-flash, strike, light, settle, slide, nudge); worlds enter and leave on their own (blur 0.25 s in, 0.2 s out).
-3D from Blender: blender3d() renders a scene3d.py spec as `webm` (EEVEE, alpha; placed with plate3d) or `glb`
-(placed with model3d: three.js plays the baked keys and camera on the page's clock, boxes reach check3d.mjs).
+Frame (1080x1920): STAGE x 56..950, y 180..860 holds pictures (to y 1150 when the DECK is empty); DECK y 880..1150
+holds one card or the comment prompt; captions own the BAND y 1180..1320; nothing below 1440 or right of 950.
+Every world is a canvas behind a camera: cam()/focus() move it on a word (wide, medium, close). Worlds change by a
+transition with a cause: cut (default; the new world lands slightly large and settles), whip, push, dip or blur.
+Sound: sfx() places a kit file (System/assets/sfx) on the timeline; whips, pushes, callouts and chips sound by
+themselves; payoff() lays a riser into the reveal word and a hit on it. GSAP, three.js and the fonts are vendored, so
+a render needs no network. 3D from Blender: blender3d() renders a scene3d.py spec as glb (model3d) or webm (plate3d).
+Self-check: python3 hfkit.py; a demo page: python3 hfkit.py --demo <dir>, then npx hyperframes snapshot <dir>/hf.
 ponytail: one class, one file; split only when a second engine needs it.
 """
-import html, json, math, os, random, re, struct, subprocess, sys, wave
+import html, json, math, os, re, shutil, subprocess, sys, wave
+from array import array
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+VAULT = os.path.dirname(os.path.dirname(HERE))
+SFX_DIR = f"{VAULT}/System/assets/sfx"
 sys.path.insert(0, HERE)
-from captions import html_caps
+from captions import html_caps, groups
 
-# ---- tokens (Style: Redtail look v2)
+# ---- tokens (Design system: Look)
 INK, INK2, EMBER, EMBER2, SIGNAL, SIGNAL2, MINT, MINT2, ROSE, ROSE2 = ("#0B0D17", "#151A2B", "#E36927", "#FF9A5C", "#418AD1",
                                                                          "#8EC2F2", "#00AE7B", "#5FD6A8", "#B83255", "#E8708F")
 CREAM, SLATE, HAZE = "#F3EDE2", "#6B7590", "#262D42"
+PAL = {"ink": INK, "ink2": INK2, "ember": EMBER, "ember2": EMBER2, "signal": SIGNAL, "signal2": SIGNAL2, "mint": MINT,
+       "mint2": MINT2, "rose": ROSE, "rose2": ROSE2, "cream": CREAM, "slate": SLATE, "haze": HAZE, "white": "#FFFFFF"}
+T = {"xs": 40, "s": 56, "m": 80, "l": 120, "xl": 180}          # type scale (px); nothing read is under xs
+LINE = 4.4                                                     # stroke of drawn lines: under 4 px smears after YouTube's encode
 
 # ---- layout: zones and the column grid
 FW, FH = 1080, 1920
 X0, X1 = 56, 950                       # content edges (right strip x > 950 is the platform's)
-STAGE = (X0, 192, X1, 860)             # pictures; top 192 px is the Shorts title bar
-BAND = (880, 1040)                     # captions only
-DECK = (X0, 1080, X1, 1420)            # one card or the comment prompt
-ROW1, ROW2 = 220, 560                  # tops of the two picture rows on the stage (a figure is about 300 px tall)
-GAP = 14                               # illustration to its label
+STAGE = (X0, 180, X1, 860)             # pictures; the top 180 px is the Shorts title bar
+FULL = (X0, 180, X1, 1150)             # the stage when nothing is in the deck
+DECK = (X0, 880, X1, 1150)             # one card or the comment prompt
+BAND = (1180, 1320)                    # captions only
+UI_Y = 1440                            # bottom interface zone
+FOCUS = (503, 520)                     # stage centre: where cam() puts the canvas point it looks at
+ROW1, ROW2 = 220, 560                  # tops of the two picture rows on the stage
 colx = lambda k, n: round(X0 + (X1 - X0) * (2 * k + 1) / (2 * n))
 rowy = lambda k, n, top=STAGE[1], bottom=STAGE[3]: round(top + (bottom - top) * (2 * k + 1) / (2 * n))
-sz = lambda n: min(280, round(0.72 * (X1 - X0) / n))           # illustration size in a row of n (Fluent Emoji blur above 280)
 
 
 # ---- components (HTML strings; ids drive the motion verbs)
-def art(id_, name, x, y, size):
-    return f'<img class="art" id="{id_}" src="assets/fe-{name}_3d.png" style="left:{x}px;top:{y}px;width:{size}px;height:{size}px"/>'
-
-
 def lbl(id_, text, x, y, w, col=CREAM):
     return f'<div class="lbl ov" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;color:{col}">{text}</div>'
 
 
-def fig(id_, name, k, n, y, size=None, label=None, col=CREAM):
-    """An illustration centred on column k of n, its label under it (id_-l). The unit of every row."""
-    s, cx, w = size or sz(n), colx(k, n), round((X1 - X0) / n) - 8
-    return art(id_, name, cx - s // 2, y, s) + (lbl(f"{id_}-l", label, cx - w // 2, y + s + GAP, w, col) if label else "")
+def big(id_, text, x, y, w, size=T["l"], col=CREAM, hot=None, hot_col=EMBER2):
+    """A display line (a claim, a number) in Inter Display Black; each word is a span id_-w<k> for Short.words().
+    hot = index of the one word in the accent colour."""
+    ws = "".join(f'<span id="{id_}-w{k}" style="color:{hot_col if k == hot else col}">{html.escape(t)}</span> '
+                 for k, t in enumerate(text.split()))
+    return f'<div class="big ov" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;font-size:{size}px">{ws.strip()}</div>'
 
 
-def frame(id_, src, x, y, w):
-    """A real 9:16 frame or screenshot (counts as a picture for the fill check)."""
-    return f'<img class="frm art" id="{id_}" src="{src}" style="left:{x}px;top:{y}px;width:{w}px;height:{round(w * 16 / 9)}px"/>'
+def frame(id_, src, x, y, w, h=None, fit="cover"):
+    """A real frame or screenshot (h defaults to 9:16); counts as a picture for the fill check."""
+    return (f'<img class="frm art" id="{id_}" src="{src}" style="left:{x}px;top:{y}px;width:{w}px;'
+            f'height:{h or round(w * 16 / 9)}px;object-fit:{fit}"/>')
 
 
 def phone(id_, src, x=90, y=200, w=370, h=660):
     return f'<div class="phone ov box" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px"><img src="{src}"/></div>'
 
 
-def code(id_, lines, x=70, y=200, w=870):
-    """Mono panel; lines are (html, id) with <s>strings</s> in mint and <b>numbers</b> in ember."""
+def code(id_, lines, x=70, y=200, w=870, title=None, size=40):
+    """Mono panel; lines are (html, id) with <s>strings</s> in mint and <b>numbers</b> in ember. title = a terminal or
+    file bar (real output is labelled as such in it)."""
     rows = "".join(f'<div class="cl" id="{id_}-{i or k}">{c}</div>' for k, (c, i) in enumerate(lines))
-    return f'<div class="code ov" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px">{rows}</div>'
+    bar = f'<div class="bar"><i></i><i></i><i></i><span>{html.escape(title)}</span></div>' if title else ""
+    return (f'<div class="code ov box" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;font-size:{size}px;'
+            f'line-height:{round(size * 1.5)}px">{bar}{rows}</div>')
 
 
 def counter(id_, prefix, n, x, y, w=420):
@@ -91,9 +103,9 @@ def strip(id_, inner, x=70, y=520, w=870, h=310):
     return f'<div class="strip ov box" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px"><div class="track" id="{id_}-t">{inner}</div></div>'
 
 
-def hairline(id_, x=103, y=205, w=800):
+def hairline(id_, x=53, y=200, w=900):
     """A Hairline isometric line figure (vendor/hairline, MIT): a host box at 5:4; Short.hairline() names the figure and
-    Short.point() moves its unseen pointer on words. 800 wide = 640 tall, inside the STAGE."""
+    Short.point() moves its unseen pointer on words. The drawing fills about 60 % of the box: 900 wide spans the stage."""
     return f'<div class="hl" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{round(w * 0.8)}px"></div>'
 
 
@@ -103,16 +115,16 @@ def hlxy(x, y, w, vx, vy):
 
 
 def callout(id_, text, ax, ay, lx, ly, col=CREAM, side="right", w=440):
-    """A technical callout: a dot on the part (ax, ay), a hairline leader to (lx, ly), a rule under the label.
+    """A technical callout: a dot on the part (ax, ay), a leader to (lx, ly), a rule under the label.
     side = which way the rule and label run from (lx, ly). Enters with Short.callout()."""
     ex = min(lx + w, X1) if side == "right" else max(lx - w, X0)       # the rule and label stay inside the content edges
     w = abs(ex - lx) - 8
     svg = (f'<svg class="co" id="{id_}-s" width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;left:0;top:0;overflow:visible">'
-           f'<polyline id="{id_}-p" points="{ax},{ay} {lx},{ly} {ex},{ly}" pathLength="1" fill="none" stroke="{col}" stroke-width="3.2" '
+           f'<polyline id="{id_}-p" points="{ax},{ay} {lx},{ly} {ex},{ly}" pathLength="1" fill="none" stroke="{col}" stroke-width="{LINE}" '
            f'stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1"/>'
-           f'<circle id="{id_}-d" cx="{ax}" cy="{ay}" r="9" fill="{INK}" stroke="{col}" stroke-width="3.2" opacity="0"/></svg>')
+           f'<circle id="{id_}-d" cx="{ax}" cy="{ay}" r="11" fill="{INK}" stroke="{col}" stroke-width="{LINE}" opacity="0"/></svg>')
     left = lx + 8 if side == "right" else ex
-    return svg + (f'<div class="lbl ov col" id="{id_}" style="left:{left}px;top:{ly - 64}px;width:{w}px;color:{col};'
+    return svg + (f'<div class="lbl ov col" id="{id_}" style="left:{left}px;top:{ly - 66}px;width:{w}px;color:{col};'
                   f'text-align:{"left" if side == "right" else "right"}">{text}</div>')
 
 
@@ -121,18 +133,18 @@ def tag(id_, text, x, y, col=SIGNAL2):
     return f'<div class="tag ov" id="{id_}" style="left:{x}px;top:{y}px;color:{col};border-color:{col}">{html.escape(text)}</div>'
 
 
-RAIL_Y = 200
+RAIL_Y = 196
 CLOCK = ((r"performance\.now\(", "__HL.now("), (r"requestAnimationFrame\(", "__HL.raf("), (r"cancelAnimationFrame\(", "__HL.caf("),
          (r"new IntersectionObserver\(", "new __HL.IO("), (r"(window\.)?setTimeout\(", "__HL.st("), (r"clearTimeout\(", "__HL.ct("))
 
 
 def rail(steps):
-    """The pipeline rail: one node per step of the mechanism across the top of the STAGE (y 200 to 290); Short.step() lights it."""
+    """The pipeline rail: one node per step of the mechanism across the top of the STAGE; Short.step() lights it."""
     n, nodes = len(steps), ""
     for k, t in enumerate(steps):
         nodes += (f'<div class="rn" id="rail-n{k}" style="left:{colx(k, n) - X0 - 110}px"><i id="rail-d{k}"></i>'
                   f'<span id="rail-t{k}">{html.escape(t)}</span></div>')
-    return (f'<div id="rail" class="ov" style="position:absolute;left:{X0}px;top:{RAIL_Y}px;width:{X1 - X0}px;height:92px">'
+    return (f'<div id="rail" class="ov" style="position:absolute;left:{X0}px;top:{RAIL_Y}px;width:{X1 - X0}px;height:100px">'
             f'<div class="rl" style="left:{colx(0, n) - X0}px;width:{colx(n - 1, n) - colx(0, n)}px"></div>{nodes}</div>')
 
 
@@ -145,82 +157,117 @@ def card(id_, label, title, detail, good=False):
 def ask(id_, question, answers):
     """Comment prompt (the closing question): a reply box with answer chips, in the DECK."""
     chips = "".join(f'<span class="chip" id="{id_}-c{k}">{html.escape(a)}</span>' for k, a in enumerate(answers))
-    return (f'<div class="ask ov" id="{id_}"><div class="askq"><svg viewBox="0 0 48 48" width="88" height="88"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="none" stroke="{MINT2}" stroke-width="2.6" stroke-linejoin="round"/></svg>{html.escape(question)}</div>'
+    return (f'<div class="ask ov" id="{id_}"><div class="askq"><svg viewBox="0 0 48 48" width="84" height="84"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="none" stroke="{MINT2}" stroke-width="2.8" stroke-linejoin="round"/></svg>{html.escape(question)}</div>'
             f'<div class="chips">{chips}</div><div class="askf">reply in the comments</div></div>')
 
 
-CSS = f'''
+FONTS = [("Inter", 400, "Inter-Regular.otf"), ("Inter", 600, "Inter-SemiBold.otf"), ("Inter", 700, "Inter-Bold.otf"),
+         ("Inter", 800, "Inter-ExtraBold.otf"), ("Inter", 900, "Inter-Black.otf"), ("Inter Display", 700, "InterDisplay-Bold.otf"),
+         ("Inter Display", 800, "InterDisplay-ExtraBold.otf"), ("Inter Display", 900, "InterDisplay-Black.otf"),
+         ("JetBrains Mono", 400, "JetBrainsMono-Regular.ttf"), ("JetBrains Mono", 700, "JetBrainsMono-Bold.ttf")]
+FACES = "".join(f'@font-face {{ font-family:"{f}"; font-weight:{w}; src:url("assets/fonts/{n}"); }}\n' for f, w, n in FONTS)
+GRAIN = ("data:image/svg+xml;utf8," + "<svg xmlns='http://www.w3.org/2000/svg' width='360' height='360'><filter id='n'>"
+         "<feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='7' stitchTiles='stitch'/>"
+         "<feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter>"
+         "<rect width='100%' height='100%' filter='url(%23n)'/></svg>")
+
+CSS = FACES + f'''
 * {{ margin:0; padding:0; box-sizing:border-box; }}
 html, body {{ width:1080px; height:1920px; overflow:hidden; background:{INK}; }}
 #root {{ position:relative; width:1080px; height:1920px; font-family:Inter, sans-serif; color:{CREAM}; perspective:1600px; }}
-#ground {{ position:absolute; inset:0;
-  background: radial-gradient(900px 700px at 15% 85%, rgba(227,105,39,0.10), transparent 70%),
-              radial-gradient(800px 700px at 85% 15%, rgba(65,138,209,0.09), transparent 70%),
-              linear-gradient(180deg, {INK} 0%, {INK2} 100%); }}
-#ground::after {{ content:""; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0,0,0,0.45) 100%); }}
+#ground {{ position:absolute; inset:0; background-color:{INK};
+  background-image: radial-gradient(1000px 900px at 18% 82%, rgba(227,105,39,0.16), transparent 70%),
+              radial-gradient(900px 800px at 85% 18%, rgba(65,138,209,0.15), transparent 70%),
+              radial-gradient(1200px 1000px at 50% 45%, rgba(21,26,43,0.9), transparent 75%); }}
+#ground::after {{ content:""; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 42%, transparent 55%, rgba(0,0,0,0.5) 100%); }}
+#grain {{ position:absolute; inset:0; background-image:url("{GRAIN}"); opacity:0.07; mix-blend-mode:overlay; z-index:45; pointer-events:none; }}
 #flood {{ position:absolute; inset:0;
-  background: radial-gradient(900px 800px at 20% 30%, rgba(0,174,123,0.26), transparent 70%),
-              radial-gradient(800px 800px at 85% 75%, rgba(65,138,209,0.22), transparent 70%); }}
-.world, .world > .in {{ position:absolute; inset:0; }}
+  background: radial-gradient(900px 800px at 20% 30%, rgba(0,174,123,0.28), transparent 70%),
+              radial-gradient(800px 800px at 85% 75%, rgba(65,138,209,0.24), transparent 70%); }}
+.world, .world .cam, .world .in {{ position:absolute; inset:0; }}
 .p3d, #gl {{ position:absolute; left:0; top:0; width:1080px; height:1920px; }}
 .art {{ position:absolute; object-fit:contain; filter:drop-shadow(0 18px 30px rgba(0,0,0,0.55)); }}
-.frm {{ position:absolute; border-radius:14px; border:3px solid {SLATE}; object-fit:cover; box-shadow:0 12px 30px rgba(0,0,0,0.5); }}
-.lbl {{ position:absolute; text-align:center; font-size:46px; font-weight:900; white-space:nowrap; }}
+.frm {{ position:absolute; border-radius:18px; border:4px solid {SLATE}; box-shadow:0 24px 60px rgba(0,0,0,0.55); background:#05070D; }}
+.lbl {{ position:absolute; text-align:center; font-size:48px; font-weight:800; letter-spacing:-0.01em; line-height:1.15; }}
+.big {{ position:absolute; font-family:"Inter Display"; font-weight:900; line-height:1.02; letter-spacing:-0.025em; }}
+.big span {{ display:inline-block; }}
 .phone {{ position:absolute; border-radius:50px; background:#05070D; border:4px solid {SLATE}; padding:12px; box-shadow:0 30px 80px rgba(0,0,0,0.6); }}
 .phone img {{ width:100%; height:100%; border-radius:40px; object-fit:cover; }}
-.code {{ position:absolute; padding:30px 36px; border-radius:26px; background:#0E1220; border:4px solid {SLATE};
-  font-family:"JetBrains Mono", monospace; font-size:42px; line-height:64px; color:{CREAM}; }}
-.cl {{ white-space:pre; }}
+.code {{ position:absolute; padding:28px 36px 30px; border-radius:26px; background:#0E1220; border:4px solid {SLATE};
+  font-family:"JetBrains Mono", monospace; color:{CREAM}; box-shadow:0 24px 60px rgba(0,0,0,0.5); }}
+.code .bar {{ display:flex; align-items:center; gap:12px; margin:-8px 0 18px; font-size:32px; color:{SLATE}; font-weight:700; }}
+.code .bar i {{ width:18px; height:18px; border-radius:50%; background:{HAZE}; }}
+.code .bar span {{ margin-left:14px; }}
+.cl {{ white-space:pre-wrap; }}
 .cl s {{ text-decoration:none; color:{MINT2}; }}
-.cl b {{ color:{EMBER2}; }}
+.cl b {{ color:{EMBER2}; font-weight:700; }}
+.cl u {{ text-decoration:none; color:{SLATE}; }}
 .count {{ position:absolute; text-align:center; font-size:76px; font-weight:900; }}
-.count b {{ color:{EMBER2}; font-size:96px; }}
+.count b {{ color:{EMBER2}; font-size:{T["l"]}px; font-family:"Inter Display"; }}
 .flash {{ position:absolute; left:0; top:0; width:1080px; background:radial-gradient(600px 400px at 80% 25%, rgba(255,255,255,0.75), transparent 70%); }}
 .strip {{ position:absolute; overflow:hidden; border-radius:18px; background:#05070D; border:4px solid {SLATE}; padding:6px 0; }}
 .track {{ position:absolute; left:0; top:8px; }}
-.arr {{ position:absolute; text-align:center; font-size:46px; font-weight:900; color:{SLATE}; border-bottom:8px solid {SLATE}; padding-bottom:10px; }}
+.arr {{ position:absolute; text-align:center; font-size:48px; font-weight:800; color:{SLATE}; border-bottom:8px solid {SLATE}; padding-bottom:10px; }}
 .xx {{ position:absolute; height:16px; border-radius:8px; background:{ROSE2}; transform:rotate(-30deg); }}
-.card {{ position:absolute; left:56px; top:1127px; width:894px; height:280px; border-radius:22px; background:rgba(21,26,43,0.94);
-  border:3.2px solid rgba(243,237,226,0.85); padding:30px 40px; }}
-.card::before {{ content:""; position:absolute; left:40px; top:-3px; width:120px; height:6px; background:{EMBER2}; }}
+.card {{ position:absolute; left:56px; top:{DECK[1] - 8}px; width:894px; min-height:270px; border-radius:24px; background:rgba(21,26,43,0.94);
+  border:{LINE}px solid rgba(243,237,226,0.85); padding:30px 40px; }}
+.card::before {{ content:""; position:absolute; left:40px; top:-4px; width:120px; height:7px; background:{EMBER2}; }}
 .card.good {{ border-color:{MINT2}; box-shadow:0 0 50px rgba(95,214,168,0.25); }}
 .card.good::before {{ background:{MINT2}; }}
-.card .lab {{ font-family:"JetBrains Mono", monospace; font-size:30px; letter-spacing:0.08em; color:{EMBER2}; font-weight:700; }}
+.card .lab {{ font-family:"JetBrains Mono", monospace; font-size:32px; letter-spacing:0.06em; color:{EMBER2}; font-weight:700; }}
 .card.good .lab {{ color:{MINT2}; }}
-.card .tit {{ font-size:56px; font-weight:800; color:{CREAM}; margin-top:10px; white-space:nowrap; }}
-.card .det {{ font-size:34px; color:#A9B0C4; margin-top:12px; }}
-.col {{ white-space:nowrap; }}
-.tag {{ position:absolute; padding:14px 30px; border:3.2px solid; border-radius:44px; background:rgba(21,26,43,0.94); font-size:44px; font-weight:800; white-space:nowrap; }}
+.card .tit {{ font-family:"Inter Display"; font-size:60px; font-weight:800; color:{CREAM}; margin-top:10px; line-height:1.1; letter-spacing:-0.015em; }}
+.card .det {{ font-size:40px; color:#A9B0C4; margin-top:12px; line-height:1.2; }}
+.tag {{ position:absolute; padding:14px 30px; border:{LINE}px solid; border-radius:44px; background:rgba(21,26,43,0.94); font-size:46px; font-weight:800; white-space:nowrap; }}
 #rail {{ z-index:40; }}
-.rl {{ position:absolute; top:16px; height:3.2px; background:{SLATE}; }}
+.rl {{ position:absolute; top:17px; height:{LINE}px; background:{SLATE}; }}
 .rn {{ position:absolute; top:0; width:220px; text-align:center; }}
-.rn i {{ display:block; margin:0 auto; width:34px; height:34px; border-radius:50%; border:3.2px solid {SLATE}; background:{INK}; }}
-.rn span {{ display:block; margin-top:6px; font-family:"JetBrains Mono", monospace; font-size:40px; font-weight:700; color:{SLATE}; letter-spacing:0.04em; }}
-.ask {{ position:absolute; left:56px; top:1110px; width:894px; padding:26px 32px 22px; border-radius:40px; background:rgba(21,26,43,0.94);
-  border:4px solid {MINT2}; box-shadow:0 0 50px rgba(95,214,168,0.30); }}
-.askq {{ display:flex; align-items:center; gap:20px; font-size:56px; font-weight:900; color:{CREAM}; }}
+.rn i {{ display:block; margin:0 auto; width:38px; height:38px; border-radius:50%; border:{LINE}px solid {SLATE}; background:{INK}; }}
+.rn span {{ display:block; margin-top:8px; font-family:"JetBrains Mono", monospace; font-size:40px; font-weight:700; color:{SLATE}; }}
+.ask {{ position:absolute; left:56px; top:{DECK[1] - 20}px; width:894px; padding:24px 32px 20px; border-radius:40px; background:rgba(21,26,43,0.94);
+  border:{LINE}px solid {MINT2}; box-shadow:0 0 50px rgba(95,214,168,0.30); }}
+.askq {{ display:flex; align-items:center; gap:20px; font-family:"Inter Display"; font-size:58px; font-weight:900; color:{CREAM}; line-height:1.05; }}
 .askq svg {{ flex:none; }}
-.chips {{ display:flex; gap:18px; margin-top:22px; }}
-.chip {{ padding:10px 26px; border-radius:40px; border:4px solid {SIGNAL2}; color:{SIGNAL2}; font-size:40px; font-weight:800; white-space:nowrap; }}
-.askf {{ margin-top:18px; font-size:40px; font-weight:700; color:{SLATE}; }}
+.chips {{ display:flex; gap:18px; margin-top:20px; }}
+.chip {{ padding:10px 26px; border-radius:40px; border:{LINE}px solid {SIGNAL2}; color:{SIGNAL2}; font-size:40px; font-weight:800; white-space:nowrap; }}
+.askf {{ margin-top:16px; font-size:40px; font-weight:700; color:{SLATE}; }}
 .hl {{ position:absolute; --hairline-plate:{INK2}; --hairline-hi:{EMBER2}; --hairline-edge:{CREAM}; --hairline-mid:{SLATE};
-  --hairline-lo:{HAZE}; --hairline-stroke:3.2; }}
+  --hairline-lo:{HAZE}; --hairline-stroke:{LINE}; }}
 .hl [aria-live], .hl .sr-only {{ display:none; }}
 .hl * {{ transition:none !important; }}            /* Hairline fades strokes in real time; frames must follow the timeline only */
-.cap {{ position:absolute; left:0; width:1080px; top:905px; text-align:center; font-family:Inter; font-weight:900; color:#fff;
-  line-height:110px; height:110px; -webkit-text-stroke:10px #0A0907; paint-order:stroke fill; text-shadow:0 6px 18px rgba(0,0,0,0.55); z-index:50; white-space:nowrap; }}
+.cap {{ position:absolute; left:0; width:1080px; top:{BAND[0] + 6}px; height:128px; line-height:128px; text-align:center;
+  font-family:Inter; font-weight:900; color:#fff; letter-spacing:-0.01em; z-index:50; white-space:nowrap;
+  -webkit-text-stroke:6px #07080D; paint-order:stroke fill; text-shadow:0 4px 0 #07080D, 0 10px 28px rgba(0,0,0,0.6); }}
+.cap .ci {{ display:inline-block; }}
+.cap .on {{ display:inline-block; transform:scale(1.06); }}
 '''
-HIDE0 = [".ask", ".hl", ".tag", "#rail", ".card", ".art", ".lbl", ".code", ".cl", ".count", ".strip", ".frm:not(.track .frm)", ".arr", ".xx", ".flash"]
+HIDE0 = [".ask", ".hl", ".tag", "#rail", ".card", ".art", ".lbl", ".big", ".code", ".cl", ".count", ".strip", ".frm:not(.track .frm)",
+         ".arr", ".xx", ".flash"]
 norm = lambda s: re.sub(r"[^a-z0-9]", "", s.lower())
 sel = lambda s: json.dumps(s) if isinstance(s, list) else (s if s.startswith("[") else json.dumps(s))
+
+
+def vendor(dst):
+    """Copy GSAP, three.js and the fonts into an hf/assets folder: a render never needs the network."""
+    for a, b in (("gsap", "gsap"), ("three", "three"), ("fonts", "fonts")):
+        shutil.copytree(f"{HERE}/vendor/{a}", f"{dst}/{b}", dirs_exist_ok=True)
+
+
+def cam_to(cx, cy, z, to=FOCUS):
+    """The camera transform (origin 0 0) that shows canvas point (cx, cy) at `to`, z times larger."""
+    return round(to[0] - z * cx, 1), round(to[1] - z * cy, 1)
+
+
+def fit(box, fill=0.85, area=STAGE):
+    """The zoom that makes box (x, y, w, h) fill `fill` of the area's width or height, whichever binds first."""
+    return round(min(fill * (area[2] - area[0]) / box[2], fill * (area[3] - area[1]) / box[3]), 3)
 
 
 def blender3d(spec, out, dur, fmt="glb", preview=False, cue=float):
     """Render a scene3d.py spec (cues: seconds from the plate start, or whatever `cue` resolves) to out (.glb or .webm)."""
     from scene3d import resolve
-    from motion import PAL
     job = {"spec": resolve(json.loads(json.dumps(spec)), cue), "dur": dur, "out": os.path.abspath(out), "pal": PAL,
-           "preview": preview, "label": os.path.basename(out), "ground": None, "format": fmt}
+           "preview": preview, "label": os.path.basename(out), "format": fmt}
     jp = os.path.splitext(out)[0] + ".job.json"
     json.dump(job, open(jp, "w"))
     r = subprocess.run(["blender", "-b", "--factory-startup", "--python", f"{HERE}/scene3d.py", "--", os.path.abspath(jp)], capture_output=True, text=True)
@@ -228,6 +275,20 @@ def blender3d(spec, out, dur, fmt="glb", preview=False, cue=float):
     if r.returncode or not os.path.exists(out):
         raise SystemExit(r.stdout[-1500:] + r.stderr[-1500:] + f"\n{out}: Blender failed")
     os.remove(jp)
+
+
+def peak(path):
+    """Seconds from a sound file's start to its loudest sample (most hits swell first)."""
+    pcm = decode(path)
+    return max(range(len(pcm)), key=lambda i: abs(pcm[i])) / 48000 if pcm else 0.0
+
+
+def decode(path):
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-f", "s16le", "-ac", "1", "-ar", "48000", "-"], capture_output=True).stdout
+    return array("h", raw[: len(raw) // 2 * 2])
+
+
+WHOOSH = ["whoosh-air", "whoosh-swipe", "whoosh-stick", "whoosh"]   # rotated: the same whoosh on every cut is the tell
 
 
 class Short:
@@ -253,7 +314,7 @@ class Short:
         starts, i = [], 0
         for t in plan["texts"]:
             first = [norm(x) for x in t.split()[:4]]
-            while Hw[i:i + 4] != first:
+            while Hw[i:i + len(first)] != first:          # a scene may be under 4 words
                 i += 1
                 if i > len(Hw):
                     raise SystemExit(f"scene start not heard: {first}")
@@ -265,10 +326,10 @@ class Short:
         cut = lambda n: 0 if n == 1 else round(self.S[n] - 0.2, 3)
         self.ORDER = [f"w{n}" for n in range(1, NS + 1)]
         self.win = {f"w{n}": (cut(n), cut(n + 1) if n < NS else self.DUR) for n in range(1, NS + 1)}
-        timed = [(w[0], self.T(k), round(off + w[2], 3)) for k, w in enumerate(words)]
+        self.timed = timed = [(w[0], self.T(k), round(off + w[2], 3)) for k, w in enumerate(words)]
         keys = keys or {}
         self.caps = html_caps(timed, lambda t, s: keys.get(t, "#FFFFFF"), end=off + self.take_dur)
-        self.J, self.extra, self.models, self.figs = [], [], [], {}
+        self.J, self.extra, self.models, self.figs, self.sounds = [], [], [], {}, []
 
     T = lambda self, i: round(self.off + self.words[i][1], 3)
 
@@ -279,51 +340,78 @@ class Short:
             raise SystemExit(f"cue '{word}' not heard in scene {sc}: {' '.join(self.Hw[self.starts[sc - 1]:self.starts[sc]])}")
         return self.T(hits[nth - 1])
 
-    # ---- motion verbs (Design system: Motion)
+    # ---- motion verbs (Design system: Motion). Arrivals land on a long tail; exits are shorter and accelerate.
     def at(self, t, js):
         self.J.append("tl." + js.replace("@", str(round(t, 3))))
 
-    def pop(self, s, t, spring=False):                # text, labels, cards: rise 24 px
-        self.at(t, f'fromTo({sel(s)}, {{opacity:0, y:24, scale:{0.9 if spring else 1}}}, {{opacity:1, y:0, scale:1, duration:{0.5 if spring else 0.35}, ease:"{"back.out(1.7)" if spring else "expo.out"}"}}, @);')
+    def pop(self, s, t, spring=False):                # labels, frames, cards, figures: rise 24 px
+        self.at(t, f'fromTo({sel(s)}, {{opacity:0, y:24, scale:{0.9 if spring else 1}}}, {{opacity:1, y:0, scale:1, duration:{0.5 if spring else 0.4}, ease:"{"back.out(1.4)" if spring else "expo.out"}"}}, @);')
 
-    def grow(self, s, t):                             # illustrations: grow and turn into place
-        self.at(t, f'fromTo({sel(s)}, {{opacity:0, scale:0.4, rotation:-12}}, {{opacity:1, scale:1, rotation:0, duration:0.5, ease:"back.out(1.9)"}}, @);')
+    def grow(self, s, t):                             # a picture arrives on its noun: scale up from the middle
+        self.at(t, f'fromTo({sel(s)}, {{opacity:0, scale:0.6}}, {{opacity:1, scale:1, duration:0.55, ease:"expo.out"}}, @);')
 
-    def hide(self, s, t):
-        self.at(t, f'to({sel(s)}, {{opacity:0, duration:0.2, ease:"power2.in"}}, @);')
+    def blurin(self, s, t, d=0.18):                   # a whole line blurs in: 8 px to 0
+        self.at(t, f'fromTo({sel(s)}, {{opacity:0, filter:"blur(8px)"}}, {{opacity:1, filter:"blur(0px)", duration:{d}, ease:"power2.out"}}, @);')
+
+    def reveal(self, id_, t, n, step=0.067):          # a big() line of n words, word by word: blur 6 px to 0, no translate
+        self.at(t, f'set("#{id_}", {{opacity:1}}, @);')
+        for k in range(n):
+            self.at(t + step * k, f'fromTo("#{id_}-w{k}", {{opacity:0, filter:"blur(6px)"}}, {{opacity:1, filter:"blur(0px)", duration:0.13, ease:"power2.out"}}, @);')
+
+    def hide(self, s, t, d=0.2):
+        self.at(t, f'to({sel(s)}, {{opacity:0, filter:"blur(6px)", duration:{d}, ease:"power3.in"}}, @);')
 
     def rise(self, s, t):                             # panels from the deck: the comment prompt
-        self.at(t, f'fromTo({sel(s)}, {{opacity:0, y:60}}, {{opacity:1, y:0, duration:0.45, ease:"expo.out"}}, @);')
+        self.at(t, f'fromTo({sel(s)}, {{opacity:0, y:60}}, {{opacity:1, y:0, duration:0.5, ease:"expo.out"}}, @);')
 
-    def chips(self, id_, n, t, step=0.18):
+    def chips(self, id_, n, t, step=0.12):
         for k in range(n):
-            self.at(t + step * k, f'fromTo("#{id_}-c{k}", {{opacity:0, scale:0.6}}, {{opacity:1, scale:1, duration:0.35, ease:"back.out(2)"}}, @);')
+            self.at(t + step * k, f'fromTo("#{id_}-c{k}", {{opacity:0, scale:0.7}}, {{opacity:1, scale:1, duration:0.4, ease:"back.out(1.4)"}}, @);')
+            self.sfx(t + step * k, "pop", -30)
 
     def count(self, s, to, t, d=0.9):
-        self.at(t, f'to({sel(s)}, {{textContent:{to}, duration:{d}, snap:{{textContent:1}}, ease:"power1.in"}}, @);')
+        self.at(t, f'to({sel(s)}, {{textContent:{to}, duration:{d}, snap:{{textContent:1}}, ease:"power2.out"}}, @);')
 
     def flash(self, s, t):
         self.at(t, f'fromTo({sel(s)}, {{opacity:0.9}}, {{opacity:0, duration:0.35, ease:"power2.out"}}, @);')
 
     def strike(self, s, t):
-        self.at(t, f'to({sel(s)}, {{opacity:1, scaleX:1, duration:0.3, ease:"power2.out"}}, @);')
+        self.at(t, f'to({sel(s)}, {{opacity:1, scaleX:1, duration:0.3, ease:"power3.out"}}, @);')
 
     def light(self, s, t, col=EMBER2):                # recolour on the word that names it
         self.at(t, f'to({sel(s)}, {{color:"{col}", duration:0.3}}, @);')
 
-    def settle(self, s, t=0, k=1.06):                 # frame 1: the hook picture settles in, never static
-        self.at(t, f'fromTo({sel(s)}, {{scale:{k}}}, {{scale:1, duration:1.2, ease:"power2.out"}}, @);')
-
     def slide(self, s, t, x, d):
         self.at(t, f'to({sel(s)}, {{x:{x}, duration:{d}, ease:"none"}}, @);')
 
-    def nudge(self, s, t, rot=20):
-        self.at(t, f'to({sel(s)}, {{rotation:{rot}, duration:0.3, yoyo:true, repeat:1}}, @);')
+    def nudge(self, s, t, rot=12):
+        self.at(t, f'to({sel(s)}, {{rotation:{rot}, duration:0.25, ease:"power2.out", yoyo:true, repeat:1}}, @);')
+
+    # ---- the camera: every world is a canvas; moving it is the scale change (wide, medium, close)
+    def cam(self, w, t, cx=FOCUS[0], cy=FOCUS[1], z=1.0, d=0.8, ease="power2.inOut", to=FOCUS, sound=None):
+        """At t the camera of world w moves so canvas point (cx, cy) sits at `to`, z times larger (d=0: a cut)."""
+        x, y = cam_to(cx, cy, z, to)
+        if d:
+            self.at(t, f'to("#{w}-cam", {{x:{x}, y:{y}, scale:{z}, duration:{d}, ease:"{ease}"}}, @);')
+        else:
+            self.at(t, f'set("#{w}-cam", {{x:{x}, y:{y}, scale:{z}}}, @);')
+        if sound or (sound is None and 0 < d <= 0.5):  # a fast move is heard
+            self.sfx(t + d * 0.5, sound or self._whoosh(), -26, align="peak")
+
+    def focus(self, w, t, box, fill=0.85, d=0.8, area=STAGE, **kw):
+        """Frame box (x, y, w, h) of world w's canvas: centred in `area`, filling `fill` of it."""
+        z = fit(box, fill, area)
+        to = ((area[0] + area[2]) / 2, (area[1] + area[3]) / 2)
+        self.cam(w, t, box[0] + box[2] / 2, box[1] + box[3] / 2, z, d, to=to, **kw)
+
+    def wide(self, w, t, d=0.8, **kw):                # back to the whole canvas
+        self.cam(w, t, d=d, **kw)
 
     def callout(self, id_, t):                        # the leader draws from the part, then the label lands
-        self.at(t, f'fromTo("#{id_}-d", {{opacity:0, scale:0.3, transformOrigin:"50% 50%"}}, {{opacity:1, scale:1, duration:0.2, ease:"back.out(2)"}}, @);')
-        self.at(t + 0.05, f'fromTo("#{id_}-p", {{attr:{{"stroke-dashoffset":1}}}}, {{attr:{{"stroke-dashoffset":0}}, duration:0.35, ease:"power2.out"}}, @);')
-        self.pop(f"#{id_}", t + 0.3)
+        self.at(t, f'fromTo("#{id_}-d", {{opacity:0, scale:0.3, transformOrigin:"50% 50%"}}, {{opacity:1, scale:1, duration:0.25, ease:"back.out(1.4)"}}, @);')
+        self.at(t + 0.05, f'fromTo("#{id_}-p", {{attr:{{"stroke-dashoffset":1}}}}, {{attr:{{"stroke-dashoffset":0}}, duration:0.4, ease:"power3.out"}}, @);')
+        self.blurin(f"#{id_}", t + 0.3)
+        self.sfx(t, "click", -32)
 
     def uncallout(self, id_, t):
         self.hide([f"#{id_}", f"#{id_}-s"], t)
@@ -333,15 +421,30 @@ class Short:
         self.extra.append(f'<div id="railc" class="clip" data-start="0" data-duration="{self.DUR}" data-track-index="40">{rail(steps)}</div>')
         self.at(t, 'set("#rail", {opacity:1}, @);')
         for k in range(len(steps)):
-            self.at(t + 0.12 * k, f'fromTo("#rail-n{k}", {{opacity:0, y:16}}, {{opacity:1, y:0, duration:0.3, ease:"back.out(2)"}}, @);')
+            self.at(t + 0.06 * k, f'fromTo("#rail-n{k}", {{opacity:0, y:16}}, {{opacity:1, y:0, duration:0.35, ease:"expo.out"}}, @);')
 
     def step(self, k, t, state="on"):
         """Rail node k becomes on (ember, the step on screen), done (cream), bad (rose: where it fails) or good (mint)."""
         col = {"on": EMBER2, "done": CREAM, "bad": ROSE2, "good": MINT2}[state]
         fill = {"on": EMBER2, "done": INK, "bad": ROSE2, "good": MINT2}[state]
-        self.at(t, f'to("#rail-d{k}", {{borderColor:"{col}", backgroundColor:"{fill}", scale:1.25, duration:0.25, ease:"back.out(2)"}}, @);')
+        self.at(t, f'to("#rail-d{k}", {{borderColor:"{col}", backgroundColor:"{fill}", scale:1.25, duration:0.25, ease:"back.out(1.4)"}}, @);')
         self.at(t + 0.25, f'to("#rail-d{k}", {{scale:1, duration:0.2}}, @);')
         self.at(t, f'to("#rail-t{k}", {{color:"{col}", duration:0.25}}, @);')
+
+    # ---- sound (Design system: Sound). Every effect has a cause on screen.
+    def sfx(self, t, name, db=-24, align="start"):
+        """Place System/assets/sfx/<name>.mp3 at t (align "peak": its loudest sample lands on t), db under full scale."""
+        self.sounds.append((round(t, 3), name, db, align))
+
+    def _whoosh(self):
+        self._wk = getattr(self, "_wk", -1) + 1
+        return WHOOSH[self._wk % len(WHOOSH)]
+
+    def payoff(self, t, rise=True):
+        """The reveal: a riser that crests on t (from at most 4 s before) and a hit on t. Once per video."""
+        if rise:
+            self.sounds.append((round(t, 3), "riser", -27, "end4"))
+        self.sfx(t, "impact-bass-2", -20, align="peak")
 
     # ---- 3D placed on the page
     def plate3d(self, id_, src, t0, dur):
@@ -411,7 +514,8 @@ for (const [id, f] of Object.entries(F)) for (const [t, x, y, g] of f.moves) {  
 }
 ev.sort((a, b) => a.t - b.t);
 function mount() { __HL.reset(); figs.forEach(f => f.destroy()); at = -1;
-  figs = Object.entries(F).map(([id, f]) => f.custom ? custom(document.getElementById(id), f) : HL[f.fn](document.getElementById(id), f.opts)); }
+  figs = Object.entries(F).filter(([id]) => document.getElementById(id))           // a page mounts only the figures it holds
+    .map(([id, f]) => f.custom ? custom(document.getElementById(id), f) : HL[f.fn](document.getElementById(id), f.opts)); }
 function custom(host, f) {                            // a /hairline-create figure, mounted the way its bench does
   const spec = window.__HLC[f.fn], K = window.HLK;
   K.inject(document); host.setAttribute("data-hairline", spec.name); host.setAttribute("data-hairline-theme", "dark");
@@ -427,7 +531,7 @@ function send(e) {
 }
 function seek(t) {                                   // backwards: remount and replay from 0, so a seek never depends on history
   if (t < at - 1e-6) mount();
-  for (const e of ev) if (e.t > at && e.t <= t) { __HL.step(e.t * 1000); send(e); }
+  for (const e of ev) if (e.t > at && e.t <= t && document.getElementById(e.id)) { __HL.step(e.t * 1000); send(e); }
   __HL.step(t * 1000); at = t;
 }
 mount(); window.__seek.push(seek); seek(window.__timelines.main.time());
@@ -484,45 +588,87 @@ window.__hf.buildReady["glb"] = (async () => {
 '''.replace("__MODELS__", json.dumps(self.models))
 
     # ---- page, sound, timeline
-    def write(self, W, rev, css="", flood=None):
-        """W: {"w1": html, ...}. flood: the scene number where the solution's colour flood starts (Style: solution scenes)."""
-        DUR, win = self.DUR, self.win
+    TRANS = ("cut", "whip", "push", "dip", "blur")
+
+    def _transitions(self, trans):
+        """Each world after the first enters by its transition (Design system: Transitions); the one before leaves to match."""
+        out = []
+        for k, w in enumerate(self.ORDER):
+            a, b = self.win[w]
+            kind = trans.get(w, "cut") if k else None
+            nxt = self.ORDER[k + 1] if k + 1 < len(self.ORDER) else None
+            leave = trans.get(nxt, "cut") if nxt else None
+            if kind and kind not in self.TRANS:
+                raise SystemExit(f"{w}: transition '{kind}' is not one of {self.TRANS}")
+            if kind in ("cut", "dip"):                 # lands slightly large and settles
+                out.append(f'fromTo("#{w}-in", {{scale:1.04}}, {{scale:1, duration:0.5, ease:"expo.out"}}, {a});')
+            elif kind == "whip":
+                out.append(f'fromTo("#{w}-in", {{x:300, opacity:0, filter:"blur(14px)"}}, {{x:0, opacity:1, filter:"blur(0px)", duration:0.26, ease:"power3.out"}}, {a});')
+                self.sfx(a, self._whoosh(), -24, align="peak")
+            elif kind == "push":
+                out.append(f'fromTo("#{w}-in", {{scale:0.86, opacity:0, filter:"blur(8px)"}}, {{scale:1, opacity:1, filter:"blur(0px)", duration:0.4, ease:"expo.out"}}, {a});')
+                self.sfx(a, self._whoosh(), -25, align="peak")
+            elif kind == "blur":
+                out.append(f'fromTo("#{w}-in", {{opacity:0, filter:"blur(8px)"}}, {{opacity:1, filter:"blur(0px)", duration:0.2, ease:"power2.out"}}, {a});')
+            if leave == "whip":
+                out.append(f'to("#{w}-in", {{x:-300, opacity:0, filter:"blur(14px)", duration:0.18, ease:"power3.in"}}, {round(b - 0.18, 3)});')
+            elif leave == "push":
+                out.append(f'to("#{w}-in", {{scale:1.5, opacity:0, filter:"blur(10px)", duration:0.25, ease:"power3.in"}}, {round(b - 0.25, 3)});')
+            elif leave == "dip":
+                out.append(f'to("#{w}-in", {{filter:"brightness(0.6)", duration:0.1, ease:"none"}}, {round(b - 0.1, 3)});')
+            elif leave == "blur":
+                out.append(f'to("#{w}-in", {{opacity:0, filter:"blur(8px)", duration:0.15, ease:"power2.in"}}, {round(b - 0.15, 3)});')
+        return out
+
+    def _caption_entries(self):
+        """Each phrase rises 16 px in 0.15 s on its first word; later words of the phrase only relight."""
+        return [f'fromTo("#c{g[0]}i", {{y:16, opacity:0}}, {{y:0, opacity:1, duration:0.15, ease:"expo.out"}}, {self.timed[g[0]][1]});'
+                for g in groups(self.timed)]
+
+    def write(self, W, rev, css="", flood=None, trans=None, blur=False, opening=True):
+        """W: {"w1": html, ...}. trans: {"w2": "whip", ...} (default cut; use 3 to 5 kinds, at most a third hard cuts).
+        flood: the scene number where the solution's colour flood starts. blur: HyperFrames' render-time motion blur."""
+        DUR, win, trans = self.DUR, self.win, trans or {}
         world = lambda wid, z: (f'<div id="{wid}" class="clip world" data-start="{win[wid][0]}" data-duration="{round(win[wid][1] - win[wid][0], 3)}" '
-                                f'data-track-index="{z}"><div class="in" id="{wid}-in">{W[wid]}</div></div>')
+                                f'data-track-index="{z}"><div class="cam" id="{wid}-cam"><div class="in" id="{wid}-in">{W[wid]}</div></div></div>')
         body = (f'<div id="ground" class="clip" data-start="0" data-duration="{DUR}" data-track-index="0"><div id="flood"></div></div>\n'
                 + "".join(e + "\n" for e in self.extra)
                 + (f'<canvas id="gl" class="clip" width="1080" height="1920" data-start="0" data-duration="{DUR}" data-track-index="6"></canvas>\n' if self.models else "")
                 + "\n".join(world(w, 10 + k) for k, w in enumerate(self.ORDER))
+                + f'\n<div id="grainc" class="clip" data-start="0" data-duration="{DUR}" data-track-index="45"><div id="grain"></div></div>'
                 + f'\n<audio id="vo" class="clip" data-start="{self.off}" data-duration="{round(self.take_dur, 3)}" data-track-index="30" data-volume="1" src="assets/{os.path.basename(self.take)}"></audio>'
                 + f'\n<div id="caps" data-track-kind="captions">\n{self.caps}\n</div>')
-        head = [f'set("#flood", {{opacity:0}}, 0);', f'set({json.dumps(HIDE0)}, {{opacity:0}}, 0);', 'set(".xx", {scaleX:0, transformOrigin:"0% 50%"}, 0);']
-        for k, w in enumerate(self.ORDER):
-            a, b = win[w]
-            if k:
-                head.append(f'fromTo("#{w}-in", {{opacity:0, filter:"blur(8px)"}}, {{opacity:1, filter:"blur(0px)", duration:0.25, ease:"power2.out"}}, {a});')
-            if b < DUR:
-                head.append(f'to("#{w}-in", {{opacity:0, filter:"blur(8px)", duration:0.2, ease:"power2.in"}}, {round(b - 0.2, 3)});')
+        head = self._transitions(trans) + self._caption_entries()
         if flood:
             head.append(f'to("#flood", {{opacity:1, duration:0.6, ease:"power2.inOut"}}, {round(self.S[flood] - 0.2, 3)});')
+        if opening:
+            self.sfx(0.12, "impact-bass-2", -24, align="peak")
         J = ["tl." + h for h in head] + self.J
         three = (f'<script type="module">{self._three()}</script>' if self.models else
                  '<script>window.__render3d = () => {}; window.__boxes3d = []; window.__ready3d = true;</script>')   # 2D only; the overlap check still runs
         hl = f'<script>{self._hairline()}</script>' if self.figs else ""
+        vendor(f"{self.here}/assets")
+        if not os.path.exists(f"{self.here}/assets/{os.path.basename(self.take)}"):
+            shutil.copy2(self.take, f"{self.here}/assets/")
         page = f'''<!doctype html>
 <html lang="en" data-resolution="portrait">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=1080, height=1920" />
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
-<script type="importmap">{{"imports": {{"three": "https://cdn.jsdelivr.net/npm/three@0.181.2/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.181.2/examples/jsm/"}}}}</script>
+<script src="assets/gsap/gsap.min.js"></script>
+<script type="importmap">{{"imports": {{"three": "./assets/three/three.module.js", "three/addons/": "./assets/three/addons/"}}}}</script>
 <style>{CSS}{css}</style>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="{DUR}" data-width="1080" data-height="1920">
+<div id="root" data-composition-id="main" data-start="0" data-duration="{DUR}" data-width="1080" data-height="1920"{' data-motion-blur="on"' if blur else ''}>
 {body}
 </div>
 <script>
 window.__timelines = window.__timelines || {{}};
+const q = s => document.querySelectorAll(s);           // initial states outside the timeline: frame 0 renders them
+gsap.set(q("#flood, {", ".join(HIDE0)}"), {{opacity:0}});
+if (q(".xx").length) gsap.set(q(".xx"), {{scaleX:0, transformOrigin:"0% 50%"}});
+gsap.set(q(".world .cam"), {{transformOrigin:"0% 0%"}});
 const tl = gsap.timeline({{ paused: true }});
 {chr(10).join(J)}
 window.__timelines["main"] = tl;
@@ -537,44 +683,119 @@ window.addEventListener("hf-seek", e => {{ if (e && e.detail && typeof e.detail.
         open(f"{self.here}/index.html", "w").write(page)
         ren = f"{self.root}/render/{self.plan['prefix']}-{round(DUR)}s-9x16-r{rev}.mp4"
         self._sound(ren)
-        print(f"index.html: {DUR} s, {self.caps.count('class=\"clip cap\"')} caption states, {len(J)} tweens, {len(self.models)} models; "
-              f"render -> {os.path.basename(ren)}; worlds {win}")
+        kinds = [trans.get(w, "cut") for w in self.ORDER[1:]]
+        print(f"index.html: {DUR} s, {self.caps.count('class=\"clip cap\"')} caption states, {len(J)} tweens, {len(self.models)} models, "
+              f"{len(self.sounds)} sounds; transitions {kinds}; render -> {os.path.basename(ren)}")
+        if len(kinds) > 2 and kinds.count("cut") > len(kinds) / 3:
+            print(f"WARN {kinds.count('cut')} of {len(kinds)} world changes are hard cuts: give the rest a transition with a cause")
+        if len(set(kinds)) < min(3, len(kinds)):
+            print(f"WARN only {len(set(kinds))} kinds of transition: use 3 to 5")
 
     def _sound(self, ren):
-        """The opening thump and a whoosh ending on each cut (stdlib port of build_video.synth_sound), and the timeline for mix_audio.py."""
-        SR, DUR = 48000, self.DUR
-        cuts = [self.win[w][0] for w in self.ORDER[1:]]
-        sfx = [0.0] * int((DUR + 1) * SR)
-
-        def put(t0, xs):
-            i0 = max(0, int(t0 * SR))
-            for j, x in enumerate(xs[: len(sfx) - i0]):
-                sfx[i0 + j] += x
-        L = int(0.55 * SR)
-        put(0.0, [math.sin(2 * math.pi * (58 - 18 * j / SR) * j / SR) * min(j / SR / 0.004, 1) * math.exp(-j / SR / 0.16) * 0.22 for j in range(L)])
-        rnd = random.Random(11)
-        for c in cuts:
-            L = int(0.42 * SR); z = [rnd.gauss(0, 1) for _ in range(L)]
-            acc, low = 0.0, []
-            for j, x in enumerate(z):                 # 60-sample moving average: the soft low part of the sweep
-                acc += x - (z[j - 60] if j >= 60 else 0); low.append(acc / 60)
-            put(c - L / SR * 0.7, [(low[j] * (1 - j / L) * 4.0 + (z[j] - low[j]) * (j / L) * 0.9) * math.sin(math.pi * j / L) ** 2 * 0.075 for j in range(L)])
+        """The effects stem from the kit (System/assets/sfx), and the timeline mix_audio.py reads."""
+        SR, n = 48000, int((self.DUR + 1) * 48000)
+        mix = array("f", bytes(4 * n))
+        cache = {}
+        for t, name, db, align in sorted(self.sounds):
+            if name not in cache:
+                f = f"{SFX_DIR}/{name}.mp3"
+                if not os.path.exists(f):
+                    raise SystemExit(f"sfx '{name}' is not in System/assets/sfx")
+                pcm = decode(f)
+                cache[name] = (pcm, max(range(len(pcm)), key=lambda i: abs(pcm[i])) if pcm else 0)
+            pcm, pk = cache[name]
+            g = 10 ** (db / 20) / 32768
+            if align == "peak":
+                i0 = int(t * SR) - pk
+            elif align == "end4":                       # a riser cresting on t, at most its last 4 s
+                pcm = pcm[max(0, pk - 4 * SR):pk + 1]
+                i0 = int(t * SR) - len(pcm) + 1
+            else:
+                i0 = int(t * SR)
+            for j in range(max(0, -i0), min(len(pcm), n - i0)):
+                mix[i0 + j] += pcm[j] * g
         os.makedirs(f"{self.root}/render/_fx", exist_ok=True)
+        top = max((abs(x) for x in mix), default=0)
+        if top > 0.89:
+            print(f"WARN the effects stem peaks at {20 * math.log10(top):.1f} dBFS: it is limited to -1 dBFS")
+            mix = array("f", (x * 0.89 / top for x in mix))
         with wave.open(f"{self.root}/render/_fx/sound_sfx.wav", "wb") as w:
             w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
-            w.writeframes(b"".join(struct.pack("<h", int(max(-0.9, min(0.9, x)) * 32767)) for x in sfx))
-        json.dump({"render": ren, "duration": DUR, "voices": [{"file": self.take, "at": self.off, "in": 0.0, "dur": self.take_dur}],
-                   "stems": {"sfx": f"{self.root}/render/_fx/sound_sfx.wav"}, "engine": "hyperframes", "whooshes": cuts},
+            w.writeframes(array("h", (int(x * 32767) for x in mix)).tobytes())
+        json.dump({"render": ren, "duration": self.DUR, "voices": [{"file": self.take, "at": self.off, "in": 0.0, "dur": self.take_dur}],
+                   "stems": {"sfx": f"{self.root}/render/_fx/sound_sfx.wav"}, "engine": "hyperframes",
+                   "sounds": [list(s) for s in sorted(self.sounds)]},
                   open(f"{self.root}/render/_timeline.json", "w"), indent=1)
 
+    def thumb(self, inner, css="", out=None):
+        """The thumbnail as a still page in the video's own look (Workflow: Thumbnail): `inner` is world markup shown in its
+        end state (one focal picture, at most 4 words of 110 px or more inside x 40..1040, y 600..1320). Writes
+        hf/thumb.html and, through headless Chrome, upload/thumb.jpg."""
+        vendor(f"{self.here}/assets")
+        end = max([m[0] for f in self.figs.values() for m in f["moves"]] + [0]) + 3      # every figure in its end state
+        hl = (f"<script>window.__seek = []; window.__timelines = {{main: {{time: () => {end}}}}};" + self._hairline() + "</script>") if self.figs else ""
+        page = (f'<!doctype html><html><head><meta charset="UTF-8"/><style>{CSS}{css} .ov, .hl, .art, .big {{ opacity:1 }}</style></head>'
+                f'<body><div id="root"><div id="ground"></div>{inner}<div id="grain"></div></div>{hl}</body></html>')
+        open(f"{self.here}/thumb.html", "w").write(page)
+        out = out or f"{self.root}/upload/thumb.jpg"
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        png = os.path.splitext(out)[0] + ".png"
+        chrome = subprocess.run("ls $HOME/.cache/hyperframes/chrome/chrome-headless-shell/*/chrome-headless-shell-linux64/chrome-headless-shell | head -1",
+                                shell=True, capture_output=True, text=True).stdout.strip()
+        subprocess.run([chrome, "--no-sandbox", "--hide-scrollbars", "--allow-file-access-from-files", "--window-size=1080,1920", "--virtual-time-budget=5000",
+                        f"--screenshot={png}", f"file://{self.here}/thumb.html"], capture_output=True, check=True)
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", png, "-q:v", "2", out], check=True)
+        os.remove(png)
+        words = len(" ".join(re.sub("<[^>]+>", " ", m) for m in re.findall(r'class="big ov"[^>]*>(.*?)</div>', inner, re.S)).split())
+        if words > 4:
+            print(f"WARN thumbnail: {words} words, keep it to 3 or 4")
+        print("thumbnail", out)
 
-if __name__ == "__main__":                              # self-check: the grid stays symmetric and inside the stage
+
+def demo(d):
+    """A 4-scene page that uses every verb on a synthetic take (no API): python3 hfkit.py --demo <dir>."""
+    os.makedirs(f"{d}/voice", exist_ok=True)
+    os.makedirs(f"{d}/hf", exist_ok=True)
+    texts = ["One take reads the script.", "Words become times.", "A page becomes frames.", "Checks pass first."]
+    t, words = 0.2, []
+    for s in texts:
+        for w in s.split():
+            words.append([w, round(t, 3), round(t + 0.3, 3)]); t += 0.36
+        t += 0.6
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i", f"sine=f=180:d={t + 0.3:.2f}", "-ar", "48000", f"{d}/voice/dm-take.wav"], check=True)
+    json.dump(words, open(f"{d}/voice/dm-take.words.json", "w"))
+    json.dump({"prefix": "dm", "voices": ["voice/dm-take.wav"], "texts": texts}, open(f"{d}/plan.json", "w"))
+    v = Short(f"{d}/hf/build.py")
+    W = {"w1": big("t1", "One take", 70, 300, 880, T["xl"], hot=1) + card("k1", "VOICE · INWORLD TTS-2", "One take, no cuts", "pauses written into the text"),
+         "w2": code("c2", [("<u>$</u> word_timings.py", None), ("<s>'words'</s>: <b>118</b>", None)], 70, 300, 870, title="terminal · real output")
+               + callout("o2", "times", 600, 420, 760, 640, SIGNAL2, "left", 400),
+         "w3": hairline("h3", 53, 220, 900) + tag("g3", "index.html", 80, 760),
+         "w4": counter("n4", "OVERLAPS", 0, 330, 380) + ask("a4", "Ship it?", ["yes", "fix", "drop"])}
+    v.reveal("t1", v.S[1], n=2); v.pop("#k1", v.cue(1, "script"))
+    v.pop("#c2", v.S[2]); v.pop(["#c2-0", "#c2-1"], v.S[2] + 0.1); v.callout("o2", v.cue(2, "times"))
+    v.focus("w2", v.cue(2, "times") + 0.2, (70, 300, 870, 260), d=0.6)
+    v.hairline("h3", "riffle"); v.grow("#h3", v.S[3]); v.point("h3", v.cue(3, "frames"), 290, 120, glide=0.3); v.pop("#g3", v.cue(3, "page"))
+    v.cam("w3", v.cue(3, "frames"), 503, 420, 1.3, d=0.9)
+    v.pop("#n4", v.S[4]); v.count("#n4-n", 0, v.S[4]); v.rise("#a4", v.cue(4, "pass")); v.chips("a4", 3, v.cue(4, "pass") + 0.3)
+    v.payoff(v.cue(4, "pass"))
+    v.write(W, rev=1, trans={"w2": "whip", "w3": "push", "w4": "dip"})
+    v.thumb(hairline("h3", 53, 300, 980) + big("tb", "ONE PAGE, MANY FRAMES", 70, 1080, 880, 120, hot=1))
+    print(f"demo written: npx hyperframes snapshot {d}/hf --at 0.5,2,4,6")
+
+
+if __name__ == "__main__":                              # self-check: grid, camera maths, zones
+    if "--demo" in sys.argv:
+        demo(os.path.abspath(sys.argv[sys.argv.index("--demo") + 1]))
+        raise SystemExit
     assert [colx(k, 3) for k in range(3)] == [205, 503, 801], [colx(k, 3) for k in range(3)]
-    assert colx(0, 1) == (X0 + X1) // 2 and sz(1) == 280 and sz(3) == 215 and sz(4) == 161
-    assert rowy(0, 2) == 359 and rowy(1, 2) == 693
-    for n in (1, 2, 3, 4):
-        f = fig("a", "x", n - 1, n, ROW2, label="y")
-        x, w = map(int, re.findall(r'class="lbl ov" id="a-l" style="left:(-?\d+)px;top:\d+px;width:(\d+)px', f)[0])
-        assert X0 <= x and x + w <= X1, (n, x, w)
-    assert ROW2 + sz(3) + GAP + 56 < BAND[0], "a figure on row 2 must clear the caption band"
+    assert colx(0, 1) == (X0 + X1) // 2 and rowy(0, 2) == 350
+    assert cam_to(*FOCUS, 1.0) == (0, 0), "the identity camera must not move the canvas"
+    x, y = cam_to(300, 400, 2.0)
+    assert (2 * 300 + x, 2 * 400 + y) == FOCUS, "cam() must put the looked-at point on the focus"
+    assert fit((0, 0, 447, 100), 1.0) == 2.0 and fit((0, 0, 100, 680), 1.0) == 1.0
+    assert STAGE[3] < DECK[1] < DECK[3] < BAND[0] < BAND[1] < UI_Y, "zones must stack: stage, deck, captions, interface"
+    assert all(l > 3.9 for l in [LINE]) and min(T.values()) >= 40
+    assert "assets/fonts/Inter-Black.otf" in CSS and all(os.path.exists(f"{HERE}/vendor/fonts/{n}") for _, _, n in FONTS)
+    assert os.path.exists(f"{HERE}/vendor/gsap/gsap.min.js") and os.path.exists(f"{HERE}/vendor/three/three.module.js")
+    assert all(os.path.exists(f"{SFX_DIR}/{n}.mp3") for n in WHOOSH + ["click", "pop", "riser", "impact-bass-2"])
     print("hfkit OK")
