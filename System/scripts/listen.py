@@ -53,7 +53,8 @@ def main():
     gaps = silences(a.file)
     closed = [g for g in gaps if g[1] is not None]
     sil = sum(g[1] for g in closed)
-    odd = [g for g in closed if g[0] > 0.3 and g[1] > 0.9]   # the lead-in gap at 0 s is expected
+    inner = [g for g in closed if g[0] > 0.3 and g[0] + g[1] < dur - 0.1]   # the lead-in at 0 s and the tail at the end are designed
+    odd = [g for g in inner if g[1] > 0.9]
     peak = clipped(a.file)
     fails = []
     if abs(lo["input_i"] + 14) > 1:
@@ -62,8 +63,8 @@ def main():
         fails.append(f"true peak {lo['input_tp']:.1f} dBTP is above -1")
     if peak is not None and peak >= -0.1:
         fails.append(f"sample peak {peak:.2f} dBFS: clipping")
-    if closed and max(g[1] for g in closed) > 1.2:
-        fails.append(f"dead air of {max(g[1] for g in closed):.2f} s")
+    if inner and max(g[1] for g in inner) > 1.2:
+        fails.append(f"dead air of {max(g[1] for g in inner):.2f} s")
     rep = {"duration_s": round(dur, 2), "lufs": lo["input_i"], "true_peak_dbtp": lo["input_tp"], "lra": lo["input_lra"],
            "sample_peak_dbfs": peak, "silent_share": round(sil / dur, 3), "silences": closed, "odd_gaps": odd, "fails": fails}
     if a.json:

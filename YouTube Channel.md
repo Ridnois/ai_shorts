@@ -28,5 +28,5 @@ The user uploads the earlier upload packs by hand (28 Oct 2026); their Status no
 | MCP vs skills | How it works · 117 · Dennis (rate 1.1) | r4 (36.2 s), *AI agent skills explained*; pack waiting; not uploaded | [[MCP vs skills - Status]] · [[Script - MCP vs skills]] |
 | AI slop rule | What's coming · compact · 83 · Dennis (rate 1.1) | r1 (31.0 s); pack waiting; not uploaded | [[AI slop rule - Status]] · [[Script - AI slop rule]] |
 | How RAG works | How it works · 130 · Dennis (rate 1.1) | r5 (40.3 s), Hairline with callouts and the rail; pack waiting; not uploaded | [[How RAG works - Status]] · [[Script - How RAG works]] |
-| Improve AI Shorts | Agent at work · 120 · Dennis (planned) | script and beat sheet done; voice take done; blocked at word timings (Replicate whisper not starting) | [[Improve AI Shorts - Status]] · [[Script - Improve AI Shorts]] |
+| Improve AI Shorts | Agent at work · 119 · Dennis (one take) | r1 (38.1 s), built on hfkit, `listen.py` pass; P7 open; not uploaded | [[Improve AI Shorts - Status]] · [[Script - Improve AI Shorts]] |
 | Vault pipeline | How it works · 133 · Dennis (rate 1.1) | r3 (46.6 s), first on system v3; follows one word from voice to frame; shipped (user), pack built, uploaded by hand | [[Vault pipeline - Status]] · [[Script - Vault pipeline]] |

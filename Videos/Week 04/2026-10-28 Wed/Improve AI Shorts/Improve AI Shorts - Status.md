@@ -13,8 +13,9 @@ updated: 2026-10-28
 | --- | --- | --- | --- |
 | 0 Idea · 1 Research · 2 Script · 3 Beat sheet | done | 28 Oct 2026 (delegation) | Agent at work; hook type contradiction; theme line "an agent improves only what it can measure"; street-lamp pass; demand check not run |
 | 4 Captures, budget | done | 28 Oct 2026 (delegation) | `.env` copied from `../youtube_vault` (gitignored); budget $0.03, cap $0.06; `Media/Week 04/2026-10-28 Wed/Improve AI Shorts/` created from scratch (no earlier `hf/` on this machine) |
-| 5 Generation | blocked at word timings | | voice take v1 `wr1hb00anhrmt0d1ghzvhysq9c` (744 characters, about $0.02, 36.8 s). `listen.py` on the raw take: −23.9 LUFS, true peak −5.4 dBTP, 13 silences of 0.31 to 0.58 s, FAIL on loudness (the real fail for scene 5). Whisper on Replicate stayed in `starting`: `gdhzr2tw05rmw0d1ghzs3h3r1w` (about 20 min, cancelled) and the one retry `gz58kwg3bhrmw0d1gj8ak5zvrr` (10+ min, still starting). HyperFrames' local `transcribe` needs a Whisper or Parakeet install the user has not approved |
-| 6 to 9 | not started | | needs `ias-take-v1.words.json`; then `hf/build.py` (written from scratch with hfkit), check, render, `mix_audio.py`, `listen.py` |
+| 5 Generation | done | 28 Oct 2026 (delegation) | take v1 `wr1hb00anhrmt0d1ghzvhysq9c` (744 characters, about $0.02, 36.8 s). Word timings: Replicate `incredibly-fast-whisper` stayed in `starting` three times (`gdhzr2tw05rmw0d1ghzs3h3r1w`, `gz58kwg3bhrmw0d1gj8ak5zvrr`, `44qd1btqzxrmr0d1gjf9q6f8cm`, each cancelled, nothing run); `victor-upmeet/whisperx` (align_output) answered at once, `c8fxtf5y5hrn80d1gjmbe9bys4`, 119 words, "1/2/3" renormalised to "one/two/three". Total about $0.03 of the $0.06 cap |
+| 6 Build | done | 28 Oct 2026 | `hf/build.py` written from scratch on hfkit; `hyperframes check` ok (0 errors; accepted: nested structure, dense track, file size); `check3d` OVERLAPS 0; transitions whip, cut, blur, dip, push (1 hard cut of 5); shot sizes wide (W1), close (W1 gap, W4 row), medium (W2, W3, W5); slideshow-risk score 2 (text doing the picture's job 1: the closing word stack; a world that never changes state 1: W3's strip is empty for its first 0.3 s); render `ias-38s-9x16-r1.mp4` at CRF 14, about 2.4 Mbps; `MIX` −14.1 LUFS, true peak −1.2 dBTP; `LISTEN` same, silences 0.30 to 0.40 s, PASS; thumbnail `upload/thumb.jpg` built; publish pack not built |
+| 7 Verdict · 8 Publish · 9 Measure | open | | P7 belongs to the user |
 
 ## Vault changes
 
@@ -22,4 +23,4 @@ updated: 2026-10-28
 
 ## Not verified
 
-How the voice and effects sound; earshot's behaviour (never run here; its numbers are the author's); `listen.py` on a real render.
+How the voice and effects sound; earshot's behaviour (never run here; its numbers are the author's); caption timing against speech; pace in motion. Real on-screen output: `listen.py` and `words.json` are the real files of this take; scene 3's frames are real snapshots of this video's own pass-1 build; scene 5's −24 is the raw take (−23.9) and the rule card is the Playbook §5 rule; the −14 is rounded from the mastered −14.1.
