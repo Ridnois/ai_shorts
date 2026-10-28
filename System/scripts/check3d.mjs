@@ -48,7 +48,9 @@ const res = await page.evaluate(() => {
   for (let t = 0; t < dur; t += 0.25) {
     tl.seek(t, false); window.__render3d && window.__render3d(t);
     const els = [...document.querySelectorAll(".ov")].filter(e => clipOn(e, t) && alpha(e) > 0.05)
-      .map(e => { const r = e.getBoundingClientRect(); return { id: e.id || e.className, el: e, r: [r.left, r.top, r.right, r.bottom] }; });
+      .map(e => { const r = e.getBoundingClientRect(), w = e.closest(".world");   // a world is clipped above the caption band (hfkit)
+        return { id: e.id || e.className, el: e, r: [r.left, r.top, r.right, w ? Math.min(r.bottom, 1170) : r.bottom] }; })
+      .filter(e => e.r[3] > e.r[1]);
     const gl = document.getElementById("gl"), glOn = gl && clipOn(gl, t) && alpha(gl) > 0.05;
     const b3 = glOn ? (window.__boxes3d || []) : [];
     for (const b of b3) { if (hit(b, band)) note(t, "3D in caption band"); for (const e of els) if (hit(b, e.r)) note(t, `3D vs ${e.id}`); }

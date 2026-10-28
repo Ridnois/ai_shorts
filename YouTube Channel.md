@@ -9,9 +9,9 @@ Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · process and commands: [[Workflo
 
 **The channel teaches AI** (since 23 Oct 2026): how it works, agents at work, what's coming. **System v3** (27 Oct 2026): rules rewritten to one owner each, HyperFrames only with the camera, transitions with a cause and the sound kit ([[Design system]]). Videos before it were built on look v2.
 
-## Ship queue (P7 and P8: ship, fix or drop, [[Playbook]] §8)
+## Uploads
 
-Upload packs built and waiting for the user's approval: Chatbot vs agent, HyperFrames, AI slop rule, MCP vs skills, How RAG works. Prompt injection needs a re-render first (cards at x > 950). Every upload needs a fresh YouTube token (`youtube_analytics.py auth`). New videos follow the two-waiting rule once this queue is cleared.
+The user uploads the earlier upload packs by hand (28 Oct 2026); their Status notes are not updated by `publish.py`.
 
 ## Videos
 

@@ -19,7 +19,7 @@ a render needs no network. 3D from Blender: blender3d() renders a scene3d.py spe
 Self-check: python3 hfkit.py; a demo page: python3 hfkit.py --demo <dir>, then npx hyperframes snapshot <dir>/hf.
 ponytail: one class, one file; split only when a second engine needs it.
 """
-import html, json, math, os, re, shutil, subprocess, sys, wave
+import difflib, html, json, math, os, re, shutil, subprocess, sys, wave
 from array import array
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -47,6 +47,8 @@ BAND = (1180, 1320)                    # captions only
 UI_Y = 1440                            # bottom interface zone
 FOCUS = (503, 520)                     # stage centre: where cam() puts the canvas point it looks at
 ROW1, ROW2 = 220, 560                  # tops of the two picture rows on the stage
+HERO = (73, 330, 933, 1150)            # one hero per beat: 860 px wide (80 % of the frame), centred between the rail and the captions
+hero = lambda w, h: (round((HERO[0] + HERO[2] - w) / 2), round((HERO[1] + HERO[3] - h) / 2))   # top-left that centres a w x h hero
 colx = lambda k, n: round(X0 + (X1 - X0) * (2 * k + 1) / (2 * n))
 rowy = lambda k, n, top=STAGE[1], bottom=STAGE[3]: round(top + (bottom - top) * (2 * k + 1) / (2 * n))
 
@@ -187,6 +189,7 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:{INK}; }}
   background: radial-gradient(900px 800px at 20% 30%, rgba(0,174,123,0.28), transparent 70%),
               radial-gradient(800px 800px at 85% 75%, rgba(65,138,209,0.24), transparent 70%); }}
 .world, .world .cam, .world .in {{ position:absolute; inset:0; }}
+.world {{ clip-path:inset(0 0 {FH - BAND[0] + 10}px 0); }}      /* worlds never paint over the captions: they own the band */
 .p3d, #gl {{ position:absolute; left:0; top:0; width:1080px; height:1920px; }}
 .art {{ position:absolute; object-fit:contain; filter:drop-shadow(0 18px 30px rgba(0,0,0,0.55)); }}
 .frm {{ position:absolute; border-radius:18px; border:4px solid {SLATE}; box-shadow:0 24px 60px rgba(0,0,0,0.55); background:#05070D; }}
@@ -239,10 +242,11 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:{INK}; }}
 .hl [aria-live], .hl .sr-only {{ display:none; }}
 .hl * {{ transition:none !important; }}            /* Hairline fades strokes in real time; frames must follow the timeline only */
 .cap {{ position:absolute; left:0; width:1080px; top:{BAND[0] + 6}px; height:128px; line-height:128px; text-align:center;
-  font-family:Inter; font-weight:900; color:#fff; letter-spacing:-0.01em; z-index:50; white-space:nowrap;
-  -webkit-text-stroke:6px #07080D; paint-order:stroke fill; text-shadow:0 4px 0 #07080D, 0 10px 28px rgba(0,0,0,0.6); }}
+  font-family:Inter; font-weight:900; color:#fff; letter-spacing:0; z-index:50; white-space:nowrap; word-spacing:0;
+  -webkit-text-stroke:4px #07080D; paint-order:stroke fill; text-shadow:0 4px 0 #07080D, 0 10px 28px rgba(0,0,0,0.6); }}
 .cap .ci {{ display:inline-block; }}
-.cap .on {{ display:inline-block; transform:scale(1.06); }}
+.cap .ci > span {{ display:inline-block; margin:0 0.14em; }}      /* explicit word gaps: the stroke ate the plain spaces */
+.cap .on {{ transform:scale(1.06); }}
 '''
 HIDE0 = [".ask", ".hl", ".tag", "#rail", ".card", ".art", ".lbl", ".big", ".code", ".cl", ".count", ".strip", ".frm:not(.track .frm)",
          ".arr", ".xx", ".flash"]
@@ -311,11 +315,13 @@ class Short:
                     w[1] = b
         for k in range(1, len(words)):
             words[k][1] = max(words[k][1], words[k - 1][1] + 0.067)
-        said = " ".join(plan["texts"]).split()
-        if len(said) == len(words):                   # whisper's homophones ("queues" for cues) take the script's spelling
-            for w, s in zip(words, said):
-                if norm(w[0]) != norm(s) and not re.search(r"\d|%", w[0]):
-                    w[0] = s
+        said = " ".join(plan["texts"]).split()        # whisper's homophones ("queues" for cues) take the script's spelling
+        sm = difflib.SequenceMatcher(None, [norm(w[0]) for w in words], [norm(x) for x in said], autojunk=False)
+        for op, a0, a1, b0, b1 in sm.get_opcodes():
+            if op == "replace" and a1 - a0 == b1 - b0:     # one heard word for one said word; merges ("webpage") stay as heard
+                for w, x in zip(words[a0:a1], said[b0:b1]):
+                    if not re.search(r"\d|%", w[0]):
+                        w[0] = x
         self.off, self.words = off, words
         self.DUR = round(off + self.take_dur + tail, 2)
         self.Hw = Hw = [norm(w[0]) for w in words]
@@ -336,7 +342,7 @@ class Short:
         self.win = {f"w{n}": (cut(n), cut(n + 1) if n < NS else self.DUR) for n in range(1, NS + 1)}
         self.timed = timed = [(w[0], self.T(k), round(off + w[2], 3)) for k, w in enumerate(words)]
         keys = keys or {}
-        self.caps = html_caps(timed, lambda t, s: keys.get(t, "#FFFFFF"), end=off + self.take_dur)
+        self.caps = html_caps(timed, lambda t, s: keys.get(t), end=off + self.take_dur, lit=EMBER2)
         self.J, self.extra, self.models, self.figs, self.sounds = [], [], [], {}, []
 
     T = lambda self, i: round(self.off + self.words[i][1], 3)
@@ -806,6 +812,7 @@ if __name__ == "__main__":                              # self-check: grid, came
     x, y = cam_to(300, 400, 2.0)
     assert (2 * 300 + x, 2 * 400 + y) == FOCUS, "cam() must put the looked-at point on the focus"
     assert fit((0, 0, 447, 100), 1.0) == 2.0 and fit((0, 0, 100, 680), 1.0) == 1.0
+    assert hero(860, 820) == (73, 330) and hero(400, 200) == (303, 640), "hero() centres in the HERO box"
     assert STAGE[3] < DECK[1] < DECK[3] < BAND[0] < BAND[1] < UI_Y, "zones must stack: stage, deck, captions, interface"
     assert all(l > 3.9 for l in [LINE]) and min(T.values()) >= 40
     assert "assets/fonts/Inter-Black.otf" in CSS and all(os.path.exists(f"{HERE}/vendor/fonts/{n}") for _, _, n in FONTS)

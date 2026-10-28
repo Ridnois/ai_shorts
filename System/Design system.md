@@ -1,7 +1,7 @@
 ---
 type: rules
 created: 2026-10-27
-updated: 2026-10-27
+updated: 2026-10-28
 status: v2 · 27 Oct 2026: look tokens moved in from Style; camera on a canvas, transitions with a cause, type scale, vendored fonts and libraries, grain, the sound kit, captions in the low band; code in System/scripts/hfkit.py
 tags: [rules, design, motion, hyperframes]
 ---
@@ -35,10 +35,10 @@ One picture per spoken noun, entering on its word, on a grid, with a real thing 
 | Title bar | y < 180 | nothing (platform) |
 | **STAGE** | x 56 to 950, y 180 to 860 | pictures; extends to y 1150 (**FULL**) when the deck is empty |
 | **DECK** | x 56 to 950, y 880 to 1150 | one card or the comment prompt |
-| **BAND** | y 1180 to 1320 | captions only |
+| **BAND** | y 1180 to 1320 | captions only; worlds are clipped at y 1170, so a close-up never paints over them |
 | Interface | y > 1440, x > 950 | nothing (platform buttons, title) |
 
-Content centres on x 503, not 540: the right strip belongs to the buttons. **While the pipeline rail shows (y 196 to 296), world content starts below y 310.** `colx(k, n)` gives column centres (n = 3: 205, 503, 801); `ROW1` 220 and `ROW2` 560 are picture rows. A Hairline host draws in about 60 % of its 5:4 box: a 900 to 1000 px host spans the stage; bigger hosts may overhang the edges. **Density:** one dominant element per moment; a world shows at most the rail, one figure, two callouts or one tag, one deck element, captions.
+**One hero per beat** (user, 28 Oct 2026): one element at a time fills about 80 % of the frame width (`HERO` x 73 to 933, y 330 to 1150, `hero(w, h)` centres it), and the next beat's hero replaces it; at most one support line under it or one deck element, never small things in corners. Content centres on x 503, not 540: the right strip belongs to the buttons. **While the pipeline rail shows (y 196 to 296), world content starts below y 310.** `colx(k, n)` gives column centres (n = 3: 205, 503, 801); `ROW1` 220 and `ROW2` 560 are picture rows. A Hairline host draws in about 60 % of its 5:4 box: a 900 to 1000 px host spans the stage; bigger hosts may overhang the edges. **Density:** one dominant element per moment; a world shows at most the rail, one figure, two callouts or one tag, one deck element, captions.
 
 ## Camera and transitions
 
@@ -59,7 +59,7 @@ Content centres on x 503, not 540: the right strip belongs to the buttons. **Whi
 
 | Component | Function | Spec |
 | --- | --- | --- |
-| Caption | automatic | phrase of 1 to 3 words, 84 px Inter Black capitals fitted to 860 px, white with a 6 px ink stroke and drop shadow, spoken word lit and 6 % larger, the others 45 %; each phrase rises 16 px in 0.15 s; band y 1186 |
+| Caption | automatic | phrase of 1 to 3 words, 84 px Inter Black capitals fitted to 860 px, white with a 4 px ink stroke and drop shadow, an explicit 0.28 em gap between words (a heavy stroke swallows plain spaces); the spoken word in ember (or its key colour) and 6 % larger, the others white at 55 %; each phrase rises 16 px in 0.15 s; band y 1186 |
 | Display line | `big(id, text, x, y, w, size, hot=k)` | Inter Display Black, tracking −0.025 em, one hot word in ember; enters with `reveal` |
 | Real frame | `frame(id, src, x, y, w, h)` | screenshot or still, 18 px corners, 4 px slate border, deep shadow |
 | Terminal / code | `code(id, lines, x, y, w, title=)` | JetBrains Mono 40 px, a title bar ("terminal · real output"); `<s>` strings mint, `<b>` numbers ember, `<u>` prompt slate |
