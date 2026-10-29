@@ -1,0 +1,36 @@
+{
+ "width": 600,
+ "height": 501,
+ "params": {
+  "load": "0..1 the 40 weight blocks drop onto the chips, chip by chip (5 per chip); at 16 bits 3 fit under the bar and 2 spill onto the red overflow pile",
+  "bits": "0..1 0 = 16 bits per weight (16.4 GB: tall blocks, 24 on the chips, 16 on the pile); 1 = ~4.5 bits (5.2 GB: blocks 0.32 as tall, the pile flies back, all 40 fit to half the bar, lit yellow)",
+  "bad": "0..1 a red plate with an X rises at the -x end of the stick (does not fit)",
+  "ok": "0..1 a green plate with a check rises at the -x end (fits); hides the red plate"
+ },
+ "anchors": {
+  "stick": [
+   281.6,
+   232.9
+  ],
+  "chips": [
+   296.4,
+   220.5
+  ],
+  "chip0": [
+   196.4,
+   132
+  ],
+  "chip7": [
+   396.3,
+   308.9
+  ],
+  "overflow": [
+   443.9,
+   381.8
+  ],
+  "mark": [
+   86.5,
+   91.6
+  ]
+ }
+}
