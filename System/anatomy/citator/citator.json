@@ -1,0 +1,37 @@
+{
+ "width": 600,
+ "height": 491,
+ "params": {
+  "feed": "0..1 card slides tray -> inside the reader (0.5) -> out on the landing spot (1)",
+  "search": "0..1 a yellow marker steps through the 9 drawers in reading order; each pops out as it passes",
+  "found": "0..1 the match drawer (middle row, right) pulls out and shows a yellow case card",
+  "ok": "0..1 lamp lights green; the stamp comes down and leaves a green check",
+  "bad": "0..1 lamp lights red; the stamp comes down and leaves a red X; the card turns red"
+ },
+ "anchors": {
+  "card": [
+   110.9,
+   291.6
+  ],
+  "slot": [
+   283.4,
+   355
+  ],
+  "drawers": [
+   343.7,
+   191.7
+  ],
+  "match": [
+   414.3,
+   221.5
+  ],
+  "lamp": [
+   472.6,
+   301.1
+  ],
+  "stamp": [
+   347.4,
+   378.4
+  ]
+ }
+}
