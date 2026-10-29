@@ -13,7 +13,7 @@ updated: 2026-10-29
 | **Script** | 160 words, 7 scenes, turn at 64 %; 3 sources captured (Register, Fortune headline, Claude Code docs table). |
 | **Spend** | take `n76kbenf8srmy0d1grdtdtkn4c` (969 chars, about $0.024); `incredibly-fast-whisper` `wpb2mh0gsdrmy0d1gre8vykp0r` stuck in `starting`, cancelled (nothing run); WhisperX `vwr6v2wrh9rna0d1grh9ybdmfg` (about $0.005). Total about $0.03, cap $0.50. |
 | **Build** | Hairline `cabinet` (hook, loop), `slow` (mechanism), `vault` (fix); real captures in w2, w4, w5. Transitions push, whip, cut, dip, blur (2 cuts of 6); shot sizes wide, close (w1, w5), medium. `hyperframes check` 0 errors (accepted structure warnings; 6 craft `line_unread` notes on short-lived labels, the spoken words carry them). `check3d`: left are TEXT OVER PICTURE against Hairline host boxes (the frames show no text on a drawing) and two one-sample transition overlaps. Frame audit: 3 rounds of contact sheets, plus the render sheet. Render `db-50s-9x16-r1.mp4` 49.7 s; `MIX` −14.1 LUFS, −1.2 dBTP (plan `sound.tp` −1.5: the −1 target overshot to −0.7); `LISTEN` PASS; masters `-yt` 2160x3840, `-tt` 1080x1920; thumbnail; pack `upload/db-publish-pack.md`. |
-| **Review** | waiting: ship, fix or drop |
+| **Review** | ship (user, 29 Oct 2026: *"Perfect, build the upload pack"*); pack rebuilt (`publish.py --dry-run`) |
 | **Publish** | not uploaded; private only after the user confirms the pack; `.env` lacks the `YT_*` keys |
 | **Numbers** | |
 
