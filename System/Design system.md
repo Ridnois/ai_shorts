@@ -92,6 +92,7 @@ Every verb fires on a word (`v.cue(scene, "word")`). Arrivals land on long tails
 | `chips` | scale 0.7 → 1, 120 ms apart, a pop each | answer chips, list items |
 | `count` | a number counts to its value, 0.9 s | a number that builds |
 | `light`, `strike`, `flash`, `slide`, `nudge` | recolour · a bar draws · light flash · linear move · a 12° turn and back | a part named · "no" · a capture · time passing · a picture reacting |
+| `pose` | moves an Anatomy figure's parameters (a part slides, a gas starts, a glow rises) | the verb of a physical step |
 | `point` | moves a Hairline figure's pointer (optionally gliding) | the verb of a mechanism step |
 | `cam`, `focus`, `wide` | the camera | scale change inside a world |
 
@@ -115,6 +116,14 @@ Mount by name: `K.hairline("id", x, y, w)` in a world, `v.hairline("id", "<name>
 | `loop` | an agent's plan, act, check | picks a station | plan (220, 214), act (30, 94), check (305, 88) | 10, 16, 22 |
 
 Hairline animates on its own clock; `hfkit` rewrites the vendored build so it follows the page's seek (deterministic frames), and a page mounts only the figures it holds.
+
+## Anatomy figures
+
+Made with the `anatomy` skill (`.claude/skills/anatomy`, MIT, installed with `npx skills add wheresryan22/anatomy -a claude-code`); each figure is a folder `System/anatomy/<name>/` with `build.mjs` (imports the skill's `kit/iso-kit.mjs`) that writes `<name>.svg` (the drawing), `<name>.json` (viewBox size, parameters), `<name>.css` (the kit's styles) and `<name>.pose.js` (`init` and `apply(svg, state, t)`: a pure map from parameters and the page clock to part transforms, helium dots and the like). `hfkit` places it: `K.anatomy(id, name, x, y, w)` in a world, `v.anatomy(id, name)` and `v.pose(id, t, {param: value}, d=0.6, ease)` on a word (moves of one figure never overlap). Frames are deterministic: no CSS animation, no `requestAnimationFrame`, positions come from the state and `t`. The look is mapped to the tokens in `.an.iso` (paper `ink2`, parts in slate and cream, **the one lit part and heat in ember**, gas and data in signal, line 2.2 px so it survives the encode); words stay out of the drawing apart from one engraved label, labels are `callout`s. A figure drawn once is reused only as the anchor of one video; a second video needs its own object (variety guard). Direction of draw: `azimuth 40`, `elevation 30`; a host of 860 to 1000 px spans the stage.
+
+| Figure | Concept ([[Audience]] *Plain-words map*) | Parameters | Used in |
+| --- | --- | --- | --- |
+| `wafer-chuck` | a chip chamber: helium cools the wafer (compute, chips, supply) | `lift` 0 clamped, 0.3 raised on pins, 1 slid out · `plasma` 0 to 1 · `he` 0 to 1 (flow, gauge, rim, cooling) | *Helium and AI chips* |
 
 ## 3D routes
 

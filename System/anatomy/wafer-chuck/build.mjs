@@ -105,7 +105,7 @@ function wafer() {
   o.push(L(k.ring(0, 0, WAFER_R - 4, WAFER_H, P, 72), { tone: "faint" }));
   o.push(L(k.lineOnTop([-WAFER_R, 0], [-WAFER_R + 5, 0], WAFER_H, P), { tone: "hi" }));      // the notch
   const die = [];                                                                         // a grid of dies
-  for (let i = -4; i <= 4; i++) { const e = Math.sqrt(62 * 62 - (i * 13) ** 2); die.push(k.lineOnTop([i * 13, -e], [i * 13, e], WAFER_H, P)); die.push(k.lineOnTop([-e, i * 13], [e, i * 13], WAFER_H, P)); }
+  for (let i = -4; i <= 4; i++) { const e = Math.sqrt(66 * 66 - (i * 13) ** 2); die.push(k.lineOnTop([i * 13, -e], [i * 13, e], WAFER_H, P)); die.push(k.lineOnTop([-e, i * 13], [e, i * 13], WAFER_H, P)); }
   o.push(`<g data-part="dies">${L(die.join(""), { tone: "faint" })}</g>`);
   return o.join("");
 }

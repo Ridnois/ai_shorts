@@ -54,6 +54,7 @@ The voice uses the left column; the term goes on screen once, glossed. The pictu
 | skill (Agent Skills) | know-how it reads when needed | `drawer` (opens on demand) |
 | prompt injection | hidden orders in what it reads | `exploded` (a hidden layer) |
 | compute · inference | the chips' work · answering | `cabinet` (server blades) |
+| chip making · cooling · supply | how a chip is made and what it depends on | Anatomy `wafer-chuck` (a physical machine, [[Design system]] *Anatomy figures*) |
 
 ## Outcome and mechanism (the idea frame)
 

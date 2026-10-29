@@ -1,7 +1,7 @@
 ---
 type: rules
-updated: 2026-10-27
-status: v12 · 28 Oct 2026: §2a narrative layer (tension arc, loop ledger, re-hooks, loop-back close) from the Shorts research; v11 rewritten 27 Oct 2026 for professional-level Shorts: one owner per rule, each a principle plus its test (the dated user quotes behind them live in git); craft standard (camera, transitions with a cause, designed sound), ship discipline, variety guard
+updated: 2026-10-28
+status: v13 · 28 Oct 2026: Anatomy figures (the `anatomy` skill) are the medium for a physical machine; v12 · 28 Oct 2026: §2a narrative layer (tension arc, loop ledger, re-hooks, loop-back close) from the Shorts research; v11 rewritten 27 Oct 2026 for professional-level Shorts: one owner per rule, each a principle plus its test (the dated user quotes behind them live in git); craft standard (camera, transitions with a cause, designed sound), ship discipline, variety guard
 ---
 
 # Playbook: every rule for a Short
@@ -78,10 +78,12 @@ A **Package** section before the scene table: Y and X · **promise** (one senten
   | --- | --- |
   | shows an AI or agent doing a task | a **recorded run** of the real tool, cut on the action |
   | shows a real thing, page or number | the **real capture** (screenshot, frame, footage), a camera move onto the detail |
-  | explains a flat hidden process | a **Hairline figure** acting on the word, parts named by callouts, the pipeline rail ([[Design system]]) |
+  | explains how a **physical machine** works (a chip chamber, a cooling loop, a sensor, a rack) | an **Anatomy figure**: the real machine built from 40 to 80 small parts, its parts moving on the words and its state changing 3 times ([[Design system]] *Anatomy figures*) |
+  | explains a flat or software process | a **Hairline figure** acting on the word, parts named by callouts, the pipeline rail ([[Design system]]) |
   | gives a number | a **comparison that builds** (a counter runs, a bar grows), never a figure alone |
   | explains depth itself (layers, a space) | **3D**, the exception ([[Design system]] *3D routes*) |
 
+- **Anatomy figures (the `anatomy` skill, MIT):** the object is the explanation: a recognisable machine whose working *is* the concept, never boxes and arrows. **Figure tier only** (40 to 80 parts, built in well under an hour); a Hero (80 to 150 parts, 2 to 4 hours) needs the user's yes at P4a, an Epic never. One Anatomy figure per video is the anchor; it carries 2 or more shot sizes of its own (wide, a part, a detail) and returns at the close in a changed state. It is a **schematic** unless every size is true: Status says so, and numbers shown come from its model. Not for people, maps or software with no physical form (those stay Hairline). The figure's `build.mjs` and its audit and line checks pass before it is placed ([[Workflow]] §Anatomy).
 - **Worlds and camera:** 3 to 5 visual worlds and one anchor that returns at the close in a changed state. Each world is a canvas: open wide, push to the part the voice names (on its word), pull back to show the relation. **Three or more shot sizes** per video; the scale change happens through the camera, not a new slide.
 - **Transitions with a cause:** worlds change by whip, push, dip, cut or blur, **3 to 5 kinds per video, at most a third hard cuts**, never a crossfade between worlds; the best one enters the next world through an object on screen. `hfkit` warns when this fails.
 - **Motion:** arrivals land on a long tail, exits are shorter and accelerate; landed text holds still; no breathing, floating or idle wobble; words stagger 60 to 120 ms; a line the viewer must read holds 0.5 s plus 0.3 s a word.
