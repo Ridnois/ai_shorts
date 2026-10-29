@@ -9,6 +9,12 @@ Agent entry: `CLAUDE.md`. What a Short is: [[Format]] · brand and design system
 
 **Relaunch, 29 Oct 2026:** the channel is **Next Token** (was Inside the Model): flat paper look, 45 to 60 s stories, a 4K YouTube master, lean runs with one review ([[Look]], [[Format]], [[Production]]). Skills: `/short`, `/short-idea`, `/short-script`, `/short-qa`, `/short-publish`.
 
+## Next Token videos
+
+| Video | Series · words · voice | State | Notes |
+| --- | --- | --- | --- |
+| Agent deleted a database | Agent at work · 160 · Dennis (rate 1.1) | r1 (49.7 s), Hairline `cabinet`, `slow`, `vault` + real captures; masters and pack built; review open; not uploaded | [[Agent deleted a database - Status]] · [[Script - Agent deleted a database]] |
+
 ## Earlier renders (retired dark look)
 
 The 14 renders below were built in the Inside the Model dark look, before the relaunch. Ship one only if the user wants it; it goes out through `master.py` like any new one. Otherwise drop them: the next video starts the new look.

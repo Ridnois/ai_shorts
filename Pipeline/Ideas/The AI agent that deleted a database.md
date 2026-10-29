@@ -1,12 +1,13 @@
 ---
 type: video-idea
-status: idea
+status: review
 series: Agent at work
 publish:
+video: "[[Agent deleted a database - Status]]"
 hook_type:
 case: "Replit's agent deleted a company's production database during a code freeze"
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-29
 tags: [youtube, pipeline]
 ---
 
