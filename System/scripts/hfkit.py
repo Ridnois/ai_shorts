@@ -25,6 +25,7 @@ from array import array
 HERE = os.path.dirname(os.path.abspath(__file__))
 VAULT = os.path.dirname(os.path.dirname(HERE))
 SFX_DIR = f"{VAULT}/System/assets/sfx"
+ANATOMY = f"{VAULT}/System/anatomy"                       # Anatomy figures: <name>/<name>.svg .json .css .pose.js (built by the figure's build.mjs)
 sys.path.insert(0, HERE)
 from captions import html_caps, groups
 
@@ -110,6 +111,15 @@ def hairline(id_, x=53, y=200, w=900):
     """A Hairline isometric line figure (vendor/hairline, MIT): a host box at 5:4; Short.hairline() names the figure and
     Short.point() moves its unseen pointer on words. The drawing fills about 60 % of the box: 900 wide spans the stage."""
     return f'<div class="hl" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{round(w * 0.8)}px"></div>'
+
+
+def anatomy(id_, name, x, y, w):
+    """An Anatomy figure (System/anatomy/<name>, built with the anatomy skill, MIT): an inline isometric SVG of a real machine.
+    Short.anatomy() registers it and Short.pose() moves its parts on words. The host is as tall as the drawing's own box."""
+    meta = json.load(open(f"{ANATOMY}/{name}/{name}.json"))
+    svg = open(f"{ANATOMY}/{name}/{name}.svg").read()
+    return (f'<div class="an iso art" id="{id_}" data-theme="dark" style="left:{x}px;top:{y}px;width:{w}px;height:{round(w * meta["height"] / meta["width"])}px">'
+            f'{svg}</div>')
 
 
 def hlxy(x, y, w, vx, vy):
@@ -241,6 +251,13 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:{INK}; }}
   --hairline-lo:{HAZE}; --hairline-stroke:{LINE}; }}
 .hl [aria-live], .hl .sr-only {{ display:none; }}
 .hl * {{ transition:none !important; }}            /* Hairline fades strokes in real time; frames must follow the timeline only */
+.an {{ position:absolute; }}
+.an.iso {{ --anatomy-paper:#151A2B; --anatomy-face:#1B2136; --anatomy-top:#232B47;
+  --anatomy-shade-0:#0E111E; --anatomy-shade-1:#121626; --anatomy-shade-2:#171C2F; --anatomy-shade-3:#1C2238;
+  --anatomy-hi:#D9D3C7; --anatomy-mid:{SLATE}; --anatomy-lo:#3B4460; --anatomy-faint:{HAZE}; --anatomy-lit:{EMBER2};
+  --anatomy-lit-top:#6B3A1F; --anatomy-lit-shade:#4A2A18; --anatomy-halo:#04050A; --anatomy-halo-opacity:.9; --anatomy-dot:{CREAM};
+  --anatomy-weight:2.2px; --anatomy-red:{ROSE2}; --anatomy-green:{MINT2}; --anatomy-blue:{SIGNAL2}; }}
+.an * {{ transition:none !important; }}
 .cap {{ position:absolute; left:0; width:1080px; top:{BAND[0] + 6}px; height:128px; line-height:128px; text-align:center;
   font-family:Inter; font-weight:900; color:#fff; letter-spacing:0; z-index:50; white-space:nowrap; word-spacing:0;
   -webkit-text-stroke:4px #07080D; paint-order:stroke fill; text-shadow:0 4px 0 #07080D, 0 10px 28px rgba(0,0,0,0.6); }}
@@ -344,6 +361,7 @@ class Short:
         keys = keys or {}
         self.caps = html_caps(timed, lambda t, s: keys.get(t), end=off + self.take_dur, lit=EMBER2)
         self.J, self.extra, self.models, self.figs, self.sounds = [], [], [], {}, []
+        self.anat = {}                                 # Anatomy figures: id -> {name, keys}
 
     T = lambda self, i: round(self.off + self.words[i][1], 3)
 
@@ -484,6 +502,52 @@ class Short:
         """The unseen pointer: at t it moves to (x, y) in the figure's 400 x 320 viewBox (gliding over `glide` s);
         x None = it leaves. Hairline answers the pointer, so this is how a figure acts on a word."""
         self.figs[id_]["moves"].append([round(t, 3), x, y, glide])
+
+    def anatomy(self, id_, name):
+        """Mount the Anatomy figure `name` (System/anatomy) into the anatomy() box id_; it starts in its `init` pose."""
+        self.anat[id_] = {"name": name, "keys": []}
+
+    def pose(self, id_, t, state, d=0.6, ease="power2.inOut"):
+        """At t the figure's parameters move to `state` ({param: value}, only the ones that change) over d seconds.
+        The pose function of the figure is a pure map from parameters to part transforms, so every frame is deterministic.
+        Keys of one figure must not overlap."""
+        f = self.anat[id_]
+        if f["keys"] and t < f["keys"][-1][0] + f["keys"][-1][1] - 1e-6:
+            raise SystemExit(f"pose {id_}: {round(t, 2)} s overlaps the move that ends at {round(f['keys'][-1][0] + f['keys'][-1][1], 2)} s")
+        f["keys"].append([round(t, 3), d, ease, state])
+        if d >= 0.2:
+            self.sfx(t + d * 0.4, "click", -30)
+
+    def _anatomy(self, end=None):
+        """Per figure: its css once, its pose module, and a seek that sets the parameters from the page clock."""
+        css, mods = "", ""
+        for name in sorted({f["name"] for f in self.anat.values()}):
+            d = f"{ANATOMY}/{name}"
+            css += open(f"{d}/{name}.css").read() if not css else ""
+            mods += f"(() => {{\n{open(f'{d}/{name}.pose.js').read()}\n}})();\n"
+        return (f"<style>{css}</style><script>window.__ANP = {{}};\n{mods}"
+                "const AN = " + json.dumps(self.anat) + ";\n" + r"""
+const anEase = n => gsap.parseEase(n);
+function anState(f, init, t) {
+  const s = {...init};
+  for (const [t0, d, e, st] of f.keys) {
+    if (t <= t0) break;
+    const p = d > 0 ? Math.min(1, (t - t0) / d) : 1, k = anEase(e)(p);
+    for (const key in st) s[key] = s[key] + (st[key] - s[key]) * k;
+    if (p < 1) break;
+  }
+  return s;
+}
+const anLast = {};
+function anSeek(t) {
+  for (const [id, f] of Object.entries(AN)) {
+    const host = document.getElementById(id); if (!host) continue;
+    const P = window.__ANP[f.name], s = anState(f, P.init, __END__ ?? t), key = JSON.stringify(s);
+    if (anLast[id] !== key) { anLast[id] = key; P.apply(host.querySelector("svg"), s); }
+  }
+}
+window.__seek.push(anSeek); anSeek(window.__timelines.main.time());
+</script>""").replace("__END__ ?? t", "t" if end is None else str(end))
 
     def _hairline(self):
         """Hairline reads performance.now, rAF, timers and IntersectionObserver; the vendored copy is rewritten to read __HL,
@@ -665,6 +729,8 @@ window.__hf.buildReady["glb"] = (async () => {
         three = (f'<script type="module">{self._three()}</script>' if self.models else
                  '<script>window.__render3d = () => {}; window.__boxes3d = []; window.__ready3d = true;</script>')   # 2D only; the overlap check still runs
         hl = f'<script>{self._hairline()}</script>' if self.figs else ""
+        if self.anat:
+            hl += self._anatomy()
         vendor(f"{self.here}/assets")
         if not os.path.exists(f"{self.here}/assets/{os.path.basename(self.take)}"):
             shutil.copy2(self.take, f"{self.here}/assets/")
@@ -753,7 +819,9 @@ window.addEventListener("hf-seek", e => {{ if (e && e.detail && typeof e.detail.
         vendor(f"{self.here}/assets")
         end = max([m[0] for f in self.figs.values() for m in f["moves"]] + [0]) + 3      # every figure in its end state
         hl = (f"<script>window.__seek = []; window.__timelines = {{main: {{time: () => {end}}}}};" + self._hairline() + "</script>") if self.figs else ""
-        page = (f'<!doctype html><html><head><meta charset="UTF-8"/><style>{CSS}{css} .ov, .hl, .art, .big {{ opacity:1 }}</style></head>'
+        if self.anat:                                    # Anatomy figures in their last pose
+            hl += self._anatomy(end=max([k[0] + k[1] for f in self.anat.values() for k in f["keys"]] + [0]) + 1).replace("<script>window.__ANP", "<script>window.__seek = window.__seek || []; window.__timelines = window.__timelines || {main: {time: () => 0}}; window.__ANP", 1)
+        page = (f'<!doctype html><html><head><meta charset="UTF-8"/><style>{CSS}{css} .ov, .hl, .art, .big {{ opacity:1 }}</style>{"<script src=assets/gsap/gsap.min.js></script>" if self.anat else ""}</head>'
                 f'<body><div id="root"><div id="ground"></div>{inner}<div id="grain"></div></div>{hl}</body></html>')
         open(f"{self.here}/thumb.html", "w").write(page)
         out = out or f"{self.root}/upload/thumb.jpg"

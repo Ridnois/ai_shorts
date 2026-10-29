@@ -1,0 +1,10 @@
+{
+ "width": 600,
+ "height": 640,
+ "params": {
+  "lift": "wafer height, 0 clamped to 1 lifted",
+  "plasma": "0..1",
+  "he": "0..1 helium flow",
+  "die": "unused"
+ }
+}
