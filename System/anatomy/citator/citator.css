@@ -115,6 +115,11 @@
 .iso .iso-solid.ct-r>.iso-shade[data-shade="1"]{fill:color-mix(in srgb, var(--anatomy-red) 80%, #000);stroke:color-mix(in srgb, var(--anatomy-red) 80%, #000)}
 .iso .iso-solid.ct-r>.iso-shade[data-shade="2"]{fill:var(--anatomy-red);stroke:var(--anatomy-red)}
 .iso .iso-solid.ct-r>.iso-shade[data-shade="3"]{fill:var(--anatomy-red);stroke:var(--anatomy-red)}
+.iso .iso-solid.ct-rl>.iso-fill,.iso .iso-solid.ct-rl>.iso-top{fill:color-mix(in srgb, var(--anatomy-red) 42%, #fff);stroke:color-mix(in srgb, var(--anatomy-red) 42%, #fff)}
+.iso .iso-solid.ct-rl>.iso-shade[data-shade="0"]{fill:color-mix(in srgb, color-mix(in srgb, var(--anatomy-red) 42%, #fff) 62%, #000);stroke:color-mix(in srgb, color-mix(in srgb, var(--anatomy-red) 42%, #fff) 62%, #000)}
+.iso .iso-solid.ct-rl>.iso-shade[data-shade="1"]{fill:color-mix(in srgb, color-mix(in srgb, var(--anatomy-red) 42%, #fff) 80%, #000);stroke:color-mix(in srgb, color-mix(in srgb, var(--anatomy-red) 42%, #fff) 80%, #000)}
+.iso .iso-solid.ct-rl>.iso-shade[data-shade="2"]{fill:color-mix(in srgb, var(--anatomy-red) 42%, #fff);stroke:color-mix(in srgb, var(--anatomy-red) 42%, #fff)}
+.iso .iso-solid.ct-rl>.iso-shade[data-shade="3"]{fill:color-mix(in srgb, var(--anatomy-red) 42%, #fff);stroke:color-mix(in srgb, var(--anatomy-red) 42%, #fff)}
 
 .iso .iso-solid.ct-y>.iso-fill,.iso .iso-solid.ct-y>.iso-top{fill:var(--anatomy-lit-top);stroke:var(--anatomy-lit-top)}
 .iso .iso-solid.ct-y>.iso-shade{fill:var(--anatomy-lit-shade);stroke:var(--anatomy-lit-shade)}

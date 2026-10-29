@@ -673,7 +673,7 @@ const ISO_CSS = `
 @media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
 `;
 
-const P = {"origin":[260.7873508734379,355.3686444637525],"scale":1.1249654153582331,"azimuth":58,"elevation":36};
+const P = {"origin":[258.0511661670615,359.91324930718696],"scale":1.1305807618627235,"azimuth":55,"elevation":44};
 function obox(c, axes, P, isoF, camF) {
   const { sinA, cosA, sinE, cosE } = camF(P);
   const V = [cosA * cosE, sinA * cosE, sinE];
@@ -704,7 +704,7 @@ function obox(c, axes, P, isoF, camF) {
   const crease = Object.entries(edges).filter(([, n]) => n === 2).map(([e]) => { const [a, b] = e.split("|").map((t) => byKey[t]); return "M" + f(a[0]) + " " + f(a[1]) + "L" + f(b[0]) + " " + f(b[1]); }).join("");
   return { fill: hull, shades, top: top || "", crease, outline: hull };
 }
-const PIVOT = [83,-38,50.5], REACH = 56, HEAD = {"h":22,"half":14}, ARM_UP = 30;
+const PIVOT = [83,-38,50.5], REACH = 60.4, HEAD = {"h":22,"half":14}, ARM_UP = 36;
 function lever(th) {
   const a = (th * Math.PI) / 180, u = [0, Math.cos(a), Math.sin(a)], w = [0, -Math.sin(a), Math.cos(a)];
   const along = (s, up) => [0, 1, 2].map((i) => PIVOT[i] + u[i] * s + w[i] * up);

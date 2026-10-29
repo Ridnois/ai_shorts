@@ -1,6 +1,6 @@
 {
  "width": 600,
- "height": 491,
+ "height": 524,
  "params": {
   "feed": "0..1 card slides tray -> inside the reader (0.5) -> out on the landing spot (1)",
   "search": "0..1 a yellow marker steps through the 9 drawers in reading order; each pops out as it passes",
@@ -11,27 +11,27 @@
  "anchors": {
   "card": [
    110.9,
-   291.6
+   286.5
   ],
   "slot": [
-   283.4,
-   355
+   278.4,
+   368
   ],
   "drawers": [
-   343.7,
-   191.7
+   346.2,
+   200.7
   ],
   "match": [
    414.3,
-   221.5
+   238.8
   ],
   "lamp": [
-   472.6,
-   301.1
+   467.5,
+   329.2
   ],
   "stamp": [
-   347.4,
-   378.4
+   336.9,
+   401.8
   ]
  }
 }

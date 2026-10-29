@@ -34,13 +34,13 @@ const LAND = { x: 42, y: -10, w: 90, d: 58, r: 4 };
 // stamp: a lever on a fork post behind the landing spot, swinging about an axis along x
 const ARM_X = X_LAND + CARD.w / 2, ARM_Y = -38, HEAD = { h: 22, half: 14 };
 const PIVOT = [ARM_X, ARM_Y, CARD_Z + CARD.t + HEAD.h + 5.5];
-const REACH = CARD_Y + CARD.d / 2 - ARM_Y;                        // pivot to the head's axis
-const ARM_UP = 30;                                                // degrees raised at rest
+const MARK_Y = CARD.d * 0.6, REACH = CARD_Y + MARK_Y - ARM_Y;                        // pivot to the head's axis
+const ARM_UP = 36;                                                // degrees raised at rest
 // lamp
 const LAMP = { x: 148, y: -44 }, LAMP_Z = Z0 + 50;
 
 const EXTREMES = [...k.boxCorners(BASE, 0, BASE_H), ...k.boxCorners({ x: CAB.x - 3, y: CAB.y - 3, w: CAB.w + 6, d: CAB.d + 6 }, 0, CAB_Z1 + 8), [LAMP.x, LAMP.y, LAMP_Z + 22]];
-const VIEW = { azimuth: 58, elevation: 36 };
+const VIEW = { azimuth: 55, elevation: 44 };
 const pre = k.fitProjection(EXTREMES, 1000, 1000, { pad: 0, ...VIEW });
 const sx = EXTREMES.map((p) => k.iso(p, pre)), bw = Math.max(...sx.map((p) => p[0])) - Math.min(...sx.map((p) => p[0])), bh = Math.max(...sx.map((p) => p[1])) - Math.min(...sx.map((p) => p[1]));
 const HEIGHT = Math.round(WIDTH * bh / bw);
@@ -145,6 +145,25 @@ function drawer(d) {
   return `<g data-part="drawer-${d.order}"><g data-part="body-${d.order}"></g><g data-part="mv-${d.order}">${mv.join("")}</g></g>`;
 }
 
+// a shelf of bound reporters beside the cabinet, between two bookends
+const BOOKS = [[12, 50], [10, 44], [13, 54], [11, 47], [12, 52]];
+function books() {
+  const o = [], y = -126, d = 40;
+  let x = -146;
+  o.push(slab({ x: x - 2, y: y - 4, w: 70, d: d + 8, r: 2 }, Z0, 4));
+  o.push(slab({ x, y, w: 5, d, r: 1 }, Z0 + 4, 40));
+  x += 5;
+  for (const [w, h] of BOOKS) {
+    o.push(slab({ x, y, w, d, r: 1.5 }, Z0 + 4, h, { crease: "none" }));
+    // two bands on the spine (+y face), edge to edge
+    const Y = y + d;
+    for (const z of [Z0 + 4 + h - 10, Z0 + 4 + h - 16]) o.push(poly([[x + 1.5, Y, z - 1.5], [x + w - 1.5, Y, z - 1.5], [x + w - 1.5, Y, z + 1.5], [x + 1.5, Y, z + 1.5]], "ct-ink"));
+    x += w;
+  }
+  o.push(slab({ x, y, w: 5, d, r: 1 }, Z0 + 4, 40));
+  return o.join("");
+}
+
 function tray() {
   const o = [slab(TRAY, Z0, 7)];
   // the tray floor sits at CARD_Z; a back lip and an end stop hold the card
@@ -158,12 +177,12 @@ function tray() {
 function cardSvg(copy) {
   const x = X_TRAY, y = CARD_Y, z = CARD_Z + CARD.t;
   const o = [S(k.slabOf({ x, y, w: CARD.w, d: CARD.d, r: 1.5 }, CARD_Z, CARD.t, P, 3), { tone: "hi", crease: "none" })];
-  if (copy === "b") o.push(`<g data-part="card-red" style="opacity:0">${S(k.slabOf({ x, y, w: CARD.w, d: CARD.d, r: 1.5 }, CARD_Z, CARD.t, P, 3), { tone: "hi", crease: "none", className: "ct-r" })}</g>`);
+  if (copy === "b") o.push(`<g data-part="card-red" style="opacity:0">${S(k.slabOf({ x, y, w: CARD.w, d: CARD.d, r: 1.5 }, CARD_Z, CARD.t, P, 3), { tone: "hi", crease: "none", className: "ct-rl" })}</g>`);
   o.push(S(k.slabOf({ x: x + 5, y: y + 4, w: CARD.w - 10, d: 8, r: 1 }, z, 1.4, P, 2), { tone: "hi", crease: "none", lit: true }));
   const bar = (x0, x1, yy) => poly([[x0, yy - 2, z], [x1, yy - 2, z], [x1, yy + 2, z], [x0, yy + 2, z]], "ct-ink");
   o.push(bar(x + 6, x + CARD.w - 6, y + 19), bar(x + 6, x + CARD.w - 14, y + 26), bar(x + 6, x + CARD.w - 22, y + 33));
   if (copy === "b") {
-    const zm = z + 0.2, cx = x + CARD.w / 2, cy = y + CARD.d / 2 + 2;
+    const zm = z + 0.2, cx = x + CARD.w / 2, cy = y + MARK_Y;
     // a check: two thick strokes as one polygon
     const ck = [[-17, -3], [-6, 7], [15, -15], [17, -6], [-6, 17], [-17, 5]].map(([u, v]) => [cx + u, cy + v - 2, zm]);
     // an X: two crossed bars as one polygon (12 corners)
@@ -223,21 +242,22 @@ function lamp() {
 
 // the landed copy is clipped to the out side of the reader's mouth (x beyond the box), so it seems to come out of it
 const XOUT = SLOT.x + SLOT.w;
-const clip = `<clipPath id="ct-out"><path d="${[[XOUT, -900, CARD_Z + 1.5], [XOUT, 900, CARD_Z + 1.5], [900, 900, CARD_Z + 1.5], [900, -900, CARD_Z + 1.5]].map((p, i) => `${i ? "L" : "M"}${r1(at(p)[0])} ${r1(at(p)[1])}`).join("")}Z"/></clipPath>`;
+const clip = `<clipPath id="citator-out"><path d="${[[XOUT, -900, CARD_Z + 1.5], [XOUT, 900, CARD_Z + 1.5], [900, 900, CARD_Z + 1.5], [900, -900, CARD_Z + 1.5]].map((p, i) => `${i ? "L" : "M"}${r1(at(p)[0])} ${r1(at(p)[1])}`).join("")}Z"/></clipPath>`;
 
 const body = [
   `<defs>${clip}</defs>`,
   base(),
+  books(),
   cabinet(),
   ...DRAWERS.map(drawer),
   tray(),
   `<g data-part="card-a">${cardSvg("a")}</g>`,
   slot(),
+  landing(),
+  `<g clip-path="url(#citator-out)"><g data-part="card-b" style="opacity:0">${cardSvg("b")}</g></g>`,
   postBack(),
   `<g data-part="lever">${leverSvg(ARM_UP)}</g>`,
   postFront(),
-  landing(),
-  `<g clip-path="url(#ct-out)"><g data-part="card-b" style="opacity:0">${cardSvg("b")}</g></g>`,
   lamp(),
 ].join("");
 
@@ -253,7 +273,7 @@ const tint = (cls, c) => {
   const sel = `.iso .iso-solid.${cls}`;
   return `${sel}>.iso-fill,${sel}>.iso-top{fill:${c};stroke:${c}}\n` + tones.map((t, i) => `${sel}>.iso-shade[data-shade="${i}"]{fill:${t};stroke:${t}}`).join("\n") + "\n";
 };
-const css = k.ISO_CSS + tint("ct-g", "var(--anatomy-green)") + tint("ct-r", "var(--anatomy-red)") + `
+const css = k.ISO_CSS + tint("ct-g", "var(--anatomy-green)") + tint("ct-r", "var(--anatomy-red)") + tint("ct-rl", "color-mix(in srgb, var(--anatomy-red) 42%, #fff)") + `
 .iso .iso-solid.ct-y>.iso-fill,.iso .iso-solid.ct-y>.iso-top{fill:var(--anatomy-lit-top);stroke:var(--anatomy-lit-top)}
 .iso .iso-solid.ct-y>.iso-shade{fill:var(--anatomy-lit-shade);stroke:var(--anatomy-lit-shade)}
 .iso .iso-solid.ct-y>.iso-shade[data-shade="2"],.iso .iso-solid.ct-y>.iso-shade[data-shade="3"]{fill:var(--anatomy-lit-top);stroke:var(--anatomy-lit-top)}
@@ -325,7 +345,7 @@ const anchors = {
   drawers: [CAB.x + CAB.w / 2, CAB_FRONT, (Z0 + PLINTH_H + CAB_Z1) / 2],
   match: [M.x + CELL.w / 2, CAB_FRONT + FACE_T, M.z + CELL.h / 2],
   lamp: [LAMP.x, LAMP.y, LAMP_Z + 15],
-  stamp: [X_LAND + CARD.w / 2, CARD_Y + CARD.d / 2, CARD_Z + CARD.t],
+  stamp: [X_LAND + CARD.w / 2, CARD_Y + MARK_Y, CARD_Z + CARD.t],
 };
 writeFileSync(join(HERE, `${NAME}.json`), JSON.stringify({ width: WIDTH, height: HEIGHT,
   params: { feed: "0..1 card slides tray -> inside the reader (0.5) -> out on the landing spot (1)", search: "0..1 a yellow marker steps through the 9 drawers in reading order; each pops out as it passes",
