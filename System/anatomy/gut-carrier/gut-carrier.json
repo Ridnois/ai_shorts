@@ -1,0 +1,34 @@
+{
+ "width": 600,
+ "height": 543,
+ "params": {
+  "pill": "0..1 capsule opens, drug fills the gut",
+  "spread": "0..1 drug rides the vessel to the site (whole body)",
+  "kill": "0..1 helpful green bacteria shrink and go",
+  "resist": "0..1 hidden resistant red bacteria appear one by one",
+  "carrier": "0..1 sealed nanocarriers travel gut -> vessel -> site",
+  "open": "0..1 carriers at the site split, release drug there, site bacteria fade"
+ },
+ "anchors": {
+  "gut": [
+   234.7,
+   175
+  ],
+  "pill": [
+   359,
+   99.5
+  ],
+  "vessel": [
+   355.2,
+   310.1
+  ],
+  "site": [
+   457.1,
+   377.2
+  ],
+  "bugs": [
+   204.7,
+   180
+  ]
+ }
+}
