@@ -177,6 +177,8 @@ def card(id_, label, title, detail, good=False):
 
 def ask(id_, question, answers):
     """Comment prompt (the closing question): a reply box with answer chips, in the DECK."""
+    if sum(len(a) * 23 + 70 for a in answers) > 830:      # chips are one row inside the 894 px panel: 40 px type, 52 px padding, 18 px gap
+        print(f"WARN ask {id_}: the chips {answers} are wider than the panel; shorten them (about 27 characters in all for three)")
     chips = "".join(f'<span class="chip" id="{id_}-c{k}">{html.escape(a)}</span>' for k, a in enumerate(answers))
     return (f'<div class="ask ov" id="{id_}"><div class="askq"><svg viewBox="0 0 48 48" width="84" height="84"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="none" stroke="{MINT2}" stroke-width="2.8" stroke-linejoin="round"/></svg>{html.escape(question)}</div>'
             f'<div class="chips">{chips}</div><div class="askf">reply in the comments</div></div>')
