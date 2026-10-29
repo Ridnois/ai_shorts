@@ -4,12 +4,12 @@
     python3 System/scripts/listen.py render/<v>.mp4          # or a .wav
     python3 System/scripts/listen.py render/<v>.mp4 --json
 
-Reads only (ffmpeg, local, $0). Reports against the Playbook §5 targets:
+Reads only (ffmpeg, local, $0). Reports against the Production §Checks targets:
   * loudness: integrated LUFS (target -14 +-1), true peak (-1 dBTP or lower), loudness range
   * silences: every gap of 0.3 s or more (start, length), flagged when over 0.9 s (a pause the take should not have)
   * dead air: the longest silence and the share of the runtime that is silent
   * clipping: samples at full scale
-Exit 1 when a target fails. It cannot judge voice quality or whether an effect fits: that stays with the user (Workflow listening rubric).
+Exit 1 when a target fails. It cannot judge voice quality or whether an effect fits: that stays with the user (Production §Checks).
 """
 import argparse, json, os, re, subprocess, sys
 

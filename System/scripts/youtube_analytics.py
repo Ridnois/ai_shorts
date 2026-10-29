@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""YouTube Analytics puller (stdlib only, read-only). Rules: System/Publish.md
+"""YouTube Analytics puller (stdlib only, read-only). Rules: System/Growth.md §Analytics
   python3 System/scripts/youtube_analytics.py auth      # once: browser consent (read-only scopes), saves YT_ANALYTICS_REFRESH_TOKEN to .env
   python3 System/scripts/youtube_analytics.py pull [--age 24h|7d|28d]   # all channel videos -> Analytics/snapshots.csv + Analytics/exports/<date>/*.json
 Needs the YouTube Analytics API enabled in the same Google Cloud project, plus YT_CLIENT_ID / YT_CLIENT_SECRET in .env."""

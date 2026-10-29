@@ -1,4 +1,4 @@
-"""Mix and master the audio of a rendered Short with ffmpeg, then put it back into the mp4 (System/Playbook.md §5).
+"""Mix and master the audio of a rendered Short with ffmpeg, then put it back into the mp4 (System/Production.md §Voice, Format §5).
 
     python3 System/scripts/mix_audio.py "Media/Week NN/<Day>/<Video>"          # after the HyperFrames render
     python3 System/scripts/mix_audio.py "Media/..." --report                   # measure only

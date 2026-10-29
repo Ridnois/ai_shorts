@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The Inside the Model design system as code: every HyperFrames builder imports it (System/Design system.md).
+"""The Next Token design system as code: every HyperFrames builder imports it (System/Look.md).
 
     import sys; sys.path.insert(0, "<vault>/System/scripts"); import hfkit as K
     v = K.Short(__file__, keys={"RAG": K.BLUE})        # plan.json, the take, heard words, scene starts, captions
@@ -276,10 +276,10 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:{PAPER}; 
 .hl * {{ transition:none !important; }}            /* Hairline fades strokes in real time; frames must follow the timeline only */
 .an {{ position:absolute; }}
 .an.iso {{ --anatomy-paper:{WHITE}; --anatomy-face:{WHITE}; --anatomy-top:{WHITE};
-  --anatomy-shade-0:#D9D2C3; --anatomy-shade-1:#E4DDCF; --anatomy-shade-2:#EDE7DB; --anatomy-shade-3:#F6F2EA;
-  --anatomy-hi:{INK}; --anatomy-mid:#5E594F; --anatomy-lo:#8D877B; --anatomy-faint:#CFC7B6; --anatomy-lit:{INK};
-  --anatomy-lit-top:{YELLOW}; --anatomy-lit-shade:#F0B90F; --anatomy-halo:#8A7F68; --anatomy-halo-opacity:.28; --anatomy-dot:{INK};
-  --anatomy-weight:2.8px; --anatomy-red:{RED}; --anatomy-green:{GREEN}; --anatomy-blue:{BLUE}; }}
+  --anatomy-shade-0:#C4BAA6; --anatomy-shade-1:#D4CBB9; --anatomy-shade-2:#E3DCCD; --anatomy-shade-3:#F1ECE2;
+  --anatomy-hi:{INK}; --anatomy-mid:#3D3932; --anatomy-lo:#5A554B; --anatomy-faint:#B3AA98; --anatomy-lit:{INK};
+  --anatomy-lit-top:{YELLOW}; --anatomy-lit-shade:#F0B90F; --anatomy-halo:#6F6552; --anatomy-halo-opacity:.30; --anatomy-dot:{INK};
+  --anatomy-weight:3.2px; --anatomy-red:{RED}; --anatomy-green:{GREEN}; --anatomy-blue:{BLUE}; }}
 .an * {{ transition:none !important; }}
 /* captions: ink capitals on paper, the spoken word on a yellow marker */
 .cap {{ position:absolute; left:0; width:1080px; top:{BAND[0] + 2}px; height:140px; line-height:140px; text-align:center;
@@ -396,7 +396,7 @@ class Short:
             raise SystemExit(f"cue '{word}' not heard in scene {sc}: {' '.join(self.Hw[self.starts[sc - 1]:self.starts[sc]])}")
         return self.T(hits[nth - 1])
 
-    # ---- motion verbs (Design system: Motion). Arrivals land on a long tail; exits are shorter and accelerate.
+    # ---- motion verbs (Look: Components and verbs). Arrivals land on a long tail; exits are shorter and accelerate.
     # immediateRender:false: a verb never hides its target before its own time (things shown from frame 0 stay shown).
     def at(self, t, js):
         self.J.append("tl." + js.replace("@", str(round(t, 3))))
@@ -494,7 +494,7 @@ class Short:
         self.at(t + 0.25, f'to("#rail-d{k}", {{scale:1, duration:0.2}}, @);')
         self.at(t, f'to("#rail-t{k}", {{color:"{col}", duration:0.25}}, @);')
 
-    # ---- sound (Design system: Sound). Every effect has a cause on screen.
+    # ---- sound (Look: Sound kit). Every effect has a cause on screen.
     def sfx(self, t, name, db=-24, align="start"):
         """Place System/assets/sfx/<name>.mp3 at t (align "peak": its loudest sample lands on t), db under full scale."""
         self.sounds.append((round(t, 3), name, db, align))
@@ -700,7 +700,7 @@ window.__hf.buildReady["glb"] = (async () => {
     TRANS = ("cut", "whip", "push", "dip", "blur")
 
     def _transitions(self, trans):
-        """Each world after the first enters by its transition (Design system: Transitions); the one before leaves to match."""
+        """Each world after the first enters by its transition (Look: Camera and transitions); the one before leaves to match."""
         out = []
         for k, w in enumerate(self.ORDER):
             a, b = self.win[w]
@@ -858,7 +858,7 @@ window.addEventListener("hf-seek", e => {{ if (e && e.detail && typeof e.detail.
                   open(f"{self.root}/render/_timeline.json", "w"), indent=1)
 
     def thumb(self, inner, css="", out=None):
-        """The thumbnail as a still page in the video's own look (Workflow: Thumbnail): `inner` is world markup shown in its
+        """The thumbnail as a still page in the video's own look (Growth: Package): `inner` is world markup shown in its
         end state (one focal picture, at most 4 words of 110 px or more inside x 40..1040, y 600..1320). Writes
         hf/thumb.html and, through headless Chrome, upload/thumb.jpg."""
         vendor(f"{self.here}/assets")

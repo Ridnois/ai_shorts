@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Phrase captions (Playbook §4): group timed words into captions of 1 to 3 words.
+"""Phrase captions (Look §Layout): group timed words into captions of 1 to 3 words.
   from captions import groups, html_caps
   groups(words)  words = [(text, start, end), ...] in seconds -> [[i, j, ...], ...] word indices per caption
   html_caps(words, colour=lambda text, start: "#FFFFFF")  -> HyperFrames divs: one per spoken word, showing its

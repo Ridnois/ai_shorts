@@ -2,7 +2,7 @@
 //   3D vs text   (projected object boxes, window.__boxes3d, against every visible .ov element)
 //   3D vs band   (objects inside the caption band)
 //   text vs text (visible .ov elements that are not nested in each other)
-// and warns (exit code unchanged) for Design system rules the eye misses on a sheet (zones as in hfkit.py):
+// and warns (exit code unchanged) for Look rules the eye misses on a sheet (zones as in hfkit.py):
 //   SMALL TEXT   visible text under 40 px outside captions and cards (legible at phone size)
 //   CLIPPED      text or a deck element (claim, label, card, tag, chip, prompt) not fully inside the screen (x 0 to 1080) and the world clip (y under 1170): wherever the camera is
 //   TEXT OVER PICTURE  a claim, number, card, tag or chip sitting on a figure, frame or Hairline host (shrunk 6 %, callout labels excepted): move the text, or time it after the camera has settled

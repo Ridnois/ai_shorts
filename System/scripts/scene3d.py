@@ -1,5 +1,5 @@
 """3D for HyperFrames pages: a spec of tokens, embedding clouds, layered networks, links and surfaces, built and lit in
-Blender and exported for hfkit (System/Design system.md, 3D routes). Called by hfkit.blender3d(spec, out, dur, fmt):
+Blender and exported for hfkit (System/Look.md, Components). Called by hfkit.blender3d(spec, out, dur, fmt):
 
     fmt "glb"   the scene, show pops and camera path, played by three.js on the page clock (emission keys not exported)
     fmt "webm"  an EEVEE render with alpha (bloom, depth of field, glow pulses), placed full frame under the page text

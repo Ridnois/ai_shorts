@@ -16,7 +16,7 @@ publish.json (all keys required unless marked):
   sources    [["what it supports", "https://..."], ...]       caveats  "one or two sentences" (optional)
   hashtags   "#a #b #c"            privacy  "private"|"public"|"unlisted" (optional, default private)
   (thumbnail) upload/thumb.jpg must exist: the hf/thumb.html page that hfkit.Short.thumb() writes, snapshotted
-             (System/Workflow.md §Thumbnail). An old `thumb` key is ignored.
+             (System/Growth.md §Package). An old `thumb` key is ignored.
   hook_type  "stakes"             pinned  "pinned comment text"           approval  "the user's words"
   claims     [["claim", "source", "strength"], ...] (optional)            alt_titles ["...", "..."] (optional)
   tags       "ai, llm, how ai works" (optional, search words; YouTube weighs them little)

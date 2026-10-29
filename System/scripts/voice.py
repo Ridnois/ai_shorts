@@ -1,4 +1,4 @@
-"""The narration as ONE continuous take (System/Playbook.md §5): no stitched scenes, no cut-in silences.
+"""The narration as ONE continuous take (System/Production.md §Voice, Format §5): no stitched scenes, no cut-in silences.
 
     python3 System/scripts/voice.py "Media/Week NN/<Day>/<Video>" --dry     # prints the request text, spends nothing
     python3 System/scripts/voice.py "Media/Week NN/<Day>/<Video>"           # generates voice/<prefix>-take-v<n>.wav

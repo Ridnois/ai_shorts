@@ -1,6 +1,6 @@
 ---
 type: status
-updated: 2026-10-28
+updated: 2026-10-29
 ---
 
 # Helium and AI chips: Status
@@ -16,6 +16,8 @@ updated: 2026-10-28
 | 5 Generation | done | 28 Oct 2026 | take v1 `8h2dr22dndrmw0d1gmkre1aba0` (782 characters, about $0.02, 39.2 s); word timings: `incredibly-fast-whisper` stayed in `starting` for 11 min (cancelled, nothing run), WhisperX `w2f1hbp0nhrn80d1gmrvf2nez8` answered at once, 125 words; total about $0.03 of the $0.10 cap |
 | 6 Build | done | 28 Oct 2026 | Anatomy `wafer-chuck` (Figure tier, about 60 parts, schematic: 2 mm a unit, no true gap size; the cooling shown is a qualitative model); skill line check `line ends: 0 of 385`; `hyperframes check` no errors (accepted structure warnings); `check3d` OVERLAPS 1 sample (none left); transitions push, whip, dip, blur, cut (1 hard cut of 5); shot sizes wide, medium, close; slideshow-risk score 1 (repetition 1: the chuck is on 4 of 6 worlds, the anchor); frame audit of 58 beat frames read on 7 contact sheets; `check3d` OVERLAPS 0 with the new CLIPPED, OVERFLOW and TEXT OVER PICTURE checks; render `he-41s-9x16-r1.mp4` (40.6 s, v2 build), CRF 14, about 3.8 Mbps; `MIX` -13.9 LUFS, true peak -1.6 dBTP; `LISTEN` PASS; thumbnail built |
 | 7 Verdict · 8 Publish · 9 Measure | P7 open; pack built (`publish.py --dry-run`, 28 Oct 2026) | | waiting for the user: ship, fix or drop; not uploaded (private upload only after the user confirms the pack) |
+
+**r2, 29 Oct 2026 (relaunch test, $0):** the same script, take and builder rebuilt in the Next Token paper look ([[Look]]), to test the new design system and the 4K master on a real video. Builder edits: label l4 shortened, t5 at 72 px (two `check3d` overlaps from the larger type). `check3d` OVERLAPS 0. Render `he-41s-9x16-r2.mp4`, masters in `upload/` (`-yt.mp4` 2160x3840, `-tt.mp4`). The layout is still the old one (the hero fills the top half; the bottom half is empty on several beats): a new video follows [[Format]] §4.
 
 ## Not verified
 

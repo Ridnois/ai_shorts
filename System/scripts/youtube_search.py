@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deep-first search helper (stdlib, read-only). Rules: System/Audience.md
+"""Deep-first search helper (stdlib, read-only). Rules: System/Growth.md §Ideas
   python3 System/scripts/youtube_search.py "<query>" [more queries] [--days 365] [--short] [--min-ratio 3]
 Per query: search.list (100 quota units), then each result's channel: median views of its last 10 uploads.
 Prints outliers (views / channel median >= min-ratio) as Niche map rows. Reuses YT_ANALYTICS_REFRESH_TOKEN (youtube.readonly)."""
