@@ -17,6 +17,7 @@ Agent entry: `CLAUDE.md`. What a Short is: [[Format]] · brand and design system
 | Antibiotics aimed at infection | What's coming (off-niche, no AI) · 167 · Dennis (rate 1.1) | r1 (54.2 s), Anatomy `gut-carrier` + WHO, Wellcome Leap, Purdue captures; masters and pack built; shipped (user) | [[Antibiotics aimed at infection - Status]] · [[Script - Antibiotics aimed at infection]] |
 | Can AI replace lawyers | How AI works · 168 · Dennis (rate 1.1) | r1 (53.1 s), Anatomy `citator`, Hairline `loop`, `temperature` + Charlotin, Free Law Project, Stanford, SRA captures; masters and pack built; shipped (user), not uploaded | [[Can AI replace lawyers - Status]] · [[Script - Can AI replace lawyers]] |
 | Quantization explained | Agent at work · 174 · Dennis (rate 1.1) | r1 (52.7 s), recorded Ollama run (Qwen3 8B, Q4_K_M) + Anatomy `ram-stick` + Hairline `quantize` + llama.cpp, Ollama captures; masters and pack built; shipped (user), not uploaded | [[Quantization explained - Status]] · [[Script - Quantization explained]] |
+| AI as a therapist | How AI works · 169 · Dennis (rate 1.1) | r1 (59.6 s), Anatomy `rater` + Dartmouth, OpenAI, Stanford paper captures; masters and pack built; review | [[AI as a therapist - Status]] · [[Script - AI as a therapist]] |
 
 ## Earlier renders (retired dark look)
 

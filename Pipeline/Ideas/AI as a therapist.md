@@ -1,6 +1,6 @@
 ---
 type: video-idea
-status: making
+status: review
 series: How AI works
 score:
 publish:
