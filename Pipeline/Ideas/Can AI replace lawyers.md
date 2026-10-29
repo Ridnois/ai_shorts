@@ -1,6 +1,6 @@
 ---
 type: video-idea
-status: build
+status: review
 series: How AI works
 publish:
 video: "[[Can AI replace lawyers - Status]]"
