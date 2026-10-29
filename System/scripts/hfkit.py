@@ -62,7 +62,7 @@ def lbl(id_, text, x, y, w, col=CREAM):
 def big(id_, text, x, y, w, size=T["l"], col=CREAM, hot=None, hot_col=EMBER2):
     """A display line (a claim, a number) in Inter Display Black; each word is a span id_-w<k> for Short.words().
     hot = index of the one word in the accent colour."""
-    if len(text) * size * 0.62 > w and "\n" not in text and w < 1000:
+    if len(text) * size * 0.62 > w and size <= T["m"] and w < 1000:        # a one-line claim; thumbnail lines at 110 px or more wrap on purpose
         print(f"WARN big {id_}: '{text}' needs about {round(len(text) * size * 0.62)} px at {size} px type, the box is {w} px: it will wrap")
     ws = "".join(f'<span id="{id_}-w{k}" style="color:{hot_col if k == hot else col}">{html.escape(t)}</span> '
                  for k, t in enumerate(text.split()))

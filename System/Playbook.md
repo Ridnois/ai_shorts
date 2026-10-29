@@ -1,7 +1,7 @@
 ---
 type: rules
 updated: 2026-10-28
-status: v13 · 28 Oct 2026: Anatomy figures (the `anatomy` skill) are the medium for a physical machine; v12 · 28 Oct 2026: §2a narrative layer (tension arc, loop ledger, re-hooks, loop-back close) from the Shorts research; v11 rewritten 27 Oct 2026 for professional-level Shorts: one owner per rule, each a principle plus its test (the dated user quotes behind them live in git); craft standard (camera, transitions with a cause, designed sound), ship discipline, variety guard
+status: v14 · 28 Oct 2026: frame audit and the two-layer layout contract (after three rounds of layout faults on one video); v13 · 28 Oct 2026: Anatomy figures (the `anatomy` skill) are the medium for a physical machine; v12 · 28 Oct 2026: §2a narrative layer (tension arc, loop ledger, re-hooks, loop-back close) from the Shorts research; v11 rewritten 27 Oct 2026 for professional-level Shorts: one owner per rule, each a principle plus its test (the dated user quotes behind them live in git); craft standard (camera, transitions with a cause, designed sound), ship discipline, variety guard
 ---
 
 # Playbook: every rule for a Short
@@ -124,6 +124,7 @@ A **Package** section before the scene table: Y and X · **promise** (one senten
 ## 7. Checklist before P7 (the agent runs it and says what it could not check)
 
 - [ ] Hook test passes; first clause inside 2 s; the claim's picture and caption on frame 1
+- [ ] **Frame audit** (the agent reads every beat, not a sample): `hyperframes snapshot --at "$(cat render/_beats.txt)"` (one frame per event and 0.45 s after it) read as contact sheets, and `check3d.mjs` at `OVERLAPS 0` with no `CLIPPED`, `OVERFLOW` or `TEXT OVER PICTURE`; text only on the screen layer ([[Design system]] *Layout contract*); every picture fills 60 to 85 % of the stage width
 - [ ] Every beat shows its verb; named tool shown running; real captures where real things exist; no AI cliché; no personal data
 - [ ] **Slideshow-risk score** on the contact sheet, 0 to 2 each: repetition (the same layout on 4 tiles in a row) · decoration · weak motion · text doing the picture's job · no real thing on screen · a world that never changes state · **one shot size throughout**. Any 2, or a total of 4 or more, means rework before P7; the score goes in Status
 - [ ] 3 to 5 transition kinds, at most a third hard cuts; 3 or more shot sizes; no `WARN` left unexplained

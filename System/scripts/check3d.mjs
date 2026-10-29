@@ -5,6 +5,7 @@
 // and warns (exit code unchanged) for Design system rules the eye misses on a sheet (zones as in hfkit.py):
 //   SMALL TEXT   visible text under 40 px outside captions and cards (legible at phone size)
 //   CLIPPED      text or a deck element (claim, label, card, tag, chip, prompt) not fully inside the screen (x 0 to 1080) and the world clip (y under 1170): wherever the camera is
+//   TEXT OVER PICTURE  a claim, number, card, tag or chip sitting on a figure, frame or Hairline host (shrunk 6 %, callout labels excepted): move the text, or time it after the camera has settled
 //   OVERFLOW     text outside the card, tag or prompt that holds it, or a one-line label that wrapped (a chip over the border, a callout label split in two)
 //   SPARSE       everything but the captions (text, 3D, .art illustrations and .hl Hairline figures) covers under a quarter of the stage (y 180 to 1440) for over 3 s in a row
 // Usage: node check3d.mjs [index.html]     exit code 1 when anything overlaps. Shared copy: System/scripts/check3d.mjs
@@ -90,6 +91,13 @@ const res = await page.evaluate(() => {
       if (holder && holder !== e) { const h = holder.getBoundingClientRect(); if (!inside(r, [h.left, h.top, h.right, h.bottom])) note(t, `OVERFLOW ${name} out of ${holder.id || holder.className}`); }
       if (e.matches(".chip, .tag, .lbl.col")) { const g = document.createRange(); g.selectNodeContents(e);
         const lines = new Set([...g.getClientRects()].map(q => Math.round(q.top / 6))).size; if (lines > 1) note(t, `OVERFLOW ${name} wrapped to ${lines} lines`); }
+    }
+    const pics = [...document.querySelectorAll(".an, .frm, .hl")].filter(e => clipOn(e, t) && alpha(e) >= 0.9).map(e => { const r = e.getBoundingClientRect(), dx = r.width * 0.06, dy = r.height * 0.06;
+      return { id: e.id, r: [r.left + dx, r.top + dy, r.right - dx, Math.min(r.bottom - dy, 1170)] }; });
+    for (const e of document.querySelectorAll(TEXT)) {
+      if (!clipOn(e, t) || alpha(e) < 0.9 || e.closest("#caps") || e.matches(".lbl.col") || e.closest(".co")) continue;
+      const r = e.getBoundingClientRect(); if (r.width < 2) continue;
+      for (const p of pics) if (hit([r.left, r.top, r.right, r.bottom], p.r, 6)) note(t, `TEXT OVER PICTURE ${e.id || e.className} on ${p.id}`);
     }
     for (const e of els) { if (crop(e.el)) continue;
                            if (e.r[2] > 952) note(t, `${e.id} in the right interface strip (x > 950)`);      // the app's buttons

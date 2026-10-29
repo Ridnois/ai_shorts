@@ -1,7 +1,7 @@
 ---
 type: process
 updated: 2026-10-28
-status: v7 · 28 Oct 2026: Anatomy figures (build, checks, budget); v6 · 27 Oct 2026: HyperFrames only (the Blender builder, motion.py and make_thumbnail.py were deleted), render at CRF 14, local sound kit and libraries, thumbnail as a page, ship discipline
+status: v8 · 28 Oct 2026: frame audit from `_beats.txt`, stricter `check3d`; v7 · 28 Oct 2026: Anatomy figures (build, checks, budget); v6 · 27 Oct 2026: HyperFrames only (the Blender builder, motion.py and make_thumbnail.py were deleted), render at CRF 14, local sound kit and libraries, thumbnail as a page, ship discipline
 ---
 
 # Workflow: stages, budget, files, commands
@@ -80,8 +80,8 @@ Week = calendar week Mon to Sun (Week 01 = 5 to 11 Oct 2026); the Day folder is 
 | Replicate | `System/scripts/replicate_helper.py` (`run`, `download`, `recover`), token in `.env` |
 | New project | copy `hf/hyperframes.json`, `meta.json` and `package.json` from the last video's `hf/`, then write `hf/build.py` |
 | Build | `python3 hf/build.py` (writes `index.html`, the effects stem, `_timeline.json`; prints transition warnings) |
-| Check | `HYPERFRAMES_NO_TELEMETRY=1 npx --yes hyperframes@0.8.209 check --json` (in `hf/`), then `node System/scripts/check3d.mjs hf/index.html` |
-| Look | `npx --yes hyperframes@0.8.209 snapshot --at <t,…>` (in `hf/`): contact sheet under `.hyperframes/artifacts/snapshots/` |
+| Check | `HYPERFRAMES_NO_TELEMETRY=1 npx --yes hyperframes@0.8.209 check --json` (in `hf/`), then `node System/scripts/check3d.mjs hf/index.html` (every 0.125 s: overlaps, `CLIPPED`, `OVERFLOW`, `TEXT OVER PICTURE`, small text, sparse frames) and the `WARN` lines of `build.py` |
+| Look (frame audit) | `npx --yes hyperframes@0.8.209 snapshot --at "$(cat ../render/_beats.txt)"` (in `hf/`): `hfkit` writes `_beats.txt` with a time for every event and 0.45 s after it; read every contact sheet under `.hyperframes/artifacts/snapshots/`; a fault found on one frame is searched for on all the others, then added to `check3d` if it is a class |
 | Render | `npx --yes hyperframes@0.8.209 render . -o ../render/<v>-<s>s-9x16-r<n>.mp4 -q delivery --crf 14` (in `hf/`, in the background; about 3 to 5 min for 40 s) |
 | Mix and master | `python3 System/scripts/mix_audio.py "Media/…/<Video>"` (`--report` measures only) |
 | Listen (numbers for the sound) | `python3 System/scripts/listen.py "Media/…/render/<v>.mp4"`: LUFS, true peak, silences, clipping; exit 1 on a failed target |
