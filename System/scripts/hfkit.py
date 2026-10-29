@@ -122,6 +122,13 @@ def anatomy(id_, name, x, y, w):
             f'{svg}</div>')
 
 
+def anp(name, x, y, w, key):
+    """A named point of an anatomy(id, name, x, y, w) figure (its `anchors`, in the drawing's viewBox) in page px: where a callout or the camera goes."""
+    m = json.load(open(f"{ANATOMY}/{name}/{name}.json"))
+    ax, ay = m["anchors"][key]
+    return round(x + ax / m["width"] * w), round(y + ay / m["width"] * w)
+
+
 def hlxy(x, y, w, vx, vy):
     """A point of a hairline(x, y, w) figure, from its 400 x 320 viewBox to page px: where a callout anchors."""
     return round(x + vx / 400 * w), round(y + vy / 320 * w * 0.8)
@@ -542,12 +549,12 @@ const anLast = {};
 function anSeek(t) {
   for (const [id, f] of Object.entries(AN)) {
     const host = document.getElementById(id); if (!host) continue;
-    const P = window.__ANP[f.name], s = anState(f, P.init, __END__ ?? t), key = JSON.stringify(s);
-    if (anLast[id] !== key) { anLast[id] = key; P.apply(host.querySelector("svg"), s); }
+    const tt = __TT__, P = window.__ANP[f.name], s = anState(f, P.init, tt), key = JSON.stringify([s, tt]);
+    if (anLast[id] !== key) { anLast[id] = key; P.apply(host.querySelector("svg"), s, tt); }
   }
 }
 window.__seek.push(anSeek); anSeek(window.__timelines.main.time());
-</script>""").replace("__END__ ?? t", "t" if end is None else str(end))
+</script>""").replace("__TT__", "t" if end is None else str(end))
 
     def _hairline(self):
         """Hairline reads performance.now, rAF, timers and IntersectionObserver; the vendored copy is rewritten to read __HL,

@@ -555,7 +555,7 @@ function plateHtml({ fig, title, hint, readout = "", keys = [], caption, body })
     return `<figure class="iso-figure"><div class="iso-plate"><div class="iso-plate-corners" aria-hidden="true">${corner("fig", fig)}${title ? corner("title", title) : ""}${hint ? corner("hint", hint) : ""}${corner("readout", readout, " data-readout")}</div>${body}</div>${legend}</figure>`;
 }
 function pageHtml({ title, theme = "dark", body, script = "", width = 650 }) {
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(title)}</title><style>${ISO_CSS}${PAGE_CSS.replace("__WIDTH__", String(width))}</style></head><body class="iso" data-theme="${theme}"><main class="iso-page">${body}</main>${script ? `<script type="module">${script.replace(/<\/(script)/gi, "<\\/$1")}<\/script>` : ""}</body></html>`;
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(title)}</title><style>${ISO_CSS}${PAGE_CSS.replace("__WIDTH__", String(width))}</style></head><body class="iso" data-theme="${theme}"><main class="iso-page">${body}</main>${script ? `<\u0073cript type="module">${script.replace(/<\/(script)/gi, "<\\/$1")}<\/script>` : ""}</body></html>`;
 }
 const PAGE_CSS = `
 *{box-sizing:border-box}
@@ -684,7 +684,7 @@ const frac = (x) => x - Math.floor(x);
 const q = {};
 const part = (svg, n) => (q[n] = q[n] && svg.contains(q[n]) ? q[n] : svg.querySelector('[data-part="' + n + '"]'));
 window.__ANP["wafer-chuck"] = {
-  init: { lift: 0, plasma: 0, he: 0, die: 0 },
+  init: { lift: 0, plasma: 0, he: 0, gauge: 0 },
   apply(svg, s, t) {
     const sm = (u) => { u = Math.min(1, Math.max(0, u)); return u * u * (3 - 2 * u); };
     const wz = CHUCK_TOP + RAISE * sm(s.lift / 0.3), wy = -SLIDE * sm((s.lift - 0.3) / 0.7);
@@ -720,6 +720,6 @@ window.__ANP["wafer-chuck"] = {
     part(svg, "rim").style.opacity = (clamped * he).toFixed(2);
     part(svg, "heat").style.fillOpacity = (heat * 0.85).toFixed(3);
     // pressure gauge needle
-    part(svg, "needle").setAttribute("d", (() => { const a = (-2.2 + he * 4.4) , [x, y, z] = GAUGE; return lineOnTop([x - Math.sin(a) * 2.5, y + Math.cos(a) * 2.5], [x + Math.sin(a) * 8.6, y - Math.cos(a) * 8.6], z, P); })());
+    part(svg, "needle").setAttribute("d", (() => { const a = (-2.2 + s.gauge * 4.4), [x, y, z] = GAUGE; return lineOnTop([x - Math.sin(a) * 2.5, y + Math.cos(a) * 2.5], [x + Math.sin(a) * 8.6, y - Math.cos(a) * 8.6], z, P); })());
   },
 };

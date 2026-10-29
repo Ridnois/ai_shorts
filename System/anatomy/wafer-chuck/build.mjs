@@ -237,7 +237,7 @@ const frac = (x) => x - Math.floor(x);
 const q = {};
 const part = (svg, n) => (q[n] = q[n] && svg.contains(q[n]) ? q[n] : svg.querySelector('[data-part="' + n + '"]'));
 window.__ANP[${JSON.stringify(NAME)}] = {
-  init: { lift: 0, plasma: 0, he: 0, die: 0 },
+  init: { lift: 0, plasma: 0, he: 0, gauge: 0 },
   apply(svg, s, t) {
     const sm = (u) => { u = Math.min(1, Math.max(0, u)); return u * u * (3 - 2 * u); };
     const wz = CHUCK_TOP + RAISE * sm(s.lift / 0.3), wy = -SLIDE * sm((s.lift - 0.3) / 0.7);
@@ -273,20 +273,22 @@ window.__ANP[${JSON.stringify(NAME)}] = {
     part(svg, "rim").style.opacity = (clamped * he).toFixed(2);
     part(svg, "heat").style.fillOpacity = (heat * 0.85).toFixed(3);
     // pressure gauge needle
-    part(svg, "needle").setAttribute("d", (() => { const a = (-2.2 + he * 4.4) , [x, y, z] = GAUGE; return lineOnTop([x - Math.sin(a) * 2.5, y + Math.cos(a) * 2.5], [x + Math.sin(a) * 8.6, y - Math.cos(a) * 8.6], z, P); })());
+    part(svg, "needle").setAttribute("d", (() => { const a = (-2.2 + s.gauge * 4.4), [x, y, z] = GAUGE; return lineOnTop([x - Math.sin(a) * 2.5, y + Math.cos(a) * 2.5], [x + Math.sin(a) * 8.6, y - Math.cos(a) * 8.6], z, P); })());
   },
 };
-`).replaceAll("</script", "<\\/script");        // the kit holds the text "</script>" in a string: keep it from ending an inline script
+`).replaceAll("<script", "<\\u0073cript").replaceAll("</script", "<\\/script");   // the kit holds page-building strings with script tags: keep them from confusing the HTML parser of an inline script
 
 writeFileSync(join(HERE, `${NAME}.svg`), svg);
 writeFileSync(join(HERE, `${NAME}.css`), css);
 writeFileSync(join(HERE, `${NAME}.pose.js`), pose);
-writeFileSync(join(HERE, `${NAME}.json`), JSON.stringify({ width: WIDTH, height: HEIGHT, params: { lift: "wafer height, 0 clamped to 1 lifted", plasma: "0..1", he: "0..1 helium flow", die: "unused" } }, null, 1));
+writeFileSync(join(HERE, `${NAME}.json`), JSON.stringify({ width: WIDTH, height: HEIGHT, params: { lift: "0 clamped, 0.3 raised on pins, 1 slid out", plasma: "0..1 glow, ions, heat", he: "0..1 helium flow, rim, cooling", gauge: "0..1 pressure needle" },
+  anchors: Object.fromEntries(Object.entries({ chuck: [0, 0, CHUCK_TOP + WAFER_H], slid: [0, -SLIDE, CHUCK_TOP + RAISE], tank: [TANK[0], TANK[1], TANK_TOP + 20], gauge: m.gauge,
+    coolant: [-80, -18, 28], shower: [0, 0, SHOWER_Z + SHOWER_H], line: [30, 60, DUCT_Z], plate: [0, 0, 0] }).map(([n, p]) => [n, at(p).map((v) => Math.round(v * 10) / 10)])) }, null, 1));
 console.log("wrote", NAME, svg.length, "bytes");
 
 if (process.argv.includes("--preview")) {
   const t = Number(process.argv[process.argv.indexOf("--preview") + 1]) || 0;
-  const st = { lift: 0, plasma: 0, he: 0, die: 0 };
+  const st = { lift: 0, plasma: 0, he: 0, gauge: 0 };
   const args = process.argv.find((a) => a.startsWith("--state="));
   if (args) Object.assign(st, JSON.parse(args.slice(8)));
   const page = `<!doctype html><html><head><meta charset="utf-8"><style>${css}body{margin:0;background:#0B0D17}.an{width:900px;margin:20px auto;--anatomy-paper:#151A2B;--anatomy-face:#1B2136;--anatomy-top:#232B47;--anatomy-shade-0:#0E111E;--anatomy-shade-1:#121626;--anatomy-shade-2:#171C2F;--anatomy-shade-3:#1C2238;--anatomy-hi:#D9D3C7;--anatomy-mid:#6B7590;--anatomy-lo:#3B4460;--anatomy-faint:#262D42;--anatomy-lit:#FF9A5C;--anatomy-lit-top:#6B3A1F;--anatomy-lit-shade:#4A2A18;--anatomy-weight:2.2px;--anatomy-blue:#8EC2F2}</style></head><body><div class="an iso" data-theme="dark" id="f">${svg}</div><script>window.__ANP={};${pose};window.__ANP["${NAME}"].apply(document.querySelector("svg"),${JSON.stringify(st)},${t});</script></body></html>`;

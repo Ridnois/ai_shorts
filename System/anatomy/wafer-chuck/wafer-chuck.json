@@ -2,9 +2,43 @@
  "width": 600,
  "height": 470,
  "params": {
-  "lift": "wafer height, 0 clamped to 1 lifted",
-  "plasma": "0..1",
-  "he": "0..1 helium flow",
-  "die": "unused"
+  "lift": "0 clamped, 0.3 raised on pins, 1 slid out",
+  "plasma": "0..1 glow, ions, heat",
+  "he": "0..1 helium flow, rim, cooling",
+  "gauge": "0..1 pressure needle"
+ },
+ "anchors": {
+  "chuck": [
+   260,
+   212.8
+  ],
+  "slid": [
+   397.6,
+   136.8
+  ],
+  "tank": [
+   78.2,
+   181
+  ],
+  "gauge": [
+   210.3,
+   324.1
+  ],
+  "coolant": [
+   220.7,
+   212.6
+  ],
+  "shower": [
+   260,
+   115
+  ],
+  "line": [
+   232.1,
+   281
+  ],
+  "plate": [
+   260,
+   276
+  ]
  }
 }
