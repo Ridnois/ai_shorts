@@ -797,6 +797,8 @@ window.addEventListener("hf-seek", e => {{ if (e && e.detail && typeof e.detail.
         ren = f"{self.root}/render/{self.plan['prefix']}-{round(DUR)}s-9x16-r{rev}.mp4"
         self._sound(ren)
         for cid, (a, b) in self.callouts.items():            # a callout lives in the camera: no move while it shows
+            if b is not None and b - a < 0.8:
+                print(f"WARN callout {cid} shows at {a} s and hides at {b} s: under 0.8 s on screen (hidden before it lands, or too brief to read)")
             for w, m0, m1 in self.moves:
                 if m1 > a and m0 < (b if b is not None else DUR) and not (b is None and m0 >= self.win[w][1]):
                     if self.win[w][0] <= a < self.win[w][1]:
