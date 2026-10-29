@@ -62,6 +62,8 @@ def lbl(id_, text, x, y, w, col=CREAM):
 def big(id_, text, x, y, w, size=T["l"], col=CREAM, hot=None, hot_col=EMBER2):
     """A display line (a claim, a number) in Inter Display Black; each word is a span id_-w<k> for Short.words().
     hot = index of the one word in the accent colour."""
+    if len(text) * size * 0.62 > w and "\n" not in text and w < 1000:
+        print(f"WARN big {id_}: '{text}' needs about {round(len(text) * size * 0.62)} px at {size} px type, the box is {w} px: it will wrap")
     ws = "".join(f'<span id="{id_}-w{k}" style="color:{hot_col if k == hot else col}">{html.escape(t)}</span> '
                  for k, t in enumerate(text.split()))
     return f'<div class="big ov" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;font-size:{size}px">{ws.strip()}</div>'
@@ -129,6 +131,13 @@ def anp(name, x, y, w, key):
     return round(x + ax / m["width"] * w), round(y + ay / m["width"] * w)
 
 
+def screen(html_):
+    """Mark markup as the world's SCREEN layer: text and deck elements (a claim, a number, a card, a tag, the comment prompt)
+    that sit on the glass, outside the camera. The camera scales, moves and clips pictures; it never touches these, so
+    they cannot be cropped or enlarged by a zoom. Callouts (a leader plus its label) stay in the camera, with the part they name."""
+    return f"<!--SCR-->{html_}<!--/SCR-->"
+
+
 def hlxy(x, y, w, vx, vy):
     """A point of a hairline(x, y, w) figure, from its 400 x 320 viewBox to page px: where a callout anchors."""
     return round(x + vx / 400 * w), round(y + vy / 320 * w * 0.8)
@@ -171,6 +180,8 @@ def rail(steps):
 
 def card(id_, label, title, detail, good=False):
     """Context card in the DECK: source label, one title, one detail line. good = the solution's mint card."""
+    if len(title) > 26 or len(detail) > 40:
+        print(f"WARN card {id_}: title {len(title)} characters (26 or fewer), detail {len(detail)} (40 or fewer): it will wrap and outgrow the deck")
     return (f'<div id="{id_}" class="card ov{" good" if good else ""}"><div class="lab">{label}</div><div class="tit">{html.escape(title)}</div>'
             f'<div class="det">{html.escape(detail)}</div></div>')
 
@@ -207,7 +218,7 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:{INK}; }}
 #flood {{ position:absolute; inset:0;
   background: radial-gradient(900px 800px at 20% 30%, rgba(0,174,123,0.28), transparent 70%),
               radial-gradient(800px 800px at 85% 75%, rgba(65,138,209,0.24), transparent 70%); }}
-.world, .world .cam, .world .in {{ position:absolute; inset:0; }}
+.world, .world .cam, .world .in, .world .scr {{ position:absolute; inset:0; }}
 .world {{ clip-path:inset(0 0 {FH - BAND[0] + 10}px 0); }}      /* worlds never paint over the captions: they own the band */
 .p3d, #gl {{ position:absolute; left:0; top:0; width:1080px; height:1920px; }}
 .art {{ position:absolute; object-fit:contain; filter:drop-shadow(0 18px 30px rgba(0,0,0,0.55)); }}
@@ -371,6 +382,7 @@ class Short:
         self.caps = html_caps(timed, lambda t, s: keys.get(t), end=off + self.take_dur, lit=EMBER2)
         self.J, self.extra, self.models, self.figs, self.sounds = [], [], [], {}, []
         self.anat = {}                                 # Anatomy figures: id -> {name, keys}
+        self.beats, self.moves, self.callouts = [], [], {}   # event times (for the frame audit), camera moves, callout windows
 
     T = lambda self, i: round(self.off + self.words[i][1], 3)
 
@@ -385,6 +397,7 @@ class Short:
     # immediateRender:false: a verb never hides its target before its own time (things shown from frame 0 stay shown).
     def at(self, t, js):
         self.J.append("tl." + js.replace("@", str(round(t, 3))))
+        self.beats.append(round(t, 2))
 
     def pop(self, s, t, spring=False):                # labels, frames, cards, figures: rise 24 px
         self.at(t, f'fromTo({sel(s)}, {{opacity:0, y:24, scale:{0.9 if spring else 1}}}, {{immediateRender:false, opacity:1, y:0, scale:1, duration:{0.5 if spring else 0.4}, ease:"{"back.out(1.4)" if spring else "expo.out"}"}}, @);')
@@ -434,6 +447,7 @@ class Short:
         """At t the camera of world w moves so canvas point (cx, cy) sits at `to` (default: where it is, a zoom in place),
         z times larger (d=0: a cut)."""
         to = to or (cx, cy)
+        self.moves.append((w, round(t, 2), round(t + d, 2)))
         x, y = cam_to(cx, cy, z, to)
         if d:
             self.at(t, f'to("#{w}-cam", {{x:{x}, y:{y}, scale:{z}, duration:{d}, ease:"{ease}"}}, @);')
@@ -452,12 +466,14 @@ class Short:
         self.cam(w, t, d=d, to=FOCUS, **kw)
 
     def callout(self, id_, t):                        # the leader draws from the part, then the label lands
+        self.callouts[id_] = [round(t, 2), None]
         self.at(t, f'fromTo("#{id_}-d", {{opacity:0, scale:0.3, transformOrigin:"50% 50%"}}, {{immediateRender:false, opacity:1, scale:1, duration:0.25, ease:"back.out(1.4)"}}, @);')
         self.at(t + 0.05, f'fromTo("#{id_}-p", {{attr:{{"stroke-dashoffset":1}}}}, {{immediateRender:false, attr:{{"stroke-dashoffset":0}}, duration:0.4, ease:"power3.out"}}, @);')
         self.blurin(f"#{id_}", t + 0.3)
         self.sfx(t, "click", -32)
 
     def uncallout(self, id_, t):
+        self.callouts[id_][1] = round(t, 2)
         self.hide([f"#{id_}", f"#{id_}-s"], t)
 
     def rail(self, steps, t):
@@ -720,8 +736,11 @@ window.__hf.buildReady["glb"] = (async () => {
         flood: the scene number where the solution's colour flood starts. blur: HyperFrames' render-time motion blur.
         first: selectors on screen from frame 0 (the hook's claim; frame 0 is the thumbnail on social players)."""
         DUR, win, trans = self.DUR, self.win, trans or {}
+        pic = lambda h: re.sub(r"<!--SCR-->.*?<!--/SCR-->", "", h, flags=re.S)
+        scr = lambda h: "".join(re.findall(r"<!--SCR-->(.*?)<!--/SCR-->", h, flags=re.S))
         world = lambda wid, z: (f'<div id="{wid}" class="clip world" data-start="{win[wid][0]}" data-duration="{round(win[wid][1] - win[wid][0], 3)}" '
-                                f'data-track-index="{z}"><div class="cam" id="{wid}-cam"><div class="in" id="{wid}-in">{W[wid]}</div></div></div>')
+                                f'data-track-index="{z}"><div class="in" id="{wid}-in"><div class="cam" id="{wid}-cam">{pic(W[wid])}</div>'
+                                f'<div class="scr" id="{wid}-scr">{scr(W[wid])}</div></div></div>')
         body = (f'<div id="ground" class="clip" data-start="0" data-duration="{DUR}" data-track-index="0"><div id="flood"></div></div>\n'
                 + "".join(e + "\n" for e in self.extra)
                 + (f'<canvas id="gl" class="clip" width="1080" height="1920" data-start="0" data-duration="{DUR}" data-track-index="6"></canvas>\n' if self.models else "")
@@ -777,6 +796,17 @@ window.addEventListener("hf-seek", e => {{ if (e && e.detail && typeof e.detail.
         open(f"{self.here}/index.html", "w").write(page)
         ren = f"{self.root}/render/{self.plan['prefix']}-{round(DUR)}s-9x16-r{rev}.mp4"
         self._sound(ren)
+        for cid, (a, b) in self.callouts.items():            # a callout lives in the camera: no move while it shows
+            for w, m0, m1 in self.moves:
+                if m1 > a and m0 < (b if b is not None else DUR) and not (b is None and m0 >= self.win[w][1]):
+                    if self.win[w][0] <= a < self.win[w][1]:
+                        print(f"WARN callout {cid} ({a}s) is on screen while the camera of {w} moves ({m0} to {m1} s): it will be scaled, cropped or detached")
+        ev = sorted({t for e in self.beats for t in (e, e + 0.45) if 0 <= t < DUR} | {0.1, DUR - 0.2})
+        pick, last = [], -9
+        for t in ev:
+            if t - last >= 0.35:
+                pick.append(round(t, 2)); last = t
+        open(f"{self.root}/render/_beats.txt", "w").write(",".join(str(t) for t in pick))
         kinds = [trans.get(w, "cut") for w in self.ORDER[1:]]
         print(f"index.html: {DUR} s, {self.caps.count('class=\"clip cap\"')} caption states, {len(J)} tweens, {len(self.models)} models, "
               f"{len(self.sounds)} sounds; transitions {kinds}; render -> {os.path.basename(ren)}")

@@ -1,44 +1,44 @@
 {
  "width": 600,
- "height": 470,
+ "height": 545,
  "params": {
-  "lift": "0 clamped, 0.3 raised on pins, 1 slid out",
+  "lift": "0 clamped, 1 raised clear of the chuck",
   "plasma": "0..1 glow, ions, heat",
   "he": "0..1 helium flow, rim, cooling",
   "gauge": "0..1 pressure needle"
  },
  "anchors": {
   "chuck": [
-   260,
-   212.8
+   328.9,
+   281.7
   ],
-  "slid": [
-   397.6,
-   136.8
+  "raised": [
+   328.9,
+   175
   ],
   "tank": [
-   78.2,
-   181
+   93.8,
+   221.5
   ],
   "gauge": [
-   210.3,
-   324.1
+   226.8,
+   422.6
   ],
   "coolant": [
-   260.1,
-   284
+   314.2,
+   373.7
   ],
   "shower": [
-   260,
-   115
+   328.9,
+   82
   ],
   "line": [
-   232.1,
-   281
+   279.5,
+   366.5
   ],
   "plate": [
-   260,
-   276
+   328.9,
+   360.8
   ]
  }
 }

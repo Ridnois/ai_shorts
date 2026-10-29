@@ -673,8 +673,8 @@ const ISO_CSS = `
 @media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
 `;
 
-const P = {"origin":[259.99708491930113,275.959214819521],"scale":0.8256722298399302,"azimuth":40,"elevation":30};
-const RAISE = 22, SLIDE = 172, CHUCK_TOP = 68, WAFER_R = 70, WAFER_H = 1.8, SHOWER_Z = 168;
+const P = {"origin":[328.937286444716,360.83991644872066],"scale":1.0566403025839606,"azimuth":30,"elevation":32};
+const RAISE = 96, CHUCK_TOP = 68, WAFER_R = 70, WAFER_H = 1.8, SHOWER_Z = 236;
 const GAUGE = [100,146,45.2];
 const LINE_PTS = [[-92,150,130],[-92,144,130],[90,144,130],[90,144,40]], OUT_PTS = [[90,128,30],[30,128,30],[30,0,30],[0,0,30]];
 const route = function route(points) { const segs = []; let len = 0; for (let i = 0; i + 1 < points.length; i++) { const a = points[i], b = points[i + 1], d = Math.hypot(b[0] - a[0], b[1] - a[1], b[2] - a[2]); segs.push({ a, b, d, from: len }); len += d; } return { segs, len }; };
@@ -687,7 +687,7 @@ window.__ANP["wafer-chuck"] = {
   init: { lift: 0, plasma: 0, he: 0, gauge: 0 },
   apply(svg, s, t) {
     const sm = (u) => { u = Math.min(1, Math.max(0, u)); return u * u * (3 - 2 * u); };
-    const wz = CHUCK_TOP + RAISE * sm(s.lift / 0.3), wy = -SLIDE * sm((s.lift - 0.3) / 0.7);
+    const wz = CHUCK_TOP + RAISE * sm(s.lift), wy = 0;
     part(svg, "wafer").setAttribute("transform", translateAlong(P, [0, wy, wz]));
     // helium in the ducts and in the channels of the chuck (positions are a pure function of the page clock)
     const he = s.he, dots = [];
@@ -715,7 +715,7 @@ window.__ANP["wafer-chuck"] = {
       pl.innerHTML = h;
     } else pl.innerHTML = "";
     // the wafer's heat: plasma power heats it, helium under it takes the heat to the water-cooled chuck
-    const clamped = 1 - sm(s.lift / 0.15);
+    const clamped = 1 - sm(s.lift / 0.2);
     const heat = Math.min(1, s.plasma * (1 - 0.88 * he * clamped));
     part(svg, "rim").style.opacity = (clamped * he).toFixed(2);
     part(svg, "heat").style.fillOpacity = (heat * 0.85).toFixed(3);

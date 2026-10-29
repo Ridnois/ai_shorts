@@ -8,17 +8,17 @@ import { kitScript } from "../../../.claude/skills/anatomy/scripts/inline-kit.mj
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const NAME = "wafer-chuck";
-const WIDTH = 600, HEIGHT = 470;
+const WIDTH = 600;
 
 // ---- world (x, y floor; z up). About 2 mm a unit: the wafer is 70 units in radius.
-const PLATE = { x: -140, y: -290, w: 280, d: 480, r: 10 };
+const PLATE = { x: -140, y: -140, w: 280, d: 330, r: 10 };
 const PLATE_H = 10, FOOT_H = 5;
 const WAFER_R = 70, WAFER_H = 1.8;
 const CHUCK_R = 76, CHUCK_Z = 58, CHUCK_H = 10, CHUCK_TOP = CHUCK_Z + CHUCK_H;     // 68
-const RAISE = 22, SLIDE = 172;                           // lift 0..0.3 raises the wafer on its pins, then it slides out along -y
-const SHOWER_Z = 168, SHOWER_H = 10;
+const RAISE = 96;                                        // lift 0..1: the wafer rises straight up until the chuck face is clear
+const SHOWER_Z = 236, SHOWER_H = 10;
 const POSTS = [[-112, -112], [112, -112], [-112, 112], [112, 112]];
-const FRAME_Z = 150;
+const FRAME_Z = 218;
 const MFC = { x: 76, y: 124, w: 46, d: 40, r: 4 }, MFC_H = 36;
 const TANK = [-92, 150], TANK_R = 17, TANK_TOP = 100;
 const DUCT_Z = 30;
@@ -28,9 +28,12 @@ const ROUTE = [[TANK[0], TANK[1], 126], [TANK[0], 144, 126], [MFC.x + 14, 144, 1
 // simplified: the controller outlet is on its back face at z = DUCT_Z, so the last legs run along the floor
 const ROUTE2 = [[MFC.x + 14, 144, MFC_H], [MFC.x + 14, 144, DUCT_Z]];
 
-const P = k.fitProjection(
-  [...k.boxCorners(PLATE, -PLATE_H - FOOT_H, 0), [0, 0, SHOWER_Z + SHOWER_H + 60], [TANK[0], TANK[1], 130], [0, -SLIDE, CHUCK_TOP + RAISE + 6], [0, -SLIDE - WAFER_R, CHUCK_TOP], [0, 0, CHUCK_TOP + RAISE + 6]],
-  WIDTH, HEIGHT, { pad: 14, azimuth: 40, elevation: 30 });
+const EXTREMES = [...k.boxCorners(PLATE, -PLATE_H - FOOT_H, 0), [0, 0, SHOWER_Z + SHOWER_H + 60], [TANK[0], TANK[1], 130], [0, 0, CHUCK_TOP + RAISE + 6]];
+const VIEW = { azimuth: 30, elevation: 32 };                  // seen more from the front than 45: the depth axis stands up, the picture is tall enough for a 9:16 stage
+const pre = k.fitProjection(EXTREMES, 1000, 1000, { pad: 0, ...VIEW });
+const sx = EXTREMES.map((p) => k.iso(p, pre)), bw = Math.max(...sx.map((p) => p[0])) - Math.min(...sx.map((p) => p[0])), bh = Math.max(...sx.map((p) => p[1])) - Math.min(...sx.map((p) => p[1]));
+const HEIGHT = Math.round(WIDTH * bh / bw);
+const P = k.fitProjection(EXTREMES, WIDTH, HEIGHT, { pad: 14, ...VIEW });
 
 const at = (p) => k.iso(p, P);
 const S = (paths, style) => k.solidSvg(paths, style);
@@ -227,7 +230,7 @@ const css = k.ISO_CSS + `
 
 const pose = (kitScript() + `
 const P = ${JSON.stringify(P)};
-const RAISE = ${RAISE}, SLIDE = ${SLIDE}, CHUCK_TOP = ${CHUCK_TOP}, WAFER_R = ${WAFER_R}, WAFER_H = ${WAFER_H}, SHOWER_Z = ${SHOWER_Z};
+const RAISE = ${RAISE}, CHUCK_TOP = ${CHUCK_TOP}, WAFER_R = ${WAFER_R}, WAFER_H = ${WAFER_H}, SHOWER_Z = ${SHOWER_Z};
 const GAUGE = ${JSON.stringify(m.gauge)};
 const LINE_PTS = ${JSON.stringify(LINE_PTS)}, OUT_PTS = ${JSON.stringify(OUT_PTS)};
 const route = ${route.toString()};
@@ -240,7 +243,7 @@ window.__ANP[${JSON.stringify(NAME)}] = {
   init: { lift: 0, plasma: 0, he: 0, gauge: 0 },
   apply(svg, s, t) {
     const sm = (u) => { u = Math.min(1, Math.max(0, u)); return u * u * (3 - 2 * u); };
-    const wz = CHUCK_TOP + RAISE * sm(s.lift / 0.3), wy = -SLIDE * sm((s.lift - 0.3) / 0.7);
+    const wz = CHUCK_TOP + RAISE * sm(s.lift), wy = 0;
     part(svg, "wafer").setAttribute("transform", translateAlong(P, [0, wy, wz]));
     // helium in the ducts and in the channels of the chuck (positions are a pure function of the page clock)
     const he = s.he, dots = [];
@@ -268,7 +271,7 @@ window.__ANP[${JSON.stringify(NAME)}] = {
       pl.innerHTML = h;
     } else pl.innerHTML = "";
     // the wafer's heat: plasma power heats it, helium under it takes the heat to the water-cooled chuck
-    const clamped = 1 - sm(s.lift / 0.15);
+    const clamped = 1 - sm(s.lift / 0.2);
     const heat = Math.min(1, s.plasma * (1 - 0.88 * he * clamped));
     part(svg, "rim").style.opacity = (clamped * he).toFixed(2);
     part(svg, "heat").style.fillOpacity = (heat * 0.85).toFixed(3);
@@ -281,8 +284,8 @@ window.__ANP[${JSON.stringify(NAME)}] = {
 writeFileSync(join(HERE, `${NAME}.svg`), svg);
 writeFileSync(join(HERE, `${NAME}.css`), css);
 writeFileSync(join(HERE, `${NAME}.pose.js`), pose);
-writeFileSync(join(HERE, `${NAME}.json`), JSON.stringify({ width: WIDTH, height: HEIGHT, params: { lift: "0 clamped, 0.3 raised on pins, 1 slid out", plasma: "0..1 glow, ions, heat", he: "0..1 helium flow, rim, cooling", gauge: "0..1 pressure needle" },
-  anchors: Object.fromEntries(Object.entries({ chuck: [0, 0, CHUCK_TOP + WAFER_H], slid: [0, -SLIDE, CHUCK_TOP + RAISE], tank: [TANK[0], TANK[1], TANK_TOP + 20], gauge: m.gauge,
+writeFileSync(join(HERE, `${NAME}.json`), JSON.stringify({ width: WIDTH, height: HEIGHT, params: { lift: "0 clamped, 1 raised clear of the chuck", plasma: "0..1 glow, ions, heat", he: "0..1 helium flow, rim, cooling", gauge: "0..1 pressure needle" },
+  anchors: Object.fromEntries(Object.entries({ chuck: [0, 0, CHUCK_TOP + WAFER_H], raised: [0, 0, CHUCK_TOP + RAISE], tank: [TANK[0], TANK[1], TANK_TOP + 20], gauge: m.gauge,
     coolant: [49, 41, 28], shower: [0, 0, SHOWER_Z + SHOWER_H], line: [30, 60, DUCT_Z], plate: [0, 0, 0] }).map(([n, p]) => [n, at(p).map((v) => Math.round(v * 10) / 10)])) }, null, 1));
 console.log("wrote", NAME, svg.length, "bytes");
 

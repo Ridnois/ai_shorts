@@ -1,10 +1,11 @@
-// Overlap check for HyperFrames pages with a three.js canvas: samples the timeline every 0.25 s and reports
+// Overlap check for HyperFrames pages with a three.js canvas: samples the timeline every 0.125 s and reports
 //   3D vs text   (projected object boxes, window.__boxes3d, against every visible .ov element)
 //   3D vs band   (objects inside the caption band)
 //   text vs text (visible .ov elements that are not nested in each other)
 // and warns (exit code unchanged) for Design system rules the eye misses on a sheet (zones as in hfkit.py):
 //   SMALL TEXT   visible text under 40 px outside captions and cards (legible at phone size)
-//   (text inside a camera close-up, scale over 1.02, may cross the interface zones: the crop is intended)
+//   CLIPPED      text or a deck element (claim, label, card, tag, chip, prompt) not fully inside the screen (x 0 to 1080) and the world clip (y under 1170): wherever the camera is
+//   OVERFLOW     text outside the card, tag or prompt that holds it, or a one-line label that wrapped (a chip over the border, a callout label split in two)
 //   SPARSE       everything but the captions (text, 3D, .art illustrations and .hl Hairline figures) covers under a quarter of the stage (y 180 to 1440) for over 3 s in a row
 // Usage: node check3d.mjs [index.html]     exit code 1 when anything overlaps. Shared copy: System/scripts/check3d.mjs
 // ponytail: puppeteer-core and Chrome are borrowed from the hyperframes npx cache; pin them if this becomes a tool.
@@ -45,7 +46,8 @@ const res = await page.evaluate(() => {
   const found = {}, warn = {}, stage = 1080 * (1440 - 180);
   const warnAt = (t, k) => { (warn[k] = warn[k] || []).push(+t.toFixed(2)); };
   const note = (t, k) => { (found[k] = found[k] || []).push(+t.toFixed(2)); };
-  for (let t = 0; t < dur; t += 0.25) {
+  const STEP = 0.125;
+  for (let t = 0; t < dur; t += STEP) {
     tl.seek(t, false); window.__render3d && window.__render3d(t);
     const els = [...document.querySelectorAll(".ov")].filter(e => clipOn(e, t) && alpha(e) > 0.05)
       .map(e => { const r = e.getBoundingClientRect(), w = e.closest(".world");   // a world is clipped above the caption band (hfkit)
@@ -76,6 +78,19 @@ const res = await page.evaluate(() => {
       const x1 = Math.max(...boxes.map(b => b[2])), y1 = Math.min(1440, Math.max(...boxes.map(b => b[3])));
       if ((x1 - x0) * Math.max(0, y1 - y0) < stage / 4) warnAt(t, "SPARSE frame");
     } else warnAt(t, "SPARSE frame");
+    // the text audit: no exemption for a zoom, a crop of text is a fault
+    const TEXT = ".big, .lbl, .card, .tag, .ask, .count, .chip, .tit, .det, .askq, .askf";
+    const inside = (r, o) => r.left >= o[0] - 2 && r.top >= o[1] - 2 && r.right <= o[2] + 2 && r.bottom <= o[3] + 2;
+    for (const e of document.querySelectorAll(TEXT)) {
+      if (!clipOn(e, t) || alpha(e) < 0.9 || e.closest("#caps")) continue;      // settled: an entrance or an exit moves it on purpose
+      const r = e.getBoundingClientRect(); if (r.width < 2) continue;
+      const name = e.id || e.className;
+      if (!inside(r, [0, 0, 1080, 1170])) note(t, `CLIPPED ${name} (${Math.round(r.left)},${Math.round(r.top)} to ${Math.round(r.right)},${Math.round(r.bottom)})`);
+      const holder = e.closest(".card, .ask, .tag");
+      if (holder && holder !== e) { const h = holder.getBoundingClientRect(); if (!inside(r, [h.left, h.top, h.right, h.bottom])) note(t, `OVERFLOW ${name} out of ${holder.id || holder.className}`); }
+      if (e.matches(".chip, .tag, .lbl.col")) { const g = document.createRange(); g.selectNodeContents(e);
+        const lines = new Set([...g.getClientRects()].map(q => Math.round(q.top / 6))).size; if (lines > 1) note(t, `OVERFLOW ${name} wrapped to ${lines} lines`); }
+    }
     for (const e of els) { if (crop(e.el)) continue;
                            if (e.r[2] > 952) note(t, `${e.id} in the right interface strip (x > 950)`);      // the app's buttons
                            if (e.r[3] > 1442) note(t, `${e.id} in the bottom interface zone (y > 1440)`); }
@@ -83,14 +98,15 @@ const res = await page.evaluate(() => {
   return { found, warn };
 });
 await browser.close(); server.close();
+const STEPV = 0.125;
 const { found, warn } = res, keys = Object.keys(found);
 for (const k of keys) console.log(`OVERLAP ${k}: ${found[k].length} samples, ${found[k][0]} to ${found[k][found[k].length - 1]} s`);
-const longest = ts => { let best = [0, ts[0], ts[0]], a = ts[0];            // longest unbroken run of 0.25 s samples
-  for (let i = 1; i <= ts.length; i++) if (i === ts.length || ts[i] - ts[i - 1] > 0.26) {
-    if (ts[i - 1] - a + 0.25 > best[0]) best = [ts[i - 1] - a + 0.25, a, ts[i - 1]]; a = ts[i]; } return best; };
+const longest = ts => { let best = [0, ts[0], ts[0]], a = ts[0];            // longest unbroken run of 0.125 s samples
+  for (let i = 1; i <= ts.length; i++) if (i === ts.length || ts[i] - ts[i - 1] > 0.135) {
+    if (ts[i - 1] - a + 0.125 > best[0]) best = [ts[i - 1] - a + 0.125, a, ts[i - 1]]; a = ts[i]; } return best; };
 for (const [k, ts] of Object.entries(warn)) {
   const [run, a, b] = longest(ts);
   if (!k.startsWith("SPARSE") || run > 3)
-    console.log(`WARN ${k}: ${(ts.length * 0.25).toFixed(1)} s in all, longest ${run.toFixed(2)} s (${a} to ${b} s)`); }
+    console.log(`WARN ${k}: ${(ts.length * STEPV).toFixed(1)} s in all, longest ${run.toFixed(2)} s (${a} to ${b} s)`); }
 console.log(keys.length ? `${keys.length} overlap kinds` : "OVERLAPS 0");
 process.exit(keys.length ? 1 : 0);
