@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""YouTube Data API v3 uploader (stdlib only). Setup and gotchas: System/Publish.md
+"""YouTube Data API v3 uploader (stdlib only). Setup and gotchas: System/Growth.md §Publish
   python3 System/scripts/youtube_upload.py auth                      # once: browser consent, prints YT_REFRESH_TOKEN
   python3 System/scripts/youtube_upload.py upload VIDEO.mp4 --title T --desc-file D.txt [--thumb T.jpg] [--privacy private]
   python3 System/scripts/youtube_upload.py thumb VIDEO_ID THUMB.jpg   # set or re-set a thumbnail later (one set right after upload can be overwritten while YouTube is still processing)
@@ -32,7 +32,7 @@ def auth():
     url = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode(dict(
         client_id=CID, redirect_uri=redirect, response_type="code", scope=SCOPE,
         access_type="offline", prompt="consent"))
-    print("Open (pick the Redtail channel's Google account):\n" + url)
+    print("Open (pick the Next Token channel's Google account):\n" + url)
     webbrowser.open(url)
     http.server.HTTPServer(("127.0.0.1", PORT), H).handle_request()
     r = post_form(TOKEN, dict(code=got["code"][0], client_id=CID, client_secret=SEC,
@@ -48,9 +48,11 @@ def access_token():
 def upload(a):
     tok = access_token()
     desc = open(a.desc_file).read() if a.desc_file else a.desc
-    meta = dict(snippet=dict(title=a.title, description=desc, categoryId=a.category),
-                status=dict(privacyStatus=a.privacy, selfDeclaredMadeForKids=False,
-                            containsSyntheticMedia=True))  # AI-assisted channel: YouTube's altered/synthetic disclosure
+    meta = dict(snippet=dict(title=a.title, description=desc, categoryId=a.category, defaultLanguage="en", defaultAudioLanguage="en",
+                             tags=[t.strip() for t in a.tags.split(",") if t.strip()][:15]),
+                # the label is for realistic altered or generated people, places or events; drawn animation with a stock
+                # TTS narrator needs none (System/Growth.md §Policy); --synthetic sets it when a video shows realistic generated media
+                status=dict(privacyStatus=a.privacy, selfDeclaredMadeForKids=False, containsSyntheticMedia=a.synthetic))
     if a.publish_at:  # RFC 3339 UTC, e.g. 2026-10-12T15:00:00Z; requires privacy=private
         meta["status"]["publishAt"] = a.publish_at
     size = os.path.getsize(a.video)
@@ -87,8 +89,9 @@ u.add_argument("video"); u.add_argument("--title", required=True)
 u.add_argument("--desc", default=""); u.add_argument("--desc-file")
 u.add_argument("--thumb"); u.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
 u.add_argument("--publish-at"); u.add_argument("--category", default="28")  # 28 = Science & Technology
+u.add_argument("--tags", default=""); u.add_argument("--synthetic", action="store_true")
 a = p.parse_args()
-if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env (System/Publish.md)")
+if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env (System/Growth.md §Publish)")
 try:
     auth() if a.cmd == "auth" else thumb(a) if a.cmd == "thumb" else upload(a)
 except urllib.error.HTTPError as e:

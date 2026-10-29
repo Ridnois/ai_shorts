@@ -2,7 +2,7 @@
 """The Inside the Model design system as code: every HyperFrames builder imports it (System/Design system.md).
 
     import sys; sys.path.insert(0, "<vault>/System/scripts"); import hfkit as K
-    v = K.Short(__file__, keys={"RAG": K.EMBER2})        # plan.json, the take, heard words, scene starts, captions
+    v = K.Short(__file__, keys={"RAG": K.BLUE})        # plan.json, the take, heard words, scene starts, captions
     W = {"w1": K.hairline("h-cards", 53, 230, 980) + K.card(...), ...}
     v.hairline("h-cards", "riffle"); v.pop("#h-cards", v.S[1]); v.focus("w1", v.cue(1, "card"), (300, 300, 400, 300))
     v.write(W, rev=1, trans={"w2": "whip", "w3": "push"})   # index.html, render/_fx/sound_sfx.wav, render/_timeline.json
@@ -29,14 +29,21 @@ ANATOMY = f"{VAULT}/System/anatomy"                       # Anatomy figures: <na
 sys.path.insert(0, HERE)
 from captions import html_caps, groups
 
-# ---- tokens (Design system: Look)
-INK, INK2, EMBER, EMBER2, SIGNAL, SIGNAL2, MINT, MINT2, ROSE, ROSE2 = ("#0B0D17", "#151A2B", "#E36927", "#FF9A5C", "#418AD1",
-                                                                         "#8EC2F2", "#00AE7B", "#5FD6A8", "#B83255", "#E8708F")
-CREAM, SLATE, HAZE = "#F3EDE2", "#6B7590", "#262D42"
-PAL = {"ink": INK, "ink2": INK2, "ember": EMBER, "ember2": EMBER2, "signal": SIGNAL, "signal2": SIGNAL2, "mint": MINT,
-       "mint2": MINT2, "rose": ROSE, "rose2": ROSE2, "cream": CREAM, "slate": SLATE, "haze": HAZE, "white": "#FFFFFF"}
-T = {"xs": 40, "s": 56, "m": 80, "l": 120, "xl": 180}          # type scale (px); nothing read is under xs
-LINE = 4.4                                                     # stroke of drawn lines: under 4 px smears after YouTube's encode
+# ---- tokens (System/Look.md): flat paper. Flat colour survives YouTube's re-encode; no gradients, no grain, no glow.
+PAPER, PAPER2, INK, MUTED, WHITE = "#F4EFE4", "#E7E0D1", "#121212", "#6B665C", "#FFFFFF"
+YELLOW, YELLOW2 = "#FFD23F", "#FFE68A"     # the hero: a fill or a marker under ink text, never a text colour
+BLUE, BLUE2 = "#2C5BEA", "#D3DEFF"         # data and inputs (text-safe on paper)
+RED, RED2 = "#D7392B", "#FFD6CF"           # wrong, the error
+GREEN, GREEN2 = "#13965A", "#CDEFDB"       # right, the fix
+# names used by builders written before 29 Oct 2026 (dark look), mapped to their meaning in the paper look
+EMBER = EMBER2 = YELLOW; SIGNAL = SIGNAL2 = BLUE; MINT = MINT2 = GREEN; ROSE = ROSE2 = RED
+CREAM, SLATE, HAZE, INK2 = INK, MUTED, PAPER2, WHITE
+PAL = {"paper": PAPER, "paper2": PAPER2, "ink": INK, "muted": MUTED, "white": WHITE, "yellow": YELLOW, "yellow2": YELLOW2,
+       "blue": BLUE, "blue2": BLUE2, "red": RED, "red2": RED2, "green": GREEN, "green2": GREEN2,
+       "ember": YELLOW, "signal": BLUE, "mint": GREEN, "rose": RED, "cream": INK, "slate": MUTED, "haze": PAPER2, "ink2": WHITE}
+TEXT_SAFE = {INK, MUTED, BLUE, RED, GREEN}     # colours text may take on paper; yellow only as a marker behind ink
+T = {"xs": 44, "s": 60, "m": 84, "l": 128, "xl": 190}          # type scale (px); nothing read is under xs
+LINE = 6                                                       # stroke of drawn lines: thick ink survives the encode
 
 # ---- layout: zones and the column grid
 FW, FH = 1080, 1920
@@ -55,17 +62,20 @@ rowy = lambda k, n, top=STAGE[1], bottom=STAGE[3]: round(top + (bottom - top) * 
 
 
 # ---- components (HTML strings; ids drive the motion verbs)
-def lbl(id_, text, x, y, w, col=CREAM):
+def lbl(id_, text, x, y, w, col=INK):
     return f'<div class="lbl ov" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;color:{col}">{text}</div>'
 
 
-def big(id_, text, x, y, w, size=T["l"], col=CREAM, hot=None, hot_col=EMBER2):
+def big(id_, text, x, y, w, size=T["l"], col=INK, hot=None, hot_col=YELLOW):
     """A display line (a claim, a number) in Inter Display Black; each word is a span id_-w<k> for Short.words().
-    hot = index of the one word in the accent colour."""
+    hot = index of the one word on the yellow marker (hot_col YELLOW) or, for a text-safe colour, in that colour."""
     if len(text) * size * 0.62 > w and size <= T["m"] and w < 1000:        # a one-line claim; thumbnail lines at 110 px or more wrap on purpose
         print(f"WARN big {id_}: '{text}' needs about {round(len(text) * size * 0.62)} px at {size} px type, the box is {w} px: it will wrap")
-    ws = "".join(f'<span id="{id_}-w{k}" style="color:{hot_col if k == hot else col}">{html.escape(t)}</span> '
-                 for k, t in enumerate(text.split()))
+    def st(k):
+        if k != hot:
+            return f'style="color:{col}"'
+        return (f'class="hot" style="color:{INK};background:{hot_col}"' if hot_col not in TEXT_SAFE else f'style="color:{hot_col}"')
+    ws = "".join(f'<span id="{id_}-w{k}" {st(k)}>{html.escape(t)}</span> ' for k, t in enumerate(text.split()))
     return f'<div class="big ov" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;font-size:{size}px">{ws.strip()}</div>'
 
 
@@ -143,7 +153,7 @@ def hlxy(x, y, w, vx, vy):
     return round(x + vx / 400 * w), round(y + vy / 320 * w * 0.8)
 
 
-def callout(id_, text, ax, ay, lx, ly, col=CREAM, side="right", w=440):
+def callout(id_, text, ax, ay, lx, ly, col=INK, side="right", w=440):
     """A technical callout: a dot on the part (ax, ay), a leader to (lx, ly), a rule under the label.
     side = which way the rule and label run from (lx, ly). Enters with Short.callout()."""
     ex = min(lx + w, X1) if side == "right" else max(lx - w, X0)       # the rule and label stay inside the content edges
@@ -151,13 +161,13 @@ def callout(id_, text, ax, ay, lx, ly, col=CREAM, side="right", w=440):
     svg = (f'<svg class="co" id="{id_}-s" width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;left:0;top:0;overflow:visible">'
            f'<polyline id="{id_}-p" points="{ax},{ay} {lx},{ly} {ex},{ly}" pathLength="1" fill="none" stroke="{col}" stroke-width="{LINE}" '
            f'stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1"/>'
-           f'<circle id="{id_}-d" cx="{ax}" cy="{ay}" r="11" fill="{INK}" stroke="{col}" stroke-width="{LINE}" opacity="0"/></svg>')
+           f'<circle id="{id_}-d" cx="{ax}" cy="{ay}" r="13" fill="{YELLOW}" stroke="{INK}" stroke-width="{LINE}" opacity="0"/></svg>')
     left = lx + 8 if side == "right" else ex
-    return svg + (f'<div class="lbl ov col" id="{id_}" style="left:{left}px;top:{ly - 66}px;width:{w}px;color:{col};'
+    return svg + (f'<div class="lbl ov col" id="{id_}" style="left:{left}px;top:{ly - 70}px;width:{w}px;color:{col if col in TEXT_SAFE else INK};'
                   f'text-align:{"left" if side == "right" else "right"}">{text}</div>')
 
 
-def tag(id_, text, x, y, col=SIGNAL2):
+def tag(id_, text, x, y, col=BLUE):
     """A line-drawn tag holding a query or a name: the thing that moves between figures."""
     return f'<div class="tag ov" id="{id_}" style="left:{x}px;top:{y}px;color:{col};border-color:{col}">{html.escape(text)}</div>'
 
@@ -191,7 +201,7 @@ def ask(id_, question, answers):
     if sum(len(a) * 23 + 70 for a in answers) > 830:      # chips are one row inside the 894 px panel: 40 px type, 52 px padding, 18 px gap
         print(f"WARN ask {id_}: the chips {answers} are wider than the panel; shorten them (about 27 characters in all for three)")
     chips = "".join(f'<span class="chip" id="{id_}-c{k}">{html.escape(a)}</span>' for k, a in enumerate(answers))
-    return (f'<div class="ask ov" id="{id_}"><div class="askq"><svg viewBox="0 0 48 48" width="84" height="84"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="none" stroke="{MINT2}" stroke-width="2.8" stroke-linejoin="round"/></svg>{html.escape(question)}</div>'
+    return (f'<div class="ask ov" id="{id_}"><div class="askq"><svg viewBox="0 0 48 48" width="84" height="84"><path d="M8 10h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H22l-9 8v-8H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="{YELLOW}" stroke="{INK}" stroke-width="3.4" stroke-linejoin="round"/></svg>{html.escape(question)}</div>'
             f'<div class="chips">{chips}</div><div class="askf">reply in the comments</div></div>')
 
 
@@ -200,90 +210,82 @@ FONTS = [("Inter", 400, "Inter-Regular.otf"), ("Inter", 600, "Inter-SemiBold.otf
          ("Inter Display", 800, "InterDisplay-ExtraBold.otf"), ("Inter Display", 900, "InterDisplay-Black.otf"),
          ("JetBrains Mono", 400, "JetBrainsMono-Regular.ttf"), ("JetBrains Mono", 700, "JetBrainsMono-Bold.ttf")]
 FACES = "".join(f'@font-face {{ font-family:"{f}"; font-weight:{w}; src:url("assets/fonts/{n}"); }}\n' for f, w, n in FONTS)
-GRAIN = ("data:image/svg+xml;utf8," + "<svg xmlns='http://www.w3.org/2000/svg' width='360' height='360'><filter id='n'>"
-         "<feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='7' stitchTiles='stitch'/>"
-         "<feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter>"
-         "<rect width='100%' height='100%' filter='url(%23n)'/></svg>")
-
 CSS = FACES + f'''
 * {{ margin:0; padding:0; box-sizing:border-box; }}
-html, body {{ width:1080px; height:1920px; overflow:hidden; background:{INK}; }}
-#root {{ position:relative; width:1080px; height:1920px; font-family:Inter, sans-serif; color:{CREAM}; perspective:1600px; }}
-#ground {{ position:absolute; inset:0; background-color:{INK};
-  background-image: radial-gradient(1000px 900px at 18% 82%, rgba(227,105,39,0.16), transparent 70%),
-              radial-gradient(900px 800px at 85% 18%, rgba(65,138,209,0.15), transparent 70%),
-              radial-gradient(1200px 1000px at 50% 45%, rgba(21,26,43,0.9), transparent 75%); }}
-#ground::after {{ content:""; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 42%, transparent 55%, rgba(0,0,0,0.5) 100%); }}
-#grain {{ position:absolute; inset:0; background-image:url("{GRAIN}"); opacity:0.07; mix-blend-mode:overlay; z-index:45; pointer-events:none; }}
-#flood {{ position:absolute; inset:0;
-  background: radial-gradient(900px 800px at 20% 30%, rgba(0,174,123,0.28), transparent 70%),
-              radial-gradient(800px 800px at 85% 75%, rgba(65,138,209,0.24), transparent 70%); }}
+html, body {{ width:1080px; height:1920px; overflow:hidden; background:{PAPER}; }}
+#root {{ position:relative; width:1080px; height:1920px; font-family:Inter, sans-serif; color:{INK}; perspective:1600px; }}
+/* ground: flat paper and a static dot grid (static texture costs the encoder nothing between frames) */
+#ground {{ position:absolute; inset:0; background-color:{PAPER};
+  background-image: radial-gradient(circle at 3px 3px, rgba(18,18,18,0.10) 2.6px, transparent 3.2px); background-size:54px 54px; }}
+#flood {{ position:absolute; inset:0; background:{GREEN2}; }}
 .world, .world .cam, .world .in, .world .scr {{ position:absolute; inset:0; }}
 .world {{ clip-path:inset(0 0 {FH - BAND[0] + 10}px 0); }}      /* worlds never paint over the captions: they own the band */
 .p3d, #gl {{ position:absolute; left:0; top:0; width:1080px; height:1920px; }}
-.art {{ position:absolute; object-fit:contain; filter:drop-shadow(0 18px 30px rgba(0,0,0,0.55)); }}
-.frm {{ position:absolute; border-radius:18px; border:4px solid {SLATE}; box-shadow:0 24px 60px rgba(0,0,0,0.55); background:#05070D; }}
-.lbl {{ position:absolute; text-align:center; font-size:48px; font-weight:800; letter-spacing:-0.01em; line-height:1.15; }}
-.big {{ position:absolute; font-family:"Inter Display"; font-weight:900; line-height:1.02; letter-spacing:-0.025em; }}
+.art {{ position:absolute; object-fit:contain; }}
+.frm {{ position:absolute; border-radius:22px; border:{LINE}px solid {INK}; box-shadow:12px 12px 0 {INK}; background:{WHITE}; }}
+.lbl {{ position:absolute; text-align:center; font-size:52px; font-weight:900; letter-spacing:-0.01em; line-height:1.12; }}
+.big {{ position:absolute; font-family:"Inter Display"; font-weight:900; line-height:1.04; letter-spacing:-0.03em; color:{INK}; }}
 .big span {{ display:inline-block; }}
-.phone {{ position:absolute; border-radius:50px; background:#05070D; border:4px solid {SLATE}; padding:12px; box-shadow:0 30px 80px rgba(0,0,0,0.6); }}
-.phone img {{ width:100%; height:100%; border-radius:40px; object-fit:cover; }}
-.code {{ position:absolute; padding:28px 36px 30px; border-radius:26px; background:#0E1220; border:4px solid {SLATE};
-  font-family:"JetBrains Mono", monospace; color:{CREAM}; box-shadow:0 24px 60px rgba(0,0,0,0.5); }}
-.code .bar {{ display:flex; align-items:center; gap:12px; margin:-8px 0 18px; font-size:32px; color:{SLATE}; font-weight:700; }}
-.code .bar i {{ width:18px; height:18px; border-radius:50%; background:{HAZE}; }}
+.hot {{ padding:0 0.10em; margin:0 -0.04em; border-radius:0.12em; box-shadow:0 0 0 0.04em {INK} inset; }}
+.phone {{ position:absolute; border-radius:56px; background:{INK}; border:{LINE}px solid {INK}; padding:14px; box-shadow:14px 14px 0 rgba(18,18,18,0.18); }}
+.phone img {{ width:100%; height:100%; border-radius:44px; object-fit:cover; }}
+.code {{ position:absolute; padding:30px 38px 32px; border-radius:26px; background:#171717; border:{LINE}px solid {INK};
+  font-family:"JetBrains Mono", monospace; color:{PAPER}; box-shadow:12px 12px 0 rgba(18,18,18,0.25); }}
+.code .bar {{ display:flex; align-items:center; gap:12px; margin:-8px 0 18px; font-size:32px; color:#9A958B; font-weight:700; }}
+.code .bar i {{ width:20px; height:20px; border-radius:50%; background:#3A3A3A; }}
+.code .bar i:nth-child(1) {{ background:{RED}; }} .code .bar i:nth-child(2) {{ background:{YELLOW}; }} .code .bar i:nth-child(3) {{ background:{GREEN}; }}
 .code .bar span {{ margin-left:14px; }}
 .cl {{ white-space:pre-wrap; }}
-.cl s {{ text-decoration:none; color:{MINT2}; }}
-.cl b {{ color:{EMBER2}; font-weight:700; }}
-.cl u {{ text-decoration:none; color:{SLATE}; }}
-.count {{ position:absolute; text-align:center; font-size:76px; font-weight:900; }}
-.count b {{ color:{EMBER2}; font-size:{T["l"]}px; font-family:"Inter Display"; }}
-.flash {{ position:absolute; left:0; top:0; width:1080px; background:radial-gradient(600px 400px at 80% 25%, rgba(255,255,255,0.75), transparent 70%); }}
-.strip {{ position:absolute; overflow:hidden; border-radius:18px; background:#05070D; border:4px solid {SLATE}; padding:6px 0; }}
+.cl s {{ text-decoration:none; color:#7EE2A8; }}
+.cl b {{ color:{YELLOW}; font-weight:700; }}
+.cl u {{ text-decoration:none; color:#9A958B; }}
+.count {{ position:absolute; text-align:center; font-size:76px; font-weight:900; color:{INK}; }}
+.count b {{ color:{INK}; background:{YELLOW}; padding:0 0.12em; border-radius:0.1em; font-size:{T["l"]}px; font-family:"Inter Display"; }}
+.flash {{ position:absolute; left:0; top:0; width:1080px; background:{WHITE}; }}
+.strip {{ position:absolute; overflow:hidden; border-radius:22px; background:{WHITE}; border:{LINE}px solid {INK}; padding:6px 0; }}
 .track {{ position:absolute; left:0; top:8px; }}
-.arr {{ position:absolute; text-align:center; font-size:48px; font-weight:800; color:{SLATE}; border-bottom:8px solid {SLATE}; padding-bottom:10px; }}
-.xx {{ position:absolute; height:16px; border-radius:8px; background:{ROSE2}; transform:rotate(-30deg); }}
-.card {{ position:absolute; left:56px; top:{DECK[1] - 8}px; width:894px; min-height:270px; border-radius:24px; background:rgba(21,26,43,0.94);
-  border:{LINE}px solid rgba(243,237,226,0.85); padding:30px 40px; }}
-.card::before {{ content:""; position:absolute; left:40px; top:-4px; width:120px; height:7px; background:{EMBER2}; }}
-.card.good {{ border-color:{MINT2}; box-shadow:0 0 50px rgba(95,214,168,0.25); }}
-.card.good::before {{ background:{MINT2}; }}
-.card .lab {{ font-family:"JetBrains Mono", monospace; font-size:32px; letter-spacing:0.06em; color:{EMBER2}; font-weight:700; }}
-.card.good .lab {{ color:{MINT2}; }}
-.card .tit {{ font-family:"Inter Display"; font-size:60px; font-weight:800; color:{CREAM}; margin-top:10px; line-height:1.1; letter-spacing:-0.015em; }}
-.card .det {{ font-size:40px; color:#A9B0C4; margin-top:12px; line-height:1.2; }}
-.tag {{ position:absolute; padding:14px 30px; border:{LINE}px solid; border-radius:44px; background:rgba(21,26,43,0.94); font-size:46px; font-weight:800; white-space:nowrap; }}
+.arr {{ position:absolute; text-align:center; font-size:52px; font-weight:900; color:{INK}; border-bottom:10px solid {INK}; padding-bottom:10px; }}
+.xx {{ position:absolute; height:18px; border-radius:9px; background:{RED}; transform:rotate(-30deg); }}
+.card {{ position:absolute; left:56px; top:{DECK[1] - 8}px; width:894px; min-height:270px; border-radius:26px; background:{WHITE};
+  border:{LINE}px solid {INK}; box-shadow:14px 14px 0 {INK}; padding:30px 40px; }}
+.card::before {{ content:""; position:absolute; left:40px; top:-6px; width:140px; height:12px; border-radius:6px; background:{YELLOW}; border:3px solid {INK}; }}
+.card.good {{ background:{GREEN2}; }}
+.card.good::before {{ background:{GREEN}; }}
+.card .lab {{ font-family:"JetBrains Mono", monospace; font-size:32px; letter-spacing:0.04em; color:{BLUE}; font-weight:700; }}
+.card.good .lab {{ color:{GREEN}; }}
+.card .tit {{ font-family:"Inter Display"; font-size:64px; font-weight:900; color:{INK}; margin-top:10px; line-height:1.08; letter-spacing:-0.02em; }}
+.card .det {{ font-size:42px; font-weight:600; color:{MUTED}; margin-top:12px; line-height:1.2; }}
+.tag {{ position:absolute; padding:14px 32px; border:{LINE}px solid; border-radius:48px; background:{WHITE}; font-size:48px; font-weight:900; white-space:nowrap; box-shadow:8px 8px 0 {INK}; }}
 #rail {{ z-index:40; }}
-#rail::before {{ content:""; position:absolute; left:-56px; top:-16px; width:1080px; height:130px; background:linear-gradient(180deg, rgba(11,13,23,0.98) 78%, rgba(11,13,23,0)); }}
-.rl {{ position:absolute; top:17px; height:{LINE}px; background:{SLATE}; }}
+#rail::before {{ content:""; position:absolute; left:-56px; top:-16px; width:1080px; height:130px; background:{PAPER}; }}
+.rl {{ position:absolute; top:17px; height:{LINE}px; background:{INK}; }}
 .rn {{ position:absolute; top:0; width:220px; text-align:center; }}
-.rn i {{ display:block; margin:0 auto; width:38px; height:38px; border-radius:50%; border:{LINE}px solid {SLATE}; background:{INK}; }}
-.rn span {{ display:block; margin-top:8px; font-family:"JetBrains Mono", monospace; font-size:40px; font-weight:700; color:{SLATE}; }}
-.ask {{ position:absolute; left:56px; top:{DECK[1] - 20}px; width:894px; padding:24px 32px 20px; border-radius:40px; background:rgba(21,26,43,0.94);
-  border:{LINE}px solid {MINT2}; box-shadow:0 0 50px rgba(95,214,168,0.30); }}
-.askq {{ display:flex; align-items:center; gap:20px; font-family:"Inter Display"; font-size:58px; font-weight:900; color:{CREAM}; line-height:1.05; }}
+.rn i {{ display:block; margin:0 auto; width:40px; height:40px; border-radius:50%; border:{LINE}px solid {INK}; background:{WHITE}; }}
+.rn span {{ display:block; margin-top:8px; font-family:"JetBrains Mono", monospace; font-size:40px; font-weight:700; color:{MUTED}; }}
+.ask {{ position:absolute; left:56px; top:{DECK[1] - 20}px; width:894px; padding:26px 34px 22px; border-radius:40px; background:{WHITE};
+  border:{LINE}px solid {INK}; box-shadow:14px 14px 0 {INK}; }}
+.askq {{ display:flex; align-items:center; gap:20px; font-family:"Inter Display"; font-size:60px; font-weight:900; color:{INK}; line-height:1.05; }}
 .askq svg {{ flex:none; }}
 .chips {{ display:flex; gap:18px; margin-top:20px; }}
-.chip {{ padding:10px 26px; border-radius:40px; border:{LINE}px solid {SIGNAL2}; color:{SIGNAL2}; font-size:40px; font-weight:800; white-space:nowrap; }}
-.askf {{ margin-top:16px; font-size:40px; font-weight:700; color:{SLATE}; }}
-.hl {{ position:absolute; --hairline-plate:{INK2}; --hairline-hi:{EMBER2}; --hairline-edge:{CREAM}; --hairline-mid:{SLATE};
-  --hairline-lo:{HAZE}; --hairline-stroke:{LINE}; }}
+.chip {{ padding:10px 28px; border-radius:40px; border:{LINE - 2}px solid {INK}; background:{YELLOW}; color:{INK}; font-size:42px; font-weight:900; white-space:nowrap; }}
+.askf {{ margin-top:16px; font-size:40px; font-weight:700; color:{MUTED}; }}
+.hl {{ position:absolute; --hairline-plate:{WHITE}; --hairline-hi:{BLUE}; --hairline-edge:{INK}; --hairline-mid:{MUTED};
+  --hairline-lo:#CFC7B6; --hairline-stroke:{LINE}; }}
 .hl [aria-live], .hl .sr-only {{ display:none; }}
 .hl * {{ transition:none !important; }}            /* Hairline fades strokes in real time; frames must follow the timeline only */
 .an {{ position:absolute; }}
-.an.iso {{ --anatomy-paper:#151A2B; --anatomy-face:#1B2136; --anatomy-top:#232B47;
-  --anatomy-shade-0:#0E111E; --anatomy-shade-1:#121626; --anatomy-shade-2:#171C2F; --anatomy-shade-3:#1C2238;
-  --anatomy-hi:#D9D3C7; --anatomy-mid:{SLATE}; --anatomy-lo:#3B4460; --anatomy-faint:{HAZE}; --anatomy-lit:{EMBER2};
-  --anatomy-lit-top:#6B3A1F; --anatomy-lit-shade:#4A2A18; --anatomy-halo:#04050A; --anatomy-halo-opacity:.9; --anatomy-dot:{CREAM};
-  --anatomy-weight:2.2px; --anatomy-red:{ROSE2}; --anatomy-green:{MINT2}; --anatomy-blue:{SIGNAL2}; }}
+.an.iso {{ --anatomy-paper:{WHITE}; --anatomy-face:{WHITE}; --anatomy-top:{WHITE};
+  --anatomy-shade-0:#D9D2C3; --anatomy-shade-1:#E4DDCF; --anatomy-shade-2:#EDE7DB; --anatomy-shade-3:#F6F2EA;
+  --anatomy-hi:{INK}; --anatomy-mid:#5E594F; --anatomy-lo:#8D877B; --anatomy-faint:#CFC7B6; --anatomy-lit:{INK};
+  --anatomy-lit-top:{YELLOW}; --anatomy-lit-shade:#F0B90F; --anatomy-halo:#8A7F68; --anatomy-halo-opacity:.28; --anatomy-dot:{INK};
+  --anatomy-weight:2.8px; --anatomy-red:{RED}; --anatomy-green:{GREEN}; --anatomy-blue:{BLUE}; }}
 .an * {{ transition:none !important; }}
-.cap {{ position:absolute; left:0; width:1080px; top:{BAND[0] + 6}px; height:128px; line-height:128px; text-align:center;
-  font-family:Inter; font-weight:900; color:#fff; letter-spacing:0; z-index:50; white-space:nowrap; word-spacing:0;
-  -webkit-text-stroke:4px #07080D; paint-order:stroke fill; text-shadow:0 4px 0 #07080D, 0 10px 28px rgba(0,0,0,0.6); }}
+/* captions: ink capitals on paper, the spoken word on a yellow marker */
+.cap {{ position:absolute; left:0; width:1080px; top:{BAND[0] + 2}px; height:140px; line-height:140px; text-align:center;
+  font-family:Inter; font-weight:900; color:{INK}; letter-spacing:-0.01em; z-index:50; white-space:nowrap; word-spacing:0; }}
 .cap .ci {{ display:inline-block; }}
-.cap .ci > span {{ display:inline-block; margin:0 0.14em; }}      /* explicit word gaps: the stroke ate the plain spaces */
-.cap .on {{ transform:scale(1.06); }}
+.cap .ci > span {{ display:inline-block; margin:0 0.10em; padding:0 0.12em; line-height:1.18; border-radius:0.14em; }}
+.cap .on {{ background:{YELLOW}; box-shadow:0 0 0 0.05em {INK} inset; transform:scale(1.06); }}
 '''
 HIDE0 = [".ask", ".hl", ".tag", "#rail", ".card", ".art", ".lbl", ".big", ".code", ".cl", ".count", ".strip", ".frm:not(.track .frm)",
          ".arr", ".xx", ".flash"]
@@ -379,7 +381,7 @@ class Short:
         self.win = {f"w{n}": (cut(n), cut(n + 1) if n < NS else self.DUR) for n in range(1, NS + 1)}
         self.timed = timed = [(w[0], self.T(k), round(off + w[2], 3)) for k, w in enumerate(words)]
         keys = keys or {}
-        self.caps = html_caps(timed, lambda t, s: keys.get(t), end=off + self.take_dur, lit=EMBER2)
+        self.caps = html_caps(timed, lambda t, s: keys.get(t) if keys.get(t) in TEXT_SAFE else None, end=off + self.take_dur, lit=INK)
         self.J, self.extra, self.models, self.figs, self.sounds = [], [], [], {}, []
         self.anat = {}                                 # Anatomy figures: id -> {name, keys}
         self.beats, self.moves, self.callouts = [], [], {}   # event times (for the frame audit), camera moves, callout windows
@@ -433,7 +435,7 @@ class Short:
     def strike(self, s, t):
         self.at(t, f'to({sel(s)}, {{opacity:1, scaleX:1, duration:0.3, ease:"power3.out"}}, @);')
 
-    def light(self, s, t, col=EMBER2):                # recolour on the word that names it
+    def light(self, s, t, col=BLUE):                # recolour on the word that names it
         self.at(t, f'to({sel(s)}, {{color:"{col}", duration:0.3}}, @);')
 
     def slide(self, s, t, x, d):
@@ -485,8 +487,8 @@ class Short:
 
     def step(self, k, t, state="on"):
         """Rail node k becomes on (ember, the step on screen), done (cream), bad (rose: where it fails) or good (mint)."""
-        col = {"on": EMBER2, "done": CREAM, "bad": ROSE2, "good": MINT2}[state]
-        fill = {"on": EMBER2, "done": INK, "bad": ROSE2, "good": MINT2}[state]
+        col = {"on": INK, "done": INK, "bad": RED, "good": GREEN}[state]
+        fill = {"on": YELLOW, "done": INK, "bad": RED, "good": GREEN}[state]
         self.at(t, f'to("#rail-d{k}", {{borderColor:"{col}", backgroundColor:"{fill}", scale:1.25, duration:0.25, ease:"back.out(1.4)"}}, @);')
         self.at(t + 0.25, f'to("#rail-d{k}", {{scale:1, duration:0.2}}, @);')
         self.at(t, f'to("#rail-t{k}", {{color:"{col}", duration:0.25}}, @);')
@@ -521,7 +523,7 @@ class Short:
         A name in vendor/hairline/custom/ (figures made with /hairline-create, e.g. window) mounts that figure on the
         skill's kernel instead; `value` is its own number (its `range`), default the middle one."""
         custom = os.path.exists(f"{HERE}/vendor/hairline/custom/{fn}.js")
-        self.figs[id_] = {"fn": fn, "custom": custom, "value": value, "opts": {"intensity": intensity, "theme": "dark"}, "moves": []}
+        self.figs[id_] = {"fn": fn, "custom": custom, "value": value, "opts": {"intensity": intensity, "theme": "light"}, "moves": []}
 
     def point(self, id_, t, x=None, y=None, glide=0):
         """The unseen pointer: at t it moves to (x, y) in the figure's 400 x 320 viewBox (gliding over `glide` s);
@@ -624,7 +626,7 @@ function mount() { __HL.reset(); figs.forEach(f => f.destroy()); at = -1;
     .map(([id, f]) => f.custom ? custom(document.getElementById(id), f) : HL[f.fn](document.getElementById(id), f.opts)); }
 function custom(host, f) {                            // a /hairline-create figure, mounted the way its bench does
   const spec = window.__HLC[f.fn], K = window.HLK;
-  K.inject(document); host.setAttribute("data-hairline", spec.name); host.setAttribute("data-hairline-theme", "dark");
+  K.inject(document); host.setAttribute("data-hairline", spec.name); host.setAttribute("data-hairline-theme", "light");
   const svg = K.mk("svg", {viewBox: "0 0 400 320", "aria-hidden": "true"}, host), read = {textContent: ""};
   const h = spec.mount({stage: host, svg, read}, f.value ?? spec.range[1]);
   return {destroy: () => { h.destroy(); svg.remove(); }};
@@ -654,7 +656,7 @@ renderer.setSize(W, H, false); renderer.setPixelRatio(1); renderer.setClearColor
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 const scene = new THREE.Scene();
 scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-const keyL = new THREE.DirectionalLight(0xffe2c8, 1.5); keyL.position.set(-4, 6, 8); scene.add(keyL);
+const keyL = new THREE.DirectionalLight(0xfff4e0, 1.6); keyL.position.set(-4, 6, 8); scene.add(keyL);
 const rimL = new THREE.DirectionalLight(0x8ec2f2, 1.0); rimL.position.set(5, 3, -6); scene.add(rimL);
 const box3 = new THREE.Box3(), V = new THREE.Vector3();
 function screenBox(o, cam) {
@@ -736,6 +738,8 @@ window.__hf.buildReady["glb"] = (async () => {
         flood: the scene number where the solution's colour flood starts. blur: HyperFrames' render-time motion blur.
         first: selectors on screen from frame 0 (the hook's claim; frame 0 is the thumbnail on social players)."""
         DUR, win, trans = self.DUR, self.win, trans or {}
+        if not first:
+            print("WARN first=(): nothing is on screen at frame 0. The hook's picture and claim must show at 0 s (frame 0 is the thumbnail)")
         pic = lambda h: re.sub(r"<!--SCR-->.*?<!--/SCR-->", "", h, flags=re.S)
         scr = lambda h: "".join(re.findall(r"<!--SCR-->(.*?)<!--/SCR-->", h, flags=re.S))
         world = lambda wid, z: (f'<div id="{wid}" class="clip world" data-start="{win[wid][0]}" data-duration="{round(win[wid][1] - win[wid][0], 3)}" '
@@ -745,7 +749,6 @@ window.__hf.buildReady["glb"] = (async () => {
                 + "".join(e + "\n" for e in self.extra)
                 + (f'<canvas id="gl" class="clip" width="1080" height="1920" data-start="0" data-duration="{DUR}" data-track-index="6"></canvas>\n' if self.models else "")
                 + "\n".join(world(w, 10 + k) for k, w in enumerate(self.ORDER))
-                + f'\n<div id="grainc" class="clip" data-start="0" data-duration="{DUR}" data-track-index="45"><div id="grain"></div></div>'
                 + f'\n<audio id="vo" class="clip" data-start="{self.off}" data-duration="{round(self.take_dur, 3)}" data-track-index="30" data-volume="1" src="assets/{os.path.basename(self.take)}"></audio>'
                 + f'\n<div id="caps" data-track-kind="captions">\n{self.caps}\n</div>')
         head = self._transitions(trans) + self._caption_entries()
@@ -863,7 +866,7 @@ window.addEventListener("hf-seek", e => {{ if (e && e.detail && typeof e.detail.
         if self.anat:                                    # Anatomy figures in their last pose
             hl += self._anatomy(end=max([k[0] + k[1] for f in self.anat.values() for k in f["keys"]] + [0]) + 1).replace("<script>window.__ANP", "<script>window.__seek = window.__seek || []; window.__timelines = window.__timelines || {main: {time: () => 0}}; window.__ANP", 1)
         page = (f'<!doctype html><html><head><meta charset="UTF-8"/><style>{CSS}{css} .ov, .hl, .art, .big {{ opacity:1 }}</style>{"<script src=assets/gsap/gsap.min.js></script>" if self.anat else ""}</head>'
-                f'<body><div id="root"><div id="ground"></div>{inner}<div id="grain"></div></div>{hl}</body></html>')
+                f'<body><div id="root"><div id="ground"></div>{inner}</div>{hl}</body></html>')
         open(f"{self.here}/thumb.html", "w").write(page)
         out = out or f"{self.root}/upload/thumb.jpg"
         os.makedirs(os.path.dirname(out), exist_ok=True)
@@ -896,7 +899,7 @@ def demo(d):
     v = Short(f"{d}/hf/build.py")
     W = {"w1": big("t1", "One take", 70, 300, 880, T["xl"], hot=1) + card("k1", "VOICE · INWORLD TTS-2", "One take, no cuts", "pauses written into the text"),
          "w2": code("c2", [("<u>$</u> word_timings.py", None), ("<s>'words'</s>: <b>118</b>", None)], 70, 300, 870, title="terminal · real output")
-               + callout("o2", "times", 600, 420, 760, 640, SIGNAL2, "left", 400),
+               + callout("o2", "times", 600, 420, 760, 640, BLUE, "left", 400),
          "w3": hairline("h3", 53, 220, 900) + tag("g3", "index.html", 80, 760),
          "w4": counter("n4", "OVERLAPS", 0, 330, 380) + ask("a4", "Ship it?", ["yes", "fix", "drop"])}
     v.reveal("t1", v.S[1], n=2); v.pop("#k1", v.cue(1, "script"))
@@ -906,7 +909,7 @@ def demo(d):
     v.cam("w3", v.cue(3, "frames"), 503, 420, 1.3, d=0.9)
     v.pop("#n4", v.S[4]); v.count("#n4-n", 0, v.S[4]); v.rise("#a4", v.cue(4, "pass")); v.chips("a4", 3, v.cue(4, "pass") + 0.3)
     v.payoff(v.cue(4, "pass"))
-    v.write(W, rev=1, trans={"w2": "whip", "w3": "push", "w4": "dip"})
+    v.write(W, rev=1, trans={"w2": "whip", "w3": "push", "w4": "dip"}, first=("#t1", "#t1-w0", "#t1-w1", "#k1"))
     v.thumb(hairline("h3", 53, 300, 980) + big("tb", "ONE PAGE, MANY FRAMES", 70, 1080, 880, 120, hot=1))
     print(f"demo written: npx hyperframes snapshot {d}/hf --at 0.5,2,4,6")
 

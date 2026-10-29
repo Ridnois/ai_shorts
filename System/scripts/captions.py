@@ -9,7 +9,7 @@ A caption breaks after MAX_WORDS, before passing MAX_CHARS, after . , ? ! : ; an
 Run it to self-check:  python3 System/scripts/captions.py"""
 import html
 
-MAX_WORDS, MAX_CHARS, GAP, HOLD = 3, 16, 0.3, 0.55   # HOLD: longest pause (s) a caption stays on screen
+MAX_WORDS, MAX_CHARS, GAP, HOLD = 3, 15, 0.3, 0.55   # HOLD: longest pause (s) a caption stays on screen
 
 
 def groups(words):
@@ -24,12 +24,13 @@ def groups(words):
     return out
 
 
-def size(text):                                       # 84 px, fitted so a phrase in Inter Black capitals stays inside 860 px
-    return max(56, min(84, int(860 / (0.76 * max(len(text), 1)))))     # 0.76 em a character: capitals plus the word gaps
+def size(text):                                       # 96 px, fitted so a phrase in Inter Black capitals stays inside 880 px
+    return max(60, min(96, int(880 / (0.80 * max(len(text), 1)))))     # 0.80 em a character: capitals, word gaps and the marker padding
 
 
-def html_caps(words, colour=lambda t, s: None, end=None, lit="#FFFFFF"):
-    """colour(text, start) gives a key word's own colour (or None); the spoken word shows in it, else in `lit`."""
+def html_caps(words, colour=lambda t, s: None, end=None, lit="#121212", base="#121212"):
+    """colour(text, start) gives a key word's own colour (or None); the spoken word shows in it, else in `lit` (the paper
+    look puts it on a yellow marker through the class "on"); the other words of the phrase show in `base`."""
     end = end if end is not None else words[-1][2] + 0.25
     divs = []
     for g in groups(words):
@@ -38,8 +39,8 @@ def html_caps(words, colour=lambda t, s: None, end=None, lit="#FFFFFF"):
             s = words[k][1]
             nxt = words[k + 1][1] if k + 1 < len(words) else end
             e = round(min(nxt, words[k][2] + HOLD), 3)
-            body = " ".join(f'<span{" class=\"on\"" if m == n else ""} style="color:{(colour(t, s) or lit) if m == n else (colour(t, s) or "#FFFFFF")};'
-                            f'opacity:{1 if m == n else 0.55}">{html.escape(t)}</span>' for m, t in enumerate(texts))
+            body = " ".join(f'<span{" class=\"on\"" if m == n else ""} style="color:{(colour(t, s) or lit) if m == n else (colour(t, s) or base)};'
+                            f'opacity:{1 if m == n else 0.82}">{html.escape(t)}</span>' for m, t in enumerate(texts))
             divs.append(f'<div id="c{k}" class="clip cap" data-start="{round(s, 3)}" data-duration="{round(e - s, 3)}" '
                         f'data-track-index="20" style="font-size:{size(" ".join(texts))}px"><span class="ci" id="c{k}i">{body}</span></div>')
     return "\n".join(divs)
@@ -52,7 +53,7 @@ if __name__ == "__main__":
     assert g == [[0, 1, 2], [3, 4, 5], [6, 7], [8]], g
     h = html_caps(w)
     assert h.count('class="clip cap"') == len(w) and h.count('class="on"') == len(w) and 'id="c8i"' in h
-    assert size("SUPERCALIFRAGILISTIC") == 56 and size("IT") == 84
-    assert html_caps(w, lit="#FF9A5C").count("#FF9A5C") == len(w), "the spoken word is lit"
+    assert size("SUPERCALIFRAGILISTIC") == 60 and size("IT") == 96
+    assert html_caps(w, lit="#2C5BEA").count("#2C5BEA") == len(w), "the spoken word is lit"
     assert all(len(" ".join(w[k][0] for k in x)) <= MAX_CHARS or len(x) == 1 for x in g)
     print("captions.py ok:", [" ".join(w[k][0] for k in x) for x in g])
