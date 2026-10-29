@@ -1,6 +1,6 @@
 ---
 type: video-idea
-status: build
+status: review
 series: What's coming
 publish:
 video: "[[Antibiotics aimed at infection - Status]]"

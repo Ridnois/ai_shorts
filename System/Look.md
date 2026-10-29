@@ -85,7 +85,7 @@ Verbs fire on a heard word (`v.cue(scene, "word")`): `pop`, `grow`, `reveal`, `b
 ## Figures
 
 - **Hairline** (isometric line figures, MIT, light theme): `riffle` (cards, a pick), `terrain` (a map of meaning), `drawer` (look-up on demand), `window` (context window), `balance` (RLHF), `temperature` (sampling), `splitter` (tokens), `loop` (plan, act, check); the 33 packaged ones are in `vendor/hairline/README.upstream`; new ones with `/hairline-create` into `vendor/hairline/custom/`.
-- **Anatomy** (the `anatomy` skill, isometric machines of 40 to 80 parts): for a physical machine (a chip chamber, a cooling loop, a rack). Each lives in `System/anatomy/<name>/` with a pose contract (parameters in, part transforms out, no page clock of its own). The lit part fills yellow. Built so far: `wafer-chuck` (helium cools the wafer: `lift`, `plasma`, `he`).
+- **Anatomy** (the `anatomy` skill, isometric machines of 40 to 80 parts): for a physical machine (a chip chamber, a cooling loop, a rack). Each lives in `System/anatomy/<name>/` with a pose contract (parameters in, part transforms out, no page clock of its own). The lit part fills yellow. Built so far: `wafer-chuck` (helium cools the wafer: `lift`, `plasma`, `he`), `gut-carrier` (a pill floods gut and body; carriers open only at the infection: `pill`, `spread`, `kill`, `resist`, `carrier`, `open`).
 - A figure is the anchor of one video; the next video needs a different main picture.
 
 ## Sound kit (`System/assets/sfx/`, credits in its `CREDITS.md`)

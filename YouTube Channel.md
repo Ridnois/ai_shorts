@@ -14,6 +14,7 @@ Agent entry: `CLAUDE.md`. What a Short is: [[Format]] · brand and design system
 | Video | Series · words · voice | State | Notes |
 | --- | --- | --- | --- |
 | Agent deleted a database | Agent at work · 160 · Dennis (rate 1.1) | r1 (49.7 s), Hairline `cabinet`, `slow`, `vault` + real captures; masters and pack built; shipped (user), not uploaded | [[Agent deleted a database - Status]] · [[Script - Agent deleted a database]] |
+| Antibiotics aimed at infection | What's coming (off-niche, no AI) · 167 · Dennis (rate 1.1) | r1 (54.2 s), Anatomy `gut-carrier` + WHO, Wellcome Leap, Purdue captures; masters and pack built; review | [[Antibiotics aimed at infection - Status]] · [[Script - Antibiotics aimed at infection]] |
 
 ## Earlier renders (retired dark look)
 
