@@ -1,6 +1,6 @@
 ---
 type: video-idea
-status: build
+status: review
 series: Agent at work
 publish:
 video: "[[Quantization explained - Status]]"
