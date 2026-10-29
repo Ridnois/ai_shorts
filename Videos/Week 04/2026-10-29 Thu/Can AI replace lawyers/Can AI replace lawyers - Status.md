@@ -13,7 +13,7 @@ updated: 2026-10-29
 | **Script** | 168 words, 7 scenes, turn at 55 %; 4 sources captured. |
 | **Spend** | take `ap70eb36v5rmt0d1gstt6463y0` (1,021 chars, about $0.026); WhisperX `503wczya5srnc0d1gstvz6n88w` (about $0.005). Total about $0.03, cap $0.50. |
 | **Build** | Anatomy `citator` (new, `System/anatomy/citator/`: `feed`, `search`, `found`, `ok`, `bad`) in w4, w5, w7; Hairline `loop` (w2) and `temperature` (w3; `riffle` did not answer the pointer, swapped); real captures in w1, w2, w4, w5, w6, w7 (Charlotin, Free Law Project, arXiv, SRA). Transitions push, whip, cut, dip, blur (2 cuts of 6); shot sizes wide, medium, close (stamp, the 17 to 33 % line). `hyperframes check` 0 errors. `check3d`: left are TEXT OVER PICTURE against figure host boxes during zooms (frames read clear). Frame audit: 3 rounds of snapshots plus the render sheet. Render `law-53s-9x16-r1.mp4` 53.1 s; `MIX` −14.0 LUFS, −1.5 dBTP; `LISTEN` PASS; masters `-yt` 2160x3840, `-tt` 1080x1920; thumbnail; pack `upload/law-publish-pack.md`. |
-| **Review** | waiting for the user's verdict (ship, fix or drop) |
+| **Review** | ship (user, 29 Oct 2026, asked-once round of the AI-therapist Short: "Ship") |
 | **Publish** | not uploaded |
 | **Numbers** | |
 

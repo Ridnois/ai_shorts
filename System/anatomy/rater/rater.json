@@ -1,0 +1,46 @@
+{
+ "width": 600,
+ "height": 394,
+ "params": {
+  "feed": "0..1 card A (blue strip, agrees) slides from the tray to the rating spot under the lever (0.5) and into the model (1, gone)",
+  "up": "0..1 the thumb lever swings to thumb-up and lights yellow; the tally drum lights and its crank turns",
+  "down": "0..1 card B (ink strip, pushes back) slides to the rating spot, the lever swings to thumb-down (red), B drops into the reject bin",
+  "tune": "0..1 the dial needle swings from centre to full AGREE (right); the agree sector fills yellow",
+  "ok": "0..1 lamp green; the green clamp pins drop in front of the dial and hold the needle at centre (even with tune 1)",
+  "bad": "0..1 lamp red; the agree sector turns red"
+ },
+ "anchors": {
+  "tray": [
+   133.5,
+   123.4
+  ],
+  "lever": [
+   282.4,
+   84
+  ],
+  "counter": [
+   340.9,
+   75.6
+  ],
+  "dial": [
+   392.7,
+   224.6
+  ],
+  "needle": [
+   392.7,
+   195.8
+  ],
+  "reject": [
+   203.8,
+   221
+  ],
+  "lamp": [
+   436.1,
+   287.2
+  ],
+  "slot": [
+   365.3,
+   230.8
+  ]
+ }
+}
