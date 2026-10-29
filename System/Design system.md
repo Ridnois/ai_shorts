@@ -42,6 +42,7 @@ One picture per spoken noun, entering on its word, on a grid, with a real thing 
 
 ## Camera and transitions
 
+- **A callout, tag or card placed in a camera world is scaled with it:** pick its position and width for the zoomed state (label of one or two words, inside x 100 to 940 and above y 1150 after the zoom), never only for the wide shot; `check3d` and a snapshot at the zoomed moment are the proof.
 - **Every world is a canvas** behind a camera (`#wN-cam`). `v.cam(w, t, cx, cy, z, d)` zooms z times about canvas point (cx, cy) (or moves it to `to=`), easing `power2.inOut`; `v.focus(w, t, (x, y, w, h), fill)` frames a box; `v.wide(w, t)` returns. A move of 0.5 s or less is heard (a whoosh). Use the camera for scale changes: **wide** (the whole figure), **medium** (one part), **close** (the detail the voice names). Captions and the rail sit outside the camera. A close-up may crop text past the frame edges on purpose: `check3d.mjs` exempts content under a camera scale over 1.02 from the interface-zone check.
 - **Transitions** (`v.write(..., trans={"w2": "whip"})`), each with a cause:
 

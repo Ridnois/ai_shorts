@@ -283,7 +283,7 @@ writeFileSync(join(HERE, `${NAME}.css`), css);
 writeFileSync(join(HERE, `${NAME}.pose.js`), pose);
 writeFileSync(join(HERE, `${NAME}.json`), JSON.stringify({ width: WIDTH, height: HEIGHT, params: { lift: "0 clamped, 0.3 raised on pins, 1 slid out", plasma: "0..1 glow, ions, heat", he: "0..1 helium flow, rim, cooling", gauge: "0..1 pressure needle" },
   anchors: Object.fromEntries(Object.entries({ chuck: [0, 0, CHUCK_TOP + WAFER_H], slid: [0, -SLIDE, CHUCK_TOP + RAISE], tank: [TANK[0], TANK[1], TANK_TOP + 20], gauge: m.gauge,
-    coolant: [-80, -18, 28], shower: [0, 0, SHOWER_Z + SHOWER_H], line: [30, 60, DUCT_Z], plate: [0, 0, 0] }).map(([n, p]) => [n, at(p).map((v) => Math.round(v * 10) / 10)])) }, null, 1));
+    coolant: [49, 41, 28], shower: [0, 0, SHOWER_Z + SHOWER_H], line: [30, 60, DUCT_Z], plate: [0, 0, 0] }).map(([n, p]) => [n, at(p).map((v) => Math.round(v * 10) / 10)])) }, null, 1));
 console.log("wrote", NAME, svg.length, "bytes");
 
 if (process.argv.includes("--preview")) {

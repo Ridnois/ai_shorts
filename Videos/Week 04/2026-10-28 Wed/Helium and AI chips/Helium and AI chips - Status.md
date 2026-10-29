@@ -23,4 +23,6 @@ How the voice and effects sound; caption timing against speech; pace in motion. 
 
 ## Feedback
 
+User, 28 Oct 2026, three frames: *"check those errors and fix them"* (the OFFLINE tag clipped by the bottom of the world; the USGS card overlapping the zoomed page and wrapping; the STOCK callout label cut by the zoom). Fixed before P7: tag moved above the figure; the camera returns wide before the card, whose detail is one line; callout labels one short word kept inside the zoomed view, and the cooling callout now points at the pedestal's cooling ring. Rule: [[Design system]] (callouts that sit under a zoom stay inside the zoomed canvas; say so in the beat sheet).
+
 User, 28 Oct 2026, on the last frame: *"check this mistake and improve overall fitting"* (the comment prompt's third chip, "suppliers", ran past the panel's border and the panel covered the bottom of the chuck). Fixed before P7: chips shortened to fabs, states, suppliers; every figure host moved inside x 20 to 960 and, in the closing world, above the deck (y 190 to 863). Rule edit: [[Design system]] *Anatomy figures* (placement) and `hfkit.ask` (warns when chips are wider than the panel).
