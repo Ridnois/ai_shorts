@@ -31,3 +31,4 @@ The user uploads the earlier upload packs by hand (28 Oct 2026); their Status no
 | Improve AI Shorts | Agent at work · 119 · Dennis (one take) | r1 (38.1 s), built on hfkit, `listen.py` pass; P7 open; not uploaded | [[Improve AI Shorts - Status]] · [[Script - Improve AI Shorts]] |
 | Vault pipeline | How it works · 133 · Dennis (rate 1.1) | r3 (46.6 s), first on system v3; follows one word from voice to frame; shipped (user), pack built, uploaded by hand | [[Vault pipeline - Status]] · [[Script - Vault pipeline]] |
 | Chatbots agree with you | How it works · 130 · Dennis (rate 1.1) | first on Playbook §2a (loop ledger, turn, loop-back); r1 (47.0 s); P7 open; not uploaded | [[Chatbots agree with you - Status]] · [[Script - Chatbots agree with you]] |
+| Helium and AI chips | How it works · 127 · Dennis (rate 1.1) | first with an Anatomy figure (`wafer-chuck`); r1 (40.6 s); P7 open; not uploaded | [[Helium and AI chips - Status]] · [[Script - Helium and AI chips]] |
