@@ -844,9 +844,10 @@ window.__ANP["gut-carrier"] = {
       const u = Math.min(1, Math.max(0, (s.carrier - i * LAG) / (1 - (N.car - 1) * LAG)));
       const on = sm(s.carrier / 0.06) * (u > 0 || s.carrier > i * LAG ? 1 : 0);
       const ce = part(svg, "car-c-" + i), ve = part(svg, "car-v-" + i), se = part(svg, "car-s-" + i);
-      if (u < U_A) { moveTo(ce, along(CH_ROUTE, u / U_A)); op(ce, on); op(ve, 0); }
-      else if (u < U_B) { op(ce, 0); moveTo(ve, lerp(VES_A, VES_B, (u - U_A) / (U_B - U_A))); op(ve, on * (1 - sm((u - U_B + 0.04) / 0.04))); }
-      else { op(ce, 0); op(ve, 0); }
+      moveTo(ce, along(CH_ROUTE, Math.min(1, u / U_A)));
+      moveTo(ve, lerp(VES_A, VES_B, Math.min(1, Math.max(0, (u - U_A) / (U_B - U_A)))));
+      op(ce, u < U_A ? on : 0);
+      op(ve, u >= U_A && u < U_B ? on * (1 - sm((u - U_B + 0.04) / 0.04)) : 0);
       const a = sm((u - U_B) / (1 - U_B));
       arr.push(a);
       // open: at the site the carrier splits and lets the drug out there only
