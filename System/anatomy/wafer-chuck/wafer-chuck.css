@@ -107,6 +107,7 @@
 @media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
 
 .an-he circle{fill:var(--anatomy-blue);stroke:none;opacity:1}
+.an-rim{fill:none;stroke:var(--anatomy-blue);stroke-width:3px;stroke-linecap:round}
 .an-heat{fill:var(--anatomy-lit);stroke:none}
 .an-plasma path{fill:var(--anatomy-lit);stroke:none}
 .an-plasma .ion{fill:var(--anatomy-lit);stroke:none}

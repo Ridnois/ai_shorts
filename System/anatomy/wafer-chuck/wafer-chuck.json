@@ -1,6 +1,6 @@
 {
  "width": 600,
- "height": 640,
+ "height": 470,
  "params": {
   "lift": "wafer height, 0 clamped to 1 lifted",
   "plasma": "0..1",

@@ -8,14 +8,14 @@ import { kitScript } from "../../../.claude/skills/anatomy/scripts/inline-kit.mj
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const NAME = "wafer-chuck";
-const WIDTH = 600, HEIGHT = 640;
+const WIDTH = 600, HEIGHT = 470;
 
 // ---- world (x, y floor; z up). About 2 mm a unit: the wafer is 70 units in radius.
-const PLATE = { x: -140, y: -140, w: 280, d: 330, r: 10 };
+const PLATE = { x: -140, y: -290, w: 280, d: 480, r: 10 };
 const PLATE_H = 10, FOOT_H = 5;
 const WAFER_R = 70, WAFER_H = 1.8;
 const CHUCK_R = 76, CHUCK_Z = 58, CHUCK_H = 10, CHUCK_TOP = CHUCK_Z + CHUCK_H;     // 68
-const LIFT = 96;                                         // wafer height above the chuck at lift = 1
+const RAISE = 22, SLIDE = 172;                           // lift 0..0.3 raises the wafer on its pins, then it slides out along -y
 const SHOWER_Z = 168, SHOWER_H = 10;
 const POSTS = [[-112, -112], [112, -112], [-112, 112], [112, 112]];
 const FRAME_Z = 150;
@@ -29,8 +29,8 @@ const ROUTE = [[TANK[0], TANK[1], 126], [TANK[0], 144, 126], [MFC.x + 14, 144, 1
 const ROUTE2 = [[MFC.x + 14, 144, MFC_H], [MFC.x + 14, 144, DUCT_Z]];
 
 const P = k.fitProjection(
-  [...k.boxCorners(PLATE, -PLATE_H - FOOT_H, 0), [0, 0, SHOWER_Z + SHOWER_H + 60], [TANK[0], TANK[1], 130], [0, 0, CHUCK_TOP + LIFT + 6]],
-  WIDTH, HEIGHT, { pad: 26, azimuth: 40, elevation: 30 });
+  [...k.boxCorners(PLATE, -PLATE_H - FOOT_H, 0), [0, 0, SHOWER_Z + SHOWER_H + 60], [TANK[0], TANK[1], 130], [0, -SLIDE, CHUCK_TOP + RAISE + 6], [0, -SLIDE - WAFER_R, CHUCK_TOP], [0, 0, CHUCK_TOP + RAISE + 6]],
+  WIDTH, HEIGHT, { pad: 14, azimuth: 40, elevation: 30 });
 
 const at = (p) => k.iso(p, P);
 const S = (paths, style) => k.solidSvg(paths, style);
@@ -100,13 +100,13 @@ function pedestal() {
 
 function wafer() {
   const o = [`<path class="iso-halo" d="${k.haloOf({ x: -WAFER_R, y: -WAFER_R, w: WAFER_R * 2, d: WAFER_R * 2, r: WAFER_R }, 0, 1, P)}" style="filter:blur(5px)"/>`];
-  o.push(S(k.cylinder(0, 0, WAFER_R, 0, WAFER_H, P, 72, 0.4), { tone: "hi", lit: true }));
+  o.push(S(k.cylinder(0, 0, WAFER_R, 0, WAFER_H, P, 72, 0.4), { tone: "hi" }));
   o.push(`<path data-part="heat" class="an-heat" d="${k.ring(0, 0, WAFER_R - 0.4, WAFER_H, P, 72)}Z" style="fill-opacity:0"/>`);
   o.push(L(k.ring(0, 0, WAFER_R - 4, WAFER_H, P, 72), { tone: "faint" }));
   o.push(L(k.lineOnTop([-WAFER_R, 0], [-WAFER_R + 5, 0], WAFER_H, P), { tone: "hi" }));      // the notch
   const die = [];                                                                         // a grid of dies
-  for (let i = -5; i <= 5; i++) { die.push(k.lineOnTop([i * 12, -50], [i * 12, 50], WAFER_H, P)); die.push(k.lineOnTop([-50, i * 12], [50, i * 12], WAFER_H, P)); }
-  o.push(`<g data-part="dies" style="clip-path:circle(0)">${L(die.join(""), { tone: "faint" })}</g>`);
+  for (let i = -4; i <= 4; i++) { const e = Math.sqrt(62 * 62 - (i * 13) ** 2); die.push(k.lineOnTop([i * 13, -e], [i * 13, e], WAFER_H, P)); die.push(k.lineOnTop([-e, i * 13], [e, i * 13], WAFER_H, P)); }
+  o.push(`<g data-part="dies">${L(die.join(""), { tone: "faint" })}</g>`);
   return o.join("");
 }
 
@@ -194,11 +194,12 @@ const bars = {
 const gasGap = `<g data-part="gap-dots" class="an-he"></g>`;
 const body = [
   floor(),
-  backPosts.map(([x, y]) => post(x, y)).join(""),
-  bars.back.map(([a, b]) => frameBar(a, b)).join(""),
   pedestal(),
   gasGap,
+  `<path data-part="rim" class="an-rim" d="${k.ring(0, 0, CHUCK_R + 1, CHUCK_TOP, P, 72)}" style="opacity:0"/>`,
   `<g data-part="wafer">${wafer()}</g>`,
+  backPosts.map(([x, y]) => post(x, y)).join(""),
+  bars.back.map(([a, b]) => frameBar(a, b)).join(""),
   `<g data-part="plasma" class="an-plasma" style="opacity:0"></g>`,
   showerhead(),
   bars.mid.map(([a, b]) => frameBar(a, b)).join(""),
@@ -218,14 +219,15 @@ const svg = k.figureSvg({
 
 const css = k.ISO_CSS + `
 .an-he circle{fill:var(--anatomy-blue);stroke:none;opacity:1}
+.an-rim{fill:none;stroke:var(--anatomy-blue);stroke-width:3px;stroke-linecap:round}
 .an-heat{fill:var(--anatomy-lit);stroke:none}
 .an-plasma path{fill:var(--anatomy-lit);stroke:none}
 .an-plasma .ion{fill:var(--anatomy-lit);stroke:none}
 `;
 
-const pose = kitScript() + `
+const pose = (kitScript() + `
 const P = ${JSON.stringify(P)};
-const LIFT = ${LIFT}, CHUCK_TOP = ${CHUCK_TOP}, WAFER_R = ${WAFER_R}, WAFER_H = ${WAFER_H}, SHOWER_Z = ${SHOWER_Z};
+const RAISE = ${RAISE}, SLIDE = ${SLIDE}, CHUCK_TOP = ${CHUCK_TOP}, WAFER_R = ${WAFER_R}, WAFER_H = ${WAFER_H}, SHOWER_Z = ${SHOWER_Z};
 const GAUGE = ${JSON.stringify(m.gauge)};
 const LINE_PTS = ${JSON.stringify(LINE_PTS)}, OUT_PTS = ${JSON.stringify(OUT_PTS)};
 const route = ${route.toString()};
@@ -237,13 +239,15 @@ const part = (svg, n) => (q[n] = q[n] && svg.contains(q[n]) ? q[n] : svg.querySe
 window.__ANP[${JSON.stringify(NAME)}] = {
   init: { lift: 0, plasma: 0, he: 0, die: 0 },
   apply(svg, s, t) {
-    part(svg, "wafer").setAttribute("transform", translateAlong(P, [0, 0, CHUCK_TOP + s.lift * LIFT]));
+    const sm = (u) => { u = Math.min(1, Math.max(0, u)); return u * u * (3 - 2 * u); };
+    const wz = CHUCK_TOP + RAISE * sm(s.lift / 0.3), wy = -SLIDE * sm((s.lift - 0.3) / 0.7);
+    part(svg, "wafer").setAttribute("transform", translateAlong(P, [0, wy, wz]));
     // helium in the ducts and in the channels of the chuck (positions are a pure function of the page clock)
     const he = s.he, dots = [];
     const nIn = 9, nOut = 9;
     for (let i = 0; i < nIn; i++) dots.push(iso(along(IN, frac(i / nIn + t * 0.22) * IN.len), P));
     for (let i = 0; i < nOut; i++) dots.push(iso(along(OUT, frac(i / nOut + t * 0.3) * OUT.len), P));
-    part(svg, "duct-dots").innerHTML = he > 0.02 ? dotsSvg(dots.map(([x, y]) => [x, y, Math.min(1, he * 1.6)]), { size: 1.6 }) : "";
+    part(svg, "duct-dots").innerHTML = he > 0.02 ? dotsSvg(dots.map(([x, y]) => [x, y, Math.min(1, he * 1.6)]), { size: 2.6 }) : "";
     const ch = [];
     for (let a = 0; a < 8; a++) for (let j = 0; j < 4; j++) {
       const r = 6 + frac(j / 4 + t * 0.35 + a * 0.071) * 60, ang = a * Math.PI / 4;
@@ -253,25 +257,26 @@ window.__ANP[${JSON.stringify(NAME)}] = {
       const ang = (i / 24) * Math.PI * 2, r = [22, 44, 66][i % 3];
       ch.push(iso([Math.cos(ang) * r, Math.sin(ang) * r, CHUCK_TOP + 0.4], P));
     }
-    part(svg, "gap-dots").innerHTML = he > 0.02 ? dotsSvg(ch.map(([x, y]) => [x, y, Math.min(1, he * 1.6)]), { size: 1.7 }) : "";
+    part(svg, "gap-dots").innerHTML = he > 0.02 ? dotsSvg(ch.map(([x, y]) => [x, y, Math.min(1, he * 1.6)]), { size: 2.8 }) : "";
     // plasma between the showerhead and the wafer, with ions falling onto it
-    const pl = part(svg, "plasma"), wz = CHUCK_TOP + s.lift * LIFT + WAFER_H, top = SHOWER_Z - 2;
+    const pl = part(svg, "plasma"), pz = CHUCK_TOP + WAFER_H, top = SHOWER_Z - 2;
     pl.style.opacity = s.plasma > 0.01 ? "1" : "0";
     if (s.plasma > 0.01) {
       let h = "";
-      for (let i = 0; i < 5; i++) { const z = wz + 4 + (top - wz - 8) * (i / 4); h += '<path fill-opacity="' + (s.plasma * (0.07 + 0.05 * Math.sin(t * 7 + i))).toFixed(3) + '" d="' + ring(0, 0, 60 + 4 * Math.sin(i), z, P, 48) + 'Z"/>'; }
-      for (let i = 0; i < 16; i++) { const a = i * 2.4, r = 14 + (i * 37) % 44, u = frac(i * 0.173 + t * 0.9), [x, y] = iso([Math.cos(a) * r, Math.sin(a) * r, top - u * (top - wz)], P); h += '<circle class="ion" cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="1.5" fill-opacity="' + (s.plasma * (u > 0.85 ? 1 - (u - 0.85) / 0.15 : 0.9)).toFixed(2) + '"/>'; }
+      for (let i = 0; i < 5; i++) { const z = pz + 4 + (top - pz - 8) * (i / 4); h += '<path fill-opacity="' + (s.plasma * (0.07 + 0.05 * Math.sin(t * 7 + i))).toFixed(3) + '" d="' + ring(0, 0, 60 + 4 * Math.sin(i), z, P, 48) + 'Z"/>'; }
+      for (let i = 0; i < 16; i++) { const a = i * 2.4, r = 14 + (i * 37) % 44, u = frac(i * 0.173 + t * 0.9), [x, y] = iso([Math.cos(a) * r, Math.sin(a) * r, top - u * (top - pz)], P); h += '<circle class="ion" cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="1.5" fill-opacity="' + (s.plasma * (u > 0.85 ? 1 - (u - 0.85) / 0.15 : 0.9)).toFixed(2) + '"/>'; }
       pl.innerHTML = h;
     } else pl.innerHTML = "";
     // the wafer's heat: plasma power heats it, helium under it takes the heat to the water-cooled chuck
-    const clamped = 1 - Math.min(1, s.lift * 4);
+    const clamped = 1 - sm(s.lift / 0.15);
     const heat = Math.min(1, s.plasma * (1 - 0.88 * he * clamped));
+    part(svg, "rim").style.opacity = (clamped * he).toFixed(2);
     part(svg, "heat").style.fillOpacity = (heat * 0.85).toFixed(3);
     // pressure gauge needle
     part(svg, "needle").setAttribute("d", (() => { const a = (-2.2 + he * 4.4) , [x, y, z] = GAUGE; return lineOnTop([x - Math.sin(a) * 2.5, y + Math.cos(a) * 2.5], [x + Math.sin(a) * 8.6, y - Math.cos(a) * 8.6], z, P); })());
   },
 };
-`;
+`).replaceAll("</script", "<\\/script");        // the kit holds the text "</script>" in a string: keep it from ending an inline script
 
 writeFileSync(join(HERE, `${NAME}.svg`), svg);
 writeFileSync(join(HERE, `${NAME}.css`), css);

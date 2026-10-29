@@ -555,7 +555,7 @@ function plateHtml({ fig, title, hint, readout = "", keys = [], caption, body })
     return `<figure class="iso-figure"><div class="iso-plate"><div class="iso-plate-corners" aria-hidden="true">${corner("fig", fig)}${title ? corner("title", title) : ""}${hint ? corner("hint", hint) : ""}${corner("readout", readout, " data-readout")}</div>${body}</div>${legend}</figure>`;
 }
 function pageHtml({ title, theme = "dark", body, script = "", width = 650 }) {
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(title)}</title><style>${ISO_CSS}${PAGE_CSS.replace("__WIDTH__", String(width))}</style></head><body class="iso" data-theme="${theme}"><main class="iso-page">${body}</main>${script ? `<script type="module">${script.replace(/<\/(script)/gi, "<\\/$1")}</script>` : ""}</body></html>`;
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(title)}</title><style>${ISO_CSS}${PAGE_CSS.replace("__WIDTH__", String(width))}</style></head><body class="iso" data-theme="${theme}"><main class="iso-page">${body}</main>${script ? `<script type="module">${script.replace(/<\/(script)/gi, "<\\/$1")}<\/script>` : ""}</body></html>`;
 }
 const PAGE_CSS = `
 *{box-sizing:border-box}
@@ -673,8 +673,8 @@ const ISO_CSS = `
 @media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
 `;
 
-const P = {"origin":[324.2500239036314,369.65947788773013],"scale":1.001055611561852,"azimuth":40,"elevation":30};
-const LIFT = 96, CHUCK_TOP = 68, WAFER_R = 70, WAFER_H = 1.8, SHOWER_Z = 168;
+const P = {"origin":[259.99708491930113,275.959214819521],"scale":0.8256722298399302,"azimuth":40,"elevation":30};
+const RAISE = 22, SLIDE = 172, CHUCK_TOP = 68, WAFER_R = 70, WAFER_H = 1.8, SHOWER_Z = 168;
 const GAUGE = [100,146,45.2];
 const LINE_PTS = [[-92,150,130],[-92,144,130],[90,144,130],[90,144,40]], OUT_PTS = [[90,128,30],[30,128,30],[30,0,30],[0,0,30]];
 const route = function route(points) { const segs = []; let len = 0; for (let i = 0; i + 1 < points.length; i++) { const a = points[i], b = points[i + 1], d = Math.hypot(b[0] - a[0], b[1] - a[1], b[2] - a[2]); segs.push({ a, b, d, from: len }); len += d; } return { segs, len }; };
@@ -686,13 +686,15 @@ const part = (svg, n) => (q[n] = q[n] && svg.contains(q[n]) ? q[n] : svg.querySe
 window.__ANP["wafer-chuck"] = {
   init: { lift: 0, plasma: 0, he: 0, die: 0 },
   apply(svg, s, t) {
-    part(svg, "wafer").setAttribute("transform", translateAlong(P, [0, 0, CHUCK_TOP + s.lift * LIFT]));
+    const sm = (u) => { u = Math.min(1, Math.max(0, u)); return u * u * (3 - 2 * u); };
+    const wz = CHUCK_TOP + RAISE * sm(s.lift / 0.3), wy = -SLIDE * sm((s.lift - 0.3) / 0.7);
+    part(svg, "wafer").setAttribute("transform", translateAlong(P, [0, wy, wz]));
     // helium in the ducts and in the channels of the chuck (positions are a pure function of the page clock)
     const he = s.he, dots = [];
     const nIn = 9, nOut = 9;
     for (let i = 0; i < nIn; i++) dots.push(iso(along(IN, frac(i / nIn + t * 0.22) * IN.len), P));
     for (let i = 0; i < nOut; i++) dots.push(iso(along(OUT, frac(i / nOut + t * 0.3) * OUT.len), P));
-    part(svg, "duct-dots").innerHTML = he > 0.02 ? dotsSvg(dots.map(([x, y]) => [x, y, Math.min(1, he * 1.6)]), { size: 1.6 }) : "";
+    part(svg, "duct-dots").innerHTML = he > 0.02 ? dotsSvg(dots.map(([x, y]) => [x, y, Math.min(1, he * 1.6)]), { size: 2.6 }) : "";
     const ch = [];
     for (let a = 0; a < 8; a++) for (let j = 0; j < 4; j++) {
       const r = 6 + frac(j / 4 + t * 0.35 + a * 0.071) * 60, ang = a * Math.PI / 4;
@@ -702,19 +704,20 @@ window.__ANP["wafer-chuck"] = {
       const ang = (i / 24) * Math.PI * 2, r = [22, 44, 66][i % 3];
       ch.push(iso([Math.cos(ang) * r, Math.sin(ang) * r, CHUCK_TOP + 0.4], P));
     }
-    part(svg, "gap-dots").innerHTML = he > 0.02 ? dotsSvg(ch.map(([x, y]) => [x, y, Math.min(1, he * 1.6)]), { size: 1.7 }) : "";
+    part(svg, "gap-dots").innerHTML = he > 0.02 ? dotsSvg(ch.map(([x, y]) => [x, y, Math.min(1, he * 1.6)]), { size: 2.8 }) : "";
     // plasma between the showerhead and the wafer, with ions falling onto it
-    const pl = part(svg, "plasma"), wz = CHUCK_TOP + s.lift * LIFT + WAFER_H, top = SHOWER_Z - 2;
+    const pl = part(svg, "plasma"), pz = CHUCK_TOP + WAFER_H, top = SHOWER_Z - 2;
     pl.style.opacity = s.plasma > 0.01 ? "1" : "0";
     if (s.plasma > 0.01) {
       let h = "";
-      for (let i = 0; i < 5; i++) { const z = wz + 4 + (top - wz - 8) * (i / 4); h += '<path fill-opacity="' + (s.plasma * (0.07 + 0.05 * Math.sin(t * 7 + i))).toFixed(3) + '" d="' + ring(0, 0, 60 + 4 * Math.sin(i), z, P, 48) + 'Z"/>'; }
-      for (let i = 0; i < 16; i++) { const a = i * 2.4, r = 14 + (i * 37) % 44, u = frac(i * 0.173 + t * 0.9), [x, y] = iso([Math.cos(a) * r, Math.sin(a) * r, top - u * (top - wz)], P); h += '<circle class="ion" cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="1.5" fill-opacity="' + (s.plasma * (u > 0.85 ? 1 - (u - 0.85) / 0.15 : 0.9)).toFixed(2) + '"/>'; }
+      for (let i = 0; i < 5; i++) { const z = pz + 4 + (top - pz - 8) * (i / 4); h += '<path fill-opacity="' + (s.plasma * (0.07 + 0.05 * Math.sin(t * 7 + i))).toFixed(3) + '" d="' + ring(0, 0, 60 + 4 * Math.sin(i), z, P, 48) + 'Z"/>'; }
+      for (let i = 0; i < 16; i++) { const a = i * 2.4, r = 14 + (i * 37) % 44, u = frac(i * 0.173 + t * 0.9), [x, y] = iso([Math.cos(a) * r, Math.sin(a) * r, top - u * (top - pz)], P); h += '<circle class="ion" cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="1.5" fill-opacity="' + (s.plasma * (u > 0.85 ? 1 - (u - 0.85) / 0.15 : 0.9)).toFixed(2) + '"/>'; }
       pl.innerHTML = h;
     } else pl.innerHTML = "";
     // the wafer's heat: plasma power heats it, helium under it takes the heat to the water-cooled chuck
-    const clamped = 1 - Math.min(1, s.lift * 4);
+    const clamped = 1 - sm(s.lift / 0.15);
     const heat = Math.min(1, s.plasma * (1 - 0.88 * he * clamped));
+    part(svg, "rim").style.opacity = (clamped * he).toFixed(2);
     part(svg, "heat").style.fillOpacity = (heat * 0.85).toFixed(3);
     // pressure gauge needle
     part(svg, "needle").setAttribute("d", (() => { const a = (-2.2 + he * 4.4) , [x, y, z] = GAUGE; return lineOnTop([x - Math.sin(a) * 2.5, y + Math.cos(a) * 2.5], [x + Math.sin(a) * 8.6, y - Math.cos(a) * 8.6], z, P); })());
