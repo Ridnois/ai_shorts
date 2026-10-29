@@ -8,7 +8,7 @@ tags: [research, youtube, script, ai, week-03]
 
 # Script · Gradient descent (Week 03, Fri 23 Oct)
 
-← [[Gradient descent - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Audience]]
+← [[Gradient descent - Status]] · [[YouTube Channel]] · [[Format]] · [[Growth]]
 
 User (23 Oct 2026): *"Make a new video about gradient descend"*. Series: **How it works**.
 

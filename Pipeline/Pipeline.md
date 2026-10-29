@@ -1,60 +1,26 @@
 ---
 type: research
 created: 2026-10-03
-updated: 2026-10-28
-status: v4 · 27 Oct 2026: the runner is optional and text-only in practice; videos are built interactively with HyperFrames; ten ideas queued
+updated: 2026-10-29
+status: v5 · 29 Oct 2026: the lean queue (no runner); ideas come from /short-idea and are made with /short
 tags: [research, youtube, pipeline, hub]
 ---
 
-# 🏭 Video pipeline
+# Video pipeline
 
-← [[YouTube Channel]] · [[Workflow]]
+← [[YouTube Channel]] · [[Growth]] §Ideas · [[Format]] §2 · outliers: [[Niche map]]
 
-**State, 27 Oct 2026:** the queue holds ten AI ideas, each with its series, Y, X and a real case to verify at P1 ([[Audience]] *Case sources*). Videos are built interactively under delegation (HyperFrames, [[Workflow]]); the runner below is optional, useful for the text stages only, and its prompts must name `CLAUDE.md`, [[Playbook]] and [[Workflow]]. Search branches and outliers: [[Niche map]].
-
-One **note per idea** in `Pipeline/Ideas/`; its `status` property is the table column. Changing `status` in the table is the command; the runner does the work and leaves the next status.
+One note per idea in `Pipeline/Ideas/` (template: [[Idea template]]); its `status` is the queue. `/short-idea` adds and scores ideas; `/short <idea note>` makes one.
 
 ![[Pipeline table.base]]
 
-## States
+| Status | Meaning |
+| --- | --- |
+| `idea` | a note with the claim, the real thing and the series |
+| `next` | passed the 4 tests of [[Format]] §2 and has a `score`; the next one made is the top score whose series differs from the last video |
+| `making` | `/short` is running it; `video` names its Status note |
+| `review` | rendered and audited; waiting for the user's ship, fix or drop |
+| `published` | uploaded; `publish` holds the date |
+| `dropped` | not made, or dropped at review; one line says why |
 
-```
-idea ──▶ build-script ──▶ building-script ──▶ script-ready
-              ▲ you             ▲ runner            │ you review P1–P4a and P4
-                                                    ▼
-render-ready ◀── (editing, by hand) ◀── illustrations-ready ◀── generating-assets ◀── generate-assets
-                                              ▲ runner                ▲ runner            ▲ you
-                                                                              (requires an approved budget)
-```
-
-| Status | Set by | Meaning |
-| --- | --- | --- |
-| `idea` | you | Just the note; nothing happens |
-| `build-script` | **you** (trigger) | Asks for research, script, direction, prompts and budget (stages 0–4, text only) |
-| `building-script` | runner | In progress |
-| `script-ready` | runner | Text and estimated budget ready. **You review P1–P4 here** |
-| `generate-assets` | **you** (trigger) | Asks for voice and images. Only runs if `approved_budget_usd` > 0 |
-| `generating-assets` | runner | Spending on Replicate |
-| `illustrations-ready` | runner | Voice and images in `Media/`. **You review P6 here** |
-| `render-ready` | you | Built and rendered with HyperFrames ([[Workflow]]); P7 approved |
-| `error` | runner | Something failed; the reason is in the *Error* column. Fix it and set the trigger again |
-
-## How to use it (all from Obsidian)
-
-The runner runs by itself as a user service (`youtube-pipeline.service`, checks the table every 15 s). There is no need to open a terminal.
-
-1. In the table (**This week** view), **New** button: type the title. Within ≈ 15 s the note gets its properties. Fill in `publish` (date) and the topic in the body. **Write the idea in English.**
-2. Change `status` to `build-script` → it becomes `building-script` → `script-ready`. Review.
-3. If you approve the budget, write the figure in `approved_budget_usd` and set `generate-assets`.
-4. Review plates and voice (`illustrations-ready`); edit; set `render-ready`.
-
-Service: `systemctl --user status youtube-pipeline` · log: `journalctl --user -u youtube-pipeline -f` · stop: `systemctl --user stop youtube-pipeline`.
-
-## Rules
-
-- **The controller lives outside the vault**, in `~/Documents/youtube-pipeline` (its own repo). The vault only has notes and the table.
-- **Nothing is spent without an approved budget** (master rule of [[Workflow]]). The hard cap is ×1.2 of `approved_budget_usd`.
-- The script runner **cannot call Replicate** (it only reads and writes notes); the assets runner can.
-- The cap is applied by instruction to the model and checked **afterwards** with `actual_cost_usd`; it is not a technical cutoff.
-- An idea in `building-*` or `generating-*` (in progress) after a runner crash stays stuck: set the trigger again in the table.
-- **Language:** scripts, research and descriptions are written in English ([[YouTube Channel]]).
+**Score** (1 to 5 each, summed out of 20): curiosity gap · demand (outlier evidence) · showable · real thing strength.

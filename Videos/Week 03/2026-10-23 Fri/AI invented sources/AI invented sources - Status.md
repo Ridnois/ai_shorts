@@ -8,7 +8,7 @@ tags: [status, week-03]
 
 # AI invented sources · Status
 
-← [[Script - AI invented sources]] · [[YouTube Channel]] · [[Workflow]]
+← [[Script - AI invented sources]] · [[YouTube Channel]] · [[Production]]
 
 **Delegation (user, 23 Oct 2026):** *"lets generate the video of the idea 'Why AI Invents Sources (and How to Catch It in 5 Seconds)'"*. The agent runs P1 to P7 and stops at the render.
 

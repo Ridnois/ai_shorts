@@ -21,47 +21,39 @@ SKIP = (".git", ".obsidian", ".claude", "Media", "__pycache__")       # .claude:
 
 INVARIANTS = [
     # (file, phrase, rule it protects): rules that must never silently disappear
-    ("System/Playbook.md", "Street-lamp test", "idea gate"),
-    ("System/Playbook.md", "Five candidate hooks", "the hook earns its reaction"),
-    ("System/Playbook.md", "Facts bank", "idea gate"),
-    ("System/Playbook.md", "named real case", "a real case carries the concept"),
-    ("System/Playbook.md", "never seconds", "length is planned in words"),
-    ("System/Playbook.md", "need-to-know claim", "the first 2 seconds"),
-    ("System/Playbook.md", "Explain, do not narrate", "cause and effect, not story"),
-    ("System/Playbook.md", "theme line", "one thread"),
-    ("System/Playbook.md", "concrete payoff", "ending"),
-    ("System/Playbook.md", "one continuous take", "the voice is never stitched"),
-    ("System/Playbook.md", "Transitions with a cause", "no slideshow crossfades (professional standard, 27 Oct 2026)"),
-    ("System/Playbook.md", "shot sizes", "the camera changes scale inside a world (27 Oct 2026)"),
-    ("System/Playbook.md", "Slideshow-risk score", "pre-render check"),
-    ("System/Playbook.md", "Ship discipline", "ship, fix or drop; at most two revisions (27 Oct 2026)"),
-    ("System/Playbook.md", "variety", "inauthentic-content policy"),
-    ("System/Playbook.md", "Loop ledger", "stacked open questions keep the viewer to the end (28 Oct 2026)"),
-    ("System/Playbook.md", "Loop-back close", "the ending re-asks the hook so the Short replays (28 Oct 2026)"),
-    ("System/Playbook.md", "Re-hook every 8 to 12 s", "a new question or reversal on a turn word (28 Oct 2026)"),
-    ("System/Design system.md", "colx(k, n)", "elements sit on a column grid, never placed by eye"),
-    ("System/Design system.md", "Every world is a canvas", "camera on one canvas (27 Oct 2026)"),
-    ("System/Design system.md", "Sound kit", "effects come from the licensed kit"),
-    ("System/Design system.md", "Blender", "Blender scenes reach HyperFrames as glb or alpha webm"),
-    ("System/Workflow.md", "validate_palette.js", "new colours are validated, not eyeballed"),
-    ("System/Workflow.md", "did you know what the video is about", "rubric asks about hook clarity"),
-    ("System/Workflow.md", "listen.py", "the agent measures the sound instead of leaving it unverified (28 Oct 2026)"),
-    ("System/Workflow.md", "--crf 14", "renders keep their gradients and fine lines (27 Oct 2026)"),
-    ("System/Workflow.md", "Clarify first", "interactive questions before a new video"),
-    ("System/Style.md", "never inside the video", "no branding inside the video"),
+    ("System/Format.md", "Real thing", "a named, dated real case carries every video"),
+    ("System/Format.md", "Curiosity gap", "the idea must make a stranger ask why"),
+    ("System/Format.md", "130 to 170 words", "45 to 60 s length (user, 29 Oct 2026)"),
+    ("System/Format.md", "three-hook rule", "visual, spoken and text hook name the same thing"),
+    ("System/Format.md", "Frame 0 is the thumbnail", "the hook's picture and claim at 0 s"),
+    ("System/Format.md", "The loop ending", "the last line runs into the first"),
+    ("System/Format.md", "Show the verb", "pictures show what happens, never decorate"),
+    ("System/Format.md", "Three shot sizes", "the camera changes scale inside a world"),
+    ("System/Format.md", "Varied from the last video", "inauthentic-content policy"),
+    ("System/Format.md", "at most two revisions", "ship, fix or drop"),
+    ("System/Look.md", "Next Token", "the brand (user, 29 Oct 2026)"),
+    ("System/Look.md", "flat paper", "the look that survives YouTube's re-encode (user, 29 Oct 2026)"),
+    ("System/Look.md", "not inside the video", "no branding inside the video"),
+    ("System/Look.md", "Every world is a canvas", "camera on one canvas"),
+    ("System/Look.md", "Sound kit", "effects come from the licensed kit"),
+    ("System/Production.md", "Ask once", "one question round before a new video"),
+    ("System/Production.md", "one continuous take", "the voice is never stitched"),
+    ("System/Production.md", "master.py", "every upload is the 4K master"),
+    ("System/Production.md", "listen.py", "the agent measures the sound"),
+    ("System/Production.md", "check3d.mjs", "layout faults are caught by a check"),
+    ("System/Growth.md", "confirm the pack", "upload only after the user confirms"),
+    ("System/Growth.md", "engaged views", "compare videos on the right metric"),
+    ("System/Growth.md", "Inauthentic content", "the channel-wide policy risk"),
     ("CLAUDE.md", "hfkit.py", "one design system in code"),
+    ("CLAUDE.md", "master.py", "never upload the raw render"),
 ]
 FORBIDDEN = [
     # (file, phrase, why): rules the user removed; must not come back
-    ("System/Playbook.md", "≤ 10 words", "hook quality is not measured in words (feedback, 5 Oct 2026)"),
-    ("CLAUDE.md", "16 to 20 plates", "a plate count produced filler pictures (user, 9 Oct 2026)"),
-    ("System/Playbook.md", "16 to 20 plates", "a plate count produced filler pictures (user, 9 Oct 2026)"),
-    ("System/Audience.md", "civil engineering", "the old technology niche was replaced by AI (user, 23 Oct 2026)"),
     ("CLAUDE.md", "civil engineering", "the old technology niche was replaced by AI (user, 23 Oct 2026)"),
-    ("System/Playbook.md", "Fluent Emoji", "emoji illustrations were replaced by Hairline figures (user, 27 Oct 2026)"),
-    ("System/Playbook.md", "build_video.py", "the Blender builder was retired (27 Oct 2026)"),
-    ("System/Workflow.md", "SOLO_PROYECTO", "the Blender builder was retired (27 Oct 2026)"),
+    ("System/scripts/hfkit.py", "feTurbulence", "animated grain wrecks YouTube's re-encode (29 Oct 2026)"),
+    ("System/scripts/hfkit.py", "#grain", "animated grain wrecks YouTube's re-encode (29 Oct 2026)"),
 ]
+SKILLS = ["short", "short-idea", "short-script", "short-qa", "short-publish"]   # the vault's own skills (.claude/skills)
 CEILING = {"Script - ": 2700, "Upload - ": 2300, " - Status": 1500}
 
 problems = []
@@ -125,7 +117,8 @@ for r, d, f in os.walk(os.path.join(ROOT, "System", "scripts")):
                 problems.append(f"does not compile: {x}: {str(e)[:80]}")
 
 for rel, phrase, why in FORBIDDEN:
-    if phrase.lower() in notes.get(rel, "").lower():
+    src = notes.get(rel) if rel.endswith(".md") else (open(os.path.join(ROOT, rel), encoding="utf-8").read() if os.path.exists(os.path.join(ROOT, rel)) else "")
+    if phrase.lower() in (src or "").lower():
         problems.append(f"{rel} contains \"{phrase}\": {why}")
 
 # section references: [[Note]] §N or §Heading must point at a real heading
@@ -150,7 +143,7 @@ for rel, t in notes.items():
         n = len(t.split())
         for key, cap in CEILING.items():
             if key in os.path.basename(rel) and n > cap:
-                problems.append(f"{rel} has {n} words, ceiling {cap} (Workflow: Note size ceilings)")
+                problems.append(f"{rel} has {n} words, ceiling {cap} (Production: Files)")
 
 # the index knows every published video; Script scene 1 equals the hook in videos.csv
 import csv
@@ -168,6 +161,13 @@ for rel, phrase, why in INVARIANTS:
     t = notes.get(rel, "")
     if phrase.lower() not in t.lower():
         problems.append(f"missing in {rel}: \"{phrase}\" ({why})")
+
+for sk in SKILLS:
+    f = os.path.join(ROOT, ".claude", "skills", sk, "SKILL.md")
+    if not os.path.exists(f):
+        problems.append(f"skill missing: .claude/skills/{sk}/SKILL.md")
+    elif not re.match(r"---\nname: " + re.escape(sk) + r"\ndescription: ", open(f, encoding="utf-8").read()):
+        problems.append(f"skill {sk}: front matter must start with name and description")
 
 print(f"{len(notes)} notes checked, {len(INVARIANTS)} invariants.")
 if problems:

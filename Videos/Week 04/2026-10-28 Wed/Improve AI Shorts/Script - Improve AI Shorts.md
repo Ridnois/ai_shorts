@@ -7,7 +7,7 @@ words: 120
 
 # Script: Improve AI Shorts (give the agent ears, eyes and a clock)
 
-Status: [[Improve AI Shorts - Status]] · rules: [[Playbook]] · build: [[Design system]]
+Status: [[Improve AI Shorts - Status]] · rules: [[Format]] · build: [[Look]]
 
 ## Idea (P1)
 

@@ -6,39 +6,40 @@ properties:
     displayName: Idea
   note.status:
     displayName: Status
-  note.format:
-    displayName: Format
+  note.series:
+    displayName: Series
+  note.score:
+    displayName: Score
   note.publish:
     displayName: Publish
-  note.estimated_budget_usd:
-    displayName: Est. budget $
-  note.approved_budget_usd:
-    displayName: Approved budget $
-  note.actual_cost_usd:
-    displayName: Actual cost $
   note.video:
     displayName: Video
-  note.error:
-    displayName: Error
 views:
   - type: table
-    name: This week
+    name: Queue
     filters:
-      and:
-        - note.publish >= today() - "1 day"
-        - note.publish <= today() + "7 days"
+      or:
+        - note.status == "idea"
+        - note.status == "next"
     sort:
-      - property: note.publish
-        direction: ASC
+      - property: note.score
+        direction: DESC
     order:
       - file.name
       - note.status
-      - note.publish
-      - note.format
-      - note.estimated_budget_usd
-      - note.approved_budget_usd
-      - note.actual_cost_usd
-      - note.error
+      - note.series
+      - note.score
+  - type: table
+    name: In the works
+    filters:
+      or:
+        - note.status == "making"
+        - note.status == "review"
+    order:
+      - file.name
+      - note.status
+      - note.series
+      - note.video
   - type: table
     name: All
     groupBy:
@@ -47,34 +48,7 @@ views:
     order:
       - file.name
       - note.status
-      - note.format
-      - note.estimated_budget_usd
-      - note.approved_budget_usd
-      - note.actual_cost_usd
+      - note.series
+      - note.score
+      - note.publish
       - note.video
-      - note.error
-  - type: table
-    name: Queued or working
-    filters:
-      or:
-        - note.status == "build-script"
-        - note.status == "building-script"
-        - note.status == "generate-assets"
-        - note.status == "generating-assets"
-    order:
-      - file.name
-      - note.status
-      - note.approved_budget_usd
-  - type: table
-    name: Awaiting your decision
-    filters:
-      or:
-        - note.status == "script-ready"
-        - note.status == "illustrations-ready"
-        - note.status == "error"
-    order:
-      - file.name
-      - note.status
-      - note.estimated_budget_usd
-      - note.approved_budget_usd
-      - note.error

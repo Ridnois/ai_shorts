@@ -63,6 +63,7 @@ rowy = lambda k, n, top=STAGE[1], bottom=STAGE[3]: round(top + (bottom - top) * 
 
 # ---- components (HTML strings; ids drive the motion verbs)
 def lbl(id_, text, x, y, w, col=INK):
+    col = col if col in TEXT_SAFE else INK              # yellow is a marker, never a text colour
     return f'<div class="lbl ov" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;color:{col}">{text}</div>'
 
 
@@ -169,7 +170,7 @@ def callout(id_, text, ax, ay, lx, ly, col=INK, side="right", w=440):
 
 def tag(id_, text, x, y, col=BLUE):
     """A line-drawn tag holding a query or a name: the thing that moves between figures."""
-    return f'<div class="tag ov" id="{id_}" style="left:{x}px;top:{y}px;color:{col};border-color:{col}">{html.escape(text)}</div>'
+    return f'<div class="tag ov" id="{id_}" style="left:{x}px;top:{y}px;color:{col if col in TEXT_SAFE else INK};border-color:{col if col in TEXT_SAFE else INK}">{html.escape(text)}</div>'
 
 
 RAIL_Y = 196

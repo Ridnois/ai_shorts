@@ -8,7 +8,7 @@ tags: [research, youtube, script, ai, agents, week-04]
 
 # Script · AI agent skills explained (Week 04, Tue 27 Oct; folder name MCP vs skills)
 
-← [[MCP vs skills - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Audience]]
+← [[MCP vs skills - Status]] · [[YouTube Channel]] · [[Format]] · [[Growth]]
 
 User (27 Oct 2026): *"New short: explain the diference between an mcp and skill …"*, then on r3: *"Refocus the video. ai agent skills explained. make it more dynamic. more engaging"*. Series: **How it works**. Real case: Anthropic's `slack-gif-creator` skill (anthropics/skills), shown with its real folder, header and rules.
 
@@ -40,7 +40,7 @@ On screen (v3): 4, 5, 7, 9, 10. **Original synthesis:** 100 skills with a 36-wor
 
 **Scores:** surprise 4 · scale 4 · depth 4 · evidence 5 · showable 4 · plain 5. **Street-lamp:** pass (the announcement says skills load "when needed"; the video shows the two-step read on a real file and measures what 100 skills cost). **Against:** (1) "Claude-only" → open standard (agentskills.io); (2) "jargon" → a folder and a text file; (3) "so what" → teach your own agent a job. **Demand:** autocomplete "claude skills", "agent skills", "mcp vs claude skills" (27 Oct 2026); outliers not checked (token HTTP 400).
 **Five hooks:** fact "Claude can learn a new job from one text file." (**used**) · question "How does Claude learn a job it was never trained for?" · number "A hundred skills take the room of three." · contradiction "Your agent has a manual it does not read." · stakes "Your agent can do your team's job your way, from one file."
-**History:** r1 and r2 (a list, "hands vs know-how") were "a plain comparison table"; r3 (MCP vs skill as a story) was refocused by the user on skills alone and asked to be more dynamic. Rules edited: [[Playbook]] §2 *A comparison is a story*, §3 event every 1.5 to 2 s and one scale change per world.
+**History:** r1 and r2 (a list, "hands vs know-how") were "a plain comparison table"; r3 (MCP vs skill as a story) was refocused by the user on skills alone and asked to be more dynamic. Rules edited: [[Format]] (old Playbook §2) *A comparison is a story*, §3 event every 1.5 to 2 s and one scale change per world.
 
 ## 2. Package
 

@@ -1,37 +1,44 @@
-# Agent guide: Inside the Model vault (`~/Documents/ai_shorts`)
+# Agent guide: the Next Token vault (`~/Documents/bussiness/ai_shorts`)
 
-English AI-assisted channel that **teaches AI** in three series: **How it works**, **Agent at work**, **What's coming** ([[Audience]]). Vertical Shorts for YouTube and TikTok, five a week at a fixed time, never two on one day. The vault is the single source of knowledge: read the notes, follow them, and turn **feedback into an edit of the owning rule** ([[Feedback loop]]). Everything is written in English.
+**Next Token** is an English, AI-assisted channel that teaches AI in 45 to 60 s vertical Shorts (YouTube and TikTok), Mon to Fri, in three series: **How AI works**, **Agent at work**, **What's coming**. The vault is the single source of knowledge; feedback becomes an edit of the rule that owns it ([[Feedback loop]]). Everything is written in English.
 
-## Read order (every task)
+## Read order
 
-1. This file. 2. `System/Playbook.md` (every content rule; read it whole before writing). 3. `System/Workflow.md` (stages, budget, commands). 4. `Analytics/Report.md` before choosing an idea, hook or length. 5. The video's Status and Script (`Videos/Week NN/<Day>/<Topic>/`).
-On demand: `System/Audience.md` (niche, cases, plain words, search, package) when choosing an idea; `System/Design system.md` (look, zones, camera, transitions, components, sound kit) before building; `System/Style.md` (brand, persona, banned words) when writing text; `System/Publish.md` at P8; `Pipeline/Pipeline.md` for the idea queue. Craft reference: the `hyperframes` skills and the `anatomy` skill (machines drawn as parts, `System/anatomy/`) in `.claude/skills/`.
+1. This file. 2. `System/Format.md` (what a Short is; read it whole before writing). 3. `System/Production.md` (stages, commands, checks). 4. `Analytics/Report.md` before choosing an idea. 5. The video's Status and Script.
+On demand: `System/Look.md` (brand, design system, motion, sound) before building; `System/Growth.md` (audience, ideas, package, upload, policy, numbers) when choosing an idea and at upload; `Pipeline/` for the idea queue.
+
+## Skills (`.claude/skills/`)
+
+- `/short <topic or idea>`: one video, end to end (ask once, idea, script, build, checks, master, pack, stop for review).
+- `/short-idea`: find and score ideas from outliers; writes `Pipeline/Ideas/`.
+- `/short-script`: write or fix a script to [[Format]] §3.
+- `/short-qa <video>`: audit a render (frames, layout, sound, encode) and score it against [[Format]] §4.
+- `/short-publish <video>`: masters, the publish pack, upload after the user confirms, analytics pulls.
+- Craft: `hyperframes`, `hyperframes-cli`, `hyperframes-registry`, `media-use`, `anatomy`, `hairline-create`, `hairline-adopt`.
 
 ## Hard rules
 
-- **Clarify first:** a new-video request opens with one round of `AskUserQuestion` (angle, real case, gate and delegation, visual approach); answers verbatim in Status.
-- **No paid call and no media before P4** (budget approved in dollars, cap base × 1.2). Under delegation, record it in Status and run to the render; **stop at P7**. Replicate calls in series, one retry per image, prediction id logged at once.
-- **The idea is a gate:** Y and X named, a named real case, facts bank of 15 or more, scores, street-lamp and expert tests ("borderline" = fail), demand check, five hooks of different types, variety guard.
-- **Script:** length in words (short test block: 90 to 140, every third 60 to 85); the twist is the first words and passes the hook test; one running example; connection and cut tests; concrete payoff and one social question. Package (title, thumbnail, promise) written in the Script note.
-- **Visuals at the bar of the feed:** show the verb; real captures and recorded runs for real things, **Anatomy figures for physical machines** and Hairline figures with callouts for flat mechanisms, 3D only where depth explains; the subject fills the frame; the camera moves inside worlds (3 or more shot sizes); transitions with a cause (3 to 5 kinds, at most a third hard cuts); an event every 1.5 to 2 s; no AI clichés; no branding inside the video.
-- **Build only with HyperFrames + `System/scripts/hfkit.py`** (Anatomy figures through `K.anatomy` and `v.pose`); never fork a component in a video's builder. Render at `--crf 14`.
-- **Voice:** `inworld/realtime-tts-2`, `Dennis`, one continuous take, never stitched or cut. **Sound:** effects from the kit with a cause on screen, one payoff riser and hit, music opt-in; every render mixed by `mix_audio.py` to −14 LUFS, true peak −1 dBTP or lower.
-- **Rigor and honesty:** every figure has source and date; every AI claim names model, version and date; demos are real runs, speed-ups marked, no key or personal data; say what you could not check (you cannot hear audio or watch a whole video).
-- **Ship discipline:** the user's P7 verdict is ship, fix or drop; at most two revisions after r1; at most two renders wait at P7/P8 before a new video. Upload private, only after the user confirms the publish pack.
-- **Notes live in the vault** (Markdown), short (ceilings in [[Workflow]]); delete obsolete notes instead of archiving; one Status note per video.
+- **Ask once, then run:** a new video opens with one round of `AskUserQuestion`; the answers go verbatim into Status. Then the agent runs to the audited render and the publish pack, and **stops for the user's verdict** (ship, fix or drop; at most two revisions).
+- **Money:** default cap $0.50 a video, written in Status; voice and timings cost about $0.03. Anything else paid is asked first. Replicate calls run in series and each prediction id is logged at once.
+- **Build only with HyperFrames + `System/scripts/hfkit.py`** (the paper look, tokens, captions, camera, sound). Never fork a component in a video's builder; never bring back gradients, grain or thin lines.
+- **Every upload uses the master** made by `System/scripts/master.py` (2160x3840 for YouTube, 1080x1920 for TikTok). Never upload the raw render.
+- **Voice:** `inworld/realtime-tts-2`, `Dennis`, one continuous take, never stitched. Mix to −14 LUFS, true peak −1 dBTP.
+- **Honesty:** every number has a source and date; every AI claim names model, version and date; recorded runs are real, speed-ups marked, no keys or personal data. Say what you could not check: you cannot watch or hear a video; you read frames and numbers.
+- **Upload private, only after the user confirms the publish pack.**
 - **Done = `python3 System/scripts/check_vault.py` passes.**
 
 ## Gotchas that already cost time
 
-Replicate 429 under bursts (the helper retries, nothing is charged); a hung download is recovered, never regenerated; Wikimedia thumbnails throttle (fetch originals from `upload.wikimedia.org`); system Python has no numpy (Blender's does); `Media/` is local and gitignored; never `pkill -f` a pattern in your own command; Obsidian re-pads tables; in zsh never name a variable `path` and do not rely on word splitting of `$var`; ffmpeg's `adelay` only shifts timestamps (pad with `aresample=async=1:first_pts=0`). The YouTube scripts read `.env` from the working directory: run them from `~/Documents/youtube` with the script's absolute path; refresh tokens expire weekly (HTTP 400: the user re-runs `youtube_analytics.py auth`). You cannot watch a clip: look at `snapshot` contact sheets and frames of the final mp4, not only the page. Hairline animates on its own clock: always through `hfkit` (it rewrites the clock so frames are deterministic). `hfkit` copies GSAP, three.js and the fonts into `hf/assets`: no network at render. HyperFrames lint warns about nested structure and dense tracks: accepted (the vault does not edit in Studio). Kenney's site blocks scripted downloads: new sounds come from Openverse (CC0) or the HyperFrames media-use library.
+Replicate 429 under bursts (the helper retries, nothing is charged); a hung download is recovered, never regenerated. Wikimedia thumbnails throttle (fetch originals from `upload.wikimedia.org`). System Python has no numpy (Blender's does). `Media/` is local and gitignored. Never `pkill -f` a pattern in your own command. Obsidian re-pads tables. In zsh never name a variable `path`, do not rely on word splitting of `$var`, and quote globs (`--include='*.md'`). ffmpeg's `adelay` only shifts timestamps (pad with `aresample=async=1:first_pts=0`). The YouTube scripts read `.env` from the working directory: run them from the vault root; that `.env` needs `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN`, `YT_ANALYTICS_REFRESH_TOKEN` (missing on 29 Oct 2026: the old `~/Documents/youtube` folder is gone); refresh tokens expire weekly (HTTP 400: the user re-runs `youtube_analytics.py auth`). Hairline animates on its own clock: always mount it through `hfkit`. `hfkit` vendors GSAP, three.js and the fonts into `hf/assets`: no network at render. HyperFrames lint warns about nested structure and dense tracks: accepted. Kenney's site blocks scripted downloads: new sounds come from Openverse (CC0) or the `media-use` skill.
 
 ## Map
 
 ```
-CLAUDE.md · YouTube Channel.md (index, video table)
-System/  Playbook · Workflow · Design system · Style · Audience · Publish · Feedback loop · Model script
-         assets/sfx (sound kit) · Brand/Inside the Model · scripts/ (hfkit, captions, check3d, voice, word_timings, mix_audio,
-         publish, youtube_*, analytics, stock_*, replicate_helper, scene3d, check_vault, vendor/: hairline, gsap, three, fonts)
-Pipeline/ idea queue, Niche map    Analytics/ csvs · Report.md (generated) · Reports/
-Videos/Week NN/<YYYY-MM-DD Day>/<Topic>/ Status · Script · Upload      Media/Week NN/<YYYY-MM-DD Day>/<Video>/ local media
+CLAUDE.md · YouTube Channel.md (index, video table) · User insights.md (the user's research notes)
+System/  Format · Look · Production · Growth · Feedback loop
+         Brand/Next Token (brand.py, avatar, banner, mascot) · anatomy/ (figures) · assets/sfx (sound kit)
+         scripts/ hfkit, captions, master, voice, word_timings, mix_audio, listen, check3d, publish, youtube_*, analytics,
+                  stock_*, replicate_helper, scene3d, check_vault, vendor/ (hairline, gsap, three, fonts)
+Pipeline/ idea queue, Niche map, Ideas/    Analytics/ csvs · Report.md (generated)
+Videos/Week NN/<YYYY-MM-DD Day>/<Topic>/   Status · Script · Upload        Media/… (local media, renders, masters)
 ```

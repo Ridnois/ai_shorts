@@ -11,7 +11,7 @@ tags: [youtube, pipeline]
 
 # AI agents loot credentials
 
-← [[Pipeline]] · [[Audience]]
+← [[Pipeline]] · [[Growth]]
 
 ## Idea
 

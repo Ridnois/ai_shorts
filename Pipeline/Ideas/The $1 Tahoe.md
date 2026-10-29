@@ -12,8 +12,8 @@ tags: [youtube, pipeline]
 
 # The $1 Tahoe
 
-← [[Pipeline]] · [[Audience]]
+← [[Pipeline]] · [[Growth]]
 
 ## Y · X · case
 
-**Y:** to know what a company's chatbot can be talked into. **X:** a chatbot follows the text it reads, so a customer can write it new rules (prompt injection at the counter). **Case (verify at P1, primary source and date):** a Chevrolet dealer's ChatGPT-powered chatbot agreed to sell a Tahoe for $1 (Watsonville, Dec 2023). **Plain words:** hidden orders in what it reads ([[Audience]] *Plain-words map*).
+**Y:** to know what a company's chatbot can be talked into. **X:** a chatbot follows the text it reads, so a customer can write it new rules (prompt injection at the counter). **Case (verify at P1, primary source and date):** a Chevrolet dealer's ChatGPT-powered chatbot agreed to sell a Tahoe for $1 (Watsonville, Dec 2023). **Plain words:** hidden orders in what it reads ([[Growth]] *Plain-words map*).

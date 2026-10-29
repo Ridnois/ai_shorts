@@ -8,7 +8,7 @@ tags: [research, youtube, script, ai, security, week-04]
 
 # Script · Prompt injection (Week 04, Mon 26 Oct)
 
-← [[Prompt injection - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Audience]]
+← [[Prompt injection - Status]] · [[YouTube Channel]] · [[Format]] · [[Growth]]
 
 User (26 Oct 2026): *"New short: Prompt inyection and protection for your ai chatbot explained with smooth, rythmical 3d like animations. faster voice and more words allowed on the sime timeframe."* Series: **How it works** (the last series video was Agent at work; the ThinkPad one-off has no series). Not compact.
 

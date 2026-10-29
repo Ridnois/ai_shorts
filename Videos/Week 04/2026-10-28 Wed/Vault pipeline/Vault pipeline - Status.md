@@ -26,6 +26,6 @@ How the voice and effects sound; caption timing against speech; pace in motion. 
 
 ## Feedback
 
-- r2 (user, 28 Oct 2026): *"Dont like the script, forget about not uploaded videos, describe how this works on the technical aspect. not the history of videos generated."* Rule changed: [[Playbook]] §2 *Mechanism, not history*. r3 follows one word through the pipeline.
+- r2 (user, 28 Oct 2026): *"Dont like the script, forget about not uploaded videos, describe how this works on the technical aspect. not the history of videos generated."* Rule changed: [[Format]] (old Playbook §2) *Mechanism, not history*. r3 follows one word through the pipeline.
 
-- r1 (user, 28 Oct 2026): *"i think you can improve the spacing of words (missing spaces on captions) the distribution of elements and scripting. improve that and redo last short. ask me stuff to know how i visualize it"*. Answers: look "Mix by beat", layout "One hero, full width", script "Keep and tighten", captions "Low band, fixed". Rules changed: [[Design system]] (caption gaps, one hero per beat, worlds clipped above the band), [[Playbook]] §2 (turn words, concrete nouns).
+- r1 (user, 28 Oct 2026): *"i think you can improve the spacing of words (missing spaces on captions) the distribution of elements and scripting. improve that and redo last short. ask me stuff to know how i visualize it"*. Answers: look "Mix by beat", layout "One hero, full width", script "Keep and tighten", captions "Low band, fixed". Rules changed: [[Look]] (caption gaps, one hero per beat, worlds clipped above the band), [[Format]] (old Playbook §2) (turn words, concrete nouns).

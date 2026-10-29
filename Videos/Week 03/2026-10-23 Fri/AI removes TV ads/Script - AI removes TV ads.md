@@ -8,7 +8,7 @@ tags: [research, youtube, script, ai, week-03]
 
 # Script · AI removes TV ads (Week 03, Fri 23 Oct)
 
-← [[AI removes TV ads - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Audience]]
+← [[AI removes TV ads - Status]] · [[YouTube Channel]] · [[Format]] · [[Growth]]
 
 User (23 Oct 2026): *"Chose a trending ai topic and generate a new video"*. Series: **Agent at work** (the last two were How it works). **Compact** (third video).
 

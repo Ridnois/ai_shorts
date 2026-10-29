@@ -8,7 +8,7 @@ tags: [status, week-03]
 
 # AI removes TV ads · Status
 
-← [[Script - AI removes TV ads]] · [[YouTube Channel]] · [[Workflow]]
+← [[Script - AI removes TV ads]] · [[YouTube Channel]] · [[Production]]
 
 **Delegation (user, 23 Oct 2026):** *"Chose a trending ai topic and generate a new video"*. The agent picks the topic, runs P1 to P7 and stops at the render. First video with the hook, connection and look v2 rules.
 

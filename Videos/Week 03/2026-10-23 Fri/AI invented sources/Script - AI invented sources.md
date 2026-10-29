@@ -8,7 +8,7 @@ tags: [research, youtube, script, ai, week-03]
 
 # Script · AI invented sources (Week 03, Fri 23 Oct)
 
-← [[AI invented sources - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Audience]]
+← [[AI invented sources - Status]] · [[YouTube Channel]] · [[Format]] · [[Growth]]
 
 User (23 Oct 2026): *"lets generate the video of the idea 'Why AI Invents Sources (and How to Catch It in 5 Seconds)'"*.
 

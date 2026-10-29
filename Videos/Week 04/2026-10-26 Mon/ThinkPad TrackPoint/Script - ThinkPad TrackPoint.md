@@ -8,7 +8,7 @@ tags: [research, youtube, script, hardware, week-04]
 
 # Script · ThinkPad TrackPoint (Week 04, Mon 26 Oct)
 
-← [[ThinkPad TrackPoint - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Audience]]
+← [[ThinkPad TrackPoint - Status]] · [[YouTube Channel]] · [[Format]] · [[Growth]]
 
 User (26 Oct 2026): *"Make a new short with hyperframes https://github.com/heygen-com/hyperframes topic: Why thinkpads are so special"*. At the idea gate the user chose **"One-off, mechanism angle"**: off the AI niche (no series; it is not counted in the series rotation) but built as **How it works** (hook, definition, origin, explanation on one running example, turn, close). Not compact (the last video was compact).
 

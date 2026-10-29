@@ -7,11 +7,11 @@ words: 134
 
 # Script: Vault pipeline (how this vault makes Shorts)
 
-Status: [[Vault pipeline - Status]] · rules: [[Playbook]] · build: [[Design system]]
+Status: [[Vault pipeline - Status]] · rules: [[Format]] · build: [[Look]]
 
 ## Idea (P1, r3)
 
-- **Y:** know how an AI agent turns text into a finished video. **X:** the video is a web page whose timeline is keyed to the voice's word timestamps, filmed by a browser frame by frame. **Series:** How it works (mechanism only: no channel history, [[Playbook]] §2 *Mechanism, not history*).
+- **Y:** know how an AI agent turns text into a finished video. **X:** the video is a web page whose timeline is keyed to the voice's word timestamps, filmed by a browser frame by frame. **Series:** How it works (mechanism only: no channel history, [[Format]] (old Playbook §2) *Mechanism, not history*).
 - **Running example:** the word "page", followed from the take (whisper 18.86 s) to its cue (19.342 s), its tween and its frame.
 - **Facts (first-party, 28 Oct 2026):** HyperFrames renders HTML by seeking a paused GSAP timeline frame by frame at 30 fps; this render is 1,399 frames; one Inworld TTS-2 take; whisper word timings; `check3d.mjs` samples every 0.25 s for overlaps; `mix_audio.py` masters to −14 LUFS (YouTube's reference loudness).
 

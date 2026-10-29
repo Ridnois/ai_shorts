@@ -8,7 +8,7 @@ tags: [research, youtube, script, ai, rag, week-04]
 
 # Script · RAG explained (Week 04, Mon 26 Oct)
 
-← [[RAG explained - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Audience]]
+← [[RAG explained - Status]] · [[YouTube Channel]] · [[Format]] · [[Growth]]
 
 User (26 Oct 2026): *"build a new short, this one about rag explained to newbies"*. Series: **How it works**. Named real case (§1 item 9): **Moffatt v. Air Canada**.
 
@@ -31,7 +31,7 @@ User (26 Oct 2026): *"build a new short, this one about rag explained to newbies
 | 11 | RAG pipelines split documents into chunks, embed them as vectors and fetch the nearest chunks to the question | general description of the method (no figure) |
 | 12 | The fetched text is placed in the prompt with the question; the model answers from it and can cite it | Lewis et al.; general method |
 | 13 | A retrieval miss (the wrong chunk) gives a fluent answer grounded in the wrong text | Stanford RegLab study (failure analysis) |
-| 14 | Since 31 Mar 2025 a Shorts view counts every play or replay | [[Playbook]] §0 research (shortimize) |
+| 14 | Since 31 Mar 2025 a Shorts view counts every play or replay | [[Format]] (old Playbook §0) research (shortimize) |
 | 15 | Company help-desk bots and "chat with your PDF" tools are the most common RAG products | general (no figure) |
 
 Used on screen: 1, 3, 4, 6, 7, 9. Not claimed: how Air Canada's chatbot was built.

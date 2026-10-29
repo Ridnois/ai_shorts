@@ -8,7 +8,7 @@ tags: [status, week-03]
 
 # Gradient descent · Status
 
-← [[Script - Gradient descent]] · [[YouTube Channel]] · [[Workflow]]
+← [[Script - Gradient descent]] · [[YouTube Channel]] · [[Production]]
 
 **Delegation (user, 23 Oct 2026):** *"Make a new video about gradient descend"*. The agent runs P1 to P7 and stops at the render.
 

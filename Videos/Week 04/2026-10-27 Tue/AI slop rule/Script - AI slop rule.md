@@ -8,7 +8,7 @@ tags: [research, youtube, script, ai, money, week-04]
 
 # Script · How YouTube Shorts pay, and why AI slop gets cut (Week 04, Tue 27 Oct)
 
-← [[AI slop rule - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Audience]]
+← [[AI slop rule - Status]] · [[YouTube Channel]] · [[Format]] · [[Growth]]
 
 User (27 Oct 2026): *"new short: How youtube monetization works."*, angle chosen: the AI slop rule. Series: **What's coming** (work and money). Real case: Bandar Apna Dost, the most-viewed AI slop channel in Kapwing's report.
 

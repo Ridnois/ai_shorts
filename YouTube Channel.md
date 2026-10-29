@@ -1,19 +1,17 @@
 ---
 type: index
-updated: 2026-10-28
+updated: 2026-10-29
 ---
 
-# Inside the Model: video index
+# Next Token: video index
 
-Agent entry: `CLAUDE.md`. Rules: [[Playbook]] · process and commands: [[Workflow]] · look, camera, motion and sound: [[Design system]] · brand and words: [[Style]] · niche, search and package: [[Audience]] · upload and metrics: [[Publish]] · [[Feedback loop]] · target to imitate: [[Model script]]. Idea queue: [[Pipeline]]. Numbers: [[Report]].
+Agent entry: `CLAUDE.md`. What a Short is: [[Format]] · brand and design system: [[Look]] · stages, commands, checks: [[Production]] · audience, ideas, upload, policy, numbers: [[Growth]] · [[Feedback loop]]. Idea queue: [[Pipeline]]. Numbers: [[Report]]. The user's research: [[User insights]].
 
-**The channel teaches AI** (since 23 Oct 2026): how it works, agents at work, what's coming. **System v3** (27 Oct 2026): rules rewritten to one owner each, HyperFrames only with the camera, transitions with a cause and the sound kit ([[Design system]]). Videos before it were built on look v2.
+**Relaunch, 29 Oct 2026:** the channel is **Next Token** (was Inside the Model): flat paper look, 45 to 60 s stories, a 4K YouTube master, lean runs with one review ([[Look]], [[Format]], [[Production]]). Skills: `/short`, `/short-idea`, `/short-script`, `/short-qa`, `/short-publish`.
 
-## Uploads
+## Earlier renders (retired dark look)
 
-The user uploads the earlier upload packs by hand (28 Oct 2026); their Status notes are not updated by `publish.py`.
-
-## Videos
+The 14 renders below were built in the Inside the Model dark look, before the relaunch. Ship one only if the user wants it; it goes out through `master.py` like any new one. Otherwise drop them: the next video starts the new look.
 
 | Video | Series · words · voice | State | Notes |
 | --- | --- | --- | --- |

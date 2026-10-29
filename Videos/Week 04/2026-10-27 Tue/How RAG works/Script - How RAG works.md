@@ -8,7 +8,7 @@ tags: [research, youtube, script, ai, rag, week-04]
 
 # Script · How RAG works (Week 04, Tue 27 Oct)
 
-← [[How RAG works - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Audience]]
+← [[How RAG works - Status]] · [[YouTube Channel]] · [[Format]] · [[Growth]]
 
 User (27 Oct 2026): *"generate a new short: how rag works"*; angle chosen in the clarifying round: **deeper mechanism**, one level below [[Script - RAG explained]] (that one: remembering vs reading). Series **How it works**. Named real case (§1 item 9): **Magesh et al., Stanford RegLab and HAI**, "Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools".
 

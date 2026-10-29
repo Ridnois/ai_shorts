@@ -8,9 +8,9 @@ tags: [research, youtube, script, ai, agents, week-04]
 
 # Script · HyperFrames (Week 04, Mon 26 Oct)
 
-← [[HyperFrames - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Audience]]
+← [[HyperFrames - Status]] · [[YouTube Channel]] · [[Format]] · [[Growth]]
 
-User (26 Oct 2026): *"New short: explain hyperframes to web and youtube short"*. Series: **Agent at work**. Real case ([[Audience]] *Case sources*, real runs): this channel's own Shorts, written by Claude Code as HyperFrames pages.
+User (26 Oct 2026): *"New short: explain hyperframes to web and youtube short"*. Series: **Agent at work**. Real case ([[Growth]] *Case sources*, real runs): this channel's own Shorts, written by Claude Code as HyperFrames pages.
 
 **Y:** make a video without a video editor. **X:** a video can be a web page that a hidden browser photographs frame by frame. **Theme line:** *a page you can film.* **Running example:** the *RAG explained* r2 page: its real code lines and its real frames.
 

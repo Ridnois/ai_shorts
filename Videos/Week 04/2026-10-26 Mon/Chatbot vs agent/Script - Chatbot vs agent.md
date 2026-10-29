@@ -8,7 +8,7 @@ tags: [research, youtube, script, ai, agents, week-04]
 
 # Script · Chatbot vs agent (Week 04, Mon 26 Oct)
 
-← [[Chatbot vs agent - Status]] · [[YouTube Channel]] · [[Playbook]] · [[Audience]]
+← [[Chatbot vs agent - Status]] · [[YouTube Channel]] · [[Format]] · [[Growth]]
 
 User (26 Oct 2026, P7 on *Free or paid* r2): *"Horrible, unnecesary 3d models. unclear diferentiation. go simpler, ai chatbot vs ai agent"*. Series: **How it works** (what makes an agent an agent). One difference: **who runs the loop.**
 

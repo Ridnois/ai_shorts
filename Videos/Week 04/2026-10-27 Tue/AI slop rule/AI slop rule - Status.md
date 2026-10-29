@@ -8,9 +8,9 @@ tags: [status, week-04]
 
 # AI slop rule · Status
 
-← [[Script - AI slop rule]] · [[YouTube Channel]] · [[Workflow]]
+← [[Script - AI slop rule]] · [[YouTube Channel]] · [[Production]]
 
-**Delegation (user, 27 Oct 2026):** *"new short: How youtube monetization works."* Asked about the gates, the user chose **"Override, start now"** for [[Workflow]] *Ship before you build* (about eight renders wait at P7 or P8, none uploaded) and **"AI slop rule"** for the angle, which puts the off-niche topic in What's coming (work and money) through the inauthentic-content rule. P1 to P7, cap **$0.04** (one take about $0.015, one retake, whisper $0.01). Compact slot of the short test block (60 to 85 words), as MCP vs skills handed it on.
+**Delegation (user, 27 Oct 2026):** *"new short: How youtube monetization works."* Asked about the gates, the user chose **"Override, start now"** for [[Production]] *Ship before you build* (about eight renders wait at P7 or P8, none uploaded) and **"AI slop rule"** for the angle, which puts the off-niche topic in What's coming (work and money) through the inauthentic-content rule. P1 to P7, cap **$0.04** (one take about $0.015, one retake, whisper $0.01). Compact slot of the short test block (60 to 85 words), as MCP vs skills handed it on.
 
 | Stage | Status | Approved (date) | Note |
 | --- | --- | --- | --- |

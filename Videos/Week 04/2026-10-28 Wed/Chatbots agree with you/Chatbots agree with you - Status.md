@@ -7,7 +7,7 @@ updated: 2026-10-28
 
 **Clarify (user, 28 Oct 2026, verbatim answers):** topic "Why AI chatbots agree with you (Recommended)" · delegation "Delegate to render (Recommended)" · scope "New narrative layer only (Recommended)". Request: *"Redesign the narrative strategy for the short videos, look for similar systems and learn what you can improve here. we want top tier ai generated videos on any metric. make your improvements and do a new short to show me"*.
 
-**Delegation:** P1 to P7 by the agent, base about $0.04 (take about $0.02, timing about $0.01, two Llama calls under $0.01), cap $0.10; stop at the render. First video written on [[Playbook]] §2a.
+**Delegation:** P1 to P7 by the agent, base about $0.04 (take about $0.02, timing about $0.01, two Llama calls under $0.01), cap $0.10; stop at the render. First video written on [[Format]] (old Playbook §2a).
 
 | Stage | Status | Approved (date) | Note |
 | --- | --- | --- | --- |
