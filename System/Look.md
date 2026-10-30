@@ -70,6 +70,7 @@ Every world is a canvas behind a camera: `v.cam`, `v.focus(w, t, box)`, `v.wide`
 | --- | --- |
 | Display line | `big(id, text, x, y, w, size, hot=k)` with `v.reveal` |
 | Real frame, phone | `frame(...)`, `phone(...)`: screenshots and recorded runs, ink border and hard shadow |
+| Readable capture | a capture is read at Short speed on a phone: crop it to the one line, number or title the voice names, scaled so its body text is 44 px or taller on screen, held 2 s or more; a whole page or table appears only as a brief establishing shot under a big line (user, 30 Oct 2026: "make sure captures are readable on the short speed and format") |
 | Terminal | `code(id, lines, x, y, w, title=)`: `<s>` strings, `<b>` numbers, `<u>` prompt |
 | Counter | `counter` with `v.count` |
 | Callout | `callout(id, text, ax, ay, lx, ly, col)` with `v.callout` |

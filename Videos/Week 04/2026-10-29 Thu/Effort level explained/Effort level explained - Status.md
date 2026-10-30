@@ -13,7 +13,7 @@ updated: 2026-10-29
 | **Script** | 167 words, 7 scenes, turn at 56 %; 16 runs, Anthropic effort docs captured. |
 | **Spend** | take `1sfv6ejsghrmy0d1h93v768xc8` (1,029 chars, about $0.026); incredibly-fast-whisper `kgzv4tdac5rmr0d1h93rsm4c7g` canceled in `starting`; WhisperX `agye6j19phrna0d1h98tsjfyb8` (about $0.005). Total about $0.03, cap $0.50. Runs: 21 on the user's Claude plan (notional API cost in the JSONs, about $1.0, mostly cached system prompt and the max run's $0.46). |
 | **Build** | Anatomy `effort-meter` (new: `effort`, `think`, `out`, `ok`, `bad`) in w1, w3, w5, w6, w7; recorded runs as terminal panels (real JSON values, trimmed) in w2, w4, w5; Anthropic docs captures (header, levels table) in w2, w3, w7. Transitions whip, push, cut, dip, blur (1 cut of 6); shot sizes wide, medium (cage, card), close (knob). `hfkit` fix: anatomy SVG ids scoped per mount (a shared clip id hid the answer card in every world after w1). Lint 0 errors; `check3d` OVERLAPS 0; frame audit 3 rounds plus the master sheet. Render `eff-54s-9x16-r1.mp4` 54.3 s; `MIX` −14.0 LUFS, −1.2 dBTP; `LISTEN` PASS; masters `-yt` 2160x3840 8.2 Mb/s (last video 7.2: the flat look), `-tt` 1080x1920; thumbnail; pack `upload/eff-publish-pack.md`. |
-| **Review** | review |
+| **Review** | ship (user, 30 Oct 2026, asked-once round of the ETH Short: "Ship both (Recommended)") |
 | **Publish** | not uploaded |
 | **Numbers** | |
 
