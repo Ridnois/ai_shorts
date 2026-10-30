@@ -19,6 +19,7 @@ Agent entry: `CLAUDE.md`. What a Short is: [[Format]] · brand and design system
 | Quantization explained | Agent at work · 174 · Dennis (rate 1.1) | r1 (52.7 s), recorded Ollama run (Qwen3 8B, Q4_K_M) + Anatomy `ram-stick` + Hairline `quantize` + llama.cpp, Ollama captures; masters and pack built; shipped (user), not uploaded | [[Quantization explained - Status]] · [[Script - Quantization explained]] |
 | AI as a therapist | How AI works · 169 · Dennis (rate 1.1) | r1 (59.6 s), Anatomy `rater` + Dartmouth, OpenAI, Stanford paper captures; masters and pack built; shipped (user), not uploaded | [[AI as a therapist - Status]] · [[Script - AI as a therapist]] |
 | Effort level explained | Agent at work · 167 · Dennis (rate 1.1) | r1 (54.3 s), 21 recorded `claude -p --effort` runs (Claude Opus 5.5) + Anatomy `effort-meter` + Anthropic effort docs captures; masters and pack built; shipped (user), not uploaded | [[Effort level explained - Status]] · [[Script - Effort level explained]] |
+| ETH is false | What's coming · 170 · Dennis (rate 1.1) | r1 (58.1 s), Anatomy `switchboard` + Hairline `doubling` + phrase crops of OpenAI's preprint, README and Lean; masters and pack built; review | [[ETH is false - Status]] · [[Script - ETH is false]] |
 
 ## Earlier renders (retired dark look)
 
