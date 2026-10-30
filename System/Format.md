@@ -39,6 +39,7 @@ Record the claim, the real thing, the demand evidence and 3 hooks in the Status 
 
 - **Hook rules:** visual, spoken and on-screen hook name the same thing (the three-hook rule). Name the subject the viewer knows ("ChatGPT", not "a model"). No "Did you know", no "Imagine", no date opener, no question opener. The keyword the viewer would search is spoken in the first sentence (TikTok and YouTube read the transcript).
 - **Open loops:** the hook opens a question that the mechanism answers; the turn opens a second one that the payoff closes. A re-hook (a new question, number or reversal) every 8 to 12 s.
+- **Worked case first:** a mechanism the viewer has never met is shown working on a case small enough to count on screen (3 switches: all 8 settings tried, the passing ones lit), with every part named as it appears (what a switch is, what a rule is, when a rule holds); only then is it scaled up. Naming a puzzle is not showing it (user, 30 Oct 2026: "I dont get it yet, could you be more explanatory on the switches part?").
 - **For the ear:** sentences of 6 to 16 words, one idea each, joined by "because", "so", "but". Numbers and acronyms written as spoken ("G P U"). No exclamation marks.
 - **The loop ending:** read the last sentence into the first; if it plays as one sentence, it passes. No "like and subscribe". The closing question, if any, is one the viewer can answer in one word.
 - **Cut test:** delete each sentence in turn; if the video still works, it stays deleted.
