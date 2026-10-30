@@ -1,5 +1,5 @@
 /**
- * Doubling: nine columns stand in a row on a tray, one per switch added to a puzzle. Each back column is twice as tall as
+ * Doubling: ten columns stand in a row on a tray, one per switch added to a puzzle. Each back column is twice as tall as
  * the one before it: the settings to try double with every switch, so the first few are stubs and the last ones tower
  * (the exponential wall). With the claim shown (value 1), a front row stands before it whose heights grow on a slower
  * curve, 2^(n / sqrt(log2(n + 2))): a drawing of the shape of a subexponential bound, not to scale (the paper's bound
@@ -11,9 +11,9 @@
  */
 const { Cam, clamp, facing, fit, prism, proj, rrect, disposer, mk, put, solid, spring, stepS, pointer, reflect, register } = HL;
 
-const N = 9, STEP = 15, BW = 9, UNIT = 0.6, STUB = 0.8;
-const BACK = Array.from({ length: N }, (_, i) => UNIT * 2 ** i);                           // 0.6 .. 154
-const CLAIM = Array.from({ length: N }, (_, i) => UNIT * 2 ** (i / Math.sqrt(Math.log2(i + 2))));   // 0.6 .. about 13
+const N = 10, STEP = 14, BW = 8.5, UNIT = 0.3, STUB = 0.8;
+const BACK = Array.from({ length: N }, (_, i) => UNIT * 2 ** i);                           // 0.3 .. 154
+const CLAIM = Array.from({ length: N }, (_, i) => UNIT * 2 ** (i / Math.sqrt(Math.log2(i + 2))));   // 0.3 .. about 9
 const D = [Math.cos(Math.PI / 6), -Math.sin(Math.PI / 6)], E = [Math.sin(Math.PI / 6), Math.cos(Math.PI / 6)];
 const at = (t, e) => [t * D[0] + e * E[0], t * D[1] + e * E[1]];
 function along(t0, e0, t1, e1, r, n = 6) {
