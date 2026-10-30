@@ -172,6 +172,26 @@ def callout(id_, text, ax, ay, lx, ly, col=INK, side="right", w=440):
                   f'text-align:{"left" if side == "right" else "right"}">{text}</div>')
 
 
+SHEET_MIN = 80                          # a capture row under this height is unreadable at Short speed (Look: Readable capture)
+
+
+def sheet(id_, rows, x, y, w=870, pad=30, gap=12):
+    """A white sheet of real capture crops, one phrase a row: rows = [(src, src_w, src_h, display_h)]; a row's img gets the
+    id <id_>-<file stem>. Crop two or three words a row so each shows 80 px tall or more. Returns (html, height); put it in screen()."""
+    imgs, yy = "", pad
+    for k, (src, sw, sh, h) in enumerate(rows):
+        ww = round(h * sw / sh)
+        if h < SHEET_MIN:
+            print(f"WARN sheet {id_} row {k} ({os.path.basename(src)}): {h} px tall, {SHEET_MIN} or more reads on a phone; crop fewer words")
+        if ww > w - 2 * pad:
+            print(f"WARN sheet {id_} row {k} ({os.path.basename(src)}): {ww} px wide in a {w - 2 * pad} px sheet; crop fewer words")
+        imgs += f'<img id="{id_}-{os.path.splitext(os.path.basename(src))[0]}" src="{src}" style="position:absolute;left:{pad}px;top:{yy}px;width:{ww}px;height:{h}px"/>'
+        yy += h + gap
+    H = yy - gap + pad
+    return (f'<div class="art" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{H}px;background:{WHITE};'
+            f'border:{LINE}px solid {INK};border-radius:14px;box-shadow:14px 14px 0 {INK}">{imgs}</div>'), H
+
+
 def tag(id_, text, x, y, col=BLUE):
     """A line-drawn tag holding a query or a name: the thing that moves between figures."""
     return f'<div class="tag ov" id="{id_}" style="left:{x}px;top:{y}px;color:{col if col in TEXT_SAFE else INK};border-color:{col if col in TEXT_SAFE else INK}">{html.escape(text)}</div>'
