@@ -3,6 +3,7 @@
 
     python3 System/scripts/master.py "Media/…/<Video>/render/<v>-r<n>.mp4"            # writes upload/<v>-yt.mp4 and upload/<v>-tt.mp4
     python3 System/scripts/master.py <mp4> --only yt                                     # one of them
+    python3 System/scripts/master.py <mp4> --threads 2                                   # low RAM: fewer x264 threads, less memory for the 4K encode
     python3 System/scripts/master.py <mp4> --probe                                       # print codec, size, bitrate, colour tags only
 
 Why: YouTube re-encodes everything. A 1080x1920 upload on a small channel is usually served as H.264 at a low
@@ -44,13 +45,13 @@ def line(path):
             f"{v.get('color_space', '?')}/{v.get('color_range', '?')} · {mb} Mb/s · audio {a.get('codec_name', 'none')} {a.get('sample_rate', '')}")
 
 
-def master(src, kind):
+def master(src, kind, threads=0):
     t = TARGETS[kind]
     vid = os.path.dirname(os.path.dirname(os.path.abspath(src)))
     stem = os.path.splitext(os.path.basename(src))[0]
     os.makedirs(f"{vid}/upload", exist_ok=True)
     out = f"{vid}/upload/{stem}-{kind}.mp4"
-    cmd = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", src, "-vf", t["vf"], "-c:v", "libx264", *t["x264"],
+    cmd = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", src, "-vf", t["vf"], "-c:v", "libx264", *t["x264"], *(["-threads", str(threads)] if threads else []),
            "-pix_fmt", "yuv420p", *COLOR, *t["audio"], "-movflags", "+faststart", out]
     subprocess.run(cmd, check=True)
     return out
@@ -61,10 +62,11 @@ if __name__ == "__main__":
     ap.add_argument("src")
     ap.add_argument("--only", choices=list(TARGETS))
     ap.add_argument("--probe", action="store_true")
+    ap.add_argument("--threads", type=int, default=0)
     a = ap.parse_args()
     if not os.path.exists(a.src):
         sys.exit(f"no such file: {a.src}")
     if a.probe:
         print(line(a.src)); sys.exit()
     for k in ([a.only] if a.only else list(TARGETS)):
-        print("MASTER", k, line(master(a.src, k)))
+        print("MASTER", k, line(master(a.src, k, a.threads)))
