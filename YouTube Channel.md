@@ -18,6 +18,7 @@ Agent entry: `CLAUDE.md`. What a Short is: [[Format]] · brand and design system
 | Can AI replace lawyers | How AI works · 168 · Dennis (rate 1.1) | r1 (53.1 s), Anatomy `citator`, Hairline `loop`, `temperature` + Charlotin, Free Law Project, Stanford, SRA captures; masters and pack built; shipped (user), not uploaded | [[Can AI replace lawyers - Status]] · [[Script - Can AI replace lawyers]] |
 | Quantization explained | Agent at work · 174 · Dennis (rate 1.1) | r1 (52.7 s), recorded Ollama run (Qwen3 8B, Q4_K_M) + Anatomy `ram-stick` + Hairline `quantize` + llama.cpp, Ollama captures; masters and pack built; shipped (user), not uploaded | [[Quantization explained - Status]] · [[Script - Quantization explained]] |
 | AI as a therapist | How AI works · 169 · Dennis (rate 1.1) | r1 (59.6 s), Anatomy `rater` + Dartmouth, OpenAI, Stanford paper captures; masters and pack built; review | [[AI as a therapist - Status]] · [[Script - AI as a therapist]] |
+| Effort level explained | Agent at work · 167 · Dennis (rate 1.1) | r1 (54.3 s), 21 recorded `claude -p --effort` runs (Claude Opus 5.5) + Anatomy `effort-meter` + Anthropic effort docs captures; masters and pack built; review | [[Effort level explained - Status]] · [[Script - Effort level explained]] |
 
 ## Earlier renders (retired dark look)
 

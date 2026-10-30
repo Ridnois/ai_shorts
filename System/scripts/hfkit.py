@@ -131,6 +131,10 @@ def anatomy(id_, name, x, y, w):
     Short.anatomy() registers it and Short.pose() moves its parts on words. The host is as tall as the drawing's own box."""
     meta = json.load(open(f"{ANATOMY}/{name}/{name}.json"))
     svg = open(f"{ANATOMY}/{name}/{name}.svg").read()
+    # ids inside the drawing (clip paths) are scoped per mount: two mounts of one figure would share url(#id), and a
+    # reference that resolves into a hidden world clips the part away
+    for sid in set(re.findall(r'\bid="([^"]+)"', svg)):
+        svg = svg.replace(f'id="{sid}"', f'id="{id_}-{sid}"').replace(f"url(#{sid})", f"url(#{id_}-{sid})")
     return (f'<div class="an iso art" id="{id_}" data-theme="dark" style="left:{x}px;top:{y}px;width:{w}px;height:{round(w * meta["height"] / meta["width"])}px">'
             f'{svg}</div>')
 
