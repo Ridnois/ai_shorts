@@ -1,0 +1,63 @@
+{
+ "width": 600,
+ "height": 529,
+ "params": {
+  "s0": "0..1 switch 1 off (lever away) to on (lever toward the viewer, lit yellow); s1 .. s7 the same for switches 2 to 8",
+  "more": "0..1 switches 4 to 8 fade in one after another (init 1: all eight shown)",
+  "r0": "-1..1 lamp 1: -1 red (the rule fails), 0 grey, 1 green (the rule holds); r1, r2 lamps 2 and 3"
+ },
+ "anchors": {
+  "board": [
+   374.6,
+   219.9
+  ],
+  "console": [
+   235.1,
+   346.2
+  ],
+  "sw1": [
+   137.3,
+   176.2
+  ],
+  "sw2": [
+   176.3,
+   202.2
+  ],
+  "sw3": [
+   215.3,
+   228.2
+  ],
+  "sw4": [
+   254.3,
+   254.2
+  ],
+  "sw5": [
+   293.4,
+   280.2
+  ],
+  "sw6": [
+   332.4,
+   306.2
+  ],
+  "sw7": [
+   371.4,
+   332.2
+  ],
+  "sw8": [
+   410.4,
+   358.2
+  ],
+  "lamp1": [
+   254.4,
+   112
+  ],
+  "lamp2": [
+   364.9,
+   185.6
+  ],
+  "lamp3": [
+   475.5,
+   259.3
+  ]
+ }
+}
