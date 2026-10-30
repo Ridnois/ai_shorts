@@ -1,0 +1,49 @@
+{
+ "width": 600,
+ "height": 456,
+ "params": {
+  "effort": "0..1 the knob pointer turns from LOW (0) to MAX (1); five detents at 0, .25, .5, .75, 1; the yellow arc lights up to the pointer",
+  "think": "0..1 token tiles stack up in the cage, 14 at 1 (one tile is 1/14); 1/7 = 2 tiles",
+  "out": "0..1 the answer card slides out of the printer slot",
+  "ok": "0..1 the card strip and the lamp turn green",
+  "bad": "0..1 the card strip and the lamp turn red and the card's number bars vanish (no answer)"
+ },
+ "anchors": {
+  "knob": [
+   127.2,
+   199.4
+  ],
+  "low": [
+   95.6,
+   201.7
+  ],
+  "max": [
+   171.3,
+   231.3
+  ],
+  "cage": [
+   276.6,
+   177.7
+  ],
+  "tok2": [
+   339.2,
+   247.9
+  ],
+  "tok14": [
+   339.2,
+   86.3
+  ],
+  "card": [
+   372,
+   346.8
+  ],
+  "printer": [
+   397.7,
+   316.2
+  ],
+  "lamp": [
+   446.3,
+   345.2
+  ]
+ }
+}
