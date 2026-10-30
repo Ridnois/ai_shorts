@@ -4,7 +4,7 @@
  * (the exponential wall). With the claim shown (value 1), a front row stands before it whose heights grow on a slower
  * curve, 2^(n / sqrt(log2(n + 2))): a drawing of the shape of a subexponential bound, not to scale (the paper's bound
  * hides constants). The pointer's x is the puzzle size: columns left of it stand, the rest wait as flat stubs. The
- * tallest standing back column takes the bright edge.
+ * tallest standing back column takes the bright edge; with the claim shown, the front row takes it instead.
  *
  * The pattern: a field driven by one choice. The size is picked from the pointer's screen x, which no drawing moves
  * (rule 01); each column rides a spring to its height (a choice lands on a spring, rule 08).
@@ -29,8 +29,8 @@ function mount({ stage, svg, read }, value) {
   const W = (N - 1) * STEP + BW, T0 = -W / 2, T1 = T0 + W;
   const EB = -7, EF = 8;                                                       // the back row and the front row, into the page
 
-  const C = Cam(45, 0.5, 1.22);
-  fit(C, [[...at(T0 - 8, -16), -4], [...at(T1 + 8, 18), -4], [...at(T1, EB), BACK[N - 1]], [...at(T0 - 8, 18), -4]], 200, 168);
+  const C = Cam(45, 0.5, 1.7);
+  fit(C, [[...at(T0 - 8, -16), -4], [...at(T1 + 8, 18), -4], [...at(T1, EB), BACK[N - 1]], [...at(T0 - 8, 18), -4]], 200, 160);
   const P = proj(C), front = facing(C);
 
   const g = mk("g", {}, svg);
@@ -61,8 +61,8 @@ function mount({ stage, svg, read }, value) {
     k = clamp(k, 0, N);
     if (k === n) return;
     n = k;
-    back.forEach((c, i) => { c.z.t = i < n ? c.h : STUB; c.s.sil.classList.toggle("hi", i === n - 1); });
-    fore.forEach((c, i) => { c.z.t = i < n ? c.h : STUB; });
+    back.forEach((c, i) => { c.z.t = i < n ? c.h : STUB; c.s.sil.classList.toggle("hi", !claim && i === n - 1); });
+    fore.forEach((c, i) => { c.z.t = i < n ? c.h : STUB; c.s.sil.classList.toggle("hi", i < n); });   // the claim row: the bright edge
     B.wake();
   }
   function show() { read.textContent = touched ? `${n} switches` : "rest"; }
