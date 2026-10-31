@@ -1,0 +1,42 @@
+{
+ "width": 600,
+ "height": 427,
+ "params": {
+  "feed": "0..1 the code block leaves the press and rides the belt to the gate",
+  "check": "0..1 the feeler drops onto the part and lifts again (lit while down)",
+  "ok": "0..1 green lamp, the part turns green and rides on into the tray (lands on top of `count` parts)",
+  "bad": "0..1 red lamp, the part turns red; the kicker pushes it onto the return chute (to 0.35) and the chute carries it back to the press",
+  "count": "0..3 green parts already in the done tray",
+  "part": "0..1 the moving part shows (0 hides it: an empty line)"
+ },
+ "anchors": {
+  "press": [
+   161.5,
+   102
+  ],
+  "gate": [
+   312.9,
+   197.6
+  ],
+  "part0": [
+   171.4,
+   130.9
+  ],
+  "lamps": [
+   346.5,
+   95.8
+  ],
+  "chute": [
+   305.5,
+   146.6
+  ],
+  "tray": [
+   453.7,
+   321.6
+  ],
+  "belt": [
+   305.9,
+   203.2
+  ]
+ }
+}
