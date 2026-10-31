@@ -155,9 +155,9 @@ def main():
     # 4 wait for processing, set the thumbnail, verify it
     t0 = time.time()
     while video(vid)["status"]["uploadStatus"] != "processed" and time.time() - t0 < 1200: time.sleep(10)
-    rc, o = run(f"{HERE}/youtube_upload.py", "thumb", vid, thumb)
+    rc, o = run(f"{HERE}/youtube_upload.py", "thumb", "--", vid, thumb)
     ok = "200" in o and thumb_ok(vid, thumb)
-    if not ok: time.sleep(20); run(f"{HERE}/youtube_upload.py", "thumb", vid, thumb); ok = thumb_ok(vid, thumb)
+    if not ok: time.sleep(20); run(f"{HERE}/youtube_upload.py", "thumb", "--", vid, thumb); ok = thumb_ok(vid, thumb)
     out.append("thumbnail " + ("CONFIRMED (served image is ours)" if ok else "NOT CONFIRMED: check Studio, rerun with --resume " + vid))
     # 5 videos.csv
     texts = plan["texts"]; words = sum(len(t.split()) for t in texts)

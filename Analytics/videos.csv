@@ -13,3 +13,4 @@ Can AI replace lawyers,2026-10-29,HZveOw1x7Vs,,168,53.1,number,Courts have now c
 Quantization explained,2026-10-29,JIm2qj_-0bM,,174,52.7,contradiction,"This laptop has ten gigabytes of memory, and it just ran an eight billion parameter AI model.",Agent at work,,Dennis
 Effort level explained,2026-10-30,vGdsJNr0DnE,,167,54.3,number,Max effort cost Claude seven times the tokens for the same answer.,Agent at work,,Dennis
 ETH is false,2026-10-30,aDKXpUWlp5w,,170,58.1,claim,An OpenAI model says the Exponential Time Hypothesis is false.,What's coming,,Dennis
+Rust checks AI code,2026-10-31,-bgCxf5UHV0,,156,56,fact,OpenAI rewrote its Codex coding agent from TypeScript into Rust.,,0,Dennis
