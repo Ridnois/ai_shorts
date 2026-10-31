@@ -32,7 +32,7 @@ def auth():
 
     url = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode(dict(
         client_id=CID, redirect_uri=redirect, response_type="code", scope=SCOPE, access_type="offline", prompt="consent"))
-    print("Open (the Google account that owns the Redtail channel):\n" + url, flush=True)
+    print("Open (the Google account that owns the Next Token channel):\n" + url, flush=True)
     webbrowser.open(url)
     http.server.HTTPServer(("127.0.0.1", PORT), H).handle_request()
     r = post_form(TOKEN, dict(code=got["code"][0], client_id=CID, client_secret=SEC, redirect_uri=redirect, grant_type="authorization_code"))

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """YouTube Data API v3 uploader (stdlib only). Setup and gotchas: System/Growth.md §Publish
-  python3 System/scripts/youtube_upload.py auth                      # once: browser consent, prints YT_REFRESH_TOKEN
+  python3 System/scripts/youtube_upload.py auth                      # once: browser consent, saves YT_REFRESH_TOKEN to .env
   python3 System/scripts/youtube_upload.py upload VIDEO.mp4 --title T --desc-file D.txt [--thumb T.jpg] [--privacy private]
   python3 System/scripts/youtube_upload.py thumb VIDEO_ID THUMB.jpg   # set or re-set a thumbnail later (one set right after upload can be overwritten while YouTube is still processing)
 Reads YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN from .env (vault root) or the environment."""
@@ -32,12 +32,13 @@ def auth():
     url = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode(dict(
         client_id=CID, redirect_uri=redirect, response_type="code", scope=SCOPE,
         access_type="offline", prompt="consent"))
-    print("Open (pick the Next Token channel's Google account):\n" + url)
+    print("Open (pick the Next Token channel's Google account):\n" + url, flush=True)
     webbrowser.open(url)
     http.server.HTTPServer(("127.0.0.1", PORT), H).handle_request()
     r = post_form(TOKEN, dict(code=got["code"][0], client_id=CID, client_secret=SEC,
                               redirect_uri=redirect, grant_type="authorization_code"))
-    print("\nAdd to .env:\nYT_REFRESH_TOKEN=" + r["refresh_token"])
+    with open(".env", "a") as f: f.write("\nYT_REFRESH_TOKEN=" + r["refresh_token"] + "\n")  # never printed
+    print("saved YT_REFRESH_TOKEN to .env")
 
 
 def access_token():
