@@ -1,0 +1,50 @@
+{
+ "width": 600,
+ "height": 420,
+ "params": {
+  "msgs": "0..8 message slips land on the tray in order, left to right (slip i shows when msgs > i; 0, 2, 4, 6 are blue: the user)",
+  "scan": "0..1 the reading head sweeps from the note holder (0) to the last slip slot (1); slip i sits at (i + 1) / 8 of the sweep",
+  "read": "0..1 the lens lights yellow and a beam falls on the slip (or note) under the head",
+  "note": "0..1 the yellow memory note drops into the holder at the head of the tray",
+  "lit": "0..1 the first slip (the one that says the dog's name) turns yellow",
+  "mid": "0..1 slips 2..5 fade to 20 % (read worst in the middle)"
+ },
+ "anchors": {
+  "note": [
+   99.9,
+   176
+  ],
+  "slip0": [
+   144.5,
+   201.5
+  ],
+  "slip3": [
+   265.4,
+   259.7
+  ],
+  "slip7": [
+   426.6,
+   337.2
+  ],
+  "mid": [
+   307.3,
+   252.2
+  ],
+  "head0": [
+   119.4,
+   104.9
+  ],
+  "stop": [
+   450.3,
+   347.4
+  ],
+  "ruler": [
+   261.1,
+   262.2
+  ],
+  "tray": [
+   290.8,
+   246
+  ]
+ }
+}
