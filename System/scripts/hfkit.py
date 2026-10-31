@@ -360,6 +360,10 @@ def decode(path):
 
 
 WHOOSH = ["whoosh-air", "whoosh-swipe", "whoosh-stick", "whoosh"]   # rotated: the same whoosh on every cut is the tell
+# Measured motion (Look: Motion; motionmaxxing's frame-by-frame study of 53 pro moments, read 31 Oct 2026):
+LEAD = 0.05        # a picture event lands 1 to 2 frames before its word: early reads as in sync, late reads as late
+FADE = 0.15        # opacity only helps an arrival (4 to 6 frames); the move carries it
+CLEAR = 0.6        # the payoff hit gets this much silence from other effects before it
 
 
 class Short:
@@ -419,19 +423,29 @@ class Short:
         hits = [k for k in range(self.starts[sc - 1], self.starts[sc]) if self.Hw[k].startswith(norm(word))]
         if len(hits) < nth:
             raise SystemExit(f"cue '{word}' not heard in scene {sc}: {' '.join(self.Hw[self.starts[sc - 1]:self.starts[sc]])}")
-        return self.T(hits[nth - 1])
+        return max(0.0, round(self.T(hits[nth - 1]) - LEAD, 3))
 
-    # ---- motion verbs (Look: Components and verbs). Arrivals land on a long tail; exits are shorter and accelerate.
+    # ---- motion verbs (Look: Motion). Things arrive by moving (from the side, or down from oversize, never up from small)
+    # and land on a long tail; exits are shorter and accelerate; one visible spring per video.
     # immediateRender:false: a verb never hides its target before its own time (things shown from frame 0 stay shown).
     def at(self, t, js):
         self.J.append("tl." + js.replace("@", str(round(t, 3))))
         self.beats.append(round(t, 2))
 
-    def pop(self, s, t, spring=False):                # labels, frames, cards, figures: rise 24 px
-        self.at(t, f'fromTo({sel(s)}, {{opacity:0, y:24, scale:{0.9 if spring else 1}}}, {{immediateRender:false, opacity:1, y:0, scale:1, duration:{0.5 if spring else 0.4}, ease:"{"back.out(1.4)" if spring else "expo.out"}"}}, @);')
+    def _arrive(self, s, t, frm, to, d=0.4, ease="expo.out"):
+        """The move over d on its landing ease; opacity is a FADE-long helper underneath it."""
+        self.at(t, f'fromTo({sel(s)}, {{{frm}}}, {{immediateRender:false, {to}, duration:{d}, ease:"{ease}"}}, @);')
+        self.at(t, f'fromTo({sel(s)}, {{opacity:0}}, {{immediateRender:false, opacity:1, duration:{FADE}, ease:"none"}}, @);')
 
-    def grow(self, s, t):                             # a picture arrives on its noun: scale up from the middle
-        self.at(t, f'fromTo({sel(s)}, {{opacity:0, scale:0.6}}, {{immediateRender:false, opacity:1, scale:1, duration:0.55, ease:"expo.out"}}, @);')
+    def pop(self, s, t, spring=False):                # labels, frames, cards, figures: rise 24 px (spring: the one overshoot)
+        self.springs = getattr(self, "springs", 0) + bool(spring)
+        if spring:
+            self._arrive(s, t, "y:24, scale:0.9", "y:0, scale:1", 0.5, "back.out(1.4)")
+        else:
+            self._arrive(s, t, "y:24", "y:0")
+
+    def grow(self, s, t):                             # a picture arrives on its noun: settles down from oversize
+        self._arrive(s, t, "scale:1.25", "scale:1", 0.5)
 
     def blurin(self, s, t, d=0.18):                   # a whole line blurs in: 8 px to 0
         self.at(t, f'fromTo({sel(s)}, {{opacity:0, filter:"blur(8px)"}}, {{immediateRender:false, opacity:1, filter:"blur(0px)", duration:{d}, ease:"power2.out"}}, @);')
@@ -445,11 +459,11 @@ class Short:
         self.at(t, f'to({sel(s)}, {{opacity:0, filter:"blur(6px)", duration:{d}, ease:"power3.in"}}, @);')
 
     def rise(self, s, t):                             # panels from the deck: the comment prompt
-        self.at(t, f'fromTo({sel(s)}, {{opacity:0, y:60}}, {{immediateRender:false, opacity:1, y:0, duration:0.5, ease:"expo.out"}}, @);')
+        self._arrive(s, t, "y:60", "y:0", 0.5)
 
-    def chips(self, id_, n, t, step=0.12):
+    def chips(self, id_, n, t, step=0.12):            # each lands from 1.3x; the moves overlap (step under half the move)
         for k in range(n):
-            self.at(t + step * k, f'fromTo("#{id_}-c{k}", {{opacity:0, scale:0.7}}, {{immediateRender:false, opacity:1, scale:1, duration:0.4, ease:"back.out(1.4)"}}, @);')
+            self._arrive(f"#{id_}-c{k}", t + step * k, "scale:1.3", "scale:1", 0.35)
             self.sfx(t + step * k, "pop", -30)
 
     def count(self, s, to, t, d=0.9):
@@ -496,7 +510,7 @@ class Short:
 
     def callout(self, id_, t):                        # the leader draws from the part, then the label lands
         self.callouts[id_] = [round(t, 2), None]
-        self.at(t, f'fromTo("#{id_}-d", {{opacity:0, scale:0.3, transformOrigin:"50% 50%"}}, {{immediateRender:false, opacity:1, scale:1, duration:0.25, ease:"back.out(1.4)"}}, @);')
+        self._arrive(f"#{id_}-d", t, 'scale:2.2, transformOrigin:"50% 50%"', "scale:1", 0.3)   # the dot strikes the part from 2x
         self.at(t + 0.05, f'fromTo("#{id_}-p", {{attr:{{"stroke-dashoffset":1}}}}, {{immediateRender:false, attr:{{"stroke-dashoffset":0}}, duration:0.4, ease:"power3.out"}}, @);')
         self.blurin(f"#{id_}", t + 0.3)
         self.sfx(t, "click", -32)
@@ -516,7 +530,7 @@ class Short:
         """Rail node k becomes on (ember, the step on screen), done (cream), bad (rose: where it fails) or good (mint)."""
         col = {"on": INK, "done": INK, "bad": RED, "good": GREEN}[state]
         fill = {"on": YELLOW, "done": INK, "bad": RED, "good": GREEN}[state]
-        self.at(t, f'to("#rail-d{k}", {{borderColor:"{col}", backgroundColor:"{fill}", scale:1.25, duration:0.25, ease:"back.out(1.4)"}}, @);')
+        self.at(t, f'to("#rail-d{k}", {{borderColor:"{col}", backgroundColor:"{fill}", scale:1.25, duration:0.25, ease:"expo.out"}}, @);')
         self.at(t + 0.25, f'to("#rail-d{k}", {{scale:1, duration:0.2}}, @);')
         self.at(t, f'to("#rail-t{k}", {{color:"{col}", duration:0.25}}, @);')
 
@@ -530,7 +544,9 @@ class Short:
         return WHOOSH[self._wk % len(WHOOSH)]
 
     def payoff(self, t, rise=True):
-        """The reveal: a riser that crests on t (from at most 4 s before) and a hit on t. Once per video."""
+        """The reveal: a riser that crests on t (from at most 4 s before) and a hit on t. Once per video.
+        The CLEAR s before the hit are kept free of other effects (write() drops them): a gap is how the ear finds the peak."""
+        self.payoff_t = t
         if rise:
             self.sounds.append((round(t, 3), "riser", -27, "end4"))
         self.sfx(t, "impact-bass-2", -20, align="peak")
@@ -861,8 +877,16 @@ window.addEventListener("hf-seek", e => {{ if (e && e.detail && typeof e.detail.
             if t - last >= 0.35:
                 pick.append(round(t, 2)); last = t
         open(f"{self.root}/render/_beats.txt", "w").write(",".join(str(t) for t in pick))
+        p = getattr(self, "payoff_t", None)
+        if p is not None:
+            near = [s for s in self.sounds if p - CLEAR <= s[0] < p and s[1] != "riser"]
+            if near:
+                print(f"note: {len(near)} effect(s) dropped in the {CLEAR} s before the payoff hit at {p} s: {[s[1] for s in near]}")
+                self.sounds = [s for s in self.sounds if s not in near]
+        if getattr(self, "springs", 0) > 1:
+            print(f"WARN {self.springs} springs (pop spring=true): keep one, on the payoff; the rest land without overshoot")
         kinds = [trans.get(w, "cut") for w in self.ORDER[1:]]
-        print(f"index.html: {DUR} s, {self.caps.count('class=\"clip cap\"')} caption states, {len(J)} tweens, {len(self.models)} models, "
+        print(f"index.html:{DUR} s, {self.caps.count('class=\"clip cap\"')} caption states, {len(J)} tweens, {len(self.models)} models, "
               f"{len(self.sounds)} sounds; transitions {kinds}; render -> {os.path.basename(ren)}")
         if len(kinds) > 2 and kinds.count("cut") > len(kinds) / 3:
             print(f"WARN {kinds.count('cut')} of {len(kinds)} world changes are hard cuts: give the rest a transition with a cause")
