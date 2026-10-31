@@ -15,7 +15,7 @@ The system is code first: **`System/scripts/hfkit.py`** holds every token, zone,
 - **Next Token** (renamed 29 Oct 2026 from Inside the Model; the user claims the handle in Studio and TikTok). Line: "How AI works · Agents at work · What's coming". Kit: `System/Brand/Next Token/` (`brand.py` writes `nt-avatar.png`, `nt-banner.png`, `nt-mascot.png`).
 - **Mascot, Tok:** a yellow token tile with a thick ink outline, two eyes and a cursor: the next token a model is about to say. It lives on the channel page, the banner and thumbnails, **not inside the video** (the look is the brand inside the video).
 - **Persona:** an engineer who uses AI every day and explains it to a smart friend: precise, dry, calm, never hype or doom. Specific beats general ("Claude Opus 5.5, October 2026", not "AI").
-- **Banned words** (voice, screen, description): did you know, game-changing, revolutionary, mind-blowing, insane, unlock, supercharge, journey, this changes everything, in this video, like and subscribe; exclamation marks.
+- **Banned words** (voice, screen, description): did you know, game-changing, revolutionary, mind-blowing, insane, unlock, supercharge, journey, this changes everything, in this video, like and subscribe, seamless, reimagined, superpowers, the future of, meet (as an intro); exclamation marks. Copy shapes that read as machine-written: "Not just X, it's Y", triplets of one-word sentences ("Faster. Smarter. Cheaper."), a line that would fit any other video unchanged.
 
 ## Look: flat paper
 
@@ -81,7 +81,18 @@ Every world is a canvas behind a camera: `v.cam`, `v.focus(w, t, box)`, `v.wide`
 | 3D | `blender3d(spec, out, dur)` then `v.model3d` or `v.plate3d` (only where depth explains) |
 | Thumbnail | `v.thumb(inner)` → `upload/thumb.jpg` |
 
-Verbs fire on a heard word (`v.cue(scene, "word")`): `pop`, `grow`, `reveal`, `blurin`, `hide`, `rise`, `chips`, `count`, `light`, `strike`, `flash`, `slide`, `nudge`, `pose`, `point`, `cam`, `focus`, `wide`. Arrivals land on a long tail, exits are shorter, landed things hold still. Words stagger 60 to 120 ms.
+Verbs fire on a heard word (`v.cue(scene, "word")`): `pop`, `grow`, `reveal`, `blurin`, `hide`, `rise`, `chips`, `count`, `light`, `strike`, `flash`, `slide`, `nudge`, `pose`, `point`, `cam`, `focus`, `wide`. Words stagger 60 to 120 ms.
+
+## Motion (measured)
+
+The numbers come from motionmaxxing (Tejas Makwana, Apache-2.0, read 31 Oct 2026): about 4,300 moves read frame by frame from 53 professional motion pieces. They are landscape launch films, so the rules below are the ones that do not depend on the genre; their durations are a floor, because a phone viewer also has to read.
+
+- **Things arrive by moving.** Pros used 3,392 moving entries against 584 fades. In `hfkit` the move runs 0.4 to 0.5 s and opacity is only a `FADE` (0.15 s) helper under it.
+- **Down from oversize, never up from small.** A picture settles from 1.25x (`grow`), a chip from 1.3x, a callout dot strikes from 2.2x. Nothing scales up from zero.
+- **Land slows, leave speeds up:** `expo.out` in, `power3.in` out, exits shorter than entries.
+- **One spring a video.** Overshoot is under 9 % of pro moves. `pop spring=true` is for the payoff; `hfkit` warns on a second one.
+- **Early by two frames.** `v.cue` lands an event `LEAD` (0.05 s) before its word: early reads as in sync, late reads as late.
+- **Siblings overlap.** Chips, rows and words: the gap is under half the move, so the tails run under the next arrival.
 
 ## Figures
 
@@ -91,4 +102,4 @@ Verbs fire on a heard word (`v.cue(scene, "word")`): `pop`, `grow`, `reveal`, `b
 
 ## Sound kit (`System/assets/sfx/`, credits in its `CREDITS.md`)
 
-`whoosh-air`, `whoosh-swipe`, `whoosh-stick`, `whoosh` (rotated on whips, pushes, fast moves) · `click` (callouts) · `pop` (chips) · `impact-bass-2` (opening and payoff hit) · `riser` (into the payoff) · `ping`, `key-press`, `typing` (on demand, `v.sfx`). `v.payoff(t)` once per video. New sounds: CC0 (Openverse) or the `media-use` skill, credited.
+`whoosh-air`, `whoosh-swipe`, `whoosh-stick`, `whoosh` (rotated on whips, pushes, fast moves) · `click` (callouts) · `pop` (chips) · `impact-bass-2` (opening and payoff hit) · `riser` (into the payoff) · `ping`, `key-press`, `typing` (on demand, `v.sfx`). `v.payoff(t)` once per video; the 0.6 s before its hit is kept free of other effects (`hfkit` drops them: the gap is how the ear finds the peak). A sound on every event is wallpaper: an effect goes on the events that matter, not on all of them. New sounds: CC0 (Openverse) or the `media-use` skill, credited.

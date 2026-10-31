@@ -1,6 +1,6 @@
 ---
 type: rules
-updated: 2026-10-29
+updated: 2026-10-31
 status: v1 · 29 Oct 2026: Next Token relaunch. Replaces Playbook, Model script and the idea gate; built from the outlier research of 29 Oct 2026 (Growth §Sources)
 ---
 
@@ -42,6 +42,8 @@ Record the claim, the real thing, the demand evidence and 3 hooks in the Status 
 - **Worked case first:** a mechanism the viewer has never met is shown working on a case small enough to count on screen (3 switches: all 8 settings tried, the passing ones lit), with every part named as it appears (what a switch is, what a rule is, when a rule holds); only then is it scaled up. Naming a puzzle is not showing it (user, 30 Oct 2026: "I dont get it yet, could you be more explanatory on the switches part?").
 - **For the ear:** sentences of 6 to 16 words, one idea each, joined by "because", "so", "but". Numbers and acronyms written as spoken ("G P U"). No exclamation marks.
 - **The loop ending:** read the last sentence into the first; if it plays as one sentence, it passes. No "like and subscribe". The closing question, if any, is one the viewer can answer in one word.
+- **Script cues:** mark them before the beat sheet; each gets a picture, never a caption. A number gets a picture built from that number (counted dots, a bar of that length); an abstract noun gets a concrete object from the viewer's world, never an AI symbol; a contrast word ("but", "instead") gets a turn in the picture (ground, colour, scale or camera changes). The screen shows the one or two words that matter, not the sentence.
+- **Every setup is answered on screen:** a prompt typed, a question asked or a run started is followed by its result in the picture.
 - **Cut test:** delete each sentence in turn; if the video still works, it stays deleted.
 - **Rigor:** every number has a source and date in the Script note; every AI claim names model, version and date; the narrator describes mechanisms, never wants ("it predicts the next word", not "it thinks").
 
@@ -55,12 +57,15 @@ Record the claim, the real thing, the demand evidence and 3 hooks in the Status 
 | **An event every 1.5 to 2 s** | a part moves, a number counts, the camera pushes, a word lands; nothing holds still over 3 s, and nothing over 1.5 s while the hook plays (`pace.py` measures it) |
 | **Real over drawn** | a real product is shown as itself (screen capture, recorded run, real page); a machine is drawn as an [[Look]] Anatomy or Hairline figure; never a fake UI |
 | **Three shot sizes** | wide, medium and close inside the same world, through the camera |
+| **The point is spent, not spread** | each beat is marked 1 (connective: fast, small), 2 (supporting) or 3 (the point: larger, slower, its own sound); at most a quarter are 3. Animating every line the same is the loudest machine tell |
+| **Act out one word** | the one word that carries the video does what it means, once ("split" splits, "shrinks" shrinks, every word leaves except the kept one) |
+| **Mute test** | the picture alone, sound off, tells the same story as the voice |
 | **No AI clichés** | no glowing brains, robots, circuit faces, binary rain, handshakes |
 | **Varied from the last video** | a new main figure or capture; the inauthentic-content policy punishes "interchangeable" videos ([[Growth]] §Policy) |
 
 ## 5. Sound
 
-One continuous voice take ([[Production]] §Voice). Effects only on a visible action (whoosh on a camera move, click on a callout, pop on a chip, one hit on the payoff). A quiet music bed is allowed when licensed and ducked under the voice. Master at −14 LUFS, true peak −1 dBTP.
+One continuous voice take ([[Production]] §Voice). Effects only on a visible action (whoosh on a camera move, click on a callout, pop on a chip, one hit on the payoff), and only on the actions that matter: a sound on every event makes the few that count indistinguishable. Silence before the payoff hit ([[Look]] §Sound kit). A quiet music bed is allowed when licensed and ducked under the voice. Master at −14 LUFS, true peak −1 dBTP.
 
 ## 6. What "done" means
 

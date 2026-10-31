@@ -19,6 +19,9 @@ The bar: `System/Format.md` §4. Commands: `System/Production.md` §Checks. Work
 - Is the hero 70 to 90 % of the width? Is any third of the frame empty for 2 s or more?
 - Is text cropped, overlapping a picture, under 44 px, or in the right strip or the bottom interface zone?
 - Does the frame show the verb the voice says at that moment?
+- Describe each frame in one sentence (what is on screen, what is the hero) **before** judging it; a frame that reads as a slide (a line and a card, nothing acting) is a fault.
+- Look at the frames taken mid-move (`_beats.txt` holds each event and 0.45 s after it): half-arrived words, collisions, a ghost of the last world.
+- Mute test: read the sheet alone, top to bottom; does it tell the story without the voice?
 A fault seen once is searched for on every frame; a fault class seen twice becomes a check (`hfkit` warning or `check3d`), per [[Feedback loop]].
 
 ## 3. Score (write it in Status; any 2 points in one row, or 5 or more in total, means rework before review)
