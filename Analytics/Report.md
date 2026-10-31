@@ -10,48 +10,49 @@ tags: [analytics, metrics, report]
 
 ← [[YouTube Channel]] · [[Growth]] (rules) · data: `Analytics/snapshots.csv`, `Analytics/videos.csv`
 
-**15 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Growth]] §Analytics).
+**16 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Growth]] §Analytics).
 views, likes and comments are live (Data API); every other column comes from the Analytics API, which lags a day or two: under 3 days old, compare views only.
 
-## youtube at about 24h (11 videos)
+## youtube at about 24h (12 videos)
 
 | video | age | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[Chatbots agree with you - Status]] | 2d | 1239 | 36 |  | 38 | 81.8 |  | 15 | 0 | 0 |  | 0 |  | 33 |
-| [[Agent deleted a database - Status]] | 2d | 1201 | 1 |  | 120 | 240.4 |  | 10 | 1 | 0 |  | 0 |  | 0 |
-| [[Helium and AI chips - Status]] | 2d | 1201 | 12 |  | 25 | 61.1 |  | 19 | 1 | 0 |  | 0 |  | 73 |
-| [[Effort level explained - Status]] | 29h | 1122 |  |  |  |  |  | 7 | 1 |  |  |  |  |  |
-| [[Quantization explained - Status]] | 34h | 1108 |  |  |  |  |  | 19 | 1 |  |  |  |  |  |
-| [[ETH is false - Status]] | 7h | 892 |  |  |  |  |  | 9 | 2 |  |  |  |  |  |
-| [[Antibiotics aimed at infection - Status]] | 2d | 146 | 0 |  | 0 | 0 |  | 4 | 1 | 0 |  | 0 |  | 0 |
-| [[AI as a therapist - Status]] | 32h | 78 |  |  |  |  |  | 3 | 1 |  |  |  |  |  |
-| [[Can AI replace lawyers - Status]] | 37h | 74 |  |  |  |  |  | 1 | 1 |  |  |  |  |  |
+| [[ETH is false - Status]] | 22h | 1443 |  |  |  |  |  | 10 | 1 |  |  |  |  |  |
+| [[Rust checks AI code - Status]] | 14h | 1258 |  |  |  |  |  | 12 | 1 |  |  |  |  |  |
+| [[Chatbots agree with you - Status]] | 2d | 1252 | 726 |  | 23 | 49.4 |  | 15 | 0 | 1 |  | 0 |  | 90 |
+| [[Agent deleted a database - Status]] | 2d | 1202 | 200 |  | 51 | 102.1 |  | 10 | 1 | 1 |  | 0 |  | 92 |
+| [[Helium and AI chips - Status]] | 2d | 1202 | 609 |  | 34 | 83.8 |  | 19 | 1 | 0 |  | 1 |  | 95 |
+| [[Quantization explained - Status]] | 2d | 1155 | 567 |  | 24 | 45.6 |  | 19 | 1 | 2 |  | 3 |  | 92 |
+| [[Effort level explained - Status]] | 44h | 1143 | 454 |  | 42 | 76.4 |  | 7 | 1 | 4 |  | 0 |  | 87 |
+| [[AI as a therapist - Status]] | 47h | 327 | 7 |  | 46 | 77.4 |  | 6 | 1 | 0 |  | 0 |  | 56 |
+| [[Antibiotics aimed at infection - Status]] | 2d | 162 | 24 |  | 17 | 31.2 |  | 4 | 1 | 0 |  | 0 |  | 85 |
+| [[Can AI replace lawyers - Status]] | 2d | 123 | 25 |  | 24 | 44.5 |  | 3 | 1 | 1 |  | 0 |  | 85 |
 | [[Vault pipeline - Status]] | 2d | 66 | 16 |  | 22 | 46.9 |  | 0 | 1 | 0 |  | 0 |  | 76 |
-| [[Rust checks AI code - Status]] | 0h | 0 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
-| **median** | | 892 | 12 |  | 25 | 61.1 |  | 7 | 1 | 0 |  | 0 |  | 33 |
+| [[Why AI drinks water - Status]] | 0h | 0 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
+| **median** | | 1149 | 200 |  | 24 | 49.4 |  | 8.5 | 1 | 1 |  | 0 |  | 87 |
 
-**Too few views to read percentages (< 100): AI as a therapist, Can AI replace lawyers, Vault pipeline, Rust checks AI code.** Counts only; do not act on rates ([[Growth]] §Analytics).
+**Too few views to read percentages (< 100): Vault pipeline, Why AI drinks water.** Counts only; do not act on rates ([[Growth]] §Analytics).
 
-Below the median (needs 3+ videos): Antibiotics aimed at infection: avg_pct_viewed 0 < median 61.1; Antibiotics aimed at infection: engaged_views 0 < median 12; Agent deleted a database: engaged_views 1 < median 12; Vault pipeline: avg_pct_viewed 46.9 < median 61.1
+Below the median (needs 3+ videos): AI as a therapist: engaged_views 7 < median 200; AI as a therapist: shares 0 < median 1; Quantization explained: avg_pct_viewed 45.6 < median 49.4; Can AI replace lawyers: avg_pct_viewed 44.5 < median 49.4; Can AI replace lawyers: engaged_views 25 < median 200; Antibiotics aimed at infection: avg_pct_viewed 31.2 < median 49.4; Antibiotics aimed at infection: engaged_views 24 < median 200; Antibiotics aimed at infection: shares 0 < median 1; Helium and AI chips: shares 0 < median 1; Vault pipeline: avg_pct_viewed 46.9 < median 49.4; Vault pipeline: engaged_views 16 < median 200; Vault pipeline: shares 0 < median 1
 
-By length (median avg_pct_viewed): 45 s or less 61.1 (n=1); over 45 s 64.3 (n=4)
+By length (median avg_pct_viewed): 45 s or less 83.8 (n=1); over 45 s 48.1 (n=8)
 
 ## youtube at about 7d (5 videos)
 
 | video | age | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[MCP vs skills - Status]] | 3d | 426 | 58 |  | 40 | 110.3 |  | 8 | 1 | 0 |  | 0 |  | 67 |
-| [[HyperFrames - Status]] | 3d | 70 | 21 |  | 39 | 87.1 |  | 1 | 1 | 0 |  | 0 |  | 24 |
-| [[Vault pipeline - Status]] | 3d | 67 | 16 |  | 22 | 46.9 |  | 0 | 1 | 0 |  | 0 |  | 76 |
-| [[Prompt injection - Status]] | 5d | 22 | 11 |  | 102 | 170.4 |  | 1 | 0 | 0 |  | 0 |  | 11 |
-| [[Chatbot vs agent - Status]] | 4d | 13 | 6 |  | 75 | 113.7 |  | 1 | 0 | 0 |  | 0 |  | 50 |
-| **median** | | 67 | 16 |  | 40 | 110.3 |  | 1 | 1 | 0 |  | 0 |  | 50 |
+| [[MCP vs skills - Status]] | 4d | 426 | 187 |  | 26 | 70.8 |  | 8 | 1 | 0 |  | 0 |  | 76 |
+| [[Vault pipeline - Status]] | 3d | 67 | 30 |  | 25 | 54.7 |  | 0 | 1 | 0 |  | 0 |  | 74 |
+| [[HyperFrames - Status]] | 4d | 63 | 22 |  | 38 | 86.5 |  | 1 | 1 | 0 |  | 0 |  | 26 |
+| [[Prompt injection - Status]] | 5d | 20 | 12 |  | 94 | 157.3 |  | 1 | 0 | 0 |  | 0 |  | 6 |
+| [[Chatbot vs agent - Status]] | 5d | 11 | 8 |  | 64 | 97 |  | 1 | 0 | 0 |  | 0 |  | 50 |
+| **median** | | 63 | 22 |  | 38 | 86.5 |  | 1 | 1 | 0 |  | 0 |  | 50 |
 
 **Too few views to read percentages (< 100): HyperFrames, Chatbot vs agent, Prompt injection, Vault pipeline.** Counts only; do not act on rates ([[Growth]] §Analytics).
 
-Below the median (needs 3+ videos): HyperFrames: avg_pct_viewed 87.1 < median 110.3; Chatbot vs agent: engaged_views 6 < median 16; Prompt injection: engaged_views 11 < median 16; Vault pipeline: avg_pct_viewed 46.9 < median 110.3
+Below the median (needs 3+ videos): MCP vs skills: avg_pct_viewed 70.8 < median 86.5; Chatbot vs agent: engaged_views 8 < median 22; Prompt injection: engaged_views 12 < median 22; Vault pipeline: avg_pct_viewed 54.7 < median 86.5
 
-By length (median avg_pct_viewed): 45 s or less 98.7 (n=2); over 45 s 113.7 (n=3)
+By length (median avg_pct_viewed): 45 s or less 78.7 (n=2); over 45 s 97 (n=3)
 
 ## Not in videos.csv (left out of the medians)
 
@@ -59,18 +60,19 @@ Redtail-era uploads before the AI relaunch, and uploads the vault has no notes f
 
 | video | age | views | engaged_views | avg_pct_viewed | feed_pct |
 | --- | --- | --- | --- | --- | --- |
-| EV Battery Life: Only 2% a Year, and Charging Matters Most [WhNq3ry6sBw] | 25d | 289 | 104 | 49.8 | 76 |
-| Why Copper Could Limit the AI Race [YRX0VfpPMtU] | 25d | 241 | 72 | 45.3 | 78 |
-| Lithium Isn't Rare, So Why Do Countries Fight Over It? [zwNmTGoXPu0] | 25d | 238 | 82 | 52 | 49 |
-| Deep-Sea Mining: The Rulebook Is Still Unfinished [WtKTVljJR7A] | 25d | 212 | 79 | 73.9 | 62 |
-| Why Your Phone Won't Screenshoot Netflix [_lb5oDC7s64] | 24d | 149 | 66 | 43.8 | 47 |
-| Every Chip Needs a Gas From Steel Mills [NN_2WsDJrK8] | 22d | 126 | 41 | 74.9 | 91 |
-| The Rounding Error That Halved a Stock Index [rwgfPm_v_2o] | 21d | 82 | 28 | 69.7 | 84 |
-| Why the Last 20% of Charging Takes So Long [Vv298QJQoZ8] | 21d | 73 | 25 | 54 | 69 |
+| How AI Remembers: The Context Window Explained [ZKZCBLuCjGg] | 16h | 1321 |  |  |  |
+| EV Battery Life: Only 2% a Year, and Charging Matters Most [WhNq3ry6sBw] | 26d | 290 | 104 | 49.8 | 76 |
+| Why Copper Could Limit the AI Race [YRX0VfpPMtU] | 26d | 241 | 72 | 45.3 | 78 |
+| Lithium Isn't Rare, So Why Do Countries Fight Over It? [zwNmTGoXPu0] | 26d | 238 | 85 | 52 | 48 |
+| Deep-Sea Mining: The Rulebook Is Still Unfinished [WtKTVljJR7A] | 25d | 213 | 80 | 73 | 62 |
+| Why Your Phone Won't Screenshoot Netflix [_lb5oDC7s64] | 24d | 149 | 68 | 43.6 | 46 |
+| Every Chip Needs a Gas From Steel Mills [NN_2WsDJrK8] | 22d | 126 | 41 | 74.9 | 90 |
+| The Rounding Error That Halved a Stock Index [rwgfPm_v_2o] | 22d | 86 | 29 | 67.7 | 83 |
+| Why the Last 20% of Charging Takes So Long [Vv298QJQoZ8] | 22d | 74 | 28 | 51.3 | 65 |
 | The First Metal-Type Book Is Not the Gutenberg Bible [a3faPJ87qsk] | 25d | 32 | 17 | 33.7 | 0 |
 | AI Data Centers Wait Years for a Machine With No Moving Parts [F2fC5degIP4] | 25d | 29 | 7 | 114.1 | 45 |
 | Most Computer Chips Start in Rock From One Small Town [lQRLoZYWFwU] | 25d | 13 | 6 | 67.9 | 0 |
-| If chatting is free why pay for a subscription? [yIIA_3pXDig] | 4d | 11 | 4 | 156.1 | 78 |
-| How AI Remembers: The Context Window Explained [ZKZCBLuCjGg] | 1h | 1 |  |  |  |
+| If chatting is free why pay for a subscription? [yIIA_3pXDig] | 5d | 11 | 4 | 156.1 | 67 |
 | AI deleted a database: what went wrong [tcQ-gYpmxzo] | 2d | 0 |  |  |  |
+| How Much Water Does AI Use? Google's Own Numbers [T2ToOyTv2hA] | 0h | 0 |  |  |  |
 
