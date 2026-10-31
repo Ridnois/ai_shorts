@@ -32,3 +32,11 @@ Not a substitute for the deep-first search, which has not run yet (token expired
 
 | Link | Views vs channel median | Y | Promise | Format | Why people clicked |
 | --- | --- | --- | --- | --- | --- |
+| youtu.be/QGy2YOVWa4E | 409,934 (302.9x of 1,353) | what AI water use means | "30 M litres a month, here's why" | explainer Short | huge number + why |
+| youtu.be/9xFhnSEY1vI | 23,966,881 (7.9x of 3,040,323) | AI water questions | answers the fear | talking head Short | live controversy |
+| youtu.be/xjJLucMkJN4 | 56,704 (37.3x of 1,521) | trust AI with numbers | why AI is bad at math | series explainer | everyone has seen it fail |
+| youtu.be/R9VQnNv5SoI | 325,372 (22.6x of 14,403) | AI and math | AI does the math | institution | contradiction with the failures |
+| youtu.be/NAauIR6JFps | 5,990,755 (91.9x of 65,160) | AI does my computer work | put Claude to work on your computer | product demo | agent on your own screen |
+| youtu.be/9DxXDLhXnwU | 876,469 (3.8x of 229,419) | understand computer-use agents | how OpenClaw takes over your computer | explainer | fear + curiosity |
+| youtu.be/y8kwHsJD2V8 | 139,120 (3.9x of 35,757) | spot AI images | SynthID check | how-to Short | practical test |
+| youtu.be/dfUVdZbjWSo | 350,057 (11.1x of 31,458) | understand tokens | tokens and pricing | explainer | money angle |
