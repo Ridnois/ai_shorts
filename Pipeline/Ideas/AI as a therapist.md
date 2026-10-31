@@ -1,12 +1,12 @@
 ---
 type: video-idea
-status: review
+status: shipped
 series: How AI works
 score:
 publish:
 video: "[[AI as a therapist - Status]]"
 created: 2026-10-29
-updated: 2026-10-29
+updated: 2026-10-30
 tags: [youtube, pipeline]
 ---
 

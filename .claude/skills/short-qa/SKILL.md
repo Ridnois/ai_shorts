@@ -9,7 +9,7 @@ The bar: `System/Format.md` §4. Commands: `System/Production.md` §Checks. Work
 
 ## 1. Page checks (before render)
 
-- `python3 build.py`: no `WARN` left unexplained (frame 0, transitions, callouts, card and chip fit).
+- `python3 System/scripts/beats.py "Media/…/<Video>"`: no `WARN` left unexplained (frame 0, transitions, callouts, card and chip fit).
 - `HYPERFRAMES_NO_TELEMETRY=1 npx --yes hyperframes@0.8.209 check --json`: no errors.
 - `node ../../../../../System/scripts/check3d.mjs index.html` (or the absolute path): `OVERLAPS 0`, no `CLIPPED`, `OVERFLOW`, `TEXT OVER PICTURE`.
 

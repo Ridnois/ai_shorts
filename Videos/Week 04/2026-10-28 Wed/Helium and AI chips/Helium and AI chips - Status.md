@@ -1,9 +1,11 @@
 ---
 type: status
-updated: 2026-10-29
+updated: 2026-10-30
 ---
 
 # Helium and AI chips: Status
+
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
 
 **Clarify (user, 28 Oct 2026, verbatim answers):** angle "How it works: why a chip can't be made without it (Recommended)" · delegation "Delegated to the render, stop at P7 (Recommended)" · ship rule "Yes, a one-off test exception (Recommended)" · visuals "Anatomy Figure of the wafer chuck, plus real captures (Recommended)". Request: *"modify the vault to use the anatomy skill https://cellcog.ai/blog/anatomy-claude-skill/ and test it on a new short: why helium is important on the ai race"*.
 
@@ -15,7 +17,7 @@ updated: 2026-10-29
 | 4 Captures, budget | done | 28 Oct 2026 (delegation) | real capture: USGS *Mineral Commodity Summaries 2026*, helium, page 2 (Qatar 63 of 190), cropped from the published PDF; budget base about $0.04, cap $0.10 |
 | 5 Generation | done | 28 Oct 2026 | take v1 `8h2dr22dndrmw0d1gmkre1aba0` (782 characters, about $0.02, 39.2 s); word timings: `incredibly-fast-whisper` stayed in `starting` for 11 min (cancelled, nothing run), WhisperX `w2f1hbp0nhrn80d1gmrvf2nez8` answered at once, 125 words; total about $0.03 of the $0.10 cap |
 | 6 Build | done | 28 Oct 2026 | Anatomy `wafer-chuck` (Figure tier, about 60 parts, schematic: 2 mm a unit, no true gap size; the cooling shown is a qualitative model); skill line check `line ends: 0 of 385`; `hyperframes check` no errors (accepted structure warnings); `check3d` OVERLAPS 1 sample (none left); transitions push, whip, dip, blur, cut (1 hard cut of 5); shot sizes wide, medium, close; slideshow-risk score 1 (repetition 1: the chuck is on 4 of 6 worlds, the anchor); frame audit of 58 beat frames read on 7 contact sheets; `check3d` OVERLAPS 0 with the new CLIPPED, OVERFLOW and TEXT OVER PICTURE checks; render `he-41s-9x16-r1.mp4` (40.6 s, v2 build), CRF 14, about 3.8 Mbps; `MIX` -13.9 LUFS, true peak -1.6 dBTP; `LISTEN` PASS; thumbnail built |
-| 7 Verdict · 8 Publish · 9 Measure | P7 open; pack built (`publish.py --dry-run`, 28 Oct 2026) | | waiting for the user: ship, fix or drop; not uploaded (private upload only after the user confirms the pack) |
+| 7 Verdict · 8 Publish · 9 Measure | shipped (user, 30 Oct 2026); pack built (`publish.py --dry-run`, 28 Oct 2026) | | not uploaded |
 
 **r2, 29 Oct 2026 (relaunch test, $0):** the same script, take and builder rebuilt in the Next Token paper look ([[Look]]), to test the new design system and the 4K master on a real video. Builder edits: label l4 shortened, t5 at 72 px (two `check3d` overlaps from the larger type). `check3d` OVERLAPS 0. Render `he-41s-9x16-r2.mp4`, masters in `upload/` (`-yt.mp4` 2160x3840, `-tt.mp4`). The layout is still the old one (the hero fills the top half; the bottom half is empty on several beats): a new video follows [[Format]] §4.
 

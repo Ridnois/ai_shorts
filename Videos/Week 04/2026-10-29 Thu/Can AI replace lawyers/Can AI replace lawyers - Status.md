@@ -1,9 +1,11 @@
 ---
 type: status
-updated: 2026-10-29
+updated: 2026-10-30
 ---
 
 # Can AI replace lawyers: Status
+
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
 
 **Ask once (user, 29 Oct 2026, verbatim):** angle "theme 1 focused on how to solve this issues, we want to discuss the possibility of use ai agents as legal orientation" · medium "use anatomy + hairline + captures, but not that much focus on the example case, if there's something about this topic on the vault, just forget it and write the script unbiased". Request: *"new short: can ai replace lawyers? the complexity of citing the law the right way"*.
 

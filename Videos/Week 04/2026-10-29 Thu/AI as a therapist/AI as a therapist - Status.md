@@ -1,9 +1,11 @@
 ---
 type: status
-updated: 2026-10-29
+updated: 2026-10-30
 ---
 
 # AI as a therapist: Status
+
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
 
 **Ask once (user, 29 Oct 2026, verbatim):** angle "Works, but a yes-man (Recommended)" · medium "Captures + Anatomy figure". Request: *"new short: AI as psychologist, does it really work? is it a yesman? where do we draw the line?"*.
 

@@ -1,9 +1,11 @@
 ---
 type: status
-updated: 2026-10-29
+updated: 2026-10-30
 ---
 
 # Agent deleted a database: Status
+
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
 
 **Ask once (user, 29 Oct 2026, verbatim):** angle "Agent deleted a DB (Recommended)" · medium "Run + real captures (Recommended)". Request: *"Choose the theme of a new short, related with agentic work and build it"*; after the run was blocked: *"Go for the upload pack"*.
 

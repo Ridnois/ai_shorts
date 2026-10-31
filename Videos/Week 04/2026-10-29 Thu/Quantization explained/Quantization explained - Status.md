@@ -1,9 +1,11 @@
 ---
 type: status
-updated: 2026-10-29
+updated: 2026-10-30
 ---
 
 # Quantization explained: Status
+
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
 
 **Ask once (user, 29 Oct 2026, verbatim):** angle "Agent at work: 8B on a laptop (Recommended)" · medium "Run + hairline + anatomy + captures". Request: *"New short: Quantization explained"*.
 

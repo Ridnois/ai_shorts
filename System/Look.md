@@ -8,7 +8,7 @@ status: v1 · 29 Oct 2026: Next Token brand and the flat paper look. Replaces De
 
 What a picture must do: [[Format]] §4. Commands: [[Production]].
 
-The system is code first: **`System/scripts/hfkit.py`** holds every token, zone, component, verb and sound below; a video's `hf/build.py` only places and times them. Change a rule here and in `hfkit.py` together; never fork a component inside a video's builder.
+The system is code first: **`System/scripts/hfkit.py`** holds every token, zone, component, verb and sound below; a video's `hf/beats.json` only places and times them (`System/scripts/beats.py` reads it). Change a rule here and in `hfkit.py` together; never fork a component inside a video's builder.
 
 ## Brand
 

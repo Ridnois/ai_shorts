@@ -32,10 +32,10 @@ Write the answers verbatim as the first line of the Status note.
 
 ## 4. Build
 
-- Copy `hyperframes.json`, `meta.json`, `package.json` from the last video's `hf/`; write `hf/build.py` with `import hfkit as K` (template: `python3 System/scripts/hfkit.py --demo <scratch>`).
+- `python3 System/scripts/beats.py "Media/…/<Topic>" --new`, then turn the beat sheet into `hf/beats.json`: per world its `items` (hfkit components, `at` = x, y, w) and `do` (verbs cued on spoken words, e.g. `["reveal", "t2", "needs-0.1"]`). Format: `beats.py`'s docstring; example: `System/scripts/beats-example.json`. No hand-written `build.py`.
 - Per beat: one hero filling 70 to 90 % of the width, an event every 1.5 to 2 s, the camera through wide/medium/close, 3 to 5 transition kinds, `first=` for the frame-0 hook, `v.payoff` once, `flood=` from the fix.
 - Real things as themselves: screen recordings or captures in `frame`/`phone`; machines through `anatomy`; flat mechanisms through `hairline`. Read `.claude/skills/hyperframes/references/motion.md` before a new kind of scene; search `hyperframes-registry` before hand-writing an effect.
-- `python3 hf/build.py` → fix every `WARN`.
+- `python3 System/scripts/beats.py "Media/…/<Topic>"` → fix every `WARN`.
 
 ## 5. Check, render, master
 

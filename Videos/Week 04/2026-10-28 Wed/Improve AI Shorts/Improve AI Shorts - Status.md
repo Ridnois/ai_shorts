@@ -1,9 +1,11 @@
 ---
 type: status
-updated: 2026-10-28
+updated: 2026-10-30
 ---
 
 # Improve AI Shorts: Status
+
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
 
 **Clarify (user, 28 Oct 2026, verbatim answers):** queue "Proceed, queue is your call (Recommended)" · angle "Toolchain tour" · delegation "Delegate A to D, stop at P7 (Recommended)" · visuals "Real runs + Hairline callouts (Recommended)". Request: *"improve the vault and generate a new short: How to improve your ai youtube shorts, skills and tools to make delightful videos"*, earshot named as an example tool.
 

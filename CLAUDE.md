@@ -20,7 +20,7 @@ On demand: `System/Look.md` (brand, design system, motion, sound) before buildin
 
 - **Ask once, then run:** a new video opens with one round of `AskUserQuestion`; the answers go verbatim into Status. Then the agent runs to the audited render and the publish pack, and **stops for the user's verdict** (ship, fix or drop; at most two revisions).
 - **Money:** default cap $0.50 a video, written in Status; voice and timings cost about $0.03. Anything else paid is asked first. Replicate calls run in series and each prediction id is logged at once.
-- **Build only with HyperFrames + `System/scripts/hfkit.py`** (the paper look, tokens, captions, camera, sound). Never fork a component in a video's builder; never bring back gradients, grain or thin lines.
+- **Build only with HyperFrames + `System/scripts/hfkit.py`** (the paper look, tokens, captions, camera, sound), driven by the video's `hf/beats.json` through `System/scripts/beats.py`. Never fork a component in a video's builder; never bring back gradients, grain or thin lines.
 - **Every upload uses the master** made by `System/scripts/master.py` (2160x3840 for YouTube, 1080x1920 for TikTok). Never upload the raw render.
 - **Voice:** `inworld/realtime-tts-2`, `Dennis`, one continuous take, never stitched. Mix to −14 LUFS, true peak −1 dBTP.
 - **Honesty:** every number has a source and date; every AI claim names model, version and date; recorded runs are real, speed-ups marked, no keys or personal data. Say what you could not check: you cannot watch or hear a video; you read frames and numbers.
@@ -37,7 +37,7 @@ Replicate 429 under bursts (the helper retries, nothing is charged); a hung down
 CLAUDE.md · YouTube Channel.md (index, video table) · User insights.md (the user's research notes)
 System/  Format · Look · Production · Growth · Feedback loop
          Brand/Next Token (brand.py, avatar, banner, mascot) · anatomy/ (figures) · assets/sfx (sound kit)
-         scripts/ hfkit, captions, master, voice, word_timings, mix_audio, listen, check3d, publish, youtube_*, analytics,
+         scripts/ hfkit, beats, captions, master, voice, word_timings, mix_audio, listen, check3d, publish, youtube_*, analytics,
                   stock_*, replicate_helper, scene3d, check_vault, vendor/ (hairline, gsap, three, fonts)
 Pipeline/ idea queue, Niche map, Ideas/    Analytics/ csvs · Report.md (generated)
 Videos/Week NN/<YYYY-MM-DD Day>/<Topic>/   Status · Script · Upload        Media/… (local media, renders, masters)

@@ -1,9 +1,11 @@
 ---
 type: status
-updated: 2026-10-28
+updated: 2026-10-30
 ---
 
 # Vault pipeline: Status
+
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**; already uploaded by the user, by hand.
 
 **Clarify (user, 27 Oct 2026, verbatim answers):** toolchain "HyperFrames only (Recommended)" · old videos "Prune superseded (Recommended)" · upgrades "Camera on one canvas, Official HyperFrames skills, Render quality + type, Sound design kit" · demo Short "Delegated to render (Recommended)". Request: *"redesign this vault and show me the results on a new short explaining how this vault generate youtube shorts"*.
 

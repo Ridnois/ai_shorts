@@ -1,13 +1,13 @@
 ---
 type: video-idea
-status: review
+status: shipped
 series: Agent at work
 publish:
 video: "[[Quantization explained - Status]]"
 hook_type: contradiction
 case: "Qwen3 8B (Q4_K_M, 5.2 GB) runs on a 10 GB laptop with Ollama, 29 Oct 2026"
 created: 2026-10-29
-updated: 2026-10-29
+updated: 2026-10-30
 tags: [youtube, pipeline]
 ---
 

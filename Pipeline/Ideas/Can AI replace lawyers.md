@@ -1,13 +1,13 @@
 ---
 type: video-idea
-status: review
+status: shipped
 series: How AI works
 publish:
 video: "[[Can AI replace lawyers - Status]]"
 hook_type: number
 case: "AI-invented citations in 2,231 court decisions (Charlotin, 28 Oct 2026); Garfield.Law barred from proposing case law (SRA, May 2025)"
 created: 2026-10-29
-updated: 2026-10-29
+updated: 2026-10-30
 tags: [youtube, pipeline]
 ---
 

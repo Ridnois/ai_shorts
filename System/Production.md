@@ -13,7 +13,7 @@ What to make: [[Format]]. How it looks: [[Look]]. Upload and numbers: [[Growth]]
 1. **Ask once** (`AskUserQuestion`, 1 to 4 questions, the recommendation first): angle and series, the real thing, the visual medium, anything unclear. The answers go verbatim into Status. A fix or rerun skips it.
 2. **Idea** ([[Format]] §2) → **script** with sources ([[Format]] §3) → **beat sheet** (one row per beat: word, what the viewer sees happen, camera, transition, text, sound).
 3. **Spend:** voice and word timings (about $0.03). The default cap is $0.50 a video, written in Status; anything above it (generated stills or clips) is asked first.
-4. **Build** `hf/build.py` → checks → render → mix → **master** → thumbnail → publish pack.
+4. **Build** the beat sheet as `hf/beats.json` (`beats.py`) → checks → render → mix → **master** → thumbnail → publish pack.
 5. **Stop at review.** The user says ship, fix or drop ([[Format]] §6). Upload only after the user confirms the pack ([[Growth]] §Publish).
 
 ## Budget
@@ -37,7 +37,7 @@ One continuous take for the whole script (`voice.py`): scenes are paragraphs of 
 | Check | Command | Pass |
 | --- | --- | --- |
 | Design system | `python3 System/scripts/hfkit.py` | `hfkit OK` |
-| Builder warnings | `python3 hf/build.py` | no `WARN` left unexplained (frame 0, transitions, callouts, card fit) |
+| Builder warnings | `python3 System/scripts/beats.py "Media/…/<Video>"` | no `WARN` left unexplained (frame 0, transitions, callouts, card fit) |
 | Page lint | `HYPERFRAMES_NO_TELEMETRY=1 npx --yes hyperframes@0.8.209 check --json` (in `hf/`) | no errors (nested-structure and dense-track warnings accepted) |
 | Layout | `node System/scripts/check3d.mjs hf/index.html` | `OVERLAPS 0`, no `CLIPPED`, `OVERFLOW`, `TEXT OVER PICTURE` |
 | Frames | `npx --yes hyperframes@0.8.209 snapshot --at "$(cat ../render/_beats.txt)"` (in `hf/`) | every contact sheet read; a fault found once is searched for on all frames |
@@ -64,9 +64,10 @@ YouTube re-encodes every upload. A 1080x1920 upload on a small channel is usuall
 | Word timings | `python3 System/scripts/word_timings.py "Media/…/<Video>"` |
 | Stock | `stock_photos.py search "<q>" --source openverse\|nasa\|commons`, `get …`; `stock_videos.py search … --vertical`, `get`, `cut` |
 | Replicate | `System/scripts/replicate_helper.py` (`run`, `download`, `recover`) |
-| New project | copy `hf/hyperframes.json`, `meta.json`, `package.json` from the last video's `hf/`, then write `hf/build.py`; a template: `python3 System/scripts/hfkit.py --demo <scratch dir>` |
+| New build | `python3 System/scripts/beats.py "Media/…/<Video>" --new` writes `hf/beats.json`, one world per scene; fill each world's `items` (hfkit components) and `do` (verbs on spoken words); the format is in `beats.py`'s docstring, a full example in `System/scripts/beats-example.json (Quantization explained, ported from its build.py; same page byte for byte)`. What the format cannot say goes in `hf/extra.py` (`"py"`), never in a fork of hfkit |
 | Render | `npx --yes hyperframes@0.8.209 render . -o ../render/<v>-<s>s-9x16-r<n>.mp4 -q delivery --crf 14` (in `hf/`, background, 3 to 5 min) |
 | Mix | `python3 System/scripts/mix_audio.py "Media/…/<Video>"` |
+| Build | `python3 System/scripts/beats.py "Media/…/<Video>" [--rev N]` → `hf/index.html`, the sound timeline, `upload/thumb.jpg` |
 | Contact sheet | `ffmpeg -i <mp4> -vf "fps=1/2,scale=270:-1,tile=8x4" -frames:v 1 render/_sheet.jpg` |
 | Anatomy figure | `/anatomy <the machine>`, kept in `System/anatomy/<name>/` with the pose contract; line check `node .claude/skills/anatomy/scripts/lines.mjs <preview.html>` prints `line ends: 0` |
 | Hairline figure | `/hairline-create <idea>` → `System/scripts/vendor/hairline/custom/` |

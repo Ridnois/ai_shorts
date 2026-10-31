@@ -1,6 +1,6 @@
 ---
 type: video-idea
-status: review
+status: shipped
 series: What's coming
 publish:
 video: "[[ETH is false - Status]]"

@@ -20,6 +20,7 @@ One note per idea in `Pipeline/Ideas/` (template: [[Idea template]]); its `statu
 | `next` | passed the 4 tests of [[Format]] §2 and has a `score`; the next one made is the top score whose series differs from the last video |
 | `making` | `/short` is running it; `video` names its Status note |
 | `review` | rendered and audited; waiting for the user's ship, fix or drop |
+| `shipped` | the user's verdict is ship; waiting for the upload |
 | `published` | uploaded; `publish` holds the date |
 | `dropped` | not made, or dropped at review; one line says why |
 

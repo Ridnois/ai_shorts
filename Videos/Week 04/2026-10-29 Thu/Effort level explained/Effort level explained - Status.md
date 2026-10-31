@@ -1,9 +1,11 @@
 ---
 type: status
-updated: 2026-10-29
+updated: 2026-10-30
 ---
 
 # Effort level explained: Status
+
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
 
 **Ask once (user, 29 Oct 2026, verbatim):** angle "Same task, low vs max (Recommended)" · medium "Run + Anatomy figure + captures" · runs spend "Yes, run them (Recommended)". Request: *"new short: Effort level explained, is it higher better?"*.
 

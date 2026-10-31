@@ -1,9 +1,11 @@
 ---
 type: status
-updated: 2026-10-29
+updated: 2026-10-30
 ---
 
 # Antibiotics aimed at infection: Status
+
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**; already uploaded by the user, by hand.
 
 **Ask once (user, 29 Oct 2026, verbatim):** angle "Only the Chilean project" · medium "Anatomy figure + real captures (Recommended)". Request: *"new short: look for the paper mentioned on https://www.biobiochile.cl/noticias/ciencia-y-tecnologia/ciencia/2026/10/26/proyecto-chileno-norteamericano-desarrolla-tecnologia-para-enfrentar-resistencia-a-los-antibioticos.shtml and make a short of it"*.
 
