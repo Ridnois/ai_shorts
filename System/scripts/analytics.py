@@ -42,12 +42,12 @@ def add(argv):
         if k not in SCOLS:
             sys.exit(f"unknown column {k!r}; allowed: {', '.join(SCOLS)}")
         r[k] = v
-    new = not os.path.exists(SNAP)
-    with open(SNAP, "a", newline="") as f:
+    key = lambda x: (x["video"], x["platform"], x["age"], x["date"])
+    rows = [x for x in csv.DictReader(open(SNAP, newline="")) if key(x) != key(r)] if os.path.exists(SNAP) else []  # a re-pull replaces, never doubles
+    with open(SNAP, "w", newline="") as f:
         w = csv.DictWriter(f, SCOLS)
-        if new:
-            w.writeheader()
-        w.writerow(r)
+        w.writeheader()
+        w.writerows(rows + [r])
     print("added", video, platform, age)
 
 
