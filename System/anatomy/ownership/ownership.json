@@ -1,0 +1,41 @@
+{
+ "width": 600,
+ "height": 421,
+ "params": {
+  "move": "0..1 the owner key arcs from post a (left) to post b (right); the holder's lamp is green",
+  "bad": "0..1 post a's lamp turns red (a used after the move: the compiler's error)",
+  "read": "0..3 reader lenses light one by one (shared borrows)",
+  "write": "0..1 the writer stamp lowers onto the crate and turns green; the lenses go dark (exclusive borrow)",
+  "free": "0..1 the hatch opens and the crate sinks through the pad and fades; the key and lamps go too (freed)"
+ },
+ "anchors": {
+  "crate": [
+   298.3,
+   247.4
+  ],
+  "a": [
+   150,
+   46
+  ],
+  "b": [
+   435.7,
+   180.1
+  ],
+  "key": [
+   180.5,
+   98.8
+  ],
+  "readers": [
+   224.4,
+   247.1
+  ],
+  "stamp": [
+   292.9,
+   118.6
+  ],
+  "pad": [
+   248.6,
+   271.4
+  ]
+ }
+}
