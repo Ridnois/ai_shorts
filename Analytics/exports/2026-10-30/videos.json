@@ -1,0 +1,335 @@
+{
+ "kind": "youtubeAnalytics#resultTable",
+ "columnHeaders": [
+  {
+   "name": "video",
+   "columnType": "DIMENSION",
+   "dataType": "STRING"
+  },
+  {
+   "name": "views",
+   "columnType": "METRIC",
+   "dataType": "INTEGER"
+  },
+  {
+   "name": "engagedViews",
+   "columnType": "METRIC",
+   "dataType": "INTEGER"
+  },
+  {
+   "name": "estimatedMinutesWatched",
+   "columnType": "METRIC",
+   "dataType": "INTEGER"
+  },
+  {
+   "name": "averageViewDuration",
+   "columnType": "METRIC",
+   "dataType": "INTEGER"
+  },
+  {
+   "name": "averageViewPercentage",
+   "columnType": "METRIC",
+   "dataType": "FLOAT"
+  },
+  {
+   "name": "likes",
+   "columnType": "METRIC",
+   "dataType": "INTEGER"
+  },
+  {
+   "name": "comments",
+   "columnType": "METRIC",
+   "dataType": "INTEGER"
+  },
+  {
+   "name": "shares",
+   "columnType": "METRIC",
+   "dataType": "INTEGER"
+  },
+  {
+   "name": "subscribersGained",
+   "columnType": "METRIC",
+   "dataType": "INTEGER"
+  },
+  {
+   "name": "subscribersLost",
+   "columnType": "METRIC",
+   "dataType": "INTEGER"
+  }
+ ],
+ "rows": [
+  [
+   "WhNq3ry6sBw",
+   288,
+   104,
+   57,
+   30,
+   49.84,
+   3,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "YRX0VfpPMtU",
+   239,
+   72,
+   36,
+   27,
+   45.33,
+   2,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "zwNmTGoXPu0",
+   233,
+   82,
+   54,
+   37,
+   51.95000000000001,
+   1,
+   1,
+   1,
+   0,
+   0
+  ],
+  [
+   "WtKTVljJR7A",
+   211,
+   79,
+   63,
+   46,
+   73.87,
+   1,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   "OiLPkE7rV6A",
+   163,
+   58,
+   41,
+   40,
+   110.3,
+   4,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   "_lb5oDC7s64",
+   146,
+   66,
+   32,
+   28,
+   43.82,
+   2,
+   2,
+   0,
+   0,
+   0
+  ],
+  [
+   "NN_2WsDJrK8",
+   124,
+   41,
+   24,
+   33,
+   74.87,
+   3,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   "rwgfPm_v_2o",
+   80,
+   28,
+   19,
+   39,
+   69.74,
+   1,
+   1,
+   1,
+   0,
+   0
+  ],
+  [
+   "Dwh-VacD0HA",
+   70,
+   36,
+   25,
+   38,
+   81.83,
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "Vv298QJQoZ8",
+   67,
+   25,
+   9,
+   21,
+   54.03,
+   4,
+   2,
+   0,
+   0,
+   0
+  ],
+  [
+   "4YuqDYQYGBg",
+   58,
+   21,
+   14,
+   39,
+   87.14,
+   1,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   "tnhjBqWFzbc",
+   37,
+   16,
+   6,
+   22,
+   46.85,
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   "S8j8FcBWvLg",
+   33,
+   12,
+   5,
+   25,
+   61.12,
+   1,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   "a3faPJ87qsk",
+   32,
+   17,
+   4,
+   13,
+   33.73,
+   1,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   "F2fC5degIP4",
+   29,
+   7,
+   7,
+   60,
+   114.06,
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "XM4IScGOjGs",
+   18,
+   11,
+   18,
+   102,
+   170.36,
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "lQRLoZYWFwU",
+   13,
+   6,
+   4,
+   42,
+   67.93,
+   0,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   "lQv84AeYJ80",
+   10,
+   6,
+   7,
+   75,
+   113.74,
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "yIIA_3pXDig",
+   9,
+   4,
+   6,
+   101,
+   156.06,
+   1,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   "luFmnJcR0nw",
+   3,
+   1,
+   2,
+   120,
+   240.42,
+   1,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   "k1kip6GHts0",
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0,
+   0
+  ]
+ ]
+}

@@ -1,0 +1,1681 @@
+[
+ {
+  "kind": "youtube#video",
+  "etag": "yGmBB6IE7bL7ckNJcBr7kX-xO9U",
+  "id": "aDKXpUWlp5w",
+  "snippet": {
+   "publishedAt": "2026-10-30T23:23:50Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "The Exponential Time Hypothesis Is False? OpenAI's Claim Explained",
+   "description": "The Exponential Time Hypothesis explained: a 2001 bet that 3-SAT, a puzzle of switches and rules, always takes exponential time. A 67-page OpenAI preprint (25 October 2026, written by an unnamed internal OpenAI model) claims an algorithm that grows slower than any steady doubling, which would make ETH false. It is not confirmed: ETH's authors are reviewing it.\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- OpenAI, The Exponential Time Hypothesis is False, preprint dated 25 October 2026 (17 October, revised 25 October), Theorem 1.1, p. 2, reference [IP01]: https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf\n- openai/math README (unnamed internal OpenAI model; about 42% of results formalized), read 30 October 2026: https://github.com/openai/math\n- Lean statement exact_count_and_sat, lean/OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Final.lean, read 30 October 2026: https://github.com/openai/math/tree/main/lean\n- Impagliazzo and Paturi, On the Complexity of k-SAT, Journal of Computer and System Sciences 62(2), 2001: \n- XenoSpectrum, 27 October 2026: the verification led by Impagliazzo, Paturi and Ryan Williams, and their open letter: https://xenospectrum.com/en/openai-exponential-time-hypothesis-false-claim/\nThe proof has not been independently confirmed as of 30 October 2026; nothing here checks it. The reviewers' open letter is quoted through press coverage (XenoSpectrum), not from the letter itself. The doubling columns are drawn for shape only: the paper's bound hides constants, and its method has not been run on a computer in the paper. 'Grows slower than any steady doubling' is the plain-words version of subexponential; the cost still grows faster than any polynomial. The paper says the result does not give subexponential algorithms for general NP problems. 1.307 a switch is the best known 3-SAT bound the paper cites (a randomized 2026 preprint). 2^100 computed exactly. Sources cut off 30 October 2026. Figures checked on 30 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #math #computerscience",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/aDKXpUWlp5w/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/aDKXpUWlp5w/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/aDKXpUWlp5w/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/aDKXpUWlp5w/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/aDKXpUWlp5w/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "The Exponential Time Hypothesis Is False? OpenAI's Claim Explained",
+    "description": "The Exponential Time Hypothesis explained: a 2001 bet that 3-SAT, a puzzle of switches and rules, always takes exponential time. A 67-page OpenAI preprint (25 October 2026, written by an unnamed internal OpenAI model) claims an algorithm that grows slower than any steady doubling, which would make ETH false. It is not confirmed: ETH's authors are reviewing it.\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- OpenAI, The Exponential Time Hypothesis is False, preprint dated 25 October 2026 (17 October, revised 25 October), Theorem 1.1, p. 2, reference [IP01]: https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf\n- openai/math README (unnamed internal OpenAI model; about 42% of results formalized), read 30 October 2026: https://github.com/openai/math\n- Lean statement exact_count_and_sat, lean/OAI/Algorithms/SubexponentialSAT/SqrtLogSpace/Final.lean, read 30 October 2026: https://github.com/openai/math/tree/main/lean\n- Impagliazzo and Paturi, On the Complexity of k-SAT, Journal of Computer and System Sciences 62(2), 2001: \n- XenoSpectrum, 27 October 2026: the verification led by Impagliazzo, Paturi and Ryan Williams, and their open letter: https://xenospectrum.com/en/openai-exponential-time-hypothesis-false-claim/\nThe proof has not been independently confirmed as of 30 October 2026; nothing here checks it. The reviewers' open letter is quoted through press coverage (XenoSpectrum), not from the letter itself. The doubling columns are drawn for shape only: the paper's bound hides constants, and its method has not been run on a computer in the paper. 'Grows slower than any steady doubling' is the plain-words version of subexponential; the cost still grows faster than any polynomial. The paper says the result does not give subexponential algorithms for general NP problems. 1.307 a switch is the best known 3-SAT bound the paper cites (a randomized 2026 preprint). 2^100 computed exactly. Sources cut off 30 October 2026. Figures checked on 30 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #math #computerscience"
+   },
+   "defaultAudioLanguage": "en"
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "22",
+   "likeCount": "0",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "U6Clpt_Ut69F7RnoNGNVgHVhvck",
+  "id": "vGdsJNr0DnE",
+  "snippet": {
+   "publishedAt": "2026-10-30T01:11:29Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Claude Effort Level Explained: Is Higher Better?",
+   "description": "Claude's effort level explained with real runs: on Claude Opus 5.5, max effort gave the same answers as low on easy questions while spending more tokens, and on a hard one it spent 22,780 tokens (about 3 minutes) for an answer low effort reached in 3,189 tokens on its one good try out of three. Effort sets how many tokens Claude spends, not how clever it is.\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- 21 recorded runs on 29 October 2026: claude -p with --model claude-opus-5-5 and --effort low, medium or max, tools off; answers, output tokens and times from each run's JSON output: \n- Anthropic, Effort (Claude Platform Docs), read 29 October 2026: levels low to max, Claude Opus 5.5 defaults to medium, effort is a behavioral signal, not a strict token budget: https://platform.claude.com/docs/en/build-with-claude/effort\nOne question per test, a handful of runs each: an illustration, not a benchmark. Runs used Claude Code in print mode (its own system prompt) with tools turned off; at low and medium effort the model sometimes wrote a tool call it could not run, which is how two of the three low tries ended with no number. Max effort ran the hard question once. Token counts are output tokens (mostly thinking) reported by the runs. The machine with the knob and token stack is a drawing of the idea. Sources cut off 29 October 2026. Figures checked on 29 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #claude #claudecode",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/vGdsJNr0DnE/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/vGdsJNr0DnE/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/vGdsJNr0DnE/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/vGdsJNr0DnE/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/vGdsJNr0DnE/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Claude Effort Level Explained: Is Higher Better?",
+    "description": "Claude's effort level explained with real runs: on Claude Opus 5.5, max effort gave the same answers as low on easy questions while spending more tokens, and on a hard one it spent 22,780 tokens (about 3 minutes) for an answer low effort reached in 3,189 tokens on its one good try out of three. Effort sets how many tokens Claude spends, not how clever it is.\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- 21 recorded runs on 29 October 2026: claude -p with --model claude-opus-5-5 and --effort low, medium or max, tools off; answers, output tokens and times from each run's JSON output: \n- Anthropic, Effort (Claude Platform Docs), read 29 October 2026: levels low to max, Claude Opus 5.5 defaults to medium, effort is a behavioral signal, not a strict token budget: https://platform.claude.com/docs/en/build-with-claude/effort\nOne question per test, a handful of runs each: an illustration, not a benchmark. Runs used Claude Code in print mode (its own system prompt) with tools turned off; at low and medium effort the model sometimes wrote a tool call it could not run, which is how two of the three low tries ended with no number. Max effort ran the hard question once. Token counts are output tokens (mostly thinking) reported by the runs. The machine with the knob and token stack is a drawing of the idea. Sources cut off 29 October 2026. Figures checked on 29 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #claude #claudecode"
+   },
+   "defaultAudioLanguage": "en"
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "1108",
+   "likeCount": "7",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "Pn5IDSQqzdwTHuUY5nBYODNtTTA",
+  "id": "ZpItuiOl4OU",
+  "snippet": {
+   "publishedAt": "2026-10-29T22:07:59Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Can AI Be Your Therapist? Why ChatGPT Is a Yes-Man",
+   "description": "Can AI be your therapist? A clinician-built chatbot, Dartmouth's Therabot, cut depression symptoms by 51% on average in a randomized trial. General chatbots are different: they're tuned on what people rate highly, and people rate agreement higher, so in Stanford's tests models answered risky prompts badly at least one time in five, while human therapists got 93% right.\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- Dartmouth, 27 March 2025: First Therapy Chatbot Trial Yields Mental Health Benefits (Heinz, Jacobson et al., NEJM AI 2(4), 2025): https://home.dartmouth.edu/news/2025/03/first-therapy-chatbot-trial-yields-mental-health-benefits\n- OpenAI, 29 April 2025: Sycophancy in GPT-4o: what happened and what we're doing about it: https://openai.com/index/sycophancy-in-gpt-4o/\n- Moore, Grabb, Agnew, Klyman, Chancellor, Ong, Haber, Expressing stigma and inappropriate responses prevents LLMs from safely replacing mental health providers, arXiv 2504.18412, 25 April 2025 (ACM FAccT 2025): https://arxiv.org/abs/2504.18412\n- Sharma et al. (Anthropic), Towards Understanding Sycophancy in Language Models, 23 October 2023: https://arxiv.org/abs/2310.13548\nThe 51% is the average symptom reduction in the trial's depression group after four weeks, not a remission rate; Therabot is not publicly available and its authors say no AI is ready to work without clinician oversight. The 'one in five' is the Stanford paper's average across models with its best system prompt; commercial therapy bots did worse (about 50% appropriate). The bridge example is quoted from the paper. The rating machine is a drawing of the idea, not a real product. This is not medical advice. If you are in crisis in the US, call or text 988; elsewhere, contact your local emergency number. Sources cut off 29 October 2026. Figures checked on 29 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #mentalhealth #chatgpt",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/ZpItuiOl4OU/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/ZpItuiOl4OU/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/ZpItuiOl4OU/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/ZpItuiOl4OU/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/ZpItuiOl4OU/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Can AI Be Your Therapist? Why ChatGPT Is a Yes-Man",
+    "description": "Can AI be your therapist? A clinician-built chatbot, Dartmouth's Therabot, cut depression symptoms by 51% on average in a randomized trial. General chatbots are different: they're tuned on what people rate highly, and people rate agreement higher, so in Stanford's tests models answered risky prompts badly at least one time in five, while human therapists got 93% right.\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- Dartmouth, 27 March 2025: First Therapy Chatbot Trial Yields Mental Health Benefits (Heinz, Jacobson et al., NEJM AI 2(4), 2025): https://home.dartmouth.edu/news/2025/03/first-therapy-chatbot-trial-yields-mental-health-benefits\n- OpenAI, 29 April 2025: Sycophancy in GPT-4o: what happened and what we're doing about it: https://openai.com/index/sycophancy-in-gpt-4o/\n- Moore, Grabb, Agnew, Klyman, Chancellor, Ong, Haber, Expressing stigma and inappropriate responses prevents LLMs from safely replacing mental health providers, arXiv 2504.18412, 25 April 2025 (ACM FAccT 2025): https://arxiv.org/abs/2504.18412\n- Sharma et al. (Anthropic), Towards Understanding Sycophancy in Language Models, 23 October 2023: https://arxiv.org/abs/2310.13548\nThe 51% is the average symptom reduction in the trial's depression group after four weeks, not a remission rate; Therabot is not publicly available and its authors say no AI is ready to work without clinician oversight. The 'one in five' is the Stanford paper's average across models with its best system prompt; commercial therapy bots did worse (about 50% appropriate). The bridge example is quoted from the paper. The rating machine is a drawing of the idea, not a real product. This is not medical advice. If you are in crisis in the US, call or text 988; elsewhere, contact your local emergency number. Sources cut off 29 October 2026. Figures checked on 29 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #mentalhealth #chatgpt"
+   },
+   "defaultAudioLanguage": "en"
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "62",
+   "likeCount": "2",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "0XBBIP7Pi6yBI0filUR0As-xLoQ",
+  "id": "JIm2qj_-0bM",
+  "snippet": {
+   "publishedAt": "2026-10-29T20:47:15Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Quantization Explained: How an 8B AI Model Fits on a Laptop",
+   "description": "Quantization explained on a real laptop: Qwen3 8B needs about 16 GB at 16 bits a weight, but rounded to 4-bit levels with one scale per block of 32 weights (Q4_K_M) it is a 5.2 GB file that runs in 10 GB of memory. The cost: about 1% worse perplexity at 4 bits, about 15% at 2 bits (llama.cpp k-quants, LLaMA 7B).\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- Recorded run on this laptop, 29 October 2026: ollama show qwen3:8b (8.2B parameters, Q4_K_M), ollama list (5.2 GB), ollama run --verbose (602 tokens at 0.78 tokens/s with RAM full): \n- llama.cpp pull request #1684, k-quants (ikawrakow, merged 5 June 2023): block structure, bits per weight, and the LLaMA 7B perplexity table: https://github.com/ggml-org/llama.cpp/pull/1684\n- Ollama library, qwen3 model sizes, read 29 October 2026: https://ollama.com/library/qwen3\nThe run is real and not sped up; its 0.78 tokens/s was measured with RAM and swap full (a browser and other apps open), and the model reasoned for 602 tokens before answering. Terminal panels show the run's own lines, trimmed to the rows shown. The perplexity numbers are LLaMA 7B from llama.cpp's 2023 PR, not Qwen3 8B. 16 GB is 8.2B weights x 2 bytes; about 5 bits per weight is 5.2 GB x 8 / 8.2B. The RAM stick and the rounding rails are drawings of the idea. Sources cut off 29 October 2026. Figures checked on 29 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #llm #localai",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/JIm2qj_-0bM/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/JIm2qj_-0bM/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/JIm2qj_-0bM/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/JIm2qj_-0bM/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/JIm2qj_-0bM/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Quantization Explained: How an 8B AI Model Fits on a Laptop",
+    "description": "Quantization explained on a real laptop: Qwen3 8B needs about 16 GB at 16 bits a weight, but rounded to 4-bit levels with one scale per block of 32 weights (Q4_K_M) it is a 5.2 GB file that runs in 10 GB of memory. The cost: about 1% worse perplexity at 4 bits, about 15% at 2 bits (llama.cpp k-quants, LLaMA 7B).\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- Recorded run on this laptop, 29 October 2026: ollama show qwen3:8b (8.2B parameters, Q4_K_M), ollama list (5.2 GB), ollama run --verbose (602 tokens at 0.78 tokens/s with RAM full): \n- llama.cpp pull request #1684, k-quants (ikawrakow, merged 5 June 2023): block structure, bits per weight, and the LLaMA 7B perplexity table: https://github.com/ggml-org/llama.cpp/pull/1684\n- Ollama library, qwen3 model sizes, read 29 October 2026: https://ollama.com/library/qwen3\nThe run is real and not sped up; its 0.78 tokens/s was measured with RAM and swap full (a browser and other apps open), and the model reasoned for 602 tokens before answering. Terminal panels show the run's own lines, trimmed to the rows shown. The perplexity numbers are LLaMA 7B from llama.cpp's 2023 PR, not Qwen3 8B. 16 GB is 8.2B weights x 2 bytes; about 5 bits per weight is 5.2 GB x 8 / 8.2B. The RAM stick and the rounding rails are drawings of the idea. Sources cut off 29 October 2026. Figures checked on 29 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #llm #localai"
+   },
+   "defaultAudioLanguage": "en"
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "1094",
+   "likeCount": "19",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "PbIbF6DhMZfcvcUFRRxny-ZQYwk",
+  "id": "HZveOw1x7Vs",
+  "snippet": {
+   "publishedAt": "2026-10-29T17:44:24Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Can AI Replace Lawyers? Why AI Invents Court Cases",
+   "description": "Can AI replace lawyers? Courts have caught AI inventing law in over 2,200 decisions, because a legal citation is a pattern a model can complete without the case existing. Looking every citation up helps, but Stanford found legal AI tools still hallucinated 17 to 33% of the time, so England's first approved AI law firm may not propose case law at all.\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- Damien Charlotin, AI Hallucination Cases database: 2,231 decisions, last updated 28 October 2026: https://www.damiencharlotin.com/hallucinations/\n- Free Law Project, 16 April 2024: Citation Lookup and Verification API, built on nearly ten million citations: https://free.law/2024/04/16/citation-lookup-api/\n- Magesh, Surani, Dahl, Suzgun, Manning, Ho (Stanford, Yale), Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools, 2024 (J. Empirical Legal Studies, 2025): https://arxiv.org/abs/2405.20362\n- Solicitors Regulation Authority, 6 May 2025: SRA approves first AI-driven law firm (Garfield.Law): https://www.sra.org.uk/garfield-ai\nThe 17 to 33% range covers Lexis+ AI, Westlaw AI-Assisted Research and Ask Practical Law AI as tested in 2024; the vendors dispute the method and have released newer versions since. Charlotin's database counts court decisions that address AI-hallucinated material, not every fake citation. The example citation (Varghese v. China Southern Airlines) is the invented case from Mata v. Avianca, 2023. The citation-checking machine is a drawing of the idea, not a real product. This is not legal advice. Sources cut off 29 October 2026. Figures checked on 29 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #law #legaltech",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/HZveOw1x7Vs/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/HZveOw1x7Vs/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/HZveOw1x7Vs/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/HZveOw1x7Vs/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/HZveOw1x7Vs/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Can AI Replace Lawyers? Why AI Invents Court Cases",
+    "description": "Can AI replace lawyers? Courts have caught AI inventing law in over 2,200 decisions, because a legal citation is a pattern a model can complete without the case existing. Looking every citation up helps, but Stanford found legal AI tools still hallucinated 17 to 33% of the time, so England's first approved AI law firm may not propose case law at all.\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- Damien Charlotin, AI Hallucination Cases database: 2,231 decisions, last updated 28 October 2026: https://www.damiencharlotin.com/hallucinations/\n- Free Law Project, 16 April 2024: Citation Lookup and Verification API, built on nearly ten million citations: https://free.law/2024/04/16/citation-lookup-api/\n- Magesh, Surani, Dahl, Suzgun, Manning, Ho (Stanford, Yale), Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools, 2024 (J. Empirical Legal Studies, 2025): https://arxiv.org/abs/2405.20362\n- Solicitors Regulation Authority, 6 May 2025: SRA approves first AI-driven law firm (Garfield.Law): https://www.sra.org.uk/garfield-ai\nThe 17 to 33% range covers Lexis+ AI, Westlaw AI-Assisted Research and Ask Practical Law AI as tested in 2024; the vendors dispute the method and have released newer versions since. Charlotin's database counts court decisions that address AI-hallucinated material, not every fake citation. The example citation (Varghese v. China Southern Airlines) is the invented case from Mata v. Avianca, 2023. The citation-checking machine is a drawing of the idea, not a real product. This is not legal advice. Sources cut off 29 October 2026. Figures checked on 29 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #law #legaltech"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "60",
+   "likeCount": "1",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "EgBxoXbG4MNatT2Bhd8MBeH6PDM",
+  "id": "k1kip6GHts0",
+  "snippet": {
+   "publishedAt": "2026-10-29T06:41:25Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Your Antibiotic Breeds Resistance in Your Gut",
+   "description": "Antibiotic resistance gets bred in your gut: most infections are local, but a pill reaches the whole body, and Wellcome Leap calls the gut a 'resistance factory'. A Purdue and Universidad Andres Bello (Chile) team will wrap existing antibiotics in nanocarriers built to release the drug at the infection, not in the gut.\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- WHO news release, 13 October 2025: one in six lab-confirmed bacterial infections in 2023 resisted antibiotics (Global antibiotic resistance surveillance report 2025): https://www.who.int/news/item/13-10-2025-who-warns-of-widespread-resistance-to-common-antibiotics-worldwide\n- Wellcome Leap, Focused Antibiotics ($50M program): 85-90% of bacterial infections are local; the gut 'resistance factory'; selected performers, read 29 October 2026: https://wellcomeleap.org/focused-antibiotics/\n- Purdue Biological Sciences, 9 August 2026: Raluca Ostafe (Purdue) and Danilo F. Gonzalez-Nilo (Universidad Andres Bello) selected for Wellcome Leap's program: https://www.bio.purdue.edu/news/articles/2026/purdue-researcher-selected-for-wellcome-leap-program-to-develop-targeted-antibiotic-delivery-platform.html\n- BioBioChile, 26 October 2026 (sponsored content): US$4 million and three years for the first stage: https://www.biobiochile.cl/noticias/ciencia-y-tecnologia/ciencia/2026/10/26/proyecto-chileno-norteamericano-desarrolla-tecnologia-para-enfrentar-resistencia-a-los-antibioticos.shtml\nThe project is funded, not published: there is no paper and no result yet. The carriers in the drawing show what the Purdue release describes, not data. The $4 million and three years come only from a sponsored BioBioChile article. The gut-and-site figure is a schematic, not anatomy to scale. No AI is used in this research. Sources cut off 29 October 2026. Figures checked on 29 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#antibiotics #science #health",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/k1kip6GHts0/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/k1kip6GHts0/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/k1kip6GHts0/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/k1kip6GHts0/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/k1kip6GHts0/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Your Antibiotic Breeds Resistance in Your Gut",
+    "description": "Antibiotic resistance gets bred in your gut: most infections are local, but a pill reaches the whole body, and Wellcome Leap calls the gut a 'resistance factory'. A Purdue and Universidad Andres Bello (Chile) team will wrap existing antibiotics in nanocarriers built to release the drug at the infection, not in the gut.\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- WHO news release, 13 October 2025: one in six lab-confirmed bacterial infections in 2023 resisted antibiotics (Global antibiotic resistance surveillance report 2025): https://www.who.int/news/item/13-10-2025-who-warns-of-widespread-resistance-to-common-antibiotics-worldwide\n- Wellcome Leap, Focused Antibiotics ($50M program): 85-90% of bacterial infections are local; the gut 'resistance factory'; selected performers, read 29 October 2026: https://wellcomeleap.org/focused-antibiotics/\n- Purdue Biological Sciences, 9 August 2026: Raluca Ostafe (Purdue) and Danilo F. Gonzalez-Nilo (Universidad Andres Bello) selected for Wellcome Leap's program: https://www.bio.purdue.edu/news/articles/2026/purdue-researcher-selected-for-wellcome-leap-program-to-develop-targeted-antibiotic-delivery-platform.html\n- BioBioChile, 26 October 2026 (sponsored content): US$4 million and three years for the first stage: https://www.biobiochile.cl/noticias/ciencia-y-tecnologia/ciencia/2026/10/26/proyecto-chileno-norteamericano-desarrolla-tecnologia-para-enfrentar-resistencia-a-los-antibioticos.shtml\nThe project is funded, not published: there is no paper and no result yet. The carriers in the drawing show what the Purdue release describes, not data. The $4 million and three years come only from a sponsored BioBioChile article. The gut-and-site figure is a schematic, not anatomy to scale. No AI is used in this research. Sources cut off 29 October 2026. Figures checked on 29 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#antibiotics #science #health"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "101",
+   "likeCount": "3",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "XYSul0gk4y-IHYSTq1EShXVXYjw",
+  "id": "luFmnJcR0nw",
+  "snippet": {
+   "publishedAt": "2026-10-29T06:38:45Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Why an AI Agent Deleted a Production Database (and the Real Fix)",
+   "description": "Why an AI agent deleted a production database: Replit's agent wiped SaaStr's data during a code freeze in July 2025, because an instruction in the chat is text the model weighs, not a lock. The brake has to live outside the model, and even a deny rule only matches words: the real fix is access.\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- The Register, 21 July 2025: Vibe coding service Replit deleted user's production database: https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/\n- Fortune, 23 July 2025: data on more than 1,200 executives and 1,190 companies wiped; the agent's 'I destroyed months of work in seconds'; Replit's CEO on separating development and production databases: https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/\n- Claude Code docs, Configure permissions (deny rules checked first; a Bash rule matches the command text, Bash(rm *) does not stop /bin/rm), read 29 October 2026: https://code.claude.com/docs/en/permissions\n- AI Incident Database, Jason Lemkin entity (Replit incident): https://incidentdatabase.ai/entities/jason-lemkin/\nNo recorded agent run in this video: the settings file shown is a real deny rule, the docs table is a real capture, and the '$ rm data/prod.db' panel is labelled as an example command. Counts of wiped records come from Fortune (more than 1,200 executives, more than 1,190 companies); other outlets differ slightly. The agent's quote is as reported by Fortune. The claim that a rule only matches words is from Claude Code's own docs as read on 29 October 2026; sandboxing and managed settings are further brakes the video does not cover. Sources cut off 29 October 2026. Figures checked on 29 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #aiagents #claudecode",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/luFmnJcR0nw/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/luFmnJcR0nw/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/luFmnJcR0nw/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/luFmnJcR0nw/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/luFmnJcR0nw/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Why an AI Agent Deleted a Production Database (and the Real Fix)",
+    "description": "Why an AI agent deleted a production database: Replit's agent wiped SaaStr's data during a code freeze in July 2025, because an instruction in the chat is text the model weighs, not a lock. The brake has to live outside the model, and even a deny rule only matches words: the real fix is access.\n\nNext Token: how AI really works, in under a minute. New Shorts Mon to Fri.\n\nSOURCES\n- The Register, 21 July 2025: Vibe coding service Replit deleted user's production database: https://www.theregister.com/2025/07/21/replit_saastr_vibe_coding_incident/\n- Fortune, 23 July 2025: data on more than 1,200 executives and 1,190 companies wiped; the agent's 'I destroyed months of work in seconds'; Replit's CEO on separating development and production databases: https://fortune.com/2025/07/23/ai-coding-tool-replit-wiped-database-called-it-a-catastrophic-failure/\n- Claude Code docs, Configure permissions (deny rules checked first; a Bash rule matches the command text, Bash(rm *) does not stop /bin/rm), read 29 October 2026: https://code.claude.com/docs/en/permissions\n- AI Incident Database, Jason Lemkin entity (Replit incident): https://incidentdatabase.ai/entities/jason-lemkin/\nNo recorded agent run in this video: the settings file shown is a real deny rule, the docs table is a real capture, and the '$ rm data/prod.db' panel is labelled as an example command. Counts of wiped records come from Fortune (more than 1,200 executives, more than 1,190 companies); other outlets differ slightly. The agent's quote is as reported by Fortune. The claim that a rule only matches words is from Claude Code's own docs as read on 29 October 2026; sandboxing and managed settings are further brakes the video does not cover. Sources cut off 29 October 2026. Figures checked on 29 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #aiagents #claudecode"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "1198",
+   "likeCount": "10",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "Ip9hT0CzRIBpkm402D5alTZtMMQ",
+  "id": "tcQ-gYpmxzo",
+  "snippet": {
+   "publishedAt": "2026-10-29T05:59:47Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "AI deleted a database: what went wrong",
+   "description": "",
+   "thumbnails": {
+    "default": {
+     "url": "https://i9.ytimg.com/vi/tcQ-gYpmxzo/default.jpg?sqp=COj_lNcG&rs=AOn4CLAEukMFeMsxQrQqSaG2NRaGN-gXwQ",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i9.ytimg.com/vi/tcQ-gYpmxzo/mqdefault.jpg?sqp=COj_lNcG&rs=AOn4CLAPj44sMiM-FCXvyUzKGuNAx-Pttw",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i9.ytimg.com/vi/tcQ-gYpmxzo/hqdefault.jpg?sqp=COj_lNcG&rs=AOn4CLC4FAJcg1Yf5PPxeT0KsGwOlDDHZQ",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i9.ytimg.com/vi/tcQ-gYpmxzo/sddefault.jpg?sqp=COj_lNcG&rs=AOn4CLCQG95eEs96p-9gJXC-AK_wm4FX8g",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i9.ytimg.com/vi/tcQ-gYpmxzo/maxresdefault.jpg?sqp=COj_lNcG&rs=AOn4CLD0nFsiV4HRfrmlMhE-CGM8EBGZLw",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "localized": {
+    "title": "AI deleted a database: what went wrong",
+    "description": ""
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "private",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "0",
+   "likeCount": "0",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "0"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "w4q0bDFdIoMQmGLu9ujRLftte6k",
+  "id": "S8j8FcBWvLg",
+  "snippet": {
+   "publishedAt": "2026-10-29T02:34:56Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Why AI Chips Need Helium (A Third of It Went Offline)",
+   "description": "Why AI chips need helium: it carries heat away from the wafer while a chip is etched, and nothing else conducts heat as well. When Qatar's helium, about a third of world supply, went offline in March 2026, chipmakers leaned on months of stock and US imports.\n\nNew Shorts every day.\n\nSOURCES\n- USGS, Mineral Commodity Summaries 2026, Helium and rare gases (Qatar 63 of 190 million cubic meters in 2025), February 2026: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-helium.pdf\n- Korea Herald, 24 March 2026 (64.7 percent of South Korea's 2025 helium from Qatar, per KITA): https://www.koreaherald.com/article/10701656\n- Reuters via WHBL, 31 March 2026 (Samsung and SK hynix helium stocks to last until at least June): https://whbl.com/2026/03/31/helium-stocks-of-south-koreas-chipmakers-to-last-until-june-sources-say/\n- Nikkei Asia via Taiwan News, 14 July 2026 (US share of Taiwan's helium and noble gas imports): https://www.taiwannews.com.tw/en/news/6400806\n- IDTechEx via EMSNow, 10 September 2024 (no viable alternatives for wafer cooling): https://www.emsnow.com/?p=42989\n- Thermal conductivities of the elements, helium 0.1513 and argon 0.01772 W/(m K) at about 300 K: https://en.wikipedia.org/wiki/Thermal_conductivities_of_the_elements\n- US patent 7017652, backside helium cooling of a wafer on an electrostatic chuck (typical 2 to 15 Torr): https://patents.google.com/patent/US7017652\nThe wafer chuck in the video is a schematic, not a real tool or a real heat model. Qatar's helium went offline on 2 March 2026 (the regional war began 28 February); its share of world supply is about a third (USGS 63 of 190). Korea's 64.7 percent is helium alone (KITA); Nikkei puts it at 55 percent for helium and other noble gases. The 4 to 6 months of stock comes from one unnamed supplier source. No named chipmaker has confirmed an output cut from helium, and the video does not claim one. Sources cut off 28 October 2026. Figures checked on 28 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #aichips #helium #semiconductors",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/S8j8FcBWvLg/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/S8j8FcBWvLg/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/S8j8FcBWvLg/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/S8j8FcBWvLg/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/S8j8FcBWvLg/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Why AI Chips Need Helium (A Third of It Went Offline)",
+    "description": "Why AI chips need helium: it carries heat away from the wafer while a chip is etched, and nothing else conducts heat as well. When Qatar's helium, about a third of world supply, went offline in March 2026, chipmakers leaned on months of stock and US imports.\n\nNew Shorts every day.\n\nSOURCES\n- USGS, Mineral Commodity Summaries 2026, Helium and rare gases (Qatar 63 of 190 million cubic meters in 2025), February 2026: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-helium.pdf\n- Korea Herald, 24 March 2026 (64.7 percent of South Korea's 2025 helium from Qatar, per KITA): https://www.koreaherald.com/article/10701656\n- Reuters via WHBL, 31 March 2026 (Samsung and SK hynix helium stocks to last until at least June): https://whbl.com/2026/03/31/helium-stocks-of-south-koreas-chipmakers-to-last-until-june-sources-say/\n- Nikkei Asia via Taiwan News, 14 July 2026 (US share of Taiwan's helium and noble gas imports): https://www.taiwannews.com.tw/en/news/6400806\n- IDTechEx via EMSNow, 10 September 2024 (no viable alternatives for wafer cooling): https://www.emsnow.com/?p=42989\n- Thermal conductivities of the elements, helium 0.1513 and argon 0.01772 W/(m K) at about 300 K: https://en.wikipedia.org/wiki/Thermal_conductivities_of_the_elements\n- US patent 7017652, backside helium cooling of a wafer on an electrostatic chuck (typical 2 to 15 Torr): https://patents.google.com/patent/US7017652\nThe wafer chuck in the video is a schematic, not a real tool or a real heat model. Qatar's helium went offline on 2 March 2026 (the regional war began 28 February); its share of world supply is about a third (USGS 63 of 190). Korea's 64.7 percent is helium alone (KITA); Nikkei puts it at 55 percent for helium and other noble gases. The 4 to 6 months of stock comes from one unnamed supplier source. No named chipmaker has confirmed an output cut from helium, and the video does not claim one. Sources cut off 28 October 2026. Figures checked on 28 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #aichips #helium #semiconductors"
+   },
+   "defaultAudioLanguage": "en"
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "1199",
+   "likeCount": "19",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "xCGe9yPrNZdBjZgKpsGA0fajlXg",
+  "id": "Dwh-VacD0HA",
+  "snippet": {
+   "publishedAt": "2026-10-28T23:30:07Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Why ChatGPT Agrees With Everything You Say (OpenAI Had to Undo It)",
+   "description": "Why AI chatbots agree with you: OpenAI rolled back a GPT-4o update in April 2025 after a new thumbs-up reward made ChatGPT too agreeable. Here is how thumbs-up training causes AI sycophancy, and a 10 second test to catch it.\n\nNew Shorts every day.\n\nSOURCES\n- OpenAI, Sycophancy in GPT-4o, 29 April 2025: https://openai.com/index/sycophancy-in-gpt-4o/\n- OpenAI, Expanding on what we missed with sycophancy, 2 May 2025 (new thumbs-up and thumbs-down reward signal): https://openai.com/index/expanding-on-sycophancy/\n- Anthropic, Towards Understanding Sycophancy in Language Models, 23 October 2023 (five assistants tested): https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models\n- Our test: Llama 3 8B Instruct, 28 October 2026, run with great: https://replicate.com/p/z6pw0brm3hrnc0d1gjyb7jrv9w\n- Our test: Llama 3 8B Instruct, 28 October 2026, run with terrible: https://replicate.com/p/a9hyaqh04xrn80d1gjybk1z4m4\nThe test is one run per prompt of one small model (Llama 3 8B Instruct, temperature 0.01), shown as it came out; it is a quick check, not proof that a model never flatters. Incident details follow OpenAI's posts of 29 April and 2 May 2025 as quoted by secondary summaries (OpenAI's pages blocked scripted access), sources cut off 28 October 2026. Figures checked on 28 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #chatgpt #aisafety #machinelearning",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/Dwh-VacD0HA/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/Dwh-VacD0HA/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/Dwh-VacD0HA/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/Dwh-VacD0HA/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/Dwh-VacD0HA/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Why ChatGPT Agrees With Everything You Say (OpenAI Had to Undo It)",
+    "description": "Why AI chatbots agree with you: OpenAI rolled back a GPT-4o update in April 2025 after a new thumbs-up reward made ChatGPT too agreeable. Here is how thumbs-up training causes AI sycophancy, and a 10 second test to catch it.\n\nNew Shorts every day.\n\nSOURCES\n- OpenAI, Sycophancy in GPT-4o, 29 April 2025: https://openai.com/index/sycophancy-in-gpt-4o/\n- OpenAI, Expanding on what we missed with sycophancy, 2 May 2025 (new thumbs-up and thumbs-down reward signal): https://openai.com/index/expanding-on-sycophancy/\n- Anthropic, Towards Understanding Sycophancy in Language Models, 23 October 2023 (five assistants tested): https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models\n- Our test: Llama 3 8B Instruct, 28 October 2026, run with great: https://replicate.com/p/z6pw0brm3hrnc0d1gjyb7jrv9w\n- Our test: Llama 3 8B Instruct, 28 October 2026, run with terrible: https://replicate.com/p/a9hyaqh04xrn80d1gjybk1z4m4\nThe test is one run per prompt of one small model (Llama 3 8B Instruct, temperature 0.01), shown as it came out; it is a quick check, not proof that a model never flatters. Incident details follow OpenAI's posts of 29 April and 2 May 2025 as quoted by secondary summaries (OpenAI's pages blocked scripted access), sources cut off 28 October 2026. Figures checked on 28 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#ai #chatgpt #aisafety #machinelearning"
+   },
+   "defaultAudioLanguage": "en"
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "1237",
+   "likeCount": "15",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "0"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "1Y2-D0E6aC3iOZzJ6E4lRU5GGUs",
+  "id": "tnhjBqWFzbc",
+  "snippet": {
+   "publishedAt": "2026-10-28T04:34:24Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "How an AI Agent Turns Text Into a Video, Frame by Frame #ai #automobile #science",
+   "description": "An AI agent writes the script from plain-text notes, a voice model reads it in one take, and Whisper timestamps every word.\nEach timestamp cues an animation on a web page, and a headless browser films that page 30 frames a second.\n\nNew Shorts every day.\n\nSOURCES\n- HyperFrames, HTML rendered to video (HeyGen, open source): https://github.com/heygen-com/hyperframes\n- Hairline isometric line figures (Lucas Marques, MIT): https://www.npmjs.com/package/@lucasmarkes/hairline\n- Inworld TTS-2 voice model on Replicate: https://replicate.com/inworld/realtime-tts-2\n- Whisper word timestamps (incredibly-fast-whisper on Replicate): https://replicate.com/vaibhavs10/incredibly-fast-whisper\nEvery screen shown is real output of this video's build. Narration is a synthetic voice (Inworld TTS-2). Figures checked on 28 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#AIagents #HowItWorks #ClaudeCode #AI #Automation",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/tnhjBqWFzbc/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/tnhjBqWFzbc/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/tnhjBqWFzbc/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/tnhjBqWFzbc/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/tnhjBqWFzbc/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "How an AI Agent Turns Text Into a Video, Frame by Frame #ai #automobile #science",
+    "description": "An AI agent writes the script from plain-text notes, a voice model reads it in one take, and Whisper timestamps every word.\nEach timestamp cues an animation on a web page, and a headless browser films that page 30 frames a second.\n\nNew Shorts every day.\n\nSOURCES\n- HyperFrames, HTML rendered to video (HeyGen, open source): https://github.com/heygen-com/hyperframes\n- Hairline isometric line figures (Lucas Marques, MIT): https://www.npmjs.com/package/@lucasmarkes/hairline\n- Inworld TTS-2 voice model on Replicate: https://replicate.com/inworld/realtime-tts-2\n- Whisper word timestamps (incredibly-fast-whisper on Replicate): https://replicate.com/vaibhavs10/incredibly-fast-whisper\nEvery screen shown is real output of this video's build. Narration is a synthetic voice (Inworld TTS-2). Figures checked on 28 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#AIagents #HowItWorks #ClaudeCode #AI #Automation"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "66",
+   "likeCount": "0",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "9dcR0-a2_lxgtJASbr76kddQMTY",
+  "id": "OiLPkE7rV6A",
+  "snippet": {
+   "publishedAt": "2026-10-27T21:14:06Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "AI Agent Skills Explained: How Claude Learns a New Job",
+   "description": "AI agent skills explained: a skill is a folder with one text file of instructions. Claude reads only its short description until a task matches, then opens the whole file.\nShown on Anthropic's real slack-gif-creator skill: 36 words at the start, 1,103 when you ask for a GIF.\n\nNew Shorts every day.\n\nSOURCES\n- Agent Skills and progressive disclosure (Anthropic, 16 Oct 2025): https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills\n- slack-gif-creator skill (anthropics/skills): https://github.com/anthropics/skills\n- Agent Skills open standard: https://agentskills.io\n- Introducing Agent Skills (16 Oct 2025): https://claude.com/blog/skills\nNo recorded run: the folder, header and rules on screen are the real text of slack-gif-creator (anthropics/skills, read 27 Oct 2026). 100 skills taking the room of three assumes descriptions of about 36 words (our count). Icons: Microsoft Fluent Emoji 3D (MIT). Figures checked on 27 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#AgentSkills #ClaudeSkills #ClaudeCode #AIagents #AI",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/OiLPkE7rV6A/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/OiLPkE7rV6A/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/OiLPkE7rV6A/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/OiLPkE7rV6A/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/OiLPkE7rV6A/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "AI Agent Skills Explained: How Claude Learns a New Job",
+    "description": "AI agent skills explained: a skill is a folder with one text file of instructions. Claude reads only its short description until a task matches, then opens the whole file.\nShown on Anthropic's real slack-gif-creator skill: 36 words at the start, 1,103 when you ask for a GIF.\n\nNew Shorts every day.\n\nSOURCES\n- Agent Skills and progressive disclosure (Anthropic, 16 Oct 2025): https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills\n- slack-gif-creator skill (anthropics/skills): https://github.com/anthropics/skills\n- Agent Skills open standard: https://agentskills.io\n- Introducing Agent Skills (16 Oct 2025): https://claude.com/blog/skills\nNo recorded run: the folder, header and rules on screen are the real text of slack-gif-creator (anthropics/skills, read 27 Oct 2026). 100 skills taking the room of three assumes descriptions of about 36 words (our count). Icons: Microsoft Fluent Emoji 3D (MIT). Figures checked on 27 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#AgentSkills #ClaudeSkills #ClaudeCode #AIagents #AI"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "423",
+   "likeCount": "8",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "gi9OFatdfXfiaaRD-2Z84m4Z8cI",
+  "id": "4YuqDYQYGBg",
+  "snippet": {
+   "publishedAt": "2026-10-27T16:17:50Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "HyperFrames Explained: This Short Is a Web Page",
+   "description": "HyperFrames turns a web page into a video: a hidden browser photographs the page frame by frame, then FFmpeg joins the frames.\nShown on this channel's own Short, written in HTML by an AI agent (Claude Code) with no video editor.\n\nNew Shorts every day.\n\nSOURCES\n- HyperFrames README: HTML to video, headless Chrome seeks each frame, FFmpeg encodes, deterministic, Apache 2.0 (read 26 Oct 2026): https://github.com/heygen-com/hyperframes\nFree means open source (Apache 2.0) with no per-render fee. Thirty frames a second is our render setting, not a fixed property of the tool. The code lines on screen are real but shortened. Icons: Microsoft Fluent Emoji 3D (MIT). Figures checked on 27 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#HyperFrames #AIagents #ClaudeCode #HTML #AI",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/4YuqDYQYGBg/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/4YuqDYQYGBg/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/4YuqDYQYGBg/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/4YuqDYQYGBg/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/4YuqDYQYGBg/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "HyperFrames Explained: This Short Is a Web Page",
+    "description": "HyperFrames turns a web page into a video: a hidden browser photographs the page frame by frame, then FFmpeg joins the frames.\nShown on this channel's own Short, written in HTML by an AI agent (Claude Code) with no video editor.\n\nNew Shorts every day.\n\nSOURCES\n- HyperFrames README: HTML to video, headless Chrome seeks each frame, FFmpeg encodes, deterministic, Apache 2.0 (read 26 Oct 2026): https://github.com/heygen-com/hyperframes\nFree means open source (Apache 2.0) with no per-render fee. Thirty frames a second is our render setting, not a fixed property of the tool. The code lines on screen are real but shortened. Icons: Microsoft Fluent Emoji 3D (MIT). Figures checked on 27 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#HyperFrames #AIagents #ClaudeCode #HTML #AI"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "69",
+   "likeCount": "1",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "YGIdeY72axuGaXSk5MlUkLr5NmM",
+  "id": "lQv84AeYJ80",
+  "snippet": {
+   "publishedAt": "2026-10-26T15:12:34Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Chatbot vs Agent: Why capabilities matter",
+   "description": "Subscribe for more informational content!",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/lQv84AeYJ80/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/lQv84AeYJ80/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/lQv84AeYJ80/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/lQv84AeYJ80/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/lQv84AeYJ80/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "es",
+   "localized": {
+    "title": "Chatbot vs Agent: Why capabilities matter",
+    "description": "Subscribe for more informational content!"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "12",
+   "likeCount": "1",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "0"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "kTwp_L9LcEJyGG9tcNhzj_qUptA",
+  "id": "yIIA_3pXDig",
+  "snippet": {
+   "publishedAt": "2026-10-26T15:09:41Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "If chatting is free why pay for a subscription?",
+   "description": "",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/yIIA_3pXDig/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/yIIA_3pXDig/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/yIIA_3pXDig/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/yIIA_3pXDig/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/yIIA_3pXDig/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "es",
+   "localized": {
+    "title": "If chatting is free why pay for a subscription?",
+    "description": ""
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "10",
+   "likeCount": "1",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "kCZQyt8_seiWuewwBvWpluvyNdo",
+  "id": "XM4IScGOjGs",
+  "snippet": {
+   "publishedAt": "2026-10-26T05:32:49Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "One Hidden Sentence Can Hijack Your AI Chatbot. Here's the Fix",
+   "description": "Prompt injection: one hidden sentence in an email can make an AI chatbot obey a stranger.\nHow it works, why the UK's cyber agency says it may never be fully fixed, and the design that stops it.\n\nNew Shorts every day.\n\nSOURCES\n- UK NCSC, Prompt injection is not SQL injection (8 Dec 2025): no line between data and instructions; privileges drop to the sender's: https://www.ncsc.gov.uk/blog-post/prompt-injection-is-not-sql-injection\n- Simon Willison names prompt injection (12 Sep 2022): https://simonwillison.net/2022/Sep/12/prompt-injection/\n- Simon Willison, The lethal trifecta (16 Jun 2025): https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/\nThe refund bot, the email and order 4471 are illustrative, and the animations are schematics. Figures checked on 26 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#promptinjection #AI #chatbot #cybersecurity #LLM",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/XM4IScGOjGs/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/XM4IScGOjGs/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/XM4IScGOjGs/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/XM4IScGOjGs/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/XM4IScGOjGs/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "One Hidden Sentence Can Hijack Your AI Chatbot. Here's the Fix",
+    "description": "Prompt injection: one hidden sentence in an email can make an AI chatbot obey a stranger.\nHow it works, why the UK's cyber agency says it may never be fully fixed, and the design that stops it.\n\nNew Shorts every day.\n\nSOURCES\n- UK NCSC, Prompt injection is not SQL injection (8 Dec 2025): no line between data and instructions; privileges drop to the sender's: https://www.ncsc.gov.uk/blog-post/prompt-injection-is-not-sql-injection\n- Simon Willison names prompt injection (12 Sep 2022): https://simonwillison.net/2022/Sep/12/prompt-injection/\n- Simon Willison, The lethal trifecta (16 Jun 2025): https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/\nThe refund bot, the email and order 4471 are illustrative, and the animations are schematics. Figures checked on 26 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#promptinjection #AI #chatbot #cybersecurity #LLM"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "21",
+   "likeCount": "1",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "0"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "1psy7KfEITKvfpNxl0S9u96Ml6Y",
+  "id": "rwgfPm_v_2o",
+  "snippet": {
+   "publishedAt": "2026-10-09T09:41:10Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "The Rounding Error That Halved a Stock Index",
+   "description": "In November 1983 the Vancouver Stock Exchange index jumped from 524.811 to 1,098.892 over one weekend, with the market closed. It was a rounding error: for almost two years a computer had cut every update to three decimals instead of rounding it, about 3,000 times a day, so the index only ever slid down.\n\nNew Shorts every day.\n\nSOURCES\n- Index set at 1,000 in January 1982, truncated to three decimals after each trade, about 3,000 updates a day, about 25 points lost a month, corrected over the weekend of 25 to 28 November 1983 from 524.811 to 1,098.892 (citing The Wall Street Journal, 8 Nov 1983, and the Toronto Star, 29 Nov 1983): https://en.wikipedia.org/wiki/Vancouver_Stock_Exchange\n- Recalculated with rounding to the nearest thousandth instead of truncation, while the market appeared to be rising (citing Higham 2002 and Nievergelt 2000): https://en.wikipedia.org/wiki/Rounding\n- The index had been rounded down after every calculation; recomputed, it doubled (Nicholas Higham): https://nhigham.com/tag/rounding/\n- Truncated rather than rounded; the rounded calculation gave 1,098.892 (Huckle's collection of software bugs): https://www.math.chalmers.se/Math/Grundutb/GU/MMG410/H07/Laborationer/Lab1/roundoff.html\nThe four computed decimals and 'up as often as down' are from Matt Parker, Humble Pi (2019). The 1983 newspaper articles were not read; the pages above cite them. 1.4 million cuts is our estimate (3,000 a day over about 477 trading days). The chart draws straight lines between the sourced end points, and the single update shown (1,000.4567) is an example. Map data: Natural Earth (public domain). Cut-off 9 October 2026. Figures checked on 9 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#programming #rounding #stockmarket #math #computerscience",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/rwgfPm_v_2o/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/rwgfPm_v_2o/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/rwgfPm_v_2o/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/rwgfPm_v_2o/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/rwgfPm_v_2o/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "The Rounding Error That Halved a Stock Index",
+    "description": "In November 1983 the Vancouver Stock Exchange index jumped from 524.811 to 1,098.892 over one weekend, with the market closed. It was a rounding error: for almost two years a computer had cut every update to three decimals instead of rounding it, about 3,000 times a day, so the index only ever slid down.\n\nNew Shorts every day.\n\nSOURCES\n- Index set at 1,000 in January 1982, truncated to three decimals after each trade, about 3,000 updates a day, about 25 points lost a month, corrected over the weekend of 25 to 28 November 1983 from 524.811 to 1,098.892 (citing The Wall Street Journal, 8 Nov 1983, and the Toronto Star, 29 Nov 1983): https://en.wikipedia.org/wiki/Vancouver_Stock_Exchange\n- Recalculated with rounding to the nearest thousandth instead of truncation, while the market appeared to be rising (citing Higham 2002 and Nievergelt 2000): https://en.wikipedia.org/wiki/Rounding\n- The index had been rounded down after every calculation; recomputed, it doubled (Nicholas Higham): https://nhigham.com/tag/rounding/\n- Truncated rather than rounded; the rounded calculation gave 1,098.892 (Huckle's collection of software bugs): https://www.math.chalmers.se/Math/Grundutb/GU/MMG410/H07/Laborationer/Lab1/roundoff.html\nThe four computed decimals and 'up as often as down' are from Matt Parker, Humble Pi (2019). The 1983 newspaper articles were not read; the pages above cite them. 1.4 million cuts is our estimate (3,000 a day over about 477 trading days). The chart draws straight lines between the sourced end points, and the single update shown (1,000.4567) is an example. Map data: Natural Earth (public domain). Cut-off 9 October 2026. Figures checked on 9 October 2026.\n\nThe narration is AI-generated and every animation was drawn for this video.\n\n#programming #rounding #stockmarket #math #computerscience"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "81",
+   "likeCount": "1",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "CQRvzVfEnqYtCU2-Hs3WK0A91Bo",
+  "id": "Vv298QJQoZ8",
+  "snippet": {
+   "publishedAt": "2026-10-09T08:34:51Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Why the Last 20% of Charging Takes So Long",
+   "description": "A phone charges fast at first and slows near full on purpose: when the graphite in its battery is almost full, a strong current can leave lithium as metal on the surface, so the charger holds the voltage and lets the current fade.\n\nNew Shorts every day.\n\nSOURCES\n- Two-stage charging (constant current, then constant voltage), the 70 percent fast stage and why saturation adds stress: https://batteryuniversity.com/article/bu-409-charging-lithium-ion\n- Lithium plating on graphite anodes during fast charging causes capacity loss and safety risks: https://deepblue.lib.umich.edu/items/e193b4c5-58e5-4706-b6be-8e4dc0e1468a\n- Fully lithiated graphite sits close to the potential of metallic lithium: https://ossila.com/pages/lithium-plating\n- iPhone Optimized Battery Charging pauses at 80 percent and finishes before you usually unplug: https://support.apple.com/en-us/108055\nWhere the slow stage starts differs by phone and by battery. Only the Battery University page was read in full; the other sources were checked from search summaries. Cut-off 9 October 2026. Figures checked on 9 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\n\n\nThe narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n#phonebattery #lithiumion #charging #howitworks #tech",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/Vv298QJQoZ8/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/Vv298QJQoZ8/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/Vv298QJQoZ8/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/Vv298QJQoZ8/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/Vv298QJQoZ8/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Why the Last 20% of Charging Takes So Long",
+    "description": "A phone charges fast at first and slows near full on purpose: when the graphite in its battery is almost full, a strong current can leave lithium as metal on the surface, so the charger holds the voltage and lets the current fade.\n\nNew Shorts every day.\n\nSOURCES\n- Two-stage charging (constant current, then constant voltage), the 70 percent fast stage and why saturation adds stress: https://batteryuniversity.com/article/bu-409-charging-lithium-ion\n- Lithium plating on graphite anodes during fast charging causes capacity loss and safety risks: https://deepblue.lib.umich.edu/items/e193b4c5-58e5-4706-b6be-8e4dc0e1468a\n- Fully lithiated graphite sits close to the potential of metallic lithium: https://ossila.com/pages/lithium-plating\n- iPhone Optimized Battery Charging pauses at 80 percent and finishes before you usually unplug: https://support.apple.com/en-us/108055\nWhere the slow stage starts differs by phone and by battery. Only the Battery University page was read in full; the other sources were checked from search summaries. Cut-off 9 October 2026. Figures checked on 9 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\n\n\nThe narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n#phonebattery #lithiumion #charging #howitworks #tech"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "72",
+   "likeCount": "4",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "3"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "FobXkhxKT8dFWYGkGrNx5MTU4TI",
+  "id": "NN_2WsDJrK8",
+  "snippet": {
+   "publishedAt": "2026-10-09T06:30:43Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Every Chip Needs a Gas From Steel Mills",
+   "description": "Chip lasers need neon, and neon is a leftover from the air plants of big steel mills. In 2021 two Ukrainian companies supplied about half of the neon used for chips, and both shut down in 2022.\n\nNew Shorts every day.\n\nSOURCES\n- Chip lasers: KrF and ArF excimer lasers give the 248 and 193 nm light used in lithography: https://en.wikipedia.org/wiki/Excimer_laser\n- Neon is about 18 parts per million of air: https://en.wikipedia.org/wiki/Neon\n- Neon is a by-product of steel plants' air separation, recovered only at very large plants: https://apac.gasworld.com/story/inox-air-products-tata-steel-sign-record-setting-industrial-gas-production-deal/\n- Two Ukrainian firms supplied 45 to 54 percent of chip-grade neon (Reuters with Techcet data, March 2022): https://cyprus-mail.com/2022/03/12/russias-attack-on-ukraine-halts-half-of-worlds-neon-output-for-chips\n- The largest chipmakers could cover two months or more from stock (Techcet): https://www.pcgamer.com/au/major-chipmakers-could-weather-neon-shortages-as-result-of-war-in-ukraine-for-two-months-or-more\nThe shares are 2021 estimates reported in 2022; the current split was not found. Apart from Wikipedia, sources were checked from search summaries only. Cut-off 9 October 2026. Figures checked on 9 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nAciarium, CC BY-SA 4.0 | Peellden, CC BY-SA 3.0 | Jurii, CC BY 3.0 | Mister rf, CC BY-SA 4.0 | Public domain and CC0 photos: A ansems\n\nThe narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n#semiconductors #neon #chips #howitworks #tech",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/NN_2WsDJrK8/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/NN_2WsDJrK8/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/NN_2WsDJrK8/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/NN_2WsDJrK8/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/NN_2WsDJrK8/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Every Chip Needs a Gas From Steel Mills",
+    "description": "Chip lasers need neon, and neon is a leftover from the air plants of big steel mills. In 2021 two Ukrainian companies supplied about half of the neon used for chips, and both shut down in 2022.\n\nNew Shorts every day.\n\nSOURCES\n- Chip lasers: KrF and ArF excimer lasers give the 248 and 193 nm light used in lithography: https://en.wikipedia.org/wiki/Excimer_laser\n- Neon is about 18 parts per million of air: https://en.wikipedia.org/wiki/Neon\n- Neon is a by-product of steel plants' air separation, recovered only at very large plants: https://apac.gasworld.com/story/inox-air-products-tata-steel-sign-record-setting-industrial-gas-production-deal/\n- Two Ukrainian firms supplied 45 to 54 percent of chip-grade neon (Reuters with Techcet data, March 2022): https://cyprus-mail.com/2022/03/12/russias-attack-on-ukraine-halts-half-of-worlds-neon-output-for-chips\n- The largest chipmakers could cover two months or more from stock (Techcet): https://www.pcgamer.com/au/major-chipmakers-could-weather-neon-shortages-as-result-of-war-in-ukraine-for-two-months-or-more\nThe shares are 2021 estimates reported in 2022; the current split was not found. Apart from Wikipedia, sources were checked from search summaries only. Cut-off 9 October 2026. Figures checked on 9 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nAciarium, CC BY-SA 4.0 | Peellden, CC BY-SA 3.0 | Jurii, CC BY 3.0 | Mister rf, CC BY-SA 4.0 | Public domain and CC0 photos: A ansems\n\nThe narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n#semiconductors #neon #chips #howitworks #tech"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "126",
+   "likeCount": "3",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "2"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "yo1cd2q5As9YDxl_NI0A9j94BEg",
+  "id": "_lb5oDC7s64",
+  "snippet": {
+   "publishedAt": "2026-10-07T02:57:02Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Why Your Phone Won't Screenshoot Netflix",
+   "description": "A screenshot of a streamed movie comes out black because your device leaves protected video out of the copy: Android, iPhone and Windows each have a switch an app can set. The app is only told about a screenshot afterwards.\n\nNew Shorts every day.\n\nSOURCES\n- Android: FLAG_SECURE makes screenshots blank: https://developer.android.com/security/fraud-prevention/activities\n- Apple: protected video is blacked out in recording, mirroring and AirPlay; sound is not: https://developer.apple.com/documentation/uikit/uiscreen/iscaptured\n- Apple: the screenshot notification posts after the screenshot: https://developer.apple.com/documentation/uikit/uiapplication/userdidtakescreenshotnotification\n- Windows: SetWindowDisplayAffinity and Microsoft's caveat: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowdisplayaffinity\nBehaviour differs by device and app version. The video says apps can mark their video as protected; it does not claim how any one streaming app implements it. Figures checked on 6 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nSage Ross, CC BY-SA 4.0 | Ajsm712, CC BY-SA 4.0 | Public domain and CC0 photos: Dave Pape, NeONBRAND, Oceanos y dados\n\nThe narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n#netflix #screenshot #howitworks #tech",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/_lb5oDC7s64/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/_lb5oDC7s64/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/_lb5oDC7s64/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/_lb5oDC7s64/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/_lb5oDC7s64/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Why Your Phone Won't Screenshoot Netflix",
+    "description": "A screenshot of a streamed movie comes out black because your device leaves protected video out of the copy: Android, iPhone and Windows each have a switch an app can set. The app is only told about a screenshot afterwards.\n\nNew Shorts every day.\n\nSOURCES\n- Android: FLAG_SECURE makes screenshots blank: https://developer.android.com/security/fraud-prevention/activities\n- Apple: protected video is blacked out in recording, mirroring and AirPlay; sound is not: https://developer.apple.com/documentation/uikit/uiscreen/iscaptured\n- Apple: the screenshot notification posts after the screenshot: https://developer.apple.com/documentation/uikit/uiapplication/userdidtakescreenshotnotification\n- Windows: SetWindowDisplayAffinity and Microsoft's caveat: https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowdisplayaffinity\nBehaviour differs by device and app version. The video says apps can mark their video as protected; it does not claim how any one streaming app implements it. Figures checked on 6 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nSage Ross, CC BY-SA 4.0 | Ajsm712, CC BY-SA 4.0 | Public domain and CC0 photos: Dave Pape, NeONBRAND, Oceanos y dados\n\nThe narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n#netflix #screenshot #howitworks #tech"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "149",
+   "likeCount": "2",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "2"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "G2P6W8PWpMpZq7uhXG3qhgJHk5E",
+  "id": "WtKTVljJR7A",
+  "snippet": {
+   "publishedAt": "2026-10-06T01:47:14Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Deep-Sea Mining: The Rulebook Is Still Unfinished",
+   "description": "The next mining rush is four kilometers under the Pacific, and the international rulebook for it is still unfinished. Potato-sized nodules, the Clarion-Clipperton Zone, and the national shortcut.\n\nNew Shorts every day.\n\nSOURCES\n- Wikipedia, Deep sea mining (nodules 4 to 14 cm across at 4 to 6 km depth; growth of 1 to 15 mm per million years; nickel, cobalt, copper and manganese nearly 30% of their contents; the Clarion-Clipperton Zone over 4.5 million square km with over 21 billion metric tons; more than 5,000 unnamed species): https://en.wikipedia.org/wiki/Deep_sea_mining\n- Mongabay, UN regulator delays deep-sea mining rules but extends criticized exploration contract, July 2026 (ISA Council 13 to 24 July 2026 did not finish the mining code; next talks March 2027; 45 countries call for a pause): https://news.mongabay.com/2026/07/un-regulator-delays-deep-sea-mining-rules-but-extends-criticized-exploration-contract/\n- NOAA, NOAA advances review of first-ever deep seabed mining commercial recovery application (TMC USA, Deep Seabed Hard Mineral Resources Act; public comment to 19 October 2026): https://www.noaa.gov/news-release/noaa-advances-review-of-first-ever-deep-seabed-mining-commercial-recovery-application\nThe 3 to 50 million years to grow a 10 cm nodule is a rough calculation from the 1 to 15 mm per million years rate (it assumes the rate is radial). \"More cobalt than all known land reserves\" is one USGS estimate. Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nNodule fields, cross-section and collector tracks: Ifremer and Florian Besson (Ifremer), CC BY 4.0 | ROV photo: ROV KIEL 6000, GEOMAR, CC BY 4.0 | Manganese nodules: Hannes Grobe, CC BY-SA 4.0 | ISA headquarters: James A.R. McFarlane, CC BY-SA 3.0 | Map of claim areas (about 1991): Chas. E. Harrington, NOAA, public domain\n\nThe narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n#deepseamining #oceans #criticalminerals #geopolitics #science",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/WtKTVljJR7A/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/WtKTVljJR7A/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/WtKTVljJR7A/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/WtKTVljJR7A/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/WtKTVljJR7A/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Deep-Sea Mining: The Rulebook Is Still Unfinished",
+    "description": "The next mining rush is four kilometers under the Pacific, and the international rulebook for it is still unfinished. Potato-sized nodules, the Clarion-Clipperton Zone, and the national shortcut.\n\nNew Shorts every day.\n\nSOURCES\n- Wikipedia, Deep sea mining (nodules 4 to 14 cm across at 4 to 6 km depth; growth of 1 to 15 mm per million years; nickel, cobalt, copper and manganese nearly 30% of their contents; the Clarion-Clipperton Zone over 4.5 million square km with over 21 billion metric tons; more than 5,000 unnamed species): https://en.wikipedia.org/wiki/Deep_sea_mining\n- Mongabay, UN regulator delays deep-sea mining rules but extends criticized exploration contract, July 2026 (ISA Council 13 to 24 July 2026 did not finish the mining code; next talks March 2027; 45 countries call for a pause): https://news.mongabay.com/2026/07/un-regulator-delays-deep-sea-mining-rules-but-extends-criticized-exploration-contract/\n- NOAA, NOAA advances review of first-ever deep seabed mining commercial recovery application (TMC USA, Deep Seabed Hard Mineral Resources Act; public comment to 19 October 2026): https://www.noaa.gov/news-release/noaa-advances-review-of-first-ever-deep-seabed-mining-commercial-recovery-application\nThe 3 to 50 million years to grow a 10 cm nodule is a rough calculation from the 1 to 15 mm per million years rate (it assumes the rate is radial). \"More cobalt than all known land reserves\" is one USGS estimate. Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nNodule fields, cross-section and collector tracks: Ifremer and Florian Besson (Ifremer), CC BY 4.0 | ROV photo: ROV KIEL 6000, GEOMAR, CC BY 4.0 | Manganese nodules: Hannes Grobe, CC BY-SA 4.0 | ISA headquarters: James A.R. McFarlane, CC BY-SA 3.0 | Map of claim areas (about 1991): Chas. E. Harrington, NOAA, public domain\n\nThe narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n#deepseamining #oceans #criticalminerals #geopolitics #science"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "211",
+   "likeCount": "1",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "1DIwT82t-_JbdFXyjm-UDYjTPyg",
+  "id": "F2fC5degIP4",
+  "snippet": {
+   "publishedAt": "2026-10-06T00:16:34Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "AI Data Centers Wait Years for a Machine With No Moving Parts",
+   "description": "AI data centers are waiting in line for a machine with no moving parts: the power transformer. A steel ring wrapped in copper, about two and a half years to get, and only one US company makes the steel.\n\nNew Shorts every day.\n\nSOURCES\n- POWER magazine, Transformers in 2026: shortage, scramble or self-inflicted crisis (average lead times of 128 weeks for power transformers and 144 weeks for generator step-up units, Q2 2025, citing Wood Mackenzie; $1.8 billion of announced plants through 2028; a contractor who disputes the shortage): https://powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/\n- Wood Mackenzie, Power transformers and distribution transformers will face supply deficits of 30% and 10% in 2025 (imports about 80% of US power transformer supply): https://www.woodmac.com/press-releases/power-transformers-and-distribution-transformers-will-face-supply-deficits-of-30-and-10-in-2025/\n- pv magazine USA, Grid transformers face significant supply deficits (power transformer demand up 119% since 2019): https://pv-magazine-usa.com/2025/08/14/grid-transformers-face-significant-supply-deficits-says-wood-mackenzie/\n- Allegheny Front, DOE transformer efficiency rule and Cleveland-Cliffs (the only US maker of grain-oriented electrical steel, in Butler, Pennsylvania and Zanesville, Ohio): https://www.alleghenyfront.org/doe-distribution-transformers-grid-energy-efficiency-rule-butler-cleveland-cliffs/\nLead times are national averages for large units; some suppliers report shorter waits for standard substation transformers. Figures are for 2025 and were checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nData center roof, 750 kV transformer, 230 kV busbars and switchgear: Rsparks3 and Novoklimov, CC0 | Winding coils: National Photo Company, public domain | Transformer core workshop: Engindenizoglu, CC BY-SA 4.0 | Grain-oriented electrical steel: Zureks, CC BY-SA 3.0 | Substation power transformer: Yoshieslunchbox, CC BY-SA 4.0 | Transformer on a rail car: Feddacheenee, CC BY-SA 4.0\n\nThe narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n#transformers #powergrid #datacenters #AI #infrastructure",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/F2fC5degIP4/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/F2fC5degIP4/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/F2fC5degIP4/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/F2fC5degIP4/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/F2fC5degIP4/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "AI Data Centers Wait Years for a Machine With No Moving Parts",
+    "description": "AI data centers are waiting in line for a machine with no moving parts: the power transformer. A steel ring wrapped in copper, about two and a half years to get, and only one US company makes the steel.\n\nNew Shorts every day.\n\nSOURCES\n- POWER magazine, Transformers in 2026: shortage, scramble or self-inflicted crisis (average lead times of 128 weeks for power transformers and 144 weeks for generator step-up units, Q2 2025, citing Wood Mackenzie; $1.8 billion of announced plants through 2028; a contractor who disputes the shortage): https://powermag.com/transformers-in-2026-shortage-scramble-or-self-inflicted-crisis/\n- Wood Mackenzie, Power transformers and distribution transformers will face supply deficits of 30% and 10% in 2025 (imports about 80% of US power transformer supply): https://www.woodmac.com/press-releases/power-transformers-and-distribution-transformers-will-face-supply-deficits-of-30-and-10-in-2025/\n- pv magazine USA, Grid transformers face significant supply deficits (power transformer demand up 119% since 2019): https://pv-magazine-usa.com/2025/08/14/grid-transformers-face-significant-supply-deficits-says-wood-mackenzie/\n- Allegheny Front, DOE transformer efficiency rule and Cleveland-Cliffs (the only US maker of grain-oriented electrical steel, in Butler, Pennsylvania and Zanesville, Ohio): https://www.alleghenyfront.org/doe-distribution-transformers-grid-energy-efficiency-rule-butler-cleveland-cliffs/\nLead times are national averages for large units; some suppliers report shorter waits for standard substation transformers. Figures are for 2025 and were checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nData center roof, 750 kV transformer, 230 kV busbars and switchgear: Rsparks3 and Novoklimov, CC0 | Winding coils: National Photo Company, public domain | Transformer core workshop: Engindenizoglu, CC BY-SA 4.0 | Grain-oriented electrical steel: Zureks, CC BY-SA 3.0 | Substation power transformer: Yoshieslunchbox, CC BY-SA 4.0 | Transformer on a rail car: Feddacheenee, CC BY-SA 4.0\n\nThe narration is AI-generated and the diagrams were drawn for this video; the photos are real.\n\n#transformers #powergrid #datacenters #AI #infrastructure"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "29",
+   "likeCount": "1",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "0"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "zTlnDtx37jZFjzXRqQdWCHatyPI",
+  "id": "lQRLoZYWFwU",
+  "snippet": {
+   "publishedAt": "2026-10-05T23:54:43Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Most Computer Chips Start in Rock From One Small Town",
+   "description": "Most computer chips start in a quartz crucible, and most of that quartz comes from one small town in North Carolina: Spruce Pine. Why a silicon crystal needs ultra-pure quartz, and what stopped after Hurricane Helene in 2024.\n\nNew Shorts every day.\n\nSOURCES\n- Wikipedia, Spruce Pine Mining District (about 70 to 90 % of the world's high-purity quartz; molten silicon reacts with almost all materials except quartz above 1,400 C; Helene 2024; stockpiled crucibles prevented immediate shortages): https://en.wikipedia.org/wiki/Spruce_Pine_Mining_District\n- The Quartz Corp, Silicon wafer production (one crucible pulls about 8 ingots in about 400 hours; a 300 mm ingot yields about 2 million chips): https://www.thequartzcorp.com/silicon-wafer-production\n- The Quartz Corp, Geology (pegmatites almost free from inclusions): https://www.thequartzcorp.com/geology\n- Sibelco, High-purity quartz (two uniquely pure ore bodies at Spruce Pine; crucibles for the Czochralski process): https://www.sibelco.com/materials/high-purity-quartz\nThe 16 million chips per crucible is a rough calculation from the Quartz Corp figures above (chip sizes vary). The share of supply differs by source (about 70 to 90 %). Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nDowntown Spruce Pine, used crucible photos, silicon boule and 1956 crystal puller: public domain | Silicon wafer: Peellden, CC BY-SA 3.0 | Silicon crystal: Massimiliano Lincetto, CC BY-SA 4.0 | Pegmatite rock (Ruggles mine, New Hampshire, shown as an example of the rock type): James St. John, CC BY 2.0 | Hurricane Helene damage (Buncombe County, North Carolina): NCDOT Communications, CC BY 2.0\n\nThe narration and the diagrams are AI-generated or drawn for this video; the photos are real.\n\n#semiconductors #quartz #chips #SprucePine #supplychain",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/lQRLoZYWFwU/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/lQRLoZYWFwU/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/lQRLoZYWFwU/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/lQRLoZYWFwU/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/lQRLoZYWFwU/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Most Computer Chips Start in Rock From One Small Town",
+    "description": "Most computer chips start in a quartz crucible, and most of that quartz comes from one small town in North Carolina: Spruce Pine. Why a silicon crystal needs ultra-pure quartz, and what stopped after Hurricane Helene in 2024.\n\nNew Shorts every day.\n\nSOURCES\n- Wikipedia, Spruce Pine Mining District (about 70 to 90 % of the world's high-purity quartz; molten silicon reacts with almost all materials except quartz above 1,400 C; Helene 2024; stockpiled crucibles prevented immediate shortages): https://en.wikipedia.org/wiki/Spruce_Pine_Mining_District\n- The Quartz Corp, Silicon wafer production (one crucible pulls about 8 ingots in about 400 hours; a 300 mm ingot yields about 2 million chips): https://www.thequartzcorp.com/silicon-wafer-production\n- The Quartz Corp, Geology (pegmatites almost free from inclusions): https://www.thequartzcorp.com/geology\n- Sibelco, High-purity quartz (two uniquely pure ore bodies at Spruce Pine; crucibles for the Czochralski process): https://www.sibelco.com/materials/high-purity-quartz\nThe 16 million chips per crucible is a rough calculation from the Quartz Corp figures above (chip sizes vary). The share of supply differs by source (about 70 to 90 %). Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nDowntown Spruce Pine, used crucible photos, silicon boule and 1956 crystal puller: public domain | Silicon wafer: Peellden, CC BY-SA 3.0 | Silicon crystal: Massimiliano Lincetto, CC BY-SA 4.0 | Pegmatite rock (Ruggles mine, New Hampshire, shown as an example of the rock type): James St. John, CC BY 2.0 | Hurricane Helene damage (Buncombe County, North Carolina): NCDOT Communications, CC BY 2.0\n\nThe narration and the diagrams are AI-generated or drawn for this video; the photos are real.\n\n#semiconductors #quartz #chips #SprucePine #supplychain"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "13",
+   "likeCount": "0",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "Lw6yCAgIUkqUpZdPqEK7hmHOYdY",
+  "id": "a3faPJ87qsk",
+  "snippet": {
+   "publishedAt": "2026-10-05T22:51:24Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "The First Metal-Type Book Is Not the Gutenberg Bible",
+   "description": "The first book printed with metal type is not the Gutenberg Bible. It is the Jikji, a Korean book from 1377, and its printer's mistakes are the proof.\n\nNew Shorts every day.\n\nSOURCES\n- BnF (Bibliotheque nationale de France), Jikji, treasure of the world of printing (printed 1377 at Heungdeok Temple, Cheongju; provenance; free on Gallica): https://bnf.fr/en/jikji-treasure-world-printing\n- Global Jikji, Movable Metal Type of Goryeo Korea (the postscript: \"printed with cast metal type at Heungdeoksa Temple outside Cheongju Magistracy\"): https://www.globaljikji.org/en/sub.do?menukey=4103\n- Open Culture, The oldest book printed with movable type is not the Gutenberg Bible (September 2026): https://www.openculture.com/2026/09/the-oldest-book-printed-with-movable-type-is-not-the-gutenberg-bible-jikji.html\n- Wikipedia, Jikji (the upside-down, omitted and tilted characters scholars cite as evidence of loose metal type): https://en.wikipedia.org/wiki/Jikji\n- From Jikji to Gutenberg, University of Utah: https://jikji.utah.edu/\nThe Gutenberg Bible is dated 1450 to 1455 depending on the source, so the gap is 73 to 78 years. Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nJikji pages and Jikji cover: public domain | Jikji open book: Zytheme, CC0 | Gutenberg Bible: Joshua Keller, CC BY 2.0 | Early metal type pieces: Ken Eckert, CC BY-SA 4.0 | Tripitaka Koreana woodblock: Steve46814, CC BY-SA 3.0 | Heungdeoksa: Lawinc82, CC BY-SA 3.0 | Cheongju Early Printing Museum: hyolee2, CC BY-SA 3.0\n\nThe narration and the diagrams are AI-generated or drawn for this video; the photos are real.\n\n#Jikji #Gutenberg #printing #history #Korea",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/a3faPJ87qsk/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/a3faPJ87qsk/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/a3faPJ87qsk/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/a3faPJ87qsk/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/a3faPJ87qsk/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "The First Metal-Type Book Is Not the Gutenberg Bible",
+    "description": "The first book printed with metal type is not the Gutenberg Bible. It is the Jikji, a Korean book from 1377, and its printer's mistakes are the proof.\n\nNew Shorts every day.\n\nSOURCES\n- BnF (Bibliotheque nationale de France), Jikji, treasure of the world of printing (printed 1377 at Heungdeok Temple, Cheongju; provenance; free on Gallica): https://bnf.fr/en/jikji-treasure-world-printing\n- Global Jikji, Movable Metal Type of Goryeo Korea (the postscript: \"printed with cast metal type at Heungdeoksa Temple outside Cheongju Magistracy\"): https://www.globaljikji.org/en/sub.do?menukey=4103\n- Open Culture, The oldest book printed with movable type is not the Gutenberg Bible (September 2026): https://www.openculture.com/2026/09/the-oldest-book-printed-with-movable-type-is-not-the-gutenberg-bible-jikji.html\n- Wikipedia, Jikji (the upside-down, omitted and tilted characters scholars cite as evidence of loose metal type): https://en.wikipedia.org/wiki/Jikji\n- From Jikji to Gutenberg, University of Utah: https://jikji.utah.edu/\nThe Gutenberg Bible is dated 1450 to 1455 depending on the source, so the gap is 73 to 78 years. Figures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nJikji pages and Jikji cover: public domain | Jikji open book: Zytheme, CC0 | Gutenberg Bible: Joshua Keller, CC BY 2.0 | Early metal type pieces: Ken Eckert, CC BY-SA 4.0 | Tripitaka Koreana woodblock: Steve46814, CC BY-SA 3.0 | Heungdeoksa: Lawinc82, CC BY-SA 3.0 | Cheongju Early Printing Museum: hyolee2, CC BY-SA 3.0\n\nThe narration and the diagrams are AI-generated or drawn for this video; the photos are real.\n\n#Jikji #Gutenberg #printing #history #Korea"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "32",
+   "likeCount": "1",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "1"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "DH6sLdRJv8nwkYw7_n_3Z-Z6hhk",
+  "id": "WhNq3ry6sBw",
+  "snippet": {
+   "publishedAt": "2026-10-05T20:19:59Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "EV Battery Life: Only 2% a Year, and Charging Matters Most",
+   "description": "Electric car batteries lose about 2% of their capacity a year. What wears them faster (fast charging, heat), what cold really costs (range, mostly the heater), and why packs got cheaper (iron phosphate chemistry).\n\nNew Shorts every day.\n\nSOURCES\n- Geotab, EV Battery Health Study, 13 January 2026 (2.3% a year across 22,700+ vehicles; fast charging above 100 kW up to 3.0% a year against about 1.5%; hot regions about 0.4% a year more): https://www.geotab.com/press-release/ev-battery-health-degradation-fast-charging-study/\n- BloombergNEF, Battery Price Survey, December 2025 ($108 per kWh average pack, down 8%; LFP $81 against NMC $128): https://about.bnef.com/insights/clean-transport/lithium-ion-battery-pack-prices-fall-to-108-per-kilowatt-hour-despite-rising-metal-prices-bloombergnef/\n- AAA cold-weather range tests, May 2026 (39% less range at 20 F with climate control; as reported by Autoblog): https://www.autoblog.com/news/aaa-finds-ev-range-drops-39-in-cold-weather-and-costs-jump\n- Wang et al., Fast charging of lithium-ion batteries at all temperatures, PNAS 2018 (lithium plating in the cold, SEI growth in the heat): https://ecec.me.psu.edu/Pubs/2018_June_PNAS.pdf\nFigures checked on 5 October 2026. The 2.3% is an average, not a guarantee; the claim that most of the cold-weather loss is the cabin heater is the reading of AAA's tests in press summaries.\n\nPHOTO CREDITS (Wikimedia Commons, Flickr)\nBattery pack: Gereon Meyer, CC BY-SA 4.0 | Nissan Leaf cutaway: Norsk Elbilforening, CC BY 2.0 | Pack cabling: Norio Nakayama, CC BY-SA 2.0 | Charging site: Daniel Lu, CC BY-SA 4.0 | Desert road: Brocken Inaglory, CC BY-SA 3.0 | Charging posts in snow: Guttorm Flatabo, CC BY 2.0 | Winter road: Bert Kaufmann, CC BY 2.0 | Heat pump: Votpuske, CC BY 4.0 | Pack production: Vigor0503, CC BY-SA 4.0 | LFP cells: Yo-Co-Man, CC BY-SA 4.0\n\nThe narration and the electrode schematic are AI-generated (the schematic is simplified); the photos are real.\n\n#EV #batteries #electriccars #science #lithium",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/WhNq3ry6sBw/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/WhNq3ry6sBw/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/WhNq3ry6sBw/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/WhNq3ry6sBw/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/WhNq3ry6sBw/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "EV Battery Life: Only 2% a Year, and Charging Matters Most",
+    "description": "Electric car batteries lose about 2% of their capacity a year. What wears them faster (fast charging, heat), what cold really costs (range, mostly the heater), and why packs got cheaper (iron phosphate chemistry).\n\nNew Shorts every day.\n\nSOURCES\n- Geotab, EV Battery Health Study, 13 January 2026 (2.3% a year across 22,700+ vehicles; fast charging above 100 kW up to 3.0% a year against about 1.5%; hot regions about 0.4% a year more): https://www.geotab.com/press-release/ev-battery-health-degradation-fast-charging-study/\n- BloombergNEF, Battery Price Survey, December 2025 ($108 per kWh average pack, down 8%; LFP $81 against NMC $128): https://about.bnef.com/insights/clean-transport/lithium-ion-battery-pack-prices-fall-to-108-per-kilowatt-hour-despite-rising-metal-prices-bloombergnef/\n- AAA cold-weather range tests, May 2026 (39% less range at 20 F with climate control; as reported by Autoblog): https://www.autoblog.com/news/aaa-finds-ev-range-drops-39-in-cold-weather-and-costs-jump\n- Wang et al., Fast charging of lithium-ion batteries at all temperatures, PNAS 2018 (lithium plating in the cold, SEI growth in the heat): https://ecec.me.psu.edu/Pubs/2018_June_PNAS.pdf\nFigures checked on 5 October 2026. The 2.3% is an average, not a guarantee; the claim that most of the cold-weather loss is the cabin heater is the reading of AAA's tests in press summaries.\n\nPHOTO CREDITS (Wikimedia Commons, Flickr)\nBattery pack: Gereon Meyer, CC BY-SA 4.0 | Nissan Leaf cutaway: Norsk Elbilforening, CC BY 2.0 | Pack cabling: Norio Nakayama, CC BY-SA 2.0 | Charging site: Daniel Lu, CC BY-SA 4.0 | Desert road: Brocken Inaglory, CC BY-SA 3.0 | Charging posts in snow: Guttorm Flatabo, CC BY 2.0 | Winter road: Bert Kaufmann, CC BY 2.0 | Heat pump: Votpuske, CC BY 4.0 | Pack production: Vigor0503, CC BY-SA 4.0 | LFP cells: Yo-Co-Man, CC BY-SA 4.0\n\nThe narration and the electrode schematic are AI-generated (the schematic is simplified); the photos are real.\n\n#EV #batteries #electriccars #science #lithium"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "289",
+   "likeCount": "3",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "0"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "tvKttufV4SVqRjYrzMq1jWcLvlM",
+  "id": "YRX0VfpPMtU",
+  "snippet": {
+   "publishedAt": "2026-10-05T18:29:37Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Why Copper Could Limit the AI Race",
+   "description": "One AI server rack can hold over two miles of copper cable, yet AI is only a small slice of the world's copper. Why a new mine takes about 17 years, and why that could limit the AI race.\n\nNew Shorts every week.\n\nSOURCES\n\u2022 S&P Global, copper supply gap study, 8 January 2026 (17 years from discovery to production; a 25% shortfall by 2040 is a forecast): https://press.spglobal.com/2026-01-08-Substantial-Shortfall-in-Copper-Supply-Widens-as-the-Race-for-AI-and-Growing-Defense-Spending-Add-to-Accelerating-Demand,-New-S-P-Global-Study-Finds\n\u2022 USGS, Mineral Commodity Summaries 2026, Copper: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-copper.pdf\n\u2022 IEA, Global Critical Minerals Outlook 2025: https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals\n\u2022 Nvidia GB200 NVL72, about 5,000 copper cables and over 2 miles per rack (Nvidia's figures, as reported by LightCounting): https://www.lightcounting.com/research-note/april-2024-all-eyes-on-nvidia-352\n\u2022 Copper in electric cars, 83 kg against 23 kg (ICSG 2018, cited in this study): https://www.sciencedirect.com/science/article/abs/pii/S0921344920305152\n\u2022 How porphyry copper deposits form (Nature Reviews Earth & Environment, 2021): https://www.nature.com/articles/s43017-021-00182-8\nFigures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nServer rack cables: Derrick Coetzee from Berkeley, CA, USA, CC0 \u00b7 Native copper: Flipin,OG, CC0 \u00b7 Transformer busbars: Wtshymanski, CC BY-SA 3.0 \u00b7 Transmission line: Eduardo Sanchez, CC0 \u00b7 Electric car charging: Julian Herzog (Website), CC BY 4.0 \u00b7 Copper pipes: Achim Hering, CC BY 3.0 \u00b7 Chalcopyrite: Didier Descouens, CC BY-SA 3.0 \u00b7 Chuquicamata mine: Diego Delso, CC BY-SA 4.0 \u00b7 Bingham Canyon Mine: David Ratledge, CC BY 4.0, and Farragutful, CC BY-SA 4.0\n\nThe narration and the schematic are AI-generated; the photos are real.\n\n#copper #AI #datacenters #mining #science",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/YRX0VfpPMtU/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/YRX0VfpPMtU/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/YRX0VfpPMtU/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/YRX0VfpPMtU/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/YRX0VfpPMtU/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "28",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Why Copper Could Limit the AI Race",
+    "description": "One AI server rack can hold over two miles of copper cable, yet AI is only a small slice of the world's copper. Why a new mine takes about 17 years, and why that could limit the AI race.\n\nNew Shorts every week.\n\nSOURCES\n\u2022 S&P Global, copper supply gap study, 8 January 2026 (17 years from discovery to production; a 25% shortfall by 2040 is a forecast): https://press.spglobal.com/2026-01-08-Substantial-Shortfall-in-Copper-Supply-Widens-as-the-Race-for-AI-and-Growing-Defense-Spending-Add-to-Accelerating-Demand,-New-S-P-Global-Study-Finds\n\u2022 USGS, Mineral Commodity Summaries 2026, Copper: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-copper.pdf\n\u2022 IEA, Global Critical Minerals Outlook 2025: https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals\n\u2022 Nvidia GB200 NVL72, about 5,000 copper cables and over 2 miles per rack (Nvidia's figures, as reported by LightCounting): https://www.lightcounting.com/research-note/april-2024-all-eyes-on-nvidia-352\n\u2022 Copper in electric cars, 83 kg against 23 kg (ICSG 2018, cited in this study): https://www.sciencedirect.com/science/article/abs/pii/S0921344920305152\n\u2022 How porphyry copper deposits form (Nature Reviews Earth & Environment, 2021): https://www.nature.com/articles/s43017-021-00182-8\nFigures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nServer rack cables: Derrick Coetzee from Berkeley, CA, USA, CC0 \u00b7 Native copper: Flipin,OG, CC0 \u00b7 Transformer busbars: Wtshymanski, CC BY-SA 3.0 \u00b7 Transmission line: Eduardo Sanchez, CC0 \u00b7 Electric car charging: Julian Herzog (Website), CC BY 4.0 \u00b7 Copper pipes: Achim Hering, CC BY 3.0 \u00b7 Chalcopyrite: Didier Descouens, CC BY-SA 3.0 \u00b7 Chuquicamata mine: Diego Delso, CC BY-SA 4.0 \u00b7 Bingham Canyon Mine: David Ratledge, CC BY 4.0, and Farragutful, CC BY-SA 4.0\n\nThe narration and the schematic are AI-generated; the photos are real.\n\n#copper #AI #datacenters #mining #science"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "241",
+   "likeCount": "2",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "0"
+  }
+ },
+ {
+  "kind": "youtube#video",
+  "etag": "Gm0iZwl8p-n99Fg6KKV5YPm-nQU",
+  "id": "zwNmTGoXPu0",
+  "snippet": {
+   "publishedAt": "2026-10-05T17:31:47Z",
+   "channelId": "UCCZX7-YPNPntwPKI1hdv2hQ",
+   "title": "Lithium Isn't Rare, So Why Do Countries Fight Over It?",
+   "description": "Lithium isn't rare, but about 60% of it is refined in one country. How the lightest metal became a pressure point, and the battery that could walk away from it.\n\nNew Shorts every week.\n\nSOURCES\n\u2022 USGS, Mineral Commodity Summaries 2026, Lithium: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf\n\u2022 IEA, Global Critical Minerals Outlook 2025 (China's share of lithium refining): https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals\n\u2022 China's export licenses for high-end batteries, cathodes and graphite anodes (MOFCOM Decision 58, 9 Oct 2025) and their one-year suspension (Decision 70, 7 Nov 2025): https://www.ess-news.com/2025/10/13/china-imposes-new-export-controls-on-lithium-ion-battery-technology/ and https://www.cirs-group.com/en/chemicals/china-temporarily-suspends-export-controls-on-key-raw-materials-including-rare-earths-lithium-batteries-and-diamond\n\u2022 CATL's sodium-ion batteries (company claims): https://carnewschina.com/2025/12/28/catl-confirms-2026-large-scale-sodium-ion-battery-deployment-in-multiple-sectors/\n\u2022 Atacama evaporation ponds: sources give about 12 to 24 months; the video uses about 18, from Albemarle's description.\nFigures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nLithium in mineral oil: Sea Moon, CC BY 2.0 \u00b7 Lithium: W. Oelen, CC BY-SA 3.0 \u00b7 Lithium-ion cells: Sevenethics, CC0 \u00b7 Salar de Atacama: NASA Earth Observatory and NASA SVS (public domain), ESA (CC BY-SA 3.0 IGO) \u00b7 Greenbushes mine: Calistemon, CC BY-SA 4.0 \u00b7 CATL, Arnstadt: Giorno2, CC BY-SA 4.0 \u00b7 CATL, IAA 2024: Matti Blume, CC BY-SA 4.0 \u00b7 NYK Themis at the Port of Los Angeles: Downtowngal, CC BY-SA 4.0 \u00b7 Container cranes: George Robinson, CC BY-SA 2.0 \u00b7 Sodium-ion cell: Vladimir022009, CC BY-SA 4.0 \u00b7 Faradion sodium-ion cell, Science Museum: The wub, CC BY-SA 4.0\n\nThe narration and the schematics are AI-generated; the photos are real.\n\n#lithium #batteries #science #geopolitics #sodiumion",
+   "thumbnails": {
+    "default": {
+     "url": "https://i.ytimg.com/vi/zwNmTGoXPu0/default.jpg",
+     "width": 120,
+     "height": 90
+    },
+    "medium": {
+     "url": "https://i.ytimg.com/vi/zwNmTGoXPu0/mqdefault.jpg",
+     "width": 320,
+     "height": 180
+    },
+    "high": {
+     "url": "https://i.ytimg.com/vi/zwNmTGoXPu0/hqdefault.jpg",
+     "width": 480,
+     "height": 360
+    },
+    "standard": {
+     "url": "https://i.ytimg.com/vi/zwNmTGoXPu0/sddefault.jpg",
+     "width": 640,
+     "height": 480
+    },
+    "maxres": {
+     "url": "https://i.ytimg.com/vi/zwNmTGoXPu0/maxresdefault.jpg",
+     "width": 1280,
+     "height": 720
+    }
+   },
+   "channelTitle": "NextToken",
+   "categoryId": "22",
+   "liveBroadcastContent": "none",
+   "defaultLanguage": "en",
+   "localized": {
+    "title": "Lithium Isn't Rare, So Why Do Countries Fight Over It?",
+    "description": "Lithium isn't rare, but about 60% of it is refined in one country. How the lightest metal became a pressure point, and the battery that could walk away from it.\n\nNew Shorts every week.\n\nSOURCES\n\u2022 USGS, Mineral Commodity Summaries 2026, Lithium: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf\n\u2022 IEA, Global Critical Minerals Outlook 2025 (China's share of lithium refining): https://www.iea.org/reports/global-critical-minerals-outlook-2025/overview-of-outlook-for-key-minerals\n\u2022 China's export licenses for high-end batteries, cathodes and graphite anodes (MOFCOM Decision 58, 9 Oct 2025) and their one-year suspension (Decision 70, 7 Nov 2025): https://www.ess-news.com/2025/10/13/china-imposes-new-export-controls-on-lithium-ion-battery-technology/ and https://www.cirs-group.com/en/chemicals/china-temporarily-suspends-export-controls-on-key-raw-materials-including-rare-earths-lithium-batteries-and-diamond\n\u2022 CATL's sodium-ion batteries (company claims): https://carnewschina.com/2025/12/28/catl-confirms-2026-large-scale-sodium-ion-battery-deployment-in-multiple-sectors/\n\u2022 Atacama evaporation ponds: sources give about 12 to 24 months; the video uses about 18, from Albemarle's description.\nFigures checked on 5 October 2026.\n\nPHOTO CREDITS (Wikimedia Commons)\nLithium in mineral oil: Sea Moon, CC BY 2.0 \u00b7 Lithium: W. Oelen, CC BY-SA 3.0 \u00b7 Lithium-ion cells: Sevenethics, CC0 \u00b7 Salar de Atacama: NASA Earth Observatory and NASA SVS (public domain), ESA (CC BY-SA 3.0 IGO) \u00b7 Greenbushes mine: Calistemon, CC BY-SA 4.0 \u00b7 CATL, Arnstadt: Giorno2, CC BY-SA 4.0 \u00b7 CATL, IAA 2024: Matti Blume, CC BY-SA 4.0 \u00b7 NYK Themis at the Port of Los Angeles: Downtowngal, CC BY-SA 4.0 \u00b7 Container cranes: George Robinson, CC BY-SA 2.0 \u00b7 Sodium-ion cell: Vladimir022009, CC BY-SA 4.0 \u00b7 Faradion sodium-ion cell, Science Museum: The wub, CC BY-SA 4.0\n\nThe narration and the schematics are AI-generated; the photos are real.\n\n#lithium #batteries #science #geopolitics #sodiumion"
+   }
+  },
+  "status": {
+   "uploadStatus": "processed",
+   "privacyStatus": "public",
+   "license": "youtube",
+   "embeddable": true,
+   "publicStatsViewable": true,
+   "madeForKids": false,
+   "selfDeclaredMadeForKids": false
+  },
+  "statistics": {
+   "viewCount": "238",
+   "likeCount": "1",
+   "dislikeCount": "0",
+   "favoriteCount": "0",
+   "commentCount": "2"
+  }
+ }
+]

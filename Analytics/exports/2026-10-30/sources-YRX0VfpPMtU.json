@@ -1,0 +1,1 @@
+{"kind": "youtubeAnalytics#resultTable", "columnHeaders": [{"name": "insightTrafficSourceType", "columnType": "DIMENSION", "dataType": "STRING"}, {"name": "views", "columnType": "METRIC", "dataType": "INTEGER"}], "rows": [["NO_LINK_OTHER", 0], ["SUBSCRIBER", 1], ["YT_CHANNEL", 8], ["YT_SEARCH", 38], ["YT_OTHER_PAGE", 5], ["EXT_URL", 1], ["SHORTS", 186]]}
