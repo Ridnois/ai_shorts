@@ -1,10 +1,12 @@
 ---
 type: video-idea
-status: next
+status: review
 series: What's coming
 score: 18
 publish: 
-video: 
+video: "[[Why AI drinks water - Status]]"
+hook_type: number
+case: "Google, Measuring the environmental impact of AI inference (21 Aug 2025); Google 2025 Environmental Report (2024 data)"
 created: 2026-10-31
 updated: 2026-10-31
 tags: [youtube, pipeline]
