@@ -21,6 +21,7 @@ Agent entry: `CLAUDE.md`. What a Short is: [[Format]] · brand and design system
 | Effort level explained | Agent at work · 167 · Dennis (rate 1.1) | r1 (54.3 s), 21 recorded `claude -p --effort` runs (Claude Opus 5.5) + Anatomy `effort-meter` + Anthropic effort docs captures; masters and pack built; shipped (user), public 30 Oct 2026 ([`vGdsJNr0DnE`](https://youtu.be/vGdsJNr0DnE)) | [[Effort level explained - Status]] · [[Script - Effort level explained]] |
 | ETH is false | What's coming · 170 · Dennis (rate 1.1) | r1 (58.1 s), Anatomy `switchboard` + Hairline `doubling` + phrase crops of OpenAI's preprint, README and Lean; masters and pack built; shipped (user), public 30 Oct 2026 ([`aDKXpUWlp5w`](https://youtu.be/aDKXpUWlp5w)) | [[ETH is false - Status]] · [[Script - ETH is false]] |
 | AI context explained | How AI works · 165 · Dennis (rate 1.1) | r1 (51.5 s), 6 recorded `claude -p` runs (Claude Opus 5.5) + Anatomy `context-reader` + Hairline `window` + Anthropic, OpenAI docs and Liu et al. captures; masters and pack built; shipped (user, uploaded by hand) | [[AI context explained - Status]] · [[Script - AI context explained]] |
+| Rust checks AI code | Agent at work · 167 · Dennis (rate 1.1) | r1 (54.3 s), 24 recorded Claude Code runs (Claude Haiku 5.5, Rust and Python) + Anatomy `compile-gate` + Generative Compilation paper and Octoverse captures; masters and pack built; review | [[Rust checks AI code - Status]] · [[Script - Rust checks AI code]] |
 
 ## Earlier renders (retired dark look)
 
