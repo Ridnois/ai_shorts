@@ -22,7 +22,7 @@ Agent entry: `CLAUDE.md`. What a Short is: [[Format]] · brand and design system
 | ETH is false | What's coming · 170 · Dennis (rate 1.1) | r1 (58.1 s), Anatomy `switchboard` + Hairline `doubling` + phrase crops of OpenAI's preprint, README and Lean; masters and pack built; shipped (user), public 30 Oct 2026 ([`aDKXpUWlp5w`](https://youtu.be/aDKXpUWlp5w)) | [[ETH is false - Status]] · [[Script - ETH is false]] |
 | AI context explained | How AI works · 165 · Dennis (rate 1.1) | r1 (51.5 s), 6 recorded `claude -p` runs (Claude Opus 5.5) + Anatomy `context-reader` + Hairline `window` + Anthropic, OpenAI docs and Liu et al. captures; masters and pack built; shipped (user, uploaded by hand) | [[AI context explained - Status]] · [[Script - AI context explained]] |
 | Rust checks AI code | Agent at work · 163 · Dennis (rate 1.1) | r2 (56 s) uploaded private (-bgCxf5UHV0) with thumbnail | [[Rust checks AI code - Status]] · [[Script - Rust checks AI code]] · [[Upload - Rust checks AI code]] |
-| Why AI drinks water | What's coming · 149 · Dennis (rate 1.1) | r1 (49.8 s), new Anatomy `cooling-tower` + Google blog, environmental report and data-centers page captures + 54 golf tiles; masters and pack built; waiting for the verdict | [[Why AI drinks water - Status]] · [[Script - Why AI drinks water]] |
+| Why AI drinks water | What's coming · 149 · Dennis (rate 1.1) | r1 (49.8 s), new Anatomy `cooling-tower` + Google blog, environmental report and data-centers page captures + 54 golf tiles; masters and pack built; shipped (user), uploaded by hand | [[Why AI drinks water - Status]] · [[Script - Why AI drinks water]] |
 
 ## Earlier renders (retired dark look)
 

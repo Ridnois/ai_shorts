@@ -1,6 +1,6 @@
 ---
 type: video-idea
-status: review
+status: published
 series: What's coming
 score: 18
 publish: 
