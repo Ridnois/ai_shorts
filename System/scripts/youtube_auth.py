@@ -40,7 +40,7 @@ def require_channel(tok):
         sys.exit(f"Cannot check the token's channel (HTTP {e.code}): run python3 System/scripts/youtube_auth.py")
     if cid != CHANNEL_ID:
         sys.exit(f"Wrong YouTube channel: the token reaches '{title}' ({cid}), not Next Token ({CHANNEL_ID}). "
-                 "Run python3 System/scripts/youtube_auth.py and pick the NextToken brand channel at the account step.")
+                 "Run python3 System/scripts/youtube_auth.py and pick REDTAIL (NextToken) at the account step.")
 
 
 def set_env(key, value):
@@ -78,7 +78,7 @@ def auth():
 
     url = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode(dict(
         client_id=CID, redirect_uri=redirect, response_type="code", scope=SCOPE, access_type="offline", prompt="consent"))
-    print("Open, and at 'Choose an account or brand account' pick NextToken (not the personal channel):\n" + url, flush=True)
+    print("Open, and at 'Choose an account or brand account' pick REDTAIL (Google's old name for NextToken; not the personal account):\n" + url, flush=True)
     webbrowser.open(url)
     http.server.HTTPServer(("127.0.0.1", PORT), H).handle_request()
     if "code" not in got: sys.exit(f"Consent not given: {got.get('error', ['no code'])[0]}")

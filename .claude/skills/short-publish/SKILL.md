@@ -16,7 +16,7 @@ Rules: `System/Growth.md` (§Package, §Publish, §Policy, §Analytics). Run fro
 ## 2. Upload (after the yes)
 
 - Run `publish.py "<publish.json>"` from the vault root (its `.env` must hold the `YT_*` keys; if they are missing, stop and ask the user to add them, see [[Growth]] §Publish), in the background: processing can take over 10 minutes.
-- On HTTP 400 or `invalid_grant`: the refresh token expired (weekly); ask the user to run `python3 System/scripts/youtube_auth.py` and pick the NextToken brand channel, then `--resume <id>` if the video was already uploaded. "Wrong YouTube channel" means the wrong pick at consent: same fix, nothing was uploaded.
+- On HTTP 400 or `invalid_grant`: the refresh token expired (weekly); ask the user to run `python3 System/scripts/youtube_auth.py` and pick the brand account REDTAIL (NextToken's old name in Google's picker), then `--resume <id>` if the video was already uploaded. "Wrong YouTube channel" means the wrong pick at consent: same fix, nothing was uploaded.
 - Report its lines: the id, the master's probe line, the thumbnail result, `check_vault`.
 - TikTok: hand the user `upload/*-tt.mp4` and the pack's caption (posted by hand from TikTok Studio on the web, no library sound).
 - First 4K upload only: ask the user to open "Stats for nerds" on the private video and read the codec (`vp09`/`av01` good, `avc1` not); write it in `System/Growth.md` §Publish.
