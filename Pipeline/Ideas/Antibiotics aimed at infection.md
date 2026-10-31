@@ -2,12 +2,12 @@
 type: video-idea
 status: published
 series: What's coming
-publish:
+publish: 2026-10-29
 video: "[[Antibiotics aimed at infection - Status]]"
 hook_type: surprising fact
 case: "Purdue and Universidad Andrés Bello (Chile) selected for Wellcome Leap's Focused Antibiotics program, Aug 2026"
 created: 2026-10-29
-updated: 2026-10-29
+updated: 2026-10-30
 tags: [youtube, pipeline]
 ---
 

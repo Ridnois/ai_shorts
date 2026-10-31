@@ -5,7 +5,7 @@ updated: 2026-10-30
 
 # Quantization explained: Status
 
-**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**; public 29 Oct 2026 ([`JIm2qj_-0bM`](https://youtu.be/JIm2qj_-0bM)).
 
 **Ask once (user, 29 Oct 2026, verbatim):** angle "Agent at work: 8B on a laptop (Recommended)" · medium "Run + hairline + anatomy + captures". Request: *"New short: Quantization explained"*.
 
@@ -16,7 +16,7 @@ updated: 2026-10-30
 | **Spend** | take `5cawz1esa9rmr0d1h4e9d8k9t0` (1,005 chars, about $0.025); WhisperX `azwgemj3m1rnc0d1h4es51r1v4` (about $0.005). Total about $0.03, cap $0.50. The local run costs nothing. |
 | **Build** | Recorded run (real terminal lines, trimmed) in w1, w4, w5, w7; Anatomy `ram-stick` (new: `load`, `bits`, `bad`, `ok`) in w2, w5; Hairline `quantize` (new custom: pointer height = bits; 16, 4, 2-bit) in w3, w4, w6; captures Ollama sizes (w5), llama.cpp PR #1684 table (w6). Transitions push, whip, cut, blur, dip (2 cuts of 6); shot sizes wide, medium, close (the scale block). `check3d`: left are TEXT OVER PICTURE against the Hairline host box (frames read clear). Frame audit: 3 rounds plus the render sheet. Render `qnt-53s-9x16-r1.mp4` 52.7 s; `MIX` −14.0 LUFS, −1.5 dBTP; `LISTEN` PASS; masters `-yt` 2160x3840, `-tt` 1080x1920; thumbnail; pack `upload/qnt-publish-pack.md`. |
 | **Review** | ship (user, 29 Oct 2026, asked-once round of the AI-therapist Short: "Ship") |
-| **Publish** | not uploaded |
+| **Publish** | public 29 Oct 2026 ([`JIm2qj_-0bM`](https://youtu.be/JIm2qj_-0bM)); row in `Analytics/videos.csv` |
 | **Numbers** | |
 
 ## Not verified

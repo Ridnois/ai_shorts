@@ -2,13 +2,13 @@
 type: process
 created: 2026-10-27
 updated: 2026-10-30
-status: v3 · shipped (user, 30 Oct 2026), not uploaded
+status: v3 · shipped (user, 30 Oct 2026), public 27 Oct 2026
 tags: [status, week-04]
 ---
 
 # MCP vs skills · Status
 
-**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**; public 27 Oct 2026 ([`OiLPkE7rV6A`](https://youtu.be/OiLPkE7rV6A)).
 
 ← [[Script - MCP vs skills]] · [[YouTube Channel]] · [[Production]]
 
@@ -24,7 +24,7 @@ tags: [status, week-04]
 | 7b Edit r3 (story) | done, **shipped (user, 30 Oct 2026)** | | `render/ms-41s-9x16-r3.mp4` (40.6 s). Five worlds: the stuck agent; the task (Claude, cake, GIF, Slack, message, stop); reach (wall to plug, real `claude mcp list`, check on post); know-how (GIF, ruler, Slack's real rule; folder, scroll; real header with the description lit and 36 to 1,103 words); the question (plug and scroll, comment prompt). `check3d.mjs`: OVERLAPS only `z-ask` at one sample (38.0 s, during its rise; kept), no WARN (fixed: sparse W2 start and W3, panel in the band). Mix −14.0 LUFS, true peak −1.9 dBTP; contact sheet and frames looked at. **Slideshow-risk score 1:** weak motion 1 (the close holds about 3 s), all else 0. Pack rebuilt (`upload/ms-publish-pack.md`, dry run) |
 | 6c Generation v3 | done | over the cap, see note | Take v3 `9mbs8h2nr9rmw0d1ft4r9yphcr` (about 630 characters): 34.5 s, whisper heard all 117 words; silences up to 0.58 s. **Spend about $0.08 in all against the $0.06 cap**: the two redos the user asked for (v2, v3) each took a take and a timing call; no further spend without approval. A real run of the skill's code (to show a GIF it made) was blocked by the auto-mode classifier (downloaded code); the video makes no run claim |
 | 7c Edit r4 (skills only, dynamic) | done, **shipped (user, 30 Oct 2026)** | | `render/ms-36s-9x16-r4.mp4` (36.2 s). Six worlds, each with a scale change: a text file flies into Claude (+1 job); zoom into the folder, real tree; real header, description lit, counter to 36, rest dim; 100 scrolls collapse beside 3 full files (card 100 x 36 = 3,600); ask, match, the rules panel springs open, each rule on its number; agent and manual, comment prompt. `check3d.mjs`: OVERLAPS only `z-ask` at one sample (33.5 s, during its rise), no WARN. Mix −14.0 LUFS, true peak −2.7 dBTP; sheets and frames looked at. **Slideshow-risk score 1:** text doing the picture's job 1 (the rules panel), all else 0. Pack rebuilt (title *AI Agent Skills Explained: How Claude Learns a New Job*, thumbnail +1 JOB) |
-| 8 Publish · 9 Measure | | | |
+| 8 Publish · 9 Measure | public 27 Oct 2026 ([`OiLPkE7rV6A`](https://youtu.be/OiLPkE7rV6A)); row in `Analytics/videos.csv` | | |
 
 *Not verified:* how the voice says "MCP"; caption timing in motion; outlier demand. Seen risks: frame 1 near empty for about 0.25 s; the lower stage is often empty in worlds 3 to 5.
 

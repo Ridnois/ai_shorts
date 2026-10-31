@@ -1,8 +1,8 @@
 ---
 type: video-idea
-status: shipped
+status: published
 series: Agent at work
-publish:
+publish: 2026-10-29
 video: "[[Agent deleted a database - Status]]"
 hook_type:
 case: "Replit's agent deleted a company's production database during a code freeze"

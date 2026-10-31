@@ -48,9 +48,11 @@ def pull(a):
                 json.dump(report(tok, startDate="2020-01-01", endDate=today, metrics="audienceWatchRatio", dimensions="elapsedVideoTimeRatio",
                                  filters=f"video=={vid}"), open(f"{out}/retention-{vid}.json", "w"))
             except urllib.error.HTTPError as e: print("retention not available:", vid, e.code)
-            analytics.add([name, "youtube", age, f"views={d['views']}", f"engaged_views={d['engagedViews']}", f"avg_view_s={d['averageViewDuration']}",
-                           f"avg_pct_viewed={d['averageViewPercentage']:.1f}", f"likes={d['likes']}", f"comments={d['comments']}", f"shares={d['shares']}",
-                           f"subs_gained={d['subscribersGained']}", f"feed_pct={feed:.0f}", f"notes=analytics api {today}; {note}; subs lost={d['subscribersLost']}"])
+            st = m["statistics"]  # counts are live from the Data API; Analytics rows lag a day or two (3 views where the video had 1,198)
+            analytics.add([name, "youtube", age, f"views={st.get('viewCount', 0)}", f"engaged_views={d['engagedViews']}", f"avg_view_s={d['averageViewDuration']}",
+                           f"avg_pct_viewed={d['averageViewPercentage']:.1f}", f"likes={st.get('likeCount', 0)}", f"comments={st.get('commentCount', 0)}", f"shares={d['shares']}",
+                           f"subs_gained={d['subscribersGained']}", f"feed_pct={feed:.0f}",
+                           f"notes=counts live {today}; rates analytics api (lags; it had {d['views']} views); {note}; subs lost={d['subscribersLost']}"])
         else:  # Data API public counts only (instant, no retention or shares)
             st = m["statistics"]
             analytics.add([name, "youtube", age, f"views={st.get('viewCount', 0)}", f"likes={st.get('likeCount', 0)}",

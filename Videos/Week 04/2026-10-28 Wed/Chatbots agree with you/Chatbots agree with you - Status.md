@@ -5,7 +5,7 @@ updated: 2026-10-30
 
 # Chatbots agree with you: Status
 
-**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**; public 28 Oct 2026 ([`Dwh-VacD0HA`](https://youtu.be/Dwh-VacD0HA)).
 
 **Clarify (user, 28 Oct 2026, verbatim answers):** topic "Why AI chatbots agree with you (Recommended)" · delegation "Delegate to render (Recommended)" · scope "New narrative layer only (Recommended)". Request: *"Redesign the narrative strategy for the short videos, look for similar systems and learn what you can improve here. we want top tier ai generated videos on any metric. make your improvements and do a new short to show me"*.
 

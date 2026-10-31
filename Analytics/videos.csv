@@ -1,1 +1,15 @@
 video,published,youtube_id,tiktok_id,words,duration_s,hook_type,hook,series,plates,voice
+Chatbot vs agent,2026-10-26,lQv84AeYJ80,,217,71.4,,"A chatbot answers you. An agent does the work for you. They run on the same AI models, but the results are completely different. Here is the difference.",How it works,,Dennis
+Prompt injection,2026-10-26,XM4IScGOjGs,,226,59.7,,"One hidden sentence in an email can hijack your AI chatbot. It's called prompt injection, and here is how it works, and how to stop it.",How it works,,Dennis
+HyperFrames,2026-10-27,4YuqDYQYGBg,,139,44.7,,"This Short is a web page. An AI agent wrote it in HTML, and a free tool called HyperFrames turned it into video. Here is how.",Agent at work,,Dennis
+MCP vs skills,2026-10-27,OiLPkE7rV6A,,117,36.2,,"Claude can learn a new job from one text file. It's called a skill, and here is how it works.",How it works,,Dennis
+Vault pipeline,2026-10-28,tnhjBqWFzbc,,133,46.6,,"Every frame of this Short was a web page first. An AI agent built it, and a browser filmed it.",How it works,,Dennis
+Chatbots agree with you,2026-10-28,Dwh-VacD0HA,,130,47.0,contradiction,ChatGPT got so agreeable that OpenAI took its own update back.,How it works,,Dennis
+Helium and AI chips,2026-10-29,S8j8FcBWvLg,,127,40.6,surprising fact,"Chips for AI are cooled by helium. In March, a third of the world's helium went offline.",How it works,,Dennis
+Agent deleted a database,2026-10-29,luFmnJcR0nw,,160,49.7,surprising fact,"Replit's AI agent deleted a company's production database, during a code freeze.",Agent at work,,Dennis
+AI as a therapist,2026-10-29,ZpItuiOl4OU,,169,59.6,result,An AI therapist cut depression symptoms by half in a real trial.,How AI works,,Dennis
+Antibiotics aimed at infection,2026-10-29,k1kip6GHts0,,167,54.2,surprising fact,"Antibiotic resistance gets bred in your gut, even when the infection is somewhere else.","What's coming (off-niche, no AI)",,Dennis
+Can AI replace lawyers,2026-10-29,HZveOw1x7Vs,,168,53.1,number,Courts have now caught AI inventing law in over two thousand two hundred cases.,How AI works,,Dennis
+Quantization explained,2026-10-29,JIm2qj_-0bM,,174,52.7,contradiction,"This laptop has ten gigabytes of memory, and it just ran an eight billion parameter AI model.",Agent at work,,Dennis
+Effort level explained,2026-10-30,vGdsJNr0DnE,,167,54.3,number,Max effort cost Claude seven times the tokens for the same answer.,Agent at work,,Dennis
+ETH is false,2026-10-30,aDKXpUWlp5w,,170,58.1,claim,An OpenAI model says the Exponential Time Hypothesis is false.,What's coming,,Dennis

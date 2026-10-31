@@ -5,7 +5,7 @@ updated: 2026-10-30
 
 # Helium and AI chips: Status
 
-**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**; public 29 Oct 2026 ([`S8j8FcBWvLg`](https://youtu.be/S8j8FcBWvLg)).
 
 **Clarify (user, 28 Oct 2026, verbatim answers):** angle "How it works: why a chip can't be made without it (Recommended)" · delegation "Delegated to the render, stop at P7 (Recommended)" · ship rule "Yes, a one-off test exception (Recommended)" · visuals "Anatomy Figure of the wafer chuck, plus real captures (Recommended)". Request: *"modify the vault to use the anatomy skill https://cellcog.ai/blog/anatomy-claude-skill/ and test it on a new short: why helium is important on the ai race"*.
 

@@ -5,7 +5,7 @@ updated: 2026-10-30
 
 # Can AI replace lawyers: Status
 
-**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
+**Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**; public 29 Oct 2026 ([`HZveOw1x7Vs`](https://youtu.be/HZveOw1x7Vs)).
 
 **Ask once (user, 29 Oct 2026, verbatim):** angle "theme 1 focused on how to solve this issues, we want to discuss the possibility of use ai agents as legal orientation" · medium "use anatomy + hairline + captures, but not that much focus on the example case, if there's something about this topic on the vault, just forget it and write the script unbiased". Request: *"new short: can ai replace lawyers? the complexity of citing the law the right way"*.
 
@@ -16,7 +16,7 @@ updated: 2026-10-30
 | **Spend** | take `ap70eb36v5rmt0d1gstt6463y0` (1,021 chars, about $0.026); WhisperX `503wczya5srnc0d1gstvz6n88w` (about $0.005). Total about $0.03, cap $0.50. |
 | **Build** | Anatomy `citator` (new, `System/anatomy/citator/`: `feed`, `search`, `found`, `ok`, `bad`) in w4, w5, w7; Hairline `loop` (w2) and `temperature` (w3; `riffle` did not answer the pointer, swapped); real captures in w1, w2, w4, w5, w6, w7 (Charlotin, Free Law Project, arXiv, SRA). Transitions push, whip, cut, dip, blur (2 cuts of 6); shot sizes wide, medium, close (stamp, the 17 to 33 % line). `hyperframes check` 0 errors. `check3d`: left are TEXT OVER PICTURE against figure host boxes during zooms (frames read clear). Frame audit: 3 rounds of snapshots plus the render sheet. Render `law-53s-9x16-r1.mp4` 53.1 s; `MIX` −14.0 LUFS, −1.5 dBTP; `LISTEN` PASS; masters `-yt` 2160x3840, `-tt` 1080x1920; thumbnail; pack `upload/law-publish-pack.md`. |
 | **Review** | ship (user, 29 Oct 2026, asked-once round of the AI-therapist Short: "Ship") |
-| **Publish** | not uploaded |
+| **Publish** | public 29 Oct 2026 ([`HZveOw1x7Vs`](https://youtu.be/HZveOw1x7Vs)); row in `Analytics/videos.csv` |
 | **Numbers** | |
 
 ## Not verified

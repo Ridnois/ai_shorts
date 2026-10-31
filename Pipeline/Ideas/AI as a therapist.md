@@ -1,9 +1,9 @@
 ---
 type: video-idea
-status: shipped
+status: published
 series: How AI works
 score:
-publish:
+publish: 2026-10-29
 video: "[[AI as a therapist - Status]]"
 created: 2026-10-29
 updated: 2026-10-30

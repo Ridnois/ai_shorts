@@ -1,13 +1,14 @@
 ---
 type: video-idea
-status: idea
+status: published
 series: How it works
-publish:
+publish: 2026-10-28
 hook_type:
 case: "OpenAI rolled back a GPT-4o update in late April 2025 for being overly agreeable"
 created: 2026-10-26
-updated: 2026-10-26
+updated: 2026-10-30
 tags: [youtube, pipeline]
+video: "[[Chatbots agree with you - Status]]"
 ---
 
 # Why chatbots agree with you

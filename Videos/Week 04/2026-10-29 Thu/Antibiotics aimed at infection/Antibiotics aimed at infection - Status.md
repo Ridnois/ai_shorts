@@ -16,7 +16,7 @@ updated: 2026-10-30
 | **Spend** | take `4hb1twn7xsrmr0d1gryt8by9a8` (1,029 chars, about $0.026); `incredibly-fast-whisper` `vdq38w8jc5rmt0d1grza68bwbm` stuck in `starting`, cancelled; WhisperX `j9czemdk2xrna0d1gs3radx1hw` (about $0.005). Total about $0.03, cap $0.50. |
 | **Build** | Anatomy `gut-carrier` (new, `System/anatomy/gut-carrier/`: `pill`, `spread`, `kill`, `resist`, `carrier`, `open`) in w1, w3 to w7; real captures WHO (w2), Wellcome Leap (w4), Purdue (w5). Transitions whip, cut, push, dip, blur (2 cuts of 6); shot sizes wide, medium (zoom on the site), close (pill, gut, the captured paragraph). `hyperframes check` 0 errors (accepted structure and density warnings). `check3d`: left are TEXT OVER PICTURE for tags `g1` and `g6` against the figure's host box (the frames show no drawn part under them). Frame audit: 3 rounds of snapshots plus the render sheet. Render `abx-54s-9x16-r1.mp4` 54.2 s; `MIX` −14.1 LUFS, −1.5 dBTP; `LISTEN` PASS; masters `-yt` 2160x3840, `-tt` 1080x1920; thumbnail; pack `upload/abx-publish-pack.md`. |
 | **Review** | ship (user, 29 Oct 2026: *"Perfect, i already shipped"*) |
-| **Publish** | shipped by the user (29 Oct 2026); video id not recorded |
+| **Publish** | public 29 Oct 2026 ([`k1kip6GHts0`](https://youtu.be/k1kip6GHts0)); row in `Analytics/videos.csv` |
 | **Numbers** | |
 
 ## Not verified

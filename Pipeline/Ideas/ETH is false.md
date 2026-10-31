@@ -1,8 +1,8 @@
 ---
 type: video-idea
-status: shipped
+status: published
 series: What's coming
-publish:
+publish: 2026-10-30
 video: "[[ETH is false - Status]]"
 hook_type: claim
 case: "OpenAI preprint, The Exponential Time Hypothesis is False, 25 Oct 2026, github.com/openai/math, under review"

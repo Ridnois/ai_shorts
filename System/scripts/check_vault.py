@@ -151,13 +151,27 @@ for rel, t in notes.items():
 # the index knows every published video; Script scene 1 equals the hook in videos.csv
 import csv
 norm = lambda s: re.sub(r"[^a-z0-9 ]", "", s.lower()).strip()
+
+
+def scene1(sc):
+    """Scene 1's voice line: the cell under the 'Voice' header of the scenes table (old and new script layouts)."""
+    lines = sc.splitlines()
+    for i, l in enumerate(lines):
+        cells = [c.strip() for c in l.strip().strip("|").split("|")]
+        col = next((j for j, c in enumerate(cells) if c.startswith("Voice")), None)
+        if l.startswith("|") and col is not None:
+            for r in lines[i + 2:]:
+                rc = [c.strip() for c in r.strip().strip("|").split("|")]
+                if not r.startswith("|"): break
+                if rc and rc[0] == "1" and len(rc) > col: return rc[col]
+    return None
 with open(os.path.join(ROOT, "Analytics", "videos.csv"), encoding="utf-8") as fh:
     for row in csv.DictReader(fh):
         if row["youtube_id"] and row["youtube_id"] not in index:
             problems.append(f"YouTube Channel.md lacks the id of {row['video']} ({row['youtube_id']})")
         sc = next((t for r, t in notes.items() if os.path.basename(r) == f"Script - {row['video']}.md"), "")
-        m = re.search(r"(?m)^\|\s*1\s*\|\s*([^|]+?)\s*\|", sc[sc.find("Voice (exact text)"):]) if "Voice (exact text)" in sc else None
-        if m and norm(m.group(1)) != norm(row["hook"]):
+        s1 = scene1(sc)
+        if s1 and norm(s1) != norm(row["hook"]):
             problems.append(f"hook in videos.csv differs from scene 1 of the script: {row['video']}")
 
 # no keys in what git would commit (the repo is public); .env ignored; pre-commit hook installed

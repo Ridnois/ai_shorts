@@ -1,8 +1,8 @@
 ---
 type: video-idea
-status: shipped
+status: published
 series: Agent at work
-publish:
+publish: 2026-10-29
 video: "[[Quantization explained - Status]]"
 hook_type: contradiction
 case: "Qwen3 8B (Q4_K_M, 5.2 GB) runs on a 10 GB laptop with Ollama, 29 Oct 2026"

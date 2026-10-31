@@ -10,174 +10,63 @@ tags: [analytics, metrics, report]
 
 ← [[YouTube Channel]] · [[Growth]] (rules) · data: `Analytics/snapshots.csv`, `Analytics/videos.csv`
 
-**27 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Growth]] §Analytics).
+**14 video(s) with data.** The channel's own medians below replace the third-party benchmarks once there are 10 ([[Growth]] §Analytics).
 
-## youtube at 1h (1 videos)
+## youtube at about 24h (10 videos)
 
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[The Exponential Time Hypothesis Is False? OpenAI's Claim Explained [aDKXpUWlp5w] - Status]] | 22 |  |  |  |  |  | 0 | 1 |  |  |  |  |  |
-| **median** | 22 |  |  |  |  |  | 0 | 1 |  |  |  |  |  |
+| video | age | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [[Effort level explained - Status]] | 23h | 1108 |  |  |  |  |  | 7 | 1 |  |  |  |  |  |
+| [[Quantization explained - Status]] | 28h | 1094 |  |  |  |  |  | 19 | 1 |  |  |  |  |  |
+| [[Chatbots agree with you - Status]] | 2d | 70 | 36 |  | 38 | 81.8 |  | 1 | 0 | 0 |  | 0 |  | 33 |
+| [[AI as a therapist - Status]] | 27h | 62 |  |  |  |  |  | 2 | 1 |  |  |  |  |  |
+| [[Can AI replace lawyers - Status]] | 31h | 60 |  |  |  |  |  | 1 | 1 |  |  |  |  |  |
+| [[Vault pipeline - Status]] | 2d | 37 | 16 |  | 22 | 46.9 |  | 0 | 1 | 0 |  | 0 |  | 76 |
+| [[Helium and AI chips - Status]] | 46h | 33 | 12 |  | 25 | 61.1 |  | 1 | 1 | 0 |  | 0 |  | 73 |
+| [[ETH is false - Status]] | 1h | 22 |  |  |  |  |  | 0 | 1 |  |  |  |  |  |
+| [[Agent deleted a database - Status]] | 42h | 3 | 1 |  | 120 | 240.4 |  | 1 | 1 | 0 |  | 0 |  | 0 |
+| [[Antibiotics aimed at infection - Status]] | 42h | 0 | 0 |  | 0 | 0 |  | 0 | 1 | 0 |  | 0 |  | 0 |
+| **median** | | 48.5 | 12 |  | 25 | 61.1 |  | 1 | 1 | 0 |  | 0 |  | 33 |
 
-**Too few views to read percentages (< 100): The Exponential Time Hypothesis Is False? OpenAI's Claim Explained [aDKXpUWlp5w].** Counts only; do not act on rates ([[Growth]] §Analytics).
+**Too few views to read percentages (< 100): ETH is false, AI as a therapist, Can AI replace lawyers, Antibiotics aimed at infection, Agent deleted a database, Helium and AI chips, Chatbots agree with you, Vault pipeline.** Counts only; do not act on rates ([[Growth]] §Analytics).
 
-Below the median (needs 3+ videos): none
+Below the median (needs 3+ videos): Antibiotics aimed at infection: avg_pct_viewed 0 < median 61.1; Antibiotics aimed at infection: engaged_views 0 < median 12; Agent deleted a database: engaged_views 1 < median 12; Vault pipeline: avg_pct_viewed 46.9 < median 61.1
 
-## youtube at 23h (1 videos)
+By length (median avg_pct_viewed): 45 s or less 61.1 (n=1); over 45 s 64.3 (n=4)
 
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[Claude Effort Level Explained: Is Higher Better? [vGdsJNr0DnE] - Status]] | 1108 |  |  |  |  |  | 7 | 1 |  |  |  |  |  |
-| **median** | 1108 |  |  |  |  |  | 7 | 1 |  |  |  |  |  |
+## youtube at about 7d (4 videos)
 
-Below the median (needs 3+ videos): none
+| video | age | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [[MCP vs skills - Status]] | 3d | 163 | 58 |  | 40 | 110.3 |  | 4 | 1 | 0 |  | 0 |  | 67 |
+| [[HyperFrames - Status]] | 3d | 58 | 21 |  | 39 | 87.1 |  | 1 | 1 | 0 |  | 0 |  | 24 |
+| [[Prompt injection - Status]] | 4d | 18 | 11 |  | 102 | 170.4 |  | 1 | 0 | 0 |  | 0 |  | 11 |
+| [[Chatbot vs agent - Status]] | 4d | 10 | 6 |  | 75 | 113.7 |  | 1 | 0 | 0 |  | 0 |  | 50 |
+| **median** | | 38 | 16 |  | 57.5 | 112 |  | 1 | 0.5 | 0 |  | 0 |  | 37 |
 
-## youtube at 27h (1 videos)
+**Too few views to read percentages (< 100): HyperFrames, Chatbot vs agent, Prompt injection.** Counts only; do not act on rates ([[Growth]] §Analytics).
 
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[Can AI Be Your Therapist? Why ChatGPT Is a Yes-Man [ZpItuiOl4OU] - Status]] | 62 |  |  |  |  |  | 2 | 1 |  |  |  |  |  |
-| **median** | 62 |  |  |  |  |  | 2 | 1 |  |  |  |  |  |
+Below the median (needs 3+ videos): MCP vs skills: avg_pct_viewed 110.3 < median 112; HyperFrames: avg_pct_viewed 87.1 < median 112; Chatbot vs agent: engaged_views 6 < median 16; Prompt injection: engaged_views 11 < median 16
 
-**Too few views to read percentages (< 100): Can AI Be Your Therapist? Why ChatGPT Is a Yes-Man [ZpItuiOl4OU].** Counts only; do not act on rates ([[Growth]] §Analytics).
+By length (median avg_pct_viewed): 45 s or less 98.7 (n=2); over 45 s 142.1 (n=2)
 
-Below the median (needs 3+ videos): none
+## Not in videos.csv (left out of the medians)
 
-## youtube at 28h (1 videos)
+Redtail-era uploads before the AI relaunch, and uploads the vault has no notes for. Newest snapshot each.
 
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[Quantization Explained: How an 8B AI Model Fits on a Laptop [JIm2qj_-0bM] - Status]] | 1094 |  |  |  |  |  | 19 | 1 |  |  |  |  |  |
-| **median** | 1094 |  |  |  |  |  | 19 | 1 |  |  |  |  |  |
-
-Below the median (needs 3+ videos): none
-
-## youtube at 31h (1 videos)
-
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[Can AI Replace Lawyers? Why AI Invents Court Cases [HZveOw1x7Vs] - Status]] | 60 |  |  |  |  |  | 1 | 1 |  |  |  |  |  |
-| **median** | 60 |  |  |  |  |  | 1 | 1 |  |  |  |  |  |
-
-**Too few views to read percentages (< 100): Can AI Replace Lawyers? Why AI Invents Court Cases [HZveOw1x7Vs].** Counts only; do not act on rates ([[Growth]] §Analytics).
-
-Below the median (needs 3+ videos): none
-
-## youtube at 42h (2 videos)
-
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[Your Antibiotic Breeds Resistance in Your Gut [k1kip6GHts0] - Status]] | 0 | 0 |  | 0 | 0 |  | 0 | 1 | 0 |  | 0 |  | 0 |
-| [[Why an AI Agent Deleted a Production Database (and the Real Fix) [luFmnJcR0nw] - Status]] | 3 | 1 |  | 120 | 240.4 |  | 1 | 1 | 0 |  | 0 |  | 0 |
-| **median** | 1.5 | 0.5 |  | 60 | 120.2 |  | 0.5 | 1 | 0 |  | 0 |  | 0 |
-
-**Too few views to read percentages (< 100): Your Antibiotic Breeds Resistance in Your Gut [k1kip6GHts0], Why an AI Agent Deleted a Production Database (and the Real Fix) [luFmnJcR0nw].** Counts only; do not act on rates ([[Growth]] §Analytics).
-
-Below the median (needs 3+ videos): none
-
-## youtube at 43h (1 videos)
-
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[AI deleted a database: what went wrong [tcQ-gYpmxzo] - Status]] | 0 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
-| **median** | 0 |  |  |  |  |  | 0 | 0 |  |  |  |  |  |
-
-**Too few views to read percentages (< 100): AI deleted a database: what went wrong [tcQ-gYpmxzo].** Counts only; do not act on rates ([[Growth]] §Analytics).
-
-Below the median (needs 3+ videos): none
-
-## youtube at 46h (1 videos)
-
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[Why AI Chips Need Helium (A Third of It Went Offline) [S8j8FcBWvLg] - Status]] | 33 | 12 |  | 25 | 61.1 |  | 1 | 1 | 0 |  | 0 |  | 73 |
-| **median** | 33 | 12 |  | 25 | 61.1 |  | 1 | 1 | 0 |  | 0 |  | 73 |
-
-**Too few views to read percentages (< 100): Why AI Chips Need Helium (A Third of It Went Offline) [S8j8FcBWvLg].** Counts only; do not act on rates ([[Growth]] §Analytics).
-
-Below the median (needs 3+ videos): none
-
-## youtube at 2d (2 videos)
-
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[Why ChatGPT Agrees With Everything You Say (OpenAI Had to Undo It) [Dwh-VacD0HA] - Status]] | 70 | 36 |  | 38 | 81.8 |  | 1 | 0 | 0 |  | 0 |  | 33 |
-| [[How an AI Agent Turns Text Into a Video, Frame by Frame #ai #automobile #science [tnhjBqWFzbc] - Status]] | 37 | 16 |  | 22 | 46.9 |  | 0 | 1 | 0 |  | 0 |  | 76 |
-| **median** | 53.5 | 26 |  | 30 | 64.3 |  | 0.5 | 0.5 | 0 |  | 0 |  | 54.5 |
-
-**Too few views to read percentages (< 100): Why ChatGPT Agrees With Everything You Say (OpenAI Had to Undo It) [Dwh-VacD0HA], How an AI Agent Turns Text Into a Video, Frame by Frame #ai #automobile #science [tnhjBqWFzbc].** Counts only; do not act on rates ([[Growth]] §Analytics).
-
-Below the median (needs 3+ videos): none
-
-## youtube at 3d (2 videos)
-
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[AI Agent Skills Explained: How Claude Learns a New Job [OiLPkE7rV6A] - Status]] | 163 | 58 |  | 40 | 110.3 |  | 4 | 1 | 0 |  | 0 |  | 67 |
-| [[HyperFrames Explained: This Short Is a Web Page [4YuqDYQYGBg] - Status]] | 58 | 21 |  | 39 | 87.1 |  | 1 | 1 | 0 |  | 0 |  | 24 |
-| **median** | 110.5 | 39.5 |  | 39.5 | 98.7 |  | 2.5 | 1 | 0 |  | 0 |  | 45.5 |
-
-**Too few views to read percentages (< 100): HyperFrames Explained: This Short Is a Web Page [4YuqDYQYGBg].** Counts only; do not act on rates ([[Growth]] §Analytics).
-
-Below the median (needs 3+ videos): none
-
-## youtube at 4d (3 videos)
-
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[Chatbot vs Agent: Why capabilities matter [lQv84AeYJ80] - Status]] | 10 | 6 |  | 75 | 113.7 |  | 1 | 0 | 0 |  | 0 |  | 50 |
-| [[If chatting is free why pay for a subscription? [yIIA_3pXDig] - Status]] | 9 | 4 |  | 101 | 156.1 |  | 1 | 1 | 0 |  | 0 |  | 78 |
-| [[One Hidden Sentence Can Hijack Your AI Chatbot. Here's the Fix [XM4IScGOjGs] - Status]] | 18 | 11 |  | 102 | 170.4 |  | 1 | 0 | 0 |  | 0 |  | 11 |
-| **median** | 10 | 6 |  | 101 | 156.1 |  | 1 | 0 | 0 |  | 0 |  | 50 |
-
-**Too few views to read percentages (< 100): Chatbot vs Agent: Why capabilities matter [lQv84AeYJ80], If chatting is free why pay for a subscription? [yIIA_3pXDig], One Hidden Sentence Can Hijack Your AI Chatbot. Here's the Fix [XM4IScGOjGs].** Counts only; do not act on rates ([[Growth]] §Analytics).
-
-Below the median (needs 3+ videos): Chatbot vs Agent: Why capabilities matter [lQv84AeYJ80]: avg_pct_viewed 113.7 < median 156.1; If chatting is free why pay for a subscription? [yIIA_3pXDig]: engaged_views 4 < median 6
-
-## youtube at 21d (3 videos)
-
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[The Rounding Error That Halved a Stock Index [rwgfPm_v_2o] - Status]] | 80 | 28 |  | 39 | 69.7 |  | 1 | 1 | 1 |  | 0 |  | 84 |
-| [[Why the Last 20% of Charging Takes So Long [Vv298QJQoZ8] - Status]] | 67 | 25 |  | 21 | 54 |  | 4 | 2 | 0 |  | 0 |  | 69 |
-| [[Every Chip Needs a Gas From Steel Mills [NN_2WsDJrK8] - Status]] | 124 | 41 |  | 33 | 74.9 |  | 3 | 1 | 0 |  | 0 |  | 91 |
-| **median** | 80 | 28 |  | 33 | 69.7 |  | 3 | 1 | 0 |  | 0 |  | 84 |
-
-**Too few views to read percentages (< 100): The Rounding Error That Halved a Stock Index [rwgfPm_v_2o], Why the Last 20% of Charging Takes So Long [Vv298QJQoZ8].** Counts only; do not act on rates ([[Growth]] §Analytics).
-
-Below the median (needs 3+ videos): Why the Last 20% of Charging Takes So Long [Vv298QJQoZ8]: avg_pct_viewed 54 < median 69.7; Why the Last 20% of Charging Takes So Long [Vv298QJQoZ8]: engaged_views 25 < median 28
-
-## youtube at 23d (1 videos)
-
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[Why Your Phone Won't Screenshoot Netflix [_lb5oDC7s64] - Status]] | 146 | 66 |  | 28 | 43.8 |  | 2 | 2 | 0 |  | 0 |  | 47 |
-| **median** | 146 | 66 |  | 28 | 43.8 |  | 2 | 2 | 0 |  | 0 |  | 47 |
-
-Below the median (needs 3+ videos): none
-
-## youtube at 24d (1 videos)
-
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[Deep-Sea Mining: The Rulebook Is Still Unfinished [WtKTVljJR7A] - Status]] | 211 | 79 |  | 46 | 73.9 |  | 1 | 1 | 0 |  | 0 |  | 62 |
-| **median** | 211 | 79 |  | 46 | 73.9 |  | 1 | 1 | 0 |  | 0 |  | 62 |
-
-Below the median (needs 3+ videos): none
-
-## youtube at 25d (6 videos)
-
-| video | views | engaged_views | viewed_pct | avg_view_s | avg_pct_viewed | completion_pct | likes | comments | shares | saves | subs_gained | new_viewers_pct | feed_pct |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [[AI Data Centers Wait Years for a Machine With No Moving Parts [F2fC5degIP4] - Status]] | 29 | 7 |  | 60 | 114.1 |  | 1 | 0 | 0 |  | 0 |  | 45 |
-| [[Most Computer Chips Start in Rock From One Small Town [lQRLoZYWFwU] - Status]] | 13 | 6 |  | 42 | 67.9 |  | 0 | 1 | 0 |  | 0 |  | 0 |
-| [[The First Metal-Type Book Is Not the Gutenberg Bible [a3faPJ87qsk] - Status]] | 32 | 17 |  | 13 | 33.7 |  | 1 | 1 | 0 |  | 0 |  | 0 |
-| [[EV Battery Life: Only 2% a Year, and Charging Matters Most [WhNq3ry6sBw] - Status]] | 288 | 104 |  | 30 | 49.8 |  | 3 | 0 | 0 |  | 0 |  | 76 |
-| [[Why Copper Could Limit the AI Race [YRX0VfpPMtU] - Status]] | 239 | 72 |  | 27 | 45.3 |  | 2 | 0 | 0 |  | 0 |  | 78 |
-| [[Lithium Isn't Rare, So Why Do Countries Fight Over It? [zwNmTGoXPu0] - Status]] | 233 | 82 |  | 37 | 52 |  | 1 | 1 | 1 |  | 0 |  | 49 |
-| **median** | 132.5 | 44.5 |  | 33.5 | 50.9 |  | 1 | 0.5 | 0 |  | 0 |  | 47 |
-
-**Too few views to read percentages (< 100): AI Data Centers Wait Years for a Machine With No Moving Parts [F2fC5degIP4], Most Computer Chips Start in Rock From One Small Town [lQRLoZYWFwU], The First Metal-Type Book Is Not the Gutenberg Bible [a3faPJ87qsk].** Counts only; do not act on rates ([[Growth]] §Analytics).
-
-Below the median (needs 3+ videos): AI Data Centers Wait Years for a Machine With No Moving Parts [F2fC5degIP4]: engaged_views 7 < median 44.5; Most Computer Chips Start in Rock From One Small Town [lQRLoZYWFwU]: engaged_views 6 < median 44.5; The First Metal-Type Book Is Not the Gutenberg Bible [a3faPJ87qsk]: avg_pct_viewed 33.7 < median 50.9; The First Metal-Type Book Is Not the Gutenberg Bible [a3faPJ87qsk]: engaged_views 17 < median 44.5; EV Battery Life: Only 2% a Year, and Charging Matters Most [WhNq3ry6sBw]: avg_pct_viewed 49.8 < median 50.9; Why Copper Could Limit the AI Race [YRX0VfpPMtU]: avg_pct_viewed 45.3 < median 50.9
+| video | age | views | engaged_views | avg_pct_viewed | feed_pct |
+| --- | --- | --- | --- | --- | --- |
+| EV Battery Life: Only 2% a Year, and Charging Matters Most [WhNq3ry6sBw] | 25d | 288 | 104 | 49.8 | 76 |
+| Why Copper Could Limit the AI Race [YRX0VfpPMtU] | 25d | 239 | 72 | 45.3 | 78 |
+| Lithium Isn't Rare, So Why Do Countries Fight Over It? [zwNmTGoXPu0] | 25d | 233 | 82 | 52 | 49 |
+| Deep-Sea Mining: The Rulebook Is Still Unfinished [WtKTVljJR7A] | 24d | 211 | 79 | 73.9 | 62 |
+| Why Your Phone Won't Screenshoot Netflix [_lb5oDC7s64] | 23d | 146 | 66 | 43.8 | 47 |
+| Every Chip Needs a Gas From Steel Mills [NN_2WsDJrK8] | 21d | 124 | 41 | 74.9 | 91 |
+| The Rounding Error That Halved a Stock Index [rwgfPm_v_2o] | 21d | 80 | 28 | 69.7 | 84 |
+| Why the Last 20% of Charging Takes So Long [Vv298QJQoZ8] | 21d | 67 | 25 | 54 | 69 |
+| The First Metal-Type Book Is Not the Gutenberg Bible [a3faPJ87qsk] | 25d | 32 | 17 | 33.7 | 0 |
+| AI Data Centers Wait Years for a Machine With No Moving Parts [F2fC5degIP4] | 25d | 29 | 7 | 114.1 | 45 |
+| Most Computer Chips Start in Rock From One Small Town [lQRLoZYWFwU] | 25d | 13 | 6 | 67.9 | 0 |
+| If chatting is free why pay for a subscription? [yIIA_3pXDig] | 4d | 9 | 4 | 156.1 | 78 |
+| AI deleted a database: what went wrong [tcQ-gYpmxzo] | 43h | 0 |  |  |  |
 

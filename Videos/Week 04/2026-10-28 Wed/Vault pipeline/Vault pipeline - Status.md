@@ -20,7 +20,7 @@ updated: 2026-10-30
 | 7 Verdict | fix (r1) | 28 Oct 2026 | r2: caption word gaps, one hero per beat, tightened script; take v2 `fws3ag1ke1rmt0d1g2ea0vbrbc` (820 characters, about $0.02) and timings (about $0.01): total about $0.06 of the $0.10 cap |
 | 7 Verdict (r2) | fix | 28 Oct 2026 | r3: technical script, one running word; take v3 `vfj1kcqf8hrmw0d1g2tbp4cnf0` (841 characters) and timings: total about $0.09 of the $0.10 cap |
 | 7 Verdict (r3) | ship | 28 Oct 2026 | user: *"like it, go for the upload package"* |
-| 8 Publish · 9 Measure | pack built; the user uploads by hand | 28 Oct 2026 | `upload/vp-publish-pack.md`, render `vp-47s-9x16-r3.mp4` |
+| 8 Publish · 9 Measure | public 28 Oct 2026 ([`tnhjBqWFzbc`](https://youtu.be/tnhjBqWFzbc)); row in `Analytics/videos.csv` | | |
 
 ## Not verified
 
