@@ -202,6 +202,9 @@ const path = (pts) => pts.map((p, i) => { const [x, y] = iso(p, P); return (i ? 
 window.__ANP[${JSON.stringify(NAME)}] = {
   init: { heat: 0, flow: 0, evap: 0, rise: 0, fan: 0, drops: 0, power: 0.18 },
   apply(svg, s, t) {
+    // the machine runs on the page clock: fan, puffs and beads keep moving between the pose keys (a key adds an offset)
+    const T = t || 0;
+    s = { ...s, flow: s.flow + 0.42 * T, rise: s.rise + 0.5 * T, fan: s.fan + 1.6 * T };
     // heat: the heat sink fins glow red
     op(part(svg, "hot"), cl(s.heat));
     // flow: beads ride the channels, warm out to the tower, cool back; they fade in and out at the ends
@@ -254,10 +257,10 @@ const anchors = {
 writeFileSync(join(HERE, `${NAME}.json`), JSON.stringify({ width: WIDTH, height: HEIGHT,
   params: {
     heat: "0..1 the heat sink fins glow red and warm beads start to ride the first channel",
-    flow: "phase, any number: beads ride the channels (warm out to the tower, cool back); +1 is one full lap of one bead slot",
+    flow: "phase offset (the clock already runs it at 0.42 laps a second): beads ride the channels, warm out to the tower, cool back",
     evap: "0..1 vapour puffs rise out of the fan stack; cool beads return; the basin water dims",
-    rise: "phase, any number: how far the puffs have travelled (use with evap)",
-    fan: "phase, any number: the fan blades turn one turn per unit",
+    rise: "phase offset (the clock runs it at 0.5 a second): how far the puffs have travelled; shown only while evap is above 0",
+    fan: "phase offset (the clock turns it 1.6 turns a second): the fan blades",
     drops: "0..5 the lamps on the rail light one by one (drops of water)",
     power: "0..1 the dial needle sweeps (electricity the cooling takes); rest 0.18",
   },

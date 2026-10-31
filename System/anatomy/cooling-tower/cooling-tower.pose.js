@@ -686,6 +686,9 @@ const path = (pts) => pts.map((p, i) => { const [x, y] = iso(p, P); return (i ? 
 window.__ANP["cooling-tower"] = {
   init: { heat: 0, flow: 0, evap: 0, rise: 0, fan: 0, drops: 0, power: 0.18 },
   apply(svg, s, t) {
+    // the machine runs on the page clock: fan, puffs and beads keep moving between the pose keys (a key adds an offset)
+    const T = t || 0;
+    s = { ...s, flow: s.flow + 0.42 * T, rise: s.rise + 0.5 * T, fan: s.fan + 1.6 * T };
     // heat: the heat sink fins glow red
     op(part(svg, "hot"), cl(s.heat));
     // flow: beads ride the channels, warm out to the tower, cool back; they fade in and out at the ends

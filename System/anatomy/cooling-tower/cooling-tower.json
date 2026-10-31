@@ -3,10 +3,10 @@
  "height": 425,
  "params": {
   "heat": "0..1 the heat sink fins glow red and warm beads start to ride the first channel",
-  "flow": "phase, any number: beads ride the channels (warm out to the tower, cool back); +1 is one full lap of one bead slot",
+  "flow": "phase offset (the clock already runs it at 0.42 laps a second): beads ride the channels, warm out to the tower, cool back",
   "evap": "0..1 vapour puffs rise out of the fan stack; cool beads return; the basin water dims",
-  "rise": "phase, any number: how far the puffs have travelled (use with evap)",
-  "fan": "phase, any number: the fan blades turn one turn per unit",
+  "rise": "phase offset (the clock runs it at 0.5 a second): how far the puffs have travelled; shown only while evap is above 0",
+  "fan": "phase offset (the clock turns it 1.6 turns a second): the fan blades",
   "drops": "0..5 the lamps on the rail light one by one (drops of water)",
   "power": "0..1 the dial needle sweeps (electricity the cooling takes); rest 0.18"
  },
