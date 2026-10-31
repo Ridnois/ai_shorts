@@ -1,0 +1,38 @@
+{
+ "width": 600,
+ "height": 366,
+ "params": {
+  "train": "0..1 every chip deepens from light blue (its starting number) to deep blue (trained); survivors' chips follow",
+  "prune": "0..1 the weakest 32 tickets drop through the board in turn, leaving four",
+  "rewind": "0..1 the reel turns two turns back and the survivors' chips return to their light starting colour",
+  "fresh": "0..1 the survivors swap their starting numbers for new random ones (red); with train they deepen to dark red",
+  "lit": "0..1 the four survivors turn yellow: the winning ticket",
+  "acc": "0..1 the dial needle (accuracy); rest 0.12"
+ },
+ "anchors": {
+  "board": [
+   228.9,
+   136
+  ],
+  "ticket": [
+   279.9,
+   143.9
+  ],
+  "tray": [
+   130.5,
+   214.3
+  ],
+  "dial": [
+   452.4,
+   200.4
+  ],
+  "reel": [
+   360.6,
+   261.6
+  ],
+  "front": [
+   319.5,
+   183.6
+  ]
+ }
+}
