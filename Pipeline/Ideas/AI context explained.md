@@ -1,6 +1,6 @@
 ---
 type: video-idea
-status: review
+status: published
 series: How AI works
 publish:
 video: "[[AI context explained - Status]]"
