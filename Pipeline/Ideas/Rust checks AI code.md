@@ -1,8 +1,8 @@
 ---
 type: video-idea
-status: review
+status: published
 series: Agent at work
-publish:
+publish: 2026-10-31
 video: "[[Rust checks AI code - Status]]"
 hook_type: result
 case: "24 recorded Claude Code runs (Claude Haiku 5.5, Rust and Python, 31 Oct 2026); Generative Compilation, arXiv 2607.13921 (Jul 2026); GitHub Octoverse 2025"
