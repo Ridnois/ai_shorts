@@ -10,6 +10,7 @@ Fails (exit 1) on:
   * per-video notes over their size ceiling; index missing a video's YouTube id; Script scene 1 differing from the hook in Analytics/videos.csv
   * missing INVARIANTS: phrases that encode user feedback and must stay in the notes that carry them
   * hfkit.py or captions.py failing its self-check
+  * a key in any file git would commit, .env not ignored, or the pre-commit secret hook missing (secret_scan.py)
 When feedback adds a rule, add its invariant below in the same pass (see System/Feedback loop.md).
 """
 import os
@@ -46,6 +47,8 @@ INVARIANTS = [
     ("System/Growth.md", "Inauthentic content", "the channel-wide policy risk"),
     ("CLAUDE.md", "hfkit.py", "one design system in code"),
     ("CLAUDE.md", "master.py", "never upload the raw render"),
+    ("CLAUDE.md", "youtube_auth.py", "every YouTube token is checked against the Next Token channel (user, 30 Oct 2026)"),
+    ("System/scripts/youtube_auth.py", "UCCZX7-YPNPntwPKI1hdv2hQ", "the Next Token channel id the scripts enforce"),
 ]
 FORBIDDEN = [
     # (file, phrase, why): rules the user removed; must not come back
@@ -157,8 +160,13 @@ with open(os.path.join(ROOT, "Analytics", "videos.csv"), encoding="utf-8") as fh
         if m and norm(m.group(1)) != norm(row["hook"]):
             problems.append(f"hook in videos.csv differs from scene 1 of the script: {row['video']}")
 
+# no keys in what git would commit (the repo is public); .env ignored; pre-commit hook installed
+sys.path.insert(0, os.path.join(ROOT, "System", "scripts"))
+import secret_scan
+problems += secret_scan.scan()
+
 for rel, phrase, why in INVARIANTS:
-    t = notes.get(rel, "")
+    t = notes.get(rel, "") if rel.endswith(".md") else (open(os.path.join(ROOT, rel), encoding="utf-8").read() if os.path.exists(os.path.join(ROOT, rel)) else "")
     if phrase.lower() not in t.lower():
         problems.append(f"missing in {rel}: \"{phrase}\" ({why})")
 

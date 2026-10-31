@@ -79,10 +79,8 @@ def description(cfg, plan):
 
 
 def token():
-    r = json.load(urllib.request.urlopen(urllib.request.Request("https://oauth2.googleapis.com/token", urllib.parse.urlencode(dict(
-        client_id=os.environ["YT_CLIENT_ID"], client_secret=os.environ["YT_CLIENT_SECRET"], grant_type="refresh_token",
-        refresh_token=os.environ["YT_ANALYTICS_REFRESH_TOKEN"])).encode())))
-    return r["access_token"]
+    from youtube_auth import access_token  # refuses any channel but Next Token
+    return access_token()
 
 
 def video(vid):

@@ -1,49 +1,12 @@
 #!/usr/bin/env python3
 """YouTube Data API v3 uploader (stdlib only). Setup and gotchas: System/Growth.md §Publish
-  python3 System/scripts/youtube_upload.py auth                      # once: browser consent, saves YT_REFRESH_TOKEN to .env
   python3 System/scripts/youtube_upload.py upload VIDEO.mp4 --title T --desc-file D.txt [--thumb T.jpg] [--privacy private]
   python3 System/scripts/youtube_upload.py thumb VIDEO_ID THUMB.jpg   # set or re-set a thumbnail later (one set right after upload can be overwritten while YouTube is still processing)
-Reads YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN from .env (vault root) or the environment."""
-import argparse, http.server, json, os, sys, urllib.parse, urllib.request, urllib.error, webbrowser
+Token and channel check: youtube_auth.py (refuses any channel but Next Token)."""
+import argparse, json, os, sys, urllib.parse, urllib.request, urllib.error
 
-for l in open(".env") if os.path.exists(".env") else []:
-    k, _, v = l.strip().partition("=")
-    if k and not k.startswith("#"): os.environ.setdefault(k, v)
-CID, SEC = os.environ.get("YT_CLIENT_ID"), os.environ.get("YT_CLIENT_SECRET")
-SCOPE = "https://www.googleapis.com/auth/youtube.upload"  # upload + thumbnails.set; cannot read or delete anything
-PORT = 8765  # loopback redirect; the OAuth client type must be "Desktop app"
-TOKEN = "https://oauth2.googleapis.com/token"
-
-
-def post_form(url, data):
-    return json.load(urllib.request.urlopen(urllib.request.Request(url, urllib.parse.urlencode(data).encode())))
-
-
-def auth():
-    redirect = f"http://127.0.0.1:{PORT}"
-    got = {}
-
-    class H(http.server.BaseHTTPRequestHandler):
-        def do_GET(self):
-            got.update(urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query))
-            self.send_response(200); self.end_headers(); self.wfile.write(b"Done, close this tab.")
-        log_message = lambda *a: None
-
-    url = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode(dict(
-        client_id=CID, redirect_uri=redirect, response_type="code", scope=SCOPE,
-        access_type="offline", prompt="consent"))
-    print("Open (pick the Next Token channel's Google account):\n" + url, flush=True)
-    webbrowser.open(url)
-    http.server.HTTPServer(("127.0.0.1", PORT), H).handle_request()
-    r = post_form(TOKEN, dict(code=got["code"][0], client_id=CID, client_secret=SEC,
-                              redirect_uri=redirect, grant_type="authorization_code"))
-    with open(".env", "a") as f: f.write("\nYT_REFRESH_TOKEN=" + r["refresh_token"] + "\n")  # never printed
-    print("saved YT_REFRESH_TOKEN to .env")
-
-
-def access_token():
-    return post_form(TOKEN, dict(client_id=CID, client_secret=SEC, grant_type="refresh_token",
-                                 refresh_token=os.environ["YT_REFRESH_TOKEN"]))["access_token"]
+sys.path.insert(0, os.path.dirname(__file__))
+from youtube_auth import CHANNEL_ID, access_token  # loads .env
 
 
 def upload(a):
@@ -64,8 +27,11 @@ def upload(a):
     session = urllib.request.urlopen(req).headers["Location"]
     with open(a.video, "rb") as f:  # one streamed PUT; ponytail: no resume on a dropped connection, rerun re-uploads
         put = urllib.request.Request(session, f, {"Content-Length": str(size), "Content-Type": "video/mp4"}, method="PUT")
-        vid = json.load(urllib.request.urlopen(put, timeout=3600))["id"]
+        res = json.load(urllib.request.urlopen(put, timeout=3600))
+    vid = res["id"]
     print("uploaded", vid, f"https://studio.youtube.com/video/{vid}/edit", flush=True)
+    if res["snippet"]["channelId"] != CHANNEL_ID:  # cannot happen after access_token's check; caught loudly if it ever does
+        sys.exit(f"Uploaded to the wrong channel {res['snippet']['channelId']}: delete {vid} in YouTube Studio")
     if a.thumb:
         t = urllib.request.Request(
             f"https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={vid}", open(a.thumb, "rb").read(),
@@ -83,7 +49,6 @@ def thumb(a):
 
 p = argparse.ArgumentParser()
 s = p.add_subparsers(dest="cmd", required=True)
-s.add_parser("auth")
 th = s.add_parser("thumb"); th.add_argument("video_id"); th.add_argument("file")
 u = s.add_parser("upload")
 u.add_argument("video"); u.add_argument("--title", required=True)
@@ -92,8 +57,7 @@ u.add_argument("--thumb"); u.add_argument("--privacy", default="private", choice
 u.add_argument("--publish-at"); u.add_argument("--category", default="28")  # 28 = Science & Technology
 u.add_argument("--tags", default=""); u.add_argument("--synthetic", action="store_true")
 a = p.parse_args()
-if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env (System/Growth.md §Publish)")
 try:
-    auth() if a.cmd == "auth" else thumb(a) if a.cmd == "thumb" else upload(a)
+    thumb(a) if a.cmd == "thumb" else upload(a)
 except urllib.error.HTTPError as e:
     sys.exit(f"HTTP {e.code}: {e.read().decode()[:600]}")

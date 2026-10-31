@@ -1,0 +1,3 @@
+#!/bin/sh
+# Blocks any commit that carries a key (the repo is public and the vault auto-commits). Installed by: git config core.hooksPath System/scripts/githooks
+exec python3 System/scripts/secret_scan.py --staged

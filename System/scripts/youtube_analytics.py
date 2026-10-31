@@ -1,47 +1,14 @@
 #!/usr/bin/env python3
 """YouTube Analytics puller (stdlib only, read-only). Rules: System/Growth.md §Analytics
-  python3 System/scripts/youtube_analytics.py auth      # once: browser consent (read-only scopes), saves YT_ANALYTICS_REFRESH_TOKEN to .env
   python3 System/scripts/youtube_analytics.py pull [--age 24h|7d|28d]   # all channel videos -> Analytics/snapshots.csv + Analytics/exports/<date>/*.json
-Needs the YouTube Analytics API enabled in the same Google Cloud project, plus YT_CLIENT_ID / YT_CLIENT_SECRET in .env."""
-import argparse, csv, datetime, http.server, json, os, sys, urllib.error, urllib.parse, urllib.request, webbrowser
+Needs the YouTube Analytics API enabled in the same Google Cloud project. Token and channel check: youtube_auth.py."""
+import argparse, csv, datetime, json, os, sys, urllib.error, urllib.parse, urllib.request
 
 sys.path.insert(0, os.path.dirname(__file__))
 import analytics  # same folder: add() appends a snapshot row
+from youtube_auth import access_token, get  # loads .env; refuses any channel but Next Token
 
-for l in open(".env") if os.path.exists(".env") else []:
-    k, _, v = l.strip().partition("=")
-    if k and not k.startswith("#"): os.environ.setdefault(k, v)
-CID, SEC = os.environ.get("YT_CLIENT_ID"), os.environ.get("YT_CLIENT_SECRET")
-SCOPE = "https://www.googleapis.com/auth/yt-analytics.readonly https://www.googleapis.com/auth/youtube.readonly"
-PORT, TOKEN = 8765, "https://oauth2.googleapis.com/token"
 METRICS = "views,engagedViews,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,likes,comments,shares,subscribersGained,subscribersLost"
-
-
-def post_form(url, data):
-    return json.load(urllib.request.urlopen(urllib.request.Request(url, urllib.parse.urlencode(data).encode())))
-
-
-def auth():
-    redirect, got = f"http://127.0.0.1:{PORT}", {}
-
-    class H(http.server.BaseHTTPRequestHandler):
-        def do_GET(self):
-            got.update(urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query))
-            self.send_response(200); self.end_headers(); self.wfile.write(b"Done, close this tab.")
-        log_message = lambda *a: None
-
-    url = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode(dict(
-        client_id=CID, redirect_uri=redirect, response_type="code", scope=SCOPE, access_type="offline", prompt="consent"))
-    print("Open (the Google account that owns the Next Token channel):\n" + url, flush=True)
-    webbrowser.open(url)
-    http.server.HTTPServer(("127.0.0.1", PORT), H).handle_request()
-    r = post_form(TOKEN, dict(code=got["code"][0], client_id=CID, client_secret=SEC, redirect_uri=redirect, grant_type="authorization_code"))
-    with open(".env", "a") as f: f.write("\nYT_ANALYTICS_REFRESH_TOKEN=" + r["refresh_token"] + "\n")  # never printed
-    print("saved YT_ANALYTICS_REFRESH_TOKEN to .env")
-
-
-def get(url, tok, **q):
-    return json.load(urllib.request.urlopen(urllib.request.Request(url + "?" + urllib.parse.urlencode(q), headers={"Authorization": "Bearer " + tok})))
 
 
 def report(tok, **q):
@@ -54,8 +21,7 @@ def hours_age(pub):
 
 
 def pull(a):
-    tok = post_form(TOKEN, dict(client_id=CID, client_secret=SEC, grant_type="refresh_token",
-                                refresh_token=os.environ["YT_ANALYTICS_REFRESH_TOKEN"]))["access_token"]
+    tok = access_token()
     today = datetime.date.today().isoformat()
     out = f"Analytics/exports/{today}"; os.makedirs(out, exist_ok=True)
     tbl = report(tok, startDate="2020-01-01", endDate=today, metrics=METRICS, dimensions="video", sort="-views", maxResults=200)
@@ -94,11 +60,10 @@ def pull(a):
 
 def main():
     p = argparse.ArgumentParser(); s = p.add_subparsers(dest="cmd", required=True)
-    s.add_parser("auth"); q = s.add_parser("pull"); q.add_argument("--age")
+    q = s.add_parser("pull"); q.add_argument("--age")
     a = p.parse_args()
-    if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env")
     try:
-        auth() if a.cmd == "auth" else pull(a)
+        pull(a)
     except urllib.error.HTTPError as e:
         sys.exit(f"HTTP {e.code}: {e.read().decode()[:700]}")
 
