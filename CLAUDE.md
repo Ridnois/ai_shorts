@@ -37,7 +37,7 @@ Replicate 429 under bursts (the helper retries, nothing is charged); a hung down
 CLAUDE.md · YouTube Channel.md (index, video table) · User insights.md (the user's research notes)
 System/  Format · Look · Production · Growth · Feedback loop
          Brand/Next Token (brand.py, avatar, banner, mascot) · anatomy/ (figures) · assets/sfx (sound kit)
-         scripts/ hfkit, beats, captions, master, voice, word_timings, mix_audio, listen, check3d, publish, youtube_*, analytics,
+         scripts/ hfkit, beats, captions, master, voice, word_timings, mix_audio, listen, pace, check3d, publish, youtube_*, analytics,
                   stock_*, replicate_helper, scene3d, check_vault, secret_scan, githooks/, vendor/ (hairline, gsap, three, fonts)
 Pipeline/ idea queue, Niche map, Ideas/    Analytics/ csvs · Report.md (generated)
 Videos/Week NN/<YYYY-MM-DD Day>/<Topic>/   Status · Script · Upload        Media/… (local media, renders, masters)

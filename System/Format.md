@@ -52,7 +52,7 @@ Record the claim, the real thing, the demand evidence and 3 hooks in the Status 
 | **Frame 0 is the thumbnail** | the hook's picture and its claim text are on screen at 0 s, readable at 170 px wide |
 | **Show the verb** | every beat: "the viewer sees ___ happen, so they understand ___"; a picture any other video could use is cut |
 | **The subject fills the frame** | the hero spans 70 to 90 % of the width; no area over a third of the frame stays empty for 2 s |
-| **An event every 1.5 to 2 s** | a part moves, a number counts, the camera pushes, a word lands; nothing holds still over 3 s |
+| **An event every 1.5 to 2 s** | a part moves, a number counts, the camera pushes, a word lands; nothing holds still over 3 s, and nothing over 1.5 s while the hook plays (`pace.py` measures it) |
 | **Real over drawn** | a real product is shown as itself (screen capture, recorded run, real page); a machine is drawn as an [[Look]] Anatomy or Hairline figure; never a fake UI |
 | **Three shot sizes** | wide, medium and close inside the same world, through the camera |
 | **No AI clichés** | no glowing brains, robots, circuit faces, binary rain, handshakes |

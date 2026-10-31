@@ -35,6 +35,7 @@ A fault seen once is searched for on every frame; a fault class seen twice becom
 
 ## 4. Sound and encode (after render and mix)
 
+- `python3 System/scripts/pace.py <render mp4>`: `PACE PASS` (no still picture over 3 s, none over 1.5 s in the first 3 s); each WARN or FAIL names its world: give that beat an event.
 - `python3 System/scripts/listen.py <mixed mp4>`: `LISTEN PASS` (−14 LUFS ±1, true peak −1 dBTP or lower, no silence over 0.9 s, no clipping).
 - `python3 System/scripts/master.py <mixed mp4>`, then `--probe` each master: YouTube `h264 2160x3840 … bt709/tv`, about 30 to 60 Mb/s; TikTok `1080x1920`, about 6 to 15 Mb/s.
 - A full-frame contact sheet of the YouTube master at 1/2 s (`ffmpeg -i <yt.mp4> -vf "fps=1/2,scale=270:-1,tile=8x4" -frames:v 1 ../render/_sheet.jpg`): look for banding, blocky dark areas, soft text.

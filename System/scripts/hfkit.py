@@ -410,6 +410,7 @@ class Short:
         self.J, self.extra, self.models, self.figs, self.sounds = [], [], [], {}, []
         self.anat = {}                                 # Anatomy figures: id -> {name, keys}
         self.beats, self.moves, self.callouts = [], [], {}   # event times (for the frame audit), camera moves, callout windows
+        self.camset = []                                       # (world, start, end, x, y, scale) of every cam() move: drift() fills between them
 
     T = lambda self, i: round(self.off + self.words[i][1], 3)
 
@@ -476,6 +477,7 @@ class Short:
         to = to or (cx, cy)
         self.moves.append((w, round(t, 2), round(t + d, 2)))
         x, y = cam_to(cx, cy, z, to)
+        self.camset.append((w, round(t, 2), round(t + d, 2), x, y, z))
         if d:
             self.at(t, f'to("#{w}-cam", {{x:{x}, y:{y}, scale:{z}, duration:{d}, ease:"{ease}"}}, @);')
         else:
@@ -758,7 +760,27 @@ window.__hf.buildReady["glb"] = (async () => {
         return [f'fromTo("#c{g[0]}i", {{y:16, opacity:0}}, {{y:0, opacity:1, duration:0.15, ease:"expo.out"}}, {self.timed[g[0]][1]});'
                 for g in groups(self.timed)]
 
-    def write(self, W, rev, css="", flood=None, trans=None, blur=False, opening=True, first=()):
+    def drift(self, rate=0.025, cap=0.06, gap=1.2):
+        """A still camera is a still picture (pace.py found 2 to 4.7 s holds at the hook and the ending of most Shorts,
+        30 Oct 2026). Between cam() moves, outside callouts, each world's camera pushes in slowly around the stage centre:
+        `rate` of scale a second, at most `cap` a stretch, only in stretches of `gap` s or more. Frame 0 stays as composed."""
+        F = FOCUS
+        for w in self.ORDER:
+            a, b = self.win[w]
+            busy = sorted([(m[1], m[2], m[3:]) for m in self.camset if m[0] == w] +       # a move ends at its own (x, y, scale)
+                          [(c0 - 0.1, (c1 if c1 is not None else b) + 0.1, None) for c0, c1 in self.callouts.values() if a <= c0 < b])
+            x, y, z, t = 0.0, 0.0, 1.0, a
+            for g0, g1, end in busy + [(b, b, None)]:
+                if g0 - t >= gap:
+                    z2 = round(z * (1 + min(cap, rate * (g0 - t))), 4)
+                    cx, cy = (F[0] - x) / z, (F[1] - y) / z                                  # the canvas point under the stage centre stays put
+                    x, y, z = round(F[0] - z2 * cx, 1), round(F[1] - z2 * cy, 1), z2
+                    self.at(t, f'to("#{w}-cam", {{x:{x}, y:{y}, scale:{z}, duration:{round(g0 - t - 0.05, 2)}, ease:"sine.inOut"}}, @);')
+                if end:
+                    x, y, z = end
+                t = max(t, g1)
+
+    def write(self, W, rev, css="", flood=None, trans=None, blur=False, opening=True, first=(), drift=True):
         """W: {"w1": html, ...}. trans: {"w2": "whip", ...} (default cut; use 3 to 5 kinds, at most a third hard cuts).
         flood: the scene number where the solution's colour flood starts. blur: HyperFrames' render-time motion blur.
         first: selectors on screen from frame 0 (the hook's claim; frame 0 is the thumbnail on social players)."""
@@ -781,6 +803,8 @@ window.__hf.buildReady["glb"] = (async () => {
             head.append(f'to("#flood", {{opacity:1, duration:0.6, ease:"power2.inOut"}}, {round(self.S[flood] - 0.2, 3)});')
         if opening:
             self.sfx(0.12, "impact-bass-2", -24, align="peak")
+        if drift:
+            self.drift()
         J = ["tl." + h for h in head] + self.J
         three = (f'<script type="module">{self._three()}</script>' if self.models else
                  '<script>window.__render3d = () => {}; window.__boxes3d = []; window.__ready3d = true;</script>')   # 2D only; the overlap check still runs

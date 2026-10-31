@@ -39,7 +39,7 @@ Write the answers verbatim as the first line of the Status note.
 
 ## 5. Check, render, master
 
-Run `/short-qa` steps 1 to 3 before the render (lint, `check3d`, frame audit); then render (`--crf 14`, background), `mix_audio.py`, `listen.py`, `master.py`, and `/short-qa` step 4 on the mixed mp4. Thumbnail: `v.thumb(...)`. Publish pack: write `upload/publish.json` and run `publish.py --dry-run` (`/short-publish` §1).
+Run `/short-qa` steps 1 to 3 before the render (lint, `check3d`, frame audit); then render (`--crf 14`, background), `mix_audio.py`, `listen.py`, `pace.py`, `master.py`, and `/short-qa` step 4 on the mixed mp4. Thumbnail: `v.thumb(...)`. Publish pack: write `upload/publish.json` and run `publish.py --dry-run` (`/short-publish` §1).
 
 ## 6. Stop for review
 

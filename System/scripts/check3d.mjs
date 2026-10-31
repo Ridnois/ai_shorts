@@ -7,7 +7,7 @@
 //   CLIPPED      text or a deck element (claim, label, card, tag, chip, prompt) not fully inside the screen (x 0 to 1080) and the world clip (y under 1170): wherever the camera is
 //   TEXT OVER PICTURE  a claim, number, card, tag or chip sitting on a figure, frame or Hairline host (shrunk 6 %, callout labels excepted): move the text, or time it after the camera has settled
 //   OVERFLOW     text outside the card, tag or prompt that holds it, or a one-line label that wrapped (a chip over the border, a callout label split in two)
-//   SPARSE       everything but the captions (text, 3D, .art illustrations and .hl Hairline figures) covers under a quarter of the stage (y 180 to 1440) for over 3 s in a row
+//   SPARSE       everything but the captions (text, 3D, .art illustrations and .hl Hairline figures) covers under a quarter of the stage (y 180 to 1440) for over 2 s in a row
 // Usage: node check3d.mjs [index.html]     exit code 1 when anything overlaps. Shared copy: System/scripts/check3d.mjs
 // ponytail: puppeteer-core and Chrome are borrowed from the hyperframes npx cache; pin them if this becomes a tool.
 import { createRequire } from "module";
@@ -114,7 +114,7 @@ const longest = ts => { let best = [0, ts[0], ts[0]], a = ts[0];            // l
     if (ts[i - 1] - a + 0.125 > best[0]) best = [ts[i - 1] - a + 0.125, a, ts[i - 1]]; a = ts[i]; } return best; };
 for (const [k, ts] of Object.entries(warn)) {
   const [run, a, b] = longest(ts);
-  if (!k.startsWith("SPARSE") || run > 3)
+  if (!k.startsWith("SPARSE") || run > 2)                       // Format §4: no third of the frame empty for 2 s
     console.log(`WARN ${k}: ${(ts.length * STEPV).toFixed(1)} s in all, longest ${run.toFixed(2)} s (${a} to ${b} s)`); }
 console.log(keys.length ? `${keys.length} overlap kinds` : "OVERLAPS 0");
 process.exit(keys.length ? 1 : 0);

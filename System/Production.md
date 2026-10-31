@@ -41,11 +41,12 @@ One continuous take for the whole script (`voice.py`): scenes are paragraphs of 
 | Page lint | `HYPERFRAMES_NO_TELEMETRY=1 npx --yes hyperframes@0.8.209 check --json` (in `hf/`) | no errors (nested-structure and dense-track warnings accepted) |
 | Layout | `node System/scripts/check3d.mjs hf/index.html` | `OVERLAPS 0`, no `CLIPPED`, `OVERFLOW`, `TEXT OVER PICTURE` |
 | Frames | `npx --yes hyperframes@0.8.209 snapshot --at "$(cat ../render/_beats.txt)"` (in `hf/`) | every contact sheet read; a fault found once is searched for on all frames |
+| Pace | `python3 System/scripts/pace.py <render mp4>` | `PACE PASS`: no still picture over 3 s, none over 1.5 s in the first 3 s (`hfkit` drifts the camera between moves; a FAIL is a beat with nothing happening: add an event) |
 | Sound | `python3 System/scripts/listen.py <mixed mp4>` | `LISTEN PASS`: −14 LUFS ±1, true peak −1 dBTP or lower, no silence over 0.9 s |
 | Master | `python3 System/scripts/master.py <mixed mp4>` | `MASTER yt` 2160x3840 bt709 and `MASTER tt` 1080x1920 |
 | Vault | `python3 System/scripts/check_vault.py` | passes |
 
-**Say what was not checked:** how the voice and effects sound and the pace in motion (the agent reads frames and numbers, it cannot watch or listen).
+**Say what was not checked:** how the voice and effects sound, and whether the motion means something (`pace.py` measures that the picture moves, not why; the agent reads frames and numbers, it cannot watch or listen).
 
 ## Master (why YouTube looked soft)
 
