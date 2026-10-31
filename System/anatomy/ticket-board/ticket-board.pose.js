@@ -683,7 +683,7 @@ const sm = (u) => { u = cl(u); return u * u * (3 - 2 * u); };
 const op = (el, v) => { el.style.opacity = v <= 0.001 ? "0" : v >= 0.999 ? "1" : v.toFixed(3); };
 const path = (pts) => pts.map((p, i) => { const [x, y] = iso(p, P); return (i ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1); }).join("") + "Z";
 window.__ANP["ticket-board"] = {
-  init: { train: 0, prune: 0, rewind: 0, fresh: 0, lit: 0, acc: 0.12 },
+  init: { train: 0, prune: 0, rewind: 0, again: 0, fresh: 0, lit: 0, acc: 0.12 },
   apply(svg, s, t) {
     // train: every chip deepens from its light start colour to deep blue (red for the survivors' fresh numbers)
     for (let i = 0; i < N; i++) {
@@ -696,7 +696,7 @@ window.__ANP["ticket-board"] = {
         op(g, 1 - sm(f * 1.4 - 0.4));
       } else {
         // survivors: rewind sets the trained look back to the start numbers; fresh swaps them for new random ones
-        const tr = s.train * (1 - s.rewind);
+        const tr = Math.max(s.train * (1 - s.rewind), s.again);
         op(part(svg, "sv" + sv + "-fresh"), s.fresh);
         op(part(svg, "sv" + sv + "-trained"), tr * (1 - s.fresh));
         op(part(svg, "sv" + sv + "-trainedred"), tr * s.fresh);

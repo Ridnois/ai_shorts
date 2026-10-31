@@ -74,8 +74,8 @@ function ticket(i, survivor) {
   o.push(poly([[x - 8, y + TK / 2, z + 2], [x + 8, y + TK / 2, z + 2], [x + 8, y + TK / 2, z + 3.4], [x - 8, y + TK / 2, z + 3.4]], "tb-ink"));
   const g = `<g data-part="${survivor ? "sv" + SURVIVORS.indexOf(i) : "tk" + i}">${o.join("")}</g>`;
   if (!survivor) return g;
-  const lit = `<g data-part="lit${SURVIVORS.indexOf(i)}" style="opacity:0">${slab({ x: x - TK / 2 - 1.5, y: y - TK / 2 - 1.5, w: TK + 3, d: TK + 3, r: 2 }, z + TK_H, 3, { className: "tb-y" })}</g>`;
-  return g + lit;
+  const lit = `<g data-part="lit${SURVIVORS.indexOf(i)}" style="opacity:0">${slab({ x: x - TK / 2 - 6, y: y - TK / 2 - 6, w: TK + 12, d: TK + 12, r: 3 }, z + 0.3, 3.2, { className: "tb-y" })}</g>`;
+  return lit + g;
 }
 function dial() {
   const { x, y, r } = DIAL, o = [disc(x, y, r + 5, Z0, DIAL_H - 4), disc(x, y, r, Z0 + DIAL_H - 4, 4)];
@@ -136,7 +136,7 @@ const sm = (u) => { u = cl(u); return u * u * (3 - 2 * u); };
 const op = (el, v) => { el.style.opacity = v <= 0.001 ? "0" : v >= 0.999 ? "1" : v.toFixed(3); };
 const path = (pts) => pts.map((p, i) => { const [x, y] = iso(p, P); return (i ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1); }).join("") + "Z";
 window.__ANP[${JSON.stringify(NAME)}] = {
-  init: { train: 0, prune: 0, rewind: 0, fresh: 0, lit: 0, acc: 0.12 },
+  init: { train: 0, prune: 0, rewind: 0, again: 0, fresh: 0, lit: 0, acc: 0.12 },
   apply(svg, s, t) {
     // train: every chip deepens from its light start colour to deep blue (red for the survivors' fresh numbers)
     for (let i = 0; i < N; i++) {
@@ -149,7 +149,7 @@ window.__ANP[${JSON.stringify(NAME)}] = {
         op(g, 1 - sm(f * 1.4 - 0.4));
       } else {
         // survivors: rewind sets the trained look back to the start numbers; fresh swaps them for new random ones
-        const tr = s.train * (1 - s.rewind);
+        const tr = Math.max(s.train * (1 - s.rewind), s.again);
         op(part(svg, "sv" + sv + "-fresh"), s.fresh);
         op(part(svg, "sv" + sv + "-trained"), tr * (1 - s.fresh));
         op(part(svg, "sv" + sv + "-trainedred"), tr * s.fresh);
@@ -186,6 +186,7 @@ writeFileSync(join(HERE, `${NAME}.json`), JSON.stringify({ width: WIDTH, height:
     train: "0..1 every chip deepens from light blue (its starting number) to deep blue (trained); survivors' chips follow",
     prune: "0..1 the weakest 32 tickets drop through the board in turn, leaving four",
     rewind: "0..1 the reel turns two turns back and the survivors' chips return to their light starting colour",
+    again: "0..1 the survivors train again from where the rewind left them (chips deepen; with fresh they deepen to dark red)",
     fresh: "0..1 the survivors swap their starting numbers for new random ones (red); with train they deepen to dark red",
     lit: "0..1 the four survivors turn yellow: the winning ticket",
     acc: "0..1 the dial needle (accuracy); rest 0.12",
@@ -195,7 +196,7 @@ console.log("wrote", NAME, svg.length, "bytes", WIDTH, "x", HEIGHT, "scale", P.s
 
 if (process.argv.includes("--preview")) {
   const t = Number(process.argv[process.argv.indexOf("--preview") + 1]) || 0;
-  const st = { train: 0, prune: 0, rewind: 0, fresh: 0, lit: 0, acc: 0.12 };
+  const st = { train: 0, prune: 0, rewind: 0, again: 0, fresh: 0, lit: 0, acc: 0.12 };
   const args = process.argv.find((a) => a.startsWith("--state="));
   if (args) Object.assign(st, JSON.parse(args.slice(8)));
   const vars = "--anatomy-paper:#FFFFFF;--anatomy-face:#FFFFFF;--anatomy-top:#FFFFFF;--anatomy-shade-0:#C4BAA6;--anatomy-shade-1:#D4CBB9;--anatomy-shade-2:#E3DCCD;--anatomy-shade-3:#F1ECE2;--anatomy-hi:#121212;--anatomy-mid:#3D3932;--anatomy-lo:#5A554B;--anatomy-faint:#B3AA98;--anatomy-lit:#121212;--anatomy-lit-top:#FFD23F;--anatomy-lit-shade:#F0B90F;--anatomy-halo:#6F6552;--anatomy-halo-opacity:.30;--anatomy-dot:#121212;--anatomy-weight:3.2px;--anatomy-red:#D7392B;--anatomy-green:#13965A;--anatomy-blue:#2C5BEA";
