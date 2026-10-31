@@ -34,7 +34,10 @@ def channel(tok):
 
 
 def require_channel(tok):
-    cid, title = channel(tok)
+    try:
+        cid, title = channel(tok)
+    except urllib.error.HTTPError as e:  # 403: an old upload-only token, which cannot say which channel it is
+        sys.exit(f"Cannot check the token's channel (HTTP {e.code}): run python3 System/scripts/youtube_auth.py")
     if cid != CHANNEL_ID:
         sys.exit(f"Wrong YouTube channel: the token reaches '{title}' ({cid}), not Next Token ({CHANNEL_ID}). "
                  "Run python3 System/scripts/youtube_auth.py and pick the NextToken brand channel at the account step.")
