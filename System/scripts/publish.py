@@ -143,7 +143,8 @@ def main():
     out.append("master " + run(f"{HERE}/master.py", master, "--probe")[1].strip())
     vid = resume
     if not vid:
-        extra = (["--tags", cfg["tags"]] if cfg.get("tags") else []) + (["--synthetic"] if cfg.get("synthetic") else []) \
+        tags = ", ".join(cfg["tags"]) if isinstance(cfg.get("tags"), list) else cfg.get("tags")   # a list or "a, b, c"
+        extra = (["--tags", tags] if tags else []) + (["--synthetic"] if cfg.get("synthetic") else []) \
                 + (["--publish-at", cfg["publish_at"]] if cfg.get("publish_at") else [])
         for _ in range(2):
             rc, o = run(f"{HERE}/youtube_upload.py", "upload", master, "--title", cfg["title"], "--desc-file", f"{up}/desc.txt", "--privacy", privacy, *extra)
