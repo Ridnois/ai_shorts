@@ -1,0 +1,51 @@
+{
+ "width": 600,
+ "height": 425,
+ "params": {
+  "heat": "0..1 the heat sink fins glow red and warm beads start to ride the first channel",
+  "flow": "phase, any number: beads ride the channels (warm out to the tower, cool back); +1 is one full lap of one bead slot",
+  "evap": "0..1 vapour puffs rise out of the fan stack; cool beads return; the basin water dims",
+  "rise": "phase, any number: how far the puffs have travelled (use with evap)",
+  "fan": "phase, any number: the fan blades turn one turn per unit",
+  "drops": "0..5 the lamps on the rail light one by one (drops of water)",
+  "power": "0..1 the dial needle sweeps (electricity the cooling takes); rest 0.18"
+ },
+ "anchors": {
+  "chip": [
+   179.9,
+   100.8
+  ],
+  "hot": [
+   296.7,
+   213
+  ],
+  "cool": [
+   268.7,
+   231.7
+  ],
+  "tower": [
+   474.7,
+   274.2
+  ],
+  "stack": [
+   432,
+   193.6
+  ],
+  "vapour": [
+   432,
+   128.4
+  ],
+  "drops": [
+   324.1,
+   327.9
+  ],
+  "dial": [
+   120.6,
+   221.4
+  ],
+  "basin": [
+   483.9,
+   318.3
+  ]
+ }
+}
