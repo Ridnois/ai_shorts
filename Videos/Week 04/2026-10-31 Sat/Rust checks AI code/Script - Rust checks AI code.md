@@ -2,7 +2,7 @@
 type: script
 updated: 2026-10-31
 series: Agent at work
-words: 167
+words: 163
 ---
 
 # Script: Rust checks AI code
@@ -10,6 +10,13 @@ words: 167
 Status: [[Rust checks AI code - Status]] · rules: [[Format]] §3
 
 ## Research (31 Oct 2026)
+
+r2 (user: "explain why is it choosen over typescript and explain how rust works. with a note about why AI chooses it"):
+
+0. **OpenAI, "Codex CLI is Going Native"**, GitHub discussion #1174, fouad-openai, 30 May 2025 (read and captured 31 Oct 2026): Codex CLI moves from TypeScript to Rust. Reasons as written: "Zero-dependency Install — currently Node v22+ is required"; "Native Security Bindings — … we already ship a Rust for linux sandboxing"; "Optimized Performance — no runtime garbage collection, resulting in lower memory consumption"; "Extensible Protocol". InfoQ (4 Jun 2025) and heise report the same.
+00. **Rust's rules, shown with real rustc 1.94.1 errors** on two examples I wrote (`Media/…/run/rustc/`): `moved.rs` → `error[E0382]: borrow of moved value: a`; `borrow.rs` → `error[E0502]: cannot borrow v as mutable because it is also borrowed as immutable`.
+
+r1 research, kept:
 
 1. **Premise check:** the request said Rust is "the most chosen language to code with AI". Not supported: GitHub Octoverse (28 Oct 2025, updated 28 Feb 2026, read 31 Oct 2026, captured): "TypeScript overtook both Python and JavaScript in August 2025 to become the most used language on GitHub", 2,636,006 monthly contributors (+66.6 %); "Type systems reduce ambiguity and catch LLM errors before production."
 2. **Recorded runs**, 31 Oct 2026 02:50 to 03:03 (-03): Claude Code 2.1.314, `claude -p --model claude-haiku-5-5 --effort low`, file tools plus only `cargo build`/`cargo run` or `python3`, a fresh copy of a small shop crate (`Media/…/run/sandbox-shop`) or `shop.py` each run; `agent.sh`, `grade.py`, `grade_t.py`, `README.md`, one `.jsonl` stream per run.
@@ -19,23 +26,23 @@ Status: [[Rust checks AI code - Status]] · rules: [[Format]] §3
 
 **Not verified:** a handful of small tasks on one model (Haiku 5.5): an illustration, not a benchmark; a bigger repository-level task was not run. The paper's "half" is 51.8 % on C-to-Rust translation, one of two datasets (UpdatedAPI: 51.7 %). "Refuses any code it can't prove safe" is the plain-words version of safe Rust's ownership and borrow rules (`unsafe` blocks opt out).
 
-## Package
+## Package (r2)
 
-- **Promise:** whether Rust is really the AI-coding language, shown on real agent runs.
-- **Titles:** **Is Rust the Best Language for AI Coding? I Tested Claude** ← · I Tried to Make Claude Write Broken Rust · Why AI Writes Better Code in Typed Languages
-- **Frame 0:** 12 TRIES. 0 ERRORS. over the compile gate passing a part. **Thumbnail:** the gate, "AI NEVER BROKE RUST".
-- **Hooks:** result ← "I gave Claude twelve chances to write broken Rust. It never did." · number "Half of Claude's Rust didn't compile." · contradiction "Rust isn't the language AI made number one."
+- **Promise:** why OpenAI chose Rust over TypeScript for Codex, how Rust's rules work, and why AI agents like them.
+- **Titles:** **Why OpenAI Rewrote Codex in Rust: How Rust Works** ← · Rust vs TypeScript: Why AI Tools Switch to Rust · How Rust Works in 60 Seconds (and Why AI Likes It)
+- **Frame 0:** CODEX: TYPESCRIPT → RUST over OpenAI's post title and the ownership figure. **Thumbnail:** the ownership figure, "RUST OVER TYPESCRIPT?".
+- **Hooks:** fact ← "OpenAI rewrote its Codex coding agent from TypeScript into Rust." · question-free contrast "TypeScript is GitHub's number one language. OpenAI dropped it." · mechanism "Rust frees memory with no garbage collector."
 
-## Scenes
+## Scenes (r2)
 
 | # | Beat | Voice (as read) | Words | Viewer sees happen | Source |
 | --- | --- | --- | --- | --- | --- |
-| 1 | hook | I gave Claude twelve chances to write broken Rust. It never did. | 12 | Anatomy `compile-gate`: the part is inspected, passes green into the tray | 2 to 4 |
-| 2 | stake | Rust's compiler refuses any code it can't prove safe. That's why people call it the best language for AI coding. So I tested it. | 24 | the gate rejects a part (red lamp, kicked to the return chute); the question; 12 runs a language | 5 |
-| 3 | mechanism | Claude Haiku five point five. A small shop app. One new feature. Cargo built it on the first try, nine times out of nine. | 24 | the real command, the code Claude wrote (`std::mem::take`), the real `cargo build` output; parts pass | 2, 3 |
-| 4 | mechanism 2 | Then the hard case: four threads selling from one shared store. Rust won't share it unguarded, and Claude added a lock every time. | 23 | Claude's real `Arc<Mutex>` code, the lock row lit; `bread left: 0`; LOCK: 3 OF 3 | 4 |
-| 5 | turn (50 %) | But those are small programs. On real codebases, a July twenty twenty-six paper found half of Claude Opus four point eight's Rust translations didn't compile. With the compiler's errors fed back: seven and a half percent. | 36 | a reject on the gate; the paper's title and Table 1 row, 51.8 % ringed red, 7.5 % green; reject, return, pass | 5 |
-| 6 | turn 2 | And the language AI pushed to number one on GitHub isn't Rust. It's TypeScript, for the same reason: types catch the model's mistakes. | 23 | Octoverse captures; "catch LLM errors"; the gate checks a part | 1 |
-| 7 | payoff, loop | So code with AI in a typed language, and make the agent run the checker. Small code, it won't need it. Big code, it will. | 25 | the part passes the gate; BIG CODE NEEDS IT; a new part rides in | 1, 5 |
+| 1 | hook | OpenAI rewrote its Codex coding agent from TypeScript into Rust. | 10 | OpenAI's post title; Anatomy `ownership` | 0 |
+| 2 | stake | TypeScript is GitHub's most used language, so why switch? OpenAI listed three reasons: no Node to install, native sandboxing, and no garbage collector. | 23 | Octoverse crop; the three reasons cropped from OpenAI's post, one per word; the crate is freed | 0, 1 |
+| 3 | mechanism | That last one is how Rust works. Every value has exactly one owner. When the owner is done, the memory is freed. No collector runs in the background. | 28 | `ownership`: the crate and its one blue key; the hatch opens, the crate is gone | (Rust rules) |
+| 4 | mechanism 2 | Hand the value to a new owner, and the old name can't touch it. Try, and the compiler stops the build before anything runs. | 24 | the key arcs to post b; post a lights red; the real E0382 error | 00 |
+| 5 | mechanism 3 | Borrowing has one rule: many readers, or one writer, never both. That's why two threads can't corrupt the same data. | 20 | three lenses light; the stamp lowers and the lenses go dark; the real E0502 error; NO DATA RACES | 00 |
+| 6 | turn (64 %), the AI note | But the reason AI agents like it: the compiler checks every line the model writes. In a July twenty twenty-six paper, half of Claude Opus four point eight's Rust translations didn't compile. Fed the compiler's errors: seven and a half percent. | 41 | `compile-gate` rejects a part; the paper's title and Table 1 row, 51.8 % red, 7.5 % green; reject, return, pass | 5 |
+| 7 | payoff, loop | So TypeScript is easier to write. Rust is harder to get wrong. That's the trade OpenAI made. | 17 | TYPESCRIPT: EASY TO WRITE / RUST: HARD TO GET WRONG; readers, writer, the key moves | 0 |
 
-Words: 167 (52.4 s take, 54.3 s video). Turn at 50 %. Loop: "...Big code, it will. I gave Claude twelve chances to write broken Rust..." Self-test: hook 12 words, names Claude and Rust; stake by 10 s (the claim tested); re-hooks at 12 s (the run), 20 s (hard case), 27 s (but), 38 s (TypeScript); no banned words. Cut test dropped a Python sentence (Python also passed every test) and the 13.1 % average.
+Words: 163 (54.2 s take, 56.1 s video). Turn at 64 %. Loop: "...That's the trade OpenAI made. OpenAI rewrote its Codex coding agent..." Self-test: hook 10 words, names OpenAI, Codex, TypeScript and Rust; stake by 10 s (TypeScript is #1, why switch); re-hooks at 14 s (how Rust works), 22 s (move), 29 s (borrowing), 36 s (but, AI); no banned words. Whisper heard "build" as "bill" in r2's take; the words file says "build". "Many readers or one writer" is the plain-words version of the borrow rules; safe Rust prevents data races, not every concurrency bug. The r1 runs (24 agent runs, 0 compiler errors) are not in r2.

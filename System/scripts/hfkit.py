@@ -577,7 +577,7 @@ class Short:
         css, mods = "", ""
         for name in sorted({f["name"] for f in self.anat.values()}):
             d = f"{ANATOMY}/{name}"
-            css += open(f"{d}/{name}.css").read() if not css else ""
+            css += open(f"{d}/{name}.css").read()          # every figure's sheet: the shared kit rules repeat, but each figure's own tints (ow-*, cg-*) must load
             mods += f"(() => {{\n{open(f'{d}/{name}.pose.js').read()}\n}})();\n"
         return (f"<style>{css}</style><script>window.__ANP = {{}};\n{mods}"
                 "const AN = " + json.dumps(self.anat) + ";\n" + r"""
