@@ -1,6 +1,6 @@
 ---
 type: index
-updated: 2026-10-30
+updated: 2026-11-03
 ---
 
 # Next Token: video index
@@ -13,6 +13,7 @@ Agent entry: `CLAUDE.md`. What a Short is: [[Format]] · brand and design system
 
 | Video | Series · words · voice | State | Notes |
 | --- | --- | --- | --- |
+| AI attention explained | How AI works · 163 · Dennis (rate 1.1) | r3 (50.3 s), recorded BERT attention weights + Anatomy `attention-desk` + Jain and Wallace (arXiv) captures; masters and pack built; waiting for the user's verdict | [[AI attention explained - Status]] · [[Script - AI attention explained]] |
 | Agent deleted a database | Agent at work · 160 · Dennis (rate 1.1) | r1 (49.7 s), Hairline `cabinet`, `slow`, `vault` + real captures; masters and pack built; shipped (user), public 29 Oct 2026 ([`luFmnJcR0nw`](https://youtu.be/luFmnJcR0nw)) | [[Agent deleted a database - Status]] · [[Script - Agent deleted a database]] |
 | Antibiotics aimed at infection | What's coming (off-niche, no AI) · 167 · Dennis (rate 1.1) | r1 (54.2 s), Anatomy `gut-carrier` + WHO, Wellcome Leap, Purdue captures; masters and pack built; shipped (user); public 29 Oct 2026 ([`k1kip6GHts0`](https://youtu.be/k1kip6GHts0)) | [[Antibiotics aimed at infection - Status]] · [[Script - Antibiotics aimed at infection]] |
 | Can AI replace lawyers | How AI works · 168 · Dennis (rate 1.1) | r1 (53.1 s), Anatomy `citator`, Hairline `loop`, `temperature` + Charlotin, Free Law Project, Stanford, SRA captures; masters and pack built; shipped (user), public 29 Oct 2026 ([`HZveOw1x7Vs`](https://youtu.be/HZveOw1x7Vs)) | [[Can AI replace lawyers - Status]] · [[Script - Can AI replace lawyers]] |
