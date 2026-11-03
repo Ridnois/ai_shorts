@@ -5,7 +5,7 @@ For each video, into Media/_research/<id>/ (local, gitignored): the YouTube stor
 when scrubbing, format sb0) tiled into sheet.jpg with each tile's time, the auto captions as transcript.txt with times,
 and meta.json (title, channel, views, duration). The agent reads sheet.jpg and transcript.txt and writes a note in
 Research/Shots/ from Research/Shots/_template.md. Needs yt-dlp (`uv tool install yt-dlp`)."""
-import email, glob, json, os, re, shutil, subprocess, sys
+import glob, json, os, re, shutil, subprocess, sys, urllib.request
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 YT = shutil.which("yt-dlp") or os.path.expanduser("~/.local/bin/yt-dlp")
@@ -22,23 +22,23 @@ def study(v):
     meta = json.loads(subprocess.run([YT, "-q", "--skip-download", "--dump-json", url], capture_output=True, text=True).stdout or "{}")
     keep = {k: meta.get(k) for k in ("title", "channel", "uploader_id", "view_count", "duration", "upload_date", "like_count")}
     json.dump(keep, open(f"{out}/meta.json", "w"), indent=1)
-    # storyboard: an mhtml of sprite sheets (each a grid of frames); fragments are evenly spaced over the video
-    subprocess.run([YT, "-q", "-f", "sb0", "-o", f"{out}/sb.%(ext)s", url], capture_output=True, text=True)
-    sprites = []
-    for f in glob.glob(f"{out}/sb*.mhtml"):  # parts are WebP although named as images
-        msg = email.message_from_binary_file(open(f, "rb"))
-        for k, part in enumerate(p for p in msg.walk() if p.get_content_type().startswith("image/")):
-            path = f"{out}/sprite-{k:03d}.jpg"; open(path, "wb").write(part.get_payload(decode=True)); sprites.append(path)
-        os.remove(f)
+    # storyboard: the sb0 format lists its sprite sheets (grids of frames) as fragments with direct URLs
     sb = next((x for x in meta.get("formats", []) if x.get("format_id") == "sb0"), {})
+    sprites = []
+    for k, fr in enumerate(sb.get("fragments", [])):
+        u = fr.get("url") or (sb.get("fragment_base_url", "") + fr.get("path", ""))
+        path = f"{out}/sprite-{k:03d}.webp"
+        try:
+            req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"})
+            open(path, "wb").write(urllib.request.urlopen(req, timeout=30).read()); sprites.append(path)
+        except Exception as e:
+            print(f"sprite {k}: {e}")
     w, h = sb.get("width", 101), sb.get("height", 180)
     frames = []
     from PIL import Image, ImageDraw               # sprites are WebP grids; the last one is often a partial grid
     for sp in sorted(sprites):
-        png = sp[:-4] + ".png"                        # this Pillow has no WebP decoder: ffmpeg converts each sprite first
-        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", sp, png], capture_output=True)
-        if not os.path.exists(png): continue
-        im = Image.open(png).convert("RGB"); os.remove(png)
+        try: im = Image.open(sp).convert("RGB")        # WebP; ffmpeg's WebP decoder garbles these sprites, Pillow reads them
+        except OSError: continue
         for r in range(im.height // h):
             for c in range(im.width // w):
                 frames.append(im.crop((c * w, r * h, (c + 1) * w, (r + 1) * h)))
