@@ -1,6 +1,6 @@
 ---
 type: video-idea
-status: review
+status: shipped
 series: Agent at work
 score: 18
 publish: 
