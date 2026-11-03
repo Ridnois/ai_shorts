@@ -91,10 +91,10 @@ Change a rule here and in `hfkit.py` together; never fork a component inside a v
 | --- | --- | --- |
 | `tokens(id, pieces, x, y, w)` | text split into token chips (pass the real split from the model's tokenizer) | `chips` (arrive in order), `light` (one chip) |
 | `probs(id, rows, x, y, w)` | next-token odds as ink bars, highest first | `grow` (bars fill to their value), `light` (the pick) |
-| `heatmap(id, labels, matrix, x, y, w)` | an attention grid, cell ink by weight | `reveal` (cells fill by row), `light` (one row) |
+| `heatmap(id, labels, weights, x, y, w)` | an attention grid, cell ink by weight | `reveal` (cells fill by row), `light` (one row) |
 | `vecgrid(id, vectors, x, y, w)` | arrows on a dot grid (embeddings, a vector sum) | `grow` (arrows draw from the origin) |
 | `scatter(id, points, x, y, w)` | an embedding map: labelled dots, clusters by colour | `chips` (dots land), `light` (one cluster) |
-| `layer(id, sizes, x, y, w)` | a small network: columns of nodes and thick links | `reveal` (activations flow left to right) |
+| `net(id, sizes, x, y, w, h)` | a small network: columns of nodes and thick links | `reveal` (activations flow left to right) |
 | `matrix(id, rows, x, y, w)` | a grid of numbers (weights, a product) | `chips` (cells land), `light` (one cell) |
 | `loop(id, steps, x, y, w)` | the agent ring: plan, act, check around a centre | `step` per node (`on`, `done`, `bad`, `good`) |
 

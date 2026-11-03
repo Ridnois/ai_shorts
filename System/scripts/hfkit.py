@@ -233,7 +233,7 @@ def ask(id_, question, answers):
 # ---- ML primitives (Build: Kit; 3 Nov 2026). The 3Blue1Brown lesson: own the pieces every mechanism is made of, so a
 # video is a new arrangement of polished parts. Each is one box (class "art", a picture in the camera) whose parts carry
 # ids <id>-c<k> in reading order: v.parts() lands them one by one, v.hot() marks one, v.fill() / v.draw() grow bars and arrows.
-TINTS = [WHITE, BLUE2, YELLOW2, GREEN2, RED2]
+TINTS = [WHITE, BLUE2, PAPER2, GREEN2]          # never yellow: yellow is the hero (v.hot)
 
 
 def _mix(a, b, f):
@@ -248,7 +248,7 @@ def tokens(id_, pieces, x, y, w, size=60):
     chips = ""
     for k, p in enumerate(pieces):
         lead = '<i class="sp">·</i>' if p.startswith(" ") else ""
-        chips += f'<span class="tk" id="{id_}-c{k}" style="background:{TINTS[k % 4]}">{lead}{html.escape(p.strip() or "␣")}</span>'
+        chips += f'<span class="tk" id="{id_}-c{k}" style="background:{TINTS[k % 3]}">{lead}{html.escape(p.strip() or "␣")}</span>'
     return f'<div class="art prim toks" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;font-size:{size}px">{chips}</div>'
 
 
@@ -275,7 +275,7 @@ def heatmap(id_, labels, matrix, x, y, w, cols=None):
     lw = 210
     cs = (w - lw) // m
     top = 190
-    out = "".join(f'<div class="hc" style="left:{lw + c * cs}px;top:0;width:{cs}px;height:{top - 10}px"><span>{html.escape(t)}</span></div>'
+    out = "".join(f'<div class="hc" style="left:{lw + c * cs}px;top:0;width:{cs}px;height:{top - 34}px"><span>{html.escape(t)}</span></div>'
                   for c, t in enumerate(cols))
     for r, t in enumerate(labels):
         out += f'<div class="hr" id="{id_}-r{r}" style="top:{top + r * cs}px;width:{lw - 14}px;height:{cs}px;line-height:{cs}px">{html.escape(t)}</div>'
@@ -305,7 +305,7 @@ def vecgrid(id_, vectors, x, y, w, extent=4):
         hx, hy = x1 - 34 * math.cos(ang), y1 - 34 * math.sin(ang)
         head = " ".join(f"{round(a, 1)},{round(b, 1)}" for a, b in ((x1, y1), (hx - 20 * math.sin(ang), hy + 20 * math.cos(ang)),
                                                                    (hx + 20 * math.sin(ang), hy - 20 * math.cos(ang))))
-        lx, ly = x1 + 22 * math.cos(ang), y1 + 22 * math.sin(ang)
+        lx, ly = x1 + 34 * math.cos(ang) + 10, y1 + 34 * math.sin(ang) - (30 if abs(math.cos(ang)) > 0.7 else 0)
         vs += (f'<g id="{id_}-c{k}"><line id="{id_}-v{k}" x1="{x0}" y1="{y0}" x2="{hx}" y2="{hy}" pathLength="1" stroke="{col}" '
                f'stroke-width="{LINE + 4}" stroke-linecap="round"/><polygon id="{id_}-h{k}" points="{head}" fill="{col}" stroke="{INK}" stroke-width="3"/>'
                + (f'<text x="{lx}" y="{ly}" font-size="48" font-weight="900" fill="{INK}" text-anchor="{"start" if math.cos(ang) >= 0 else "end"}" '
@@ -333,7 +333,7 @@ def scatter(id_, points, x, y, w, h=None):
     return (f'<div class="art prim scat" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px">{out}</div>')
 
 
-def layer(id_, sizes, x, y, w, h, labels=None):
+def net(id_, sizes, x, y, w, h, labels=None):
     """A small network: columns of nodes (sizes = [3, 5, 5, 2]) with links between neighbours. Columns are parts
     <id>-c<l> (v.parts lands them left to right); nodes <id>-n<l>-<k>; v.flow() lights the columns in turn."""
     L = len(sizes)
@@ -669,6 +669,7 @@ class Short:
     # timeline only when parts() names them, so a primitive shown whole (popped, grown) needs nothing more.
     def parts(self, id_, n, t, step=0.09, d=0.35):    # each part lands from 1.3x in reading order; one pop, not one per part
         self.at(0, f'set({sel([f"#{id_}-c{k}" for k in range(n)])}, {{opacity:0}}, @);')
+        self.at(t, f'set("#{id_}", {{opacity:1}}, @);')         # the box itself shows with its first part
         for k in range(n):
             self._arrive(f"#{id_}-c{k}", t + step * k, "scale:1.3", "scale:1", d)
         self.sfx(t, "pop", -28)
@@ -686,7 +687,7 @@ class Short:
         self.at(t, f'to("#{id_}-v{k}", {{attr:{{"stroke-dashoffset":0}}, duration:{d}, ease:"power2.inOut"}}, @);')
         self.at(t + d - 0.08, f'fromTo("#{id_}-h{k}", {{opacity:0, scale:1.6, transformOrigin:"50% 50%"}}, {{immediateRender:false, opacity:1, scale:1, duration:0.2, ease:"expo.out"}}, @);')
 
-    def flow(self, id_, sizes, t, step=0.25, col=YELLOW):   # layer(): activations light column by column, left to right
+    def flow(self, id_, sizes, t, step=0.25, col=YELLOW):   # net(): activations light column by column, left to right
         for l, n in enumerate(sizes):
             self.hot([f"#{id_}-n{l}-{k}" for k in range(n)], t + step * l, col, 0.2)
 
@@ -1199,9 +1200,31 @@ def demo(d):
     print(f"demo written: npx hyperframes snapshot {d}/hf --at 0.5,2,4,6")
 
 
+def prims(d):
+    """Build primitives-example.json on a synthetic take (no API): python3 hfkit.py --prims <dir>, then snapshot <dir>/hf."""
+    spec = json.load(open(f"{HERE}/primitives-example.json"))
+    texts = [w["say"] for w in spec["worlds"]]
+    os.makedirs(f"{d}/voice", exist_ok=True); os.makedirs(f"{d}/hf", exist_ok=True); os.makedirs(f"{d}/render", exist_ok=True)
+    t, words = 0.2, []
+    for s in texts:
+        for w in s.split():
+            words.append([w, round(t, 3), round(t + 0.3, 3)]); t += 0.38
+        t += 0.9
+    subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "lavfi", "-i", f"sine=f=180:d={t + 0.3:.2f}", "-ar", "48000", f"{d}/voice/pm-take.wav"], check=True)
+    json.dump(words, open(f"{d}/voice/pm-take.words.json", "w"))
+    json.dump({"prefix": "pm", "voices": ["voice/pm-take.wav"], "texts": texts}, open(f"{d}/plan.json", "w"))
+    json.dump(spec, open(f"{d}/hf/beats.json", "w"), indent=1)
+    from beats import Beats
+    Beats(d, spec).build(1, thumb=False)
+    print(f"primitives page written: npx hyperframes snapshot {d}/hf --at \"$(cat {d}/render/_beats.txt)\"")
+
+
 if __name__ == "__main__":                              # self-check: grid, camera maths, zones
     if "--demo" in sys.argv:
         demo(os.path.abspath(sys.argv[sys.argv.index("--demo") + 1]))
+        raise SystemExit
+    if "--prims" in sys.argv:
+        prims(os.path.abspath(sys.argv[sys.argv.index("--prims") + 1]))
         raise SystemExit
     assert [colx(k, 3) for k in range(3)] == [205, 503, 801], [colx(k, 3) for k in range(3)]
     assert colx(0, 1) == (X0 + X1) // 2 and rowy(0, 2) == 350
@@ -1215,4 +1238,10 @@ if __name__ == "__main__":                              # self-check: grid, came
     assert "assets/fonts/Inter-Black.otf" in CSS and all(os.path.exists(f"{HERE}/vendor/fonts/{n}") for _, _, n in FONTS)
     assert os.path.exists(f"{HERE}/vendor/gsap/gsap.min.js") and os.path.exists(f"{HERE}/vendor/three/three.module.js")
     assert all(os.path.exists(f"{SFX_DIR}/{n}.mp3") for n in WHOOSH + ["click", "pop", "riser", "impact-bass-2"])
+    _p = [tokens("a", ["str", "aw", "berry"], 0, 0, 800), probs("b", [("x", 0.6), ("y", 0.4)], 0, 0, 880),
+          heatmap("c", ["a", "b"], [[1, 0], [0.5, 0.5]], 0, 0, 780), vecgrid("d", [{"to": [2, 1]}], 0, 0, 700),
+          scatter("e", [[0.1, 0.1, "a", 0]], 0, 0, 800), net("f", [2, 3], 0, 0, 800, 500), matrix("g", [[1, 2]], 0, 0, 600),
+          loop("h", ["plan", "act", "check"], 0, 0, 700)]
+    assert all(f'id="{k}-c0"' in h for k, h in zip("abcdefgh", _p)), "every ML primitive names its first part <id>-c0"
+    assert 'id="b-b1"' in _p[1] and 'id="d-v0"' in _p[3] and 'id="f-n1-2"' in _p[5] and ".toks" in CSS
     print("hfkit OK")

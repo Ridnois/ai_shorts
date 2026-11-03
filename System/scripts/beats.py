@@ -23,8 +23,8 @@ sheet (rows), anatomy (name), hairline (fn, intensity, value), frame (src, px: [
 box (rect in page px, or on: a frame id and rect in that capture's px), callout (text, anchor: [x, y] | "a2:key" | "h3@vx,vy",
 label: [x, y], side, w), html (markup), clip (src: a webm/mp4 in hf/assets, plays from the world's first frame; h).
 ML primitives (pictures, in the camera; "at" is x, y, w): tokens (pieces: the real tokenizer split, size), probs (rows:
-[[token, p]], pct), heatmap (labels, matrix, cols), vecgrid (vectors: [{to, from, label, col}], extent), scatter
-(points: [[x, y, label, group]] in 0..1, h), layer (sizes, h, labels), matrix (rows, size), loop (steps, centre).
+[[token, p]], pct), heatmap (labels, weights: rows of 0..1, cols), vecgrid (vectors: [{to, from, label, col}], extent), scatter
+(points: [[x, y, label, group]] in 0..1, h), net (sizes, h, labels), matrix (rows, size), loop (steps, centre).
 Full example: primitives-example.json. Text items sit on the SCREEN layer, pictures in the camera; "layer" overrides.
 
 Times: a number (s), "@in" (the world's first frame), "@S" (the scene's first word), "word", "word#2" (its 2nd hearing),
@@ -34,7 +34,7 @@ chips [id, t] · count [sel, to, t, d?] · pose [id, t, state, d?, ease?] · poi
 cam [t, cx, cy, z, d?] · zoom ["a2:key" | "h3@vx,vy", t, z, d?] · focus [t, [x, y, w, h], fill?, d?] · wide [t, d?] ·
 mark [row id, t, db?] (lights a code row, a click) · sfx [name, t, db?, align?] · payoff [t] · rail [steps, t] · step [k, t, state?] ·
 primitives: parts [id, t, step?] (parts land in reading order) · hot [selector, t, col?] (yellow fill on a part, e.g.
-"#p1-c0") · fill [probs id, t] (bars grow) · draw [vecgrid id, k | "all", t] · flow [layer id, t] (columns light in turn)
+"#p1-c0") · fill [probs id, t] (bars grow) · draw [vecgrid id, k | "all", t] · flow [net id, t] (columns light in turn)
 """
 import argparse, json, os, re, sys
 
@@ -43,7 +43,7 @@ import hfkit as K
 
 COL = lambda c: K.PAL.get(c, c) if isinstance(c, str) else c
 SCREEN = {"big", "lbl", "tag", "code", "card", "ask", "counter", "arrow", "sheet"}
-PRIMS = {"tokens", "probs", "heatmap", "vecgrid", "scatter", "layer", "matrix", "loop"}   # ML primitives (Build: Kit)
+PRIMS = {"tokens", "probs", "heatmap", "vecgrid", "scatter", "net", "matrix", "loop"}   # ML primitives (Build: Kit)
 TYPES = SCREEN | PRIMS | {"anatomy", "hairline", "frame", "phone", "box", "callout", "html", "clip"}
 AUTO_TRANS = ["push", "whip", "cut", "blur", "dip"]
 TIME = re.compile(r"^(?:s(\d+):)?(.+?)(?:#(\d+))?([+-]\d*\.?\d+)?$")
@@ -152,13 +152,13 @@ class Beats:
         elif k == "probs":
             h = K.probs(id_, [tuple(r) for r in it["rows"]], *at, it.get("pct", True))
         elif k == "heatmap":
-            h = K.heatmap(id_, it["labels"], it["matrix"], *at, it.get("cols"))
+            h = K.heatmap(id_, it["labels"], it["weights"], *at, it.get("cols"))
         elif k == "vecgrid":
             h = K.vecgrid(id_, it["vectors"], *at, it.get("extent", 4))
         elif k == "scatter":
             h = K.scatter(id_, it["points"], *at, it.get("h"))
-        elif k == "layer":
-            h = K.layer(id_, it["sizes"], *at, it.get("h", 600), it.get("labels"))
+        elif k == "net":
+            h = K.net(id_, it["sizes"], *at, it.get("h", 600), it.get("labels"))
         elif k == "matrix":
             h = K.matrix(id_, it["rows"], *at, it.get("size", 52))
         elif k == "loop":
@@ -176,7 +176,7 @@ class Beats:
             return len(it["labels"]) * len(it.get("cols") or it["labels"])
         if k == "matrix":
             return len(it["rows"]) * max(len(r) for r in it["rows"])
-        key = {"tokens": "pieces", "probs": "rows", "vecgrid": "vectors", "scatter": "points", "layer": "sizes", "loop": "steps"}.get(k)
+        key = {"tokens": "pieces", "probs": "rows", "vecgrid": "vectors", "scatter": "points", "net": "sizes", "loop": "steps"}.get(k)
         if not key:
             raise SystemExit(f"parts: {id_} is a {k}, not an ML primitive")
         return len(it[key])

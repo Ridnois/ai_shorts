@@ -16,3 +16,5 @@ token.json
 *.p12
 # Raw API dumps stay local; the numbers live in Analytics/snapshots.csv
 Analytics/exports/
+
+System/.venv/

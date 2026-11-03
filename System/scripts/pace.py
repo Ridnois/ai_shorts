@@ -5,8 +5,8 @@
     python3 System/scripts/pace.py render/<v>.mp4 --json
 
 Reads only (ffmpeg freezedetect, local, $0). Watches the picture zones above the captions (stage and deck, y 0 to BAND top,
-from hfkit): captions change on every word and would hide a frozen picture. Against Format §4 "an event every 1.5 to 2 s,
-nothing holds still over 3 s" and the swipe decision in the first seconds:
+from hfkit): captions change on every word and would hide a frozen picture. Against Picture §Pace (motion every 2 s,
+nothing holds still over 3 s; a new composition every 5 s) and the swipe decision in the first seconds:
   FAIL  a still over 3 s anywhere, or over 1.5 s inside the first 3 s (the hook)
   WARN  a still of 2 to 3 s, or a still end over 1.4 s (the loop ending runs into the first line; a held end card reads
         as "the film gave up": motionmaxxing's measured end hold is 0.6 to 1.4 s)
@@ -38,6 +38,23 @@ def stills(path):
     return [(s, (ends[i] if i < len(ends) else end) - s) for i, s in enumerate(starts)]  # a still running into the end has no freeze_end
 
 
+COMP, COMP_GAP = 0.18, 5.0  # a frame-to-frame scene score over 0.18 (picture zones, 270 px) counts as a new composition
+
+
+def compositions(path):
+    """Times where the picture changes a lot at once (a hero swap, a shot-size change, a new world): ffmpeg's scene score."""
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", path, "-an", "-vf",
+                        f"crop=iw:{BAND[0]}:0:0,scale=270:-2,select='gt(scene,{COMP})',showinfo", "-f", "null", "-"], capture_output=True, text=True)
+    return [float(x) for x in re.findall(r"pts_time:([\d.]+)", r.stderr)]
+
+
+def comp_gaps(path):
+    """Stretches longer than COMP_GAP with no new composition (Picture §Pace, tier 2): [(start, seconds)]."""
+    ts, end = [0.0] + compositions(path), duration(path)
+    ts.append(end)
+    return [(round(a, 1), round(b - a, 1)) for a, b in zip(ts, ts[1:]) if b - a > COMP_GAP]
+
+
 def worlds(path):
     """[(start, id)] from the build's hf/index.html (render/ and hf/ are siblings)."""
     page = os.path.join(os.path.dirname(os.path.abspath(path)), "..", "hf", "index.html")
@@ -65,6 +82,10 @@ if __name__ == "__main__":
     else:
         for r in res:
             print(f"{r['level']:4}  still {r['seconds']:.1f} s at {r['start']:.1f} s" + (f" ({r['world']})" if r["world"] else "") + ("  <- the hook" if r["hook"] else "") + ("  <- the end hold" if r["end"] else ""))
+        gaps = comp_gaps(a.video)
+        for g0, gd in gaps:
+            print(f"WARN  same composition for {gd:.1f} s from {g0:.1f} s: swap the hero or change the shot size every 5 s (Picture §Pace)")
+        print(f"COMPOSITION {'WARN' if gaps else 'PASS'}: {len(compositions(a.video))} composition changes, {len(gaps)} stretch(es) over {COMP_GAP:.0f} s")
         bad = [r for r in res if r["level"] == "FAIL"]
         print(f"PACE {'FAIL' if bad else 'PASS'}: {len(res)} still(s) of {MIN} s or more, {len(bad)} over the bar"
               + ("" if bad else ", none over 3 s or in the first 3 s over 1.5 s"))
