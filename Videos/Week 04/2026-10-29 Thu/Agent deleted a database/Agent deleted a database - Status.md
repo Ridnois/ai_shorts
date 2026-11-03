@@ -21,7 +21,7 @@ updated: 2026-10-30
 
 ## Not verified
 
-How the take and effects sound and the pace in motion (I read frames and numbers). Whisper heard "to weigh" as "away" (the words file was split by hand; the take may have slurred it) and "Claude" as "clod". **No recorded run:** `claude -p --permission-mode bypassPermissions` in the toy project (`run/run1.sh`) was blocked by the auto-mode classifier; the user did not run it, so the video shows the real rule file and the real docs table, and the `rm` panel is labelled "example command". Quality score against [[Picture]] §The bar: frame 0 pass; real over drawn pass; every beat moves within 2 s except the start of w4 and w5 (about 2.5 s on a line and a frame); hero width under 70 % on the `cabinet` beats (a tall figure).
+How the take and effects sound and the pace in motion (I read frames and numbers). Whisper heard "to weigh" as "away" (the words file was split by hand; the take may have slurred it) and "Claude" as "clod". **No recorded run:** `claude -p --permission-mode bypassPermissions` in the toy project (`run/run1.sh`) was blocked by the auto-mode classifier; the user did not run it, so the video shows the real rule file and the real docs table, and the `rm` panel is labelled "example command". Quality score against [[Picture]] §Bar: frame 0 pass; real over drawn pass; every beat moves within 2 s except the start of w4 and w5 (about 2.5 s on a line and a frame); hero width under 70 % on the `cabinet` beats (a tall figure).
 
 ## Feedback
 

@@ -2,6 +2,8 @@
 type: video-idea
 status: idea
 series: 
+hook_pattern: 
+medium: 
 score: 
 publish: 
 video: 
@@ -20,11 +22,17 @@ tags: [youtube, pipeline]
 
 **Y · X** (the result the viewer wants · the mechanism in the way):
 
-**Demand** (outliers with views vs their channel median, or the autocomplete):
+**Hook pattern** (an id from [[Strategy]] §Hooks) and why people click it:
 
-**Showable** (what the viewer sees happen: capture, recorded run, Anatomy or Hairline figure):
+**Demand** (rows from [[Radar]] or `youtube_search.py`: link, views, ratio; or the autocomplete):
 
-**Hooks** (3, different types):
+**Own fit** (how our videos of this series and pattern did, from [[Report]]):
+
+**Showable** (the medium of the mechanism, [[Picture]] §Medium, the one real run or model output, and the spine):
+
+**Score** demand _ · own fit _ · showable _ · real thing _ = _ / 20
+
+**Hooks** (3, different patterns):
 
 1. 
 2. 

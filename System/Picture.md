@@ -35,12 +35,16 @@ The words it serves: [[Story]]. The components, tokens and commands: [[Build]]. 
 | Rule | Test |
 | --- | --- |
 | **Frame 0 is the thumbnail** | the hook's picture and its claim text are on screen at 0 s, readable at 170 px wide |
+| **Open on the end state** | frame 0 shows the finished picture (the whole chart, the full map, the result) or the event mid-action; the mechanism then builds it (5 of the 6 studied outliers, [[Shots]]) |
+| **One spine** | one master picture (a chart, a map, a scorecard, the system diagram) returns between beats with the current part marked, so the viewer sees progress; the rail, a `loop` or a `probs` can be it |
+| **Proof is a marked crop** | a real headline, page or output, 2 or 3 words marked (`box` or a yellow marker), held 1 to 3 s |
 | **Show the verb** | every beat: "the viewer sees ___ happen, so they understand ___"; a picture any other video could use is cut |
 | **The subject fills the frame** | the hero spans 70 to 90 % of the width; no area over a third of the frame stays empty for 2 s |
 | **Real over drawn** | a real product is shown as itself; a machine is drawn as a figure; never a fake UI (a `chat` primitive is labelled as a recreation of a real log) |
 | **Source on screen, not in the voice** | the 4 to 7 s window ([[Story]] §Beats) shows the real page or a tag while the voice raises the stakes |
 | **Three shot sizes** | wide, medium and close inside the same world, through the camera |
 | **The point is spent, not spread** | each beat is marked 1 (connective: fast, small), 2 (supporting) or 3 (the point: larger, slower, its own sound); at most a quarter are 3 |
+| **End where it began** | the last beat returns to the frame-0 picture, or lands a before → after number on the spine |
 | **Act out one word** | the one word that carries the video does what it means, once ("split" splits) |
 | **Mute test** | the picture alone, sound off, tells the same story as the voice |
 | **No AI clichés** | no glowing brains, robots, circuit faces, binary rain, handshakes |

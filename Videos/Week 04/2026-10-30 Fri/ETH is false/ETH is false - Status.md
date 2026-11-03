@@ -21,7 +21,7 @@ updated: 2026-10-30
 
 ## Not verified
 
-The proof itself (not checked; nobody outside OpenAI has confirmed it as of 30 Oct 2026, per press). The reviewers' open letter is seen only through press (XenoSpectrum quotes it; others report the group). The doubling and claim rows are a drawing of the shape, labelled not to scale. Whisper split "OpenAI" and misspelled the names: fixed in the words file. Quality score against [[Picture]] §The bar (0 good, 2 bad): frame 0 0 (claim + the real title), empty frame 1 (about 1 s at 32 s while the claim row starts as stubs; the lower stage under the title sheets), slideshow 0, text doing the picture's job 1 (w5, w8 are sheets and lines), no real thing 0, static 0, same as last video 0 (new figures, What's coming); total 2. Not checked: how the voice and effects sound, the pace in motion.
+The proof itself (not checked; nobody outside OpenAI has confirmed it as of 30 Oct 2026, per press). The reviewers' open letter is seen only through press (XenoSpectrum quotes it; others report the group). The doubling and claim rows are a drawing of the shape, labelled not to scale. Whisper split "OpenAI" and misspelled the names: fixed in the words file. Quality score against [[Picture]] §Bar (0 good, 2 bad): frame 0 0 (claim + the real title), empty frame 1 (about 1 s at 32 s while the claim row starts as stubs; the lower stage under the title sheets), slideshow 0, text doing the picture's job 1 (w5, w8 are sheets and lines), no real thing 0, static 0, same as last video 0 (new figures, What's coming); total 2. Not checked: how the voice and effects sound, the pace in motion.
 
 ## Feedback
 
