@@ -7,7 +7,7 @@ words: 169
 
 # Script: AI as a therapist
 
-Status: [[AI as a therapist - Status]] · rules: [[Format]] §3 · idea: [[AI as a therapist]]
+Status: [[AI as a therapist - Status]] · rules: [[Story]] §Beats · idea: [[AI as a therapist]]
 
 ## Research (29 Oct 2026)
 

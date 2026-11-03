@@ -7,7 +7,7 @@ words: 170
 
 # Script: ETH is false
 
-Status: [[ETH is false - Status]] · rules: [[Format]] §3 · idea: [[ETH is false]]
+Status: [[ETH is false - Status]] · rules: [[Story]] §Beats · idea: [[ETH is false]]
 
 ## Research (30 Oct 2026)
 

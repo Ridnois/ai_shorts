@@ -7,7 +7,7 @@ words: 168
 
 # Script: Can AI replace lawyers
 
-Status: [[Can AI replace lawyers - Status]] · rules: [[Format]] §3 · idea: [[Can AI replace lawyers]]
+Status: [[Can AI replace lawyers - Status]] · rules: [[Story]] §Beats · idea: [[Can AI replace lawyers]]
 
 ## Research (29 Oct 2026)
 

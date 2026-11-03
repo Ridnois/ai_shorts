@@ -7,7 +7,7 @@ words: 163
 
 # Script: AI attention explained
 
-Status: [[AI attention explained - Status]] · rules: [[Format]] §3
+Status: [[AI attention explained - Status]] · rules: [[Story]] §Beats
 
 ## Research (3 Nov 2026)
 

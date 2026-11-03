@@ -13,7 +13,7 @@ tags: [youtube, pipeline]
 
 # Quantization explained
 
-← [[Pipeline]] · [[Growth]]
+← [[Pipeline]] · [[Strategy]]
 
 ## Y · X · case
 

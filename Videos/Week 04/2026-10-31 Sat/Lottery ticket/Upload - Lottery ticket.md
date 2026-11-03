@@ -8,7 +8,7 @@ tags: [youtube, upload]
 
 # Upload · Lottery ticket
 
-← [[Lottery ticket - Status]] · [[Script - Lottery ticket]] · [[Growth]]
+← [[Lottery ticket - Status]] · [[Script - Lottery ticket]] · [[Strategy]]
 
 User request: *"ship it publicly (user, 31 Oct 2026)"*. Visibility **public** (default private unless the user names one).
 

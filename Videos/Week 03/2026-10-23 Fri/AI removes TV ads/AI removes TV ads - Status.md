@@ -10,7 +10,7 @@ tags: [status, week-03]
 
 **Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
 
-← [[Script - AI removes TV ads]] · [[YouTube Channel]] · [[Production]]
+← [[Script - AI removes TV ads]] · [[YouTube Channel]] · [[Build]]
 
 **Delegation (user, 23 Oct 2026):** *"Chose a trending ai topic and generate a new video"*. The agent picks the topic, runs P1 to P7 and stops at the render. First video with the hook, connection and look v2 rules.
 

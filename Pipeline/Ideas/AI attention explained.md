@@ -13,7 +13,7 @@ tags: [youtube, pipeline]
 
 # AI attention explained
 
-← [[Pipeline]] · [[Growth]]
+← [[Pipeline]] · [[Strategy]]
 
 ## Y · X · case
 

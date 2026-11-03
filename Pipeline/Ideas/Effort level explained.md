@@ -13,7 +13,7 @@ tags: [youtube, pipeline]
 
 # Effort level explained
 
-← [[Pipeline]] · [[Growth]]
+← [[Pipeline]] · [[Strategy]]
 
 ## Y · X · case
 

@@ -21,6 +21,6 @@ updated: 2026-10-30
 
 ## Not verified
 
-Whisper added "Thank you." in the silence after the last word (51.39 s to the end); removed from the words file. The SRA page was captured from its HTML with the cookie banner hidden (its web font did not load; the text is the page's own). Quality score against [[Format]] §4: frame 0 pass (claim and the real database); real over drawn pass; the mechanism is drawn (code panel, `temperature`, `citator`); weakest: the w1 and w2 captures are small text, and the lower stage is empty for about 3 s in w1 and in the SRA beat; the dip into w5 darkens the citator for 0.1 s. Not checked: how the voice and effects sound, the pace in motion.
+Whisper added "Thank you." in the silence after the last word (51.39 s to the end); removed from the words file. The SRA page was captured from its HTML with the cookie banner hidden (its web font did not load; the text is the page's own). Quality score against [[Picture]] §The bar: frame 0 pass (claim and the real database); real over drawn pass; the mechanism is drawn (code panel, `temperature`, `citator`); weakest: the w1 and w2 captures are small text, and the lower stage is empty for about 3 s in w1 and in the SRA beat; the dip into w5 darkens the citator for 0.1 s. Not checked: how the voice and effects sound, the pace in motion.
 
 ## Feedback

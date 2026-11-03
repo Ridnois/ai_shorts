@@ -38,14 +38,18 @@ def stills(path):
     return [(s, (ends[i] if i < len(ends) else end) - s) for i, s in enumerate(starts)]  # a still running into the end has no freeze_end
 
 
-COMP, COMP_GAP = 0.18, 5.0  # a frame-to-frame scene score over 0.18 (picture zones, 270 px) counts as a new composition
+COMP, COMP_GAP = 0.03, 5.0  # scene score over 0.03 on the picture zones at 270 px; calibrated 3 Nov 2026 on Agent deleted a
+                            # database: it finds all 7 world starts plus the in-world hero swaps; hits within 0.5 s are one change
 
 
 def compositions(path):
     """Times where the picture changes a lot at once (a hero swap, a shot-size change, a new world): ffmpeg's scene score."""
     r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", path, "-an", "-vf",
                         f"crop=iw:{BAND[0]}:0:0,scale=270:-2,select='gt(scene,{COMP})',showinfo", "-f", "null", "-"], capture_output=True, text=True)
-    return [float(x) for x in re.findall(r"pts_time:([\d.]+)", r.stderr)]
+    out = []
+    for t in (float(x) for x in re.findall(r"pts_time:([\d.]+)", r.stderr)):
+        if not out or t - out[-1] > 0.5: out.append(t)
+    return out
 
 
 def comp_gaps(path):

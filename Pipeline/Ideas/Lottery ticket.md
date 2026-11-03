@@ -14,7 +14,7 @@ tags: [youtube, pipeline]
 
 # Lottery ticket
 
-← [[Pipeline]] · [[Format]] §2
+← [[Pipeline]] · [[Strategy]] §The idea passes
 
 **Claim:** you can delete 90 % of a neural network and it still works, because a small winning ticket inside does the learning, but only from its original starting numbers.
 

@@ -14,7 +14,7 @@ tags: [youtube, pipeline]
 
 # Why AI drinks water
 
-← [[Pipeline]] · [[Format]] §2
+← [[Pipeline]] · [[Strategy]] §The idea passes
 
 **Claim:** a chatbot answer costs water, and Google's data centres drank billions of gallons last year.
 

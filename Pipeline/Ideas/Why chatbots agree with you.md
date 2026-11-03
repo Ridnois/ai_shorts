@@ -13,8 +13,8 @@ video: "[[Chatbots agree with you - Status]]"
 
 # Why chatbots agree with you
 
-← [[Pipeline]] · [[Growth]]
+← [[Pipeline]] · [[Strategy]]
 
 ## Y · X · case
 
-**Y:** to know when a chatbot is flattering instead of helping. **X:** training on people's thumbs-up (RLHF) rewards answers people like, not answers that are right. **Case (verify at P1, primary source and date):** OpenAI rolled back a GPT-4o update in late April 2025 for being overly agreeable (OpenAI blog 'Sycophancy in GPT-4o'). **Plain words:** people's thumbs up and down ([[Growth]] *Plain-words map*).
+**Y:** to know when a chatbot is flattering instead of helping. **X:** training on people's thumbs-up (RLHF) rewards answers people like, not answers that are right. **Case (verify at P1, primary source and date):** OpenAI rolled back a GPT-4o update in late April 2025 for being overly agreeable (OpenAI blog 'Sycophancy in GPT-4o'). **Plain words:** people's thumbs up and down ([[Strategy]] *Plain-words map*).

@@ -12,7 +12,7 @@ tags: [youtube, pipeline]
 
 # How to tell if an image is AI
 
-← [[Pipeline]] · [[Format]] §2
+← [[Pipeline]] · [[Strategy]] §The idea passes
 
 **Claim:** Google stamps an invisible watermark in every image its AI makes, and you can check for it; everything else has no stamp.
 

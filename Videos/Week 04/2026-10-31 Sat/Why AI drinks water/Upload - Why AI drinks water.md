@@ -8,7 +8,7 @@ tags: [youtube, upload]
 
 # Upload · Why AI drinks water
 
-← [[Why AI drinks water - Status]] · [[Script - Why AI drinks water]] · [[Growth]]
+← [[Why AI drinks water - Status]] · [[Script - Why AI drinks water]] · [[Strategy]]
 
 User request: *"Perfect,ship it; Upload the video (user, 31 Oct 2026)"*. Visibility **private** (default private unless the user names one).
 

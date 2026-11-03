@@ -7,7 +7,7 @@ words: 165
 
 # Script: AI context explained
 
-Status: [[AI context explained - Status]] · rules: [[Format]] §3
+Status: [[AI context explained - Status]] · rules: [[Story]] §Beats
 
 ## Research (31 Oct 2026)
 

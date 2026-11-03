@@ -13,7 +13,7 @@ tags: [youtube, pipeline]
 
 # AI context explained
 
-← [[Pipeline]] · [[Growth]]
+← [[Pipeline]] · [[Strategy]]
 
 ## Y · X · case
 

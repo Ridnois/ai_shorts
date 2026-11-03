@@ -13,7 +13,7 @@ tags: [youtube, pipeline]
 
 # Rust checks AI code
 
-← [[Pipeline]] · [[Growth]]
+← [[Pipeline]] · [[Strategy]]
 
 ## Y · X · case
 

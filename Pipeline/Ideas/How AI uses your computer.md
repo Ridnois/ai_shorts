@@ -12,7 +12,7 @@ tags: [youtube, pipeline]
 
 # How AI uses your computer
 
-← [[Pipeline]] · [[Format]] §2
+← [[Pipeline]] · [[Strategy]] §The idea passes
 
 **Claim:** an AI agent clicking around your screen is a loop of screenshots: it looks, guesses where to click, and looks again.
 

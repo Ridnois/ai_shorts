@@ -23,6 +23,6 @@ updated: 2026-10-30
 
 The NEJM AI paper itself (403 to scripted fetch); Therabot's training data is described from secondary coverage (Psychiatric News, ScienceDaily). The voice paraphrases nothing from the Stanford prompt: it reads the paper's stimulus verbatim. Topic touches suicide: the description carries a crisis line (988 in the US) and the video names no method beyond the paper's own published example.
 
-Quality score against [[Format]] §4: frame 0 pass (claim and the real page); real over drawn pass; mechanism drawn (the rater dial); weakest: the captures are small text; w8 is tags only (no picture); 59.6 s sits at the 60 s ceiling; the YouTube master came out at 8.1 Mb/s, under the 35 to 60 the note expects (flat frames). Not checked: how the voice and effects sound, the pace in motion.
+Quality score against [[Picture]] §The bar: frame 0 pass (claim and the real page); real over drawn pass; mechanism drawn (the rater dial); weakest: the captures are small text; w8 is tags only (no picture); 59.6 s sits at the 60 s ceiling; the YouTube master came out at 8.1 Mb/s, under the 35 to 60 the note expects (flat frames). Not checked: how the voice and effects sound, the pace in motion.
 
 ## Feedback

@@ -30,7 +30,7 @@ The words it serves: [[Story]]. The components, tokens and commands: [[Build]]. 
 - **The main medium** (the one with the most screen time) is written in Status and `publish.json` so [[Data]] can compare media.
 - Open-source tools that may be recorded (licence checked at build time, credit in the description): Transformer Explainer (Polo Club, MIT), bbycroft LLM visualisation (MIT), TensorFlow Playground and the Embedding Projector (Apache-2.0). Jay Alammar's illustrations are non-commercial: redraw the idea, never reuse the image.
 
-## The bar
+## Bar
 
 | Rule | Test |
 | --- | --- |
@@ -52,7 +52,7 @@ The words it serves: [[Story]]. The components, tokens and commands: [[Build]]. 
 | --- | --- | --- |
 | **Motion** | 2 s or less (1.5 s in the hook) | a part moves, a number counts, the camera pushes, a word lands; nothing holds still over 3 s |
 | **Composition** | 5 s or less | the hero is replaced, or the shot size changes (wide to close) |
-| **Scene** | 8 to 12 s | a new world on a re-hook ([[Story]] §Open loops); this is where the transition kinds are spent |
+| **Scene** | 8 to 12 s | a new world on a re-hook ([[Story]] §Beats); this is where the transition kinds are spent |
 
 These replace the single "event every 1.5 to 2 s" rule. Faster than about 1.2 s between changes reads as noise (third-party retention guides, direction only).
 

@@ -13,7 +13,7 @@ tags: [youtube, pipeline]
 
 # ETH is false
 
-← [[Pipeline]] · [[Growth]]
+← [[Pipeline]] · [[Strategy]]
 
 ## Y · X · case
 

@@ -21,6 +21,6 @@ updated: 2026-10-30
 
 ## Not verified
 
-The $4M and three years come only from the sponsored article. Whisper heard "Chile and the US" as "Chile in the US"; I cannot hear whether the take slurred it. Quality score against [[Format]] §4: frame 0 pass (claim and the cutaway at 0 s); real over drawn pass (three real pages, the mechanism drawn); hero width about 80 % on figure beats; the 0.9 s gap in w5 between the tags and the Purdue headline is the emptiest moment; varied from the last video (Anatomy, not Hairline). Not checked: how the voice and effects sound, the pace in motion.
+The $4M and three years come only from the sponsored article. Whisper heard "Chile and the US" as "Chile in the US"; I cannot hear whether the take slurred it. Quality score against [[Picture]] §The bar: frame 0 pass (claim and the cutaway at 0 s); real over drawn pass (three real pages, the mechanism drawn); hero width about 80 % on figure beats; the 0.9 s gap in w5 between the tags and the Purdue headline is the emptiest moment; varied from the last video (Anatomy, not Hairline). Not checked: how the voice and effects sound, the pace in motion.
 
 ## Feedback

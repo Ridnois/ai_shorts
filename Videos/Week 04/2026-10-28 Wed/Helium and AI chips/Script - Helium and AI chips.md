@@ -7,7 +7,7 @@ words: 126
 
 # Script: Helium and AI chips
 
-Status: [[Helium and AI chips - Status]] · rules: [[Format]] (old Playbook §2a) · first video built with the Anatomy medium ([[Look]] *Anatomy figures*)
+Status: [[Helium and AI chips - Status]] · rules: [[Story]] (old Playbook §2a) · first video built with the Anatomy medium ([[Build]] *Anatomy figures*)
 
 ## Idea (P1)
 

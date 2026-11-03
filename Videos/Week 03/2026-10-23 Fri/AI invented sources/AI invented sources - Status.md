@@ -10,7 +10,7 @@ tags: [status, week-03]
 
 **Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
 
-← [[Script - AI invented sources]] · [[YouTube Channel]] · [[Production]]
+← [[Script - AI invented sources]] · [[YouTube Channel]] · [[Build]]
 
 **Delegation (user, 23 Oct 2026):** *"lets generate the video of the idea 'Why AI Invents Sources (and How to Catch It in 5 Seconds)'"*. The agent runs P1 to P7 and stops at the render.
 

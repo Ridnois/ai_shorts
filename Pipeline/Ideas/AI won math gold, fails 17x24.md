@@ -12,7 +12,7 @@ tags: [youtube, pipeline]
 
 # AI won math gold, fails 17x24
 
-← [[Pipeline]] · [[Format]] §2
+← [[Pipeline]] · [[Strategy]] §The idea passes
 
 **Claim:** the same kind of model that scored gold at the Math Olympiad can still botch a multiplication you did in school.
 

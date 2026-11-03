@@ -7,7 +7,7 @@ words: 149
 
 # Script: Why AI drinks water
 
-Status: [[Why AI drinks water - Status]] · rules: [[Format]] §3
+Status: [[Why AI drinks water - Status]] · rules: [[Story]] §Beats
 
 ## Research (31 Oct 2026)
 

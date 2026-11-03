@@ -7,7 +7,7 @@ words: 147
 
 # Script: Lottery ticket
 
-Status: [[Lottery ticket - Status]] · rules: [[Format]] §3
+Status: [[Lottery ticket - Status]] · rules: [[Story]] §Beats
 
 ## Research (31 Oct 2026)
 

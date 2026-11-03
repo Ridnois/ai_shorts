@@ -7,7 +7,7 @@ words: 174
 
 # Script: Quantization explained
 
-Status: [[Quantization explained - Status]] · rules: [[Format]] §3 · idea: [[Quantization explained]]
+Status: [[Quantization explained - Status]] · rules: [[Story]] §Beats · idea: [[Quantization explained]]
 
 ## Research (29 Oct 2026)
 

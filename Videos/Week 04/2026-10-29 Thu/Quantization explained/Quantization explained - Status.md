@@ -21,6 +21,6 @@ updated: 2026-10-30
 
 ## Not verified
 
-The run's speed (0.78 tokens/s) was measured with RAM and swap full; a free machine would be faster, not re-run. Whisper heard "Qwen3" as "QN3" and "Q four K M" as "Q4KM": fixed by hand in the words file. Quality score against [[Format]] §4: frame 0 pass (claim and the real terminal); real over drawn pass (a real run on this machine); weakest: the 16 to 4-bit change in w3 is subtle (the 2-bit snap in w6 is the clear one), and the terminal beats (w4, w5) hold a panel for about 3 s with one highlight. Not checked: how the voice and effects sound, the pace in motion.
+The run's speed (0.78 tokens/s) was measured with RAM and swap full; a free machine would be faster, not re-run. Whisper heard "Qwen3" as "QN3" and "Q four K M" as "Q4KM": fixed by hand in the words file. Quality score against [[Picture]] §The bar: frame 0 pass (claim and the real terminal); real over drawn pass (a real run on this machine); weakest: the 16 to 4-bit change in w3 is subtle (the 2-bit snap in w6 is the clear one), and the terminal beats (w4, w5) hold a panel for about 3 s with one highlight. Not checked: how the voice and effects sound, the pace in motion.
 
 ## Feedback

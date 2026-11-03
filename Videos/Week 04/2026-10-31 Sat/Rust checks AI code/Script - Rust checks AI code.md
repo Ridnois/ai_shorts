@@ -7,7 +7,7 @@ words: 163
 
 # Script: Rust checks AI code
 
-Status: [[Rust checks AI code - Status]] · rules: [[Format]] §3
+Status: [[Rust checks AI code - Status]] · rules: [[Story]] §Beats
 
 ## Research (31 Oct 2026)
 

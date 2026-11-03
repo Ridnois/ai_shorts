@@ -1,6 +1,6 @@
 # Agent guide: the Next Token vault (`~/Documents/bussiness/ai_shorts`)
 
-**Next Token** is an English, AI-assisted channel that teaches AI in 45 to 60 s vertical Shorts (YouTube and TikTok), Mon to Fri, in three series: **How AI works**, **Agent at work**, **What's coming**. The vault is the single source of knowledge; feedback becomes an edit of the rule that owns it ([[Feedback loop]]). Everything is written in English.
+**Next Token** is an English, AI-assisted channel that teaches AI in 45 to 60 s vertical Shorts (YouTube and TikTok), Mon to Fri, in three series: **How AI works**, **Agent at work**, **What's coming**. The vault is the single source of knowledge; feedback becomes an edit of the rule that owns it ([[Data]]). Everything is written in English.
 
 ## Read order
 
@@ -11,8 +11,8 @@ On demand: `System/Look.md` (brand, design system, motion, sound) before buildin
 
 - `/short <topic or idea>`: one video, end to end (ask once, idea, script, build, checks, master, pack, stop for review).
 - `/short-idea`: find and score ideas from outliers; writes `Pipeline/Ideas/`.
-- `/short-script`: write or fix a script to [[Format]] §3.
-- `/short-qa <video>`: audit a render (frames, layout, sound, encode) and score it against [[Format]] §4.
+- `/short-script`: write or fix a script to [[Story]] §Beats.
+- `/short-qa <video>`: audit a render (frames, layout, sound, encode) and score it against [[Picture]] §The bar.
 - `/short-publish <video>`: masters, the publish pack, upload after the user confirms, analytics pulls.
 - Craft: `hyperframes`, `hyperframes-cli`, `hyperframes-registry`, `media-use`, `anatomy`, `hairline-create`, `hairline-adopt`.
 

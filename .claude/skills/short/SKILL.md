@@ -10,7 +10,7 @@ The rules live in the vault; this skill is the order of work. Read `CLAUDE.md`, 
 ## 0. Before anything
 
 - If two or more renders wait for a verdict (Status notes in `review`), ask the user to ship, fix or drop them first.
-- Check the last video's series and main figure (`YouTube Channel.md`): this one must differ ([[Format]] §1, §4 *Varied*).
+- Check the last video's series and main figure (`YouTube Channel.md`): this one must differ ([[Strategy]] §Series, §4 *Varied*).
 
 ## 1. Ask once
 
@@ -22,7 +22,7 @@ Write the answers verbatim as the first line of the Status note.
 
 ## 2. Idea and script (no spend)
 
-- Run `/short-idea` logic only as far as needed: the 4 tests of [[Format]] §2, with demand evidence from `youtube_search.py` when the token works (say so when it does not).
+- Run `/short-idea` logic only as far as needed: the 4 tests of [[Strategy]] §The idea passes, with demand evidence from `youtube_search.py` when the token works (say so when it does not).
 - Write the script with `/short-script`: Script note `Videos/Week NN/<YYYY-MM-DD Day>/<Topic>/Script - <Topic>.md` with the package (title, 2 alternatives, frame-0 text, thumbnail idea), the voice text table, sources with dates, and the beat sheet.
 - Create `Media/…/<Topic>/plan.json` (`prefix`, `texts` = one string per scene, `scenes`, `voice` rate 1.1).
 

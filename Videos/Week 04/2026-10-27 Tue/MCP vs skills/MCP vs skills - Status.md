@@ -10,9 +10,9 @@ tags: [status, week-04]
 
 **Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**; public 27 Oct 2026 ([`OiLPkE7rV6A`](https://youtu.be/OiLPkE7rV6A)).
 
-← [[Script - MCP vs skills]] · [[YouTube Channel]] · [[Production]]
+← [[Script - MCP vs skills]] · [[YouTube Channel]] · [[Build]]
 
-**Delegation (user, 27 Oct 2026):** *"New short: explain the diference between an mcp and skill and mention some examples. interesting less known usages, be creative"*. P1 to P7, cap **$0.06** (one take, one retake, whisper). Uploads are paused by the user (RAG explained, HyperFrames: "upload later"), so [[Production]] *Ship before you build* does not stop this video. Third video of the short test block; after the story rewrite it is a 110 to 130-word video, and the next video takes the compact slot.
+**Delegation (user, 27 Oct 2026):** *"New short: explain the diference between an mcp and skill and mention some examples. interesting less known usages, be creative"*. P1 to P7, cap **$0.06** (one take, one retake, whisper). Uploads are paused by the user (RAG explained, HyperFrames: "upload later"), so [[Build]] *Ship before you build* does not stop this video. Third video of the short test block; after the story rewrite it is a 110 to 130-word video, and the next video takes the compact slot.
 
 | Stage | Status | Approved (date) | Note |
 | --- | --- | --- | --- |
@@ -30,6 +30,6 @@ tags: [status, week-04]
 
 ## Feedback
 
-User on r2 (27 Oct 2026): *"Narrative and structure is not well composed and pointless, just a plain comparison table. we need more narrative, storytelling and message. redo the script. you're making videos to people that is actually learning about that"*. Owning rule edited: [[Format]] (old Playbook §2) *A comparison is a story*. Script v2 (131 words), take v2, worlds rebuilt as one task.
+User on r2 (27 Oct 2026): *"Narrative and structure is not well composed and pointless, just a plain comparison table. we need more narrative, storytelling and message. redo the script. you're making videos to people that is actually learning about that"*. Owning rule edited: [[Story]] (old Playbook §2) *A comparison is a story*. Script v2 (131 words), take v2, worlds rebuilt as one task.
 
-User on r3 (27 Oct 2026): *"Refocus the video. ai agent skills explained. make it more dynamic. more engaging"*. Owning rules edited: [[Format]] (old Playbook §3) (an event every 1.5 to 2 s, one scale change per world), with [[Look]], [[Look]] and `CLAUDE.md`. Script v3 (117 words) on skills alone.
+User on r3 (27 Oct 2026): *"Refocus the video. ai agent skills explained. make it more dynamic. more engaging"*. Owning rules edited: [[Story]] (old Playbook §3) (an event every 1.5 to 2 s, one scale change per world), with [[Build]], [[Build]] and `CLAUDE.md`. Script v3 (117 words) on skills alone.

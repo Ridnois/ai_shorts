@@ -13,7 +13,7 @@ tags: [youtube, pipeline]
 
 # Can AI replace lawyers
 
-← [[Pipeline]] · [[Growth]]
+← [[Pipeline]] · [[Strategy]]
 
 ## Y · X · case
 

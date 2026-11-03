@@ -10,7 +10,7 @@ tags: [status, week-03]
 
 **Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
 
-← [[Script - Gradient descent]] · [[YouTube Channel]] · [[Production]]
+← [[Script - Gradient descent]] · [[YouTube Channel]] · [[Build]]
 
 **Delegation (user, 23 Oct 2026):** *"Make a new video about gradient descend"*. The agent runs P1 to P7 and stops at the render.
 

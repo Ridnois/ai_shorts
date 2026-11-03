@@ -17,6 +17,6 @@ updated: 2026-11-03
 
 ## Not verified
 
-BERT is an encoder, ChatGPT a decoder; no ChatGPT weights are public. One sentence pair, one model, weights averaged over 144 heads. Whether BERT resolves "it" was not tested. Whisper heard "BERT" as "bird": the caption word was fixed by hand, and how the voice says BERT was not heard. Quality score against [[Format]] §4 (0 good, 2 bad): frame 0 0 (claim + desk), empty frame 1 (the lower stage under the desk stays plain paper at wide shots), slideshow 0, text doing the picture's job 0, no real thing 0 (real run, real paper), static 0 (`PACE` PASS), same as last video 0 (new figure); total 1. Stake beat is thin (the question carries it). Not checked: how the voice and effects sound, the pace in motion, the zooms in motion.
+BERT is an encoder, ChatGPT a decoder; no ChatGPT weights are public. One sentence pair, one model, weights averaged over 144 heads. Whether BERT resolves "it" was not tested. Whisper heard "BERT" as "bird": the caption word was fixed by hand, and how the voice says BERT was not heard. Quality score against [[Picture]] §The bar (0 good, 2 bad): frame 0 0 (claim + desk), empty frame 1 (the lower stage under the desk stays plain paper at wide shots), slideshow 0, text doing the picture's job 0, no real thing 0 (real run, real paper), static 0 (`PACE` PASS), same as last video 0 (new figure); total 1. Stake beat is thin (the question carries it). Not checked: how the voice and effects sound, the pace in motion, the zooms in motion.
 
 ## Feedback

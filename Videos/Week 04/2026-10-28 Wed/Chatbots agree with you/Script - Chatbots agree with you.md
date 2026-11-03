@@ -7,7 +7,7 @@ words: 130
 
 # Script: Chatbots agree with you
 
-Status: [[Chatbots agree with you - Status]] · rules: [[Format]] (old Playbook §2a) (first video on the narrative layer) · build: [[Look]]
+Status: [[Chatbots agree with you - Status]] · rules: [[Story]] (old Playbook §2a) (first video on the narrative layer) · build: [[Build]]
 
 ## Idea (P1)
 

@@ -12,7 +12,7 @@ tags: [youtube, pipeline]
 
 # {{title}}
 
-← [[Pipeline]] · [[Format]] §2
+← [[Pipeline]] · [[Strategy]] §The idea passes
 
 **Claim** (one line a stranger would say "wait, why?" to):
 

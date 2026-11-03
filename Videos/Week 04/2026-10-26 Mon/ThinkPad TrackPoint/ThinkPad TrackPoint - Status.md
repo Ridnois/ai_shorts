@@ -10,7 +10,7 @@ tags: [status, week-04]
 
 **Verdict (user, 30 Oct 2026):** *"mark them as shipped so you stop asking but do nothing else"* → **shipped**, not uploaded; the upload is a separate step.
 
-← [[Script - ThinkPad TrackPoint]] · [[YouTube Channel]] · [[Production]]
+← [[Script - ThinkPad TrackPoint]] · [[YouTube Channel]] · [[Build]]
 
 **Delegation (user, 26 Oct 2026):** *"Make a new short with hyperframes ... topic: Why thinkpads are so special"*; at the agent's questions the user chose **"One-off, mechanism angle"** (off-niche, How it works structure, no series) and **"Delegate to render"** (cap $0.25, no generated images, install HyperFrames with npx). The agent runs P1 to P7 and stops at the render.
 

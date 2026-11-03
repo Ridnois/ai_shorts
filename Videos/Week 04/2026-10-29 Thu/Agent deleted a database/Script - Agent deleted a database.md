@@ -7,7 +7,7 @@ words: 160
 
 # Script: Agent deleted a database
 
-Status: [[Agent deleted a database - Status]] · rules: [[Format]] §3 · idea: [[The AI agent that deleted a database]]
+Status: [[Agent deleted a database - Status]] · rules: [[Story]] §Beats · idea: [[The AI agent that deleted a database]]
 
 ## Research (29 Oct 2026)
 

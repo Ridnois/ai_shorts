@@ -11,7 +11,7 @@ Fails (exit 1) on:
   * missing INVARIANTS: phrases that encode user feedback and must stay in the notes that carry them
   * hfkit.py or captions.py failing its self-check
   * a key in any file git would commit, .env not ignored, or the pre-commit secret hook missing (secret_scan.py)
-When feedback adds a rule, add its invariant below in the same pass (see System/Feedback loop.md).
+When feedback adds a rule, add its invariant below in the same pass (see System/Data.md §Feedback loop).
 """
 import os
 import re
@@ -22,29 +22,40 @@ SKIP = (".git", ".obsidian", ".claude", "Media", "__pycache__")       # .claude:
 
 INVARIANTS = [
     # (file, phrase, rule it protects): rules that must never silently disappear
-    ("System/Format.md", "Real thing", "a named, dated real case carries every video"),
-    ("System/Format.md", "Curiosity gap", "the idea must make a stranger ask why"),
-    ("System/Format.md", "130 to 170 words", "45 to 60 s length (user, 29 Oct 2026)"),
-    ("System/Format.md", "three-hook rule", "visual, spoken and text hook name the same thing"),
-    ("System/Format.md", "Frame 0 is the thumbnail", "the hook's picture and claim at 0 s"),
-    ("System/Format.md", "The loop ending", "the last line runs into the first"),
-    ("System/Format.md", "Show the verb", "pictures show what happens, never decorate"),
-    ("System/Format.md", "Three shot sizes", "the camera changes scale inside a world"),
-    ("System/Format.md", "Varied from the last video", "inauthentic-content policy"),
-    ("System/Format.md", "at most two revisions", "ship, fix or drop"),
-    ("System/Look.md", "Next Token", "the brand (user, 29 Oct 2026)"),
-    ("System/Look.md", "flat paper", "the look that survives YouTube's re-encode (user, 29 Oct 2026)"),
-    ("System/Look.md", "not inside the video", "no branding inside the video"),
-    ("System/Look.md", "Every world is a canvas", "camera on one canvas"),
-    ("System/Look.md", "Sound kit", "effects come from the licensed kit"),
-    ("System/Production.md", "Ask once", "one question round before a new video"),
-    ("System/Production.md", "one continuous take", "the voice is never stitched"),
-    ("System/Production.md", "master.py", "every upload is the 4K master"),
-    ("System/Production.md", "listen.py", "the agent measures the sound"),
-    ("System/Production.md", "check3d.mjs", "layout faults are caught by a check"),
-    ("System/Growth.md", "confirm the pack", "upload only after the user confirms"),
-    ("System/Growth.md", "engaged views", "compare videos on the right metric"),
-    ("System/Growth.md", "Inauthentic content", "the channel-wide policy risk"),
+    ("System/Strategy.md", "Real thing", "a named, dated real case carries every video"),
+    ("System/Strategy.md", "Curiosity gap", "the idea must make a stranger ask why"),
+    ("System/Strategy.md", "pattern library", "every video names a hook pattern from the outliers (3 Nov 2026)"),
+    ("System/Strategy.md", "radar.py", "demand comes from the watchlist outliers (3 Nov 2026)"),
+    ("System/Strategy.md", "Inauthentic content", "the channel-wide policy risk"),
+    ("System/Story.md", "130 to 170 words", "45 to 60 s length (user, 29 Oct 2026)"),
+    ("System/Story.md", "three-hook rule", "visual, spoken and text hook name the same thing"),
+    ("System/Story.md", "4 to 7 s rule", "no citation in the stake line: where the curves fall (Data review, 3 Nov 2026)"),
+    ("System/Story.md", "The loop ending", "the last line runs into the first"),
+    ("System/Story.md", "Worked case first", "a mechanism is shown working on a tiny case (user, 30 Oct 2026)"),
+    ("System/Picture.md", "Frame 0 is the thumbnail", "the hook's picture and claim at 0 s"),
+    ("System/Picture.md", "Show the verb", "pictures show what happens, never decorate"),
+    ("System/Picture.md", "Three shot sizes", "the camera changes scale inside a world"),
+    ("System/Picture.md", "Varied from the last video", "inauthentic-content policy"),
+    ("System/Picture.md", "one real run or real model output", "proof in every video (3 Nov 2026)"),
+    ("System/Picture.md", "Generated video is only metaphor", "never generate the mechanism (3 Nov 2026)"),
+    ("System/Build.md", "Next Token", "the brand (user, 29 Oct 2026)"),
+    ("System/Build.md", "flat paper", "the look that survives YouTube's re-encode (user, 29 Oct 2026)"),
+    ("System/Build.md", "not inside the video", "no branding inside the video"),
+    ("System/Picture.md", "Every world is a canvas", "camera on one canvas"),
+    ("System/Build.md", "Sound kit", "effects come from the licensed kit"),
+    ("System/Build.md", "Ask once", "one question round before a new video"),
+    ("System/Build.md", "one continuous take", "the voice is never stitched"),
+    ("System/Build.md", "Every upload uses the master", "every upload is the 4K master"),
+    ("System/Build.md", "qa.py", "one command runs every check"),
+    ("System/Build.md", "at most two revisions", "ship, fix or drop"),
+    ("System/Build.md", "cap $2.00", "the money cap (user, 3 Nov 2026)"),
+    ("System/Build.md", "confirms the pack", "upload only after the user confirms"),
+    ("System/Data.md", "engaged views", "compare videos on the right metric"),
+    ("System/Data.md", "pre-flight card", "a prediction before every upload, checked at 7 d (3 Nov 2026)"),
+    ("System/Data.md", "Viewed vs swiped away is only in Studio", "the one number typed by hand"),
+    ("System/Data.md", "A fault that comes back twice becomes a check", "the feedback loop"),
+    ("Research/Radar.md", "GENERATED", "Radar is written by radar.py, never by hand"),
+    ("Research/Signals.md", "GENERATED", "Signals is written by signals.py, never by hand"),
     ("CLAUDE.md", "hfkit.py", "one design system in code"),
     ("CLAUDE.md", "master.py", "never upload the raw render"),
     ("CLAUDE.md", "youtube_auth.py", "every YouTube token is checked against the Next Token channel (user, 30 Oct 2026)"),
@@ -55,6 +66,7 @@ FORBIDDEN = [
     ("CLAUDE.md", "civil engineering", "the old technology niche was replaced by AI (user, 23 Oct 2026)"),
     ("System/scripts/hfkit.py", "feTurbulence", "animated grain wrecks YouTube's re-encode (29 Oct 2026)"),
     ("System/scripts/hfkit.py", "#grain", "animated grain wrecks YouTube's re-encode (29 Oct 2026)"),
+    ("System/Strategy.md", "TikTok numbers typed", "TikTok data is not tracked (user, 3 Nov 2026)"),
 ]
 SKILLS = ["short", "short-idea", "short-script", "short-qa", "short-publish"]   # the vault's own skills (.claude/skills)
 CEILING = {"Script - ": 2700, "Upload - ": 2300, " - Status": 1500}
@@ -146,7 +158,7 @@ for rel, t in notes.items():
         n = len(t.split())
         for key, cap in CEILING.items():
             if key in os.path.basename(rel) and n > cap:
-                problems.append(f"{rel} has {n} words, ceiling {cap} (Production: Files)")
+                problems.append(f"{rel} has {n} words, ceiling {cap} (Build: Files)")
 
 # the index knows every published video; Script scene 1 equals the hook in videos.csv
 import csv

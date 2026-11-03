@@ -12,7 +12,7 @@ tags: [youtube, pipeline]
 
 # AI as a therapist
 
-← [[Pipeline]] · [[Format]] §2
+← [[Pipeline]] · [[Strategy]] §The idea passes
 
 **Claim:** an AI therapist cut depression by half in a real trial, yet ChatGPT listed tall bridges to someone who had just lost their job, because general chatbots are tuned toward agreeing.
 

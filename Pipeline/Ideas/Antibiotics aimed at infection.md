@@ -13,7 +13,7 @@ tags: [youtube, pipeline]
 
 # Antibiotics aimed at infection
 
-← [[Pipeline]] · [[Growth]]
+← [[Pipeline]] · [[Strategy]]
 
 ## Y · X · case
 

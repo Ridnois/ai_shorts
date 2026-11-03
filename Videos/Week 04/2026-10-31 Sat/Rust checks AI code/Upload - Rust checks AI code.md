@@ -8,7 +8,7 @@ tags: [youtube, upload]
 
 # Upload · Rust checks AI code
 
-← [[Rust checks AI code - Status]] · [[Script - Rust checks AI code]] · [[Growth]]
+← [[Rust checks AI code - Status]] · [[Script - Rust checks AI code]] · [[Strategy]]
 
 User request: *"ship r2 to yt (user, 31 Oct 2026)"*. Visibility **private** (default private unless the user names one).
 

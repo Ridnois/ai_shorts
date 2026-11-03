@@ -54,7 +54,7 @@ Every video names one pattern in its Status and `publish.json` (`hook_pattern`).
 
 ## The idea passes 4 tests, then gets a score
 
-**Tests** (5 minutes): (1) **real thing**: a named product, company, person or incident, dated; (2) **curiosity gap**: a stranger who uses ChatGPT says "wait, why?" to the one-line claim; (3) **demand**: 2 or more outliers at 3x or more on the same question (in [[Radar]] or `youtube_search.py`), or the question autocompletes; (4) **showable**: a medium in [[Picture]] §Medium shows the mechanism.
+**Tests** (5 minutes): (1) **real thing**: a named product, company, person or incident, dated; (2) **curiosity gap**: a stranger who uses ChatGPT says "wait, why?" to the one-line claim; (3) **demand**: 2 or more outliers at 3x or more on the same question (in [[Radar]] or `youtube_search.py`), or the question autocompletes; (4) **showable**: one medium of [[Picture]] §Medium, which shows the whole mechanism.
 
 **Score** (out of 20, written in the idea note):
 

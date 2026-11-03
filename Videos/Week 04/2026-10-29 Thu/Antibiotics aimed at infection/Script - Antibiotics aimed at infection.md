@@ -7,7 +7,7 @@ words: 167
 
 # Script: Antibiotics aimed at infection
 
-Status: [[Antibiotics aimed at infection - Status]] · rules: [[Format]] §3 · idea: [[Antibiotics aimed at infection]]
+Status: [[Antibiotics aimed at infection - Status]] · rules: [[Story]] §Beats · idea: [[Antibiotics aimed at infection]]
 
 ## Research (29 Oct 2026)
 

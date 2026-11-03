@@ -7,7 +7,7 @@ words: 167
 
 # Script: Effort level explained
 
-Status: [[Effort level explained - Status]] · rules: [[Format]] §3 · idea: [[Effort level explained]]
+Status: [[Effort level explained - Status]] · rules: [[Story]] §Beats · idea: [[Effort level explained]]
 
 ## Research (29 Oct 2026)
 
