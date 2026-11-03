@@ -28,19 +28,19 @@ Off-niche videos (no AI in the mechanism) are not made: the Antibiotics Short (2
 
 ## Hooks: the pattern library
 
-Every video names one pattern in its Status and `publish.json` (`hook_pattern`). These are the patterns behind outliers on the watchlist ([[Channels]]). Ratios are views ÷ the channel's median, from vidIQ public stats or [[Radar]], read 3 Nov 2026. Our own column is filled by the [[Data]] review; it beats the outside column once a pattern has 3 videos.
+Every video names one pattern in its Status and `publish.json` (`hook_pattern`). These are the patterns behind outliers on the watchlist ([[Channels]]). Ratios are views ÷ the channel's median, from vidIQ public stats or [[Radar]], read 3 Nov 2026. Our column: median engaged views and average % viewed at the newest snapshot, from the [[Data]] review of 3 Nov 2026 (our median: 368 engaged at 7 d). It beats the outside column once a pattern has 3 videos.
 
 | id | Pattern | Outside evidence | Fits | Our results |
 | --- | --- | --- | --- | --- |
-| `limit-mystery` | a limit or failure nobody fully explains | Welch Labs "AI can't cross this line and we don't know why" 2.52 M, 30x | How AI works | see [[Data]] §Review |
-| `name-it` | give a name to a behaviour or a new term, at its spike | Coding with Lewis "There's a Name for People Who Paste AI Responses at You" 1.80 M, 37x; IBM "What Is Jev?" 1.27 M, 53x | How AI works, Agent at work | |
-| `incident` | a named real case with a consequence | Zack D. Films "The Pepsi Contest That Killed 5 People" 12 M; our "Agent deleted a database" | Agent at work | |
-| `cost-why` | why X costs, uses or needs so much | Computerphile "Why AI Tokens are so Expensive" 864 k, 11x | What's coming, How AI works | |
-| `stakes` | a line crossed, now what | Kurzgesagt "AI Just Crossed the Terrifying Line, Now What?" 23.4 M, 12x | What's coming | |
-| `stunt` | a physical or visual demonstration of an abstract idea | Art of the Problem "I Gave ChatGPT a Body" 5.48 M, about 440x | Agent at work | |
-| `ranking` | an iceberg, tier list or three-way comparison | Coding with Lewis "The AI Model Iceberg" 1.70 M, 35x; ByteByteGo "gRPC, WebSocket and WebHook!" 362 k | How AI works | |
-| `surprising-result` | a true result that contradicts what the viewer assumes | our "Lottery ticket", "Quantization explained" | How AI works | |
-| `news-why` | a real decision explained ("why X chose Y") | our "Rust checks AI code" | Agent at work | |
+| `limit-mystery` | a limit or failure nobody fully explains | Welch Labs "AI can't cross this line and we don't know why" 2.52 M, 30x | How AI works | 826 engaged, 59 % viewed (n=1) |
+| `name-it` | give a name to a behaviour or a new term, at its spike | Coding with Lewis "There's a Name for People Who Paste AI Responses at You" 1.80 M, 37x; IBM "What Is Jev?" 1.27 M, 53x | How AI works, Agent at work | 195, 55 % (n=1) |
+| `incident` | a named real case with a consequence | Zack D. Films "The Pepsi Contest That Killed 5 People" 12 M; our "Agent deleted a database" | Agent at work | 721, 51 % (n=3) |
+| `cost-why` | why X costs, uses or needs so much | Computerphile "Why AI Tokens are so Expensive" 864 k, 11x | What's coming, How AI works | 658, 72 % (n=2) |
+| `stakes` | a line crossed, now what | Kurzgesagt "AI Just Crossed the Terrifying Line, Now What?" 23.4 M, 12x | What's coming | 363, 56 % (n=2) |
+| `stunt` | a physical or visual demonstration of an abstract idea | Art of the Problem "I Gave ChatGPT a Body" 5.48 M, about 440x | Agent at work | under 100 views (n=2) |
+| `ranking` | an iceberg, tier list or three-way comparison | Coding with Lewis "The AI Model Iceberg" 1.70 M, 35x; ByteByteGo "gRPC, WebSocket and WebHook!" 362 k | How AI works | no readable data (n=1) |
+| `surprising-result` | a true result that contradicts what the viewer assumes | our "Lottery ticket", "Quantization explained" | How AI works | 703, 60 % (n=4) |
+| `news-why` | a real decision explained ("why X chose Y") | our "Rust checks AI code" | Agent at work | 706, 60 % (n=1) |
 
 **What does not work outside:** a paper headline as a Short (bycloud's paper Shorts sit near 0.3x their median). A plain launch report competes with every AI channel on the same day (the "GPT-6 Astra" launch week, Sept 2026, topped Fireship, AI Explained, Two Minute Papers and Matt Wolfe at once). Spectacle beats model news in the feed (Matt Wolfe's flying-car Short, 1.9 M, against about 2.6 k for his model-news Shorts).
 

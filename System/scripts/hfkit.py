@@ -230,6 +230,192 @@ def ask(id_, question, answers):
             f'<div class="chips">{chips}</div><div class="askf">reply in the comments</div></div>')
 
 
+# ---- ML primitives (Build: Kit; 3 Nov 2026). The 3Blue1Brown lesson: own the pieces every mechanism is made of, so a
+# video is a new arrangement of polished parts. Each is one box (class "art", a picture in the camera) whose parts carry
+# ids <id>-c<k> in reading order: v.parts() lands them one by one, v.hot() marks one, v.fill() / v.draw() grow bars and arrows.
+TINTS = [WHITE, BLUE2, YELLOW2, GREEN2, RED2]
+
+
+def _mix(a, b, f):
+    """Colour a..b at f (0..1), for weights drawn as ink density on paper."""
+    pa, pb = [int(a[i:i + 2], 16) for i in (1, 3, 5)], [int(b[i:i + 2], 16) for i in (1, 3, 5)]
+    return "#" + "".join(f"{round(x + (y - x) * max(0, min(1, f))):02X}" for x, y in zip(pa, pb))
+
+
+def tokens(id_, pieces, x, y, w, size=60):
+    """Text as the model reads it: one chip per token, tints alternating so the boundaries show. pieces = the real split
+    from the model's tokenizer (a leading space is drawn as a small dot). Parts: <id>-c<k>."""
+    chips = ""
+    for k, p in enumerate(pieces):
+        lead = '<i class="sp">·</i>' if p.startswith(" ") else ""
+        chips += f'<span class="tk" id="{id_}-c{k}" style="background:{TINTS[k % 4]}">{lead}{html.escape(p.strip() or "␣")}</span>'
+    return f'<div class="art prim toks" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;font-size:{size}px">{chips}</div>'
+
+
+def probs(id_, rows, x, y, w, pct=True):
+    """Next-token odds: rows = [(token, p)], drawn highest first as ink-bordered bars. Bars <id>-b<k> (v.fill),
+    rows <id>-c<k> (v.parts, v.hot)."""
+    rows = sorted(rows, key=lambda r: -r[1])
+    top = rows[0][1] or 1
+    lab, val = 250, 150
+    bw = w - lab - val - 30
+    out = ""
+    for k, (t, p) in enumerate(rows):
+        out += (f'<div class="pr" id="{id_}-c{k}" style="top:{k * 112}px"><span class="pl">{html.escape(t)}</span>'
+                f'<span class="pt" style="left:{lab}px;width:{bw}px"><b id="{id_}-b{k}" style="width:{max(2, round(100 * p / top))}%"></b></span>'
+                f'<span class="pv" style="left:{lab + bw + 24}px">{round(p * 100) if pct else p}{"%" if pct else ""}</span></div>')
+    return f'<div class="art prim probs" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{len(rows) * 112}px">{out}</div>'
+
+
+def heatmap(id_, labels, matrix, x, y, w, cols=None):
+    """An attention grid: row r, column c holds matrix[r][c] (0..1), drawn as blue ink density. labels name the rows
+    (the query tokens), cols the columns (defaults to labels). Cells <id>-c<r*n+c>; rows <id>-r<r> (v.hot)."""
+    cols = cols or labels
+    n, m = len(labels), len(cols)
+    lw = 210
+    cs = (w - lw) // m
+    top = 190
+    out = "".join(f'<div class="hc" style="left:{lw + c * cs}px;top:0;width:{cs}px;height:{top - 10}px"><span>{html.escape(t)}</span></div>'
+                  for c, t in enumerate(cols))
+    for r, t in enumerate(labels):
+        out += f'<div class="hr" id="{id_}-r{r}" style="top:{top + r * cs}px;width:{lw - 14}px;height:{cs}px;line-height:{cs}px">{html.escape(t)}</div>'
+        for c in range(m):
+            v_ = matrix[r][c]
+            out += (f'<div class="hx" id="{id_}-c{r * m + c}" style="left:{lw + c * cs}px;top:{top + r * cs}px;width:{cs}px;height:{cs}px;'
+                    f'background:{_mix(WHITE, BLUE, v_)}"></div>')
+    if cs < 60:
+        print(f"WARN heatmap {id_}: cells of {cs} px; use 8 columns or fewer so each reads on a phone")
+    return f'<div class="art prim heat" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{top + n * cs}px">{out}</div>'
+
+
+def vecgrid(id_, vectors, x, y, w, extent=4):
+    """Vectors on a dot grid: vectors = [{"to": [vx, vy], "from": [0, 0], "label": "king", "col": "blue"}], in grid
+    units (-extent..extent, y up). Each vector is a part <id>-c<k>; v.draw() draws it from its tail."""
+    u = w / (2 * extent)
+    P = lambda a, b: (round(w / 2 + a * u, 1), round(w / 2 - b * u, 1))
+    dots = "".join(f'<circle cx="{P(i, j)[0]}" cy="{P(i, j)[1]}" r="4" fill="{MUTED}"/>'
+                   for i in range(-extent, extent + 1) for j in range(-extent, extent + 1))
+    ax = (f'<line x1="0" y1="{w / 2}" x2="{w}" y2="{w / 2}" stroke="#CFC7B6" stroke-width="{LINE}"/>'
+          f'<line x1="{w / 2}" y1="0" x2="{w / 2}" y2="{w}" stroke="#CFC7B6" stroke-width="{LINE}"/>')
+    vs = ""
+    for k, vec in enumerate(vectors):
+        col = PAL.get(vec.get("col", "blue"), vec.get("col", BLUE))
+        (x0, y0), (x1, y1) = P(*vec.get("from", (0, 0))), P(*vec["to"])
+        ang = math.atan2(y1 - y0, x1 - x0)
+        hx, hy = x1 - 34 * math.cos(ang), y1 - 34 * math.sin(ang)
+        head = " ".join(f"{round(a, 1)},{round(b, 1)}" for a, b in ((x1, y1), (hx - 20 * math.sin(ang), hy + 20 * math.cos(ang)),
+                                                                   (hx + 20 * math.sin(ang), hy - 20 * math.cos(ang))))
+        lx, ly = x1 + 22 * math.cos(ang), y1 + 22 * math.sin(ang)
+        vs += (f'<g id="{id_}-c{k}"><line id="{id_}-v{k}" x1="{x0}" y1="{y0}" x2="{hx}" y2="{hy}" pathLength="1" stroke="{col}" '
+               f'stroke-width="{LINE + 4}" stroke-linecap="round"/><polygon id="{id_}-h{k}" points="{head}" fill="{col}" stroke="{INK}" stroke-width="3"/>'
+               + (f'<text x="{lx}" y="{ly}" font-size="48" font-weight="900" fill="{INK}" text-anchor="{"start" if math.cos(ang) >= 0 else "end"}" '
+                  f'dominant-baseline="middle">{html.escape(vec["label"])}</text>' if vec.get("label") else "") + '</g>')
+    return (f'<div class="art prim" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{w}px;background:{WHITE};border:{LINE}px solid {INK};'
+            f'border-radius:22px;box-shadow:12px 12px 0 {INK};overflow:visible"><svg width="{w - 2 * LINE}" height="{w - 2 * LINE}" viewBox="0 0 {w} {w}" '
+            f'style="overflow:visible;font-family:Inter">{dots}{ax}{vs}</svg></div>')
+
+
+GROUPS = [BLUE, RED, GREEN, INK, MUTED]
+
+
+def scatter(id_, points, x, y, w, h=None):
+    """An embedding map: points = [[px, py, "label", group]] with px, py in 0..1 (y down) and group an index into
+    blue, red, green, ink. Dots <id>-c<k> (v.parts lands them; v.hot on "[data-g='1']" lights a cluster)."""
+    h = h or w
+    pad = 60
+    out = ""
+    for k, p in enumerate(points):
+        px, py, lab = p[0], p[1], p[2] if len(p) > 2 else ""
+        g = p[3] if len(p) > 3 else 0
+        cx, cy = round(pad + px * (w - 2 * pad)), round(pad + py * (h - 2 * pad))
+        out += (f'<div class="sd" id="{id_}-c{k}" data-g="{g}" style="left:{cx - 20}px;top:{cy - 20}px"><i style="background:{GROUPS[g % 5]}"></i>'
+                + (f'<span>{html.escape(lab)}</span>' if lab else "") + '</div>')
+    return (f'<div class="art prim scat" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px">{out}</div>')
+
+
+def layer(id_, sizes, x, y, w, h, labels=None):
+    """A small network: columns of nodes (sizes = [3, 5, 5, 2]) with links between neighbours. Columns are parts
+    <id>-c<l> (v.parts lands them left to right); nodes <id>-n<l>-<k>; v.flow() lights the columns in turn."""
+    L = len(sizes)
+    xs = [round(60 + l * (w - 120) / (L - 1)) for l in range(L)]
+    ys = [[round(h / 2 + (k - (n - 1) / 2) * min(130, (h - 120) / max(1, n - 1))) for k in range(n)] for n in sizes]
+    links = "".join(f'<line x1="{xs[l]}" y1="{a}" x2="{xs[l + 1]}" y2="{b}" stroke="#CFC7B6" stroke-width="{LINE}"/>'
+                    for l in range(L - 1) for a in ys[l] for b in ys[l + 1])
+    cols = ""
+    for l in range(L):
+        nodes = "".join(f'<circle id="{id_}-n{l}-{k}" cx="{xs[l]}" cy="{yy}" r="34" fill="{WHITE}" stroke="{INK}" stroke-width="{LINE}"/>' for k, yy in enumerate(ys[l]))
+        lab = (f'<text x="{xs[l]}" y="{h - 8}" font-size="44" font-weight="900" fill="{MUTED}" text-anchor="middle">{html.escape(labels[l])}</text>'
+               if labels and l < len(labels) else "")
+        cols += f'<g id="{id_}-c{l}">{nodes}{lab}</g>'
+    return (f'<div class="art prim" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px"><svg width="{w}" height="{h}" '
+            f'viewBox="0 0 {w} {h}" style="overflow:visible;font-family:Inter">{links}{cols}</svg></div>')
+
+
+def matrix(id_, rows, x, y, w, size=52):
+    """A grid of numbers in brackets (weights, a product). Cells <id>-c<r*m+c> (v.parts, v.hot)."""
+    m = max(len(r) for r in rows)
+    cw = (w - 80) // m
+    out = "".join(f'<div class="mx" id="{id_}-c{r * m + c}" style="left:{40 + c * cw}px;top:{20 + r * round(size * 1.7)}px;width:{cw}px;'
+                  f'height:{round(size * 1.7)}px;line-height:{round(size * 1.7)}px;font-size:{size}px">{html.escape(str(v_))}</div>'
+                  for r, row in enumerate(rows) for c, v_ in enumerate(row))
+    H = 40 + len(rows) * round(size * 1.7)
+    return f'<div class="art prim mat" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{H}px">{out}</div>'
+
+
+def loop(id_, steps, x, y, w, centre=""):
+    """The agent loop: steps (3 to 5, e.g. plan, act, check) as pills round a thick ring, arrows along it, a centre
+    word. Pills <id>-c<k> (v.parts, v.hot or v.step-like colouring with v.hot)."""
+    n, r = len(steps), w * 0.36
+    cx = cy = w / 2
+    ring = f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{INK}" stroke-width="{LINE + 2}"/>'
+    heads, pills = "", ""
+    for k, s in enumerate(steps):
+        a = -math.pi / 2 + 2 * math.pi * k / n
+        am = a + math.pi / n                                   # an arrowhead halfway to the next step, pointing clockwise
+        hx, hy = cx + r * math.cos(am), cy + r * math.sin(am)
+        tx, ty = -math.sin(am), math.cos(am)
+        pts = f"{hx + 26 * tx},{hy + 26 * ty} {hx - 14 * tx + 20 * ty},{hy - 14 * ty - 20 * tx} {hx - 14 * tx - 20 * ty},{hy - 14 * ty + 20 * tx}"
+        heads += f'<polygon points="{pts}" fill="{INK}"/>'
+        px, py = cx + r * math.cos(a), cy + r * math.sin(a)
+        pills += f'<div class="lp" id="{id_}-c{k}" style="left:{round(px)}px;top:{round(py)}px">{html.escape(s)}</div>'
+    mid = f'<div class="lc" style="top:{round(cy)}px">{html.escape(centre)}</div>' if centre else ""
+    return (f'<div class="art prim" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{w}px"><svg width="{w}" height="{w}" '
+            f'viewBox="0 0 {w} {w}" style="position:absolute;left:0;top:0">{ring}{heads}</svg>{pills}{mid}</div>')
+
+
+def clip(id_, src, x, y, w, h=None):
+    """A recorded clip (capture.py, manim.py, a generated shot) in an ink frame, playing from its world's first frame
+    (HyperFrames seeks nested media itself; the world is the timed element, so the video carries no timing). Muted: the
+    voice is the only sound. h defaults to 9:16; a transparent webm (Manim) gets no frame: pass framed=False via html."""
+    return (f'<video class="frm art" id="{id_}" src="{src}" muted playsinline style="left:{x}px;top:{y}px;width:{w}px;'
+            f'height:{h or round(w * 16 / 9)}px;object-fit:cover"></video>')
+
+
+PRIM_CSS = f'''
+.prim {{ position:absolute; }}
+.toks {{ display:flex; flex-wrap:wrap; gap:18px 14px; font-family:"JetBrains Mono", monospace; font-weight:700; }}
+.tk {{ display:inline-flex; align-items:baseline; padding:10px 22px; border:{LINE - 1}px solid {INK}; border-radius:16px; color:{INK}; box-shadow:6px 6px 0 {INK}; line-height:1.15; }}
+.tk .sp {{ font-style:normal; color:{MUTED}; margin-right:6px; }}
+.probs .pr {{ position:absolute; left:0; width:100%; height:96px; }}
+.probs .pl {{ position:absolute; left:0; top:12px; width:240px; text-align:right; font-family:"JetBrains Mono", monospace; font-size:54px; font-weight:700; color:{INK}; }}
+.probs .pt {{ position:absolute; top:10px; height:76px; border:{LINE}px solid {INK}; border-radius:14px; background:{WHITE}; overflow:hidden; }}
+.probs .pt b {{ display:block; height:100%; background:{BLUE2}; border-right:{LINE}px solid {INK}; transform-origin:0 50%; }}
+.probs .pv {{ position:absolute; top:12px; font-family:"Inter Display"; font-size:58px; font-weight:900; color:{INK}; }}
+.heat .hc {{ position:absolute; display:flex; align-items:flex-end; justify-content:center; }}
+.heat .hc span {{ display:block; transform:rotate(-50deg); transform-origin:50% 100%; white-space:nowrap; font-size:44px; font-weight:900; color:{INK}; }}
+.heat .hr {{ position:absolute; left:0; text-align:right; font-size:44px; font-weight:900; color:{INK}; }}
+.heat .hx {{ position:absolute; border:3px solid {INK}; }}
+.scat .sd {{ position:absolute; display:flex; align-items:center; gap:12px; white-space:nowrap; }}
+.scat .sd i {{ display:block; width:40px; height:40px; border-radius:50%; border:{LINE - 1}px solid {INK}; }}
+.scat .sd span {{ font-size:46px; font-weight:900; color:{INK}; background:{PAPER}; padding:0 6px; border-radius:8px; }}
+.mat {{ border-left:{LINE + 2}px solid {INK}; border-right:{LINE + 2}px solid {INK}; border-radius:18px; }}
+.mat .mx {{ position:absolute; text-align:center; font-family:"JetBrains Mono", monospace; font-weight:700; color:{INK}; border-radius:12px; }}
+.lp {{ position:absolute; transform:translate(-50%, -50%); padding:12px 30px; background:{WHITE}; border:{LINE}px solid {INK}; border-radius:40px;
+  font-size:54px; font-weight:900; color:{INK}; white-space:nowrap; box-shadow:8px 8px 0 {INK}; }}
+.lc {{ position:absolute; left:0; width:100%; transform:translateY(-50%); text-align:center; font-family:"Inter Display"; font-size:64px; font-weight:900; color:{MUTED}; }}
+'''
+
+
 FONTS = [("Inter", 400, "Inter-Regular.otf"), ("Inter", 600, "Inter-SemiBold.otf"), ("Inter", 700, "Inter-Bold.otf"),
          ("Inter", 800, "Inter-ExtraBold.otf"), ("Inter", 900, "Inter-Black.otf"), ("Inter Display", 700, "InterDisplay-Bold.otf"),
          ("Inter Display", 800, "InterDisplay-ExtraBold.otf"), ("Inter Display", 900, "InterDisplay-Black.otf"),
@@ -312,6 +498,7 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:{PAPER}; 
 .cap .ci > span {{ display:inline-block; margin:0 0.10em; padding:0 0.12em; line-height:1.18; border-radius:0.14em; }}
 .cap .on {{ background:{YELLOW}; box-shadow:0 0 0 0.05em {INK} inset; transform:scale(1.06); }}
 '''
+CSS += PRIM_CSS                                     # the ML primitives (Build: Kit)
 HIDE0 = [".ask", ".hl", ".tag", "#rail", ".card", ".art", ".lbl", ".big", ".code", ".cl", ".count", ".strip", ".frm:not(.track .frm)",
          ".arr", ".xx", ".flash"]
 norm = lambda s: re.sub(r"[^a-z0-9]", "", s.lower())
@@ -477,6 +664,31 @@ class Short:
 
     def light(self, s, t, col=BLUE):                # recolour on the word that names it
         self.at(t, f'to({sel(s)}, {{color:"{col}", duration:0.3}}, @);')
+
+    # ---- verbs of the ML primitives (Build: Kit). Parts are <id>-c<k>; they are hidden from the first frame of the
+    # timeline only when parts() names them, so a primitive shown whole (popped, grown) needs nothing more.
+    def parts(self, id_, n, t, step=0.09, d=0.35):    # each part lands from 1.3x in reading order; one pop, not one per part
+        self.at(0, f'set({sel([f"#{id_}-c{k}" for k in range(n)])}, {{opacity:0}}, @);')
+        for k in range(n):
+            self._arrive(f"#{id_}-c{k}", t + step * k, "scale:1.3", "scale:1", d)
+        self.sfx(t, "pop", -28)
+
+    def hot(self, s, t, col=YELLOW, d=0.25):        # mark the hero part: chips, cells and pills take the yellow fill, SVG too
+        self.at(t, f'to({sel(s)}, {{backgroundColor:"{col}", fill:"{col}", duration:{d}, ease:"power2.out"}}, @);')
+
+    def fill(self, id_, n, t, step=0.1, d=0.6):      # bars of probs() grow to their value, highest first
+        self.at(0, f'set({sel([f"#{id_}-b{k}" for k in range(n)])}, {{scaleX:0}}, @);')
+        for k in range(n):
+            self.at(t + step * k, f'to("#{id_}-b{k}", {{scaleX:1, duration:{d}, ease:"expo.out"}}, @);')
+
+    def draw(self, id_, k, t, d=0.5):                 # an arrow of vecgrid() draws from its tail, the head lands at the end
+        self.at(0, f'set("#{id_}-v{k}", {{attr:{{"stroke-dasharray":1, "stroke-dashoffset":1}}}}, @); tl.set("#{id_}-h{k}", {{opacity:0}}, 0);')
+        self.at(t, f'to("#{id_}-v{k}", {{attr:{{"stroke-dashoffset":0}}, duration:{d}, ease:"power2.inOut"}}, @);')
+        self.at(t + d - 0.08, f'fromTo("#{id_}-h{k}", {{opacity:0, scale:1.6, transformOrigin:"50% 50%"}}, {{immediateRender:false, opacity:1, scale:1, duration:0.2, ease:"expo.out"}}, @);')
+
+    def flow(self, id_, sizes, t, step=0.25, col=YELLOW):   # layer(): activations light column by column, left to right
+        for l, n in enumerate(sizes):
+            self.hot([f"#{id_}-n{l}-{k}" for k in range(n)], t + step * l, col, 0.2)
 
     def slide(self, s, t, x, d):
         self.at(t, f'to({sel(s)}, {{x:{x}, duration:{d}, ease:"none"}}, @);')

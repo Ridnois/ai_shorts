@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The beat sheet as data: hf/beats.json -> index.html, the sound timeline and the thumbnail, through hfkit (System/Production.md).
+"""The beat sheet as data: hf/beats.json -> index.html, the sound timeline and the thumbnail, through hfkit (System/Build.md).
 A video no longer needs a hand-written hf/build.py: one world per scene, its items (hfkit components) and its events
 (motion verbs on spoken words).
 
@@ -21,14 +21,20 @@ Items (one key names the type and the id; "at" is x, y, w; colours by name): big
 lbl, tag, code (lines, title, size), card (label, title, detail, good), ask (question, answers), counter (prefix, n), arrow,
 sheet (rows), anatomy (name), hairline (fn, intensity, value), frame (src, px: [source w, h], fit), phone (src),
 box (rect in page px, or on: a frame id and rect in that capture's px), callout (text, anchor: [x, y] | "a2:key" | "h3@vx,vy",
-label: [x, y], side, w), html (markup). Text items sit on the SCREEN layer, pictures in the camera; "layer" overrides.
+label: [x, y], side, w), html (markup), clip (src: a webm/mp4 in hf/assets, plays from the world's first frame; h).
+ML primitives (pictures, in the camera; "at" is x, y, w): tokens (pieces: the real tokenizer split, size), probs (rows:
+[[token, p]], pct), heatmap (labels, matrix, cols), vecgrid (vectors: [{to, from, label, col}], extent), scatter
+(points: [[x, y, label, group]] in 0..1, h), layer (sizes, h, labels), matrix (rows, size), loop (steps, centre).
+Full example: primitives-example.json. Text items sit on the SCREEN layer, pictures in the camera; "layer" overrides.
 
 Times: a number (s), "@in" (the world's first frame), "@S" (the scene's first word), "word", "word#2" (its 2nd hearing),
 "s3:word" (in scene 3), each with an offset: "needs-0.1", "@in+0.2".
 Events: pop|grow|blurin|hide|rise|flash|strike|nudge|light|callout|uncallout [target, t, ...] · reveal [id, t, n?] ·
 chips [id, t] · count [sel, to, t, d?] · pose [id, t, state, d?, ease?] · point [id, t, x, y, glide?] ·
 cam [t, cx, cy, z, d?] · zoom ["a2:key" | "h3@vx,vy", t, z, d?] · focus [t, [x, y, w, h], fill?, d?] · wide [t, d?] ·
-mark [row id, t, db?] (lights a code row, a click) · sfx [name, t, db?, align?] · payoff [t] · rail [steps, t] · step [k, t, state?]
+mark [row id, t, db?] (lights a code row, a click) · sfx [name, t, db?, align?] · payoff [t] · rail [steps, t] · step [k, t, state?] ·
+primitives: parts [id, t, step?] (parts land in reading order) · hot [selector, t, col?] (yellow fill on a part, e.g.
+"#p1-c0") · fill [probs id, t] (bars grow) · draw [vecgrid id, k | "all", t] · flow [layer id, t] (columns light in turn)
 """
 import argparse, json, os, re, sys
 
@@ -37,7 +43,8 @@ import hfkit as K
 
 COL = lambda c: K.PAL.get(c, c) if isinstance(c, str) else c
 SCREEN = {"big", "lbl", "tag", "code", "card", "ask", "counter", "arrow", "sheet"}
-TYPES = SCREEN | {"anatomy", "hairline", "frame", "phone", "box", "callout", "html"}
+PRIMS = {"tokens", "probs", "heatmap", "vecgrid", "scatter", "layer", "matrix", "loop"}   # ML primitives (Build: Kit)
+TYPES = SCREEN | PRIMS | {"anatomy", "hairline", "frame", "phone", "box", "callout", "html", "clip"}
 AUTO_TRANS = ["push", "whip", "cut", "blur", "dip"]
 TIME = re.compile(r"^(?:s(\d+):)?(.+?)(?:#(\d+))?([+-]\d*\.?\d+)?$")
 
@@ -140,9 +147,39 @@ class Beats:
                  f'border:{K.LINE}px solid {COL(it.get("col", K.RED))};border-radius:12px"></div>')
         elif k == "callout":
             h = K.callout(id_, it["text"], *self.point(it["anchor"]), *it["label"], col, it.get("side", "right"), it.get("w", 440))
+        elif k == "tokens":
+            h = K.tokens(id_, it["pieces"], *at, it.get("size", 60))
+        elif k == "probs":
+            h = K.probs(id_, [tuple(r) for r in it["rows"]], *at, it.get("pct", True))
+        elif k == "heatmap":
+            h = K.heatmap(id_, it["labels"], it["matrix"], *at, it.get("cols"))
+        elif k == "vecgrid":
+            h = K.vecgrid(id_, it["vectors"], *at, it.get("extent", 4))
+        elif k == "scatter":
+            h = K.scatter(id_, it["points"], *at, it.get("h"))
+        elif k == "layer":
+            h = K.layer(id_, it["sizes"], *at, it.get("h", 600), it.get("labels"))
+        elif k == "matrix":
+            h = K.matrix(id_, it["rows"], *at, it.get("size", 52))
+        elif k == "loop":
+            h = K.loop(id_, it["steps"], *at, it.get("centre", ""))
+        elif k == "clip":
+            h = K.clip(id_, it["src"], *at, it.get("h"))
         else:
             h = it["html"]
         return K.screen(h) if it.get("layer", "screen" if k in SCREEN else "cam") == "screen" else h
+
+    def nparts(self, id_):
+        """How many parts <id>-c<k> a primitive has (reading order)."""
+        k, it = self.items[id_]
+        if k == "heatmap":
+            return len(it["labels"]) * len(it.get("cols") or it["labels"])
+        if k == "matrix":
+            return len(it["rows"]) * max(len(r) for r in it["rows"])
+        key = {"tokens": "pieces", "probs": "rows", "vecgrid": "vectors", "scatter": "points", "layer": "sizes", "loop": "steps"}.get(k)
+        if not key:
+            raise SystemExit(f"parts: {id_} is a {k}, not an ML primitive")
+        return len(it[key])
 
     def world(self, items):
         return "".join(self.html(it) for it in items)
@@ -198,6 +235,18 @@ class Beats:
             v.sfx(t + 0.1, "click", a[2] if len(a) > 2 else -28)
         elif verb == "sfx":
             v.sfx(T(a[1]), a[0], *a[2:])
+        elif verb == "parts":
+            v.parts(a[0], self.nparts(a[0]), T(a[1]), *a[2:])
+        elif verb == "hot":
+            v.hot(a[0], T(a[1]), *[COL(x) for x in a[2:3]])
+        elif verb == "fill":
+            v.fill(a[0], len(self.items[a[0]][1]["rows"]), T(a[1]), *a[2:])
+        elif verb == "draw":
+            ks = range(len(self.items[a[0]][1]["vectors"])) if a[1] == "all" else [a[1]]
+            for j, k in enumerate(ks):
+                v.draw(a[0], k, T(a[2]) + 0.35 * j, *a[3:])
+        elif verb == "flow":
+            v.flow(a[0], self.items[a[0]][1]["sizes"], T(a[1]), *a[2:])
         elif verb == "payoff":
             v.payoff(T(a[0]), *a[1:])
         elif verb == "rail":
