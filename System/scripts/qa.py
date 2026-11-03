@@ -12,11 +12,11 @@ PY = sys.executable
 HF = "hyperframes@0.8.209"
 
 
-def run(cmd, cwd=None, timeout=900):
+def run(cmd, cwd=None, timeout=900, stdout_only=False):
     try:
         r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, timeout=timeout,
                            env=dict(os.environ, HYPERFRAMES_NO_TELEMETRY="1"))
-        return r.returncode, r.stdout + r.stderr
+        return r.returncode, r.stdout if stdout_only else r.stdout + r.stderr
     except subprocess.TimeoutExpired:
         return 124, "timed out"
 
@@ -39,7 +39,7 @@ def main():
         n = sum(1 for l in o.splitlines() if l.startswith("WARN"))
         row("build", rc == 0, f"{n} WARN (explain or fix each)" if rc == 0 else o[-300:], o)
     if "lint" not in skip:
-        rc, o = run(["npx", "--yes", HF, "check", "--json"], cwd=hf)
+        rc, o = run(["npx", "--yes", HF, "check", "--json"], cwd=hf, stdout_only=True)
         try:
             j = json.loads(o[o.index("{"):])
             errs = sum(v.get("errorCount", 0) for v in j.values() if isinstance(v, dict))
@@ -49,14 +49,17 @@ def main():
         row("lint", ok, f"{errs} errors (nested-structure and dense-track warnings accepted)")
     if "layout" not in skip:
         rc, o = run(["node", f"{HERE}/check3d.mjs", f"{hf}/index.html"])
-        bad = [k for k in ("CLIPPED", "OVERFLOW", "TEXT OVER PICTURE") if k in o]
-        m = re.search(r"OVERLAPS\s+(\d+)", o)
-        row("layout", rc == 0 and not bad, f"OVERLAPS {m.group(1) if m else '?'}" + (f"; {', '.join(bad)}" if bad else ""), o)
+        faults = [l for l in o.splitlines() if l.startswith("OVERLAP") and not l.startswith("OVERLAPS 0")]   # one OVERLAP line per fault kind
+        kinds = sorted({k for l in faults for k in ("CLIPPED", "OVERFLOW", "TEXT OVER PICTURE", "interface strip") if k in l})
+        row("layout", rc == 0 and not faults, f"{len(faults)} fault line(s)" + (f": {', '.join(kinds)}" if kinds else ""), o)
+        warns.extend(f"layout: {l}" for l in faults[:20])
     if "frames" not in skip and os.path.exists(f"{root}/render/_beats.txt"):
         at = open(f"{root}/render/_beats.txt").read().strip()
         rc, o = run(["npx", "--yes", HF, "snapshot", ".", "--at", at], cwd=hf, timeout=1200)
-        sheets = re.findall(r"(\S+contact-sheet\.jpg)", o)
-        row("frames", rc == 0 and bool(sheets), (sheets[-1] if sheets else o[-200:]) + "  <- read it once, every frame")
+        # the CLI wraps long paths across lines: take the newest sheet on disk instead
+        sheets = sorted(glob.glob(f"{hf}/.hyperframes/artifacts/snapshots/*/contact-sheet*.jpg"), key=os.path.getmtime)
+        # snapshot can exit non-zero after writing every frame: the sheet is the result
+        row("frames", bool(sheets), (sheets[-1] if sheets else o[-200:]) + "  <- read it once, every frame")
     if a.render:
         mix = os.path.abspath(a.render)
         if "pace" not in skip:
