@@ -15,7 +15,7 @@ updated: 2026-11-03
 | **Spend** | take `zqepjb86ddrmw0d1me9bse64s8` (964 chars, about $0.024); incredibly-fast-whisper `2htg8sa8dxrmt0d1me9bze6n8c` (about $0.01). Recorded runs via `claude -p` on the user's Claude plan (8 calls, no Replicate). Total about $0.035, cap $2.00. |
 | **Build** | main medium `capture` (two real runs, `run/agent.mjs`, `run/log.json`, `run/run1/`), spine = `loop` primitive (w2, w5, w8), `tokens` primitive for the model's real replies (w4, w5), frame 0 on the end state (screenshot + crosshair at 469, 27). r3 (50.5 s): `qa.py` kit, build, lint, layout (OVERLAPS 0), frames PASS; pace PASS (2 stills of 2.3 and 2.7 s, WARN); composition WARN (6 stretches of 6 to 8 s over the 5 s tier); LISTEN PASS −14.0 LUFS, −1.5 dBTP; MASTER yt 2160x3840 bt709, tt 1080x1920. One accepted WARN: the hook's 8 % push moves the camera under callout `o1` (check3d: nothing cropped). Transitions push, whip, push, cut, dip, blur, push. Frames audited twice; fixed: empty 3.6 to 4.5 s, a blank typing screenshot, hidden terminal rows, an unreadable height crop, a clipped counter, a still hook. Pack: `upload/cu-publish-pack.md` (dry run). |
 | **Review** | **ship** (user, 3 Nov 2026: *"ship it, build the upload pack"*); r3, no revisions |
-| **Publish** | pack built (`upload/cu-publish-pack.md`, dry run); waiting for the upload |
+| **Publish** | **public** 3 Nov 2026, [`FFAD92aUjFg`](https://youtu.be/FFAD92aUjFg) (user: *"ship it as public, hide likes and add tagged comment"*); 4K master, thumbnail confirmed. Hide likes and pin the comment: by hand in Studio (no API for either). TikTok: by hand. |
 
 ## Not verified
 

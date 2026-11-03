@@ -175,8 +175,14 @@ def main():
     hook = None
     sc = glob.glob(f"Videos/**/Script - {name}.md", recursive=True)
     if sc:
-        m = re.search(r"Voice \(exact text\).*?\n\|[^\n]*\n\|\s*1\s*\|\s*([^|]+?)\s*\|", open(sc[0], encoding="utf-8").read(), re.S)
-        if m: row[7] = m.group(1)
+        lines = open(sc[0], encoding="utf-8").read().splitlines()   # scene 1's cell under the "Voice" header (any column order)
+        for i, l in enumerate(lines):
+            cells = [c.strip() for c in l.strip().strip("|").split("|")]
+            col = next((j for j, c in enumerate(cells) if c.startswith("Voice")), None)
+            if l.startswith("|") and col is not None:
+                r1 = next((r for r in lines[i + 2:i + 4] if r.startswith("|") and r.strip("| ").startswith("1")), None)
+                if r1: row[7] = [c.strip() for c in r1.strip().strip("|").split("|")][col]
+                break
     rows = [r for r in rows if not (r and r[0] == name)] + [row]
     csv.writer(open("Analytics/videos.csv", "w", newline="", encoding="utf-8"), lineterminator="\n").writerows(rows)
     # 6 Upload note

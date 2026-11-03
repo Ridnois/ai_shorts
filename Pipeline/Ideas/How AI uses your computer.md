@@ -1,9 +1,9 @@
 ---
 type: video-idea
-status: shipped
+status: published
 series: Agent at work
 score: 18
-publish: 
+publish: 2026-11-03
 video: "[[How AI uses your computer - Status]]"
 created: 2026-10-31
 updated: 2026-10-31

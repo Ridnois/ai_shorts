@@ -136,6 +136,7 @@ YouTube re-encodes every upload. An upload at 2160x3840 is processed into the VP
 
 - `python3 System/scripts/publish.py "Media/…/upload/publish.json"` (keys in its header, including `series`, `hook_pattern`, `medium`): builds the 4K master when missing, uploads it with language `en`, category 28, tags and the synthetic flag, sets the thumbnail, writes the `videos.csv` row, the Upload note and the Status line. `--dry-run` builds the pack only; `--resume <id>` after a crash. Default private; scheduled with `publish_at`.
 - **Auth:** one OAuth token (upload, read-only channel and analytics) from the Desktop client "Redtail Uploader" in Google Cloud project `redtail-upload`. `youtube_auth.py` checks every token against the NextToken channel (`UCCZX7-YPNPntwPKI1hdv2hQ`, @yournexttoken) and stops on any other. The token expires every 7 days: on HTTP 400 the user runs `python3 System/scripts/youtube_auth.py` and picks **REDTAIL** at "Choose your account or a brand account". The YouTube scripts use this OAuth token, not an API key. Quota: 10,000 units a day; an upload is about 1,600, a radar pull about 100.
+- **Studio only** (no Data API field, checked 3 Nov 2026): hiding the like count (Details › Show more › "Show how many viewers like this video") and pinning a comment. Posting a comment would need the `youtube.force-ssl` scope, which the token does not hold. `publish.py` prints both as by-hand steps.
 - **The repo is public:** keys live only in `.env` (gitignored, 0600). `secret_scan.py` runs in `check_vault.py` and as the pre-commit hook.
 
 ## Schedule
