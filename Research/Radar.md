@@ -17,19 +17,14 @@ Pulls: 1 (latest 2026-11-03T21:50Z). 2384 videos tracked. Shown: published in th
 | 112.7x | 1,946,266 | [ANOTHER Flying Car? (Not Tesla / Not AI)](https://youtu.be/gC18kqOcCEI) | @mreflow | 8 d |  |  |
 | 36.6x | 1,800,416 | [There's a Name for People Who Paste AI Responses at You](https://youtu.be/nYpN1D06LrM) | @CodingWithLewis | 63 d |  |  |
 | 34.6x | 1,699,835 | [The AI Model Iceberg](https://youtu.be/RbnmhO1iXeM) | @CodingWithLewis | 11 d |  |  |
-| 22.1x early | 1,323 | [A real-life speeder bike from Return of the Jedi (Not AI)](https://youtu.be/PRAY_SewRxI) | @mreflow | 0 d |  |  |
-| 15.8x early | 12,572 | [AI Can Now Rewrite Neural Networks Directly](https://youtu.be/Wjt681To3oU) | @VarunMayya | 0 d | How AI works |  |
-| 14.2x early | 7,667 | [Generate Worlds in Real-Time (Free & Open Source)](https://youtu.be/lZes3U_WIug) | @mreflow | 1 d |  |  |
 | 12.6x early | 41,945,665 | [Why Dobermans Have Cropped Ears 😞](https://youtu.be/gyOZv_ckZQU) | @zackdfilms | 4 d |  |  |
 | 12.3x early | 12,984 | [OpenAI Broke Exponential Time Hypothesis](https://youtu.be/qa1DeYsJ45Y) | @ArtOfTheProblem | 6 d |  |  |
-| 11.1x early | 2,761,530 | [Why Deer Freeze In Headlights 😳](https://youtu.be/IPaq8N68nK0) | @zackdfilms | 0 d |  |  |
 | 11.0x | 714,188 | [The End of Programming](https://youtu.be/xOz2wXb-TiE) | @ThePrimeTimeagen | 48 d |  |  |
 | 10.1x | 174,719 | [This Tesla Actually Flies (NOT AI)](https://youtu.be/WXWFmwfo1JA) | @mreflow | 19 d |  |  |
 | 10.0x early | 10,789,602 | [What If The Hoover Dam Was Made Of Humans 😨](https://youtu.be/orbNiULu_t0) | @zackdfilms | 1 d |  |  |
 | 9.6x early | 5,477 | [When Security Patches Leak](https://youtu.be/mfgSBLGePuA) | @IBMTechnology | 3 d |  |  |
 | 9.6x early | 17,726 | [Glasses That Make You Telepathic](https://youtu.be/_9R7QOhJh-o) | @mreflow | 3 d |  |  |
 | 9.3x | 458,642 | [Every AI Startup Website Looks the Same](https://youtu.be/HRaGvoRa-IU) | @CodingWithLewis | 47 d |  |  |
-| 9.2x early | 770,992 | [How To Tell If You’re Dreaming 😴](https://youtu.be/m9SGGFLrY6o) | @zackdfilms | 0 d |  |  |
 | 9.2x | 159,630 | [Personal Body Guard Robot - What could go wrong?](https://youtu.be/dyrNQV0F3Zs) | @mreflow | 13 d |  |  |
 | 8.6x | 422,749 | [WTF is going on at GitHub?](https://youtu.be/WqtqmseDgNw) | @CodingWithLewis | 40 d |  |  |
 | 8.6x early | 8,700 | [Would you be excited to see this at Disneyland?](https://youtu.be/h5SNFLIZl_U) | @mreflow | 2 d |  |  |
@@ -52,21 +47,21 @@ Pulls: 1 (latest 2026-11-03T21:50Z). 2384 videos tracked. Shown: published in th
 | 5.6x | 96,104 | [This Pyramid Could Be Your Next Intern](https://youtu.be/1m5Ee9QbLF0) | @mreflow | 74 d |  |  |
 | 5.5x | 358,220 | [How to be a good engineer in 2026](https://youtu.be/37qyCtvCc4k) | @ThePrimeTimeagen | 56 d |  |  |
 | 5.4x | 350,570 | [One shot games](https://youtu.be/BMv7fdxDCDc) | @ThePrimeTimeagen | 86 d |  |  |
-| 5.4x early | 1,346,643 | [Mexican Batman Leaves Thieves Taped To Poles 😵](https://youtu.be/XqlhWCNhatM) | @zackdfilms | 0 d |  |  |
 | 5.4x early | 19,567 | [Insane Interactive World Creator (Genie 4)](https://youtu.be/DZbCL56oz3M) | @mreflow | 6 d |  |  |
+| 5.3x | 398,620 | [I Challenged a Security Guard and an Engineer to Vibe Code](https://youtu.be/1dJdxilwbb4) | @VarunMayya | 21 d | Agent at work |  |
+| 5.1x early | 8,919,322 | [Why X-Men Toys Were Ruled Nonhuman 🤔](https://youtu.be/deM7JREohjk) | @zackdfilms | 2 d |  |  |
+| 5.0x | 37,573 | [How Do We Write Backwards?! 🤯](https://youtu.be/PfP2vNVmCTE) | @IBMTechnology | 84 d |  |  |
+| 4.9x early | 17,137,241 | [How Horseflies Bite You 😨](https://youtu.be/6mRR91AbxjQ) | @zackdfilms | 4 d |  |  |
+| 4.6x early | 12,709,355 | [The Reason Humpty Dumpty Fell 🥚 (fiction)](https://youtu.be/uBUMTlXdS2I) | @zackdfilms | 3 d |  |  |
+| 4.6x early | 110,459 | [Apple just launched a touchscreen MacBook Pro!](https://youtu.be/yJv7HuSGh-c) | @VarunMayya | 6 d |  |  |
 
 ## Long videos
 
 | ratio | views | video | channel | age | series guess | new |
 | --- | --- | --- | --- | --- | --- | --- |
 | 63.3x early | 260,983 | [Grok 5 Could Be The Most Powerful AI Ever Created](https://youtu.be/KlG0VyhIzBU) | @TheAiGrid | 3 d | What's coming |  |
-| 38.9x early | 28,660 | [AI Is Now Doing Things Scientists Thought Were Impossible](https://youtu.be/9FjbFGYKxAc) | @TheAiGrid | 0 d |  |  |
-| 30.3x early | 39,778 | [DeepSeek's New LLM Engine Just Made GPUs 3x More Valuable](https://youtu.be/2K_Rm8cho1I) | @bycloudAI | 0 d | What's coming |  |
 | 29.9x | 1,266,965 | [What Is Jev? The AI Model That Doesn't Generate Text](https://youtu.be/YGgNBcIgI4s) | @IBMTechnology | 34 d |  |  |
 | 25.3x | 1,071,355 | [AI Simplified: 6 Concepts You Need to Know About Modern AI](https://youtu.be/mUw27wG7uFA) | @IBMTechnology | 58 d |  |  |
-| 24.9x early | 14,523 | [Can Your AI Use Sensitive Data Safely? 5 Capabilities You Need](https://youtu.be/jnP9AgtX0qo) | @IBMTechnology | 0 d |  |  |
-| 23.4x early | 42,548 | [GPT 6.2 Astra Just Leaked Because 6.1 Astra Went Rogue (Plus Mythos 5.5 Leak)](https://youtu.be/2zY-LwdPt-g) | @airevolutionx | 1 d |  |  |
-| 21.7x early | 139,517 | [The worst week in cybersecurity history... so far](https://youtu.be/k2ruCf_z75I) | @Fireship | 0 d |  |  |
 | 21.5x early | 193,374 | [Sam Altman Just Issued His Scariest Warning Yet](https://youtu.be/x6jBcI5FtXc) | @TheAiGrid | 6 d |  |  |
 | 20.2x early | 41,303 | [Context-Aware Coding: Give AI Agents the Right Context](https://youtu.be/EkdIZXDnRK8) | @IBMTechnology | 1 d | Agent at work |  |
 | 19.3x early | 154,471 | [What Is Quantization? How AI Models Get Smaller & Faster](https://youtu.be/mmns33BsBcY) | @IBMTechnology | 6 d | How AI works |  |
@@ -99,6 +94,11 @@ Pulls: 1 (latest 2026-11-03T21:50Z). 2384 videos tracked. Shown: published in th
 | 6.7x | 502,302 | [they’re shutting it DOWN](https://youtu.be/ehcBwqyUGjo) | @WesRoth | 13 d |  |  |
 | 6.3x | 266,058 | [Skills vs MCP vs RAG vs Memory: What AI Agents Need to Know](https://youtu.be/X4FVEEegCbk) | @IBMTechnology | 62 d | Agent at work |  |
 | 6.3x early | 2,541,919 | [Did the AI bubble just pop?](https://youtu.be/nEaJMdM1djM) | @Fireship | 6 d | What's coming |  |
+| 6.2x | 523,644 | [How Watermarks Track AI Generated Content - Computerphile](https://youtu.be/kVXp6UNVPTo) | @Computerphile | 61 d | How AI works |  |
+| 6.1x | 89,925 | [GPT-6 Astra will Make you Think BIGGER.](https://youtu.be/UZZ53F_kEAA) | @MattVidPro | 56 d |  |  |
+| 5.5x early | 119,984 | [AI News: The Only 6 Stories Worth Knowing This Week](https://youtu.be/eDiQNFa-zYg) | @mreflow | 4 d |  |  |
+| 5.4x | 228,717 | [AI Model vs Agentic Harness: What Actually Drives AI](https://youtu.be/ZELPNFXJ4_o) | @IBMTechnology | 70 d | Agent at work |  |
+| 5.3x | 400,913 | [Claude JUST found hidden DNA...](https://youtu.be/H7KruLVX2Rk) | @WesRoth | 41 d |  |  |
 
 ## Shorts use per channel (latest pull)
 

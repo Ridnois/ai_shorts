@@ -44,10 +44,13 @@ def pull(a):
             json.dump(src, open(f"{out}/sources-{vid}.json", "w"))
             total = sum(r[1] for r in src.get("rows", [])) or 1
             feed = sum(r[1] for r in src.get("rows", []) if r[0] == "SHORTS") * 100 / total
-            try:  # retention curve: 100 points over the video's length, kept raw
-                json.dump(report(tok, startDate="2020-01-01", endDate=today, metrics="audienceWatchRatio", dimensions="elapsedVideoTimeRatio",
-                                 filters=f"video=={vid}"), open(f"{out}/retention-{vid}.json", "w"))
-            except urllib.error.HTTPError as e: print("retention not available:", vid, e.code)
+            # retention curve: 100 points over the video's length, kept raw; read by `analytics.py beats`
+            for rm in ("audienceWatchRatio,relativeRetentionPerformance,startedWatching,stoppedWatching", "audienceWatchRatio"):
+                try:
+                    json.dump(report(tok, startDate="2020-01-01", endDate=today, metrics=rm, dimensions="elapsedVideoTimeRatio",
+                                     filters=f"video=={vid}"), open(f"{out}/retention-{vid}.json", "w"))
+                    break
+                except urllib.error.HTTPError as e: print("retention", rm.split(",")[0] if "," not in rm else "full", "not available:", vid, e.code)
             st = m["statistics"]  # counts are live from the Data API; Analytics rows lag a day or two (3 views where the video had 1,198)
             analytics.add([name, "youtube", age, f"views={st.get('viewCount', 0)}", f"engaged_views={d['engagedViews']}", f"avg_view_s={d['averageViewDuration']}",
                            f"avg_pct_viewed={d['averageViewPercentage']:.1f}", f"likes={st.get('likeCount', 0)}", f"comments={st.get('commentCount', 0)}", f"shares={d['shares']}",
