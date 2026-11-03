@@ -17,7 +17,9 @@ publish.json (all keys required unless marked):
   hashtags   "#a #b #c"            privacy  "private"|"public"|"unlisted" (optional, default private)
   (thumbnail) upload/thumb.jpg must exist: the hf/thumb.html page that hfkit.Short.thumb() writes, snapshotted
              (System/Growth.md §Package). An old `thumb` key is ignored.
-  hook_type  "stakes"             pinned  "pinned comment text"           approval  "the user's words"
+  series     "How AI works"|"Agent at work"|"What's coming"   hook_pattern  a pattern id from System/Strategy.md §Hooks
+  medium     the main medium (System/Picture.md §Medium): primitive|figure|capture|manim|generated|drawn
+  pinned     "pinned comment text"           approval  "the user's words"         hook_type (old, optional)
   claims     [["claim", "source", "strength"], ...] (optional)            alt_titles ["...", "..."] (optional)
   tags       "ai, llm, how ai works" (optional, search words; YouTube weighs them little)
   synthetic  true only when the video shows realistic generated people, places or events (optional, default false)
@@ -164,7 +166,9 @@ def main():
     dur = int(re.search(r"-(\d+)s-", cfg["render"]).group(1)); rno = re.search(r"-r(\d+)\.", cfg["render"]).group(1)
     plates = sum(len(s.get("plates", [])) for s in plan["scenes"])
     rows = list(csv.reader(open("Analytics/videos.csv", encoding="utf-8")))
-    row = [name, datetime.now(timezone.utc).strftime("%Y-%m-%d"), vid, "", str(words), str(dur), cfg["hook_type"], texts[0].replace("thirteen seventy-seven", "1377"), "", str(plates), plan.get("voice", {}).get("voice_id", "Austin")]
+    row = [name, datetime.now(timezone.utc).strftime("%Y-%m-%d"), vid, "", str(words), str(dur), cfg.get("hook_type", ""),
+           texts[0].replace("thirteen seventy-seven", "1377"), cfg.get("series", ""), str(plates), plan.get("voice", {}).get("voice_id", "Dennis"),
+           cfg.get("hook_pattern", ""), cfg.get("medium", "")]  # columns: Analytics/videos.csv header; patterns: Strategy.md §Hooks
     hook = None
     sc = glob.glob(f"Videos/**/Script - {name}.md", recursive=True)
     if sc:
