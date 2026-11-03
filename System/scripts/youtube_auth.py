@@ -10,7 +10,8 @@ CHANNEL_ID = "UCCZX7-YPNPntwPKI1hdv2hQ"  # NextToken, @yournexttoken (the Redtai
 SCOPE = " ".join("https://www.googleapis.com/auth/" + s for s in (
     "youtube.upload",           # videos.insert, thumbnails.set
     "youtube.readonly",         # channel check, uploads list, outlier search
-    "yt-analytics.readonly"))   # retention and engaged views
+    "yt-analytics.readonly",    # retention and engaged views
+    "youtube.force-ssl"))       # comments: read threads and post the replies the user approved (comments.py); added 3 Nov 2026
 PORT, TOKEN = 8765, "https://oauth2.googleapis.com/token"  # loopback redirect: the OAuth client type must be "Desktop app"
 ENV = ".env"
 
@@ -56,7 +57,7 @@ def access_token():
     """A fresh access token, checked once per run against CHANNEL_ID."""
     global _tok
     if not _tok:
-        if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env (System/Growth.md §Publish)")
+        if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env (System/Build.md §Upload)")
         if not os.environ.get("YT_REFRESH_TOKEN"): sys.exit("No YT_REFRESH_TOKEN in .env: run python3 System/scripts/youtube_auth.py")
         try:
             _tok = post_form(TOKEN, dict(client_id=CID, client_secret=SEC, grant_type="refresh_token",
@@ -89,7 +90,7 @@ def auth():
 
 
 if __name__ == "__main__":
-    if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env (System/Growth.md §Publish)")
+    if not CID or not SEC: sys.exit("Set YT_CLIENT_ID and YT_CLIENT_SECRET in .env (System/Build.md §Upload)")
     try:
         if sys.argv[1:] == ["check"]: print("ok:", *channel(access_token()))
         else: auth()

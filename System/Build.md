@@ -136,12 +136,12 @@ YouTube re-encodes every upload. An upload at 2160x3840 is processed into the VP
 
 - `python3 System/scripts/publish.py "Media/…/upload/publish.json"` (keys in its header, including `series`, `hook_pattern`, `medium`): builds the 4K master when missing, uploads it with language `en`, category 28, tags and the synthetic flag, sets the thumbnail, writes the `videos.csv` row, the Upload note and the Status line. `--dry-run` builds the pack only; `--resume <id>` after a crash. Default private; scheduled with `publish_at`.
 - **Auth:** one OAuth token (upload, read-only channel and analytics) from the Desktop client "Redtail Uploader" in Google Cloud project `redtail-upload`. `youtube_auth.py` checks every token against the NextToken channel (`UCCZX7-YPNPntwPKI1hdv2hQ`, @yournexttoken) and stops on any other. The token expires every 7 days: on HTTP 400 the user runs `python3 System/scripts/youtube_auth.py` and picks **REDTAIL** at "Choose your account or a brand account". The YouTube scripts use this OAuth token, not an API key. Quota: 10,000 units a day; an upload is about 1,600, a radar pull about 100.
-- **Studio only** (no Data API field, checked 3 Nov 2026): hiding the like count (Details › Show more › "Show how many viewers like this video") and pinning a comment. Posting a comment would need the `youtube.force-ssl` scope, which the token does not hold. `publish.py` prints both as by-hand steps.
+- **Studio only** (no Data API field, checked 3 Nov 2026): hiding the like count (Details › Show more › "Show how many viewers like this video") and pinning a comment. The token holds `youtube.force-ssl` since 3 Nov 2026, so `comments.py` can post replies, and the pinned comment can be posted by it, but pinning it stays a Studio step.
 - **The repo is public:** keys live only in `.env` (gitignored, 0600). `secret_scan.py` runs in `check_vault.py` and as the pre-commit hook.
 
 ## Schedule
 
-A daily job at 16:00 UTC, set from Claude Code (`CronCreate`), runs from the vault root: `python3 System/scripts/daily.py`. It runs the analytics pull and report, a Monday radar pull and report, and signals. When the weekly token has expired, it writes a one-line "re-auth needed" banner at the top of `Analytics/Report.md` instead of failing silently.
+A daily job at 16:00 UTC, set from Claude Code (`CronCreate`), runs from the vault root: `python3 System/scripts/daily.py`. It runs the analytics pull and report, the comments pull (`comments.py pull`), a Monday radar pull and report, and signals. When the weekly token has expired, it writes a one-line "re-auth needed" banner at the top of `Analytics/Report.md` instead of failing silently.
 
 ## Commands
 
@@ -160,6 +160,7 @@ A daily job at 16:00 UTC, set from Claude Code (`CronCreate`), runs from the vau
 | Checks | `python3 System/scripts/qa.py "Media/…/<Video>" [--render <mixed mp4>]` |
 | Anatomy figure | `/anatomy <the machine>`, kept in `System/anatomy/<name>/`; line check `node .claude/skills/anatomy/scripts/lines.mjs <preview.html>` prints `line ends: 0` |
 | Hairline figure | `/hairline-create <idea>` → `System/scripts/vendor/hairline/custom/` |
+| Comments | `comments.py pull`, `draft`, `check`, `post` (post only what the user approved; [[Strategy]] §Comments) |
 | Ideas and numbers | `radar.py`, `signals.py`, `youtube_analytics.py pull`, `analytics.py report`/`beats` ([[Strategy]] §Ideas, [[Data]]) |
 
 ## Files

@@ -76,6 +76,17 @@ The next video is the top score whose series differs from the last one.
 - **Cadence:** Mon to Fri at one fixed hour (15:00 UTC unless [[Data]] says otherwise), never two on one day.
 - **TikTok** (manual, not measured since 3 Nov 2026, the user's decision): upload `upload/*-tt.mp4` from TikTok Studio on the web, caption from the pack, no TikTok library sound; the keyword in the voice, the screen text and the caption.
 
+## Comments (`comments.py`)
+
+Replies are the cheapest community signal we have, and every reply is public. The rule set:
+
+- **Cadence:** `comments.py pull` with the daily job ([[Build]] §Schedule); unanswered threads are drafted within 48 h of the comment.
+- **Who gets a reply:** every question, every correction and every remark with substance. Never spam, links, abuse or bait (hide those in Studio). Never a thread we already answered.
+- **The reply:** 1 to 3 sentences, 400 characters or fewer, in the persona ([[Story]] §Persona): precise, dry, warm, never hype. Answer the question with one concrete fact from the video's sources (name, version, date); if the honest answer is "we don't know", say so. A correction that is right is thanked, and the video's Status gets a *Feedback* line; one that is wrong gets the source in one sentence, never an argument. No links (sources live in the description), no exclamation marks, no banned words, no "great question", no promises of a video ("noted for a future Short" only when an idea note was written).
+- **Approval:** the agent shows the user every drafted reply word for word; only those the user approves are posted (`"approved": true`, then `comments.py post`). `comments.py check` enforces length, links, banned words and "!".
+- **Ideas:** a question asked twice, or one that our video did not answer, becomes or updates an idea note in `Pipeline/Ideas/` ([[Comments]] lists the questions).
+- Hearts and pins are Studio only.
+
 ## Policy
 
 - **Inauthentic content** (YouTube, renamed 15 Jul 2025): videos that are "mass-produced, generic, repetitive" lose monetisation channel-wide. So do "templated storylines" and "AI-generated content made with generic or unoriginal templates". Defence: every video has a distinct real case, an original figure or capture, a real argument and a sourced number. The brand is consistent; the videos are not interchangeable ([[Picture]] §Bar, *Varied*).

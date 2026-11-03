@@ -33,6 +33,7 @@ def main():
     expired = rc != 0 and ("HTTP 400" in out or "invalid_grant" in out or "HTTP Error 400" in out)
     if rc == 0:
         step("analytics report", "analytics.py", "report")
+        step("comments pull", "comments.py", "pull")
     banner(expired)
     if not expired and (datetime.date.today().weekday() == 0 or "--radar" in sys.argv):
         if step("radar pull", "radar.py", "pull")[0] == 0:
