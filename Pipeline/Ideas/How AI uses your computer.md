@@ -1,10 +1,10 @@
 ---
 type: video-idea
-status: next
+status: review
 series: Agent at work
-score: 16
+score: 18
 publish: 
-video: 
+video: "[[How AI uses your computer - Status]]"
 created: 2026-10-31
 updated: 2026-10-31
 tags: [youtube, pipeline]
