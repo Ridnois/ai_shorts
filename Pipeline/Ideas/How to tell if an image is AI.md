@@ -2,11 +2,13 @@
 type: video-idea
 status: next
 series: What's coming
+hook_pattern: stakes
+medium: capture
 score: 15
 publish: 
 video: 
 created: 2026-10-31
-updated: 2026-10-31
+updated: 2026-11-03
 tags: [youtube, pipeline]
 ---
 
@@ -20,7 +22,7 @@ tags: [youtube, pipeline]
 
 **Y · X:** to check a suspicious image yourself · watermarks hide a pattern in pixels; they only exist if the maker added one.
 
-**Demand (31 Oct 2026):** youtu.be/y8kwHsJD2V8 139,120 (3.9x of 35,757); second outlier still to confirm (the 'is this video ai' search was cut off; rerun at P1).
+**Demand (31 Oct 2026):** youtu.be/y8kwHsJD2V8 139,120 (3.9x of 35,757); second outlier still to confirm (the 'is this video ai' search was cut off; rerun at P1). Autocomplete (YouTube, 3 Nov 2026): "how to tell if an image is ai generated", "how to tell if an image is ai generated or not". Still one outlier: score unchanged.
 
 **Showable:** a recorded check of a Gemini image in the portal, Hairline pixel pattern, a non-Google image coming back blank.
 
