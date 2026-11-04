@@ -437,7 +437,7 @@ html, body {{ width:1080px; height:1920px; overflow:hidden; background:{PAPER}; 
 .lbl {{ position:absolute; text-align:center; font-size:52px; font-weight:900; letter-spacing:-0.01em; line-height:1.12; }}
 .big {{ position:absolute; font-family:"Inter Display"; font-weight:900; line-height:1.04; letter-spacing:-0.03em; color:{INK}; }}
 .big span {{ display:inline-block; }}
-.hot {{ padding:0 0.10em; margin:0 -0.04em; border-radius:0.12em; box-shadow:0 0 0 0.04em {INK} inset; }}
+.hot {{ padding:0 0.10em; margin:0 0.06em 0 0; border-radius:0.12em; box-shadow:0 0 0 0.04em {INK} inset; }}
 .phone {{ position:absolute; border-radius:56px; background:{INK}; border:{LINE}px solid {INK}; padding:14px; box-shadow:14px 14px 0 rgba(18,18,18,0.18); }}
 .phone img {{ width:100%; height:100%; border-radius:44px; object-fit:cover; }}
 .code {{ position:absolute; padding:30px 38px 32px; border-radius:26px; background:#171717; border:{LINE}px solid {INK};
