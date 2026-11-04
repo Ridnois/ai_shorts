@@ -1,12 +1,12 @@
 ---
 type: video-idea
-status: next
+status: review
 series: What's coming
 hook_pattern: surprising-result
 medium: capture
 score: 18
 publish: 
-video: 
+video: "[[AI fails tax jobs - Status]]"
 created: 2026-11-04
 updated: 2026-11-04
 tags: [youtube, pipeline]

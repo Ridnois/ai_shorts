@@ -14,6 +14,7 @@ Agent entry: `CLAUDE.md`. The rules, one owner each: [[Strategy]] (audience, ser
 | Video | Series · words · voice | State | Notes |
 | --- | --- | --- | --- |
 | How AI uses your computer | Agent at work · 167 · Dennis (rate 1.1) | r3 (50 s) uploaded public (FFAD92aUjFg) with thumbnail | [[How AI uses your computer - Status]] · [[Script - How AI uses your computer]] · [[Upload - How AI uses your computer]] |
+| AI fails tax jobs | What's coming · 166 · Dennis (rate 1.1) | r1 (54.7 s), Surge DAYJOB: Tax crops + our Claude Code reruns of two traps (10 of 10); masters and pack built; waiting for the user's verdict | [[AI fails tax jobs - Status]] · [[Script - AI fails tax jobs]] |
 | AI websites look the same | Agent at work · 152 · Dennis (rate 1.1) | r2 (54 s) uploaded public (oWaudSgJrAg) with thumbnail | [[AI websites look the same - Status]] · [[Script - AI websites look the same]] · [[Upload - AI websites look the same]] |
 | AI attention explained | How AI works · 163 · Dennis (rate 1.1) | r3 (50.3 s), recorded BERT attention weights + Anatomy `attention-desk` + Jain and Wallace (arXiv) captures; masters and pack built; waiting for the user's verdict | [[AI attention explained - Status]] · [[Script - AI attention explained]] |
 | Agent deleted a database | Agent at work · 160 · Dennis (rate 1.1) | r1 (49.7 s), Hairline `cabinet`, `slow`, `vault` + real captures; masters and pack built; shipped (user), public 29 Oct 2026 ([`luFmnJcR0nw`](https://youtu.be/luFmnJcR0nw)) | [[Agent deleted a database - Status]] · [[Script - Agent deleted a database]] |
