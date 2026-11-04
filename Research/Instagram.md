@@ -2,7 +2,7 @@
 type: research
 created: 2026-11-03
 updated: 2026-11-03
-status: the Instagram watchlist and what the AI niche looks like on Reels (read by hand; Instagram has no public API for other accounts' Reel views)
+status: the Instagram watchlist and what the AI niche looks like on Reels (the table is read by /instagram-research; Instagram itself has no public API for other accounts' Reel views)
 ---
 
 # Instagram: the watchlist and the niche
@@ -19,7 +19,7 @@ status: the Instagram watchlist and what the AI niche looks like on Reels (read 
 
 Followers: the public profile page, read 3 Nov 2026 (no login). Kinds as in [[Channels]]. Add an account when it posts AI Reels that beat its own typical views; drop one that gives nothing new in a month.
 
-| handle | followers | kind | style | why it is here |
+| Handle | followers | kind | style | why it is here |
 | --- | --- | --- | --- | --- |
 | @3blue1brown | 929K | craft | Manim math and ML clips | the animated explainer on Instagram; faceless works |
 | @bytebytego | 572K | peer | system diagrams as Reels | closest format peer: diagrams, no face |
@@ -33,7 +33,9 @@ Followers: the public profile page, read 3 Nov 2026 (no login). Kinds as in [[Ch
 
 **Not checked:** @codingwithlewis (the profile page returned no text), Reel view counts (the logged-out page shows thumbnails only), and the in-app ranking of any account.
 
-## Finding content (by hand, about 20 minutes a week)
+## Finding content (weekly)
+
+`/instagram-research` fetches the watchlist's Reels through Apify, keeps those at 3x or more of the account's median and has Gemini read the top 5; its vault section says where results go. Without the keys, by hand (about 20 minutes):
 
 1. Logged in, open each watchlist account's **Reels** tab. Instagram shows a play count on each tile: note any AI Reel at **3x or more** of the account's typical tile in the table below, with its hook pattern ([[Strategy]] §Hooks) and why people clicked. Never copy words or looks.
 2. Search Instagram for the viewer's plain question ("how does ChatGPT work", "why AI hallucinates"): the top Reels are demand, the gaps are ours.

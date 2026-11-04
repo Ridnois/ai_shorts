@@ -19,6 +19,7 @@ On demand: `System/Build.md` (look, kit, budget, commands, checks, upload) befor
 - `/short-idea`: ideas from the radar, signals and outliers; writes `Pipeline/Ideas/`.
 - `/short-script`: the script, beat sheet and pre-flight card ([[Story]]).
 - `/short-qa <video>`: `qa.py` plus one read of every frame, scored against [[Picture]] §Bar.
+- `/instagram-research`: Reel outliers of the [[Instagram]] watchlist (Apify plus Gemini, `System/.venv`); `video-content-analyzer` is its helper.
 - `/short-publish <video>`: masters, the publish pack, upload after the user confirms, the numbers at 24 h and 7 d.
 - Craft: `hyperframes`, `hyperframes-cli`, `hyperframes-registry`, `media-use`, `anatomy`, `hairline-create`, `hairline-adopt`.
 

@@ -50,7 +50,7 @@ Every video names one pattern in its Status and `publish.json` (`hook_pattern`).
 2. **Signals** (weekly, free): `python3 System/scripts/signals.py` writes [[Signals]], covering Hacker News, Reddit, Hugging Face papers and GitHub trending. A rising term no watchlist video has explained is a `name-it` candidate, the IBM "What is Jev?" pattern. A signal is never demand by itself.
 3. **Deep-first** ([[User insights]]): from the best outlier, open its channel's other outliers and the related questions. Stop when topics repeat. Write **why** people clicked (a result they want, faster than expected, an unfair-advantage feeling); never copy words or looks.
 4. **One-off search** for a plain question: `youtube_search.py "<q>" --short --min-ratio 3` (100 units a query). New channels: `radar.py discover "<q>"`, then add the row to [[Channels]].
-5. **Instagram** (weekly, by hand, about 20 minutes): the Reels tabs of the [[Instagram]] watchlist and Instagram search; outliers at 3x or more go in that note's table.
+5. **Instagram** (weekly): `/instagram-research` (Apify plus Gemini, `APIFY_TOKEN` and `GEMINI_API_KEY` in `.env`) over the [[Instagram]] watchlist, or its Reels tabs by hand; outliers at 3x or more go in that note's table.
 6. Also free: YouTube Studio's Research tab, autocomplete, the AI Incident Database, lab blogs and system cards.
 
 ## The idea passes 4 tests, then gets a score
