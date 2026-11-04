@@ -5,19 +5,19 @@ updated: 2026-11-03
 
 # AI websites look the same: Status
 
-**Ask once (user, 3 Nov 2026, verbatim):** angle "5 sites, 1 design (Recommended)" · real run "Claude Code headless (Recommended)". Request: *"1"* (pick 1 of the /short-idea table).
+**Ask once (user, 3 Nov 2026, verbatim):** angle "5 sites, 1 design (Recommended)" · real run "Claude Code headless (Recommended)". Request: *"1"* (pick 1 of the /short-idea table). After the key outage: *"updated .env test now"* (4 Nov 2026).
 
 | Stage | State |
 | --- | --- |
-| **Idea** | Agent at work (last video How AI works). `surprising-result`. Real thing: our runs, Claude Opus 5.5 in Claude Code 2.1.318, 3 Nov 2026: five briefs, one page (5 of 5 "See how it works"); impeccable 4.8.0 on the same five prompts gives five different pages. Demand: Coding with Lewis "Every AI Startup Website Looks the Same" 458,642 (9.3x); autocomplete "ai website design". Idea note [[Why every AI website looks the same]], score 16. |
+| **Idea** | Agent at work (last video How AI works). `surprising-result`. Real thing: our runs, Claude Opus 5.5 in Claude Code 2.1.318, 3 Nov 2026: five briefs, one page (5 of 5 "See how it works"); impeccable 4.8.0 on the same five prompts gives five different pages. Demand: Coding with Lewis "Every AI Startup Website Looks the Same" 458,642 (9.3x); autocomplete "ai website design". `youtube_search.py` (4 Nov 2026): 5 outliers on the exact question, best 12.4x. Idea note [[Why every AI website looks the same]], score 19. |
 | **Pre-flight** | 1. `surprising-result`; Lewis 9.3x. 2. Field: Lewis "Every AI Startup Website Looks the Same", "The AI Model Iceberg", "3 GitHub repos with 150,000 stars…", "WTF is going on at GitHub?", "The End of Programming"; ours is the only one with a test, a reason and a measured fix. 3. Hook "Claude Code built me five websites. They're the same website."; stake "A notes app, a budget app, a fitness band…"; 0 s the five-hero grid, 3 s the notes hero full width, 6 s the budget hero. 4. Weakest beat: scene 3 (token talk after a visual hook; 16 words, chips must move fast). 5. Prediction: above median (650 engaged at 7 d against 585.5). |
 | **Script** | 167 words, 7 scenes, turn at 52 %; sources checked 3 Nov 2026 ([[Script - AI websites look the same]]). |
-| **Spend** | cap $2.00. Runs on the user's Claude plan (claude.ai auth), $0 billed (the CLI's notional `total_cost_usd` about $0.4 a run is not charged). |
-| **Build** | blocked before the voice (3 Nov 2026, 23:40): `.env` holds only `APIFY_TOKEN` and `GEMINI_API_KEY` since 22:03, so `voice.py` stops on `KeyError: 'REPLICATE_API_TOKEN'`; the `YT_` keys are gone too. Ready: runs, 20 real crops and screenshots in `hf/assets`, `plan.json`. |
-| **Review** | |
+| **Spend** | cap $2.00. Runs on the user's Claude plan (claude.ai auth), $0 billed. Voice take `f0fcrkcmh5rmw0d1mn1sper5j4` (1,028 chars, about $0.026); incredibly-fast-whisper `jd8r7v79cxrmy0d1mn1rf4hm2g` (about $0.01). Total about $0.04. |
+| **Build** | main medium capture: the 10 real hero screenshots, 5 button crops, 3 headline crops, impeccable README and GitHub crops; ML primitives `tokens` and `probs` (bars = counts of our runs, labelled so). Built from `hf/beats.json` (generator `hf/gen_beats.py`). Transitions push, whip, cut, dip, blur, cut. `qa.py` 8 of 8 PASS on `render/aw-55s-9x16-r1.mp4` (54.7 s; −14.0 LUFS, −1.3 dBTP; PACE PASS with one composition warning, 6.4 s from 36.8 s). Masters `-yt` 2160x3840, `-tt` 1080x1920; thumbnail; pack `upload/aw-publish-pack.md` (dry run). Kit fix: `qa.py` sound row matched `LISTEN PASS`, which `listen.py` no longer prints; it now reads the exit code. |
+| **Review** | waiting for the user's verdict (ship, fix or drop) |
 
 ## Not verified
 
-The bars are counts from five runs, not token odds. The skill pages were judged by eye and by computed styles, five a side. Scene 7's advice was not run.
+The bars are counts from five runs, not token odds. The skill pages were judged by eye and by computed styles, five a side. Scene 7's advice was not run. Whisper heard "Claude" as "cloud" once (caption fixed by hand). Quality against [[Picture]] §Bar (0 good, 2 bad): frame 0 0, empty frame 1 (scene 3 and the turn's end are text over plain paper for about 2 s each), slideshow 0, text doing the picture's job 1 ("the look changed, the sameness didn't" and "give it a direction" are type only), no real thing 0, static 0, same as last video 0; total 2. Not checked: how the voice and effects sound, the motion in playback.
 
 ## Feedback
