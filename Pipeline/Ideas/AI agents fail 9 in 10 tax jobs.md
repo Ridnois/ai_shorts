@@ -1,6 +1,7 @@
 ---
 type: video-idea
-status: review
+status: published
+published: 2026-11-04
 series: What's coming
 hook_pattern: surprising-result
 medium: capture

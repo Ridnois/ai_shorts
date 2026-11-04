@@ -207,7 +207,7 @@ tags: [youtube, upload]
 
 ← [[{name} - Status]] · [[Script - {name}]] · [[Build]] §Upload
 
-User request: *"{cfg['approval']}"*. Visibility **{privacy}** (default private unless the user names one).
+User request: *"{cfg.get('approval', 'not recorded')}"*. Visibility **{privacy}** (default private unless the user names one).
 
 ## Upload result
 
@@ -245,7 +245,7 @@ Not made for kids. Altered or synthetic content: {'yes' if cfg.get('synthetic') 
     # 7 Status and index
     st = f"{nd}/{name} - Status.md"
     sub_line(st, r"^status:.*$", f"status: rendered r{rno} ({dur} s) and uploaded {privacy} ({vid}) on the user's word")
-    sub_line(st, r"^\| 8 Publish.*$", f"| 8 Publish | ✅ uploaded {privacy} | **user**: *\"{cfg['approval']}\"* | see [[Upload - {name}]]; `videos.csv` row added |")
+    sub_line(st, r"^\| 8 Publish.*$", f"| 8 Publish | ✅ uploaded {privacy} | **user**: *\"{cfg.get('approval', 'not recorded')}\"* | see [[Upload - {name}]]; `videos.csv` row added |")
     idx = open("YouTube Channel.md", encoding="utf-8").read()
     def fix(m):
         c = m.group(0).split(" | ")
