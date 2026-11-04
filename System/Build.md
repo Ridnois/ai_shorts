@@ -139,7 +139,7 @@ YouTube re-encodes every upload. An upload at 2160x3840 is processed into the VP
 - **Instagram and TikTok** are posted by hand from `upload/*-tt.mp4` with the pack's captions ([[Strategy]] §Package); no upload script.
 - **Auth:** one OAuth token (upload, read-only channel and analytics) from the Desktop client "Redtail Uploader" in Google Cloud project `redtail-upload`. `youtube_auth.py` checks every token against the NextToken channel (`UCCZX7-YPNPntwPKI1hdv2hQ`, @yournexttoken) and stops on any other. The token expires every 7 days: on HTTP 400 the user runs `python3 System/scripts/youtube_auth.py` and picks **REDTAIL** at "Choose your account or a brand account". The YouTube scripts use this OAuth token, not an API key. Quota: 10,000 units a day; an upload is about 1,600, a radar pull about 100.
 - **Studio only** (no Data API field, checked 3 Nov 2026): hiding the like count (Details › Show more › "Show how many viewers like this video") and pinning a comment. The token holds `youtube.force-ssl` since 3 Nov 2026, so `comments.py` can post replies, and the pinned comment can be posted by it, but pinning it stays a Studio step.
-- **The repo is public:** keys live only in `.env` (gitignored, 0600). `secret_scan.py` runs in `check_vault.py` and as the pre-commit hook.
+- **The repo is public:** keys live only in `.env` (gitignored, 0600); `.env.example` lists every key the vault reads and where each comes from, with no values. `secret_scan.py` runs in `check_vault.py` and as the pre-commit hook.
 
 ## Schedule
 
