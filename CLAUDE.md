@@ -1,6 +1,6 @@
 # Agent guide: the Next Token vault (`~/Documents/bussiness/ai_shorts`)
 
-**Next Token** is an English, AI-assisted channel that teaches AI in 45 to 60 s vertical Shorts (YouTube and TikTok), Mon to Fri, in three series: **How AI works**, **Agent at work**, **What's coming**. The vault is the single source of knowledge: each rule has one owner note, and feedback (the user's or the retention curves') becomes an edit of that note ([[Data]] §Feedback loop). Everything is written in English.
+**Next Token** is an English, AI-assisted channel that teaches AI in 45 to 60 s vertical Shorts (YouTube, TikTok and Instagram Reels), Mon to Fri, in three series: **How AI works**, **Agent at work**, **What's coming**. The vault is the single source of knowledge: each rule has one owner note, and feedback (the user's or the retention curves') becomes an edit of that note ([[Data]] §Feedback loop). Everything is written in English.
 
 ## Read order
 
@@ -11,7 +11,7 @@
 5. `Analytics/Report.md` and `System/Data.md` §Review (what our numbers say).
 6. The video's Status and Script.
 
-On demand: `System/Build.md` (look, kit, budget, commands, checks, upload) before building; `Research/` (Channels, Radar, Signals, Shots) when choosing an idea and before a beat sheet; `Pipeline/` for the idea queue.
+On demand: `System/Build.md` (look, kit, budget, commands, checks, upload) before building; `Research/` (Channels, Instagram, Radar, Signals, Shots) when choosing an idea and before a beat sheet; `Pipeline/` for the idea queue.
 
 ## Skills (`.claude/skills/`)
 
@@ -27,7 +27,7 @@ On demand: `System/Build.md` (look, kit, budget, commands, checks, upload) befor
 - **Ask once, then run:** a new video opens with one round of `AskUserQuestion`; the answers go verbatim into Status. Then the agent runs to the audited render and the publish pack, and **stops for the user's verdict** (ship, fix or drop; at most two revisions).
 - **Money:** cap $2.00 a video (user, 3 Nov 2026), written in Status; voice and timings cost about $0.03. Generated stills and clips are for metaphor only ([[Picture]] §Medium). Replicate calls run in series and each prediction id is logged at once.
 - **Build only with HyperFrames + `System/scripts/hfkit.py`** (the paper look, tokens, captions, camera, sound, the ML primitives), driven by the video's `hf/beats.json` through `System/scripts/beats.py`. Never fork a component in a video's builder; never bring back gradients, grain or thin lines.
-- **Every upload uses the master** made by `System/scripts/master.py` (2160x3840 for YouTube, 1080x1920 for TikTok). Never upload the raw render.
+- **Every upload uses the master** made by `System/scripts/master.py` (2160x3840 for YouTube, 1080x1920 for TikTok and Instagram). Never upload the raw render.
 - **Voice:** `inworld/realtime-tts-2`, `Dennis`, one continuous take, never stitched. Mix to −14 LUFS, true peak −1 dBTP.
 - **Honesty:** every number has a source and date; every AI claim names model, version and date; recorded runs are real, speed-ups marked, no keys or personal data. Say what you could not check: you cannot watch or hear a video; you read frames and numbers.
 - **Upload private, only after the user confirms the publish pack.**
@@ -70,7 +70,7 @@ System/  Strategy · Story · Picture · Build · Data
          scripts/ hfkit (+ ML primitives), beats, captions, master, voice, word_timings, mix_audio, listen, pace, check3d, qa,
                   capture, manim, shots, radar, signals, daily, publish, youtube_*, analytics, stock_*, replicate_helper,
                   scene3d, check_vault, secret_scan, githooks/, vendor/ (hairline, gsap, three, fonts)
-Research/ Channels (watchlist) · Radar, Signals (generated) · Shots/ (reference shots) · radar.csv, signals.csv
+Research/ Channels (watchlist) · Instagram (Reels watchlist) · Radar, Signals (generated) · Shots/ (reference shots) · radar.csv, signals.csv
 Pipeline/ idea queue, Ideas/    Analytics/ csvs · exports/ · Report.md (generated)
 Videos/Week NN/<YYYY-MM-DD Day>/<Topic>/   Status · Script · Upload        Media/… (local media, renders, masters, _research)
 ```

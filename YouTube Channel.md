@@ -5,7 +5,7 @@ updated: 2026-11-03
 
 # Next Token: video index
 
-Agent entry: `CLAUDE.md`. The rules, one owner each: [[Strategy]] (audience, series, hook patterns, ideas, package, policy) · [[Story]] (the words) · [[Picture]] (medium, quality bar, pace, motion) · [[Build]] (brand, look, kit, budget, checks, master, upload) · [[Data]] (numbers, review, feedback loop). Research: [[Channels]] (watchlist) · [[Radar]] (outliers) · [[Signals]] (early terms) · [[Shots]] (reference shots). Idea queue: [[Pipeline]]. Numbers: [[Report]]. The user's research: [[User insights]].
+Agent entry: `CLAUDE.md`. The rules, one owner each: [[Strategy]] (audience, series, hook patterns, ideas, package, policy) · [[Story]] (the words) · [[Picture]] (medium, quality bar, pace, motion) · [[Build]] (brand, look, kit, budget, checks, master, upload) · [[Data]] (numbers, review, feedback loop). Research: [[Channels]] (watchlist) · [[Radar]] (outliers) · [[Signals]] (early terms) · [[Instagram]] (Reels watchlist) · [[Shots]] (reference shots). Idea queue: [[Pipeline]]. Numbers: [[Report]]. The user's research: [[User insights]].
 
 **Relaunch, 29 Oct 2026:** the channel is **Next Token** (was Inside the Model): flat paper look, 45 to 60 s stories, a 4K YouTube master. **Rebuild, 3 Nov 2026:** the vault learns from other AI channels (watchlist radar, hook patterns, reference shots), from its own retention curves ([[Data]] §Review), and explains with ML primitives, real captures and Manim ([[Picture]] §Medium). Skills: `/short`, `/short-idea`, `/short-script`, `/short-qa`, `/short-publish`.
 

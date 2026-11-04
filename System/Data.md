@@ -65,9 +65,19 @@ The vault is the single source of knowledge: feedback is done only when the vaul
 6. **Apply forward:** renders already waiting ship unless the feedback names a defect in them.
 7. **Answer** with what changed where and what is still unverified.
 
+## Instagram (typed by hand at 7 d)
+
+No script reads Instagram: the Graph API needs a professional account linked to a Facebook page and a Meta app, not set up (3 Nov 2026). At 7 d the user reads the Reel's Insights and the agent types them:
+
+`analytics.py add "<Video>" instagram 7d views=… viewed_pct=<100 − skip rate> avg_view_s=… shares=<sends> saves=… subs_gained=<follows>`
+
+- **Skip rate** is the share who swipe away in the first 3 s; 100 minus it is our `viewed_pct`, so it compares with YouTube's viewed vs swiped. Insights also shows *your typical skip rate*: write it in `notes`.
+- **Sends** are the signal Instagram names first for reach to non-followers; read them per 1,000 views.
+- The Report's cuts use YouTube only; Instagram rows sit in its windows. Compare Instagram to Instagram once 5 Reels have 7 d numbers.
+
 ## API facts (checked 3 Nov 2026)
 
 - YouTube Analytics API: `elapsedVideoTimeRatio` gives 100 points per video with `audienceWatchRatio` and `relativeRetentionPerformance` (0 to 1, 0.5 = the median of similar-length videos). Adding `startedWatching`/`stoppedWatching` to that query returns no rows. `insightTrafficSourceType = SHORTS` is the feed. Source: developers.google.com/youtube/analytics/dimensions and /metrics.
 - **Viewed vs swiped away is only in Studio**; no API has it (support.google.com/youtube/answer/12220281).
 - **Test & Compare does not test Shorts** (support.google.com/youtube/answer/13861714): hooks are tested by the pre-flight card and the curve, not by A/B.
-- TikTok numbers are not tracked (the user's decision, 3 Nov 2026).
+- TikTok numbers are not tracked (the user's decision, 3 Nov 2026). Instagram numbers are typed by hand (§Instagram).

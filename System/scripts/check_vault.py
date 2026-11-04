@@ -51,6 +51,7 @@ INVARIANTS = [
     ("System/Build.md", "cap $2.00", "the money cap (user, 3 Nov 2026)"),
     ("System/Build.md", "confirms the pack", "upload only after the user confirms"),
     ("System/Strategy.md", "only those the user approves are posted", "replies are public: the user approves each one (3 Nov 2026)"),
+    ("System/Strategy.md", "at most 5 hashtags", "Instagram caps a post at 5 hashtags (18 Dec 2025)"),
     ("System/Data.md", "engaged views", "compare videos on the right metric"),
     ("System/Data.md", "pre-flight card", "a prediction before every upload, checked at 7 d (3 Nov 2026)"),
     ("System/Data.md", "Viewed vs swiped away is only in Studio", "the one number typed by hand"),

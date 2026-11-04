@@ -50,7 +50,8 @@ Every video names one pattern in its Status and `publish.json` (`hook_pattern`).
 2. **Signals** (weekly, free): `python3 System/scripts/signals.py` writes [[Signals]], covering Hacker News, Reddit, Hugging Face papers and GitHub trending. A rising term no watchlist video has explained is a `name-it` candidate, the IBM "What is Jev?" pattern. A signal is never demand by itself.
 3. **Deep-first** ([[User insights]]): from the best outlier, open its channel's other outliers and the related questions. Stop when topics repeat. Write **why** people clicked (a result they want, faster than expected, an unfair-advantage feeling); never copy words or looks.
 4. **One-off search** for a plain question: `youtube_search.py "<q>" --short --min-ratio 3` (100 units a query). New channels: `radar.py discover "<q>"`, then add the row to [[Channels]].
-5. Also free: YouTube Studio's Research tab, autocomplete, the AI Incident Database, lab blogs and system cards.
+5. **Instagram** (weekly, by hand, about 20 minutes): the Reels tabs of the [[Instagram]] watchlist and Instagram search; outliers at 3x or more go in that note's table.
+6. Also free: YouTube Studio's Research tab, autocomplete, the AI Incident Database, lab blogs and system cards.
 
 ## The idea passes 4 tests, then gets a score
 
@@ -75,6 +76,7 @@ The next video is the top score whose series differs from the last one.
 - **Pinned comment:** one question the viewer can answer in a word.
 - **Cadence:** Mon to Fri at one fixed hour (15:00 UTC unless [[Data]] says otherwise), never two on one day.
 - **TikTok** (manual, not measured since 3 Nov 2026, the user's decision): upload `upload/*-tt.mp4` from TikTok Studio on the web, caption from the pack, no TikTok library sound; the keyword in the voice, the screen text and the caption.
+- **Instagram Reels** (manual, from 3 Nov 2026): post `upload/*-tt.mp4` (1080x1920, never a file saved from TikTok: Instagram shows less of a Reel with a visible watermark, borders or one already posted on Instagram) on the YouTube day, from the app or Meta Business Suite (which schedules). Cover: `upload/thumb.jpg`; the profile grid crops it to 3:4, so its words sit between y 240 and 1680. Caption from the pack (`instagram` in publish.json): first line the claim in plain search words (Instagram search reads captions), one sentence of payoff, the question from the pinned comment, then **at most 5 hashtags** (Instagram's cap since 18 Dec 2025; `publish.py` refuses more). Original audio only. What Instagram ranks (Mosseri, Jan 2025): watch time, **sends per reach** (DM shares) and likes per reach; so the payoff must be worth sending to a friend. Most Reel views come from non-followers, as in the Shorts feed.
 
 ## Comments (`comments.py`)
 
@@ -96,4 +98,4 @@ Replies are the cheapest community signal we have, and every reply is public. Th
 
 ## Sources
 
-Channel research of 3 Nov 2026: vidIQ public stats pages (last 48 uploads) and the YouTube Data API (`channels.list`, [[Channels]]). YouTube inauthentic content policy (support.google.com/youtube/answer/1311392). Paddy Galloway and Chris Gileta's Shorts study (5,400 Shorts, 33 channels; before the 2025 view change). Third-party tool and retention blogs are treated as direction, never as numbers on screen.
+Channel research of 3 Nov 2026: vidIQ public stats pages (last 48 uploads) and the YouTube Data API (`channels.list`, [[Channels]]). YouTube inauthentic content policy (support.google.com/youtube/answer/1311392). Paddy Galloway and Chris Gileta's Shorts study (5,400 Shorts, 33 channels; before the 2025 view change). Instagram: Mosseri's ranking statements (Jan 2025, via Sprout Social and dataslayer.ai summaries), the 5-hashtag cap (18 Dec 2025, several reports) and the public profiles in [[Instagram]]. Third-party tool and retention blogs are treated as direction, never as numbers on screen.
