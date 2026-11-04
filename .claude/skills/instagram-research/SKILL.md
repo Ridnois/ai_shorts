@@ -26,7 +26,7 @@ Research high-performing Instagram posts and reels, identify outliers, and analy
 
 Vendored from github.com/bradautomates/head-of-content (commit d841dcf, 23 Jan 2026), with one local change: `analyze_posts.py --min-ratio`.
 
-- **Python:** `System/.venv/bin/python` (has `apify-client`, `google-genai`, `requests`, `python-dotenv`), run from the vault root so `.env` is read.
+- **Python:** `System/.venv/bin/python` (has `apify-client<2` (the scripts use its dict API; v2 breaks them), `google-genai`, `requests`, `python-dotenv`), run from the vault root so `.env` is read.
 - **Accounts:** `--accounts-file Research/Instagram.md` (the watchlist table), never `.claude/context/`.
 - **Run folder:** `Media/_research/instagram/<YYYY-MM-DD>` (local, gitignored).
 - **Outliers:** `--min-ratio 3` (views at 3x or more of the account's median in the fetch, the vault's rule), not the engagement-rate default.
