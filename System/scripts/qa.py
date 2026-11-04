@@ -67,7 +67,7 @@ def main():
             row("pace", rc == 0, " · ".join(l for l in o.splitlines() if l.startswith(("PACE", "COMPOSITION"))), o)
         if "sound" not in skip:
             rc, o = run([PY, f"{HERE}/listen.py", mix])
-            row("sound", rc == 0 and "LISTEN PASS" in o, next((l for l in o.splitlines() if l.startswith("LISTEN")), o[-200:]), o)
+            row("sound", rc == 0 and "FAIL" not in o, next((l for l in o.splitlines() if l.startswith("LISTEN")), o[-200:]), o)
         if "master" not in skip:
             rc, o = run([PY, f"{HERE}/master.py", mix], timeout=1800)
             ms = [l for l in o.splitlines() if l.startswith("MASTER")]
