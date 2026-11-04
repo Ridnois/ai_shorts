@@ -1,11 +1,11 @@
 ---
 type: video-idea
-status: review
+status: published
 series: Agent at work
 hook_pattern: surprising-result
 medium: capture
 score: 19
-publish: 
+publish: 2026-11-04
 video: "[[AI websites look the same - Status]]"
 created: 2026-11-03
 updated: 2026-11-03
