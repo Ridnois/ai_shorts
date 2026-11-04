@@ -31,6 +31,8 @@ Followers: the public profile page, read 3 Nov 2026 (no login). Kinds as in [[Ch
 | @cleoabram | 3.2M | topic | science and tech journalism | What's coming at scale |
 | @networkchuck | 797K | topic | hands-on tech and AI | Agent at work demand |
 
+**First Apify run (3 Nov 2026):** `instagram-scraper`, `instagram-profile-scraper` and `instagram-reel-scraper` all returned `not_found` ("Page Not Found • Instagram") for every account, on the free plan, about $0.07 spent; runs `NYcshLs0Rbv7iRpRj`, `9FAjHSkK51DAkkQXG`. Retry before calling the skill broken.
+
 **Not checked:** @codingwithlewis (the profile page returned no text), Reel view counts (the logged-out page shows thumbnails only), and the in-app ranking of any account.
 
 ## Finding content (weekly)
