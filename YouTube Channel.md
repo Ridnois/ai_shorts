@@ -13,7 +13,7 @@ Agent entry: `CLAUDE.md`. The rules, one owner each: [[Strategy]] (audience, ser
 
 | Video | Series · words · voice | State | Notes |
 | --- | --- | --- | --- |
-| Jev explained | How AI works · 159 · Dennis (rate 1.1) | r1 (52.5 s), `probs` with TypeSafe docs' real jev-1.13.0 response + docs crops; first default music bed; masters and pack built; waiting for the user's verdict | [[Jev explained - Status]] · [[Script - Jev explained]] |
+| Jev explained | How AI works · 159 · Dennis (rate 1.1) | r1 (53 s) uploaded public (1-bpUdFHmdY) with thumbnail | [[Jev explained - Status]] · [[Script - Jev explained]] · [[Upload - Jev explained]] |
 | How AI uses your computer | Agent at work · 167 · Dennis (rate 1.1) | r3 (50 s) uploaded public (FFAD92aUjFg) with thumbnail | [[How AI uses your computer - Status]] · [[Script - How AI uses your computer]] · [[Upload - How AI uses your computer]] |
 | AI fails tax jobs | What's coming · 166 · Dennis (rate 1.1) | r2 (55 s) uploaded public (RsT1Xblz7-4) with thumbnail | [[AI fails tax jobs - Status]] · [[Script - AI fails tax jobs]] · [[Upload - AI fails tax jobs]] |
 | AI websites look the same | Agent at work · 152 · Dennis (rate 1.1) | r2 (54 s) uploaded public (oWaudSgJrAg) with thumbnail | [[AI websites look the same - Status]] · [[Script - AI websites look the same]] · [[Upload - AI websites look the same]] |
