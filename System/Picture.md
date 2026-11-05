@@ -85,7 +85,7 @@ Every world is a canvas behind a camera (wide, medium, close); scale changes hap
 
 ## Sound
 
-One continuous voice take. Effects go only on a visible action that matters (a whoosh on a camera move, a click on a callout, a pop on a chip, one hit on the payoff): a sound on every event makes the few that count indistinguishable. Silence before the payoff hit. A quiet licensed music bed is allowed, ducked under the voice. Master at −14 LUFS, true peak −1 dBTP.
+One continuous voice take. Effects go only on a visible action that matters (a whoosh on a camera move, a click on a callout, a pop on a chip, one hit on the payoff): a sound on every event makes the few that count indistinguishable. Silence before the payoff hit. A quiet CC0 music bed runs under every video, ducked under the voice and dipped before the payoff hit ([[Build]] §Sound kit). Master at −14 LUFS, true peak −1 dBTP.
 
 ## Before each beat sheet
 

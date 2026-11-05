@@ -111,6 +111,8 @@ Verbs fire on a heard word (`v.cue(scene, "word")`): `pop`, `grow`, `reveal`, `b
 
 `whoosh-air`, `whoosh-swipe`, `whoosh-stick`, `whoosh` (rotated on whips, pushes, fast moves) · `click` (callouts) · `pop` (chips) · `impact-bass-2` (opening and payoff hit) · `riser` (into the payoff) · `ping`, `key-press`, `typing` (on demand, `v.sfx`). `v.payoff(t)` once per video; the 0.6 s before its hit is kept free of other effects. New sounds: CC0 (Openverse) or the `media-use` skill, credited.
 
+**Music bed** (`System/assets/music/`, credits in its `CREDITS.md`; on by default since 5 Nov 2026, the user's request): `mix_audio.py` lays a CC0 lofi bed under every video, picked by the prefix so consecutive videos differ, levelled 15 LU under the voice and ducked about 8 dB while it speaks (about 23 LU under speech), stepped down 12 dB in the 0.6 s before the payoff hit. `plan.json` `sound.music`: `false` (off), a kit name (`"aesthetic-lofi"`) or `{"file", "start", "lu", "duck"}`. New beds: CC0 only (Openverse), credited.
+
 ## Voice
 
 One continuous take for the whole script (`voice.py`): scenes are paragraphs of one request, never stitched or cut. `temperature` 0, 48 kHz WAV, one bracketed direction at the top, 2 breaks or fewer. Check the take: whisper's words equal the script; no silence over 0.9 s; a mispronounced word is fixed by rewording and one retake.

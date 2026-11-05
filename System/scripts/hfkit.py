@@ -1139,7 +1139,7 @@ window.addEventListener("hf-seek", e => {{ if (e && e.detail && typeof e.detail.
             w.writeframes(array("h", (int(x * 32767) for x in mix)).tobytes())
         json.dump({"render": ren, "duration": self.DUR, "voices": [{"file": self.take, "at": self.off, "in": 0.0, "dur": self.take_dur}],
                    "stems": {"sfx": f"{self.root}/render/_fx/sound_sfx.wav"}, "engine": "hyperframes",
-                   "sounds": [list(s) for s in sorted(self.sounds)]},
+                   "sounds": [list(s) for s in sorted(self.sounds)], "payoff": getattr(self, "payoff_t", None)},
                   open(f"{self.root}/render/_timeline.json", "w"), indent=1)
 
     def thumb(self, inner, css="", out=None):

@@ -6,8 +6,12 @@
 Keeps the picture and replaces the sound. Reads render/_timeline.json (voice placement, stems, render path, written by
 hfkit.Short.write) and plan.json `sound`:
 
-  "sound": {"music": {"file": "music/pc-music.mp3", "start": 12.0, "lu": -15, "duck": 0.063},  # optional bed
+  "sound": {"music": {"file": "aesthetic-lofi", "start": 12.0, "lu": -15, "duck": 0.063},  # the bed (default: on)
             "sfx_db": 0, "bed": false, "lufs": -14, "tp": -1.0}
+
+  * music bed by default (user, 5 Nov 2026): with no "music" key, a CC0 bed from System/assets/music is picked by the
+    video's prefix (a stable rotation, so consecutive videos differ); "music": false turns it off; "file" is a kit name or a
+    path in the video folder. It dips 12 dB in the 0.6 s before the payoff hit (Picture: Sound, silence before the payoff).
 
   * voice stem: the takes as placed by the builder, through a speech chain for phone speakers (high-pass 80 Hz, a small cut
     at 250 Hz, presence +2.5 dB at 3.2 kHz, de-esser, 2.5:1 compression), then levelled to `lufs` + 1 LU.
@@ -21,6 +25,27 @@ The silent render is kept as render/_fx/<name>-picture.mp4. The script prints th
 import argparse, json, os, re, shutil, subprocess, sys
 
 SR = 48000
+MUSIC_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "music")
+
+
+def music_spec(plan):
+    """The bed for this video: plan sound.music, or the kit default rotated by prefix; None when turned off."""
+    mu = plan.get("sound", {}).get("music", "default")
+    if mu is False or mu is None:
+        return None
+    if mu == "default" or mu is True:
+        kit = sorted(f[:-4] for f in os.listdir(MUSIC_DIR) if f.endswith(".mp3"))
+        if not kit:
+            return None
+        mu = {"file": kit[sum(map(ord, plan.get("prefix", "v"))) % len(kit)]}
+    return mu
+
+
+def music_file(root, name):
+    for c in (os.path.join(root, name), os.path.join(MUSIC_DIR, name), os.path.join(MUSIC_DIR, name + ".mp3")):
+        if os.path.isfile(c):
+            return c
+    raise SystemExit(f"music '{name}': not in the video folder or System/assets/music")
 VOICE_CHAIN = ("highpass=f=80,equalizer=f=250:t=q:w=1.2:g=-2,equalizer=f=3200:t=q:w=1.0:g=2.5,deesser=i=0.35,"
                "acompressor=threshold=-20dB:ratio=2.5:attack=8:release=160:makeup=1")
 
@@ -79,9 +104,9 @@ def main():
 
     stems = [voice]
     # music bed, ducked by the voice
-    mu = sn.get("music")
+    mu = music_spec(plan)
     if mu:
-        src = os.path.join(root, mu["file"])
+        src = music_file(root, mu["file"])
         cut = f"{work}/music_cut.wav"
         ff(["-stream_loop", "-1", "-ss", str(mu.get("start", 0)), "-i", src, "-t", f"{dur:.3f}", "-af",
             f"aresample={SR},aformat=channel_layouts=stereo,afade=t=in:d={mu.get('fade_in', 0.3)},"
@@ -92,6 +117,11 @@ def main():
         ff(["-i", lev, "-i", voice, "-filter_complex",
             f"[1:a]aformat=channel_layouts=stereo[key];[0:a][key]sidechaincompress=threshold={mu.get('duck', 0.063)}:"
             f"ratio=3:attack=40:release=450:knee=3[m]", "-map", "[m]", duck])
+        p = tl.get("payoff")
+        if p:                                            # room for the payoff hit: the bed steps down, then returns on it
+            dipped = f"{work}/music_dip.wav"
+            ff(["-i", duck, "-af", f"volume='if(between(t,{max(0, p - 0.6):.3f},{p:.3f}),0.25,1)':eval=frame", dipped])
+            duck = dipped
         stems.append(duck)
     # the effects stem from the builder, kept at its designed level relative to the voice
     for name in ("sfx", "bed"):
@@ -125,7 +155,7 @@ def main():
     f = loudness(render)
     vm = (loudness(voice)["input_i"] - loudness(stems[1])["input_i"]) if mu else None
     print(f"MIX {os.path.basename(render)}: {f['input_i']:.1f} LUFS, true peak {f['input_tp']:.1f} dBTP, range {f['input_lra']:.1f} LU"
-          + (f", music {vm:.1f} LU under the voice (after ducking)" if vm is not None else ", no music")
+          + (f", music '{os.path.basename(src)}' {vm:.1f} LU under the voice (after ducking)" if vm is not None else ", no music")
           + f" | stems: {', '.join(os.path.basename(s) for s in stems)}")
 
 
