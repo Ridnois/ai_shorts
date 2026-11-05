@@ -257,11 +257,11 @@ def probs(id_, rows, x, y, w, pct=True):
     rows <id>-c<k> (v.parts, v.hot)."""
     rows = sorted(rows, key=lambda r: -r[1])
     top = rows[0][1] or 1
-    lab, val = 250, 150
+    lab, val = max(250, round(33 * max(len(t) for t, _ in rows)) + 20), 150   # the label column fits the longest label (54 px mono)
     bw = w - lab - val - 30
     out = ""
     for k, (t, p) in enumerate(rows):
-        out += (f'<div class="pr" id="{id_}-c{k}" style="top:{k * 112}px"><span class="pl">{html.escape(t)}</span>'
+        out += (f'<div class="pr" id="{id_}-c{k}" style="top:{k * 112}px"><span class="pl" style="width:{lab - 10}px">{html.escape(t)}</span>'
                 f'<span class="pt" style="left:{lab}px;width:{bw}px"><b id="{id_}-b{k}" style="width:{max(2, round(100 * p / top))}%"></b></span>'
                 f'<span class="pv" style="left:{lab + bw + 24}px">{round(p * 100) if pct else p}{"%" if pct else ""}</span></div>')
     return f'<div class="art prim probs" id="{id_}" style="left:{x}px;top:{y}px;width:{w}px;height:{len(rows) * 112}px">{out}</div>'
