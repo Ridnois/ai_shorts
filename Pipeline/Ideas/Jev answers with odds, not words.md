@@ -1,6 +1,7 @@
 ---
 type: video-idea
-status: review
+status: published
+published: 2026-11-05
 series: How AI works
 hook_pattern: name-it
 medium: primitive
